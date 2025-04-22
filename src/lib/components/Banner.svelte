@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { X } from 'lucide-svelte'
 	let visible = true // Initially, the banner is visible
+	let elementId = 'banner'
 </script>
 
 {#if visible}
-	<div class="banner">
+	<div class="banner" id={elementId}>
 		<div class="banner-message"><slot /></div>
 		<button class="close-btn" on:click={() => (visible = false)}><X /></button>
 	</div>

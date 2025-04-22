@@ -9,13 +9,45 @@
 
 	// Workaround to trigger transitions on render
 	let mounted = false
+
+	let elementId = 'banner'
+	let heightBanner = 0
+
+	let element: any
+
+	const updateSize = () => {
+		if (element) {
+			const rect = element.getBoundingClientRect()
+			heightBanner = rect.height
+		}
+	}
+
+	// detect if banner was deleted
+	const observeMutation = () => {
+		const observer = new MutationObserver((mutationsList, observer) => {
+			for (const mutation of mutationsList) {
+				if (!document.getElementById(elementId)) {
+					updateSize()
+					observer.disconnect()
+				}
+			}
+		})
+
+		observer.observe(document.body, { childList: true, subtree: true })
+	}
+
 	onMount(() => {
 		mounted = true
+		element = document.getElementById(elementId)
+		if (element) {
+			updateSize()
+			observeMutation()
+		}
 	})
 </script>
 
 {#if mounted}
-	<section class="hero" aria-labelledby={label_id}>
+	<section style="--size-of-banner: {heightBanner}px;" class="hero" aria-labelledby={label_id}>
 		<div class="overlay">
 			<enhanced:img
 				src="$assets/hero_bg.jpg"
@@ -56,7 +88,7 @@
 	.hero {
 		--hero-top-offset: -7.125rem;
 		display: flex;
-		min-height: calc(100svh + var(--hero-top-offset));
+		min-height: calc(100svh + var(--hero-top-offset) - var(--size-of-banner));
 		align-items: center;
 		z-index: 0;
 		position: relative;
