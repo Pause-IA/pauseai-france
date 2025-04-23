@@ -7,6 +7,7 @@
 	import Faq from '$components/home/faq.svelte'
 	import Videos from '$components/home/videos.svelte'
 	import Supporters from '$components/home/supporters.svelte'
+	import VuSur from '$components/home/VuSur.svelte'
 
 	const title = 'Exigeons une Pause IA'
 	const description = "Ne laissons pas l'IA nous détruire, agissons maintenant"
@@ -25,5 +26,7 @@
 <Articles />
 
 <Videos />
+
+<VuSur />
 
 <Faq />
