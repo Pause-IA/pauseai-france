@@ -4,6 +4,7 @@
 	import Lead from '$components/home/lead.svelte'
 	import Risks from '$components/home/risks.svelte'
 	import Articles from '$components/home/articles.svelte'
+	import Evenements from '$components/home/evenement.svelte' //AJOUT DE EVENEMENTS
 	import Faq from '$components/home/faq.svelte'
 	import Videos from '$components/home/videos.svelte'
 	import Supporters from '$components/home/supporters.svelte'
@@ -21,6 +22,8 @@
 <Risks />
 
 <Supporters />
+
+<Evenements />
 
 <Articles />
 
