@@ -247,7 +247,7 @@ export function createHTMLDiff(fileChanges) {
 export const viteTypographyPlugin = {
 	name: 'french-typography',
 	config(config, { command }) {
-		if (command === 'build') {
+		if (command === 'build' && config.build?.ssr) {
 			process.env.VITE_BUILD_MODE = 'true'
 		}
 	},
