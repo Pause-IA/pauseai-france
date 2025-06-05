@@ -95,6 +95,156 @@ section:not(:last-child) {
 	margin-bottom: 5rem;
 }
 
+blockquote {
+	margin: 2rem 0;
+	padding: 1rem 1.5rem;
+	background-color: var(--bg-subtle);
+	border-left: 4px solid var(--brand);
+	border-radius: 0.3125rem;
+	font-style: normal;
+}
+
+blockquote > :first-child {
+	margin-top: 0;
+}
+
+blockquote > :last-child {
+	margin-bottom: 0;
+}
+
+/* Nested lists in blockquotes need adjusted spacing */
+blockquote ul,
+blockquote ol {
+	margin: 1rem 0;
+}
+
+blockquote li {
+	margin: 0.5rem 0;
+}
+
+/* Table styles */
+table {
+	width: 100%;
+	margin: 2rem 0;
+	border-collapse: collapse;
+	font-size: 0.95rem;
+	background-color: transparent;
+	display: block;
+	overflow-x: auto;
+	white-space: nowrap;
+	border-radius: 0.3125rem;
+	overflow: hidden;
+}
+
+/* Reset display for semantic table elements */
+thead,
+tbody,
+tfoot,
+tr {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+
+th,
+td {
+	padding: 0.75rem 1rem;
+	text-align: left;
+	border: none;
+	border-bottom: 1px solid #f0e6d6;
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+th {
+	background-color: var(--white);
+	font-weight: 700;
+	font-family: var(--font-heading);
+	border-bottom: 2px solid var(--brand);
+	position: relative;
+}
+
+/* Alternate row coloring with warm palette */
+tbody tr:nth-child(even) {
+	background-color: var(--white);
+}
+
+tbody tr:nth-child(odd) {
+	background-color: var(--bg-subtle);
+}
+
+/* For the first table with 3 columns - allow it to be responsive */
+table:first-of-type {
+	table-layout: auto;
+}
+
+/* For tables with many columns, set minimum widths */
+table th:nth-child(3),
+table td:nth-child(3),
+table th:nth-child(4),
+table td:nth-child(4),
+table th:nth-child(5),
+table td:nth-child(5),
+table th:nth-child(6),
+table td:nth-child(6) {
+	min-width: 200px;
+}
+
+/* First two columns can be narrower */
+table th:nth-child(1),
+table td:nth-child(1) {
+	min-width: 120px;
+}
+
+table th:nth-child(2),
+table td:nth-child(2) {
+	min-width: 250px;
+}
+
+/* Responsive table wrapper */
+.table-wrapper {
+	overflow-x: auto;
+	margin: 2rem -1rem;
+	padding: 0 1rem;
+}
+
+/* For tables with many columns, prevent text wrapping on mobile */
+@media (max-width: 768px) {
+	table {
+		font-size: 0.875rem;
+		margin: 2rem -1rem;
+		border-radius: 0;
+		position: relative;
+	}
+	
+	/* Add subtle gradient indicators for horizontal scroll */
+	table::before,
+	table::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 20px;
+		pointer-events: none;
+		z-index: 1;
+	}
+	
+	table::before {
+		left: 0;
+		background: linear-gradient(to right, var(--bg-subtle) 0%, transparent 100%);
+	}
+	
+	table::after {
+		right: 0;
+		background: linear-gradient(to left, var(--bg-subtle) 0%, transparent 100%);
+	}
+	
+	th,
+	td {
+		padding: 0.5rem 0.75rem;
+	}
+}
+
 @media (min-width: 640px) {
 	h1,
 	h2,
@@ -116,6 +266,21 @@ section:not(:last-child) {
 
 	section:not(:last-child) {
 		margin-bottom: 10rem;
+	}
+
+	blockquote {
+		padding: 1.5rem 2rem;
+	}
+
+	/* Tables on larger screens */
+	table {
+		font-size: 1rem;
+		margin: 2.5rem 0;
+	}
+	
+	th,
+	td {
+		padding: 1rem 1.25rem;
 	}
 }
 
