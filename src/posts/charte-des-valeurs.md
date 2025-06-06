@@ -8,9 +8,9 @@ _Version 3.5 en vigueur au 26 novembre 2024_
 
 ## La mission
 
-La priorité de Pause IA est de **préserver l’avenir de notre civilisation** face aux risques catastrophiques de l’intelligence artificielle. L'IA doit rester au service de l'humanité, et non l'inverse.
+La priorité de Pause IA est de **préserver l’avenir de notre civilisation** face aux dangers de l’intelligence artificielle. L'IA doit rester au service de l'humanité, et non l'inverse.
 
-Nous sommes docteurs en IA, experts, vulgarisateurs, artistes, volontaires de tous bords. Humains avant tout, nous appelons à une pause dans la création des modèles d'IA les plus avancés afin de résoudre les problèmes de sécurité et d'éthique.
+Nous sommes chercheurs en IA, experts, vulgarisateurs, artistes, volontaires de tous bords. Humains avant tout, nous appelons à une pause dans la création des modèles d'IA les plus avancés afin de résoudre les problèmes de sécurité et d'éthique.
 
 Nous mesurons **l’importance capitale de notre mission** que nous prenons avec **sérieux et responsabilité.**
 
