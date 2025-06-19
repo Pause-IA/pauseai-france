@@ -21,7 +21,7 @@ Vous en faites désormais partie.
   - [Interdire la superintelligence](https://www.change.org/p/ban-superintelligence-stop-ai-driven-human-extinction-risk?utm_content=cl_sharecopy_37871653_en-US%3A4&recruited_by_id=91d3fbf0-cc46-11ee-911b-5975de1bf878&utm_source=share_petition&utm_medium=copylink&utm_campaign=psf_combo_share_initial&share_bandit_exp=initial-37871653-en-US)
   - [Exiger une IA responsable](https://www.change.org/p/artificial-intelligence-time-is-running-out-for-responsible-ai-development-2a2f1a13-b63a-4d8c-979b-b144bded2f48)
 - **[Informez-vous](/dangers)** sur l'alignement de l'IA et les risques qui nous menacent.
-- **Parlez-en** avec les personnes de votre entourage, répondez à leurs questions et incitez-les à agir.
+- **[Devenez recruteur pour Pause IA](/recrutement)** : Apprenez à mobiliser efficacement votre entourage avec nos guides et techniques de recrutement relationnel. Chaque personne recrutée peut en rallier d'autres, créant un effet multiplicateur puissant.
 - **Suivez nos chaînes** sur les réseaux sociaux et restez informés : [Discord](https://discord.gg/vyXGd7AeGc), [Twitter](https://twitter.com/pause_ia), [Facebook](https://www.facebook.com/Pause.IA), [TikTok](https://www.tiktok.com/@pause_ia), [LinkedIn](https://www.linkedin.com/company/pause-ia/), [Instagram](https://www.instagram.com/pause_ia), [Threads](https://www.threads.net/@pause_ia), [YouTube](https://www.youtube.com/@Pause_IA)
 - **Ajoutez Pause IA à LinkedIn et activez « partagez ces mises à jour du profil avec votre réseau ».** C'est un moyen simple de faire connaître nos efforts à de nombreuses personnes.
 - **Échangez** sur les risques de l'IA sur les réseaux sociaux.
