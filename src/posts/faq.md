@@ -154,6 +154,6 @@ Une raison majeure pour laquelle de nombreuses personnes ne veulent toujours pas
 
 ### Je veux aider ! Que puis-je faire ?
 
-Il y a de nombreuses choses que [vous pouvez faire](/agir). À titre individuel, sensibilisez votre entourage, [faites un don](/dons) et [rejoignez Pause IA](/nous-rejoindre) pour coordonner vos actions avec tous nos membres. Si vous souhaitez vous impliquer davantage, vous pouvez aussi devenir bénévole.
+Il y a de nombreuses choses que [vous pouvez faire](/agir). À titre individuel, sensibilisez votre entourage, [faites un don](/dons) et [rejoignez Pause IA](/rejoindre) pour coordonner vos actions avec tous nos membres. Si vous souhaitez vous impliquer davantage, vous pouvez aussi devenir bénévole.
 
 Même confrontés à la perspective de risques existentiels, il reste de l'espoir mais surtout du travail à accomplir.

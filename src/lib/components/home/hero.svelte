@@ -40,7 +40,7 @@
 				<p>La fenêtre se referme vite : agissons maintenant.</p>
 				<div class="buttons">
 					<div in:fly={{ y: 20, duration: 300, delay: 700 }}>
-						<Button href="/agir">Agir</Button>
+						<Button href="/rejoindre">Rejoindre</Button>
 					</div>
 				</div>
 			</div>

@@ -41,7 +41,7 @@
 			</p>
 			<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
 				<Button href="/dangers">Informez-vous</Button>
-				<Button href="/nous-rejoindre">Rejoignez-nous</Button>
+				<Button href="/rejoindre">Rejoignez-nous</Button>
 				<Button href="/agir">Passez à l’action</Button>
 			</div>
 		</div>

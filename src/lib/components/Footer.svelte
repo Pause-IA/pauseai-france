@@ -26,7 +26,7 @@
 			<a href="https://pauseia.substack.com/">Blog</a>
 			<a href="/agir">Agir</a>
 			<a href="/dons">Donner</a>
-			<a href="/nous-rejoindre">Nous rejoindre</a>
+			<a href="/rejoindre">Nous rejoindre</a>
 			<a href="/qui-sommes-nous">Qui sommes-nous ?</a>
 		</div>
 		<div class="column">
@@ -38,7 +38,7 @@
 		</div>
 		<div class="column">
 			<h2>Agir</h2>
-			<a href="/nous-rejoindre">Rejoindre Pause IA</a>
+			<a href="/rejoindre">Rejoindre Pause IA</a>
 			<a href="/agir">Comment pouvez-vous aider ?</a>
 			<a href="/dons">Faire un don</a>
 			<ExternalLink href="https://pauseai-shop.fourthwall.com" target="_blank"

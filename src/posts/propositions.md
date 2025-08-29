@@ -64,4 +64,4 @@ Arrivera un moment où des modèles d'IA potentiellement superintelligents pourr
 
 ## **Aidez-nous à réaliser cet objectif**
 
-[Rejoignez](/nous-rejoindre) le mouvement pour nous aider ou [agissez](/agir) par vous-même !
+[Rejoignez](/rejoindre) le mouvement pour nous aider ou [agissez](/agir) par vous-même !

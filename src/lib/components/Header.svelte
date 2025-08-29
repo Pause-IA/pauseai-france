@@ -40,8 +40,9 @@
 				<NavLink href="/dangers">Dangers</NavLink>
 				<NavLink href="/propositions">Propositions</NavLink>
 				<NavLink href="https://pauseia.substack.com/">Blog</NavLink>
+				<NavLink href="/agir">Agir</NavLink>
 				<NavLink href="/dons">Donner</NavLink>
-				<Button href="/agir" alt={onHomepage}>Agir</Button>
+				<Button href="/rejoindre" alt={onHomepage}>Rejoindre</Button>
 			</div>
 			<button aria-label="Open mobile menu" class="hamburger" on:click={() => (open = !open)}>
 				<svg
@@ -96,7 +97,7 @@
 				<a href="/agir" on:click={() => (open = !open)}><h2>Agir</h2></a>
 				<a href="https://pauseia.substack.com/" on:click={() => (open = !open)}><h2>Blog</h2></a>
 				<a href="/dons" on:click={() => (open = !open)}><h2>Dons</h2></a>
-				<a href="/nous-rejoindre" on:click={() => (open = !open)}><h2>Nous rejoindre</h2></a>
+				<a href="/rejoindre" on:click={() => (open = !open)}><h2>Nous rejoindre</h2></a>
 			</div>
 		</div>
 	</nav>

@@ -14,7 +14,7 @@ Vous en faites désormais partie.
 
 ## Ce que vous pouvez faire dès maintenant
 
-- **[Rejoignez Pause IA](/nous-rejoindre)** et aidez-nous à prendre de l’ampleur.
+- **[Rejoignez Pause IA](/rejoindre)** et aidez-nous à prendre de l’ampleur.
 - **[Faites un don](/dons) à Pause IA** ou achetez des produits dérivés dans la boutique en ligne de PauseAI Global.
 - **Signez des pétitions** :
   - [Traité international sur l'IA](https://aitreaty.org/)
