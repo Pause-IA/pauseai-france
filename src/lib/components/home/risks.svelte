@@ -50,6 +50,12 @@
 						Nous devons faire preuve d’une vigilance accrue et mettre en place des régulations
 						rigoureuses pour nous protéger.
 					</p>
+					<p>
+						Si vous souhaitez en savoir plus sur les risques de l’intelligence artificielle sur le
+						marché du travail, n’hésitez pas à visiter le site de notre groupe de travail <a
+							href="/emploi-ia">Emploi IA.</a
+						>
+					</p>
 					<Button href="/dangers/economiques-et-materiels">En apprendre davantage</Button>
 				{:else if tab === 'Pour les individus'}
 					<p>
@@ -88,8 +94,9 @@
 						Ces scénarios ne sont que la partie visible d'un danger bien plus large : l'IA menace le
 						cœur même de notre société. Elle touche à la cohésion sociale et aux fondements de notre
 						démocratie. Nos processus démocratiques sont fragilisés par la polarisation et la
-						désinformation. Les biais raciaux s'exacerbent, l’automatisation des emplois se profile,
-						et l'ombre de nouvelles formes de guerre et de terrorisme plane sur nous.
+						désinformation. Les biais raciaux s'exacerbent, <a href="/emploi-ia"
+							>l’automatisation des emplois se profile</a
+						>, et l'ombre de nouvelles formes de guerre et de terrorisme plane sur nous.
 					</p>
 					<Button href="/dangers/pour-la-societe">En apprendre davantage</Button>
 				{:else if tab === 'Pour l’humanité'}

@@ -57,6 +57,7 @@
 		"@fontsource/ibm-plex-sans": "^5.0.20",
 		"@fontsource/jetbrains-mono": "^5.0.20",
 		"@fontsource/manrope": "^5.0.20",
+		"@notionhq/client": "^5.1.0",
 		"@prgm/sveltekit-progress-bar": "^2.0.0",
 		"@types/mapbox-gl": "^3.1.0",
 		"clipboard-polyfill": "^4.1.0",

@@ -13,22 +13,21 @@ export interface Post {
 	categories: Categories[]
 }
 
-/** Individual volunteer */
-export interface Person {
-	id: string
-	name: string
-	/** URL to image file */
-	image: string
-	bio: string
-	title?: string
-	/** Doesn't want to be visible on the /people page */
-	privacy?: boolean
+/** Testimonial from Notion for emploi-ia page */
+export interface Testimonial {
+	testimony: string
+	name?: string
+	age?: string
+	job?: string
+	date?: string
 }
 
-export interface Team {
-	id: string
-	name: string
-	description: string
-	leadName: string
-	leadEmail: string
+/** Article showcase item from Notion for emploi-ia page */
+export interface ArticleShowcaseItem {
+	title: string
+	url: string
+	summary?: string
+	date?: string
+	category?: string
+	image?: string
 }

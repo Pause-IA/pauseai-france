@@ -11,10 +11,9 @@ Ces dangers émergent souvent suite à un usage mal avisé des nouvelles technol
 
 Les modèles d’IA apprennent de leurs données d’entraînement, et on leur demande souvent d’imiter des comportements humains, y compris leurs biais raciaux ou de genre.
 
-Alors que des entreprises d’IA fleurissent à travers le monde et que son usage se démocratise à toutes les échelles de la société, ces biais risquent de se répandre et de devenir impossibles à éliminer que ça soit sur le [marché de l'emploi](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G/) ou dans des [institutions publiques](https://www.science.org/doi/full/10.1126/science.aax2342).
+Alors que des entreprises d’IA fleurissent à travers le monde et que son usage se démocratise à toutes les échelles de la société, ces biais risquent de se répandre et de devenir impossibles à éliminer que ça soit sur le [marché de l'emploi](/emploi-ia) ou dans des [institutions publiques](https://www.science.org/doi/full/10.1126/science.aax2342).
 
 Ce risque doit être mitigé par les fournisseurs d’IA qui sont responsables des erreurs de leurs produits en investissant plus d’efforts pour identifier et corriger ces biais. Il est aussi recommandé aux individus et entreprises de se tenir informés pour ne pas se retrouver complices dans la perpétuation de biais.
-
 
 ## Détérioration de l’épistémologie
 
