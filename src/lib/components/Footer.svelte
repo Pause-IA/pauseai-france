@@ -2,6 +2,61 @@
 	import ExternalLink from '$components/custom/a.svelte'
 	import Logo from '$components/Logo.svelte'
 	import Socials from '$components/Socials.svelte'
+
+	let email = ''
+	let isSubmitting = false
+	let message = ''
+	let isError = false
+
+	interface ApiResponse {
+		success?: boolean
+		message?: string
+		error?: string
+	}
+
+	async function handleNewsletterSubmit(event: Event) {
+		event.preventDefault()
+		message = ''
+		isError = false
+
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+		if (!email || !emailRegex.test(email)) {
+			message = 'Adresse e-mail invalide'
+			isError = true
+			return
+		}
+
+		isSubmitting = true
+
+		try {
+			const response = await fetch('/api/subscribe', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					email,
+					subscribeNewsletter: true,
+					subscribeSubstack: false,
+					source: 'footer'
+				})
+			})
+
+			const result = (await response.json()) as ApiResponse
+
+			if (response.ok) {
+				message = 'Inscription confirmée !'
+				isError = false
+				email = ''
+			} else {
+				message = result.error ?? 'Une erreur est survenue'
+				isError = true
+			}
+		} catch {
+			message = 'Erreur de connexion'
+			isError = true
+		} finally {
+			isSubmitting = false
+		}
+	}
 </script>
 
 <footer>
@@ -11,7 +66,30 @@
 				<Logo animate fill_circle="white" fill_ai="white" />
 			</div>
 		</a>
-		<p>Pour une IA alignée sur l’humanité.</p>
+		<p>Pour une IA alignée sur l'humanité.</p>
+	</div>
+	<div id="newsletter" class="newsletter-section">
+		<h2>Newsletter</h2>
+		<p class="newsletter-desc">L'essentiel de l'actualité IA décrypté chaque mois</p>
+		<form on:submit={handleNewsletterSubmit} class="newsletter-form">
+			<div class="input-group">
+				<input
+					type="email"
+					bind:value={email}
+					placeholder="votre@email.com"
+					disabled={isSubmitting}
+					aria-label="Adresse e-mail"
+				/>
+				<button type="submit" disabled={isSubmitting}>
+					{#if isSubmitting}...{:else}S'inscrire{/if}
+				</button>
+			</div>
+			{#if message}
+				<p class="newsletter-message" class:error={isError} class:success={!isError}>
+					{message}
+				</p>
+			{/if}
+		</form>
 	</div>
 	<div class="socials">
 		<h2>Suivez-nous</h2>
@@ -123,6 +201,92 @@
 		text-align: left;
 		font-style: italic;
 	}
+
+	/* Newsletter section styles */
+	.newsletter-section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.newsletter-desc {
+		margin: 0;
+		font-size: 0.95rem;
+		opacity: 0.9;
+	}
+
+	.newsletter-form {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+	}
+
+	.input-group {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.newsletter-form input[type='email'] {
+		flex: 1;
+		min-width: 180px;
+		padding: 0.6rem 0.75rem;
+		border: 2px solid rgba(0, 0, 0, 0.15);
+		border-radius: 0.375rem;
+		font-size: 0.95rem;
+		font-family: inherit;
+		background: white;
+		color: var(--text);
+		transition: border-color 0.2s;
+	}
+
+	.newsletter-form input[type='email']:focus {
+		outline: none;
+		border-color: var(--black);
+	}
+
+	.newsletter-form input[type='email']:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+
+	.newsletter-form button {
+		padding: 0.6rem 1.25rem;
+		background: var(--black);
+		color: white;
+		border: none;
+		border-radius: 0.375rem;
+		font-size: 0.95rem;
+		font-weight: 600;
+		font-family: inherit;
+		cursor: pointer;
+		transition: opacity 0.2s;
+		white-space: nowrap;
+	}
+
+	.newsletter-form button:hover:not(:disabled) {
+		opacity: 0.85;
+	}
+
+	.newsletter-form button:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+
+	.newsletter-message {
+		margin: 0;
+		font-size: 0.875rem;
+		font-weight: 500;
+	}
+
+	.newsletter-message.success {
+		color: #166534;
+	}
+
+	.newsletter-message.error {
+		color: #991b1b;
+	}
 	@media (min-width: 480px) {
 		.footer-links {
 			display: grid;
@@ -135,7 +299,8 @@
 			padding: 4rem 6rem;
 			display: grid;
 			gap: 3rem;
-			grid-template-columns: minmax(1rem, auto) 1fr;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: auto auto auto;
 		}
 
 		.brand {
@@ -147,31 +312,51 @@
 			height: fit-content;
 		}
 
-		.socials {
+		.newsletter-section {
 			grid-column: 2;
 			grid-row: 1;
-			align-items: center;
+		}
+
+		.socials {
+			grid-column: 1;
+			grid-row: 2;
+			align-items: start;
 		}
 
 		.footer-links {
 			display: flex;
 			grid-column: 1 / -1;
-			grid-row: 2;
+			grid-row: 3;
 			flex-direction: row;
 		}
 	}
 	@media (min-width: 1280px) {
 		footer {
 			padding: 6rem;
-			grid-template-columns: minmax(1rem, auto) repeat(2, 1fr);
-			grid-template-rows: 1fr;
+			grid-template-columns: minmax(1rem, auto) 1fr 1fr;
+			grid-template-rows: auto auto;
 			gap: 3rem;
 		}
-		.brand,
-		.socials,
+
+		.brand {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		.newsletter-section {
+			grid-column: 2;
+			grid-row: 1;
+		}
+
+		.socials {
+			grid-column: 3;
+			grid-row: 1;
+			align-items: center;
+		}
+
 		.footer-links {
-			grid-column: auto;
-			grid-row: unset;
+			grid-column: 1 / -1;
+			grid-row: 2;
 		}
 	}
 </style>

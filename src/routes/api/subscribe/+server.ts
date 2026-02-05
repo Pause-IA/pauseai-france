@@ -290,6 +290,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		const substackGroupId = Number(privateEnv.CIVICRM_SUBSTACK_GROUP_ID)
 		const conferenceGroupId = Number(privateEnv.CIVICRM_CONFERENCE_GROUP_ID)
 		const policyProposalsGroupId = Number(privateEnv.CIVICRM_POLICY_GROUP_ID)
+		const callToActionGroupId = Number(privateEnv.CIVICRM_CALL_TO_ACTION_GROUP_ID)
 		if (
 			(data.subscribeNewsletter && !Number.isFinite(newsletterGroupId)) ||
 			(data.subscribeSubstack && !Number.isFinite(substackGroupId)) ||
@@ -312,7 +313,8 @@ export const POST: RequestHandler = async ({ request }) => {
 						Number.isFinite(newsletterGroupId) ? newsletterGroupId : undefined,
 						Number.isFinite(substackGroupId) ? substackGroupId : undefined,
 						Number.isFinite(conferenceGroupId) ? conferenceGroupId : undefined,
-						Number.isFinite(policyProposalsGroupId) ? policyProposalsGroupId : undefined
+						Number.isFinite(policyProposalsGroupId) ? policyProposalsGroupId : undefined,
+						Number.isFinite(callToActionGroupId) ? callToActionGroupId : undefined
 					].filter((v) => Number.isFinite(Number(v)))
 				]
 			]
@@ -330,11 +332,17 @@ export const POST: RequestHandler = async ({ request }) => {
 		const alreadyInPolicyProposals = Boolean(
 			existingMemberships.values?.some((g) => g.group_id === policyProposalsGroupId)
 		)
+		const alreadyInCallToAction = Boolean(
+			existingMemberships.values?.some((g) => g.group_id === callToActionGroupId)
+		)
 
 		// Upsert groups via GroupContact.save with match on contact_id + group_id
 		const groupRecords: Array<{ contact_id: number; group_id: number; status?: string }> = []
 		if (data.subscribeNewsletter && !alreadyInNewsletter)
 			groupRecords.push({ contact_id: contactId, group_id: newsletterGroupId, status: 'Added' })
+		// Automatically add to "Call to Action" group when subscribing to newsletter
+		if (data.subscribeNewsletter && !alreadyInCallToAction && Number.isFinite(callToActionGroupId))
+			groupRecords.push({ contact_id: contactId, group_id: callToActionGroupId, status: 'Added' })
 		if (data.subscribeSubstack && !alreadyInSubstack)
 			groupRecords.push({ contact_id: contactId, group_id: substackGroupId, status: 'Added' })
 		if (data.subscribeConferenceReport && !alreadyInConference)

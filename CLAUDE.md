@@ -135,6 +135,7 @@ Handles newsletter and mailing list subscriptions with full contact management.
 - Handles orphaned emails and reassigns them to new contacts
 - Updates contact names if provided
 - Manages group memberships via GroupContact entity
+- **Newsletter subscription automatically adds to both Newsletter group (gid=3) AND Call to Action group (gid=22)**
 - Logs activity with customized subject based on selections
 - Returns clear success/already-subscribed messages
 
@@ -143,8 +144,9 @@ Handles newsletter and mailing list subscriptions with full contact management.
 - `CIVICRM_BASE_URL`
 - `CIVICRM_API_KEY`
 - `CIVICRM_SITE_KEY`
-- `CIVICRM_NEWSLETTER_GROUP_ID`
-- `CIVICRM_SUBSTACK_GROUP_ID`
+- `CIVICRM_NEWSLETTER_GROUP_ID` - Newsletter group (gid=3)
+- `CIVICRM_CALL_TO_ACTION_GROUP_ID` - Call to Action group (gid=22), auto-added with newsletter
+- `CIVICRM_SUBSTACK_GROUP_ID` - Substack group (gid=7), legacy - no longer used via website
 - `CIVICRM_CONFERENCE_GROUP_ID`
 - `CIVICRM_POLICY_GROUP_ID`
 - `CIVICRM_NEWSLETTER_API_CONTACT_ID`

@@ -2,56 +2,102 @@
 	import ArticleCard from '$components/ArticleCard.svelte'
 	import Button from '$components/Button.svelte'
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
+	import type { Article } from '$lib/notion'
+
+	export let articles: Article[] = []
+
 	const label_id = 'articles-title'
+
+	// Fallback articles if Notion data is not available
+	const fallbackArticles: Article[] = [
+		{
+			id: '1',
+			title: "WaitButWhy et l'IA, 10 ans après",
+			description:
+				"En 2015, WaitButWhy écrivait sur les dangers de l'IA. Nous avons traduit la série originelle, et donné une perspective 10 ans après.",
+			url: 'https://pauseia.substack.com/p/la-revolution-de-lia-dix-ans-apres',
+			type: 'Article',
+			order: 1,
+			visible: true
+		},
+		{
+			id: '2',
+			title: "L'IA et la Cybersécurité",
+			description:
+				"Les systèmes d'IA peuvent déjà analyser et écrire du code, identifier des vulnérabilités et les exploiter.",
+			url: 'https://pauseia.substack.com/p/lia-et-la-cybersecurite',
+			type: 'Article',
+			order: 2,
+			visible: true
+		},
+		{
+			id: '3',
+			title: "Quatre niveaux de réglementation de l'IA",
+			description:
+				"Clarifier et mesurer l'efficacité des réglementations aux différentes étapes du processus de création d'un modèle.",
+			url: 'https://pauseia.substack.com/p/quatre-niveaux-de-reglementation',
+			type: 'Article',
+			order: 3,
+			visible: true
+		},
+		{
+			id: '4',
+			title: 'Classement p(doom) des scientifiques',
+			description:
+				"L'estimation du potentiel de destruction de l'IA par les scientifiques du secteur de l'IA",
+			url: 'https://pauseia.substack.com/p/classement-pdoom-des-scientifiques',
+			type: 'Article',
+			order: 4,
+			visible: true
+		}
+	]
+
+	$: displayArticles = articles.length > 0 ? articles : fallbackArticles
 </script>
 
 <section aria-labelledby={label_id}>
 	<UnderlinedTitle id={label_id}>Nos articles mis en avant</UnderlinedTitle>
 	<div class="articles-grid">
-		<ArticleCard
-			title="WaitButWhy et l'IA, 10 ans après"
-			blurb="En 2015, WaitButWhy écrivait sur les dangers de l'IA. Nous avons traduit la série originelle, et donné une perspective 10 ans après."
-			url="https://pauseia.substack.com/p/la-revolution-de-lia-dix-ans-apres"
-		/>
-		<ArticleCard
-			title="L’IA et la Cybersécurité"
-			blurb="Les systèmes d'IA peuvent déjà analyser et écrire du code, identifier des vulnérabilités et les exploiter."
-			url="https://pauseia.substack.com/p/lia-et-la-cybersecurite"
-		/>
-		<ArticleCard
-			title="Quatre niveaux de réglementation de l’IA"
-			blurb="Clarifier et mesurer l'efficacité des réglementations aux différentes étapes du processus de création d'un modèle."
-			url="https://pauseia.substack.com/p/quatre-niveaux-de-reglementation"
-		/>
-		<ArticleCard
-			title="Classement p(doom) des scientifiques"
-			blurb="L'estimation du potentiel de destruction de l'IA par les scientifiques du secteur de l'IA"
-			url="https://pauseia.substack.com/p/classement-pdoom-des-scientifiques"
-		/>
-		<ArticleCard
-			title="Les risques existentiels liés à une superintelligence artificielle"
-			blurb="Monteriez-vous dans un prototype d’avion dont les ingénieurs aéronautiques estiment qu’il a 14{'\u202F'}% de chances de s’écraser{'\u202F'}?"
-			url="https://pauseia.substack.com/p/les-risques-existentiels-lies-a-une"
-		/>
-		<ArticleCard
-			title="Les modèles d’IA face aux humains"
-			blurb="Où en sont les modèles les plus récents par rapport à l'intelligence humaine{'\u202F'}?"
-			url="https://pauseia.substack.com/p/les-modeles-dia-face-aux-humains"
-		/>
-		<ArticleCard
-			title="Pourquoi une superintelligence pourrait apparaître plus tôt que prévu"
-			blurb="L'accélération exponentielle des progrès en IA et ses implications alarmantes"
-			url="https://pauseia.substack.com/p/pourquoi-une-superintelligence-pourrait"
-		/>
+		{#each displayArticles as article (article.id)}
+			<ArticleCard
+				title={article.title}
+				blurb={article.description}
+				url={article.url}
+				category={article.type === 'Newsletter' ? 'Newsletter' : ''}
+			/>
+		{/each}
 	</div>
-	<Button href="https://pauseia.substack.com/">Voir tous les articles</Button>
+	<div class="button-container">
+		<Button href="https://pauseia.substack.com/">Voir tous les articles</Button>
+	</div>
+	<div class="buttons-row">
+		<Button href="https://pauseia.substack.com/">Voir tous les articles</Button>
+		<Button alt href="https://pauseia.substack.com/subscribe" target="_blank">
+			S'abonner au blog
+		</Button>
+	</div>
 </section>
 
 <style>
+	section {
+		margin-bottom: 1rem;
+	}
+
 	.articles-grid {
 		display: grid;
-		gap: 1rem;
+		gap: 1.5rem;
 		margin-bottom: 2rem;
+	}
+
+	.buttons-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.buttons-row :global(a.alt) {
+		border: 2px solid var(--text);
 	}
 
 	@media (min-width: 640px) {
@@ -60,9 +106,9 @@
 		}
 	}
 
-	@media (min-width: 1024px) {
+	@media (min-width: 640px) {
 		.articles-grid {
-			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 </style>

@@ -4,11 +4,14 @@
 	import Lead from '$components/home/lead.svelte'
 	import Risks from '$components/home/risks.svelte'
 	import Articles from '$components/home/articles.svelte'
-	import Newsletter from '$components/home/newsletter.svelte'
+	import NewsletterCta from '$components/home/newsletter-cta.svelte'
 	import Faq from '$components/home/faq.svelte'
 	import Videos from '$components/home/videos.svelte'
 	import Supporters from '$components/home/supporters.svelte'
 	import Inserts from '$components/home/inserts.svelte'
+	import type { PageData } from './$types'
+
+	export let data: PageData
 
 	const title = 'Exigeons une Pause IA'
 	const description = "Ne laissons pas l'IA nous détruire, agissons maintenant"
@@ -22,13 +25,13 @@
 
 <Risks />
 
-<Videos />
+<Videos videos={data.videos} />
 
-<Inserts />
+<Inserts reports={data.reports} />
 
-<Articles />
+<Articles articles={data.articles} />
 
-<Newsletter />
+<NewsletterCta />
 
 <Supporters />
 
