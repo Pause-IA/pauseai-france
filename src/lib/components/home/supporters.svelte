@@ -61,6 +61,7 @@
 	})
 </script>
 
+<!--
 <section aria-labelledby={label_id}>
 	<UnderlinedTitle id={label_id}>Nos soutiens</UnderlinedTitle>
 	<div
@@ -94,6 +95,7 @@
 		{/if}
 	</div>
 </section>
+-->
 
 <style>
 	@keyframes slides {
