@@ -116,10 +116,10 @@
 						les pandémies et les guerres nucléaires."
 					</p>
 					<p>
-						En interrogeant les chercheurs en IA, la <a
-							href="https://aiimpacts.org/wp-content/uploads/2023/04/Thousands_of_AI_authors_on_the_future_of_AI.pdf"
-							>médiane des estimations pour un scénario d'extinction est de 5%</a
-						>, et plus d'un tiers d'entre eux y attribuent une probabilité supérieure à 10%.
+						Selon une <a href="https://arxiv.org/abs/2401.02843"
+							>enquête de 2023 auprès de 2 778 chercheurs en IA</a
+						>, la médiane des estimations pour un scénario d'extinction est de 5%, et plus d'un
+						tiers d'entre eux y attribuent une probabilité supérieure à 10%.
 					</p>
 					<p>
 						Jamais auparavant l'humanité n'a fait face à une menace aussi imminente et
