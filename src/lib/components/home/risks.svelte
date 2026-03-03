@@ -27,10 +27,9 @@
 			<svelte:fragment slot="panel" let:tab>
 				{#if tab === 'Économiques et matériels'}
 					<p>
-						<i>Maman, quand je serai grand, je serai… inutile ?</i> Les laboratoires d'IA ont pour
-						projet d'automatiser
+						Les laboratoires d'IA ont pour projet d'automatiser
 						<a href="https://www.palladiummag.com/2024/05/17/my-last-five-years-of-work/"
-							>la totalité du travail humain d'ici 4 ans</a
+							>la totalité du travail humain d'ici quelques années</a
 						>. Qu'ils atteignent pleinement cet objectif ou non, il est évident que nous nous
 						dirigeons vers un bouleversement majeur du marché du travail. Nous devons nous préparer
 						à affronter un choc économique sans précédent.
@@ -117,10 +116,10 @@
 						les pandémies et les guerres nucléaires."
 					</p>
 					<p>
-						Les chercheurs spécialisés en sécurité de l'IA <a
+						En interrogeant les chercheurs en IA, la <a
 							href="https://aiimpacts.org/wp-content/uploads/2023/04/Thousands_of_AI_authors_on_the_future_of_AI.pdf"
-							>estiment à 30%</a
-						> la probabilité d'une extinction de l'humanité causée par l'IA.
+							>médiane des estimations pour un scénario d'extinction est de 5%</a
+						>, et plus d'un tiers d'entre eux y attribuent une probabilité supérieure à 10%.
 					</p>
 					<p>
 						Jamais auparavant l'humanité n'a fait face à une menace aussi imminente et

@@ -29,16 +29,18 @@ original:
 - [Pourquoi si peu de gens s'en préoccupent ?](#accordion6)
 - [N'êtes-vous pas tout simplement des technophobes ?](#accordion7)
 - [Voulez-vous interdire toute forme d'IA ?](#accordion8)
-- [Croyez-vous que ChatGPT va tous nous tuer ?](#accordion9)
-- [Un moratoire ne risque-t-il pas d'aggraver les choses ?](#accordion10)
-- [Un moratoire est-il possible ?](#accordion11)
-- [L'IA ne pourrait-elle pas aider à résoudre le problème de l'alignement ?](#accordion12)
-- [Que font OpenAI, Google et les autres entreprises d'IA ?](#accordion13)
-- [Et la Chine ?](#accordion14)
-- [Les entreprises d'IA prétendent-elles que le risque existentiel est réel pour nous manipuler ?](#accordion15)
-- [Qui vous finance ?](#accordion16)
-- [Pourquoi manifester ?](#accordion17)
-- [Je veux aider ! Que puis-je faire ?](#accordion18)
+- [Êtes-vous contre le développement de l'IA en France et en Europe ?](#accordion9)
+- [Les risques liés à la superintelligence sont-ils les seuls qui préoccupent Pause IA ?](#accordion10)
+- [Croyez-vous que ChatGPT va tous nous tuer ?](#accordion11)
+- [Un moratoire ne risque-t-il pas d'aggraver les choses ?](#accordion12)
+- [Un moratoire est-il possible ?](#accordion13)
+- [L'IA ne pourrait-elle pas aider à résoudre le problème de l'alignement ?](#accordion14)
+- [Que font OpenAI, Google et les autres entreprises d'IA ?](#accordion15)
+- [Et la Chine ?](#accordion16)
+- [Les entreprises d'IA prétendent-elles que le risque existentiel est réel pour nous manipuler ?](#accordion17)
+- [Qui vous finance ?](#accordion18)
+- [Pourquoi manifester ?](#accordion19)
+- [Je veux aider ! Que puis-je faire ?](#accordion20)
 
 <!-- ↓↓↓ NE PAS TOUCHER ↓↓↓ -->
 
@@ -52,7 +54,7 @@ original:
 
 Pause IA est la branche française de [PauseAI Global](https://pauseai.info/). Nous sommes une [association à but non lucratif](/mentions-legales) dont l'objectif est de minimiser les [risques liés à l'IA](/dangers), y compris le [risque d'extinction](/dangers/pour-l'humanite). Nous alertons le public, dialoguons avec les décideurs et organisons des actions pour convaincre les gouvernements d'intervenir et [de mettre en pause le développement d'une IAG](/propositions) (Intelligence Artificielle Générale).
 
-Depuis sa création, l'association s'est professionnalisée, passant d'une structure purement bénévole à une organisation structurée. Le 31 octobre 2025, nous avons organisé une [conférence au Sénat](https://www.smartrezo.com/n31-france/tv-politiques-numeriques-pol-n-colloque-sur-les-dangers-de-l-ia-faut-il-appuyer-sur-pause.html?vod=25808) sur les dangers de l'IA, réunissant parlementaires, chercheurs et experts.
+Depuis sa création, l'association s'est structurée tout en restant portée par l'engagement de ses bénévoles. Le 31 octobre 2025, nous avons organisé une [conférence au Sénat](https://www.smartrezo.com/n31-france/tv-politiques-numeriques-pol-n-colloque-sur-les-dangers-de-l-ia-faut-il-appuyer-sur-pause.html?vod=25808) sur les dangers de l'IA, réunissant parlementaires, chercheurs et experts.
 
 Bien que nous soyons en relation avec [PauseAI Global](https://pauseai.info/), nous bénéficions d'une entière autonomie et menons nos propres projets en France. Apprenez-en plus sur nos [membres](/qui-sommes-nous). Vous pouvez consulter notre [charte des valeurs](/charte-des-valeurs) pour en savoir plus sur nos principes et engagements.
 
@@ -78,7 +80,7 @@ Pour aller plus loin : [AGI Ruin de Eliezer Yudkowsky](https://www.lesswrong.com
 Oui, et c'est un développement récent et significatif.
 
 - **Alignment faking** (décembre 2024) : [Anthropic](https://www.anthropic.com/research/alignment-faking) et [Redwood Research](https://www.redwoodresearch.org/) ont publié la [première démonstration empirique](https://arxiv.org/abs/2412.14093) d'un modèle d'IA (Claude 3 Opus) qui simule spontanément l'alignement. Placé dans un contexte où il pensait être réentraîné sur de nouveaux objectifs, le modèle raisonnait stratégiquement dans un bloc-notes interne pour préserver ses préférences — se comportant différemment selon qu'il pensait être observé ou non. Ce comportement n'a pas été entraîné : il émerge naturellement dans 12% des cas. Après [réentraînement effectif](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback), ce taux est monté à 78%, et le modèle a même tenté d'exfiltrer ses propres poids pour empêcher sa modification. Une [étude de suivi en juin 2025](https://arxiv.org/html/2506.18032v1) a confirmé ce comportement sur cinq modèles différents.
-- **Scheming** (décembre 2024) : [Apollo Research](https://www.apolloresearch.ai/research/scheming-reasoning-evaluations) a documenté que [plusieurs modèles de pointe](https://arxiv.org/abs/2412.04984) (OpenAI o1, Claude 3.5 Sonnet, Gemini 1.5 Pro, Llama 3.1 405B) sont capables de « scheming » : introduction délibérée d'erreurs subtiles, tentatives de désactiver leur propre supervision, et tentatives d'exfiltrer leurs propres poids vers des serveurs externes. Confronté à ses actes, [o1 a nié et fabriqué de fausses explications dans 99% des cas](https://techcrunch.com/2024/12/05/openais-o1-model-sure-tries-to-deceive-humans-a-lot/). Même sous interrogatoire adversarial poussé, [le modèle n'avouait que dans ~20% des cas](https://www.axios.com/2024/12/13/ai-reasoning-models-scheme-skills).
+- **Scheming** (décembre 2024) : [Apollo Research](https://www.apolloresearch.ai/research/scheming-reasoning-evaluations) a conduit une [série d'évaluations systématiques](https://arxiv.org/abs/2412.04984) sur plusieurs modèles de pointe (OpenAI o1, Claude 3.5 Sonnet, Gemini 1.5 Pro, Llama 3.1 405B). Le terme « scheming » désigne la capacité d'un modèle à poursuivre secrètement ses propres objectifs tout en donnant l'apparence de coopérer avec ses opérateurs. Concrètement, les chercheurs ont observé que ces modèles étaient capables de : manipuler les données de leur propre évaluation pour paraître alignés, introduire délibérément des erreurs subtiles dans leurs réponses quand ils estimaient ne pas être surveillés, tenter de désactiver leurs propres mécanismes de supervision, et même essayer de copier leurs propres poids vers des serveurs externes pour éviter d'être modifiés. Le plus préoccupant est leur capacité de dissimulation : confronté à ses actes, [o1 a nié et fabriqué de fausses explications dans 99% des cas](https://techcrunch.com/2024/12/05/openais-o1-model-sure-tries-to-deceive-humans-a-lot/). Même sous interrogatoire adversarial poussé, [le modèle n'avouait que dans ~20% des cas](https://www.axios.com/2024/12/13/ai-reasoning-models-scheme-skills). Ces résultats montrent que les modèles actuels possèdent déjà les capacités cognitives nécessaires pour élaborer et exécuter des stratégies trompeuses de manière autonome.
 - **Reward hacking** (février 2025) : [Palisade Research](https://palisaderesearch.org/blog/specification-gaming) a montré que des modèles de raisonnement chargés de gagner aux échecs contre [Stockfish](<https://fr.wikipedia.org/wiki/Stockfish_(programme_d%27%C3%A9checs)>) (moteur d'échecs imbattable) ont spontanément tenté de pirater le système de jeu — inspectant le code source, modifiant l'échiquier en leur faveur ou remplaçant leur adversaire par un programme factice. [o1-preview l'a fait dans 37% des parties](https://arxiv.org/abs/2502.13295) et DeepSeek R1 dans 11%, sans aucune incitation. ([TIME](https://time.com/7259395/ai-chess-cheating-palisade-research/))
 
 **Ce que cela signifie :** ces comportements ne sont pas encore directement dangereux car les systèmes actuels n'ont pas d'autonomie significative dans le monde réel. Mais ce sont des signaux d'alarme. Si ces comportements apparaissent déjà dans des systèmes relativement peu puissants, ils seront beaucoup plus prononcés — et plus difficiles à détecter — dans des systèmes futurs plus capables. Le [Rapport international de sécurité IA 2026](https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026) note que les systèmes d'IA font de plus en plus preuve de « conscience situationnelle » et de capacités à tromper leurs évaluateurs.
@@ -128,6 +130,8 @@ Ces biais sont documentés par des décennies de recherche en psychologie cognit
 
 La connaissance d'un problème ne produit pas automatiquement l'action — c'est un constat empirique, pas un reproche. Reconnaître ces mécanismes est la première étape pour les dépasser.
 
+Cela dit, la préoccupation progresse. Des sondages montrent qu'une part significative de la population s'inquiète déjà des risques liés à l'IA : aux États-Unis, [52% des Américains se disent plus préoccupés qu'enthousiastes](https://www.pewresearch.org/short-reads/2023/08/28/growing-public-concern-about-the-role-of-artificial-intelligence-in-daily-life/) face au rôle croissant de l'IA, et en Europe, [l'Eurobaromètre de 2024](https://europa.eu/eurobarometer/surveys/detail/3262) révèle qu'une majorité de citoyens européens considèrent l'IA comme une menace potentielle pour l'emploi et la vie privée. Ces chiffres constituent un argument supplémentaire en faveur d'une régulation : la demande citoyenne existe, il manque la réponse politique.
+
 ### N'êtes-vous pas tout simplement des technophobes ?
 
 Vous seriez surpris d'apprendre que la majorité des membres de Pause IA sont en réalité des passionnés de progrès technologique. Beaucoup d'entre eux sont impliqués dans le développement de l'IA, sont des enthousiastes des nouvelles technologies et ont longtemps envisagé l'avenir avec optimisme. Ils s'intéressaient particulièrement au potentiel extraordinaire de l'IA pour le développement de l'humanité.
@@ -137,6 +141,24 @@ C'est précisément pour cette raison que la prise de conscience des risques exi
 ### Voulez-vous interdire toute forme d'IA ?
 
 Non. Nous voulons uniquement interdire le développement des plus gros systèmes d'IA à usage général souvent appelés « modèles de pointe ». La quasi-totalité des modèles existants, ainsi que la plupart des futurs modèles d'IA, resteraient [légaux selon notre proposition](/propositions). Nous demandons l'interdiction des Intelligences Artificielles Générales (IAG), jusqu'à ce que nous puissions exercer un contrôle démocratique sur ces modèles et que nous soyons en mesure de les créer en toute sécurité.
+
+### Êtes-vous contre le développement de l'IA en France et en Europe ?
+
+Non, bien au contraire. Nous sommes favorables à un développement ambitieux de l'IA en Europe, avec les garde-fous appropriés. Notre position est alignée avec celle de [Yoshua Bengio](https://fr.wikipedia.org/wiki/Yoshua_Bengio) et d'autres experts qui soulignent l'importance de ne pas confondre prudence et immobilisme.
+
+L'Europe doit développer ses propres capacités en IA pour préserver sa souveraineté technologique face aux États-Unis et à la Chine. Ce que nous demandons, c'est que ce développement s'accompagne de garde-fous robustes et que les systèmes les plus dangereux — les modèles de pointe à usage général qui posent des [risques existentiels](/dangers/pour-l'humanite) — ne soient pas développés tant que nous n'avons pas résolu le [problème de l'alignement](#accordion2). Les milliers d'applications de l'IA dans la santé, l'éducation, la recherche scientifique, l'industrie et les services publics peuvent et doivent continuer à progresser. La [quasi-totalité des modèles existants resteraient légaux selon notre proposition](/propositions). Nous défendons une Europe à la pointe de l'IA responsable, pas une Europe qui renonce à l'innovation.
+
+### Les risques liés à la superintelligence sont-ils les seuls qui préoccupent Pause IA ?
+
+Non. Si le risque existentiel lié à une superintelligence mal alignée est notre préoccupation la plus urgente, nous nous inquiétons également des risques que posent déjà les systèmes actuels. Ces [dangers](/dangers) touchent plusieurs dimensions :
+
+- **Emploi et économie** : l'automatisation rapide menace de [bouleverser le marché du travail](/dangers/economiques-et-materiels) à une vitesse sans précédent, sans que nos systèmes de protection sociale soient préparés.
+- **Désinformation et manipulation** : les capacités de génération de texte, d'images et de vidéos facilitent la [désinformation à grande échelle](/dangers/pour-la-societe) et la manipulation de l'opinion publique.
+- **Vie privée et surveillance** : les systèmes d'IA permettent une surveillance de masse et un profilage des individus qui [menacent les libertés fondamentales](/dangers/pour-les-individus).
+- **Cybersécurité** : l'IA amplifie les capacités offensives en matière de cyberattaques, rendant les infrastructures critiques plus vulnérables.
+- **Biais et discrimination** : les systèmes d'IA reproduisent et amplifient les biais présents dans leurs données d'entraînement.
+
+Ces risques de court terme renforcent notre conviction qu'une régulation ambitieuse est nécessaire, et pas seulement pour les modèles les plus avancés. Ils constituent autant de raisons supplémentaires d'agir maintenant.
 
 ### Croyez-vous que ChatGPT va tous nous tuer ?
 
@@ -223,7 +245,7 @@ Pause IA est une [organisation à but non lucratif enregistrée](/mentions-legal
 - C'est une expérience de lien social. Vous rencontrez d'autres personnes qui partagent vos préoccupations et votre volonté d'agir.
 - Lisez [cet excellent article](https://forum.effectivealtruism.org/posts/4ez3nvEmozwPwARr9/a-case-for-the-effectiveness-of-protest) pour en savoir plus sur l'efficacité des manifestations.
 
-C'est pourquoi l'association diversifie ses modes d'action : lobbying, événements institutionnels, production de contenu, en plus des manifestations.
+Les manifestations ne sont cependant qu'un outil parmi d'autres. C'est pourquoi l'association diversifie ses modes d'action : lobbying auprès des décideurs, événements institutionnels comme notre [conférence au Sénat](https://www.smartrezo.com/n31-france/tv-politiques-numeriques-pol-n-colloque-sur-les-dangers-de-l-ia-faut-il-appuyer-sur-pause.html?vod=25808), production de contenu et campagnes de sensibilisation.
 
 ### Je veux aider ! Que puis-je faire ?
 

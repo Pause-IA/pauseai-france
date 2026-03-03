@@ -23,17 +23,18 @@
 				avancées positives potentielles, le revers de la médaille est terrifiant.
 			</p>
 			<p>
-				D'après <a href="https://www.safe.ai/work/statement-on-ai-risk#open-letter"
+				D’après <a href="https://www.safe.ai/work/statement-on-ai-risk#open-letter"
 					>les experts en sécurité et éthique de l’IA</a
-				>, un développement incontrôlé promet également un assortiment de calamités{'\u00A0'}:
+				>, un développement incontrôlé expose l’humanité à des risques majeurs{'\u00A0'}:
 				désinformation à grande échelle, manipulation de masse, cyberattaques dévastatrices,
 				pandémies artificielles, et perte de contrôle de systèmes autonomes, allant jusqu’à menacer
 				la survie même de l'humanité.
 			</p>
 			<p>
-				Pause IA, porte-parole des chercheurs en sécurité de l'IA, promeut un développement
-				responsable de cette technologie en pleine expansion. Nous appelons à un moratoire sur
-				l'entraînement de systèmes plus dangereux, afin d'éviter une catastrophe mondiale.
+				Pause IA, en accord avec les alertes des chercheurs en sécurité de l'IA, promeut un
+				développement responsable de cette technologie en pleine expansion. Nous appelons à un
+				moratoire sur l'entraînement de systèmes plus dangereux, afin d'éviter une catastrophe
+				mondiale.
 			</p>
 			<p>
 				Les dangers sont réels, mais l'espoir existe. En agissant ensemble, nous pouvons façonner un
