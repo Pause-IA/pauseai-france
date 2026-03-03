@@ -64,6 +64,7 @@
 			label: 'Comprendre',
 			items: [
 				{ href: '/dangers', label: "Les dangers de l'IA" },
+				{ href: '/emploi-ia', label: 'Emploi et IA' },
 				{ href: '/newsletters', label: 'Newsletter' },
 				{ href: '/propositions', label: 'Nos propositions' },
 				{ href: 'https://pauseia.substack.com/', label: 'Blog', external: true }
