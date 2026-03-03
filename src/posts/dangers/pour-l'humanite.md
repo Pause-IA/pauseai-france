@@ -12,6 +12,7 @@ Des mesures régulatoires peuvent ralentir les innovations précurseures de ces 
 Dans les prochaines années, divers systèmes d’IA pourraient développer des capacités qui, combinées, créeraient des agents autonomes difficiles à arrêter. Ces programmes poursuivraient des objectifs qui leur sont propres, par exemple des virus informatiques qui évolueraient continuellement de manière à prendre le contrôle d’un maximum de machines.
 
 [Ces capacités sont](https://arxiv.org/abs/2312.11671) :
+
 - l’auto-réplication, la capacité de dupliquer son code source (c’est-à-dire ses instructions de base et ses paramètres) et le propager d’un support à un autre.
 - l’autonomie, la capacité d’opérer en continu indépendamment d’un utilisateur humain.
 - l’adaptation, la capacité de se modifier afin de mieux répondre à sa situation, ses besoins et les mesures adverses.
