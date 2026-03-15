@@ -19,7 +19,7 @@
 		$page.url.pathname == '/' ||
 		$page.url.pathname == `/${lang}` ||
 		$page.url.pathname == `/${lang}/`
-	$: onEmploiePage = /^\/emploi-ia(?:\/|$)/.test($page.url.pathname)
+	$: onEmploiePage = $page.url.pathname.includes('/emploi-ia')
 
 	// Hero has a light background — header stays dark on homepage
 	$: whiteNav = false && onHomepage && !scrolled
@@ -144,6 +144,7 @@
 				if (idx >= 0) return `/${other}/dangers/${slugsTo[idx]}`
 			}
 		}
+
 		return pathname.replace(`/${currentLang}`, `/${other}`) || `/${other}`
 	}
 

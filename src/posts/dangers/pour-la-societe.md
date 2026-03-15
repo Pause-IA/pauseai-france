@@ -3,6 +3,11 @@ title: Dangers pour la société
 description: Les dangers sociétaux de l'IA, incluant des menaces pour la démocratie, la cohésion sociale et l'emploi, nécessitent une régulation proactive, une refonte des systèmes d'information et une éducation à la pensée critique pour préserver nos valeurs et structures sociales.
 ---
 
+<script lang="ts">
+  import { page } from '$app/stores'
+  $: lang = $page.params.lang ?? 'fr'
+</script>
+
 Certains dangers touchent la société entière, et doivent être considérés dans cette perspective afin de ne pas en négliger des aspects majeurs. Ces dangers sont vastes et touchent directement à la cohésion sociale et aux fondements de notre démocratie. Ils portent atteinte à l’intégrité des processus démocratiques par l’affaiblissement, la polarisation et la désinformation, mais aussi aux processus sociaux, par la perpétuation de préjugés raciaux et autres biais. À une autre échelle, l'IA peut également avoir des conséquences sur la guerre ou sur les méthodes utilisées par des groupes terroristes.
 
 Ces dangers émergent souvent suite à un usage mal avisé des nouvelles technologies. Une régulation proactive, une refonte des systèmes d’information et une éducation à la pensée critique sont les meilleures mesures afin de préserver nos valeurs et nos structures sociales.
@@ -11,7 +16,7 @@ Ces dangers émergent souvent suite à un usage mal avisé des nouvelles technol
 
 Les modèles d’IA apprennent de leurs données d’entraînement, et on leur demande souvent d’imiter des comportements humains, y compris leurs biais raciaux ou de genre.
 
-Alors que des entreprises d’IA fleurissent à travers le monde et que son usage se démocratise à toutes les échelles de la société, ces biais risquent de se répandre et de devenir impossibles à éliminer que ça soit sur le [marché de l'emploi](/emploi-ia) ou dans des [institutions publiques](https://www.science.org/doi/full/10.1126/science.aax2342).
+Alors que des entreprises d’IA fleurissent à travers le monde et que son usage se démocratise à toutes les échelles de la société, ces biais risquent de se répandre et de devenir impossibles à éliminer que ça soit sur le <a href="/{lang}/emploi-ia">marché de l'emploi</a> ou dans des [institutions publiques](https://www.science.org/doi/full/10.1126/science.aax2342).
 
 Ce risque doit être mitigé par les fournisseurs d’IA qui sont responsables des erreurs de leurs produits en investissant plus d’efforts pour identifier et corriger ces biais. Il est aussi recommandé aux individus et entreprises de se tenir informés pour ne pas se retrouver complices dans la perpétuation de biais.
 

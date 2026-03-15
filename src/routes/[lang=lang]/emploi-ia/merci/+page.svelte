@@ -1,16 +1,15 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte'
+	import type { Lang } from '$lib/i18n'
 	import { getT } from '$lib/i18n'
-	import type { PageData } from './$types'
+	import { page } from '$app/stores'
 
-	export let data: PageData
-
-	$: t = getT(data.lang)
-	$: prefix = `/${data.lang}`
+	$: lang = ($page.params.lang as Lang) || 'fr'
+	$: t = getT(lang)
 </script>
 
 <svelte:head>
-	<title>{t.emploi_merci.title} | Pause AI</title>
+	<title>{t.emploi_merci.title} | Pause IA</title>
 </svelte:head>
 
 <article class="thank-you-page">
@@ -18,8 +17,12 @@
 		<h1>{t.emploi_merci.title}</h1>
 
 		<div class="message">
-			<p>{t.emploi_merci.p1}</p>
+			<p>
+				{t.emploi_merci.p1}
+			</p>
+
 			<p>{t.emploi_merci.p2}</p>
+
 			<ul>
 				<li>{t.emploi_merci.li1}</li>
 				<li>{t.emploi_merci.li2}</li>
@@ -36,7 +39,7 @@
 		</div>
 
 		<div class="back-link">
-			<a href="{prefix}/emploi-ia">{t.emploi_merci.back_link}</a>
+			<a href="/{lang}/emploi-ia">{t.emploi_merci.back_link}</a>
 		</div>
 	</div>
 </article>

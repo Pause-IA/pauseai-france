@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte'
+	import { page } from '$app/stores'
+	$: lang = $page.params.lang ?? 'fr'
 </script>
 
 <svelte:head>
@@ -34,7 +36,7 @@
 		</div>
 
 		<div class="back-link">
-			<a href="/emploi-ia">← Retour à la page du groupe de travail emploi IA</a>
+			<a href="/{lang}/emploi-ia">← Retour à la page du groupe de travail emploi IA</a>
 		</div>
 	</div>
 </article>

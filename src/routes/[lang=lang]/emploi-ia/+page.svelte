@@ -6,13 +6,19 @@
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import A from '$components/custom/a.svelte'
 	import type { Testimonial, ArticleShowcaseItem } from '$lib/types'
+	import type { Lang } from '$lib/i18n'
+	import { getT } from '$lib/i18n'
 
 	export let data: PageData
 
 	interface PageData {
+		lang: Lang
 		testimonials: Testimonial[]
 		articleShowcaseItems: ArticleShowcaseItem[]
 	}
+
+	$: t = getT(data.lang)
+	$: lang = data.lang
 
 	let testimonials = data.testimonials
 
@@ -40,152 +46,105 @@
 </script>
 
 <svelte:head>
-	<title>Emploi et IA - Informez vous et agissez | PauseAI France</title>
-	<meta
-		name="description"
-		content="Découvrez Emploi IA, un groupe de Pause IA dédié à comprendre l'impact de l'intelligence artificielle sur le travail et à préparer l'avenir."
-	/>
-	<meta
-		name="keywords"
-		content="Emploi, IA, Intelligence Artificielle, Travail, Automatisation, Marché du travail, Recrutement, Compétences, Formation, Reconversion, Chômage, Futur du travail"
-	/>
+	<title>{t.emploi_ia.meta_title}</title>
+	<meta name="description" content={t.emploi_ia.meta_desc} />
+	<meta name="keywords" content={t.emploi_ia.keywords} />
 	<meta name="robots" content="index, follow" />
-	<meta property="og:title" content="Emploi et IA - Informez vous et agissez | PauseAI France" />
-	<meta
-		property="og:description"
-		content="Découvrez Emploi IA, un groupe de Pause IA dédié à comprendre l'impact de l'intelligence artificielle sur le travail et à préparer l'avenir."
-	/>
+	<meta property="og:title" content={t.emploi_ia.meta_title} />
+	<meta property="og:description" content={t.emploi_ia.meta_desc} />
 	<meta property="og:image" content="https://pauseia.fr/emploi-ia/emploi-IA.png" />
 	<meta property="og:url" content="https://pauseia.fr/emploi-ia" />
 	<meta property="og:type" content="website" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Emploi et IA - Informez vous et agissez | PauseAI France" />
-	<meta
-		name="twitter:description"
-		content="Découvrez Emploi IA, un groupe de Pause IA dédié à comprendre l'impact de l'intelligence artificielle sur le travail et à préparer l'avenir."
-	/>
+	<meta name="twitter:title" content={t.emploi_ia.meta_title} />
+	<meta name="twitter:description" content={t.emploi_ia.meta_desc} />
 	<meta name="twitter:image" content="https://pauseia.fr/emploi-ia/emploi-IA.png" />
 </svelte:head>
 
 <article>
 	<hgroup>
-		<UnderlinedTitle as="h1">Emploi et IA - Informez vous et agissez</UnderlinedTitle>
+		<UnderlinedTitle as="h1">{t.emploi_ia.title}</UnderlinedTitle>
 	</hgroup>
 
 	<div>
-		<h2>Qui sommes-nous ?</h2>
+		<h2>{t.emploi_ia.who_we_are_title}</h2>
 
-		<p>
-			Nous sommes un groupe de contributeurs de Pause IA qui réfléchit spécifiquement à l'impact de
-			l'IA sur les emplois, aujourd'hui, dans 1 mois, dans 1 an, dans 2 ans... Comment le travail
-			humain va-t-il évoluer ? Quand et comment chacun de nous sera impacté ? Quel risque avons-nous
-			de perdre notre emploi ? Quelle reconversion envisager ? Quelles sont les nouvelles
-			compétences demandées ? Vers quelle nouvelle organisation du travail allons-nous ? Comment
-			subsisterons-nous?
-		</p>
+		<p>{t.emploi_ia.who_we_are_text}</p>
 
-		<h2>Nos ressources</h2>
-		<p>
-			Nous sommes au début de nos réflexions, et nous vous proposons déjà avec l'aide d'autres
-			associations et personnes :
-		</p>
+		<h2>{t.emploi_ia.resources_title}</h2>
+		<p>{t.emploi_ia.resources_intro}</p>
 		<ul>
 			<li>
-				<A href="#enquete">Un questionnaire pour savoir quel impact a l'IA sur votre travail</A>
+				<A href="#enquete">{t.emploi_ia.resource_survey}</A>
 			</li>
 			<li>
-				<A href="#temoignage"
-					>Des témoignages illustrant l'impact de l'IA sur des parcours professionnels</A
-				>
+				<A href="#temoignage">{t.emploi_ia.resource_testimonials}</A>
 			</li>
-			<li><A href="#revue">Une revue de presse sur l'impact de l'IA sur le monde du travail</A></li>
+			<li><A href="#revue">{t.emploi_ia.resource_press}</A></li>
 			<li>
-				<A href="#evolution"
-					>Un graphique sur l'évolution du nombre de pertes d'emploi dues à l'IA</A
-				>
+				<A href="#evolution">{t.emploi_ia.resource_chart}</A>
 			</li>
 			<li>
-				<A href="#avis-form">Un formulaire pour que vous puissiez nous donner un feedback</A>
+				<A href="#avis-form">{t.emploi_ia.resource_feedback}</A>
 			</li>
 		</ul>
 
-		<h2>L'IA : une menace croissante pour de nombreux emplois</h2>
+		<h2>{t.emploi_ia.threat_title}</h2>
 		<p>
-			Avec les progrès rapides de l'intelligence artificielle, de nombreux métiers risquent d'être
-			automatisés, partiellement ou totalement. L'essor des IA génératives a déjà commencé à
-			affecter des professions comme journaliste, traducteur ou illustrateur. Et cette tendance
-			pourrait s'étendre à d'autres secteurs à mesure que <a
+			{t.emploi_ia.threat_text_1}<a
 				href="https://fr.wikipedia.org/wiki/Intelligence_artificielle_g%C3%A9n%C3%A9rale"
 				target="_blank"
-				rel="noopener noreferrer">l'IA devient plus générale</a
-			>.
+				rel="noopener noreferrer">{t.emploi_ia.threat_link_agi}</a
+			>{t.emploi_ia.threat_text_2}
 		</p>
 
 		<section id="enquete" aria-labelledby="enquete-heading">
-			<h2 id="enquete-heading">Je participe à la grande enquête sur l'IA au travail !</h2>
-			<p>
-				Comment l'IA impacte-t-elle votre vie professionnelle ? L'association Pause IA réalise une
-				enquête sur l'IA et l'emploi pour évaluer et comprendre l'impact de l'IA sur le monde du
-				travail.
-			</p>
+			<h2 id="enquete-heading">{t.emploi_ia.survey_section_title}</h2>
+			<p>{t.emploi_ia.survey_section_text}</p>
 
-			<EmploiForm />
+			<EmploiForm {lang} />
 		</section>
 
 		<section id="temoignage" aria-labelledby="temoignage-heading">
-			<h2 id="temoignage-heading">L'IA et mon travail : je témoigne !</h2>
+			<h2 id="temoignage-heading">{t.emploi_ia.testimonials_section_title}</h2>
 			<p>
-				Nous recueillons régulièrement des témoignages de personnes dont la vie professionnelle a
-				été impactée par l'IA. Si vous aussi avez été concerné, ou pensez que cela pourrait arriver,
-				vous pouvez partager votre expérience <a href="/emploi-ia/questionnaire"
-					>grâce à notre questionnaire</a
-				>.
+				{t.emploi_ia.testimonials_section_text_1}<a href="/{lang}/emploi-ia/questionnaire"
+					>{t.emploi_ia.testimonials_section_link}</a
+				>{t.emploi_ia.testimonials_section_text_2}
 			</p>
 
-			<TestimonialCarousel {testimonials} />
+			<TestimonialCarousel {testimonials} {lang} />
 		</section>
 
 		<section id="evolution" aria-labelledby="evolution-heading">
-			<h2 id="evolution-heading">
-				Évolution des pertes d’emploi liées à l’intelligence artificielle
-			</h2>
+			<h2 id="evolution-heading">{t.emploi_ia.evolution_section_title}</h2>
 
 			<p>
-				Le site <strong>jobloss.ai</strong> suit les licenciements dans lesquels l’intelligence artificielle
-				ou l’automatisation est citée comme facteur important. Les données proviennent d'annonces d'entreprises
-				et de reportages de médias fiables.
+				{t.emploi_ia.evolution_section_text_1}<strong>{t.emploi_ia.evolution_strong}</strong>{t
+					.emploi_ia.evolution_section_text_2}
 			</p>
 
-			<p>
-				Le graphique ci-dessous permet d’observer l’évolution des pertes d’emploi attribuées à l’IA
-				au fil du temps et d’identifier les secteurs les plus touchés par l’automatisation.
-			</p>
+			<p>{t.emploi_ia.evolution_section_text_3}</p>
 
 			<p>
 				<a href="https://jobloss.ai/" target="_blank" rel="noopener noreferrer">
-					Voir le graphique interactif sur jobloss.ai
+					{t.emploi_ia.evolution_link}
 				</a>
 			</p>
 		</section>
 
 		<section id="revue" aria-labelledby="revue-heading">
-			<h2 id="revue-heading">Revue de presse : je reste informé !</h2>
-			<p>
-				De nombreux médias abordent l'impact de l'IA sur le marché du travail. Nous collectons
-				régulièrement des articles de presse traitant de ce sujet.
-			</p>
+			<h2 id="revue-heading">{t.emploi_ia.press_section_title}</h2>
+			<p>{t.emploi_ia.press_section_text}</p>
 
-			<ArticleShowcase articles={articleShowcaseItems} />
+			<ArticleShowcase articles={articleShowcaseItems} {lang} />
 		</section>
 
 		<section id="avis-form" aria-labelledby="avis-heading">
-			<h2 id="avis-heading">Donnez-nous votre avis</h2>
-			<p>
-				Merci de nous faire un retour : vos avis nous aident à affiner la réflexion et les actions
-				de Pause IA.
-			</p>
+			<h2 id="avis-heading">{t.emploi_ia.feedback_section_title}</h2>
+			<p>{t.emploi_ia.feedback_section_text}</p>
 
-			<EmploiAvisForm />
+			<EmploiAvisForm {lang} />
 		</section>
 	</div>
 </article>

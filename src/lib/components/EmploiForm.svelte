@@ -1,11 +1,17 @@
 <script lang="ts">
 	import Logo from './Logo.svelte'
+	import type { Lang } from '$lib/i18n'
+	import { getT } from '$lib/i18n'
+
+	export let lang: Lang = 'fr'
+
+	$: t = getT(lang)
 </script>
 
-<a href="/emploi-ia/questionnaire" title="Questionnaire sur l'IA et l'emploi de Pause IA">
-	<h3>Questionnaire</h3>
+<a href="/{lang}/emploi-ia/questionnaire" title={t.emploi_ia.survey_card_title_attr}>
+	<h3>{t.emploi_ia.survey_card_title}</h3>
 	<div class="logo"><Logo fill_circle="white" fill_ai="white" emploi_ia={true} /></div>
-	<p>Répondez à notre questionnaire sur l'IA et l'emploi</p>
+	<p>{t.emploi_ia.survey_card_text}</p>
 </a>
 
 <style>

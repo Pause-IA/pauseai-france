@@ -3,12 +3,16 @@
 	import CarouselNavigation from '$components/CarouselNavigation.svelte'
 	import ArticleTeaserCard from '$components/ArticleTeaserCard.svelte'
 	import type { ArticleShowcaseItem } from '$lib/types'
-
-	const ALL_CATEGORY = 'Toutes'
+	import type { Lang } from '$lib/i18n'
+	import { getT } from '$lib/i18n'
 
 	export let articles: ArticleShowcaseItem[] = []
+	export let lang: Lang = 'fr'
 
-	let activeCategory: string = ALL_CATEGORY
+	$: t = getT(lang)
+	$: ALL_CATEGORY = t.emploi_ia.articles_all_category
+
+	let activeCategory: string = 'Toutes'
 	let currentPage = 0
 	let categories: string[] = []
 	let tabs: string[] = []
@@ -80,6 +84,12 @@
 		)
 	)
 	$: tabs = [ALL_CATEGORY, ...categories]
+
+	// Reset active category if it's the old 'Toutes' and we switched lang, or just keep it synced with the current language's 'All'
+	$: if (activeCategory === 'Toutes' || activeCategory === 'All') {
+		activeCategory = ALL_CATEGORY
+	}
+
 	$: filteredArticles =
 		activeCategory === ALL_CATEGORY
 			? articles
@@ -95,14 +105,14 @@
 		currentPage * itemsPerPage + itemsPerPage
 	)
 	$: navItems = Array.from({ length: totalPages }, (_, index) => ({
-		label: `Aller à la page ${String(index + 1)}`
+		label: `${t.emploi_ia.articles_go_to} ${String(index + 1)}`
 	}))
 </script>
 
 <section id="showcase">
 	<div class="header">
-		<span class="label">Rubrique :</span>
-		<div class="tabs" role="tablist" aria-label="Choisir une catégorie d'article">
+		<span class="label">{t.emploi_ia.articles_label}</span>
+		<div class="tabs" role="tablist" aria-label={t.emploi_ia.articles_tabs_aria}>
 			{#each tabs as tab}
 				<button
 					type="button"
@@ -134,16 +144,16 @@
 				</div>
 			{/each}
 		{:else}
-			<p class="empty">Aucun article pour cette catégorie pour le moment.</p>
+			<p class="empty">{t.emploi_ia.articles_empty}</p>
 		{/if}
 	</div>
 
 	<CarouselNavigation
 		items={navItems}
 		current={currentPage}
-		ariaLabel="Navigation parmi les pages d'articles"
-		previousLabel="Page précédente"
-		nextLabel="Page suivante"
+		ariaLabel={t.emploi_ia.articles_nav_aria}
+		previousLabel={t.emploi_ia.articles_prev}
+		nextLabel={t.emploi_ia.articles_next}
 		showArrows={totalPages > 1}
 		showDots={totalPages > 1}
 		on:previous={previousPage}

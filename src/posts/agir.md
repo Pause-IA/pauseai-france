@@ -6,6 +6,11 @@ original:
   url: https://github.com/PauseAI/pauseai-website/blob/95be1d5327015a2c41f5c518d92812d7f6c79bda/src/posts/action.md
 ---
 
+<script lang="ts">
+  import { page } from '$app/stores'
+  $: lang = $page.params.lang ?? 'fr'
+</script>
+
 Le nombre de personnes conscientes des risques liés à l'IA est encore restreint.
 
 Vous en faites désormais partie.
@@ -21,7 +26,7 @@ Vous en faites désormais partie.
   - [Interdire la superintelligence](https://www.change.org/p/ban-superintelligence-stop-ai-driven-human-extinction-risk?utm_content=cl_sharecopy_37871653_en-US%3A4&recruited_by_id=91d3fbf0-cc46-11ee-911b-5975de1bf878&utm_source=share_petition&utm_medium=copylink&utm_campaign=psf_combo_share_initial&share_bandit_exp=initial-37871653-en-US)
   - [Exiger une IA responsable](https://www.change.org/p/artificial-intelligence-time-is-running-out-for-responsible-ai-development-2a2f1a13-b63a-4d8c-979b-b144bded2f48)
 - **Participez à notre enquête sur l’emploi & l’IA** :
-  - [Impact de l’intelligence artificielle sur votre profession](/emploi-ia/questionnaire)
+  - <a href="/{lang}/emploi-ia/questionnaire">Impact de l’intelligence artificielle sur votre profession</a>
 - **[Informez-vous](/dangers)** sur l'alignement de l'IA et les risques qui nous menacent.
 - **[Devenez recruteur pour Pause IA](/recrutement)** : Apprenez à mobiliser efficacement votre entourage avec nos guides et techniques de recrutement relationnel. Chaque personne recrutée peut en rallier d'autres, créant un effet multiplicateur puissant.
 - **Suivez nos chaînes** sur les réseaux sociaux et restez informés : [Discord](https://discord.gg/vyXGd7AeGc), [Twitter](https://twitter.com/pause_ia), [Facebook](https://www.facebook.com/Pause.IA), [TikTok](https://www.tiktok.com/@pause_ia), [LinkedIn](https://www.linkedin.com/company/pause-ia/), [Instagram](https://www.instagram.com/pause_ia), [Threads](https://www.threads.net/@pause_ia), [YouTube](https://www.youtube.com/@Pause_IA)
@@ -71,7 +76,7 @@ Si vous êtes déjà une personnalité reconnue dans le domaine de l'alignement,
 
 ### La thématique de l’emploi vous tient à cœur
 
-[Découvrez Emploi IA](/emploi-ia), un groupe de travail de Pause IA dédié à l’analyse des transformations du marché du travail face à l’intelligence artificielle. Notre mission est d’étudier l’impact de l’IA sur les métiers et les compétences, d’accompagner les personnes dont le parcours professionnel a été affecté par ces évolutions, et d’assurer une veille active sur les changements économiques et sociaux liés à cette révolution technologique.
+<a href="/{lang}/emploi-ia">Découvrez Emploi IA</a>, un groupe de travail de Pause IA dédié à l’analyse des transformations du marché du travail face à l’intelligence artificielle. Notre mission est d’étudier l’impact de l’IA sur les métiers et les compétences, d’accompagner les personnes dont le parcours professionnel a été affecté par ces évolutions, et d’assurer une veille active sur les changements économiques et sociaux liés à cette révolution technologique.
 
 ## Conseils pour être efficace
 

@@ -3,6 +3,11 @@ title: Dangers économiques et matériels
 description: Les dangers économiques et matériels de l'IA incluent des impacts sur les infrastructures et les entreprises, de nouvelles vulnérabilités, et des défis d'automatisation, nécessitant une gestion prudente via la régulation et l'innovation technologique.
 ---
 
+<script lang="ts">
+  import { page } from '$app/stores'
+  $: lang = $page.params.lang ?? 'fr'
+</script>
+
 Les dangers économiques et matériels liés à l’intelligence artificielle concernent principalement les impacts directs sur les infrastructures, les entreprises, et la gestion des ressources. L’IA promet des avancées significatives dans l’optimisation et l’automatisation de nombreux processus mais elle introduit également de nouvelles vulnérabilités et risques de dysfonctionnements. Parmi ces menaces, on compte la facilitation d’attaques à l’aide de l’IA, les défaillances techniques et l’impact économique des technologies de rupture.
 
 La gestion de ces menaces nécessite une vigilance accrue, des régulations rigoureuses et surtout des innovations technologiques pour garantir la résilience et la sécurité des systèmes d’IA et des systèmes confrontés à l’IA.
@@ -15,12 +20,12 @@ Avec l’invention de la machine à vapeur, la valeur comparative du travail man
 
 Le profit de la compétitivité économique des IA bénéficiera à leurs propriétaires, mais que deviendront ceux qui auront ainsi perdu leur emploi ? Il est difficile de prédire quels emplois seront remplacés en premier, ce qui mène à une précarité sociale et peut invalider des années d’études, d’efforts et d’investissements. Notre modèle économique et notre système de répartition des richesses ne sont pas préparés à cette transition.
 
-Pour une analyse plus approfondie de l’impact de l’intelligence artificielle sur l’emploi, consultez notre page dédiée aux [risques de l’IA sur le marché du travail](/emploi-ia)
+Pour une analyse plus approfondie de l’impact de l’intelligence artificielle sur l’emploi, consultez notre page dédiée aux <a href="/{lang}/emploi-ia">risques de l’IA sur le marché du travail</a>
 .
 
 ## Cyberattaques
 
-Les logiciels espions comme [Pegasus](https://fr.wikipedia.org/wiki/Pegasus_(logiciel_espion)) coûtent des dizaines de millions de dollars à développer. Trouver des vulnérabilités dites « zero-day » dans les logiciels (des vulnérabilités qui n'ont pas encore été découvertes) demande beaucoup de travail, de compétences et de temps. Lorsque l’IA surpassera les meilleurs programmeurs humains, elle pourra être utilisée afin de créer de nouveaux types de cyberattaques et découvrir de nouvelles vulnérabilités plus vite et à moindre coût.
+Les logiciels espions comme [Pegasus](<https://fr.wikipedia.org/wiki/Pegasus_(logiciel_espion)>) coûtent des dizaines de millions de dollars à développer. Trouver des vulnérabilités dites « zero-day » dans les logiciels (des vulnérabilités qui n'ont pas encore été découvertes) demande beaucoup de travail, de compétences et de temps. Lorsque l’IA surpassera les meilleurs programmeurs humains, elle pourra être utilisée afin de créer de nouveaux types de cyberattaques et découvrir de nouvelles vulnérabilités plus vite et à moindre coût.
 
 Les systèmes d'IA peuvent déjà analyser et écrire du code, trouver des [vulnérabilités](https://betterprogramming.pub/i-used-gpt-3-to-find-213-security-vulnerabilities-in-a-single-codebase-cc3870ba9411) et les [exploiter](https://blog.checkpoint.com/2023/03/15/check-point-research-conducts-initial-security-analysis-of-chatgpt4-highlighting-potential-scenarios-for-accelerated-cybercrime/). Ils peuvent être utilisés pour [amplifier et automatiser des cyberattaques](https://www.crowdstrike.com/cybersecurity-101/cyberattacks/ai-powered-cyberattacks/), élargissant leur portée et leur impact et les rendant capables de s'adapter aux mesures de sécurité.
 

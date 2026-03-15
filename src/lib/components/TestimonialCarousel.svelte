@@ -1,9 +1,14 @@
 <script lang="ts">
 	import CarouselNavigation from '$components/CarouselNavigation.svelte'
-	import { formatFrenchDate } from '$lib/utils'
+	import { formatFrenchDate, formatDate } from '$lib/utils'
 	import type { Testimonial } from '$lib/types'
+	import type { Lang } from '$lib/i18n'
+	import { getT } from '$lib/i18n'
 
 	export let testimonials: Testimonial[] = []
+	export let lang: Lang = 'fr'
+
+	$: t = getT(lang)
 
 	let current = 0
 
@@ -28,7 +33,7 @@
 	let formattedDate = ''
 
 	$: navItems = testimonials.map(() => ({
-		label: `un autre temoignage`
+		label: t.emploi_ia.carousel_other
 	}))
 
 	const handleSelect = (event: CustomEvent<{ index: number }>) => {
@@ -40,7 +45,7 @@
 			const inBounds = current >= 0 && current < testimonials.length
 			const item = inBounds ? testimonials[current] : null
 			currentTestimonial = item
-			formattedDate = item?.date ? formatFrenchDate(item.date) : ''
+			formattedDate = item?.date ? formatDate(item.date, lang) : ''
 		} else {
 			currentTestimonial = null
 			formattedDate = ''
@@ -59,7 +64,7 @@
 								{currentTestimonial.name},
 							{/if}
 							{#if Number(currentTestimonial.age) && currentTestimonial.name}
-								{currentTestimonial.age} ans,
+								{currentTestimonial.age} {t.emploi_ia.carousel_age},
 							{/if}
 							{#if currentTestimonial.job}
 								{currentTestimonial.job}
@@ -72,15 +77,15 @@
 			</article>
 		{/key}
 	{:else}
-		<p class="empty">Aucun témoignage pour le moment.</p>
+		<p class="empty">{t.emploi_ia.carousel_empty}</p>
 	{/if}
 
 	<CarouselNavigation
 		items={navItems}
 		{current}
-		ariaLabel="Navigation des témoignages"
-		previousLabel="Témoignage précédent"
-		nextLabel="Témoignage suivant"
+		ariaLabel={t.emploi_ia.carousel_nav_aria}
+		previousLabel={t.emploi_ia.carousel_prev}
+		nextLabel={t.emploi_ia.carousel_next}
 		showArrows={testimonials.length > 1}
 		showDots={testimonials.length > 1}
 		on:previous={previous}

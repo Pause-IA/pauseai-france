@@ -1,6 +1,12 @@
-<script>
+<script lang="ts">
 	import { enhance } from '$app/forms'
 	import toast from 'svelte-french-toast'
+	import type { Lang } from '$lib/i18n'
+	import { getT } from '$lib/i18n'
+
+	export let lang: Lang = 'fr'
+
+	$: t = getT(lang)
 
 	let isSubmitting = false
 </script>
@@ -13,12 +19,12 @@
 		return async ({ result, update }) => {
 			isSubmitting = false
 			if (result.type === 'success') {
-				toast.success('Merci pour votre retour !', {
+				toast.success(t.emploi_ia.feedback_form_success, {
 					duration: 4000,
 					position: 'top-center'
 				})
 			} else if (result.type === 'failure') {
-				toast.error('Une erreur est survenue. Veuillez réessayer.', {
+				toast.error(t.emploi_ia.feedback_form_error, {
 					duration: 4000,
 					position: 'top-center'
 				})
@@ -27,18 +33,17 @@
 		}
 	}}
 >
-	<label for="avis"> Faites-nous un retour sur ce que vous aimeriez que l’on améliore ? </label>
+	<label for="avis"> {t.emploi_ia.feedback_form_label} </label>
 	<textarea
 		id="avis"
 		name="avis"
 		rows="4"
-		placeholder="ex: J’aimerais avoir des graphiques pour savoir quels sont les métiers les plus impactés par l’IA.
-"
+		placeholder={t.emploi_ia.feedback_form_placeholder}
 		required
 	></textarea>
 
 	<button type="submit" disabled={isSubmitting}>
-		{isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
+		{isSubmitting ? t.emploi_ia.feedback_form_submitting : t.emploi_ia.feedback_form_submit}
 	</button>
 </form>
 

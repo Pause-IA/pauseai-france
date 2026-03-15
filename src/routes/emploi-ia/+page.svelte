@@ -137,6 +137,29 @@
 			<TestimonialCarousel {testimonials} />
 		</section>
 
+		<section id="evolution" aria-labelledby="evolution-heading">
+			<h2 id="evolution-heading">
+				Évolution des pertes d’emploi liées à l’intelligence artificielle
+			</h2>
+
+			<p>
+				Le site <strong>jobloss.ai</strong> suit les licenciements dans lesquels l’intelligence artificielle
+				ou l’automatisation est citée comme facteur important. Les données proviennent d'annonces d'entreprises
+				et de reportages de médias fiables.
+			</p>
+
+			<p>
+				Le graphique ci-dessous permet d’observer l’évolution des pertes d’emploi attribuées à l’IA
+				au fil du temps et d’identifier les secteurs les plus touchés par l’automatisation.
+			</p>
+
+			<p>
+				<a href="https://jobloss.ai/" target="_blank" rel="noopener noreferrer">
+					Voir le graphique interactif sur jobloss.ai
+				</a>
+			</p>
+		</section>
+
 		<section id="revue" aria-labelledby="revue-heading">
 			<h2 id="revue-heading">Revue de presse : je reste informé !</h2>
 			<p>
