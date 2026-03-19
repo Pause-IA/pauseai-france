@@ -103,6 +103,14 @@
 			commitments: '10/14',
 			charterFile: '/chartes-municipales-2026/Antoine_Mikolajczak.pdf',
 			charterType: 'pdf'
+		},
+		{
+			id: 'cecile-baudouin-brest',
+			name: 'Cécile Baudouin',
+			city: 'Brest',
+			commitments: '14/14',
+			charterFile: '/chartes-municipales-2026/Cecile_Baudouin.pdf',
+			charterType: 'pdf'
 		}
 	]
 
