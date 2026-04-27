@@ -145,9 +145,11 @@
 <style>
 	article {
 		max-inline-size: 50rem;
+		width: 100%;
 		margin-inline: auto;
 		margin-top: 2rem;
 		padding: 0 1rem;
+		overflow-x: clip;
 	}
 
 	section:not(:last-child) {
@@ -215,6 +217,19 @@
 		color: var(--text-secondary, #888);
 	}
 
+	@media (max-width: 540px) {
+		.stat-block {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.4rem;
+			padding: 0.8rem 1rem;
+		}
+
+		.stat-number {
+			font-size: 2.2rem;
+		}
+	}
+
 	/* ── Bigger-problem section ── */
 	.bigger-problem {
 		background: var(--bg-subtle, #f7f7f5);
@@ -258,5 +273,7 @@
 	/* ── ActiVoice embed ── */
 	.av-embed {
 		margin-top: 1.5rem;
+		max-width: 100%;
+		overflow: hidden;
 	}
 </style>
