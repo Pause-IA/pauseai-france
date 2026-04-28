@@ -220,7 +220,7 @@ export default {
 		},
 		section1: {
 			title: '1. Quelques informations vous concernant...',
-			label_sexe: 'Sexe',
+			label_sexe: 'Genre',
 			label_age: 'Votre âge',
 			age_placeholder: 'Ex: 35',
 			label_statut: 'Votre statut professionnel',

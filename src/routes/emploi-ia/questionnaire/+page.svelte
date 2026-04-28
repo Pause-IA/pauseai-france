@@ -202,7 +202,7 @@
 
 				<div class="form-group">
 					<label for="sexe">
-						Sexe <span class="required">*</span>
+						Genre <span class="required">*</span>
 					</label>
 					<select id="sexe" bind:value={formData.sexe} required>
 						<option value="" disabled selected>-- Sélectionner --</option>
