@@ -516,6 +516,11 @@ export default {
 		article2_title: "Pas de pilote dans l'avion France",
 		article2_desc:
 			'Chômage massif des jeunes, modèle social fragilisé, dépendance à la Silicon Valley : à quoi ressemblera notre monde si nous ne réagissons pas.',
-		article2_url: '/emploi-ia/pas-de-pilote'
+		article2_url: '/emploi-ia/pas-de-pilote',
+		stats_section_title: "Résultats de l'enquête",
+		stats_impact_title: 'Impact perçu',
+		stats_rapport_title: "Rapport à l'IA",
+		stats_satisfaction_title: 'Satisfaction',
+		stats_study_link: "Consulter l'étude statistique détaillée"
 	}
 }

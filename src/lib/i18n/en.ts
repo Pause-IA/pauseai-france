@@ -513,6 +513,11 @@ export default {
 		article2_title: 'France: no pilot in the cockpit',
 		article2_desc:
 			'Mass youth unemployment, a threatened welfare state, dependence on Silicon Valley: what our world could look like if we fail to act.',
-		article2_url: '/emploi-ia/pas-de-pilote'
+		article2_url: '/emploi-ia/pas-de-pilote',
+		stats_section_title: 'Survey results',
+		stats_impact_title: 'Perceived impact',
+		stats_rapport_title: 'Relationship with AI',
+		stats_satisfaction_title: 'Satisfaction',
+		stats_study_link: 'View detailed statistical study'
 	}
 }
