@@ -1,4 +1,35 @@
 "Prenom","Sexe","Age","Statut_professionnel","Niveau_études","Secteur_activité","Profession","Fréquence_info_IA","Impact_perçu","Rapport_à_IA","Intéressé_cellule","Raison_cellule","Témoignage","Email","Fréquence_utilisation","Tâche_IA","Raisons_utilisation","Satisfaction","Date","Consentement","Afficher","Dernière modification par"
+"","Femme","46","Actif fonctionnaire","Bac +5","Service public, défense et sécurité","Professeure","Hebdomadaire ou équivalent","Ne souhaite pas répondre","Le malaise voire l'anxiété","Ne sais pas","","Je suis professeure, tutrice et maître de stage. Je participe donc à la formation des futurs enseignants. Je constate que les étudiants sont formés à utiliser l’IA que les écoles de formation présentent comme un outil. Pas de retour critique. Le niveau de mes stagiaires baissent d’année en année. Il n’y a plus de pédagogie enseignée. 
+J’assiste également à des formations IA sans consensus en école. 
+Par ailleurs des professeurs en université forment des enseignants « aux bons usages »de l’IA et aux vertus numériques. 
+Le ver est dans le fruit.","isalamm@hotmail.fr","","","","","2026-05-13T12:33:00.000+00:00","false","false","Emploi et IA"
+"Thierry ","Homme","62","Retraité","CAP ou bac professionnel","Commerce et distribution","Directeur des opérations ","Hebdomadaire ou équivalent","Très fort impact : emploi perdu métier disparu compétences inutiles...","L'excitation à l'idée de l'utiliser davantage","Ne souhaite pas répondre","","Bonjour,
+J’ai grandement contribué à la mise en place de l’IA dans l’entreprise dont je suis désormais retraité.
+Devant le faible engagement au travail des nouvelles générations, j’ai aidé à trouver les moyens de compenser les manques en permettant la fabrication de modèles puis d’agents permettant de réaliser des tâches simples de contrôle puis d’exécution. Petit à petit, mes tâches et compétences en organisation ont été délégués à la machine. 6 mois avant mon départ, j’ai validé la réorganisation des tâches proposée par le système. La spécificité de mon poste « charnière » et mes compétences à 360 degrés ont été avantageusement remplacées par l’IA sauf une, la compétence RH. Elle est depuis mon départ, en cours de substitution par un système de bonification et intéressement d’entreprise qui récompense l’effort collectif et isole les récalcitrants. La boucle est bouclée, mon emploi hautement qualifié et bien rémunéré a simplement disparu. Depuis, le recours à des spécialistes, auditeurs, informaticiens, juristes etc..c’est réduite à peau de chagrin. Plus d’un an après mon départ en retraite, j’ai eu le temps de réfléchir. Aurais-je pu éviter ou limiter le recours à l’IA? Simplement non! Mon employeur as t il fait l’économie totale de mon salaire? Non, pas tout à fait car petit à petit, les coûts liés à l’IA grimpent fortement. Les cols blancs suivants dans l’échelle hiérarchique sont ils menacés? Oui clairement car ils ne sont déjà plus que des exécutants réglés au rythme de la machine. Il reste certaines tâches liées à des relations humaines difficilement remplaçable pour les situations de crise mais la mise en place de l’IA s’accélère aussi chez les prestataires. Dans moins d’une année les développements en cours auront raison de cette valeur ajoutée. 
+Les comptables seront remplacés dans l’année par des supers agents en cours de déploiement.
+Qui sera à mon avis le prochain remplacement?
+Le patron et l’entreprise car l’IA  se développe aussi chez les fabricants!
+","lailavoix.thierry@orange.fr","","Génération d'images, de sons, de vidéos
+
+Analyse / Résumé de document (texte, vidéo...)
+
+Traduction
+
+Automatisation de tâches répétitives
+
+Codage
+
+Gestion de planning / projet
+
+Analyse de données
+
+Pilotage/contrôle de dispositifs connectés
+
+Prise de décision / aide à la décision","Suite à la pression concurrentielle
+
+Pour pouvoir réaliser toutes mes tâches
+
+Pour gagner du temps, être plus efficace","Oui cela décuple mes capacités","2026-05-12T06:34:00.000+00:00","true","false","Emploi et IA"
 "","Homme","40","Actif salarié","Bac +5","Informatique et télécommunication","","Quotidienne ou quasi-quotidienne","Fort impact : menace de perte d'emploi transformations difficiles","L'observation et la prudence","Ne sais pas","","","cmtcosta@gmail.com","","","","","2026-05-10T08:48:00.000+00:00","false","false","Emploi et IA"
 "Veronique","Femme","60","Retraité","Bac +5","Architecture","","Mensuelle et de façon active","Fort impact : menace de perte d'emploi transformations difficiles","L'excitation à l'idée de l'utiliser davantage","Oui","Des moyens d'agir sur la société et le monde du travail","Pas encore de réels impacts. ","veronique.thierry848@orange.fr","","","","","2026-05-09T20:26:00.000+00:00","true","false","Emploi et IA"
 "","Homme","44","Actif fonctionnaire","Ne souhaite pas répondre","Service public, défense et sécurité","Assistant d'éducation.","Hebdomadaire ou équivalent","Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés","L'observation et la prudence","Non","","De plus en plus de jeunes utilisent l'IA dans la résolution des devoirs, d'exposés etc. Les enseignants et les employés dans les lycées doivent y faire face et moi-même j'utilise l'IA. Travailler avec celle-ci est à mon sens une bonne idée, seulement personne n'approfondit. Si nous posons la même question à Chat GPT par exemple, nous nous apercevons qu'il y a malgré tout un pourcentage d'erreur. Mais ce qui est vrai aujourd'hui sera peut être faux demain car l'évolution de l'IA est très rapide peut être même trop rapide.  ","julien.langin17770@gmail.com","","","","","2026-05-08T16:50:00.000+00:00","false","false","Ludo"
@@ -881,11 +912,6 @@ Traduction
 Analyse de données","Par pure curiosité
 
 Pour gagner du temps, être plus efficace","Oui et non cela dépend des tâches","2025-07-17","false","true","Ludo"
-"","Femme","50 à 59 ans","Actif indépendant","Bac +5","Autres","Ancienne Traductrice ","Hebdomadaire ou équivalent","Très fort impact : emploi perdu métier disparu compétences inutiles...","Le malaise voire l'anxiété","","Partager mon expérience / témoigner
-
-Des moyens d’agir sur ma situation personnelle au travail
-
-Des moyens d’agir sur la société et le monde du travail","Traductrice depuis 2017, mon CA a baissé depuis l'arrivée de Chat GPT, d'abord modérément pendant plus d'une année, mais depuis mi-2024, la situation n'est plus tenable, au point que je me suis décidée à rechercher du travail et à revenir à mon ancien métier. Entre les agences qui tirent les tarifs vers le bas et recourent majoritairement à la post-édition (activité peu lucrative et similaire au travail à la chaîne) et les clients directs qui pensent que l'IA est capable de faire aussi bien que les traducteurs pros (message martelé à tous vents par les Big Tech), le métier a perdu tout son intérêt.","mairead1467@gmail.com","Très ponctuellement","Quand je recherche des infos précises sur un sujet pointu mais que je ne trouve pas d'infos / les recherches sont trop longues","Pour gagner du temps, être plus efficace","Non les résultats obtenus ne sont pas satisfaisants","2025-07-16","false","true","Ludo"
 "Ludovic","Homme","22","Actif salarié","Bac général","Maintenance entretien et nettoyage","Ancien étudiant en Informatique","Quotidienne ou quasi-quotidienne","Très fort impact : emploi perdu métier disparu compétences inutiles...","L'observation et la prudence","Oui","Partager mon expérience / témoigner","Étant passionné de technologie depuis toujours, j'avais pour ambition de travailler dans l'informatique en devenant développeur. C'est avec cette perspective qu'en 2022, j'ai décidé de faire des études supérieures dans ce domaine. 
 
 Cependant, à la fin de cette année, j'ai découvert (comme la plupart des gens) ChatGPT. D'abord émerveillé par cet outil, j'ai vite déchanté après quelques mois en voyant l'impact qu'il a eu sur notre société. En effet, aujourd'hui, quasiment tous les étudiants trichent, ce qui fait qu'ils n'apprennent rien. Par conséquent, les élèves méritants, qui ne trichent pas et font réellement l'effort d'apprendre, voient leur travail dévalorisé. De plus, les entreprises et les fonds d'investissement dépensent des sommes colossales pour essayer de remplacer le plus de postes de cols blancs avec des technologies dont nous connaissons très peu le fonctionnement actuel ni comment elles apprennent durant leur phase d'entraînement. 
@@ -901,6 +927,11 @@ Codage","Pour pouvoir réaliser toutes mes tâches
 Par manque de compétences
 
 Pour gagner du temps, être plus efficace","Oui et non cela dépend des tâches","2025-07-16","true","true","Ludo"
+"","Femme","50 à 59 ans","Actif indépendant","Bac +5","Autres","Ancienne Traductrice ","Hebdomadaire ou équivalent","Très fort impact : emploi perdu métier disparu compétences inutiles...","Le malaise voire l'anxiété","","Partager mon expérience / témoigner
+
+Des moyens d’agir sur ma situation personnelle au travail
+
+Des moyens d’agir sur la société et le monde du travail","Traductrice depuis 2017, mon CA a baissé depuis l'arrivée de Chat GPT, d'abord modérément pendant plus d'une année, mais depuis mi-2024, la situation n'est plus tenable, au point que je me suis décidée à rechercher du travail et à revenir à mon ancien métier. Entre les agences qui tirent les tarifs vers le bas et recourent majoritairement à la post-édition (activité peu lucrative et similaire au travail à la chaîne) et les clients directs qui pensent que l'IA est capable de faire aussi bien que les traducteurs pros (message martelé à tous vents par les Big Tech), le métier a perdu tout son intérêt.","mairead1467@gmail.com","Très ponctuellement","Quand je recherche des infos précises sur un sujet pointu mais que je ne trouve pas d'infos / les recherches sont trop longues","Pour gagner du temps, être plus efficace","Non les résultats obtenus ne sont pas satisfaisants","2025-07-16","false","true","Ludo"
 "","Homme","50 à 59 ans","Actif salarié","Bac +2 ou bac +3","Energie","","Quotidienne ou quasi-quotidienne","Fort impact : menace de perte d'emploi transformations difficiles","L'observation et la prudence","Oui","De l’information / échanges sur les avancées de l’IA dans mon métier / secteur / mes compétences","","s.dorion@orange.fr","Toutes les semaines","Correction et rédaction de texte
 
 Codage

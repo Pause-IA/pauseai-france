@@ -133,16 +133,22 @@ export function find_pourcentage_by_groupe(
 
 	// Grouper les items
 	for (const item of items) {
-		const groupValue = extractValue(item.properties?.[groupKey]).trim()
+		const groupValueRaw = extractValue(item.properties?.[groupKey]).trim()
 		const targetValue = extractValue(item.properties?.[valueKey]).trim()
 
-		if (!groupValue || !targetValue) continue
+		if (!groupValueRaw) continue
 
-		if (!grouped[groupValue]) {
-			grouped[groupValue] = []
+		const groups = groupValueRaw.split(/\n| \| /)
+		for (const g of groups) {
+			const groupValue = g.trim()
+			if (!groupValue) continue
+
+			if (!grouped[groupValue]) {
+				grouped[groupValue] = []
+			}
+
+			grouped[groupValue].push(targetValue)
 		}
-
-		grouped[groupValue].push(targetValue)
 	}
 
 	// Calcul des pourcentages pour chaque groupe
@@ -152,6 +158,91 @@ export function find_pourcentage_by_groupe(
 	}))
 
 	return result
+}
+
+export function find_impact_rankings(
+	items: any[],
+	groupKey: string,
+	valueKey: string,
+	targetValue: string,
+	minCount: number = 3
+): { label: string; value: number; count: number }[] {
+	const grouped: Record<string, string[]> = {}
+
+	for (const item of items) {
+		const groupValueRaw = extractValue(item.properties?.[groupKey]).trim()
+		const targetVal = extractValue(item.properties?.[valueKey]).trim()
+
+		if (!groupValueRaw) continue
+
+		const groups = groupValueRaw.split(/\n| \| /)
+		for (const g of groups) {
+			const groupValue = g.trim()
+			if (!groupValue) continue
+
+			if (!grouped[groupValue]) {
+				grouped[groupValue] = []
+			}
+			grouped[groupValue].push(targetVal)
+		}
+	}
+
+	const rankings = Object.entries(grouped)
+		.map(([group, values]) => {
+			const total = values.length
+			const targetCount = values.filter((v) => v === targetValue).length
+			return {
+				label: group,
+				value: total > 0 ? parseFloat(((targetCount / total) * 100).toFixed(2)) : 0,
+				count: total
+			}
+		})
+		.filter((item) => item.value > 0 && item.count >= minCount)
+		.sort((a, b) => b.value - a.value)
+
+	return rankings
+}
+
+export function find_impact_rankings_by_age(
+	items: any[],
+	ageKey: string,
+	valueKey: string,
+	targetValue: string,
+	minCount: number = 3
+): { label: string; value: number; count: number }[] {
+	const grouped: Record<string, string[]> = {}
+
+	for (const item of items) {
+		const rawAge = extractValue(item.properties?.[ageKey]).trim()
+		const targetVal = extractValue(item.properties?.[valueKey]).trim()
+
+		const match = rawAge.match(/\d+/)
+		if (!match || !targetVal) continue
+
+		const age = parseInt(match[0])
+		const min = Math.floor(age / 10) * 10
+		const ageGroup = `${min}-${min + 9} ans`
+
+		if (!grouped[ageGroup]) {
+			grouped[ageGroup] = []
+		}
+		grouped[ageGroup].push(targetVal)
+	}
+
+	const rankings = Object.entries(grouped)
+		.map(([group, values]) => {
+			const total = values.length
+			const targetCount = values.filter((v) => v === targetValue).length
+			return {
+				label: group,
+				value: total > 0 ? parseFloat(((targetCount / total) * 100).toFixed(2)) : 0,
+				count: total
+			}
+		})
+		.filter((item) => item.value > 0 && item.count >= minCount)
+		.sort((a, b) => b.value - a.value)
+
+	return rankings
 }
 
 export function find_pourcentage_by_groupe_age_tens(

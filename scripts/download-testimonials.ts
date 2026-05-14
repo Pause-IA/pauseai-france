@@ -7,7 +7,9 @@ import {
 	find_pourcentage_by_groupe,
 	find_pourcentage_by_groupe_age_tens,
 	impact_by_age_tens,
-	extractValue
+	extractValue,
+	find_impact_rankings,
+	find_impact_rankings_by_age
 } from '../src/lib/data/statistics.ts'
 import dotenv from 'dotenv'
 
@@ -101,7 +103,7 @@ async function downloadAll() {
 }
 
 function generateSurveyStatsFile(allResults: any[], schema: any) {
-	const colors = ['#ff9416', '#c96900', '#ffb766', '#8a4700', '#ffd9a3', '#e5e7eb']
+	const colors = ['#ff9416', '#c96900', '#ffb766', '#8a4700', '#ffd9a3']
 
 	// Official options from fr.ts to group personalized "Other" answers
 	const officialOptions: Record<string, string[]> = {
@@ -256,7 +258,557 @@ function generateSurveyStatsFile(allResults: any[], schema: any) {
 		age: ageData,
 		etudes: getChartData('Niveau_études'),
 		statut: getChartData('Statut_professionnel'),
-		genre: getChartData('Sexe')
+		genre: getChartData('Sexe'),
+		impact_par_secteur: find_pourcentage_by_groupe(allResults, 'Secteur_activité', 'Impact_perçu'),
+		secteurs_tres_fortement_impactes: find_impact_rankings(
+			allResults,
+			'Secteur_activité',
+			'Impact_perçu',
+			'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		secteurs_fortement_impactes: find_impact_rankings(
+			allResults,
+			'Secteur_activité',
+			'Impact_perçu',
+			"Fort impact : menace de perte d'emploi transformations difficiles"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		secteurs_moyen_impactes: find_impact_rankings(
+			allResults,
+			'Secteur_activité',
+			'Impact_perçu',
+			"Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		secteurs_peu_impactes: find_impact_rankings(
+			allResults,
+			'Secteur_activité',
+			'Impact_perçu',
+			"Peu d'impact / Pas tout de suite"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		secteurs_pas_impactes: find_impact_rankings(
+			allResults,
+			'Secteur_activité',
+			'Impact_perçu',
+			'Jamais'
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		repartition_secteurs_tres_fort_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+				)
+				.map((item) => extractValue(item.properties?.Secteur_activité)),
+			officialOptions.Secteur_activité
+		)
+			.slice(0, 8)
+			.map((s, i) => ({
+				label: s.value,
+				value: parseFloat(s.percentage.replace('%', '')),
+				color: colors[i % colors.length]
+			})),
+		repartition_secteurs_fort_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						"Fort impact : menace de perte d'emploi transformations difficiles"
+				)
+				.map((item) => extractValue(item.properties?.Secteur_activité)),
+			officialOptions.Secteur_activité
+		)
+			.slice(0, 8)
+			.map((s, i) => ({
+				label: s.value,
+				value: parseFloat(s.percentage.replace('%', '')),
+				color: colors[i % colors.length]
+			})),
+		repartition_secteurs_moyen_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						"Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+				)
+				.map((item) => extractValue(item.properties?.Secteur_activité)),
+			officialOptions.Secteur_activité
+		)
+			.slice(0, 8)
+			.map((s, i) => ({
+				label: s.value,
+				value: parseFloat(s.percentage.replace('%', '')),
+				color: colors[i % colors.length]
+			})),
+		repartition_secteurs_peu_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) === "Peu d'impact / Pas tout de suite"
+				)
+				.map((item) => extractValue(item.properties?.Secteur_activité)),
+			officialOptions.Secteur_activité
+		)
+			.slice(0, 8)
+			.map((s, i) => ({
+				label: s.value,
+				value: parseFloat(s.percentage.replace('%', '')),
+				color: colors[i % colors.length]
+			})),
+
+		repartition_secteurs_jamais_impactes: find_pourcentage(
+			allResults
+				.filter((item) => extractValue(item.properties?.Impact_perçu) === 'Jamais')
+				.map((item) => extractValue(item.properties?.Secteur_activité)),
+			officialOptions.Secteur_activité
+		)
+			.slice(0, 8)
+			.map((s, i) => ({
+				label: s.value,
+				value: parseFloat(s.percentage.replace('%', '')),
+				color: colors[i % colors.length]
+			})),
+		studies_tres_fortement_impactes: find_impact_rankings(
+			allResults,
+			'Niveau_études',
+			'Impact_perçu',
+			'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		studies_fortement_impactes: find_impact_rankings(
+			allResults,
+			'Niveau_études',
+			'Impact_perçu',
+			"Fort impact : menace de perte d'emploi transformations difficiles"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		studies_moyen_impactes: find_impact_rankings(
+			allResults,
+			'Niveau_études',
+			'Impact_perçu',
+			"Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		studies_peu_impactes: find_impact_rankings(
+			allResults,
+			'Niveau_études',
+			'Impact_perçu',
+			"Peu d'impact / Pas tout de suite"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		studies_pas_impactes: find_impact_rankings(
+			allResults,
+			'Niveau_études',
+			'Impact_perçu',
+			'Jamais'
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		repartition_studies_tres_fort_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+				)
+				.map((item) => extractValue(item.properties?.Niveau_études)),
+			officialOptions.Niveau_études
+		)
+			.slice(0, 8)
+			.map((s, i) => ({
+				label: s.value,
+				value: parseFloat(s.percentage.replace('%', '')),
+				color: colors[i % colors.length]
+			})),
+		repartition_studies_fort_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						"Fort impact : menace de perte d'emploi transformations difficiles"
+				)
+				.map((item) => extractValue(item.properties?.Niveau_études)),
+			officialOptions.Niveau_études
+		)
+			.slice(0, 8)
+			.map((s, i) => ({
+				label: s.value,
+				value: parseFloat(s.percentage.replace('%', '')),
+				color: colors[i % colors.length]
+			})),
+		repartition_studies_moyen_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						"Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+				)
+				.map((item) => extractValue(item.properties?.Niveau_études)),
+			officialOptions.Niveau_études
+		)
+			.slice(0, 8)
+			.map((s, i) => ({
+				label: s.value,
+				value: parseFloat(s.percentage.replace('%', '')),
+				color: colors[i % colors.length]
+			})),
+		repartition_studies_peu_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) === "Peu d'impact / Pas tout de suite"
+				)
+				.map((item) => extractValue(item.properties?.Niveau_études)),
+			officialOptions.Niveau_études
+		)
+			.slice(0, 8)
+			.map((s, i) => ({
+				label: s.value,
+				value: parseFloat(s.percentage.replace('%', '')),
+				color: colors[i % colors.length]
+			})),
+
+		repartition_studies_jamais_impactes: find_pourcentage(
+			allResults
+				.filter((item) => extractValue(item.properties?.Impact_perçu) === 'Jamais')
+				.map((item) => extractValue(item.properties?.Niveau_études)),
+			officialOptions.Niveau_études
+		)
+			.slice(0, 8)
+			.map((s, i) => ({
+				label: s.value,
+				value: parseFloat(s.percentage.replace('%', '')),
+				color: colors[i % colors.length]
+			})),
+
+		// Age Impact Analysis
+		age_tres_fortement_impactes: find_impact_rankings_by_age(
+			allResults,
+			'Age',
+			'Impact_perçu',
+			'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		age_fortement_impactes: find_impact_rankings_by_age(
+			allResults,
+			'Age',
+			'Impact_perçu',
+			"Fort impact : menace de perte d'emploi transformations difficiles"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		age_moyen_impactes: find_impact_rankings_by_age(
+			allResults,
+			'Age',
+			'Impact_perçu',
+			"Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		age_peu_impactes: find_impact_rankings_by_age(
+			allResults,
+			'Age',
+			'Impact_perçu',
+			"Peu d'impact / Pas tout de suite"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+
+		age_jamais_impactes: find_impact_rankings_by_age(
+			allResults,
+			'Age',
+			'Impact_perçu',
+			'Jamais'
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+
+		// Gender Impact Analysis
+		genre_tres_fortement_impactes: find_impact_rankings(
+			allResults,
+			'Sexe',
+			'Impact_perçu',
+			'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		genre_fortement_impactes: find_impact_rankings(
+			allResults,
+			'Sexe',
+			'Impact_perçu',
+			"Fort impact : menace de perte d'emploi transformations difficiles"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		genre_moyen_impactes: find_impact_rankings(
+			allResults,
+			'Sexe',
+			'Impact_perçu',
+			"Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		genre_peu_impactes: find_impact_rankings(
+			allResults,
+			'Sexe',
+			'Impact_perçu',
+			"Peu d'impact / Pas tout de suite"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+
+		genre_jamais_impactes: find_impact_rankings(allResults, 'Sexe', 'Impact_perçu', 'Jamais').map(
+			(item, i) => ({ ...item, color: colors[i % colors.length] })
+		),
+
+		// Professional Status Impact Analysis
+		statut_tres_fortement_impactes: find_impact_rankings(
+			allResults,
+			'Statut_professionnel',
+			'Impact_perçu',
+			'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		statut_fortement_impactes: find_impact_rankings(
+			allResults,
+			'Statut_professionnel',
+			'Impact_perçu',
+			"Fort impact : menace de perte d'emploi transformations difficiles"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		statut_moyen_impactes: find_impact_rankings(
+			allResults,
+			'Statut_professionnel',
+			'Impact_perçu',
+			"Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		statut_peu_impactes: find_impact_rankings(
+			allResults,
+			'Statut_professionnel',
+			'Impact_perçu',
+			"Peu d'impact / Pas tout de suite"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		statut_jamais_impactes: find_impact_rankings(
+			allResults,
+			'Statut_professionnel',
+			'Impact_perçu',
+			'Jamais'
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+
+		// Repartition (PieCharts) for Age
+		repartition_age_tres_fort_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+				)
+				.map((item) => {
+					const val = extractValue(item.properties?.Age)
+					const match = val.match(/\d+/)
+					if (!match) return ''
+					const age = parseInt(match[0])
+					const min = Math.floor(age / 10) * 10
+					return `${min}-${min + 9} ans`
+				}),
+			[]
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_age_fort_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						"Fort impact : menace de perte d'emploi transformations difficiles"
+				)
+				.map((item) => {
+					const val = extractValue(item.properties?.Age)
+					const match = val.match(/\d+/)
+					if (!match) return ''
+					const age = parseInt(match[0])
+					const min = Math.floor(age / 10) * 10
+					return `${min}-${min + 9} ans`
+				}),
+			[]
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+
+		repartition_age_moyen_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						"Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+				)
+				.map((item) => {
+					const val = extractValue(item.properties?.Age)
+					const match = val.match(/\d+/)
+					if (!match) return ''
+					const age = parseInt(match[0])
+					const min = Math.floor(age / 10) * 10
+					return `${min}-${min + 9} ans`
+				}),
+			[]
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+
+		repartition_age_peu_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) === "Peu d'impact / Pas tout de suite"
+				)
+				.map((item) => {
+					const val = extractValue(item.properties?.Age)
+					const match = val.match(/\d+/)
+					if (!match) return ''
+					const age = parseInt(match[0])
+					const min = Math.floor(age / 10) * 10
+					return `${min}-${min + 9} ans`
+				}),
+			[]
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+
+		repartition_age_jamais_impactes: find_pourcentage(
+			allResults
+				.filter((item) => extractValue(item.properties?.Impact_perçu) === 'Jamais')
+				.map((item) => {
+					const val = extractValue(item.properties?.Age)
+					const match = val.match(/\d+/)
+					if (!match) return ''
+					const age = parseInt(match[0])
+					const min = Math.floor(age / 10) * 10
+					return `${min}-${min + 9} ans`
+				}),
+			[]
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+
+		// Repartition (PieCharts) for Gender
+		repartition_genre_tres_fort_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+				)
+				.map((item) => extractValue(item.properties?.Sexe)),
+			officialOptions.Sexe
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_genre_fort_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						"Fort impact : menace de perte d'emploi transformations difficiles"
+				)
+				.map((item) => extractValue(item.properties?.Sexe)),
+			officialOptions.Sexe
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+
+		repartition_genre_moyen_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						"Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+				)
+				.map((item) => extractValue(item.properties?.Sexe)),
+			officialOptions.Sexe
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+
+		repartition_genre_peu_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) === "Peu d'impact / Pas tout de suite"
+				)
+				.map((item) => extractValue(item.properties?.Sexe)),
+			officialOptions.Sexe
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+
+		repartition_genre_jamais_impact: find_pourcentage(
+			allResults
+				.filter((item) => extractValue(item.properties?.Impact_perçu) === 'Jamais')
+				.map((item) => extractValue(item.properties?.Sexe)),
+			officialOptions.Sexe
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+
+		// Repartition (PieCharts) for Status
+		repartition_statut_tres_fort_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+				)
+				.map((item) => extractValue(item.properties?.Statut_professionnel)),
+			officialOptions.Statut_professionnel
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_statut_fort_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						"Fort impact : menace de perte d'emploi transformations difficiles"
+				)
+				.map((item) => extractValue(item.properties?.Statut_professionnel)),
+			officialOptions.Statut_professionnel
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_statut_moyen_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) ===
+						"Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+				)
+				.map((item) => extractValue(item.properties?.Statut_professionnel)),
+			officialOptions.Statut_professionnel
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_statut_peu_impact: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Impact_perçu) === "Peu d'impact / Pas tout de suite"
+				)
+				.map((item) => extractValue(item.properties?.Statut_professionnel)),
+			officialOptions.Statut_professionnel
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_statut_jamais_impact: find_pourcentage(
+			allResults
+				.filter((item) => extractValue(item.properties?.Impact_perçu) === 'Jamais')
+				.map((item) => extractValue(item.properties?.Statut_professionnel)),
+			officialOptions.Statut_professionnel
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		}))
 	}
 
 	const content = `export const surveyData = ${JSON.stringify(data, null, 2)};\n`
