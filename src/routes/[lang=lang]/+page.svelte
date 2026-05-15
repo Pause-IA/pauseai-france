@@ -3,6 +3,7 @@
 	import Hero from '$components/home/hero.svelte'
 	import Lead from '$components/home/lead.svelte'
 	import Risks from '$components/home/risks.svelte'
+	import Quotes from '$components/home/quotes.svelte'
 	import Articles from '$components/home/articles.svelte'
 	import NewsletterCta from '$components/home/newsletter-cta.svelte'
 	import Faq from '$components/home/faq.svelte'
@@ -28,6 +29,8 @@
 <Hero {lang} />
 
 <Lead {lang} />
+
+<Quotes {lang} />
 
 <Risks {lang} />
 
