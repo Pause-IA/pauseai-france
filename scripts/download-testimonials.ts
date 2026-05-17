@@ -158,6 +158,30 @@ function generateSurveyStatsFile(allResults: any[], schema: any) {
 			'Jamais',
 			'Ne souhaite pas répondre'
 		],
+		Tâche_IA: [
+			"Génération d'images, de sons, de vidéos",
+			'Analyse / Résumé de document (texte, vidéo...)',
+			'Traduction',
+			'Correction et rédaction de texte',
+			'Automatisation de tâches répétitives',
+			'Codage',
+			'Gestion de planning / projet',
+			'Analyse de données',
+			'Gestion relationnelle (chatbot, mail..)',
+			'Pilotage/contrôle de dispositifs connectés',
+			'Prise de décision / aide à la décision',
+			'Autre'
+		],
+		Raisons_utilisation: [
+			'Par pure curiosité',
+			'Suite à une formation / demande de ma direction',
+			'Suite aux conseils de mes collègues',
+			'Suite à la pression concurrentielle',
+			'Pour pouvoir réaliser toutes mes tâches',
+			'Par manque de compétences',
+			'Pour gagner du temps, être plus efficace',
+			'Autre'
+		],
 		Secteur_activité: [
 			'Activités juridiques et comptables',
 			'Agriculture et élevage',
@@ -228,6 +252,193 @@ function generateSurveyStatsFile(allResults: any[], schema: any) {
 		}))
 	}
 
+	const withColors = (items: { label: string; value: number; count?: number }[]) =>
+		items.map((item, i) => ({ ...item, color: colors[i % colors.length] }))
+
+	const splitValues = (value: string) =>
+		value
+			.split(/\n| \| /)
+			.map((v) => v.trim())
+			.filter(Boolean)
+
+	const getValues = (item: any, field: string) => {
+		const raw = extractValue(item.properties?.[field]).trim()
+		if (!raw) return []
+
+		const allowedValues = officialOptions[field] || []
+		return splitValues(raw).map((value) => {
+			if (allowedValues.length === 0 || allowedValues.includes(value)) return value
+			return allowedValues.includes('Autres') ? 'Autres' : 'Autre'
+		})
+	}
+
+	const getAgeGroup = (item: any) => {
+		const rawAge = extractValue(item.properties?.Age).trim()
+		const match = rawAge.match(/\d+/)
+		if (!match) return ''
+
+		const age = parseInt(match[0])
+		const min = Math.floor(age / 10) * 10
+		return `${min}-${min + 9} ans`
+	}
+
+	const getGroupValues = (item: any, groupField: string) => {
+		if (groupField === 'Age') {
+			const ageGroup = getAgeGroup(item)
+			return ageGroup ? [ageGroup] : []
+		}
+
+		return getValues(item, groupField)
+	}
+
+	const hasTargetValue = (item: any, field: string, targetValue: string) =>
+		getValues(item, field).includes(targetValue)
+
+	const getRepartitionForTarget = (field: string, targetValue: string, groupField: string) => {
+		const groupValues = allResults
+			.filter((item) => hasTargetValue(item, field, targetValue))
+			.flatMap((item) => getGroupValues(item, groupField))
+
+		return withColors(
+			find_pourcentage(groupValues, groupField === 'Age' ? [] : officialOptions[groupField])
+				.slice(0, 8)
+				.map((s) => ({
+					label: s.value,
+					value: parseFloat(s.percentage.replace('%', ''))
+				}))
+		)
+	}
+
+	const getRankingForTarget = (
+		field: string,
+		targetValue: string,
+		groupField: string,
+		minCount: number = 3
+	) => {
+		const grouped: Record<string, any[]> = {}
+
+		for (const item of allResults) {
+			for (const group of getGroupValues(item, groupField)) {
+				if (!grouped[group]) grouped[group] = []
+				grouped[group].push(item)
+			}
+		}
+
+		const rankings = Object.entries(grouped)
+			.map(([group, items]) => {
+				const targetCount = items.filter((item) => hasTargetValue(item, field, targetValue)).length
+				return {
+					label: group,
+					value: items.length > 0 ? parseFloat(((targetCount / items.length) * 100).toFixed(2)) : 0,
+					count: items.length
+				}
+			})
+			.filter((item) => item.value > 0 && item.count >= minCount)
+			.sort((a, b) => b.value - a.value)
+
+		return withColors(rankings)
+	}
+
+	const dimensions = [
+		{ slug: 'secteur', field: 'Secteur_activité' },
+		{ slug: 'etudes', field: 'Niveau_études' },
+		{ slug: 'age', field: 'Age' },
+		{ slug: 'genre', field: 'Sexe' },
+		{ slug: 'statut', field: 'Statut_professionnel' }
+	]
+
+	const metrics = [
+		{
+			slug: 'rapport',
+			field: 'Rapport_à_IA',
+			targets: [
+				{ slug: 'malaise', value: "Le malaise voire l'anxiété" },
+				{ slug: 'observation_prudence', value: "L'observation et la prudence" },
+				{ slug: 'confiance', value: 'La confiance dans ces nouveaux outils' },
+				{ slug: 'excitation', value: "L'excitation à l'idée de l'utiliser davantage" }
+			]
+		},
+		{
+			slug: 'frequence_utilisation',
+			field: 'Fréquence_utilisation',
+			targets: [
+				{ slug: 'toutes_les_semaines', value: 'Toutes les semaines' },
+				{ slug: 'tres_ponctuellement', value: 'Très ponctuellement' },
+				{ slug: 'jamais', value: 'Jamais' },
+				{ slug: 'tous_les_jours', value: 'Tous les jours' },
+				{ slug: 'toutes_mes_taches', value: 'Toutes mes tâches ou presque' }
+			]
+		},
+		{
+			slug: 'raisons_utilisation',
+			field: 'Raisons_utilisation',
+			targets: officialOptions.Raisons_utilisation.map((value) => ({
+				slug: value
+					.normalize('NFD')
+					.replace(/[\u0300-\u036f]/g, '')
+					.toLowerCase()
+					.replace(/[^a-z0-9]+/g, '_')
+					.replace(/^_|_$/g, ''),
+				value
+			}))
+		},
+		{
+			slug: 'taches',
+			field: 'Tâche_IA',
+			targets: officialOptions.Tâche_IA.map((value) => ({
+				slug: value
+					.normalize('NFD')
+					.replace(/[\u0300-\u036f]/g, '')
+					.toLowerCase()
+					.replace(/[^a-z0-9]+/g, '_')
+					.replace(/^_|_$/g, ''),
+				value
+			}))
+		},
+		{
+			slug: 'satisfaction',
+			field: 'Satisfaction',
+			targets: [
+				{ slug: 'oui_capacites', value: 'Oui cela décuple mes capacités' },
+				{ slug: 'oui_precieux', value: "Oui c'est un outil de travail précieux" },
+				{ slug: 'oui_non', value: 'Oui et non cela dépend des tâches' },
+				{ slug: 'non_resultats', value: 'Non les résultats obtenus ne sont pas satisfaisants' },
+				{ slug: 'non_utilisation', value: "Non je ne sais pas bien l'utiliser" }
+			]
+		},
+		{
+			slug: 'frequence_info',
+			field: 'Fréquence_info_IA',
+			targets: [
+				{ slug: 'quotidienne', value: 'Quotidienne ou quasi-quotidienne' },
+				{ slug: 'hebdomadaire', value: 'Hebdomadaire ou équivalent' },
+				{ slug: 'mensuelle', value: 'Mensuelle et de façon active' },
+				{ slug: 'moins_mensuelle', value: "Moins d'une fois par mois, ponctuellement" },
+				{ slug: 'jamais', value: 'Jamais' }
+			]
+		}
+	]
+
+	const analyses = Object.fromEntries(
+		metrics.map((metric) => [
+			metric.slug,
+			Object.fromEntries(
+				dimensions.map((dimension) => [
+					dimension.slug,
+					Object.fromEntries(
+						metric.targets.map((target) => [
+							target.slug,
+							{
+								pie: getRepartitionForTarget(metric.field, target.value, dimension.field),
+								bars: getRankingForTarget(metric.field, target.value, dimension.field)
+							}
+						])
+					)
+				])
+			)
+		])
+	)
+
 	// Age distribution needs grouping as in user's statistics_by_tens
 	const ages = allResults
 		.map((item) => {
@@ -254,11 +465,14 @@ function generateSurveyStatsFile(allResults: any[], schema: any) {
 		satisfaction: getChartData('Satisfaction'),
 		frequence_utilisation: getChartData('Fréquence_utilisation'),
 		frequence_info: getChartData('Fréquence_info_IA'),
+		raisons_utilisation: getChartData('Raisons_utilisation'),
+		taches: getChartData('Tâche_IA'),
 		secteur: getChartData('Secteur_activité'),
 		age: ageData,
 		etudes: getChartData('Niveau_études'),
 		statut: getChartData('Statut_professionnel'),
 		genre: getChartData('Sexe'),
+		analyses,
 		impact_par_secteur: find_pourcentage_by_groupe(allResults, 'Secteur_activité', 'Impact_perçu'),
 		secteurs_tres_fortement_impactes: find_impact_rankings(
 			allResults,
@@ -290,6 +504,7 @@ function generateSurveyStatsFile(allResults: any[], schema: any) {
 			'Impact_perçu',
 			'Jamais'
 		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+
 		repartition_secteurs_tres_fort_impact: find_pourcentage(
 			allResults
 				.filter(
@@ -808,7 +1023,158 @@ function generateSurveyStatsFile(allResults: any[], schema: any) {
 			label: s.value,
 			value: parseFloat(s.percentage.replace('%', '')),
 			color: colors[i % colors.length]
-		}))
+		})),
+		secteurs_malaise_voire_l_anxiété: find_impact_rankings(
+			allResults,
+			'Secteur_activité',
+			'Rapport_à_IA',
+			"Le malaise voire l'anxiété"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		secteurs_l_observation_et_la_prudence: find_impact_rankings(
+			allResults,
+			'Secteur_activité',
+			'Rapport_à_IA',
+			"L'observation et la prudence"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		secteurs_la_confiance_dans_ces_nouveaux_outils: find_impact_rankings(
+			allResults,
+			'Secteur_activité',
+			'Rapport_à_IA',
+			'La confiance dans ces nouveaux outils'
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		secteurs_l_excitation_à_l_idee_de_l_utiliser_davantage: find_impact_rankings(
+			allResults,
+			'Secteur_activité',
+			'Rapport_à_IA',
+			"L'excitation à l'idée de l'utiliser davantage"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		repartition_rapport_secteurs_le_malaise_voire_l_anxiété: find_pourcentage(
+			allResults
+				.filter(
+					(item) => extractValue(item.properties?.Rapport_à_IA) === "Le malaise voire l'anxiété"
+				)
+				.map((item) => extractValue(item.properties?.Secteur_activité)),
+			officialOptions.Secteur_activité
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_rapport_secteurs_l_observation_et_la_prudence: find_pourcentage(
+			allResults
+				.filter(
+					(item) => extractValue(item.properties?.Rapport_à_IA) === "L'observation et la prudence"
+				)
+				.map((item) => extractValue(item.properties?.Secteur_activité)),
+			officialOptions.Secteur_activité
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_rapport_secteurs_La_confiance_dans_ces_nouveaux_outils: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Rapport_à_IA) === 'La confiance dans ces nouveaux outils'
+				)
+				.map((item) => extractValue(item.properties?.Secteur_activité)),
+			officialOptions.Secteur_activité
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_rapport_secteurs_L_excitation_à_l_idee_de_l_utiliser_davantage: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Rapport_à_IA) ===
+						"L'excitation à l'idée de l'utiliser davantage"
+				)
+				.map((item) => extractValue(item.properties?.Secteur_activité)),
+			officialOptions.Secteur_activité
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		etudes_malaise_voire_l_anxiété: find_impact_rankings(
+			allResults,
+			'Niveau_études',
+			'Rapport_à_IA',
+			"Le malaise voire l'anxiété"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		etudes_l_observation_et_la_prudence: find_impact_rankings(
+			allResults,
+			'Niveau_études',
+			'Rapport_à_IA',
+			"L'observation et la prudence"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		etudes_la_confiance_dans_ces_nouveaux_outils: find_impact_rankings(
+			allResults,
+			'Niveau_études',
+			'Rapport_à_IA',
+			'La confiance dans ces nouveaux outils'
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		etudes_l_excitation_à_l_idee_de_l_utiliser_davantage: find_impact_rankings(
+			allResults,
+			'Niveau_études',
+			'Rapport_à_IA',
+			"L'excitation à l'idée de l'utiliser davantage"
+		).map((item, i) => ({ ...item, color: colors[i % colors.length] })),
+		repartition_rapport_niveau_etudes_le_malaise_voire_l_anxiété: find_pourcentage(
+			allResults
+				.filter(
+					(item) => extractValue(item.properties?.Rapport_à_IA) === "Le malaise voire l'anxiété"
+				)
+				.map((item) => extractValue(item.properties?.Niveau_études)),
+			officialOptions.Niveau_études
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_rapport_niveau_etudes_l_observation_et_la_prudence: find_pourcentage(
+			allResults
+				.filter(
+					(item) => extractValue(item.properties?.Rapport_à_IA) === "L'observation et la prudence"
+				)
+				.map((item) => extractValue(item.properties?.Niveau_études)),
+			officialOptions.Niveau_études
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_rapport_niveau_etudes_La_confiance_dans_ces_nouveaux_outils: find_pourcentage(
+			allResults
+				.filter(
+					(item) =>
+						extractValue(item.properties?.Rapport_à_IA) === 'La confiance dans ces nouveaux outils'
+				)
+				.map((item) => extractValue(item.properties?.Niveau_études)),
+			officialOptions.Niveau_études
+		).map((s, i) => ({
+			label: s.value,
+			value: parseFloat(s.percentage.replace('%', '')),
+			color: colors[i % colors.length]
+		})),
+		repartition_rapport_niveau_etudes_L_excitation_à_l_idee_de_l_utiliser_davantage:
+			find_pourcentage(
+				allResults
+					.filter(
+						(item) =>
+							extractValue(item.properties?.Rapport_à_IA) ===
+							"L'excitation à l'idée de l'utiliser davantage"
+					)
+					.map((item) => extractValue(item.properties?.Niveau_études)),
+				officialOptions.Niveau_études
+			).map((s, i) => ({
+				label: s.value,
+				value: parseFloat(s.percentage.replace('%', '')),
+				color: colors[i % colors.length]
+			}))
 	}
 
 	const content = `export const surveyData = ${JSON.stringify(data, null, 2)};\n`
