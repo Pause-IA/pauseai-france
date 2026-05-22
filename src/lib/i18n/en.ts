@@ -518,6 +518,376 @@ export default {
 		stats_impact_title: 'Perceived impact',
 		stats_rapport_title: 'Relationship with AI',
 		stats_satisfaction_title: 'Satisfaction',
+		stats_detail: {
+			templates: {
+				rapport_dimension_aria: 'Choose a dimension for the relationship with AI',
+				section_dimension_aria: 'Choose a dimension for {section}',
+				rapport_dimension_title: 'Relationship with AI by {dimension}',
+				rapport_dimension_subtitle: '{dimensionPlural} and relationship with AI',
+				pie_title: '{dimensionPlural} with the most “{target}” responses',
+				rapport_bar_heading:
+					'{dimensionPlural} where respondents are proportionally most associated with each relationship to AI',
+				bar_title:
+					'{dimensionPlural} where the proportion of respondents who answered “{target}” is highest, with group sizes above 3',
+				section_dimension_title: '{section} by {dimension}',
+				group_dimension_title: '{group} by {dimension}'
+			},
+			profile_dimensions: [
+				{ key: 'secteur', label: 'sector of activity', plural: 'Sectors of activity' },
+				{ key: 'etudes', label: 'education level', plural: 'Education levels' },
+				{ key: 'age', label: 'age', plural: 'Age groups' },
+				{ key: 'genre', label: 'gender', plural: 'Genders' },
+				{ key: 'statut', label: 'professional status', plural: 'Professional statuses' }
+			],
+			rapport_targets: [
+				{ key: 'malaise', label: 'Discomfort or anxiety' },
+				{ key: 'observation_prudence', label: 'Observation and caution' },
+				{ key: 'confiance', label: 'Confidence in these new tools' },
+				{ key: 'excitation', label: 'Excitement about using it more' }
+			],
+			grouped_sections: [
+				{
+					key: 'impact',
+					title: 'Perceived impact of AI on employment',
+					overviewTitle: 'Perceived impact of AI among respondents',
+					groups: [
+						{
+							title: 'Negative impacts',
+							targets: [
+								{ key: 'tres_fort', label: 'Very strong impact' },
+								{ key: 'fort', label: 'Strong impact' }
+							]
+						},
+						{
+							title: 'Moderate & zero impacts',
+							targets: [
+								{ key: 'moyen', label: 'Medium impact' },
+								{ key: 'peu', label: 'Little impact' },
+								{ key: 'jamais', label: 'Never' }
+							]
+						}
+					]
+				},
+				{
+					key: 'rapport',
+					title: 'Relationship with AI',
+					overviewTitle: 'Relationship with AI among respondents',
+					groups: [
+						{
+							title: 'Negative or cautious feelings',
+							targets: [
+								{ key: 'malaise', label: 'Discomfort or anxiety' },
+								{ key: 'observation_prudence', label: 'Observation and caution' }
+							]
+						},
+						{
+							title: 'Positive feelings',
+							targets: [
+								{ key: 'confiance', label: 'Confidence in these new tools' },
+								{ key: 'excitation', label: 'Excitement about using it more' }
+							]
+						}
+					]
+				},
+				{
+					key: 'frequence_utilisation',
+					title: 'Frequency of AI use',
+					overviewTitle: 'Frequency of AI use among respondents',
+					groups: [
+						{
+							title: 'Groups using AI the least',
+							targets: [
+								{ key: 'toutes_les_semaines', label: 'Every week' },
+								{ key: 'tres_ponctuellement', label: 'Very occasionally' },
+								{ key: 'jamais', label: 'Never' }
+							]
+						},
+						{
+							title: 'Groups using AI the most',
+							targets: [
+								{ key: 'tous_les_jours', label: 'Every day' },
+								{ key: 'toutes_mes_taches', label: 'All or almost all of my tasks' }
+							]
+						}
+					]
+				},
+				{
+					key: 'raisons_utilisation',
+					title: 'Reasons for using AI',
+					overviewTitle: 'Reasons for using AI among respondents',
+					groups: [
+						{
+							title: 'Reasons for use',
+							targets: [
+								{ key: 'par_pure_curiosite', label: 'Out of pure curiosity' },
+								{
+									key: 'suite_a_une_formation_demande_de_ma_direction',
+									label: 'Following training / a request from management'
+								},
+								{
+									key: 'suite_aux_conseils_de_mes_collegues',
+									label: 'Following advice from colleagues'
+								},
+								{
+									key: 'suite_a_la_pression_concurrentielle',
+									label: 'Due to competitive pressure'
+								},
+								{
+									key: 'pour_pouvoir_realiser_toutes_mes_taches',
+									label: 'To be able to complete all my tasks'
+								},
+								{ key: 'par_manque_de_competences', label: 'Because of a lack of skills' },
+								{
+									key: 'pour_gagner_du_temps_etre_plus_efficace',
+									label: 'To save time and be more efficient'
+								},
+								{ key: 'autre', label: 'Other' }
+							]
+						}
+					]
+				},
+				{
+					key: 'taches',
+					title: 'Tasks carried out with AI',
+					overviewTitle: 'Tasks carried out with AI among respondents',
+					groups: [
+						{
+							title: 'Tasks',
+							targets: [
+								{
+									key: 'generation_d_images_de_sons_de_videos',
+									label: 'Generating images, sounds, or videos'
+								},
+								{
+									key: 'analyse_resume_de_document_texte_video',
+									label: 'Document analysis / summary (text, video...)'
+								},
+								{ key: 'traduction', label: 'Translation' },
+								{ key: 'correction_et_redaction_de_texte', label: 'Text correction and writing' },
+								{
+									key: 'automatisation_de_taches_repetitives',
+									label: 'Automating repetitive tasks'
+								},
+								{ key: 'codage', label: 'Coding' },
+								{ key: 'gestion_de_planning_projet', label: 'Planning / project management' },
+								{ key: 'analyse_de_donnees', label: 'Data analysis' },
+								{
+									key: 'gestion_relationnelle_chatbot_mail',
+									label: 'Relationship management (chatbot, email...)'
+								},
+								{
+									key: 'pilotage_controle_de_dispositifs_connectes',
+									label: 'Operating / controlling connected devices'
+								},
+								{
+									key: 'prise_de_decision_aide_a_la_decision',
+									label: 'Decision-making / decision support'
+								},
+								{ key: 'autre', label: 'Other' }
+							]
+						}
+					]
+				},
+				{
+					key: 'satisfaction',
+					title: 'Satisfaction with AI',
+					overviewTitle: 'Satisfaction with AI among respondents',
+					groups: [
+						{
+							title: 'People satisfied with AI',
+							targets: [
+								{ key: 'oui_capacites', label: 'Yes, it amplifies my abilities' },
+								{ key: 'oui_precieux', label: 'Yes, it is a valuable work tool' },
+								{ key: 'oui_non', label: 'Yes and no, it depends on the tasks' }
+							]
+						},
+						{
+							title: 'People not satisfied with AI',
+							targets: [
+								{ key: 'non_resultats', label: 'No, the results obtained are not satisfactory' },
+								{ key: 'non_utilisation', label: "No, I don't know how to use it well" }
+							]
+						}
+					]
+				},
+				{
+					key: 'frequence_info',
+					title: 'Frequency of information-seeking about AI',
+					overviewTitle: 'Frequency of information-seeking about AI among respondents',
+					groups: [
+						{
+							title: 'Groups that stay informed often',
+							targets: [
+								{ key: 'quotidienne', label: 'Daily or almost daily' },
+								{ key: 'hebdomadaire', label: 'Weekly or equivalent' }
+							]
+						},
+						{
+							title: 'Groups that do not stay informed often',
+							targets: [
+								{ key: 'mensuelle', label: 'Monthly and actively' },
+								{ key: 'moins_mensuelle', label: 'Less than once a month, occasionally' },
+								{ key: 'jamais', label: 'Never' }
+							]
+						}
+					]
+				}
+			]
+		},
+		stats_page: {
+			intro_p1:
+				'This mini-study was produced from the results of a questionnaire launched in July 2025 by the Pause AI association, which you can find here.',
+			intro_link: 'which you can find here',
+			intro_p2:
+				'The purpose of this questionnaire is to gather the views of different people on artificial intelligence and its impact on their daily and professional lives, so that we can eventually support them better and better understand how we might help them, both personally and professionally.',
+			section_analysis_placeholder: 'Placeholder text for the analysis of the {section} section.',
+			impact_sector_analysis:
+				'Placeholder text: in the {topSector} sector, {topValue} % of respondents report {target}.',
+			group_analysis_placeholder:
+				'Placeholder text for the analysis of the {group} group in the {section} section.',
+			select_prompt: 'Select a profile above to see the detailed analysis.',
+			limit_title: 'Limitations of this mini-study and statistical biases',
+			limit_intro:
+				'Before starting this mini-study, it is important to highlight several major statistical biases.',
+			limit_response_count:
+				'First, the number of people who had answered this questionnaire at the time of writing this mini-study ({date}) is {count}. This number remains relatively small and therefore does not allow us to generalize the results to the entire French population.',
+			limit_sample_bias:
+				'Moreover, the sample is likely biased. Given the purpose of our association, the people who answered this questionnaire are potentially more likely to belong to a population already impacted by AI and therefore more likely to have a more unfavorable perception of it than the population as a whole.',
+			limit_education_bias:
+				"Another particularly visible statistical bias concerns the respondents' education level. Indeed, the majority of participants have a level of education far above the national average.",
+			limit_education_share:
+				"For example, {percent} % of respondents declare having a level of education greater than or equal to a Master's degree, whereas in the general French population,",
+			limit_education_link:
+				"the proportion of people with a Master's degree or higher is about 12%, according to INSEE in 2023",
+			limit_education_comparison:
+				'Long-cycle graduates are therefore about {ratio} times more represented in this questionnaire than in the general population.',
+			limit_education_inverse:
+				'On the other hand, people with an education level below or equal to the general high school diploma are very underrepresented in the results of this study.',
+			limit_other_biases:
+				'In addition to this education-related bias, several other imbalances appear in the sample.',
+			limit_independent_bias:
+				'Self-employed workers are more represented than in the general population. They account for {percent} % of respondents, whereas they represent about 13.3 % of workers in France according to INSEE.',
+			limit_independent_comparison:
+				'Self-employed workers are therefore about {ratio} times more represented in this study than in the French active population.',
+			limit_sector_bias:
+				'People working in the IT and telecommunications sectors are also heavily overrepresented. This sector represents {percent} % of respondents, whereas it accounts for about 3.4 % of jobs in France according to INSEE.',
+			limit_sector_comparison:
+				'Digital jobs are therefore about {ratio} times more represented in the questionnaire than in the general population.',
+			limit_gender_intro: 'The sample also shows a slight gender imbalance:',
+			limit_gender_male: '{percent} % of respondents are men',
+			limit_gender_female: '{percent} % are women',
+			limit_gender_other: '{percent} % identify as another gender',
+			limit_gender_comparison: 'For comparison,',
+			limit_gender_link:
+				'the French population is made up of about 51.5 % women according to INSEE',
+			limit_age_intro:
+				'Finally, people aged 30 to 50 are particularly represented in the responses:',
+			limit_age_30_39: '{percent} % of respondents are between 30 and 40 years old',
+			limit_age_40_49: '{percent} % are between 40 and 50 years old',
+			limit_age_inverse: 'By contrast:',
+			limit_age_10_19: '{percent} % are between 10 and 20 years old',
+			limit_age_60_69: '{percent} % are between 60 and 70 years old',
+			limit_age_comparison:
+				'People aged 30 to 50 therefore represent more than {percent} % of the total sample.',
+			limit_age_link: 'This does not match the age pyramid in France',
+			limit_conclusion:
+				'These different biases can strongly influence the results of the study. We will see later that these biases can be explained by the fact that this is the segment of the population that seems most affected by transformations linked to AI.',
+			limit_education_chart_title: "Respondents' education level",
+			limit_status_chart_title: "Respondents' professional status",
+			limit_sector_chart_title: "Respondents' sector distribution",
+			limit_gender_chart_title: "Respondents' gender distribution",
+			limit_age_chart_title: "Respondents' age distribution"
+		},
+		stats_analysis: {
+			impact: {
+				intro_1:
+					'Overall, most respondents already see AI as a major transformation of their professional environment. The most frequent answers correspond to a “Medium impact: changes I adapt to without much difficulty” ({moyen}%) or a “Strong impact: threat of job loss, difficult changes” ({fort}%), while answers indicating “little impact” ({peu}%) remain in the minority. Those indicating a “Very strong impact: job lost, profession disappeared, skills made obsolete...” are also a minority, with {tresFort}% of responses.',
+				intro_2:
+					'The study also shows that some groups appear more affected than others. The most exposed sectors include digital jobs, communications, translation, consulting, real estate, creative work, publishing, and research. By contrast, sectors such as health, public service, sports / animation, or some craft trades seem less affected in the responses collected.',
+				intro_3:
+					'These differences suggest that AI’s impact is not uniform: it varies according to sector, professional status, age, and gender.',
+				sector_title: 'Impact of AI by professional sector',
+				sector_p1:
+					'This is one of the most telling results in the study. Some sectors stand out as clearly more exposed to transformations linked to artificial intelligence, while others currently seem relatively protected.',
+				sector_p2:
+					'Jobs that rely heavily on content production, analysis, repetitive cognitive tasks, writing, translation, or certain support functions appear more vulnerable to AI-related changes.',
+				sector_p3:
+					"By contrast, sectors where work is more human, relational, manual, or highly contextual seem better protected for now in respondents' perception.",
+				sector_p4:
+					'These results should nevertheless be interpreted cautiously because some sectors have very small sample sizes, which can inflate certain proportions artificially.',
+				education_title: 'Impact of AI by education level',
+				education_p1:
+					'Education level does not seem to be a clear, single explanatory factor for how respondents feel about AI in this sample. Perceptions are spread across nearly all education levels, with sometimes contradictory results depending on whether one looks at raw counts or internal proportions.',
+				education_p2:
+					'Higher education levels are heavily represented in the questionnaire. This can create a strong bias in raw results: these categories appear more often in almost every response simply because they are numerically larger in the sample.',
+				education_p3:
+					'By contrast, professions whose respondents have lower education levels include very few participants. Proportions observed in these groups can therefore vary greatly with just one or two additional answers.',
+				education_p4:
+					'The results mainly help identify broad trends within the sample, rather than establishing definitive conclusions.',
+				age_title: 'Impact of AI by age',
+				age_p1:
+					'This study also highlights significant differences by age. Young adults and people in mid-career appear to be the ones most likely to feel the transformations linked to artificial intelligence in their professional lives.',
+				age_p2:
+					'Respondents aged 20 to 49 account for a large share of those declaring a “strong impact” or a “very strong impact” of AI on their work. Proportionally, very young respondents also appear strongly affected.',
+				age_p3:
+					'Older respondents more often report a medium impact, a limited impact, or sometimes even no impact from AI on their activity.',
+				age_p4:
+					'These results should nevertheless be interpreted carefully, since people aged 30 to 50 are heavily overrepresented in the sample.',
+				gender_title: 'Impact of AI by gender',
+				gender_p1:
+					'The results seem to show a stronger sense of AI impact among women than among men. This trend is especially visible when looking at proportions within groups rather than raw counts.',
+				gender_p2:
+					'This difference may reflect different exposure to certain jobs, tasks, and professional environments particularly sensitive to AI tools.',
+				gender_p3:
+					'These observations should still be interpreted cautiously. The sample remains relatively limited and cannot be considered fully representative of the entire active population.',
+				status_title: 'Impact of AI by professional status',
+				status_p1:
+					'The results show that self-employed workers, as well as students, apprentices, and pupils, are among the groups most likely to feel the impact of AI.',
+				status_p2:
+					'Employees show a more mixed picture. Many report a strong impact from AI, but many others see these changes as evolutions they can adapt to without too much difficulty.',
+				status_p3:
+					'By contrast, civil servants, retirees, and unemployed respondents appear more often in the categories describing a moderate or limited impact of AI.',
+				status_p4:
+					'These results suggest that self-employed workers may feel particularly exposed to AI-related changes, probably because they face the market and fast technological shifts directly.',
+				rapport_title: 'Respondents’ relationship with AI',
+				rapport_p1:
+					'Overall, respondents mostly have a cautious or negative relationship with AI. The most common stance is “Observation and caution”, suggesting that many respondents prefer to take a careful, measured approach to the development of these technologies.',
+				rapport_p2:
+					'More positive perceptions remain in the minority. People expressing excitement about using it more or confidence in these new tools account for a smaller share of answers, showing that AI currently triggers a clear stance among most participants.',
+				rapport_p3:
+					'The most exposed sectors include IT and telecommunications, health, public service, communications and marketing, and culture and heritage.',
+				rapport_p4:
+					'These results can be explained by the varying degree to which sectors are exposed to AI-driven transformations.',
+				frequence_utilisation_title: 'Frequency of AI use',
+				frequence_utilisation_p1:
+					'Respondents report very different uses of AI, ranging from daily use to no use at all.',
+				frequence_utilisation_p2:
+					'The groups that use AI the least are mainly those who use it very occasionally, weekly, or never.',
+				frequence_utilisation_p3:
+					'The groups that use AI the most are those who use it every day or for almost all of their tasks.',
+				raisons_utilisation_title: 'Reasons for using AI',
+				raisons_utilisation_p1:
+					'The main reasons for using AI are saving time, being more efficient, needing to complete all tasks, or simple curiosity.',
+				raisons_utilisation_p2:
+					'More constrained motivations such as competitive pressure, a request from management, or a lack of skills are also present, but less prominently.',
+				raisons_utilisation_p3:
+					'These differences show that AI adoption results from both personal choice and professional constraints.',
+				taches_title: 'Tasks carried out with AI',
+				taches_p1:
+					'AI is mainly used for document analysis and summarization, text correction and writing, translation, coding, data analysis, and automating repetitive tasks.',
+				taches_p2:
+					'More creative uses such as generating images, sounds, or videos are also present, but to a smaller extent.',
+				taches_p3:
+					'The overall pattern is therefore productive, cognitive, and creative, with a strong emphasis on time-saving tasks.',
+				frequence_info_title: 'Frequency of information-seeking about AI',
+				frequence_info_p1:
+					'A significant share of respondents says they keep up with AI regularly, sometimes daily or weekly.',
+				frequence_info_p2:
+					'Others follow it only occasionally, or almost never, showing that the relationship to AI news varies widely by profile.',
+				frequence_info_p3:
+					'Those most curious or most professionally exposed seem more inclined to track the evolution of these tools.'
+			}
+		},
 		stats_study_link: 'View detailed statistical study'
 	}
 }

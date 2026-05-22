@@ -65,11 +65,22 @@ export function extractValue(property: any): string {
 	}
 }
 
+function normalizeComparable(value: string): string {
+	return value
+		.trim()
+		.normalize('NFD')
+		.replace(/[\u0300-\u036f]/g, '')
+		.toLowerCase()
+}
+
 export function find_pourcentage(
 	values: any[],
 	allowedValues?: string[]
 ): { value: any; percentage: string }[] {
 	const result: { value: any; count: number }[] = []
+	const allowedMap = new Map(
+		(allowedValues ?? []).map((value) => [normalizeComparable(value), value] as const)
+	)
 
 	const processValue = (val: any) => {
 		if (!val) return
@@ -80,8 +91,9 @@ export function find_pourcentage(
 
 		// If allowedValues is provided and the value is not in it, map to "Autre"
 		let effectiveValue = val
-		if (allowedValues && allowedValues.length > 0 && !allowedValues.includes(val)) {
-			effectiveValue = 'Autre'
+		if (allowedValues && allowedValues.length > 0) {
+			const normalized = normalizeComparable(val)
+			effectiveValue = allowedMap.get(normalized) ?? 'Autre'
 		}
 
 		const existing = result.find((item) => item.value === effectiveValue)

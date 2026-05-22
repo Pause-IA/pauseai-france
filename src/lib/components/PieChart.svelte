@@ -3,15 +3,21 @@
 	export let title: string = ''
 	export let withMargin = false
 
-	$: total = data.reduce((acc, item) => acc + item.value, 0)
+	type ChartItem = { label: string; value: number; color: string }
+	type ChartSlice = { item: ChartItem; path: string }
 
-	function getPathData() {
-		if (total === 0 || data.length === 0) return []
+	$: safeData = data.filter((item): item is ChartItem => !!item)
+	$: total = safeData.reduce((acc, item) => acc + item.value, 0)
+	$: hasData = safeData.length > 0 && total > 0
+
+	function getPathData(items: ChartItem[]) {
+		if (total === 0 || items.length === 0) return []
+
 		let cumulativePercent = 0
-		return data.map((item) => {
+		return items.map((item) => {
 			const startPercent = cumulativePercent
 			// Clamp to slightly less than 1 when a single slice fills 100%
-			// to avoid coincident start/end points (degenerate arc → NaN)
+			// to avoid coincident start/end points (degenerate arc -> NaN)
 			const slicePercent = item.value / total
 			const endPercent = cumulativePercent + (slicePercent >= 1 ? 0.9999 : slicePercent)
 			cumulativePercent = endPercent
@@ -27,43 +33,48 @@
 		})
 	}
 
-	$: paths = total > 0 ? getPathData() : []
+	$: paths = total > 0 ? getPathData(safeData) : []
+	$: slices = paths.map((path, i) => ({ path, item: safeData[i] })) as ChartSlice[]
 
 	let hoveredIndex: number | null = null
 </script>
 
 <div class="pie-chart-container" class:withMargin>
 	<h3>{title}</h3>
-	<div class="chart-wrapper">
-		<svg viewBox="-1.1 -1.1 2.2 2.2" class="pie-svg">
-			{#each paths as path, i}
-				<path
-					d={path}
-					fill={data[i].color}
-					class:hovered={hoveredIndex === i}
-					on:mouseenter={() => (hoveredIndex = i)}
-					on:mouseleave={() => (hoveredIndex = null)}
-				>
-					<title>{data[i].label}: {((data[i].value / total) * 100).toFixed(1)}%</title>
-				</path>
-			{/each}
-		</svg>
+	{#if hasData}
+		<div class="chart-wrapper">
+			<svg viewBox="-1.1 -1.1 2.2 2.2" class="pie-svg">
+				{#each slices as slice, i (`${slice.item.label}-${i}`)}
+					<path
+						d={slice.path}
+						fill={slice.item.color}
+						class:hovered={hoveredIndex === i}
+						on:mouseenter={() => (hoveredIndex = i)}
+						on:mouseleave={() => (hoveredIndex = null)}
+					>
+						<title>{slice.item.label}: {((slice.item.value / total) * 100).toFixed(1)}%</title>
+					</path>
+				{/each}
+			</svg>
 
-		<div class="legend">
-			{#each data as item, i}
-				<div
-					class="legend-item"
-					class:active={hoveredIndex === i}
-					on:mouseenter={() => (hoveredIndex = i)}
-					on:mouseleave={() => (hoveredIndex = null)}
-				>
-					<span class="color-box" style="background-color: {item.color}"></span>
-					<span class="label">{item.label}</span>
-					<span class="value">{((item.value / total) * 100).toFixed(1)}%</span>
-				</div>
-			{/each}
+			<div class="legend">
+				{#each safeData as item, i (`${item.label}-${i}`)}
+					<div
+						class="legend-item"
+						class:active={hoveredIndex === i}
+						on:mouseenter={() => (hoveredIndex = i)}
+						on:mouseleave={() => (hoveredIndex = null)}
+					>
+						<span class="color-box" style="background-color: {item.color}"></span>
+						<span class="label">{item.label}</span>
+						<span class="value">{((item.value / total) * 100).toFixed(1)}%</span>
+					</div>
+				{/each}
+			</div>
 		</div>
-	</div>
+	{:else}
+		<div class="empty-state">Aucune réponse dans cet échantillon.</div>
+	{/if}
 </div>
 
 <style>
@@ -78,7 +89,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		max-height: 500px;
+		height: 500px;
 		overflow-y: auto;
 		overflow-x: hidden;
 	}
@@ -105,6 +116,21 @@
 		align-items: center;
 		gap: 1.5rem;
 		width: 100%;
+	}
+
+	.empty-state {
+		width: 100%;
+		min-height: 180px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1.5rem;
+		text-align: center;
+		color: var(--text-secondary);
+		font-size: 0.95rem;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, 0.02);
+		border: 1px dashed var(--border-subtle, rgba(0, 0, 0, 0.12));
 	}
 
 	.pie-svg {

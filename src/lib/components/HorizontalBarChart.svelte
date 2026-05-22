@@ -4,41 +4,46 @@
 	export let withMargin = false
 
 	$: max = 100
+	$: hasData = data.length > 0
 	let hoveredIndex: number | null = null
 </script>
 
 <div class="bar-chart-container" class:withMargin>
 	<h3>{title}</h3>
-	<div class="chart-wrapper">
-		<div class="bars-list">
-			{#each data as item, i}
-				<div
-					class="bar-item"
-					class:active={hoveredIndex === i}
-					on:mouseenter={() => (hoveredIndex = i)}
-					on:mouseleave={() => (hoveredIndex = null)}
-				>
-					<div class="label-row">
-						<span class="color-box" style="background-color: {item.color}"></span>
-						<span class="label">{item.label}</span>
-						{#if item.count}
-							<span class="count-label">
-								{item.count}
-								{item.count > 1 ? 'participants' : 'participant'}
-							</span>
-						{/if}
-						<span class="value">{item.value.toFixed(1)}%</span>
+	{#if hasData}
+		<div class="chart-wrapper">
+			<div class="bars-list">
+				{#each data as item, i}
+					<div
+						class="bar-item"
+						class:active={hoveredIndex === i}
+						on:mouseenter={() => (hoveredIndex = i)}
+						on:mouseleave={() => (hoveredIndex = null)}
+					>
+						<div class="label-row">
+							<span class="color-box" style="background-color: {item.color}"></span>
+							<span class="label">{item.label}</span>
+							{#if item.count}
+								<span class="count-label">
+									{item.count}
+									{item.count > 1 ? 'participants' : 'participant'}
+								</span>
+							{/if}
+							<span class="value">{item.value.toFixed(1)}%</span>
+						</div>
+						<div class="bar-bg">
+							<div
+								class="bar-fill"
+								style="width: {(item.value / max) * 100}%; background-color: {item.color}"
+							></div>
+						</div>
 					</div>
-					<div class="bar-bg">
-						<div
-							class="bar-fill"
-							style="width: {(item.value / max) * 100}%; background-color: {item.color}"
-						></div>
-					</div>
-				</div>
-			{/each}
+				{/each}
+			</div>
 		</div>
-	</div>
+	{:else}
+		<div class="empty-state">Aucune réponse dans cet échantillon.</div>
+	{/if}
 </div>
 
 <style>
@@ -74,6 +79,21 @@
 
 	.chart-wrapper {
 		width: 100%;
+	}
+
+	.empty-state {
+		width: 100%;
+		min-height: 180px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1.5rem;
+		text-align: center;
+		color: var(--text-secondary);
+		font-size: 0.95rem;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, 0.02);
+		border: 1px dashed var(--border-subtle, rgba(0, 0, 0, 0.12));
 	}
 
 	.bars-list {

@@ -261,14 +261,28 @@ function generateSurveyStatsFile(allResults: any[], schema: any) {
 			.map((v) => v.trim())
 			.filter(Boolean)
 
+	const normalizeComparable = (value: string) =>
+		value
+			.trim()
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '')
+			.toLowerCase()
+
 	const getValues = (item: any, field: string) => {
 		const raw = extractValue(item.properties?.[field]).trim()
 		if (!raw) return []
 
 		const allowedValues = officialOptions[field] || []
+		const allowedMap = new Map(
+			allowedValues.map((value) => [normalizeComparable(value), value] as const)
+		)
+
 		return splitValues(raw).map((value) => {
-			if (allowedValues.length === 0 || allowedValues.includes(value)) return value
-			return allowedValues.includes('Autres') ? 'Autres' : 'Autre'
+			if (allowedValues.length === 0) return value
+			return (
+				allowedMap.get(normalizeComparable(value)) ??
+				(allowedValues.includes('Autres') ? 'Autres' : 'Autre')
+			)
 		})
 	}
 
@@ -292,7 +306,9 @@ function generateSurveyStatsFile(allResults: any[], schema: any) {
 	}
 
 	const hasTargetValue = (item: any, field: string, targetValue: string) =>
-		getValues(item, field).includes(targetValue)
+		getValues(item, field).some(
+			(value) => normalizeComparable(value) === normalizeComparable(targetValue)
+		)
 
 	const getRepartitionForTarget = (field: string, targetValue: string, groupField: string) => {
 		const groupValues = allResults
@@ -348,6 +364,26 @@ function generateSurveyStatsFile(allResults: any[], schema: any) {
 	]
 
 	const metrics = [
+		{
+			slug: 'impact',
+			field: 'Impact_perçu',
+			targets: [
+				{
+					slug: 'tres_fort',
+					value: 'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+				},
+				{
+					slug: 'fort',
+					value: "Fort impact : menace de perte d'emploi transformations difficiles"
+				},
+				{
+					slug: 'moyen',
+					value: "Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+				},
+				{ slug: 'peu', value: "Peu d'impact / Pas tout de suite" },
+				{ slug: 'jamais', value: 'Jamais' }
+			]
+		},
 		{
 			slug: 'rapport',
 			field: 'Rapport_à_IA',
