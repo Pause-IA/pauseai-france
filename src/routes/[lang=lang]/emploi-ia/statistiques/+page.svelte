@@ -7,8 +7,12 @@
 	import { surveyData } from '$lib/data/survey-stats'
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 
-	let selectedStatsDimensionBySection: Record<string, string> = {}
-	let selectedStatsGroupIndexBySection: Record<string, number> = {}
+	type SectionSelection = {
+		dimensionKey?: string
+		groupIndex?: number
+	}
+
+	let selectedStatsBySection: Record<string, SectionSelection> = {}
 
 	const getSurveyData = (key: string) => (surveyData as any)[key] ?? []
 	const getAnalysisData = (
@@ -26,40 +30,30 @@
 	const getDimensionByKey = (key: string | undefined) =>
 		key ? profileDimensions.find((d) => d.key === key) : undefined
 
-	const getSelectedDimension = (sectionKey: string) =>
-		getDimensionByKey(selectedStatsDimensionBySection[sectionKey])
-
-	const isSectionDimensionSelected = (sectionKey: string) =>
-		Boolean(selectedStatsDimensionBySection[sectionKey])
-
-	const getSelectedGroup = (sectionKey: string, section: { groups: { title: string }[] }) => {
-		const selectedGroupIndex = selectedStatsGroupIndexBySection[sectionKey]
-		return section.groups[selectedGroupIndex] ?? section.groups[0]
-	}
-
 	const selectStatsGroup = (sectionKey: string, groupIndex: number) => {
-		selectedStatsGroupIndexBySection = {
-			...selectedStatsGroupIndexBySection,
-			[sectionKey]: groupIndex
+		const currentSelection = selectedStatsBySection[sectionKey] ?? {}
+		selectedStatsBySection = {
+			...selectedStatsBySection,
+			[sectionKey]: {
+				...currentSelection,
+				groupIndex
+			}
 		}
 	}
 
 	const selectStatsDimension = (sectionKey: string, dimensionKey: string) => {
-		if (selectedStatsDimensionBySection[sectionKey] === dimensionKey) {
-			const next = { ...selectedStatsDimensionBySection }
+		const currentSelection = selectedStatsBySection[sectionKey] ?? {}
+		if (currentSelection.dimensionKey === dimensionKey) {
+			const next = { ...selectedStatsBySection }
 			delete next[sectionKey]
-			selectedStatsDimensionBySection = next
-			const nextGroups = { ...selectedStatsGroupIndexBySection }
-			delete nextGroups[sectionKey]
-			selectedStatsGroupIndexBySection = nextGroups
+			selectedStatsBySection = next
 		} else {
-			selectedStatsDimensionBySection = {
-				...selectedStatsDimensionBySection,
-				[sectionKey]: dimensionKey
-			}
-			selectedStatsGroupIndexBySection = {
-				...selectedStatsGroupIndexBySection,
-				[sectionKey]: 0
+			selectedStatsBySection = {
+				...selectedStatsBySection,
+				[sectionKey]: {
+					...currentSelection,
+					dimensionKey
+				}
 			}
 		}
 	}
@@ -202,8 +196,9 @@
 		</div>
 
 		{#each groupedStatsSections as section}
-			{@const selectedGroup = getSelectedGroup(section.key, section)}
-			{@const selectedDimension = getSelectedDimension(section.key)}
+			{@const selection = selectedStatsBySection[section.key] ?? {}}
+			{@const selectedGroup = section.groups[selection.groupIndex ?? 0] ?? section.groups[0]}
+			{@const selectedDimension = getDimensionByKey(selection.dimensionKey)}
 			<section class="stats-section">
 				<h2>{section.title}</h2>
 				{#each getSectionAnalysisParagraphs(section.key) as paragraph}
@@ -226,7 +221,7 @@
 						<button
 							type="button"
 							class="dimension-button"
-							class:active={selectedStatsDimensionBySection[section.key] === dimension.key}
+							class:active={selection.dimensionKey === dimension.key}
 							on:click={() => selectStatsDimension(section.key, dimension.key)}
 						>
 							{dimension.plural}
@@ -245,7 +240,7 @@
 							<button
 								type="button"
 								class="group-button"
-								class:active={(selectedStatsGroupIndexBySection[section.key] ?? 0) === groupIndex}
+								class:active={(selection.groupIndex ?? 0) === groupIndex}
 								on:click={() => selectStatsGroup(section.key, groupIndex)}
 							>
 								{group.title}
