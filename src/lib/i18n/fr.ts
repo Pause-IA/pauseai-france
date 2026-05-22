@@ -525,6 +525,7 @@ export default {
 			templates: {
 				rapport_dimension_aria: "Choisir une dimension pour le rapport à l'IA",
 				section_dimension_aria: 'Choisir une dimension pour {section}',
+				group_aria: 'Choisir un groupe pour {section}',
 				rapport_dimension_title: "Rapport à l'IA selon {dimension}",
 				rapport_dimension_subtitle: "{dimensionPlural} et rapport à l'IA",
 				pie_title: '{dimensionPlural} ayant le plus répondu « {target} »',
@@ -812,92 +813,200 @@ export default {
 		},
 		stats_analysis: {
 			impact: {
-				intro_1:
-					"Globalement, la majorité des répondants considèrent que l'IA représente déjà une transformation importante de leur environnement professionnel. Les réponses les plus fréquentes correspondent à un « Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés » ({moyen} %) ou un « Fort impact : menace de perte d'emploi transformations difficiles » ({fort} %), tandis que les réponses indiquant « peu d'impact » ({peu} %) restent minoritaires. Les personnes indiquant un « Très fort impact : emploi perdu métier disparu compétences inutiles... » sont aussi minoritaires, avec {tresFort} % des réponses.",
-				intro_2:
-					'L’étude met également en évidence que certains groupes apparaissent plus touchés que d’autres. Les secteurs les plus exposés sont notamment les métiers du numérique, de la communication, de la traduction, du conseil, de l’immobilier, de la création, de l’édition et de la recherche. À l’inverse, certains secteurs comme la santé, le service public, le sport / animation ou certains métiers artisanaux semblent moins touchés dans les réponses recueillies.',
-				intro_3:
-					'Ces différences suggèrent que l’impact de l’IA n’est pas uniforme : il varie selon le secteur d’activité, le statut professionnel, l’âge et le genre des répondants.',
-				sector_title: "Impact de l'IA selon les secteurs professionnels",
-				sector_p1:
-					'C’est l’un des résultats les plus parlants de cette étude. Certains secteurs ressortent comme nettement plus exposés aux transformations liées à l’intelligence artificielle, tandis que d’autres semblent pour le moment relativement préservés.',
-				sector_p2:
-					'Les métiers qui reposent fortement sur la production de contenu, l’analyse, les tâches cognitives répétitives, la rédaction, la traduction ou certaines fonctions de support apparaissent comme plus vulnérables aux transformations liées à l’IA.',
-				sector_p3:
-					'À l’inverse, les secteurs où le travail est davantage humain, relationnel, manuel ou très contextuel semblent actuellement mieux protégés dans la perception des répondants.',
-				sector_p4:
-					'Il convient néanmoins de nuancer ces résultats en raison des effectifs parfois réduits dans certains secteurs. Plusieurs catégories professionnelles comptent peu de répondants, ce qui peut amplifier artificiellement certaines proportions.',
-				education_title: "Impact de l'IA selon le niveau d'études",
-				education_p1:
-					'Le niveau d’étude ne semble pas être un facteur explicatif clair et univoque du ressenti face à l’impact de l’IA dans cet échantillon. Les perceptions sont réparties dans pratiquement tous les niveaux d’études, avec des résultats parfois contradictoires selon qu’on observe les volumes bruts ou les proportions internes.',
-				education_p2:
-					'Les personnes disposant d’un niveau d’études élevé sont très représentées dans le questionnaire. Cela peut créer un biais important dans les résultats bruts : ces catégories apparaissent davantage dans presque toutes les réponses simplement parce qu’elles sont numériquement plus nombreuses dans l’échantillon.',
-				education_p3:
-					'À l’inverse, les professions dont les répondants disposent d’un niveau d’études plus faible comptent très peu de participants. Les proportions observées dans ces groupes peuvent donc fortement varier avec seulement une ou deux réponses supplémentaires.',
-				education_p4:
-					'Les résultats permettent surtout d’identifier des tendances générales au sein de l’échantillon, plutôt que d’établir des conclusions définitives.',
-				age_title: "Impact de l'IA selon l'âge",
-				age_p1:
-					'Cette étude met également en évidence des différences importantes selon l’âge des répondants. Les jeunes adultes et les personnes en milieu de carrière semblent être celles qui déclarent le plus fortement ressentir les transformations liées à l’intelligence artificielle dans leur vie professionnelle.',
-				age_p2:
-					'Les répondants âgés de 20 à 49 ans représentent une grande partie des personnes déclarant un « fort impact » ou un « très fort impact » de l’IA sur leur travail. En proportion, les très jeunes répondants apparaissent également fortement touchés.',
-				age_p3:
-					'Les répondants les plus âgés déclarent davantage un impact moyen, un faible impact ou parfois même aucun impact de l’IA sur leur activité.',
-				age_p4:
-					'Ces résultats doivent toutefois être interprétés avec prudence, car les 30-50 ans sont fortement surreprésentés dans l’échantillon.',
-				gender_title: "Impact de l'IA selon le genre",
-				gender_p1:
-					'Les résultats semblent montrer un ressenti d’impact plus fort de l’IA chez les femmes que chez les hommes. Cette tendance apparaît particulièrement lorsqu’on observe les proportions internes aux groupes plutôt que les volumes bruts.',
-				gender_p2:
-					'Cette différence peut refléter une exposition différente à certains métiers, certaines tâches et certains environnements professionnels particulièrement sensibles aux outils d’IA.',
-				gender_p3:
-					'Ces observations doivent toutefois être interprétées avec prudence. L’échantillon reste relativement limité et ne peut pas être considéré comme pleinement représentatif de l’ensemble de la population active.',
-				status_title: "Impact de l'IA selon le statut professionnel",
-				status_p1:
-					'Les résultats montrent que les actifs indépendants ainsi que les élèves, étudiants et apprentis figurent parmi les catégories déclarant le plus fortement ressentir l’impact de l’IA.',
-				status_p2:
-					'Les salariés présentent une situation plus contrastée. Une partie importante d’entre eux déclare ressentir un impact fort de l’IA, mais ils sont également nombreux à considérer ces transformations comme des évolutions auxquelles ils s’adaptent sans grandes difficultés.',
-				status_p3:
-					'À l’inverse, les fonctionnaires, les retraités et les personnes au chômage apparaissent davantage dans les catégories décrivant un impact modéré ou limité de l’IA.',
-				status_p4:
-					'Ces résultats suggèrent que les actifs indépendants peuvent se sentir particulièrement exposés aux transformations liées à l’IA, probablement en raison de leur exposition directe au marché et aux évolutions technologiques rapides.',
-				rapport_title: "Rapport à l'IA des répondants",
-				rapport_p1:
-					'Globalement, les répondants entretiennent majoritairement un rapport prudent ou négatif vis-à-vis de l’IA. La posture la plus fréquente correspond à « L’observation et la prudence », ce qui suggère qu’une grande partie des personnes interrogées préfèrent adopter une attitude attentive et mesurée face au développement de ces technologies.',
-				rapport_p2:
-					'Les perceptions plus positives restent minoritaires. Les personnes exprimant une excitation à l’idée de l’utiliser davantage ou de la confiance dans ces nouveaux outils représentent une part plus faible des réponses, ce qui montre que l’IA suscite aujourd’hui un positionnement chez la plupart des participants.',
-				rapport_p3:
-					'Les secteurs les plus exposés sont notamment l’informatique et les télécommunications, la santé, le service public, la communication et le marketing, ou encore la culture et le patrimoine.',
-				rapport_p4:
-					'Ces résultats peuvent s’expliquer par le degré d’exposition variable des secteurs aux transformations liées à l’intelligence artificielle.',
-				frequence_utilisation_title: "Fréquence d'utilisation de l'IA",
-				frequence_utilisation_p1:
-					'Les répondants déclarent des usages très variés de l’IA, allant d’un usage quotidien à une absence totale d’usage.',
-				frequence_utilisation_p2:
-					'Les groupes qui utilisent le moins l’IA sont surtout ceux qui y recourent très ponctuellement, toutes les semaines ou jamais.',
-				frequence_utilisation_p3:
-					'Les groupes qui utilisent le plus l’IA sont ceux qui l’emploient tous les jours ou dans presque toutes leurs tâches.',
-				raisons_utilisation_title: "Raisons d'utilisation de l'IA",
-				raisons_utilisation_p1:
-					'Les raisons d’utilisation de l’IA sont principalement liées au gain de temps, à l’efficacité, au besoin de réaliser toutes ses tâches ou à la curiosité.',
-				raisons_utilisation_p2:
-					'Les motivations plus contraintes comme la pression concurrentielle, une demande de la hiérarchie ou un manque de compétences sont aussi présentes, mais de façon plus secondaire.',
-				raisons_utilisation_p3:
-					'Ces écarts montrent que l’adoption de l’IA résulte à la fois de choix personnels et de contraintes professionnelles.',
-				taches_title: "Tâches réalisées avec l'IA",
-				taches_p1:
-					'L’IA est surtout utilisée pour l’analyse et le résumé de documents, la correction et la rédaction de texte, la traduction, le codage, l’analyse de données et l’automatisation de tâches répétitives.',
-				taches_p2:
-					'Les usages plus créatifs comme la génération d’images, de sons ou de vidéos sont également présents, mais dans des proportions plus modestes.',
-				taches_p3:
-					'On observe donc un usage à la fois productif, cognitif et créatif, avec une forte place donnée aux tâches qui font gagner du temps.',
-				frequence_info_title: "Fréquence d'information sur l'IA",
-				frequence_info_p1:
-					'Une part importante des répondants dit s’informer régulièrement sur l’IA, parfois de manière quotidienne ou hebdomadaire.',
-				frequence_info_p2:
-					'D’autres se tiennent informés plus occasionnellement, voire presque jamais, ce qui montre que le rapport à l’actualité de l’IA varie fortement selon les profils.',
-				frequence_info_p3:
-					'Les personnes les plus curieuses ou les plus exposées professionnellement semblent plus enclines à suivre l’évolution de ces outils.'
+				overview: [
+					"Globalement, la majorité des répondants considèrent que l'IA représente déjà une transformation importante de leur environnement professionnel. Les réponses les plus fréquentes correspondent à un impact moyen ({moyen} %) ou à un fort impact ({fort} %), tandis que les réponses indiquant peu d'impact ({peu} %) restent minoritaires.",
+					"Les réponses de très fort impact représentent {tresFort} % de l'échantillon. L'impact de l'IA n'apparaît donc pas uniforme : il varie fortement selon le secteur d'activité, le niveau d'études, l'âge, le genre et le statut professionnel."
+				],
+				dimension_analyses: {
+					secteur: [
+						"Certains secteurs ressortent comme nettement plus exposés aux transformations liées à l'IA, en particulier les métiers reposant sur la production de contenu, l'analyse, la rédaction, la traduction, le conseil ou certaines fonctions de support.",
+						"À l'inverse, les secteurs où le travail est davantage humain, relationnel, manuel ou très contextuel semblent pour le moment mieux protégés dans la perception des répondants. Ces résultats doivent rester prudents, car certains secteurs comptent peu de réponses."
+					],
+					etudes: [
+						"Le niveau d'études ne constitue pas un facteur explicatif simple. Les diplômés du supérieur long sont très présents dans l'échantillon, ce qui pèse fortement sur les volumes bruts.",
+						'Les proportions internes permettent de nuancer cette lecture, mais les groupes moins représentés peuvent varier fortement avec quelques réponses supplémentaires.'
+					],
+					age: [
+						"Les jeunes adultes et les personnes en milieu de carrière déclarent souvent ressentir plus fortement les transformations liées à l'IA, notamment parce qu'ils sont plus directement exposés au marché du travail.",
+						"Les plus jeunes et les plus âgés étant moins nombreux dans l'échantillon, leurs résultats doivent être interprétés avec prudence."
+					],
+					genre: [
+						"Les résultats suggèrent un ressenti d'impact plus fort chez les femmes que chez les hommes, surtout lorsque l'on observe les proportions internes aux groupes.",
+						"Cette tendance peut refléter une exposition différente à certains métiers, tâches ou environnements professionnels sensibles à l'automatisation."
+					],
+					statut: [
+						"Les actifs indépendants ainsi que les élèves, étudiants et apprentis ressortent comme particulièrement concernés par l'impact de l'IA.",
+						"Les salariés présentent une situation plus contrastée, tandis que les fonctionnaires, retraités et personnes sans emploi apparaissent plus souvent dans les catégories d'impact modéré ou limité."
+					]
+				}
+			},
+			rapport: {
+				overview: [
+					"Les répondants entretiennent majoritairement un rapport prudent ou négatif vis-à-vis de l'IA. La posture la plus fréquente est l'observation et la prudence ({prudence} %), suivie du malaise voire de l'anxiété ({malaise} %).",
+					"Les perceptions plus positives restent minoritaires : l'excitation à l'idée de l'utiliser davantage représente {excitation} % des réponses et la confiance dans ces nouveaux outils {confiance} %. L'IA suscite donc un positionnement marqué chez la plupart des participants."
+				],
+				dimension_analyses: {
+					secteur: [
+						"Les secteurs n'entretiennent pas tous le même rapport à l'IA. L'informatique et les télécommunications apparaissent à la fois dans les réponses inquiètes et dans les réponses positives, signe d'une forte polarisation.",
+						'Les secteurs exposés à des enjeux humains, éthiques ou de sécurité, comme la santé, le service public ou certaines activités juridiques, semblent davantage associés à la prudence ou au malaise.'
+					],
+					etudes: [
+						"Le rapport à l'IA varie selon le niveau d'études, mais sans ligne de fracture simple. Les catégories très diplômées pèsent beaucoup dans les volumes, car elles sont nombreuses dans l'échantillon.",
+						'Les proportions internes aident à comparer les groupes, tout en restant fragiles lorsque les effectifs sont réduits.'
+					],
+					age: [
+						"L'âge semble jouer sur le rapport à l'IA : les répondants plus jeunes ou en âge d'activité peuvent exprimer davantage d'inquiétude, car ils anticipent des effets directs sur leurs études, leurs compétences ou leur emploi.",
+						"Les générations plus âgées apparaissent parfois plus distantes, soit parce qu'elles sont moins exposées professionnellement, soit parce qu'elles utilisent moins ces outils."
+					],
+					genre: [
+						"Les femmes déclarent proportionnellement plus souvent un rapport inquiet ou prudent à l'IA. Cela peut être lié à la présence de métiers féminisés parmi les fonctions administratives, de support ou de communication.",
+						"Les hommes apparaissent davantage dans certaines réponses positives ou d'adaptation, mais ces écarts doivent être lus avec prudence compte tenu de la taille de l'échantillon."
+					],
+					statut: [
+						"Le statut professionnel influence fortement le rapport à l'IA. Les indépendants et les étudiants peuvent ressentir une exposition plus directe aux transformations du marché.",
+						'Les fonctionnaires, retraités ou personnes sans emploi peuvent entretenir un rapport plus distant, même si la prudence reste largement présente dans plusieurs catégories.'
+					]
+				}
+			},
+			frequence_utilisation: {
+				overview: [
+					"Les répondants déclarent des usages très variés de l'IA, allant d'un usage quotidien à une absence totale d'usage.",
+					"Cette diversité montre que l'IA n'est pas encore intégrée de manière homogène dans les pratiques professionnelles : certains profils l'utilisent déjà beaucoup, tandis que d'autres restent à distance."
+				],
+				dimension_analyses: {
+					secteur: [
+						"La fréquence d'utilisation dépend fortement du secteur. Les activités proches du numérique, de la communication, de l'analyse ou de la production de contenu semblent plus enclines à utiliser l'IA régulièrement.",
+						"Les secteurs plus manuels, relationnels ou réglementés paraissent davantage associés à des usages ponctuels ou à une absence d'usage."
+					],
+					etudes: [
+						"Les niveaux d'études élevés sont très présents parmi les utilisateurs, mais cela reflète aussi leur surreprésentation dans l'échantillon.",
+						"Les écarts par niveau d'études doivent donc être lus en distinguant les volumes bruts des proportions internes."
+					],
+					age: [
+						"Les usages réguliers semblent davantage concentrés chez les personnes en âge d'activité, notamment entre 20 et 49 ans.",
+						"Les plus jeunes peuvent utiliser l'IA dans un cadre d'études ou d'entrée sur le marché du travail, tandis que les plus âgés déclarent plus souvent des usages limités."
+					],
+					genre: [
+						"La fréquence d'utilisation varie selon le genre, mais les écarts peuvent aussi refléter des différences de métiers, de secteurs et d'exposition aux outils.",
+						"Il faut donc éviter d'interpréter ces différences comme un effet isolé du genre."
+					],
+					statut: [
+						"Les indépendants, salariés et étudiants apparaissent comme les statuts les plus susceptibles d'avoir intégré l'IA à certaines pratiques régulières.",
+						'Les retraités, fonctionnaires ou personnes sans emploi déclarent plus souvent un usage rare ou inexistant, ce qui peut refléter une exposition professionnelle moindre.'
+					]
+				}
+			},
+			raisons_utilisation: {
+				overview: [
+					"Les raisons d'utilisation de l'IA sont principalement liées au gain de temps, à l'efficacité, au besoin de réaliser toutes ses tâches ou à la curiosité.",
+					'Des motivations plus contraintes existent aussi, comme la pression concurrentielle, une demande de la hiérarchie ou un manque de compétences.'
+				],
+				dimension_analyses: {
+					secteur: [
+						"Les raisons d'utiliser l'IA varient selon les contraintes du secteur. Dans les métiers de contenu, d'analyse ou de support, le gain de temps et l'efficacité semblent particulièrement structurants.",
+						"Dans d'autres secteurs, l'usage peut davantage relever de la curiosité ou d'une expérimentation encore ponctuelle."
+					],
+					etudes: [
+						"Les répondants les plus diplômés peuvent déclarer des usages liés à la productivité, à l'analyse ou à l'expérimentation professionnelle.",
+						'Les groupes moins représentés doivent toutefois être interprétés avec prudence, car quelques réponses peuvent modifier fortement les proportions.'
+					],
+					age: [
+						"Les plus jeunes peuvent utiliser l'IA par curiosité, pour apprendre ou pour compenser certaines tâches d'étude ou d'entrée dans l'emploi.",
+						"Les répondants plus avancés dans leur carrière semblent davantage l'associer à l'efficacité, à l'organisation ou à la pression professionnelle."
+					],
+					genre: [
+						"Les raisons d'utilisation peuvent différer selon les environnements professionnels associés aux répondants. Les écarts observés reflètent probablement autant les métiers occupés que le genre lui-même.",
+						'Les motivations liées au gain de temps, à la charge de travail ou à la pression extérieure doivent donc être replacées dans leur contexte professionnel.'
+					],
+					statut: [
+						"Les indépendants peuvent utiliser l'IA pour absorber une charge de travail importante ou rester compétitifs, tandis que les salariés peuvent l'utiliser à la fois par efficacité et sous l'effet de consignes internes.",
+						"Les étudiants peuvent davantage mettre en avant la curiosité, l'apprentissage ou la nécessité de réaliser certaines tâches."
+					]
+				}
+			},
+			taches: {
+				overview: [
+					"L'IA est surtout utilisée pour l'analyse et le résumé de documents, la correction et la rédaction de texte, la traduction, le codage, l'analyse de données et l'automatisation de tâches répétitives.",
+					"Les usages créatifs, comme la génération d'images, de sons ou de vidéos, sont également présents mais semblent moins centraux dans les réponses."
+				],
+				dimension_analyses: {
+					secteur: [
+						"Les tâches confiées à l'IA reflètent fortement les pratiques de chaque secteur. Les métiers de contenu, de communication, de recherche, d'analyse ou de développement semblent naturellement plus concernés.",
+						'Les secteurs moins numérisés ou plus relationnels apparaissent davantage associés à des usages ponctuels ou spécialisés.'
+					],
+					etudes: [
+						"Les répondants les plus diplômés déclarent souvent des tâches liées à l'analyse, à la rédaction, au codage ou à la synthèse documentaire.",
+						"Cette lecture reste influencée par leur poids important dans l'échantillon."
+					],
+					age: [
+						"Les tâches utilisées avec l'IA varient avec l'âge et la position professionnelle : étude, entrée dans l'emploi, production, gestion de projet ou analyse.",
+						"Les plus jeunes semblent davantage concernés par les usages d'apprentissage, tandis que les actifs y voient souvent un outil de productivité."
+					],
+					genre: [
+						"Les différences par genre doivent être reliées aux métiers et tâches déclarés. Les écarts peuvent refléter la répartition des répondants entre secteurs plutôt qu'un effet direct du genre.",
+						'Les usages de rédaction, support, analyse ou organisation semblent particulièrement importants à observer.'
+					],
+					statut: [
+						"Les tâches confiées à l'IA diffèrent selon le statut. Les indépendants peuvent s'en servir pour couvrir plusieurs fonctions, les salariés pour gagner du temps sur des tâches récurrentes, et les étudiants pour apprendre ou produire des contenus.",
+						"Les statuts moins exposés professionnellement déclarent plus souvent peu ou pas de tâches réalisées avec l'IA."
+					]
+				}
+			},
+			satisfaction: {
+				overview: [
+					"La satisfaction vis-à-vis de l'IA est contrastée. Beaucoup de répondants répondent oui et non, selon les tâches, ce qui suggère une relation pragmatique plutôt qu'une adhésion complète.",
+					"Les réponses positives montrent que l'IA peut être perçue comme un outil précieux ou amplificateur de capacités, tandis que les réponses négatives renvoient surtout à des résultats insatisfaisants ou à des difficultés d'utilisation."
+				],
+				dimension_analyses: {
+					secteur: [
+						"La satisfaction varie selon les secteurs, probablement en fonction de la qualité des usages disponibles et de l'adéquation entre les outils et les tâches professionnelles.",
+						"Les secteurs où l'IA s'intègre facilement aux tâches de texte, d'analyse ou de code peuvent déclarer davantage de bénéfices."
+					],
+					etudes: [
+						"Le niveau d'études peut influencer la facilité d'appropriation des outils, mais les résultats restent fortement marqués par la surreprésentation des diplômés du supérieur long.",
+						"La satisfaction doit donc être lue à la fois comme un ressenti d'usage et comme un effet possible de familiarité avec les outils numériques."
+					],
+					age: [
+						"L'âge peut jouer sur la satisfaction : les répondants qui utilisent déjà l'IA dans leurs études ou leur travail peuvent en percevoir plus directement les bénéfices et les limites.",
+						'Les usages rares ou contraints produisent plus facilement une satisfaction ambivalente.'
+					],
+					genre: [
+						'Les écarts de satisfaction par genre doivent être replacés dans les contextes professionnels et les types de tâches réalisées.',
+						"Une satisfaction faible peut autant renvoyer aux performances des outils qu'aux conditions dans lesquelles ils sont imposés ou utilisés."
+					],
+					statut: [
+						"Les indépendants et salariés peuvent évaluer l'IA à partir de gains très concrets de temps ou de productivité, mais aussi à partir de ses effets sur leur autonomie et leur sécurité professionnelle.",
+						'Les étudiants peuvent avoir une satisfaction plus ambivalente, entre aide pratique et inquiétude sur la valeur future des compétences.'
+					]
+				}
+			},
+			frequence_info: {
+				overview: [
+					"Une part importante des répondants dit s'informer régulièrement sur l'IA, parfois de manière quotidienne ou hebdomadaire.",
+					"D'autres se tiennent informés plus occasionnellement, voire presque jamais, ce qui montre que le rapport à l'actualité de l'IA varie fortement selon les profils."
+				],
+				dimension_analyses: {
+					secteur: [
+						"La fréquence d'information semble plus élevée dans les secteurs directement exposés aux évolutions de l'IA, notamment le numérique, la communication, la recherche ou les métiers d'analyse.",
+						"Les secteurs moins exposés professionnellement peuvent entretenir un rapport plus distant à l'actualité de l'IA."
+					],
+					etudes: [
+						"Les répondants les plus diplômés peuvent être davantage présents parmi ceux qui suivent l'actualité de l'IA, mais cette observation est influencée par leur surreprésentation.",
+						"Les proportions internes permettent de mieux repérer les groupes qui s'informent réellement le plus."
+					],
+					age: [
+						"Les personnes en âge d'activité, et notamment celles dont le métier peut évoluer avec l'IA, semblent plus enclines à suivre régulièrement le sujet.",
+						"Les plus jeunes peuvent aussi s'informer pour anticiper leur orientation ou leur entrée sur le marché du travail."
+					],
+					genre: [
+						"Les écarts par genre dans la fréquence d'information doivent être lus en lien avec les secteurs, statuts et niveaux d'exposition professionnelle.",
+						"Un suivi plus ou moins régulier de l'actualité peut refléter autant l'intérêt personnel que la nécessité professionnelle."
+					],
+					statut: [
+						"Les indépendants, salariés et étudiants ont souvent des raisons concrètes de suivre l'actualité de l'IA : adaptation, formation, veille ou anticipation des transformations du marché.",
+						"Les retraités ou personnes moins directement exposées au travail peuvent s'informer plus ponctuellement."
+					]
+				}
 			}
 		},
 		stats_study_link: "Consulter l'étude statistique détaillée"

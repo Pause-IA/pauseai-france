@@ -61,101 +61,18 @@
 	const getValue = (items: { label: string; value: number }[] | undefined, label: string) =>
 		items?.find((item) => item.label === label)?.value || 0
 
-	const getTopItem = (items: { label: string; value: number }[] | undefined) =>
-		(items ?? []).slice().sort((a, b) => b.value - a.value)[0]
+	const formatAnalysisParagraphs = (paragraphs: string[] | undefined) =>
+		(paragraphs ?? []).map((paragraph) => formatStatText(paragraph, statsTextValues))
 
-	const getSectionAnalysis = (sectionKey: string, sectionTitle: string) =>
-		sectionKey === 'impact' && topImpactBySector
-			? formatStatText(statsPage.impact_sector_analysis, {
-					topSector: topImpactBySector.label,
-					topValue: topImpactBySector.value.toFixed(1),
-					target: 'fort'
-				})
-			: formatStatText(statsPage.section_analysis_placeholder, { section: sectionTitle })
+	const getSectionAnalysisParagraphs = (sectionKey: string) =>
+		formatAnalysisParagraphs((statsAnalysis as any)?.[sectionKey]?.overview)
 
-	const getSectionAnalysisParagraphs = (sectionKey: string) => {
-		switch (sectionKey) {
-			case 'impact':
-				return [
-					statsAnalysis?.impact?.intro_1,
-					statsAnalysis?.impact?.intro_2,
-					statsAnalysis?.impact?.intro_3
-				].filter(Boolean)
-			case 'rapport':
-				return [
-					statsAnalysis?.rapport?.rapport_p1,
-					statsAnalysis?.rapport?.rapport_p2,
-					statsAnalysis?.rapport?.rapport_p3,
-					statsAnalysis?.rapport?.rapport_p4
-				].filter(Boolean)
-			case 'frequence_utilisation':
-				return [
-					statsAnalysis?.frequence_utilisation?.frequence_utilisation_p1,
-					statsAnalysis?.frequence_utilisation?.frequence_utilisation_p2,
-					statsAnalysis?.frequence_utilisation?.frequence_utilisation_p3
-				].filter(Boolean)
-			case 'raisons_utilisation':
-				return [
-					statsAnalysis?.raisons_utilisation?.raisons_utilisation_p1,
-					statsAnalysis?.raisons_utilisation?.raisons_utilisation_p2,
-					statsAnalysis?.raisons_utilisation?.raisons_utilisation_p3
-				].filter(Boolean)
-			case 'taches':
-				return [
-					statsAnalysis?.taches?.taches_p1,
-					statsAnalysis?.taches?.taches_p2,
-					statsAnalysis?.taches?.taches_p3
-				].filter(Boolean)
-			case 'satisfaction':
-				return []
-			case 'frequence_info':
-				return [
-					statsAnalysis?.frequence_info?.frequence_info_p1,
-					statsAnalysis?.frequence_info?.frequence_info_p2,
-					statsAnalysis?.frequence_info?.frequence_info_p3
-				].filter(Boolean)
-			default:
-				return []
-		}
-	}
-
-	const getGroupAnalysis = (sectionKey: string, groupTitle: string, sectionTitle: string) => {
-		if (lang === 'en') {
-			switch (sectionKey) {
-				case 'impact':
-					return `The group "${groupTitle}" helps show how exposure to AI differs inside ${sectionTitle.toLowerCase()}.`
-				case 'rapport':
-					return `The group "${groupTitle}" helps distinguish cautious or negative attitudes from more positive ones within ${sectionTitle.toLowerCase()}.`
-				case 'frequence_utilisation':
-					return `The group "${groupTitle}" highlights who uses AI occasionally and who has already integrated it into daily work.`
-				case 'raisons_utilisation':
-					return `The group "${groupTitle}" shows whether AI use comes more from curiosity, efficiency, or external pressure.`
-				case 'taches':
-					return `The group "${groupTitle}" shows which tasks are most often delegated to AI in daily practice.`
-				case 'frequence_info':
-					return `The group "${groupTitle}" shows who follows AI news closely and who keeps a more distant relationship with the topic.`
-				default:
-					return `The group "${groupTitle}" adds another level of detail to ${sectionTitle.toLowerCase()}.`
-			}
-		}
-
-		switch (sectionKey) {
-			case 'impact':
-				return `Ce groupe permet de voir comment l'impact de l'IA varie à l'intérieur de ${sectionTitle.toLowerCase()}.`
-			case 'rapport':
-				return `Ce groupe permet de distinguer les attitudes prudentes ou négatives des attitudes plus positives dans ${sectionTitle.toLowerCase()}.`
-			case 'frequence_utilisation':
-				return `Ce groupe met en évidence les personnes qui utilisent l'IA ponctuellement et celles qui l'ont déjà intégrée dans leur travail quotidien.`
-			case 'raisons_utilisation':
-				return `Ce groupe montre si l'usage de l'IA vient plutôt de la curiosité, de la recherche d'efficacité ou d'une pression extérieure.`
-			case 'taches':
-				return `Ce groupe montre quelles tâches sont le plus souvent confiées à l'IA dans la pratique quotidienne.`
-			case 'frequence_info':
-				return `Ce groupe montre qui suit de près l'actualité de l'IA et qui entretient un rapport plus distant avec le sujet.`
-			default:
-				return `Ce groupe apporte un niveau de détail supplémentaire à ${sectionTitle.toLowerCase()}.`
-		}
-	}
+	const getDimensionAnalysisParagraphs = (sectionKey: string, dimensionKey: string | undefined) =>
+		dimensionKey
+			? formatAnalysisParagraphs(
+					(statsAnalysis as any)?.[sectionKey]?.dimension_analyses?.[dimensionKey]
+				)
+			: []
 
 	$: lang = ($page.params.lang as Lang) || 'fr'
 	$: t = getT(lang)
@@ -171,8 +88,35 @@
 	$: digitalShare = getValue(surveyData.secteur, 'Informatique et télécommunication')
 	$: age30_39 = getValue(surveyData.age, '30-39 ans')
 	$: age40_49 = getValue(surveyData.age, '40-49 ans')
-	$: impactBySectorBars = getAnalysisData('impact', 'secteur', 'fort', 'bars')
-	$: topImpactBySector = getTopItem(impactBySectorBars)
+	$: statsTextValues = {
+		moyen: String(
+			getValue(
+				surveyData.impact,
+				"Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+			)
+		),
+		fort: String(
+			getValue(
+				surveyData.impact,
+				"Fort impact : menace de perte d'emploi transformations difficiles"
+			)
+		),
+		peu: String(getValue(surveyData.impact, "Peu d'impact / Pas tout de suite")),
+		tresFort: String(
+			getValue(
+				surveyData.impact,
+				'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+			)
+		),
+		prudence: String(getValue(surveyData.rapport, "L'observation et la prudence")),
+		malaise: String(getValue(surveyData.rapport, "Le malaise voire l'anxiété")),
+		excitation: String(
+			getValue(surveyData.rapport, "L'excitation à l'idée de l'utiliser davantage")
+		),
+		confiance: String(getValue(surveyData.rapport, 'La confiance dans ces nouveaux outils')),
+		aucunRapport: String(getValue(surveyData.rapport, 'Pas de rapport particulier')),
+		age30_50: String((age30_39 + age40_49).toFixed(1))
+	}
 </script>
 
 <svelte:head>
@@ -204,7 +148,6 @@
 				{#each getSectionAnalysisParagraphs(section.key) as paragraph}
 					<p>{paragraph}</p>
 				{/each}
-				<p class="section-analysis">{getSectionAnalysis(section.key, section.title)}</p>
 				<PieChart
 					title={section.overviewTitle}
 					data={getSurveyData(section.key)}
@@ -230,39 +173,41 @@
 				</div>
 
 				<div class="deep-analysis">
-					<div
-						class="group-selector"
-						aria-label={lang === 'en'
-							? `Choose a group for ${section.title}`
-							: `Choisir un groupe pour ${section.title}`}
-					>
-						{#each section.groups as group, groupIndex}
-							<button
-								type="button"
-								class="group-button"
-								class:active={(selection.groupIndex ?? 0) === groupIndex}
-								on:click={() => selectStatsGroup(section.key, groupIndex)}
-							>
-								{group.title}
-							</button>
-						{/each}
-					</div>
-
 					<h3>
 						{#if selectedDimension}
-							{formatStatText(statsDetail.templates.group_dimension_title, {
-								group: selectedGroup.title,
+							{formatStatText(statsDetail.templates.section_dimension_title, {
+								section: section.title,
 								dimension: selectedDimension.label
 							})}
 						{:else}
-							{selectedGroup.title}
+							{section.title}
 						{/if}
 					</h3>
-					<p class="group-analysis">
-						{getGroupAnalysis(section.key, selectedGroup.title, section.title)}
-					</p>
+					{#if selectedDimension}
+						{#each getDimensionAnalysisParagraphs(section.key, selectedDimension.key) as paragraph}
+							<p class="dimension-analysis">{paragraph}</p>
+						{/each}
+					{/if}
 
 					{#if selectedDimension}
+						<div
+							class="group-selector"
+							aria-label={formatStatText(statsDetail.templates.group_aria, {
+								section: section.title
+							})}
+						>
+							{#each section.groups as group, groupIndex}
+								<button
+									type="button"
+									class="group-button"
+									class:active={(selection.groupIndex ?? 0) === groupIndex}
+									on:click={() => selectStatsGroup(section.key, groupIndex)}
+								>
+									{group.title}
+								</button>
+							{/each}
+						</div>
+
 						<div class="charts-grid">
 							{#each selectedGroup.targets as target}
 								<div class="chart-card">
@@ -476,18 +421,15 @@
 		padding-left: 1rem;
 	}
 
-	.section-analysis,
-	.group-analysis {
+	.dimension-analysis {
 		color: var(--text-2);
-		font-style: italic;
 		line-height: 1.6;
 		max-width: 760px;
 		margin: 0 0 2rem;
 	}
 
-	.group-analysis {
-		margin-top: -0.5rem;
-		margin-bottom: 1.5rem;
+	.dimension-analysis + .dimension-analysis {
+		margin-top: -1rem;
 	}
 
 	.charts-grid {
@@ -531,19 +473,6 @@
 		height: 4px;
 		background: var(--brand-subtle);
 		border-radius: 2px;
-	}
-
-	.center-aligned {
-		text-align: center;
-	}
-
-	h4 {
-		font-size: 1.2rem;
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-		color: black;
-		font-weight: 600;
-		display: block;
 	}
 
 	.dimension-selector {
@@ -625,18 +554,6 @@
 		align-items: center;
 		justify-content: center;
 		transition: all 0.2s ease;
-	}
-
-	.group-block {
-		margin-top: 2.5rem;
-		padding-top: 2rem;
-		border-top: 1px dashed var(--border-subtle, rgba(0, 0, 0, 0.1));
-	}
-
-	.group-block:first-of-type {
-		border-top: none;
-		padding-top: 0;
-		margin-top: 1rem;
 	}
 
 	ul {
