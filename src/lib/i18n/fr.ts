@@ -771,19 +771,21 @@ export default {
 			limit_education_share:
 				"Par exemple, {percent} % des répondants déclarent avoir un niveau d'études supérieur ou égal à Bac +5, alors que dans la population française générale,",
 			limit_education_link:
-				'la proportion de personnes ayant un diplôme de niveau Bac +5 ou plus est d’environ 12 %, selon l’INSEE en 2023',
+				'la proportion de personnes ayant un diplôme de niveau Bac +5 ou plus est d’environ {educationBenchmarkShare} %, selon l’INSEE en 2023',
 			limit_education_comparison:
 				'Les diplômés du supérieur long sont donc environ {ratio} fois plus représentés dans ce questionnaire que dans la population générale.',
 			limit_education_inverse:
 				'À l’inverse, les personnes ayant un niveau d’études inférieur ou égal au Bac général sont très peu représentées dans les résultats de cette étude.',
 			limit_other_biases:
 				'En plus de ce biais lié au niveau d’études, plusieurs autres déséquilibres apparaissent dans l’échantillon.',
+			analysis_limit_education_link: "Voir les limites sur le niveau d'études",
+			analysis_limit_age_link: "Voir les limites sur l'âge",
 			limit_independent_bias:
-				'Les indépendants sont davantage représentés que dans la population générale. Ils représentent {percent} % des répondants, alors qu’ils représentent environ 13.3 % des travailleurs en France selon l’INSEE.',
+				'Les indépendants sont davantage représentés que dans la population générale. Ils représentent {percent} % des répondants, alors qu’ils représentent environ {independentBenchmarkShare} % des travailleurs en France selon l’INSEE.',
 			limit_independent_comparison:
 				'Les travailleurs indépendants sont donc environ {ratio} fois plus représentés dans cette étude que dans la population active française.',
 			limit_sector_bias:
-				'Les personnes travaillant dans les secteurs de l’informatique et des télécommunications sont également fortement surreprésentées. Ce secteur représente {percent} % des répondants, alors qu’il représente environ 3,4 % des emplois en France selon l’INSEE.',
+				'Les personnes travaillant dans les secteurs de l’informatique et des télécommunications sont également fortement surreprésentées. Ce secteur représente {percent} % des répondants, alors qu’il représente environ {sectorBenchmarkShare} % des emplois en France selon l’INSEE.',
 			limit_sector_comparison:
 				'Les métiers du numérique sont donc environ {ratio} fois plus représentés dans le questionnaire que dans la population générale.',
 			limit_gender_intro: 'L’échantillon présente également un léger déséquilibre de genre :',
@@ -792,7 +794,7 @@ export default {
 			limit_gender_other: '{percent} % déclarent un autre genre',
 			limit_gender_comparison: 'À titre de comparaison,',
 			limit_gender_link:
-				'la population française est composée d’environ 51,5 % de femmes selon l’INSEE',
+				'la population française est composée d’environ {femalePopulationBenchmarkShare} % de femmes selon l’INSEE',
 			limit_age_intro:
 				'Enfin, les personnes âgées de 30 à 50 ans sont particulièrement représentées dans les réponses :',
 			limit_age_30_39: '{percent} % des répondants ont entre 30 et 40 ans',
@@ -814,29 +816,30 @@ export default {
 		stats_analysis: {
 			impact: {
 				overview: [
-					"Globalement, la majorité des répondants considèrent que l'IA représente déjà une transformation importante de leur environnement professionnel. Les réponses les plus fréquentes correspondent à un impact moyen ({moyen} %) ou à un fort impact ({fort} %), tandis que les réponses indiquant peu d'impact ({peu} %) restent minoritaires.",
-					"Les réponses de très fort impact représentent {tresFort} % de l'échantillon. L'impact de l'IA n'apparaît donc pas uniforme : il varie fortement selon le secteur d'activité, le niveau d'études, l'âge, le genre et le statut professionnel."
+					"Globalement, {impactFortTresFort} % des répondants déclarent un impact fort ou très fort de l'IA sur leur vie professionnelle ({fort} % de fort impact et {tresFort} % de très fort impact). La réponse la plus fréquente reste l'impact moyen ({moyen} %), tandis que les réponses indiquant peu d'impact ({peu} %) restent minoritaires.",
+					"L'impact de l'IA n'apparaît donc pas uniforme. Les secteurs les plus représentés parmi les personnes fortement ou très fortement impactées sont l'informatique et les télécommunications ({secteurInfoSampleImpact} % de ce sous-échantillon), puis les statuts salariés ({salarieSampleImpact} %) et indépendants ({independantSampleImpact} %). En proportion interne, les élèves, étudiants et apprentis ainsi que les indépendants atteignent chacun {etudiantProportionImpact} % de réponses fort ou très fort impact.",
+					"L'âge et le genre confirment aussi des écarts nets : les 30-39 ans représentent {age30_39SampleImpact} % des répondants fortement ou très fortement impactés et les 40-49 ans {age40_49SampleImpact} %. Les jeunes adultes et les personnes en âge de travailler sont donc plus touchés. Les femmes déclarent aussi plus souvent un impact fort ou très fort que les hommes ({femmeProportionImpact} % contre {hommeProportionImpact} %)."
 				],
 				dimension_analyses: {
 					secteur: [
-						"Certains secteurs ressortent comme nettement plus exposés aux transformations liées à l'IA, en particulier les métiers reposant sur la production de contenu, l'analyse, la rédaction, la traduction, le conseil ou certaines fonctions de support.",
-						"À l'inverse, les secteurs où le travail est davantage humain, relationnel, manuel ou très contextuel semblent pour le moment mieux protégés dans la perception des répondants. Ces résultats doivent rester prudents, car certains secteurs comptent peu de réponses."
+						"En volume global, l'informatique et les télécommunications dominent nettement les réponses de fort ou très fort impact : ce secteur représente {secteurInfoSampleImpact} % des personnes concernées, et {secteurInfoFortPieShare} % des réponses de fort impact à lui seul dans le camembert. La communication et le marketing pèsent aussi fortement dans les réponses de fort impact ({secteurComFortPieShare} % du sous-échantillon), devant l'énergie ({secteurEnergieFortPieShare} %) et plusieurs secteurs plus dispersés.",
+						"La lecture proportionnelle des barres horizontales nuance ce classement. Parmi les secteurs avec au moins quelques répondants, {secteurComProportionImpact} % des personnes en communication et marketing se disent fortement ou très fortement impactées, contre {secteurInfoProportionImpact} % dans l'informatique et les télécommunications. À l'inverse, le service public, défense et sécurité ({secteurServicePublicProportionImpact} %) et la santé ({secteurSanteProportionImpact} %) apparaissent moins fortement impactés en proportion interne. Les très petits effectifs, comme le commerce ou l'artisanat, peuvent afficher des proportions élevées mais doivent être lus avec prudence."
 					],
 					etudes: [
 						"Le niveau d'études ne constitue pas un facteur explicatif simple. Les diplômés du supérieur long sont très présents dans l'échantillon, ce qui pèse fortement sur les volumes bruts.",
 						'Les proportions internes permettent de nuancer cette lecture, mais les groupes moins représentés peuvent varier fortement avec quelques réponses supplémentaires.'
 					],
 					age: [
-						"Les jeunes adultes et les personnes en milieu de carrière déclarent souvent ressentir plus fortement les transformations liées à l'IA, notamment parce qu'ils sont plus directement exposés au marché du travail.",
-						"Les plus jeunes et les plus âgés étant moins nombreux dans l'échantillon, leurs résultats doivent être interprétés avec prudence."
+						"En volume global, les personnes en âge de travailler concentrent l'essentiel des réponses de fort ou très fort impact : les 30-39 ans représentent {age30_39SampleImpact} % de ce sous-échantillon, les 40-49 ans {age40_49SampleImpact} % et les 20-29 ans {age20_29SampleImpact} %. Cela suggère que l'impact ressenti est particulièrement fort chez les jeunes adultes et les personnes déjà installées dans le marché du travail.",
+						'La lecture proportionnelle va dans le même sens : {age20_29ProportionImpact} % des 20-29 ans et {age30_39ProportionImpact} % des 30-39 ans déclarent un impact fort ou très fort, contre {age60_69ProportionImpact} % des 60-69 ans. Les 10-19 ans atteignent {age10_19ProportionImpact} %, mais avec seulement {age10_19Count} répondants : ce signal est intéressant, sans être aussi robuste que les résultats observés chez les 20-49 ans.'
 					],
 					genre: [
-						"Les résultats suggèrent un ressenti d'impact plus fort chez les femmes que chez les hommes, surtout lorsque l'on observe les proportions internes aux groupes.",
-						"Cette tendance peut refléter une exposition différente à certains métiers, tâches ou environnements professionnels sensibles à l'automatisation."
+						"Dans les volumes globaux, les hommes restent majoritaires parmi les réponses de fort ou très fort impact ({hommeSampleImpact} %), ce qui reflète aussi leur poids dans l'échantillon. Les femmes représentent néanmoins {femmeSampleImpact} % de ce sous-échantillon, et {genreFemmeTresFortPieShare} % des réponses de très fort impact dans le camembert.",
+						"La lecture proportionnelle montre une exposition déclarée plus forte chez les femmes : {femmeProportionImpact} % d'entre elles indiquent un impact fort ou très fort, contre {hommeProportionImpact} % des hommes. Cette tendance peut refléter une exposition différente à certains métiers, tâches ou environnements professionnels sensibles à l'automatisation."
 					],
 					statut: [
-						"Les actifs indépendants ainsi que les élèves, étudiants et apprentis ressortent comme particulièrement concernés par l'impact de l'IA.",
-						"Les salariés présentent une situation plus contrastée, tandis que les fonctionnaires, retraités et personnes sans emploi apparaissent plus souvent dans les catégories d'impact modéré ou limité."
+						"En volume global, les salariés représentent la plus grande part des répondants fortement ou très fortement impactés ({salarieSampleImpact} %), suivis par les indépendants ({independantSampleImpact} %) et les élèves, étudiants et apprentis ({etudiantSampleImpact} %). Cette lecture reflète en partie la composition de l'échantillon.",
+						'En proportion interne, le signal est plus marqué chez les indépendants ({independantProportionImpact} %) et les élèves, étudiants et apprentis ({etudiantProportionImpact} %) : ces deux groupes déclarent le plus souvent un impact fort ou très fort. Les salariés sont à {salarieProportionImpact} %, les fonctionnaires à {fonctionnaireProportionImpact} % et les retraités à {retraiteProportionImpact} %. Les indépendants et les personnes en formation ou en entrée sur le marché du travail apparaissent donc particulièrement exposés.'
 					]
 				}
 			},

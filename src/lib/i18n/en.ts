@@ -759,19 +759,21 @@ export default {
 			limit_education_share:
 				"For example, {percent} % of respondents declare having a level of education greater than or equal to a Master's degree, whereas in the general French population,",
 			limit_education_link:
-				"the proportion of people with a Master's degree or higher is about 12%, according to INSEE in 2023",
+				"the proportion of people with a Master's degree or higher is about {educationBenchmarkShare} %, according to INSEE in 2023",
 			limit_education_comparison:
 				'Long-cycle graduates are therefore about {ratio} times more represented in this questionnaire than in the general population.',
 			limit_education_inverse:
 				'On the other hand, people with an education level below or equal to the general high school diploma are very underrepresented in the results of this study.',
 			limit_other_biases:
 				'In addition to this education-related bias, several other imbalances appear in the sample.',
+			analysis_limit_education_link: 'See the limitations about education level',
+			analysis_limit_age_link: 'See the limitations about age',
 			limit_independent_bias:
-				'Self-employed workers are more represented than in the general population. They account for {percent} % of respondents, whereas they represent about 13.3 % of workers in France according to INSEE.',
+				'Self-employed workers are more represented than in the general population. They account for {percent} % of respondents, whereas they represent about {independentBenchmarkShare} % of workers in France according to INSEE.',
 			limit_independent_comparison:
 				'Self-employed workers are therefore about {ratio} times more represented in this study than in the French active population.',
 			limit_sector_bias:
-				'People working in the IT and telecommunications sectors are also heavily overrepresented. This sector represents {percent} % of respondents, whereas it accounts for about 3.4 % of jobs in France according to INSEE.',
+				'People working in the IT and telecommunications sectors are also heavily overrepresented. This sector represents {percent} % of respondents, whereas it accounts for about {sectorBenchmarkShare} % of jobs in France according to INSEE.',
 			limit_sector_comparison:
 				'Digital jobs are therefore about {ratio} times more represented in the questionnaire than in the general population.',
 			limit_gender_intro: 'The sample also shows a slight gender imbalance:',
@@ -780,7 +782,7 @@ export default {
 			limit_gender_other: '{percent} % identify as another gender',
 			limit_gender_comparison: 'For comparison,',
 			limit_gender_link:
-				'the French population is made up of about 51.5 % women according to INSEE',
+				'the French population is made up of about {femalePopulationBenchmarkShare} % women according to INSEE',
 			limit_age_intro:
 				'Finally, people aged 30 to 50 are particularly represented in the responses:',
 			limit_age_30_39: '{percent} % of respondents are between 30 and 40 years old',

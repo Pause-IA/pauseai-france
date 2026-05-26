@@ -12,6 +12,11 @@
 		groupIndex?: number
 	}
 
+	type LimitLink = {
+		href: string
+		label: string
+	}
+
 	let selectedStatsBySection: Record<string, SectionSelection> = {}
 
 	const getSurveyData = (key: string) => (surveyData as any)[key] ?? []
@@ -61,6 +66,52 @@
 	const getValue = (items: { label: string; value: number }[] | undefined, label: string) =>
 		items?.find((item) => item.label === label)?.value || 0
 
+	const formatPercent = (value: number) =>
+		Number.isInteger(value) ? String(value) : value.toFixed(1)
+
+	const getCombinedImpactRows = (dimensionKey: string) => {
+		const rows = new Map<string, { label: string; total: number; impactCount: number }>()
+		const impactData = (surveyData as any).analyses?.impact?.[dimensionKey] ?? {}
+
+		for (const targetKey of ['tres_fort', 'fort']) {
+			for (const item of impactData[targetKey]?.bars ?? []) {
+				const current = rows.get(item.label) ?? {
+					label: item.label,
+					total: item.count ?? 0,
+					impactCount: 0
+				}
+
+				current.total = item.count ?? current.total
+				current.impactCount += Math.round(((item.count ?? 0) * item.value) / 100)
+				rows.set(item.label, current)
+			}
+		}
+
+		const totalImpactCount = [...rows.values()].reduce((sum, row) => sum + row.impactCount, 0)
+
+		return [...rows.values()].map((row) => ({
+			...row,
+			proportion: row.total > 0 ? (row.impactCount / row.total) * 100 : 0,
+			sampleShare: totalImpactCount > 0 ? (row.impactCount / totalImpactCount) * 100 : 0
+		}))
+	}
+
+	const getCombinedImpactValue = (
+		dimensionKey: string,
+		label: string,
+		field: 'proportion' | 'sampleShare'
+	) => {
+		const row = getCombinedImpactRows(dimensionKey).find((item) => item.label === label)
+		return formatPercent(row?.[field] ?? 0)
+	}
+
+	const getPieShare = (dimensionKey: string, targetKey: string, label: string) => {
+		const item = (surveyData as any).analyses?.impact?.[dimensionKey]?.[targetKey]?.pie?.find(
+			(entry: { label: string; value: number }) => entry.label === label
+		)
+		return formatPercent(item?.value ?? 0)
+	}
+
 	const formatAnalysisParagraphs = (paragraphs: string[] | undefined) =>
 		(paragraphs ?? []).map((paragraph) => formatStatText(paragraph, statsTextValues))
 
@@ -73,6 +124,23 @@
 					(statsAnalysis as any)?.[sectionKey]?.dimension_analyses?.[dimensionKey]
 				)
 			: []
+
+	const getLimitLink = (sectionKey: string, dimensionKey: string | undefined): LimitLink | null => {
+		if (sectionKey !== 'impact' || !dimensionKey) return null
+
+		const links: Record<string, LimitLink> = {
+			etudes: {
+				href: '#limites-etudes',
+				label: statsPage.analysis_limit_education_link
+			},
+			age: {
+				href: '#limites-age',
+				label: statsPage.analysis_limit_age_link
+			}
+		}
+
+		return links[dimensionKey] ?? null
+	}
 
 	$: lang = ($page.params.lang as Lang) || 'fr'
 	$: t = getT(lang)
@@ -115,7 +183,86 @@
 		),
 		confiance: String(getValue(surveyData.rapport, 'La confiance dans ces nouveaux outils')),
 		aucunRapport: String(getValue(surveyData.rapport, 'Pas de rapport particulier')),
-		age30_50: String((age30_39 + age40_49).toFixed(1))
+		age30_50: String((age30_39 + age40_49).toFixed(1)),
+		educationBenchmarkShare: '12',
+		independentBenchmarkShare: '13.3',
+		sectorBenchmarkShare: '3.4',
+		femalePopulationBenchmarkShare: '51.5',
+		impactFortTresFort: String(
+			(
+				getValue(
+					surveyData.impact,
+					"Fort impact : menace de perte d'emploi transformations difficiles"
+				) +
+				getValue(
+					surveyData.impact,
+					'Très fort impact : emploi perdu métier disparu compétences inutiles...'
+				)
+			).toFixed(1)
+		),
+		secteurInfoSampleImpact: getCombinedImpactValue(
+			'secteur',
+			'Informatique et télécommunication',
+			'sampleShare'
+		),
+		secteurInfoProportionImpact: getCombinedImpactValue(
+			'secteur',
+			'Informatique et télécommunication',
+			'proportion'
+		),
+		secteurComProportionImpact: getCombinedImpactValue(
+			'secteur',
+			'Communication et marketing',
+			'proportion'
+		),
+		secteurServicePublicProportionImpact: getCombinedImpactValue(
+			'secteur',
+			'Service public, défense et sécurité',
+			'proportion'
+		),
+		secteurSanteProportionImpact: getCombinedImpactValue('secteur', 'Santé', 'proportion'),
+		secteurInfoFortPieShare: getPieShare('secteur', 'fort', 'Informatique et télécommunication'),
+		secteurComFortPieShare: getPieShare('secteur', 'fort', 'Communication et marketing'),
+		secteurEnergieFortPieShare: getPieShare('secteur', 'fort', 'Energie'),
+		age30_39SampleImpact: getCombinedImpactValue('age', '30-39 ans', 'sampleShare'),
+		age40_49SampleImpact: getCombinedImpactValue('age', '40-49 ans', 'sampleShare'),
+		age20_29SampleImpact: getCombinedImpactValue('age', '20-29 ans', 'sampleShare'),
+		age10_19Count: String(getValue(surveyData.age, '10-19 ans')),
+		age20_29ProportionImpact: getCombinedImpactValue('age', '20-29 ans', 'proportion'),
+		age30_39ProportionImpact: getCombinedImpactValue('age', '30-39 ans', 'proportion'),
+		age40_49ProportionImpact: getCombinedImpactValue('age', '40-49 ans', 'proportion'),
+		age60_69ProportionImpact: getCombinedImpactValue('age', '60-69 ans', 'proportion'),
+		age10_19ProportionImpact: getCombinedImpactValue('age', '10-19 ans', 'proportion'),
+		femmeSampleImpact: getCombinedImpactValue('genre', 'Femme', 'sampleShare'),
+		hommeSampleImpact: getCombinedImpactValue('genre', 'Homme', 'sampleShare'),
+		femmeProportionImpact: getCombinedImpactValue('genre', 'Femme', 'proportion'),
+		hommeProportionImpact: getCombinedImpactValue('genre', 'Homme', 'proportion'),
+		genreFemmeTresFortPieShare: getPieShare('genre', 'tres_fort', 'Femme'),
+		genreHommeTresFortPieShare: getPieShare('genre', 'tres_fort', 'Homme'),
+		salarieSampleImpact: getCombinedImpactValue('statut', 'Actif salarié', 'sampleShare'),
+		independantSampleImpact: getCombinedImpactValue('statut', 'Actif indépendant', 'sampleShare'),
+		etudiantSampleImpact: getCombinedImpactValue(
+			'statut',
+			'Élève / étudiant / apprenti',
+			'sampleShare'
+		),
+		independantProportionImpact: getCombinedImpactValue(
+			'statut',
+			'Actif indépendant',
+			'proportion'
+		),
+		etudiantProportionImpact: getCombinedImpactValue(
+			'statut',
+			'Élève / étudiant / apprenti',
+			'proportion'
+		),
+		salarieProportionImpact: getCombinedImpactValue('statut', 'Actif salarié', 'proportion'),
+		fonctionnaireProportionImpact: getCombinedImpactValue(
+			'statut',
+			'Actif fonctionnaire',
+			'proportion'
+		),
+		retraiteProportionImpact: getCombinedImpactValue('statut', 'Retraité', 'proportion')
 	}
 </script>
 
@@ -187,6 +334,13 @@
 						{#each getDimensionAnalysisParagraphs(section.key, selectedDimension.key) as paragraph}
 							<p class="dimension-analysis">{paragraph}</p>
 						{/each}
+
+						{@const limitLink = getLimitLink(section.key, selectedDimension.key)}
+						{#if limitLink}
+							<p class="dimension-limit-link">
+								<a href={limitLink.href}>{limitLink.label}</a>
+							</p>
+						{/if}
 					{/if}
 
 					{#if selectedDimension}
@@ -251,7 +405,7 @@
 			})}
 		</p>
 		<p>{statsPage.limit_sample_bias}</p>
-		<p>{statsPage.limit_education_bias}</p>
+		<p id="limites-etudes">{statsPage.limit_education_bias}</p>
 		<p>
 			{formatStatText(statsPage.limit_education_share, {
 				percent: String(educationHighShare)
@@ -261,18 +415,23 @@
 			target="_blank"
 			href="https://www.insee.fr/fr/statistiques/2011101?geo=FRANCE-1#titre-tableau-FOR_T3"
 		>
-			{statsPage.limit_education_link}
+			{formatStatText(statsPage.limit_education_link, {
+				educationBenchmarkShare: statsTextValues.educationBenchmarkShare
+			})}
 		</a>
 		<p>
 			{formatStatText(statsPage.limit_education_comparison, {
-				ratio: ((educationHighShare || 0) / 12).toFixed(1)
+				ratio: (
+					(educationHighShare || 0) / Number(statsTextValues.educationBenchmarkShare)
+				).toFixed(1)
 			})}
 		</p>
 		<p>{statsPage.limit_education_inverse}</p>
 		<p>{statsPage.limit_other_biases}</p>
 		<p>
 			{formatStatText(statsPage.limit_independent_bias, {
-				percent: String(selfEmployedShare)
+				percent: String(selfEmployedShare),
+				independentBenchmarkShare: statsTextValues.independentBenchmarkShare
 			})}
 		</p>
 		<PieChart
@@ -282,12 +441,13 @@
 		/>
 		<p>
 			{formatStatText(statsPage.limit_independent_comparison, {
-				ratio: (selfEmployedShare / 13.3).toFixed(1)
+				ratio: (selfEmployedShare / Number(statsTextValues.independentBenchmarkShare)).toFixed(1)
 			})}
 		</p>
 		<p>
 			{formatStatText(statsPage.limit_sector_bias, {
-				percent: String(digitalShare)
+				percent: String(digitalShare),
+				sectorBenchmarkShare: statsTextValues.sectorBenchmarkShare
 			})}
 		</p>
 		<PieChart
@@ -297,7 +457,7 @@
 		/>
 		<p>
 			{formatStatText(statsPage.limit_sector_comparison, {
-				ratio: (digitalShare / 3.4).toFixed(1)
+				ratio: (digitalShare / Number(statsTextValues.sectorBenchmarkShare)).toFixed(1)
 			})}
 		</p>
 		<p>{statsPage.limit_gender_intro}</p>
@@ -320,7 +480,9 @@
 		</ul>
 		<p>
 			<a target="_blank" href="https://www.insee.fr/fr/statistiques/2381474">
-				{statsPage.limit_gender_link}
+				{formatStatText(statsPage.limit_gender_link, {
+					femalePopulationBenchmarkShare: statsTextValues.femalePopulationBenchmarkShare
+				})}
 			</a>
 		</p>
 		<PieChart
@@ -328,7 +490,7 @@
 			data={surveyData.genre}
 			withMargin={true}
 		/>
-		<p>{statsPage.limit_age_intro}</p>
+		<p id="limites-age">{statsPage.limit_age_intro}</p>
 		<ul>
 			<li>{formatStatText(statsPage.limit_age_30_39, { percent: String(age30_39) })}</li>
 			<li>{formatStatText(statsPage.limit_age_40_49, { percent: String(age40_49) })}</li>
@@ -430,6 +592,16 @@
 
 	.dimension-analysis + .dimension-analysis {
 		margin-top: -1rem;
+	}
+
+	.dimension-limit-link {
+		margin: -0.75rem 0 1.5rem;
+	}
+
+	.dimension-limit-link a {
+		font-weight: 700;
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
 	}
 
 	.charts-grid {
