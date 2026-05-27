@@ -1,0 +1,2497 @@
+
+====================================
+Loading svelte-check in workspace: c:\Users\ponsd\Documents\Documents\pauseai-france
+Getting Svelte diagnostics...
+
+X [ERROR] Cannot read directory "../../..": Access is denied.
+
+X [ERROR] Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+
+[31mfailed to load config from C:\Users\ponsd\Documents\Documents\pauseai-france\vite.config.ts[39m
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+Preprocessing failed
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1472:15)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:945:25
+    at runOnEndCallbacks (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:1315:45)
+    at buildResponseToResult (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:943:7)
+    at C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:970:16
+    at responseCallbacks.<computed> (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:622:9)
+    at handleIncomingPacket (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:677:12)
+    at Socket.readFromStdout (C:\Users\ponsd\Documents\Documents\pauseai-france\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\lib\main.js:600:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  __source: 'Style'
+}
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\custom\a.svelte[39m:59:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.icon {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\Fly.svelte[39m:72:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	div {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\Accordion.svelte[39m:70:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	:global(div.inView:not(:last-child)) > .accordion {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\ArticleCard.svelte[39m:41:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.article-link {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\CarouselNavigation.svelte[39m:145:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.controls {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\ArticleTeaserCard.svelte[39m:54:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.card {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\ArticleShowcase.svelte[39m:207:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	:root {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\Banner.svelte[39m:30:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.banner {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\Button.svelte[39m:20:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	button,
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\Callout.svelte[39m:16:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.callout {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\DonVirement.svelte[39m:286:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.overlay {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\EmploiForm.svelte[39m:16:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	a {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\Logo.svelte[39m:72:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.logo {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\Socials.svelte[39m:35:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.social {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\Footer.svelte[39m:155:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	footer {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\NavDropdown.svelte[39m:107:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	/* ─── Dropdown container ─────────────────────────────────────── */
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\Header.svelte[39m:435:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	/* ─── Site header wrapper (sticky) ──────────────────────────── */
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\HorizontalBarChart.svelte[39m:44:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.bar-chart-container {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\LeadershipCard.svelte[39m:27:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.leadership-card {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\LocalGroupsMap.svelte[39m:106:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.map-wrap {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\Mark.svelte[39m:5:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	span {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\Navlink.svelte[39m:18:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	a {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\NewsletterCard.svelte[39m:62:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.card-link {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\PdfViewer.svelte[39m:39:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.pdf-viewer {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\PieChart.svelte[39m:75:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.pie-chart-container {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\ScientificCouncilCard.svelte[39m:27:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.scientist-card {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\SurveyCharts.svelte[39m:54:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.survey-stats {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\TabList.svelte[39m:50:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	/* Annule le margin-bottom imposé par UnderlinedTitle dans ce contexte */
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\TestimonialCarousel.svelte[39m:97:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	:global(body) {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\UnderlinedTitle.svelte[39m:21:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	h1,
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\WhoCard.svelte[39m:29:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.member-card {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\YouTubeEmbed.svelte[39m:18:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.video-container {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\hero\LeftCorner.svelte[39m:8:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	svg {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\hero\RightCorner.svelte[39m:16:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	svg {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\home\articles.svelte[39m:86:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	section {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\home\faq.svelte[39m:392:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.faq-toolbar {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\home\hero.svelte[39m:237:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.hero {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\home\inserts.svelte[39m:55:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	section {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\home\lead.svelte[39m:91:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.lead {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\home\newsletter-cta.svelte[39m:88:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.newsletter-cta {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\home\newsletter.svelte[39m:154:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.newsletter {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\home\risks.svelte[39m:248:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	section {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\home\videos.svelte[39m:50:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	section {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\components\home\who.svelte[39m:244:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	section {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\lib\layouts\waitbutwhy.svelte[39m:116:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	:global(.wbw-container) {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\+error.svelte[39m:51:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.error-page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\+layout.svelte[39m:97:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	/* @import url('$lib/reset.css');
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\[slug]\+page.svelte[39m:34:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\campagnes\+page.svelte[39m:207:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\dangers\+layout.svelte[39m:89:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.nav-container {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\dons\+page.svelte[39m:362:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\ecrire-a-mes-elus\+page.svelte[39m:464:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\emploi-ia\+page.svelte[39m:227:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\emploi-ia\merci\+page.svelte[39m:47:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.thank-you-page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\emploi-ia\pas-de-pilote\+page.svelte[39m:164:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\emploi-ia\questionnaire\+page.svelte[39m:893:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.questionnaire-container {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\emploi-ia\remplacer-humain\+page.svelte[39m:141:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\emploi-ia\statistiques\+page.svelte[39m:318:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.stats-page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\groupes-locaux\+page.svelte[39m:100:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\merci\+page.svelte[39m:43:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.container {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\municipales-2026\+page.svelte[39m:486:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\newsletters\+page.svelte[39m:366:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\newsletters\[slug]\+page.svelte[39m:147:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\posts\+page.svelte[39m:30:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.posts {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\presse\+page.svelte[39m:780:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.press-page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\presse\local\[slug]\+page.svelte[39m:151:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\presse\national\[slug]\+page.svelte[39m:150:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\rejoindre\+page.svelte[39m:222:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\senat2025\+page.svelte[39m:531:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.wrap {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[lang=lang]\sommet-ia-2026\+page.svelte[39m:55:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\[slug]\+page.svelte[39m:35:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\campagnes\+page.svelte[39m:123:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\dangers\+layout.svelte[39m:118:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.nav-container {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\dons\+page.svelte[39m:137:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\emploi-ia\merci\+page.svelte[39m:44:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.thank-you-page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\emploi-ia\pas-de-pilote\+page.svelte[39m:161:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\emploi-ia\questionnaire\+page.svelte[39m:817:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.questionnaire-container {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\emploi-ia\remplacer-humain\+page.svelte[39m:138:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\emploi-ia\statistiques\+page.svelte[39m:68:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.stats-page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\groupes-locaux\+page.svelte[39m:71:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\merci\+page.svelte[39m:44:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.container {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\municipales-2026\+page.svelte[39m:420:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\newsletters\+page.svelte[39m:362:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\newsletters\[slug]\+page.svelte[39m:137:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\posts\+page.svelte[39m:29:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.posts {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\presse\+page.svelte[39m:775:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.press-page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\presse\local\[slug]\+page.svelte[39m:141:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\presse\national\[slug]\+page.svelte[39m:140:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.page {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\recrutement\+page.svelte[39m:381:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.recruitment-landing {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\rejoindre\+page.svelte[39m:153:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\senat2025\+page.svelte[39m:340:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	.wrap {
+[39m
+
+c:\Users\ponsd\Documents\Documents\pauseai-france\[32msrc\routes\sommet-ia-2026\+page.svelte[39m:51:8
+[31mError[39m: Build failed with 2 errors:
+error: Cannot read directory "../../..": Access is denied.
+error: Could not resolve "C:\\Users\\ponsd\\Documents\\Documents\\pauseai-france\\vite.config.ts" (svelte(style))
+[36m
+<style>[35m[36m
+	article {
+[39m
+
+====================================
+[31msvelte-check found 92 errors and 0 warnings in 92 files
+[39m

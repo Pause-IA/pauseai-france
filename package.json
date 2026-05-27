@@ -14,7 +14,8 @@
 		"format": "prettier --write .",
 		"prepare": "svelte-kit sync && husky",
 		"test": "vitest --run",
-		"optimize-images": "node scripts/optimize-images.js"
+		"optimize-images": "node scripts/optimize-images.js",
+		"update-stats": "node scripts/download-testimonials.ts"
 	},
 	"devDependencies": {
 		"@netlify/functions": "^4.2.1",
