@@ -7,6 +7,7 @@
 
 	export let open = false
 	export let id: string
+	export let noHash = false
 
 	const details_id = `${id}-details`
 	const title_id = `${id}-title`
@@ -14,7 +15,7 @@
 	const handleClick = () => {
 		open = !open
 		// Update URL hash for deep-linking
-		if (typeof window !== 'undefined') {
+		if (!noHash && typeof window !== 'undefined') {
 			if (open) {
 				history.replaceState(null, '', `#${id}`)
 			} else {
@@ -23,7 +24,7 @@
 		}
 	}
 
-	$: if ($page.url.hash === `#${id}`) {
+	$: if (!noHash && $page.url.hash === `#${id}`) {
 		open = true
 	}
 

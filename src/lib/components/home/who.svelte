@@ -4,7 +4,7 @@
 	import WhoCard from '$components/WhoCard.svelte'
 	import Button from '$components/Button.svelte'
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
-	import FAQ from '$posts/qui-sommes-nous.md'
+	import Accordion from '$components/Accordion.svelte'
 	import FAQEn from '$posts/en/qui-sommes-nous.md'
 	import type { TeamMember } from '$lib/notion'
 	import type { Lang } from '$lib/i18n'
@@ -160,25 +160,27 @@
 		{#if lang === 'en'}
 			<FAQEn />
 		{:else}
-			<FAQ />
+			<p class="lead">
+				Nous sommes une <a href="/mentions-legales">association</a> qui alerte les citoyens et les
+				pouvoirs publics français sur les
+				<a href="/dangers/economiques-et-materiels">graves dangers</a> de la course à l'intelligence
+				artificielle, et les incite à agir pour s'y opposer. Nous représentons en France
+				<a href="https://pauseai.info">PauseAI Global</a>.
+			</p>
 		{/if}
 		<div class="contact-cta">
-			<Button href="mailto:contact@pauseia.fr"
-				>{lang === 'en' ? 'Contact us' : 'Nous contacter'}</Button
-			>
+			{#if lang === 'en'}
+				<Button alt href="mailto:contact@pauseia.fr">Contact us</Button>
+			{:else}
+				<Button href="/dons">Faire un don</Button>
+				<Button alt href="/rejoindre">Nous rejoindre</Button>
+				<Button alt href="mailto:contact@pauseia.fr">Nous contacter</Button>
+			{/if}
 		</div>
 	</div>
 
 	<div class="team-section">
 		<h2 class="section-title">{lang === 'en' ? 'Leadership' : 'Direction'}</h2>
-		<p class="section-description">
-			{#if lang === 'en'}
-				The board members who lead the association's strategy and operations.
-			{:else}
-				Les membres du bureau et du conseil d'administration qui pilotent la stratégie et les
-				opérations de l'association.
-			{/if}
-		</p>
 		<div class="cards-grid cards-centered">
 			{#each leadership as leader}
 				<LeadershipCard name={leader.name} role={leader.role} image={leader.image} />
@@ -191,15 +193,6 @@
 			<h2 class="section-title">
 				{lang === 'en' ? 'Scientific Council' : 'Conseil scientifique'}
 			</h2>
-			<p class="section-description">
-				{#if lang === 'en'}
-					Our experts who inform our positions on the technical and scientific issues of artificial
-					intelligence.
-				{:else}
-					Nos experts qui éclairent nos positions sur les enjeux techniques et scientifiques de
-					l'intelligence artificielle.
-				{/if}
-			</p>
 			<div class="cards-grid cards-centered">
 				{#each scientificCouncil as scientist}
 					<ScientificCouncilCard
@@ -217,15 +210,6 @@
 			<h2 class="section-title">
 				{lang === 'en' ? 'Members & Volunteers' : 'Membres et bénévoles'}
 			</h2>
-			<p class="section-description">
-				{#if lang === 'en'}
-					The volunteers who bring the association to life every day through their skills and
-					commitment.
-				{:else}
-					Les bénévoles qui font vivre l'association au quotidien à travers leurs compétences et
-					leur engagement.
-				{/if}
-			</p>
 			<div class="cards-grid cards-centered">
 				{#each members as member}
 					<WhoCard name={member.name} image={member.image} job={member.job} />
@@ -239,21 +223,195 @@
 			? '+ a hundred members and volunteers'
 			: '+ une centaine de membres et bénévoles'}
 	</p>
+
+	{#if lang !== 'en'}
+		<div class="team-section">
+			<h2 class="section-title">Notre positionnement</h2>
+			<p class="section-description">
+				Nous demandons un <a href="/propositions"
+					>moratoire sur l'entraînement des systèmes d'IA généralistes</a
+				> jusqu'à ce que toutes les conditions de sécurité et de contrôle démocratique soient réunies.
+			</p>
+
+			<div class="accordion-stack">
+				<Accordion id="quelle-ia" noHash>
+					<svelte:fragment slot="head">Quelle IA&nbsp;?</svelte:fragment>
+					<svelte:fragment slot="details">
+						<ul class="bullet-list">
+							<li>Nous ne sommes pas contre toute forme d'IA.</li>
+							<li>
+								Nous sommes contre <strong
+									>le développement sans contrôle et sans limite de l'intelligence artificielle
+									généraliste</strong
+								> car il expose notre civilisation à des risques catastrophiques.
+							</li>
+						</ul>
+					</svelte:fragment>
+				</Accordion>
+
+				<Accordion id="pourquoi" noHash>
+					<svelte:fragment slot="head">Pourquoi&nbsp;?</svelte:fragment>
+					<svelte:fragment slot="details">
+						<ul class="bullet-list">
+							<li>
+								Les modèles d'IA généralistes (aujourd'hui tels que GPT, Claude, Gemini) deviennent
+								chaque jour plus puissants, ils sont faciles à utiliser et se déploient à grande
+								vitesse dans la société, sans réelles <a
+									href="https://www.gov.uk/government/publications/international-ai-safety-report-2025"
+									target="_blank"
+									rel="noopener noreferrer">normes de sécurité</a
+								> et hors de tout contrôle institutionnel.
+							</li>
+							<li>
+								Ils présentent déjà des risques majeurs pour la sécurité de nos <a
+									href="/dangers/economiques-et-materiels">infrastructures</a
+								>, pour <a href="/dangers/pour-la-societe">nos institutions</a>, pour
+								<a href="/dangers/pour-les-individus">notre modèle social</a>.
+							</li>
+							<li>
+								Ces modèles d'IA commencent à <a
+									href="https://www.anthropic.com/research/alignment-faking"
+									target="_blank"
+									rel="noopener noreferrer">échapper à leurs créateurs</a
+								>. Certains le reconnaissent publiquement.
+							</li>
+							<li>
+								Dans un scénario catastrophe que l'on ne peut exclure, ils pourraient donner
+								naissance à une <a
+									href="https://www.safe.ai/work/statement-on-ai-risk"
+									target="_blank"
+									rel="noopener noreferrer">super-intelligence incontrôlable</a
+								>.
+							</li>
+						</ul>
+					</svelte:fragment>
+				</Accordion>
+
+				<Accordion id="que-faire" noHash>
+					<svelte:fragment slot="head">Que faire&nbsp;?</svelte:fragment>
+					<svelte:fragment slot="details">
+						<ul class="bullet-list">
+							<li>
+								Les discours «&nbsp;<a href="/faq">rassuristes</a>&nbsp;» nous font perdre du temps.
+								<em
+									>L'IA ne serait pas vraiment intelligente, les géants de la tech exagéreraient les
+									performances de leurs modèles, on serait à la veille de l'explosion d'une bulle
+									spéculative…</em
+								> Rien de tout cela ne nous protège du danger, bien au contraire.
+							</li>
+							<li>
+								La violence, que nous condamnons par principe, est également contre-productive. Elle
+								renforce des antagonismes stériles au moment où l'avenir de l'humanité est en jeu.
+							</li>
+							<li>
+								La seule réponse au danger est la mise en place d'une <a href="/propositions"
+									>gouvernance mondiale</a
+								> qui ait les moyens institutionnels, techniques et financiers de contrôler l'IA.
+							</li>
+						</ul>
+					</svelte:fragment>
+				</Accordion>
+			</div>
+
+			<p class="independence">
+				Association à but non lucratif créée en juin 2024, nous sommes <strong
+					>totalement indépendants de l'industrie de l'IA et de la tech</strong
+				>&nbsp;: nous fonctionnons grâce aux <a href="/dons">dons</a> de nos soutiens, qui financent
+				nos campagnes, nos événements et le fonctionnement de l'association.
+			</p>
+		</div>
+	{/if}
 </section>
 
 <style>
 	section {
 		max-width: 960px;
 		margin: 0 auto;
+		padding-top: 2.5rem;
 	}
 
 	.intro {
-		text-align: justify;
-		margin-bottom: 1rem;
+		margin-bottom: 2rem;
+		text-align: center;
 	}
 
 	.intro :global(p) {
-		text-align: justify;
+		text-align: center;
+	}
+
+	.lead {
+		max-width: 720px;
+		margin: 1rem auto 1.5rem;
+		font-size: 1.1rem;
+		line-height: 1.7;
+		color: var(--text, #1f2937);
+	}
+
+	.bullet-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.bullet-list li {
+		position: relative;
+		padding: 0.25rem 0 0.25rem 1.5rem;
+		margin-bottom: 0.5rem;
+		line-height: 1.6;
+	}
+
+	.bullet-list li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.85rem;
+		width: 0.5rem;
+		height: 0.5rem;
+		border-radius: 50%;
+		background: var(--text-secondary, #4b5563);
+	}
+
+	.bullet-list li:last-child {
+		margin-bottom: 0;
+	}
+
+	.accordion-stack {
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+		margin-top: 1.5rem;
+	}
+
+	.accordion-stack :global(.accordion .title) {
+		font-size: 1.1rem;
+		font-weight: 700;
+	}
+
+	.accordion-stack :global(.accordion .header) {
+		padding: 1rem 0;
+		transition: opacity 0.2s ease;
+	}
+
+	.accordion-stack :global(.accordion .header:hover) {
+		opacity: 0.75;
+	}
+
+	.accordion-stack :global(.accordion .details) {
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+		margin: 0 0 0.5rem;
+		padding: 0 0 1rem;
+	}
+
+	.independence {
+		margin: 1.75rem 0 0;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--border, #e5e7eb);
+		font-size: 0.95rem;
+		color: var(--text-secondary, #4b5563);
+		line-height: 1.6;
+		text-align: center;
 	}
 
 	.contact-cta {
@@ -262,11 +420,6 @@
 		justify-content: center;
 		flex-wrap: wrap;
 		margin-top: 1.5rem;
-	}
-
-	.contact-cta :global(a),
-	.contact-cta :global(button) {
-		box-shadow: inset 0 0 0 2px var(--black, #000);
 	}
 
 	.team-section {
