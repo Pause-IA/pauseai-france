@@ -20,17 +20,29 @@ function isPageWithProperties(result: PageObjectResponse | any): result is PageO
 
 export const prerender = false
 
+async function queryAllResults(dataSourceId: string) {
+	const results: any[] = []
+	let cursor: string | undefined = undefined
+
+	do {
+		// @ts-ignore
+		const response: any = await notion.dataSources.query({
+			data_source_id: dataSourceId,
+			...(cursor ? { start_cursor: cursor } : {})
+		})
+		results.push(...response.results)
+		cursor = response.has_more && response.next_cursor ? response.next_cursor : undefined
+	} while (cursor)
+
+	return results
+}
+
 export async function load() {
 	try {
-		const testimonials_datasource = await notion.dataSources.query({
-			data_source_id: process.env.TESTIMONIALS_ID as string
-		})
+		const testimonialsResults = await queryAllResults(process.env.TESTIMONIALS_ID as string)
+		const articleShowcaseResults = await queryAllResults(process.env.ARTICLE_SHOWCASE_ID as string)
 
-		const articleShowcase_datasource = await notion.dataSources.query({
-			data_source_id: process.env.ARTICLE_SHOWCASE_ID as string
-		})
-
-		const testimonials = testimonials_datasource.results
+		const testimonials = testimonialsResults
 			.filter(isPageWithProperties)
 			.filter(
 				(item) =>
@@ -47,7 +59,7 @@ export async function load() {
 				testimony: getRichTextContent(item.properties.Témoignage)
 			}))
 
-		const articleShowcaseItems = articleShowcase_datasource.results
+		const articleShowcaseItems = articleShowcaseResults
 			.filter(isPageWithProperties)
 			.filter((item) => getCheckbox(item.properties.Afficher))
 			.map((item) => ({

@@ -3,7 +3,6 @@
 	import { getT } from '$lib/i18n'
 	import type { Lang } from '$lib/i18n'
 	import PieChart from '$lib/components/PieChart.svelte'
-	import HorizontalBarChart from '$lib/components/HorizontalBarChart.svelte'
 	import { surveyData } from '$lib/data/survey-stats'
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 
@@ -212,25 +211,14 @@
 							{#each selectedGroup.targets as target}
 								<div class="chart-card">
 									<PieChart
-										title={formatStatText(statsDetail.templates.pie_title, {
+										title={formatStatText(statsDetail.templates.bar_title, {
 											dimensionPlural: selectedDimension.plural,
 											target: target.label
 										})}
-										data={getAnalysisData(section.key, selectedDimension.key, target.key, 'pie')}
+										data={getAnalysisData(section.key, selectedDimension.key, target.key, 'bars')}
+										withMargin={true}
 									/>
 								</div>
-							{/each}
-						</div>
-						<div class="bar-chart-section">
-							{#each selectedGroup.targets as target}
-								<HorizontalBarChart
-									data={getAnalysisData(section.key, selectedDimension.key, target.key, 'bars')}
-									title={formatStatText(statsDetail.templates.bar_title, {
-										dimensionPlural: selectedDimension.plural,
-										target: target.label
-									})}
-									withMargin={true}
-								/>
 							{/each}
 						</div>
 					{:else}
@@ -533,10 +521,6 @@
 		background: var(--brand);
 		border-color: var(--brand);
 		color: white;
-	}
-
-	.bar-chart-section {
-		margin-top: 4rem;
 	}
 
 	.select-prompt {
