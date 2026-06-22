@@ -589,6 +589,499 @@ export default {
 		article2_title: "Pas de pilote dans l'avion France",
 		article2_desc:
 			'Chômage massif des jeunes, modèle social fragilisé, dépendance à la Silicon Valley : à quoi ressemblera notre monde si nous ne réagissons pas.',
-		article2_url: '/emploi-ia/pas-de-pilote'
+		article2_url: '/emploi-ia/pas-de-pilote',
+		stats_section_title: "Résultats de l'enquête",
+		stats_impact_title: 'Impact perçu',
+		stats_rapport_title: "Rapport à l'IA",
+		stats_satisfaction_title: 'Satisfaction',
+		stats_detail: {
+			templates: {
+				rapport_dimension_aria: "Choisir une dimension pour le rapport à l'IA",
+				section_dimension_aria: 'Choisir une dimension pour {section}',
+				group_aria: 'Choisir un groupe pour {section}',
+				rapport_dimension_title: "Rapport à l'IA selon {dimension}",
+				rapport_dimension_subtitle: "{dimensionPlural} et rapport à l'IA",
+				pie_title: '{dimensionPlural} ayant le plus répondu « {target} »',
+				rapport_bar_heading:
+					"{dimensionPlural} dont la proportion des répondants correspond le plus à chaque rapport à l'IA",
+				bar_title:
+					'{dimensionPlural} dont la proportion des répondants ont répondu « {target} » dont les effectifs sont supérieurs à 3',
+				section_dimension_title: '{section} selon {dimension}',
+				group_dimension_title: '{group} par {dimension}'
+			},
+			profile_dimensions: [
+				{ key: 'secteur', label: "secteur d'activité", plural: "Secteurs d'activité" },
+				{ key: 'etudes', label: "niveau d'études", plural: "Niveaux d'études" },
+				{ key: 'age', label: "l'âge", plural: 'Âges' },
+				{ key: 'genre', label: 'le genre', plural: 'Genres' },
+				{ key: 'statut', label: 'le statut professionnel', plural: 'Statuts professionnels' }
+			],
+			rapport_targets: [
+				{ key: 'malaise', label: "Le malaise voire l'anxiété" },
+				{ key: 'observation_prudence', label: "L'observation et la prudence" },
+				{ key: 'confiance', label: 'La confiance dans ces nouveaux outils' },
+				{ key: 'excitation', label: "L'excitation à l'idée de l'utiliser davantage" }
+			],
+			grouped_sections: [
+				{
+					key: 'impact',
+					title: "Impact perçu de l'IA sur l'emploi",
+					overviewTitle: "Impact perçu de l'IA par les répondants",
+					groups: [
+						{
+							title: 'Impacts négatifs',
+							targets: [
+								{ key: 'tres_fort', label: 'Très fort impact' },
+								{ key: 'fort', label: 'Fort impact' }
+							]
+						},
+						{
+							title: 'Impacts modérés et nuls',
+							targets: [
+								{ key: 'moyen', label: 'Impact moyen' },
+								{ key: 'peu', label: "Peu d'impact" },
+								{ key: 'jamais', label: 'Jamais' }
+							]
+						}
+					]
+				},
+				{
+					key: 'rapport',
+					title: "Rapport à l'IA",
+					overviewTitle: "Rapport à l'IA des répondants",
+					groups: [
+						{
+							title: 'Rapports négatifs / prudents',
+							targets: [
+								{ key: 'malaise', label: "Le malaise voire l'anxiété" },
+								{ key: 'observation_prudence', label: "L'observation et la prudence" }
+							]
+						},
+						{
+							title: 'Rapports positifs',
+							targets: [
+								{ key: 'confiance', label: 'La confiance dans ces nouveaux outils' },
+								{ key: 'excitation', label: "L'excitation à l'idée de l'utiliser davantage" }
+							]
+						}
+					]
+				},
+				{
+					key: 'frequence_utilisation',
+					title: "Fréquence d'utilisation de l'IA",
+					overviewTitle: "Fréquence d'utilisation de l'IA par les répondants",
+					groups: [
+						{
+							title: "Groupes qui utilisent le moins l'IA",
+							targets: [
+								{ key: 'toutes_les_semaines', label: 'Toutes les semaines' },
+								{ key: 'tres_ponctuellement', label: 'Très ponctuellement' },
+								{ key: 'jamais', label: 'Jamais' }
+							]
+						},
+						{
+							title: "Groupes qui utilisent le plus l'IA",
+							targets: [
+								{ key: 'tous_les_jours', label: 'Tous les jours' },
+								{ key: 'toutes_mes_taches', label: 'Toutes mes tâches ou presque' }
+							]
+						}
+					]
+				},
+				{
+					key: 'raisons_utilisation',
+					title: "Raisons d'utilisation de l'IA",
+					overviewTitle: "Raisons d'utilisation de l'IA par les répondants",
+					groups: [
+						{
+							title: "Raisons d'utilisation",
+							targets: [
+								{ key: 'par_pure_curiosite', label: 'Par pure curiosité' },
+								{
+									key: 'suite_a_une_formation_demande_de_ma_direction',
+									label: 'Suite à une formation / demande de ma direction'
+								},
+								{
+									key: 'suite_aux_conseils_de_mes_collegues',
+									label: 'Suite aux conseils de mes collègues'
+								},
+								{
+									key: 'suite_a_la_pression_concurrentielle',
+									label: 'Suite à la pression concurrentielle'
+								},
+								{
+									key: 'pour_pouvoir_realiser_toutes_mes_taches',
+									label: 'Pour pouvoir réaliser toutes mes tâches'
+								},
+								{ key: 'par_manque_de_competences', label: 'Par manque de compétences' },
+								{
+									key: 'pour_gagner_du_temps_etre_plus_efficace',
+									label: 'Pour gagner du temps, être plus efficace'
+								},
+								{ key: 'autre', label: 'Autre' }
+							]
+						}
+					]
+				},
+				{
+					key: 'taches',
+					title: "Tâches réalisées avec l'IA",
+					overviewTitle: "Tâches réalisées avec l'IA par les répondants",
+					groups: [
+						{
+							title: 'Tâches',
+							targets: [
+								{
+									key: 'generation_d_images_de_sons_de_videos',
+									label: "Génération d'images, de sons, de vidéos"
+								},
+								{
+									key: 'analyse_resume_de_document_texte_video',
+									label: 'Analyse / Résumé de document (texte, vidéo...)'
+								},
+								{ key: 'traduction', label: 'Traduction' },
+								{
+									key: 'correction_et_redaction_de_texte',
+									label: 'Correction et rédaction de texte'
+								},
+								{
+									key: 'automatisation_de_taches_repetitives',
+									label: 'Automatisation de tâches répétitives'
+								},
+								{ key: 'codage', label: 'Codage' },
+								{ key: 'gestion_de_planning_projet', label: 'Gestion de planning / projet' },
+								{ key: 'analyse_de_donnees', label: 'Analyse de données' },
+								{
+									key: 'gestion_relationnelle_chatbot_mail',
+									label: 'Gestion relationnelle (chatbot, mail..)'
+								},
+								{
+									key: 'pilotage_controle_de_dispositifs_connectes',
+									label: 'Pilotage/contrôle de dispositifs connectés'
+								},
+								{
+									key: 'prise_de_decision_aide_a_la_decision',
+									label: 'Prise de décision / aide à la décision'
+								},
+								{ key: 'autre', label: 'Autre' }
+							]
+						}
+					]
+				},
+				{
+					key: 'satisfaction',
+					title: "Satisfaction vis-à-vis de l'IA",
+					overviewTitle: "Satisfaction vis-à-vis de l'IA par les répondants",
+					groups: [
+						{
+							title: "Personnes contentes de l'IA",
+							targets: [
+								{ key: 'oui_capacites', label: 'Oui cela décuple mes capacités' },
+								{ key: 'oui_precieux', label: "Oui c'est un outil de travail précieux" },
+								{ key: 'oui_non', label: 'Oui et non cela dépend des tâches' }
+							]
+						},
+						{
+							title: "Personnes non satisfaites de l'IA",
+							targets: [
+								{
+									key: 'non_resultats',
+									label: 'Non les résultats obtenus ne sont pas satisfaisants'
+								},
+								{ key: 'non_utilisation', label: "Non je ne sais pas bien l'utiliser" }
+							]
+						}
+					]
+				},
+				{
+					key: 'frequence_info',
+					title: "Fréquence d'information sur l'IA",
+					overviewTitle: "Fréquence d'information sur l'IA par les répondants",
+					groups: [
+						{
+							title: "Groupes qui s'informent souvent",
+							targets: [
+								{ key: 'quotidienne', label: 'Quotidienne ou quasi-quotidienne' },
+								{ key: 'hebdomadaire', label: 'Hebdomadaire ou équivalent' }
+							]
+						},
+						{
+							title: "Groupes qui ne s'informent pas souvent",
+							targets: [
+								{ key: 'mensuelle', label: 'Mensuelle et de façon active' },
+								{
+									key: 'moins_mensuelle',
+									label: "Moins d'une fois par mois, ponctuellement"
+								},
+								{ key: 'jamais', label: 'Jamais' }
+							]
+						}
+					]
+				}
+			]
+		},
+		stats_page: {
+			intro_p1:
+				"Cette micro-étude a été réalisée à partir des résultats d'un questionnaire lancé en juillet 2025 par l'association Pause IA que vous pouvez trouver ici.",
+			intro_link: 'que vous pouvez trouver ici',
+			intro_p2:
+				"Ce questionnaire a pour objectif de recueillir l'avis de différentes personnes sur l'intelligence artificielle et son impact sur leur vie quotidienne et professionnelle, afin de pouvoir éventuellement mieux les accompagner et mieux comprendre comment nous pourrions les aider, aussi bien personnellement que professionnellement.",
+			section_analysis_placeholder: 'Texte ici pour l’analyse de la section {section}.',
+			impact_sector_analysis:
+				'Texte ici: dans le secteur {topSector}, {topValue} % des répondants déclarent {target}.',
+			group_analysis_placeholder:
+				'Texte ici pour l’analyse du groupe {group} dans la section {section}.',
+			select_prompt: 'Sélectionnez un profil ci-dessus pour voir l’analyse détaillée.',
+			limit_title: 'Limite de cette micro-étude et biais statistiques',
+			limit_intro:
+				'Avant de commencer cette micro-étude, il est important de souligner plusieurs biais statistiques importants.',
+			limit_response_count:
+				'Pour commencer, le nombre de personnes ayant répondu à ce questionnaire au moment de la rédaction de cette micro-étude ({date}) est de {count}. Ce nombre reste relativement faible et ne permet donc pas de généraliser les résultats à l’ensemble de la population française.',
+			limit_sample_bias:
+				"De surcroit, il est probable que l'échantillon présente un biais. En effet, compte tenu de l'objet de notre association, les personnes ayant répondu à ce questionnaire font potentiellement davantage partie d'une population déjà impactée par l'IA et susceptible d'avoir une perception plus défavorable de celle-ci que l'ensemble de la population.",
+			limit_education_bias:
+				"Un autre biais statistique particulièrement visible concerne le niveau d'études des répondants. En effet, la majorité des participants possèdent un niveau d'études largement supérieur à la moyenne nationale.",
+			limit_education_share:
+				"Par exemple, {percent} % des répondants déclarent avoir un niveau d'études supérieur ou égal à Bac +5, alors que dans la population française générale,",
+			limit_education_link:
+				'la proportion de personnes ayant un diplôme de niveau Bac +5 ou plus est d’environ 12 %, selon l’INSEE en 2023',
+			limit_education_comparison:
+				'Les diplômés du supérieur long sont donc environ {ratio} fois plus représentés dans ce questionnaire que dans la population générale.',
+			limit_education_inverse:
+				'À l’inverse, les personnes ayant un niveau d’études inférieur ou égal au Bac général sont très peu représentées dans les résultats de cette étude.',
+			limit_other_biases:
+				'En plus de ce biais lié au niveau d’études, plusieurs autres déséquilibres apparaissent dans l’échantillon.',
+			limit_independent_bias:
+				'Les indépendants sont davantage représentés que dans la population générale. Ils représentent {percent} % des répondants, alors qu’ils représentent environ 13.3 % des travailleurs en France selon l’INSEE.',
+			limit_independent_comparison:
+				'Les travailleurs indépendants sont donc environ {ratio} fois plus représentés dans cette étude que dans la population active française.',
+			limit_sector_bias:
+				'Les personnes travaillant dans les secteurs de l’informatique et des télécommunications sont également fortement surreprésentées. Ce secteur représente {percent} % des répondants, alors qu’il représente environ 3,4 % des emplois en France selon l’INSEE.',
+			limit_sector_comparison:
+				'Les métiers du numérique sont donc environ {ratio} fois plus représentés dans le questionnaire que dans la population générale.',
+			limit_gender_intro: 'L’échantillon présente également un léger déséquilibre de genre :',
+			limit_gender_male: '{percent} % des répondants sont des hommes',
+			limit_gender_female: '{percent} % sont des femmes',
+			limit_gender_other: '{percent} % déclarent un autre genre',
+			limit_gender_comparison: 'À titre de comparaison,',
+			limit_gender_link:
+				'la population française est composée d’environ 51,5 % de femmes selon l’INSEE',
+			limit_age_intro:
+				'Enfin, les personnes âgées de 30 à 50 ans sont particulièrement représentées dans les réponses :',
+			limit_age_30_39: '{percent} % des répondants ont entre 30 et 40 ans',
+			limit_age_40_49: '{percent} % ont entre 40 et 50 ans',
+			limit_age_inverse: 'À l’inverse :',
+			limit_age_10_19: '{percent} % ont entre 10 et 20 ans',
+			limit_age_60_69: '{percent} % ont entre 60 et 70 ans',
+			limit_age_comparison:
+				'Les personnes âgées de 30 à 50 ans représentent donc plus de {percent} % de l’échantillon total.',
+			limit_age_link: 'Ce qui ne correspond pas à la pyramide des âges en France',
+			limit_conclusion:
+				"Ces différents biais peuvent influencer fortement les résultats de l’étude. Nous le verrons plus loin, mais ces biais peuvent s'expliquer par le fait que c'est ce profil de la population qui semble le plus touché par les transformations liées à l'IA.",
+			limit_education_chart_title: "Niveau d'études des répondants",
+			limit_status_chart_title: 'Statut professionnel des répondants',
+			limit_sector_chart_title: "Répartition des répondants par secteur d'activité",
+			limit_gender_chart_title: 'Répartition par genre des répondants',
+			limit_age_chart_title: 'Répartition par âge des répondants'
+		},
+		stats_analysis: {
+			impact: {
+				overview: [
+					"Globalement, la majorité des répondants considèrent que l'IA représente déjà une transformation importante de leur environnement professionnel. Les réponses les plus fréquentes correspondent à un impact moyen ({moyen} %) ou à un fort impact ({fort} %), tandis que les réponses indiquant peu d'impact ({peu} %) restent minoritaires.",
+					"Les réponses de très fort impact représentent {tresFort} % de l'échantillon. L'impact de l'IA n'apparaît donc pas uniforme : il varie fortement selon le secteur d'activité, le niveau d'études, l'âge, le genre et le statut professionnel."
+				],
+				dimension_analyses: {
+					secteur: [
+						"Certains secteurs ressortent comme nettement plus exposés aux transformations liées à l'IA, en particulier les métiers reposant sur la production de contenu, l'analyse, la rédaction, la traduction, le conseil ou certaines fonctions de support.",
+						"À l'inverse, les secteurs où le travail est davantage humain, relationnel, manuel ou très contextuel semblent pour le moment mieux protégés dans la perception des répondants. Ces résultats doivent rester prudents, car certains secteurs comptent peu de réponses."
+					],
+					etudes: [
+						"Le niveau d'études ne constitue pas un facteur explicatif simple. Les diplômés du supérieur long sont très présents dans l'échantillon, ce qui pèse fortement sur les volumes bruts.",
+						'Les proportions internes permettent de nuancer cette lecture, mais les groupes moins représentés peuvent varier fortement avec quelques réponses supplémentaires.'
+					],
+					age: [
+						"Les jeunes adultes et les personnes en milieu de carrière déclarent souvent ressentir plus fortement les transformations liées à l'IA, notamment parce qu'ils sont plus directement exposés au marché du travail.",
+						"Les plus jeunes et les plus âgés étant moins nombreux dans l'échantillon, leurs résultats doivent être interprétés avec prudence."
+					],
+					genre: [
+						"Les résultats suggèrent un ressenti d'impact plus fort chez les femmes que chez les hommes, surtout lorsque l'on observe les proportions internes aux groupes.",
+						"Cette tendance peut refléter une exposition différente à certains métiers, tâches ou environnements professionnels sensibles à l'automatisation."
+					],
+					statut: [
+						"Les actifs indépendants ainsi que les élèves, étudiants et apprentis ressortent comme particulièrement concernés par l'impact de l'IA.",
+						"Les salariés présentent une situation plus contrastée, tandis que les fonctionnaires, retraités et personnes sans emploi apparaissent plus souvent dans les catégories d'impact modéré ou limité."
+					]
+				}
+			},
+			rapport: {
+				overview: [
+					"Les répondants entretiennent majoritairement un rapport prudent ou négatif vis-à-vis de l'IA. La posture la plus fréquente est l'observation et la prudence ({prudence} %), suivie du malaise voire de l'anxiété ({malaise} %).",
+					"Les perceptions plus positives restent minoritaires : l'excitation à l'idée de l'utiliser davantage représente {excitation} % des réponses et la confiance dans ces nouveaux outils {confiance} %. L'IA suscite donc un positionnement marqué chez la plupart des participants."
+				],
+				dimension_analyses: {
+					secteur: [
+						"Les secteurs n'entretiennent pas tous le même rapport à l'IA. L'informatique et les télécommunications apparaissent à la fois dans les réponses inquiètes et dans les réponses positives, signe d'une forte polarisation.",
+						'Les secteurs exposés à des enjeux humains, éthiques ou de sécurité, comme la santé, le service public ou certaines activités juridiques, semblent davantage associés à la prudence ou au malaise.'
+					],
+					etudes: [
+						"Le rapport à l'IA varie selon le niveau d'études, mais sans ligne de fracture simple. Les catégories très diplômées pèsent beaucoup dans les volumes, car elles sont nombreuses dans l'échantillon.",
+						'Les proportions internes aident à comparer les groupes, tout en restant fragiles lorsque les effectifs sont réduits.'
+					],
+					age: [
+						"L'âge semble jouer sur le rapport à l'IA : les répondants plus jeunes ou en âge d'activité peuvent exprimer davantage d'inquiétude, car ils anticipent des effets directs sur leurs études, leurs compétences ou leur emploi.",
+						"Les générations plus âgées apparaissent parfois plus distantes, soit parce qu'elles sont moins exposées professionnellement, soit parce qu'elles utilisent moins ces outils."
+					],
+					genre: [
+						"Les femmes déclarent proportionnellement plus souvent un rapport inquiet ou prudent à l'IA. Cela peut être lié à la présence de métiers féminisés parmi les fonctions administratives, de support ou de communication.",
+						"Les hommes apparaissent davantage dans certaines réponses positives ou d'adaptation, mais ces écarts doivent être lus avec prudence compte tenu de la taille de l'échantillon."
+					],
+					statut: [
+						"Le statut professionnel influence fortement le rapport à l'IA. Les indépendants et les étudiants peuvent ressentir une exposition plus directe aux transformations du marché.",
+						'Les fonctionnaires, retraités ou personnes sans emploi peuvent entretenir un rapport plus distant, même si la prudence reste largement présente dans plusieurs catégories.'
+					]
+				}
+			},
+			frequence_utilisation: {
+				overview: [
+					"Les répondants déclarent des usages très variés de l'IA, allant d'un usage quotidien à une absence totale d'usage.",
+					"Cette diversité montre que l'IA n'est pas encore intégrée de manière homogène dans les pratiques professionnelles : certains profils l'utilisent déjà beaucoup, tandis que d'autres restent à distance."
+				],
+				dimension_analyses: {
+					secteur: [
+						"La fréquence d'utilisation dépend fortement du secteur. Les activités proches du numérique, de la communication, de l'analyse ou de la production de contenu semblent plus enclines à utiliser l'IA régulièrement.",
+						"Les secteurs plus manuels, relationnels ou réglementés paraissent davantage associés à des usages ponctuels ou à une absence d'usage."
+					],
+					etudes: [
+						"Les niveaux d'études élevés sont très présents parmi les utilisateurs, mais cela reflète aussi leur surreprésentation dans l'échantillon.",
+						"Les écarts par niveau d'études doivent donc être lus en distinguant les volumes bruts des proportions internes."
+					],
+					age: [
+						"Les usages réguliers semblent davantage concentrés chez les personnes en âge d'activité, notamment entre 20 et 49 ans.",
+						"Les plus jeunes peuvent utiliser l'IA dans un cadre d'études ou d'entrée sur le marché du travail, tandis que les plus âgés déclarent plus souvent des usages limités."
+					],
+					genre: [
+						"La fréquence d'utilisation varie selon le genre, mais les écarts peuvent aussi refléter des différences de métiers, de secteurs et d'exposition aux outils.",
+						"Il faut donc éviter d'interpréter ces différences comme un effet isolé du genre."
+					],
+					statut: [
+						"Les indépendants, salariés et étudiants apparaissent comme les statuts les plus susceptibles d'avoir intégré l'IA à certaines pratiques régulières.",
+						'Les retraités, fonctionnaires ou personnes sans emploi déclarent plus souvent un usage rare ou inexistant, ce qui peut refléter une exposition professionnelle moindre.'
+					]
+				}
+			},
+			raisons_utilisation: {
+				overview: [
+					"Les raisons d'utilisation de l'IA sont principalement liées au gain de temps, à l'efficacité, au besoin de réaliser toutes ses tâches ou à la curiosité.",
+					'Des motivations plus contraintes existent aussi, comme la pression concurrentielle, une demande de la hiérarchie ou un manque de compétences.'
+				],
+				dimension_analyses: {
+					secteur: [
+						"Les raisons d'utiliser l'IA varient selon les contraintes du secteur. Dans les métiers de contenu, d'analyse ou de support, le gain de temps et l'efficacité semblent particulièrement structurants.",
+						"Dans d'autres secteurs, l'usage peut davantage relever de la curiosité ou d'une expérimentation encore ponctuelle."
+					],
+					etudes: [
+						"Les répondants les plus diplômés peuvent déclarer des usages liés à la productivité, à l'analyse ou à l'expérimentation professionnelle.",
+						'Les groupes moins représentés doivent toutefois être interprétés avec prudence, car quelques réponses peuvent modifier fortement les proportions.'
+					],
+					age: [
+						"Les plus jeunes peuvent utiliser l'IA par curiosité, pour apprendre ou pour compenser certaines tâches d'étude ou d'entrée dans l'emploi.",
+						"Les répondants plus avancés dans leur carrière semblent davantage l'associer à l'efficacité, à l'organisation ou à la pression professionnelle."
+					],
+					genre: [
+						"Les raisons d'utilisation peuvent différer selon les environnements professionnels associés aux répondants. Les écarts observés reflètent probablement autant les métiers occupés que le genre lui-même.",
+						'Les motivations liées au gain de temps, à la charge de travail ou à la pression extérieure doivent donc être replacées dans leur contexte professionnel.'
+					],
+					statut: [
+						"Les indépendants peuvent utiliser l'IA pour absorber une charge de travail importante ou rester compétitifs, tandis que les salariés peuvent l'utiliser à la fois par efficacité et sous l'effet de consignes internes.",
+						"Les étudiants peuvent davantage mettre en avant la curiosité, l'apprentissage ou la nécessité de réaliser certaines tâches."
+					]
+				}
+			},
+			taches: {
+				overview: [
+					"L'IA est surtout utilisée pour l'analyse et le résumé de documents, la correction et la rédaction de texte, la traduction, le codage, l'analyse de données et l'automatisation de tâches répétitives.",
+					"Les usages créatifs, comme la génération d'images, de sons ou de vidéos, sont également présents mais semblent moins centraux dans les réponses."
+				],
+				dimension_analyses: {
+					secteur: [
+						"Les tâches confiées à l'IA reflètent fortement les pratiques de chaque secteur. Les métiers de contenu, de communication, de recherche, d'analyse ou de développement semblent naturellement plus concernés.",
+						'Les secteurs moins numérisés ou plus relationnels apparaissent davantage associés à des usages ponctuels ou spécialisés.'
+					],
+					etudes: [
+						"Les répondants les plus diplômés déclarent souvent des tâches liées à l'analyse, à la rédaction, au codage ou à la synthèse documentaire.",
+						"Cette lecture reste influencée par leur poids important dans l'échantillon."
+					],
+					age: [
+						"Les tâches utilisées avec l'IA varient avec l'âge et la position professionnelle : étude, entrée dans l'emploi, production, gestion de projet ou analyse.",
+						"Les plus jeunes semblent davantage concernés par les usages d'apprentissage, tandis que les actifs y voient souvent un outil de productivité."
+					],
+					genre: [
+						"Les différences par genre doivent être reliées aux métiers et tâches déclarés. Les écarts peuvent refléter la répartition des répondants entre secteurs plutôt qu'un effet direct du genre.",
+						'Les usages de rédaction, support, analyse ou organisation semblent particulièrement importants à observer.'
+					],
+					statut: [
+						"Les tâches confiées à l'IA diffèrent selon le statut. Les indépendants peuvent s'en servir pour couvrir plusieurs fonctions, les salariés pour gagner du temps sur des tâches récurrentes, et les étudiants pour apprendre ou produire des contenus.",
+						"Les statuts moins exposés professionnellement déclarent plus souvent peu ou pas de tâches réalisées avec l'IA."
+					]
+				}
+			},
+			satisfaction: {
+				overview: [
+					"La satisfaction vis-à-vis de l'IA est contrastée. Beaucoup de répondants répondent oui et non, selon les tâches, ce qui suggère une relation pragmatique plutôt qu'une adhésion complète.",
+					"Les réponses positives montrent que l'IA peut être perçue comme un outil précieux ou amplificateur de capacités, tandis que les réponses négatives renvoient surtout à des résultats insatisfaisants ou à des difficultés d'utilisation."
+				],
+				dimension_analyses: {
+					secteur: [
+						"La satisfaction varie selon les secteurs, probablement en fonction de la qualité des usages disponibles et de l'adéquation entre les outils et les tâches professionnelles.",
+						"Les secteurs où l'IA s'intègre facilement aux tâches de texte, d'analyse ou de code peuvent déclarer davantage de bénéfices."
+					],
+					etudes: [
+						"Le niveau d'études peut influencer la facilité d'appropriation des outils, mais les résultats restent fortement marqués par la surreprésentation des diplômés du supérieur long.",
+						"La satisfaction doit donc être lue à la fois comme un ressenti d'usage et comme un effet possible de familiarité avec les outils numériques."
+					],
+					age: [
+						"L'âge peut jouer sur la satisfaction : les répondants qui utilisent déjà l'IA dans leurs études ou leur travail peuvent en percevoir plus directement les bénéfices et les limites.",
+						'Les usages rares ou contraints produisent plus facilement une satisfaction ambivalente.'
+					],
+					genre: [
+						'Les écarts de satisfaction par genre doivent être replacés dans les contextes professionnels et les types de tâches réalisées.',
+						"Une satisfaction faible peut autant renvoyer aux performances des outils qu'aux conditions dans lesquelles ils sont imposés ou utilisés."
+					],
+					statut: [
+						"Les indépendants et salariés peuvent évaluer l'IA à partir de gains très concrets de temps ou de productivité, mais aussi à partir de ses effets sur leur autonomie et leur sécurité professionnelle.",
+						'Les étudiants peuvent avoir une satisfaction plus ambivalente, entre aide pratique et inquiétude sur la valeur future des compétences.'
+					]
+				}
+			},
+			frequence_info: {
+				overview: [
+					"Une part importante des répondants dit s'informer régulièrement sur l'IA, parfois de manière quotidienne ou hebdomadaire.",
+					"D'autres se tiennent informés plus occasionnellement, voire presque jamais, ce qui montre que le rapport à l'actualité de l'IA varie fortement selon les profils."
+				],
+				dimension_analyses: {
+					secteur: [
+						"La fréquence d'information semble plus élevée dans les secteurs directement exposés aux évolutions de l'IA, notamment le numérique, la communication, la recherche ou les métiers d'analyse.",
+						"Les secteurs moins exposés professionnellement peuvent entretenir un rapport plus distant à l'actualité de l'IA."
+					],
+					etudes: [
+						"Les répondants les plus diplômés peuvent être davantage présents parmi ceux qui suivent l'actualité de l'IA, mais cette observation est influencée par leur surreprésentation.",
+						"Les proportions internes permettent de mieux repérer les groupes qui s'informent réellement le plus."
+					],
+					age: [
+						"Les personnes en âge d'activité, et notamment celles dont le métier peut évoluer avec l'IA, semblent plus enclines à suivre régulièrement le sujet.",
+						"Les plus jeunes peuvent aussi s'informer pour anticiper leur orientation ou leur entrée sur le marché du travail."
+					],
+					genre: [
+						"Les écarts par genre dans la fréquence d'information doivent être lus en lien avec les secteurs, statuts et niveaux d'exposition professionnelle.",
+						"Un suivi plus ou moins régulier de l'actualité peut refléter autant l'intérêt personnel que la nécessité professionnelle."
+					],
+					statut: [
+						"Les indépendants, salariés et étudiants ont souvent des raisons concrètes de suivre l'actualité de l'IA : adaptation, formation, veille ou anticipation des transformations du marché.",
+						"Les retraités ou personnes moins directement exposées au travail peuvent s'informer plus ponctuellement."
+					]
+				}
+			}
+		},
+		stats_study_link: "Consulter l'étude statistique détaillée"
 	}
 }

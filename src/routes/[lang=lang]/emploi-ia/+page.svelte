@@ -6,6 +6,7 @@
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import type { Testimonial, ArticleShowcaseItem } from '$lib/types'
 	import type { Lang } from '$lib/i18n'
+	import SurveyCharts from '$lib/components/SurveyCharts.svelte'
 	import { getT } from '$lib/i18n'
 
 	export let data: PageData
@@ -166,12 +167,15 @@
 	</section>
 
 	<section id="temoignage" aria-labelledby="temoignage-heading">
+		<SurveyCharts {t} {lang} />
+
 		<h2 id="temoignage-heading">{t.emploi_ia.testimonials_section_title}</h2>
-		<p>
+		<div class="testimonials-cta">
 			{t.emploi_ia.testimonials_section_text_1}<a href="/{lang}/emploi-ia/questionnaire"
 				>{t.emploi_ia.testimonials_section_link}</a
 			>{t.emploi_ia.testimonials_section_text_2}
-		</p>
+		</div>
+
 		<TestimonialCarousel {testimonials} {lang} />
 	</section>
 
