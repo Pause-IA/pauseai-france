@@ -1,0 +1,11 @@
+[Unit]
+Description=Declenche la mise a jour des elus Pause IA chaque semaine
+
+[Timer]
+# Tous les lundis a 04h00. Persistent rattrape l'execution si le serveur
+# etait eteint a l'heure prevue.
+OnCalendar=Mon *-*-* 04:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

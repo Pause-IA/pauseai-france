@@ -12,3 +12,5 @@ vite.config.ts.timestamp-*
 .env
 /TODO*
 .typographyChanges.json
+# Token du job de mise à jour des élus (serveur)
+.elus.env

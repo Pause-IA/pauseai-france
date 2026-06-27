@@ -1,0 +1,58 @@
+name: Mise à jour des élus
+
+# Régénère src/lib/data/elus.json (députés + sénateurs + emails) depuis les
+# sources ouvertes, et ouvre une PR quand les données ont changé.
+#
+# Filet de secours MANUEL : la mise à jour planifiée est assurée par le timer
+# systemd du serveur (scripts/update-elus-server.sh). On garde ce workflow en
+# déclenchement manuel pour pouvoir régénérer depuis GitHub si le serveur est
+# indisponible — sans ouvrir de PR en double avec le timer.
+
+on:
+  workflow_dispatch: {} # déclenchement manuel uniquement (onglet Actions → Run workflow)
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-elus:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Régénérer les données des élus
+        # COMMUNE_CIRCO_URL (optionnel) active le géocodage code postal → circonscription.
+        # À définir dans Settings → Secrets and variables → Actions → Variables.
+        env:
+          COMMUNE_CIRCO_URL: ${{ vars.COMMUNE_CIRCO_URL }}
+        run: pnpm run generate-elus -- --report
+
+      - name: Ouvrir une PR si les données ont changé
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'chore: mise à jour automatique des élus'
+          branch: chore/maj-elus
+          delete-branch: true
+          title: 'Mise à jour automatique des élus'
+          body: |
+            Mise à jour automatique de `src/lib/data/elus.json`
+            (et `code-postal-circo.json` si le géocodage est activé) depuis les
+            sources ouvertes (NosDéputés / NosSénateurs).
+
+            Vérifier le diff avant de merger, notamment les emails à confiance
+            faible signalés dans les logs du job.
+          add-paths: |
+            src/lib/data/elus.json
+            src/lib/data/code-postal-circo.json

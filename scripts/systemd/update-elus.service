@@ -1,0 +1,18 @@
+[Unit]
+Description=Mise a jour des elus Pause IA (genere elus.json et ouvre une PR)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=romain
+WorkingDirectory=/opt/bots/pauseai-france
+Environment=REPO_DIR=/opt/bots/pauseai-france
+Environment=BASE_BRANCH=main
+# GITHUB_TOKEN (PAT fine-grained : Contents + Pull requests en write) a placer
+# dans ce fichier, lisible uniquement par root : GITHUB_TOKEN=github_pat_xxx
+EnvironmentFile=/opt/bots/pauseai-france/.elus.env
+ExecStart=/opt/bots/pauseai-france/scripts/update-elus-server.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=update-elus
