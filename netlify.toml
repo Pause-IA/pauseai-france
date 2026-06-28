@@ -1,4 +1,18 @@
 [functions]
-	directory = "netlify/functions" 
+	directory = "netlify/functions"
 [dev]
 	targetPort = 37572
+
+# CDN d'images Netlify : domaines distants autorisés à être transformés
+# (compression / redimensionnement à la volée). Couvre les photos hébergées par
+# Notion (S3) et quelques sources d'images externes courantes. Si une URL n'est
+# pas couverte, la page retombe automatiquement sur l'image d'origine (on:error).
+[images]
+	remote_images = [
+		'https://prod-files-secure\.s3\.[a-z0-9-]+\.amazonaws\.com/.*',
+		'https://s3\.[a-z0-9-]+\.amazonaws\.com/.*',
+		'https://[a-z0-9.-]+\.amazonaws\.com/.*',
+		'https://[a-z0-9.-]+\.notion-static\.com/.*',
+		'https://www\.notion\.so/image/.*',
+		'https://images\.unsplash\.com/.*'
+	]

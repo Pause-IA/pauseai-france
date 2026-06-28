@@ -50,6 +50,19 @@
 		volunteers: number
 	}
 
+	// Compression à la volée via le CDN d'images de Netlify : on demande l'image
+	// redimensionnée et recompressée (au lieu de la photo Notion brute, souvent
+	// lourde). En local (URL relative) ou si le CDN échoue, on retombe sur l'URL
+	// d'origine via `on:error` → aucune régression.
+	function cdnImg(url: string, w: number, fit?: 'cover'): string {
+		if (!url || !/^https?:\/\//.test(url)) return url
+		return `/.netlify/images?url=${encodeURIComponent(url)}&w=${w}&q=72${fit ? `&fit=${fit}` : ''}`
+	}
+	function cdnFallback(e: Event) {
+		const img = e.currentTarget as HTMLImageElement
+		if (img.dataset.raw && img.src !== img.dataset.raw) img.src = img.dataset.raw
+	}
+
 	// Icône selon le type d'action, pour un repérage visuel rapide.
 	function typeIcon(t: string): ComponentType {
 		const k = (t || '').toLowerCase()
@@ -319,13 +332,30 @@
 					{#if e.images.length}
 						<div class="feature-media">
 							<div class="feature-main">
-								<div class="feature-main-bg" style="background-image:url('{e.images[0]}')"></div>
-								<img src={e.images[0]} alt="" loading="lazy" decoding="async" />
+								<div
+									class="feature-main-bg"
+									style="background-image:url('{cdnImg(e.images[0], 48)}')"
+								></div>
+								<img
+									src={cdnImg(e.images[0], 1100)}
+									data-raw={e.images[0]}
+									on:error={cdnFallback}
+									alt=""
+									loading="lazy"
+									decoding="async"
+								/>
 							</div>
 							{#if e.images.length > 1}
 								<div class="feature-thumbs">
 									{#each e.images.slice(1, 4) as src}
-										<img {src} alt="" loading="lazy" decoding="async" />
+										<img
+											src={cdnImg(src, 360, 'cover')}
+											data-raw={src}
+											on:error={cdnFallback}
+											alt=""
+											loading="lazy"
+											decoding="async"
+										/>
 									{/each}
 								</div>
 							{/if}
@@ -372,8 +402,18 @@
 						<li class="past-card">
 							<div class="past-card-media">
 								{#if e.images.length}
-									<div class="past-card-bg" style="background-image:url('{e.images[0]}')"></div>
-									<img src={e.images[0]} alt="" loading="lazy" decoding="async" />
+									<div
+										class="past-card-bg"
+										style="background-image:url('{cdnImg(e.images[0], 48)}')"
+									></div>
+									<img
+										src={cdnImg(e.images[0], 600)}
+										data-raw={e.images[0]}
+										on:error={cdnFallback}
+										alt=""
+										loading="lazy"
+										decoding="async"
+									/>
 								{:else}
 									<div class="past-card-noimg"><Megaphone size="1.7rem" /></div>
 								{/if}
