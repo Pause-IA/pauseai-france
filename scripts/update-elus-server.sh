@@ -70,45 +70,32 @@ fi
 
 cd "$REPO_DIR"
 
-REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${REPO_SLUG}.git"
-
 echo "→ Mise à jour du dépôt ($BASE_BRANCH)…"
 git fetch --quiet origin "$BASE_BRANCH"
-
-# Toutes les mises à jour s'accumulent dans UNE SEULE pull request (branche
-# persistante $PR_BRANCH), avec un commit par exécution (pas de force-push) :
-#   - si la branche existe déjà sur le remote (PR en cours), on repart de son
-#     sommet et on empile un nouveau commit → l'historique de la PR est conservé ;
-#   - sinon, on la crée à partir de $BASE_BRANCH.
-# Astuce : activer « Automatically delete head branches » sur le repo GitHub pour
-# que la branche reparte proprement de main après chaque merge.
-if git ls-remote --exit-code --heads "$REMOTE" "$PR_BRANCH" >/dev/null 2>&1; then
-	echo "→ Branche $PR_BRANCH déjà ouverte : on empile un commit."
-	git fetch --quiet "$REMOTE" "$PR_BRANCH"
-	git checkout -B "$PR_BRANCH" FETCH_HEAD
-else
-	echo "→ Nouvelle branche $PR_BRANCH depuis $BASE_BRANCH."
-	git checkout -B "$PR_BRANCH" "origin/$BASE_BRANCH"
-fi
+git checkout --quiet "$BASE_BRANCH"
+git reset --hard --quiet "origin/$BASE_BRANCH"
 
 echo "→ Génération des données des élus…"
 node scripts/generate-elus.js --report
 
 DATA_FILES=(src/lib/data/elus.json src/lib/data/code-postal-circo.json)
-# Comparaison au sommet de la branche : pas de commit vide si rien n'a bougé
-# depuis la dernière mise à jour (qu'elle soit dans main ou déjà dans la PR).
 if git diff --quiet -- "${DATA_FILES[@]}"; then
-	echo "✓ Aucun changement depuis la dernière mise à jour, rien à faire."
+	echo "✓ Aucun changement, pas de PR à ouvrir."
 	exit 0
 fi
 
-echo "→ Changements détectés, commit sur $PR_BRANCH…"
+# Une SEULE pull request persistante (branche $PR_BRANCH) : on régénère toujours
+# depuis $BASE_BRANCH, donc le commit (réécrit par force-push) contient à chaque
+# fois l'INTÉGRALITÉ des modifications en cours vs main. Pas d'accumulation de
+# PR, et la PR montre toujours le diff complet à jour.
+echo "→ Changements détectés, préparation de la branche $PR_BRANCH…"
+git checkout -B "$PR_BRANCH"
 git -c user.name="$GIT_NAME" -c user.email="$GIT_EMAIL" add "${DATA_FILES[@]}"
 git -c user.name="$GIT_NAME" -c user.email="$GIT_EMAIL" \
 	commit -m "chore: mise a jour automatique des elus ($(date +%F))"
 
-# Push fast-forward (pas de --force) : on ajoute le commit sans réécrire la PR.
-git push "$REMOTE" "HEAD:refs/heads/${PR_BRANCH}"
+REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${REPO_SLUG}.git"
+git push --force "$REMOTE" "HEAD:refs/heads/${PR_BRANCH}"
 
 echo "→ Ouverture de la pull request…"
 API="https://api.github.com/repos/${REPO_SLUG}/pulls"
