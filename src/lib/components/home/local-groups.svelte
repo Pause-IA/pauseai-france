@@ -46,53 +46,61 @@
 </script>
 
 <section class="local-groups">
-	<div class="text">
-		<p class="title">
-			<MapPin size="1.2em" />
-			{isEn ? 'Local groups' : 'Groupes locaux'}
-		</p>
-		<p class="desc">
-			{#if isEn}
-				Demonstrations, leafleting, outreach: Pause AI takes action near you. Join the movement in
-				your city.
-			{:else}
-				Manifestations, tractages, sensibilisation : Pause IA agit près de chez vous. Rejoignez le
-				mouvement dans votre ville.
-			{/if}
-		</p>
-		{#if next}
-			<p class="next">
+	<div class="lg-top">
+		<div class="text">
+			<p class="title">
+				<MapPin size="1.2em" />
+				{isEn ? 'Local groups' : 'Groupes locaux'}
+			</p>
+			<p class="desc">
+				{#if isEn}
+					Demonstrations, leafleting, outreach: Pause AI takes action near you. Join the movement in
+					your city.
+				{:else}
+					Manifestations, tractages, sensibilisation : Pause IA agit près de chez vous. Rejoignez le
+					mouvement dans votre ville.
+				{/if}
+			</p>
+		</div>
+		<a class="btn" href="{prefix}/groupes-locaux">
+			{isEn ? 'See local groups' : 'Voir les groupes locaux'}
+		</a>
+	</div>
+
+	{#if next}
+		<div class="lg-next">
+			<p class="next-text">
 				<Megaphone size="1em" />
 				<span>
 					<strong>{isEn ? 'Next action' : 'Prochaine action'} :</strong>
 					{next.title}{#if meta}<span class="next-meta"> · {meta}</span>{/if}
 				</span>
 			</p>
-		{/if}
-	</div>
-
-	<div class="actions">
-		{#if next && next.url}
-			<a class="btn primary" href={next.url} target="_blank" rel="noopener noreferrer">
-				{isEn ? 'Take part' : 'Participer'}
-			</a>
-		{/if}
-		<a class="btn" href="{prefix}/groupes-locaux">
-			{isEn ? 'See local groups' : 'Voir les groupes locaux'}
-		</a>
-	</div>
+			{#if next.url}
+				<a class="btn primary" href={next.url} target="_blank" rel="noopener noreferrer">
+					{isEn ? 'Take part' : 'Participer'}
+				</a>
+			{/if}
+		</div>
+	{/if}
 </section>
 
 <style>
 	.local-groups {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 1.25rem;
 		padding: 2rem 1.75rem;
 		background: color-mix(in srgb, var(--brand) 12%, var(--bg));
 		border: 1px solid color-mix(in srgb, var(--brand) 35%, transparent);
 		border-radius: 1.25rem;
 		margin: 0 0 2rem;
+	}
+
+	.lg-top {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
 	}
 
 	.text {
@@ -124,16 +132,30 @@
 		line-height: 1.5;
 	}
 
-	.next {
+	/* Bandeau « prochaine action » : texte à gauche, bouton aligné à droite */
+	.lg-next {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.75rem 1.25rem;
+		padding: 0.9rem 1.1rem;
+		border-radius: 0.85rem;
+		background: var(--bg);
+		border: 1px solid color-mix(in srgb, var(--brand) 30%, transparent);
+	}
+
+	.next-text {
 		display: flex;
 		align-items: baseline;
 		gap: 0.45rem;
-		margin: 0.25rem 0 0;
+		margin: 0;
 		font-size: 0.95rem;
 		color: var(--text);
+		min-width: 0;
 	}
 
-	.next :global(svg) {
+	.next-text :global(svg) {
 		color: var(--brand);
 		flex-shrink: 0;
 		transform: translateY(2px);
@@ -141,12 +163,6 @@
 
 	.next-meta {
 		color: var(--text-2);
-	}
-
-	.actions {
-		display: flex;
-		gap: 0.6rem;
-		flex-wrap: wrap;
 	}
 
 	.btn {
@@ -161,6 +177,8 @@
 		color: var(--brand-subtle, var(--brand));
 		background: var(--bg);
 		transition: opacity 0.15s;
+		text-align: center;
+		flex-shrink: 0;
 	}
 
 	.btn:hover {
@@ -183,25 +201,15 @@
 		}
 	}
 
-	@media (min-width: 1024px) {
-		.local-groups {
+	@media (min-width: 900px) {
+		.lg-top {
 			flex-direction: row;
 			align-items: center;
-			gap: 3rem;
-			padding: 2.5rem 3rem;
+			gap: 2rem;
 		}
 
 		.text {
 			flex: 1;
-		}
-
-		.actions {
-			flex: 0 0 auto;
-			flex-direction: column;
-		}
-
-		.actions .btn {
-			text-align: center;
 		}
 	}
 </style>

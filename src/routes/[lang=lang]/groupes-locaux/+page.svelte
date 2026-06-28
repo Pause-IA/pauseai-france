@@ -103,24 +103,6 @@
 				dynamique dans votre ville.
 			{/if}
 		</p>
-		<div class="hero-stats">
-			<div class="stat">
-				<span class="stat-num">{activeGroupsCount}</span>
-				<span class="stat-label">{isEn ? 'active groups' : 'groupes actifs'}</span>
-			</div>
-			{#if pastAll.length}
-				<div class="stat">
-					<span class="stat-num">{pastAll.length}</span>
-					<span class="stat-label">{isEn ? 'actions carried out' : 'actions menées'}</span>
-				</div>
-			{/if}
-			{#if totalVolunteers > 0}
-				<div class="stat">
-					<span class="stat-num">{totalVolunteers}+</span>
-					<span class="stat-label">{isEn ? 'volunteers mobilised' : 'bénévoles mobilisés'}</span>
-				</div>
-			{/if}
-		</div>
 	</section>
 
 	<section class="impact-section">
@@ -272,6 +254,23 @@
 
 	{#if pastAll.length}
 		<section class="past-section">
+			<div class="stats-band">
+				<div class="stat">
+					<span class="stat-num">{activeGroupsCount}</span>
+					<span class="stat-label">{isEn ? 'active groups' : 'groupes actifs'}</span>
+				</div>
+				<div class="stat">
+					<span class="stat-num">{pastAll.length}</span>
+					<span class="stat-label">{isEn ? 'actions carried out' : 'actions menées'}</span>
+				</div>
+				{#if totalVolunteers > 0}
+					<div class="stat">
+						<span class="stat-num">{totalVolunteers}+</span>
+						<span class="stat-label">{isEn ? 'volunteers mobilised' : 'bénévoles mobilisés'}</span>
+					</div>
+				{/if}
+			</div>
+
 			<div class="section-title-row">
 				<Megaphone size="1.2em" class="section-icon" />
 				<h2>{isEn ? 'Recent actions' : 'Actions passées'}</h2>
@@ -395,20 +394,27 @@
 		max-inline-size: 48rem;
 	}
 
-	.hero-stats {
+	.stats-band {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 2.5rem;
-		margin-top: 1.75rem;
+		gap: 1.5rem 3.5rem;
+		justify-content: center;
+		padding: 1.5rem 1.75rem;
+		margin-bottom: 2.5rem;
+		border: 1px solid var(--border);
+		border-radius: 16px;
+		background: color-mix(in srgb, var(--brand) 7%, var(--bg));
 	}
 
 	.stat {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
+		text-align: center;
 	}
 
 	.stat-num {
-		font-size: 2rem;
+		font-size: 2.1rem;
 		font-weight: 800;
 		line-height: 1;
 		color: var(--brand);
@@ -417,7 +423,7 @@
 	.stat-label {
 		font-size: 0.85rem;
 		color: var(--text-secondary);
-		margin-top: 0.25rem;
+		margin-top: 0.3rem;
 	}
 
 	/* ── Impact (ce que font les groupes) ────────────────────────────── */
