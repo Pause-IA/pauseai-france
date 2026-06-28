@@ -119,6 +119,34 @@ export interface PressCoverage {
 	visible: boolean
 }
 
+// Événements / actions des groupes locaux (manifestations, tractages…)
+export interface LocalEvent {
+	id: string
+	title: string
+	/** Date de l'action (YYYY-MM-DD). */
+	date: string
+	city: string
+	/** Type d'action (Manifestation, Tractage, Conférence…). Facultatif. */
+	type: string
+	/** Lien d'inscription pour un événement à venir, ou article de presse pour une action passée. Facultatif. */
+	url: string
+	description: string
+	image?: string
+	visible: boolean
+}
+
+function isValidLocalEvent(e: LocalEvent): boolean {
+	if (!e.title) {
+		console.warn(`Invalid event: missing title`)
+		return false
+	}
+	if (!e.date) {
+		console.warn(`Invalid event: missing date for "${e.title}"`)
+		return false
+	}
+	return true
+}
+
 // Helper to extract text from Notion rich_text or title
 function getText(property: NotionProperty | undefined): string {
 	if (!property) return ''
@@ -724,6 +752,36 @@ export async function getPressCoverage(): Promise<PressCoverage[]> {
 	)
 
 	return items.filter((pc): pc is PressCoverage => pc !== null)
+}
+
+export async function getLocalEvents(): Promise<LocalEvent[]> {
+	const databaseId = env.NOTION_EVENTS_DATABASE_ID
+	if (!databaseId) return []
+
+	const events = await queryDatabase<LocalEvent | null>(
+		databaseId,
+		(page) => {
+			const visible = getCheckbox(page.properties['Visible'])
+			if (!visible) return null
+
+			const event: LocalEvent = {
+				id: page.id,
+				title: getText(page.properties['Titre']),
+				date: getDate(page.properties['Date']),
+				city: getText(page.properties['Ville']),
+				type: getSelect(page.properties['Type']),
+				url: getUrl(page.properties['URL']),
+				description: getText(page.properties['Description']),
+				image: getFileUrl(page.properties['Image']) || undefined,
+				visible
+			}
+
+			return isValidLocalEvent(event) ? event : null
+		},
+		{ sortBy: 'Date', sortDirection: 'ascending' }
+	)
+
+	return events.filter((e): e is LocalEvent => e !== null)
 }
 
 // Team members

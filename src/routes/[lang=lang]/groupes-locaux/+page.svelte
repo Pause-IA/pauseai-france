@@ -3,8 +3,17 @@
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$components/Button.svelte'
 	import LocalGroupsMap from '$components/LocalGroupsMap.svelte'
-	import { MessageSquare, PlusCircle, MapPin, Megaphone, Newspaper, Users } from 'lucide-svelte'
+	import {
+		MessageSquare,
+		PlusCircle,
+		MapPin,
+		Megaphone,
+		Newspaper,
+		Users,
+		CalendarDays
+	} from 'lucide-svelte'
 	import { localGroups, activeGroupsCount, formingGroupsCount } from '$lib/data/local-groups'
+	import { onMount } from 'svelte'
 	import type { PageData } from './$types'
 
 	export let data: PageData
@@ -17,6 +26,51 @@
 	$: sortedGroups = [...localGroups].sort(
 		(a, b) => Number(!!a.forming) - Number(!!b.forming) || a.name.localeCompare(b.name)
 	)
+
+	// ── Agenda des actions (depuis Notion, via /api/events, non prérendu) ──
+	interface LocalEvent {
+		id: string
+		title: string
+		date: string
+		city: string
+		type: string
+		url: string
+		description: string
+		image?: string
+	}
+	let events: LocalEvent[] = []
+	onMount(async () => {
+		try {
+			const res = await fetch('/api/events')
+			if (res.ok) events = await res.json()
+		} catch {
+			/* agenda indisponible : la page reste fonctionnelle */
+		}
+	})
+
+	const startOfToday = new Date()
+	startOfToday.setHours(0, 0, 0, 0)
+	$: upcoming = events.filter((e) => new Date(e.date) >= startOfToday)
+	// Actions passées : les plus récentes d'abord, limitées pour rester court.
+	$: past = events
+		.filter((e) => new Date(e.date) < startOfToday)
+		.slice()
+		.reverse()
+		.slice(0, 4)
+
+	function fmtDate(d: string): string {
+		const dt = new Date(d)
+		if (Number.isNaN(dt.getTime())) return d
+		return dt.toLocaleDateString(isEn ? 'en-GB' : 'fr-FR', {
+			day: 'numeric',
+			month: 'long',
+			year: 'numeric'
+		})
+	}
+
+	function eventMeta(e: LocalEvent): string {
+		return [e.city, e.type].filter(Boolean).join(' · ')
+	}
 
 	$: title = isEn ? 'Local groups | Pause AI' : 'Groupes locaux | Pause IA'
 	$: description = isEn
@@ -76,6 +130,32 @@
 			</p>
 		</div>
 	</section>
+
+	{#if upcoming.length}
+		<section class="agenda-section">
+			<div class="section-title-row">
+				<CalendarDays size="1.2em" class="section-icon" />
+				<h2>{isEn ? 'Upcoming actions' : 'Prochaines actions'}</h2>
+			</div>
+			<ul class="event-list">
+				{#each upcoming as e (e.id)}
+					<li class="event-card">
+						<div class="event-date">{fmtDate(e.date)}</div>
+						<div class="event-body">
+							<strong>{e.title}</strong>
+							{#if eventMeta(e)}<small>{eventMeta(e)}</small>{/if}
+							{#if e.description}<p>{e.description}</p>{/if}
+						</div>
+						{#if e.url}
+							<a class="event-cta" href={e.url} target="_blank" rel="noopener noreferrer">
+								{isEn ? 'Take part' : 'Participer'}
+							</a>
+						{/if}
+					</li>
+				{/each}
+			</ul>
+		</section>
+	{/if}
 
 	<section class="cta-section">
 		<div class="cta-card join">
@@ -161,6 +241,33 @@
 			{/each}
 		</ul>
 	</section>
+
+	{#if past.length}
+		<section class="past-section">
+			<div class="section-title-row">
+				<Megaphone size="1.2em" class="section-icon" />
+				<h2>{isEn ? 'Recent actions' : 'Actions passées'}</h2>
+			</div>
+			<ul class="past-list">
+				{#each past as e (e.id)}
+					<li class="past-item">
+						{#if e.image}
+							<img class="past-thumb" src={e.image} alt="" loading="lazy" />
+						{/if}
+						<div class="past-body">
+							<strong>{e.title}</strong>
+							<small>{fmtDate(e.date)}{e.city ? ` · ${e.city}` : ''}</small>
+							{#if e.url}
+								<a href={e.url} target="_blank" rel="noopener noreferrer">
+									{isEn ? 'Read more ↗' : 'En savoir plus ↗'}
+								</a>
+							{/if}
+						</div>
+					</li>
+				{/each}
+			</ul>
+		</section>
+	{/if}
 </article>
 
 <style>
@@ -256,6 +363,145 @@
 		text-transform: uppercase;
 		letter-spacing: 0.03em;
 		color: var(--text-secondary);
+	}
+
+	/* ── Sections titrées (agenda, actions passées) ──────────────────── */
+
+	.section-title-row {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.section-title-row h2 {
+		margin: 0;
+	}
+
+	.section-title-row :global(.section-icon) {
+		color: var(--brand);
+		flex-shrink: 0;
+	}
+
+	/* ── Agenda (prochaines actions) ──────────────────────────────────── */
+
+	.agenda-section {
+		margin-bottom: 3.5rem;
+	}
+
+	.event-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.event-card {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+		padding: 1rem 1.25rem;
+		border: 1px solid var(--border);
+		border-left: 4px solid var(--brand);
+		border-radius: 12px;
+		background: var(--bg-card);
+	}
+
+	.event-date {
+		font-weight: 700;
+		color: var(--brand-subtle);
+		font-size: 0.9rem;
+		min-inline-size: 8rem;
+	}
+
+	.event-body {
+		flex: 1;
+		min-inline-size: 12rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+
+	.event-body small {
+		font-size: 0.82rem;
+		color: var(--text-secondary);
+	}
+
+	.event-body p {
+		margin: 0.25rem 0 0;
+		font-size: 0.9rem;
+		color: var(--text-2);
+		line-height: 1.5;
+	}
+
+	.event-cta {
+		padding: 0.45rem 1rem;
+		border-radius: 8px;
+		background: var(--brand);
+		color: #1a1a1a;
+		font-size: 0.88rem;
+		font-weight: 600;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.event-cta:hover {
+		filter: brightness(0.95);
+	}
+
+	/* ── Actions passées ──────────────────────────────────────────────── */
+
+	.past-section {
+		margin-bottom: 5rem;
+	}
+
+	.past-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 1rem;
+	}
+
+	.past-item {
+		display: flex;
+		gap: 0.75rem;
+		align-items: center;
+		padding: 0.75rem;
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		background: var(--bg-card);
+	}
+
+	.past-thumb {
+		inline-size: 56px;
+		block-size: 56px;
+		object-fit: cover;
+		border-radius: 8px;
+		flex-shrink: 0;
+	}
+
+	.past-body {
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+		min-inline-size: 0;
+	}
+
+	.past-body small {
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+	}
+
+	.past-body a {
+		font-size: 0.82rem;
+		color: var(--brand-subtle);
+		font-weight: 600;
+		margin-top: 0.15rem;
 	}
 
 	/* ── CTA cards ────────────────────────────────────────────────────── */

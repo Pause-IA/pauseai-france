@@ -134,6 +134,14 @@ au rafraîchissement et à la fermeture. Aucune synchronisation serveur.
   C'est le seul compteur fiable. La FAQ informe que ce BCC peut être retiré
   avant l'envoi.
 
+### Capture newsletter (opt-in)
+
+À l'étape 2, une case **non cochée par défaut** propose « Tenez-moi informé des
+prochaines actions ». Si l'utilisateur la coche et saisit son email, on l'inscrit
+à la newsletter via `/api/subscribe` (groupe Newsletter + Call to Action), avec
+`source: ecrire-a-mes-elus[:<action>]`. C'est le **seul** cas où un email quitte
+l'appareil, et toujours sur **consentement explicite**.
+
 ---
 
 ## 6. Accessibilité / mobile

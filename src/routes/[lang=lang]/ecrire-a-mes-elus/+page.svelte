@@ -259,15 +259,51 @@
 		return `mailto:${r.email ?? ''}?${params.toString().replace(/\+/g, '%20')}`
 	}
 
-	// ── Infos utilisateur (jamais envoyées à un serveur, mémorisées localement) ──
+	// ── Infos utilisateur. Nom, ville et phrase ne quittent jamais l'appareil
+	// (mémorisés localement). L'email n'est transmis QUE si l'utilisateur coche
+	// explicitement l'inscription à la newsletter (voir subscribeNewsletter). ──
 	let userName = ''
 	let userVille = ''
+	let userEmail = ''
 	let personalSentence = ''
 	function saveUser() {
 		try {
-			localStorage.setItem('elus-user', JSON.stringify({ userName, userVille, personalSentence }))
+			localStorage.setItem(
+				'elus-user',
+				JSON.stringify({ userName, userVille, userEmail, personalSentence })
+			)
 		} catch {
 			/* localStorage indisponible */
+		}
+	}
+
+	// ── Opt-in newsletter : capture (avec consentement) des personnes qui agissent.
+	let wantsNewsletter = false
+	let newsletterStatus: 'idle' | 'sending' | 'done' | 'error' = 'idle'
+	function emailValid(v: string): boolean {
+		return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())
+	}
+	async function subscribeNewsletter() {
+		if (!emailValid(userEmail)) {
+			newsletterStatus = 'error'
+			return
+		}
+		newsletterStatus = 'sending'
+		try {
+			const res = await fetch('/api/subscribe', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					email: userEmail.trim(),
+					subscribeNewsletter: true,
+					subscribeSubstack: false,
+					firstName: userName.trim() || undefined,
+					source: `ecrire-a-mes-elus${action.id === 'default' ? '' : `:${action.id}`}`
+				})
+			})
+			newsletterStatus = res.ok ? 'done' : 'error'
+		} catch {
+			newsletterStatus = 'error'
 		}
 	}
 
@@ -281,6 +317,7 @@
 			const u = JSON.parse(localStorage.getItem('elus-user') ?? '{}')
 			userName = u.userName ?? ''
 			userVille = u.userVille ?? ''
+			userEmail = u.userEmail ?? ''
 			personalSentence = u.personalSentence ?? ''
 		} catch {
 			/* localStorage indisponible */
@@ -786,6 +823,54 @@
 					{isEn ? 'BCC' : 'CCI'} <code>{BCC}</code>
 					{isEn ? '(helps us count letters sent)' : '(pour compter les emails envoyés)'}
 				</p>
+			{/if}
+
+			<!-- Opt-in newsletter (consentement explicite) -->
+			{#if newsletterStatus === 'done'}
+				<p class="newsletter-done">
+					{isEn
+						? '✓ Thank you! You will receive our next actions.'
+						: '✓ Merci ! Vous recevrez nos prochaines actions.'}
+				</p>
+			{:else}
+				<div class="newsletter-optin">
+					<label class="newsletter-check">
+						<input type="checkbox" bind:checked={wantsNewsletter} />
+						<span>
+							{isEn
+								? 'Keep me posted about the next actions (Pause AI newsletter).'
+								: 'Tenez-moi informé des prochaines actions (newsletter Pause IA).'}
+						</span>
+					</label>
+					{#if wantsNewsletter}
+						<div class="newsletter-row">
+							<input
+								class="newsletter-input"
+								type="email"
+								placeholder={isEn ? 'your@email.com' : 'votre@email.com'}
+								autocomplete="email"
+								bind:value={userEmail}
+								on:input={saveUser}
+							/>
+							<Button on:click={subscribeNewsletter}>
+								{newsletterStatus === 'sending'
+									? isEn
+										? 'Sending…'
+										: 'Envoi…'
+									: isEn
+										? 'Subscribe'
+										: "S'inscrire"}
+							</Button>
+						</div>
+						{#if newsletterStatus === 'error'}
+							<p class="newsletter-error">
+								{isEn
+									? 'Please enter a valid email address.'
+									: 'Veuillez entrer une adresse email valide.'}
+							</p>
+						{/if}
+					{/if}
+				</div>
 			{/if}
 
 			{#if sent.has(selectedRecipient.id)}
@@ -1339,6 +1424,66 @@
 		font-size: 0.78rem;
 		color: var(--text-secondary);
 		margin-top: 0.85rem;
+	}
+
+	/* Opt-in newsletter */
+	.newsletter-optin {
+		margin-top: 1.25rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--border);
+	}
+
+	.newsletter-check {
+		display: flex;
+		gap: 0.55rem;
+		align-items: flex-start;
+		font-size: 0.9rem;
+		color: var(--text-2);
+		cursor: pointer;
+		line-height: 1.45;
+	}
+
+	.newsletter-check input {
+		margin-top: 0.2rem;
+		flex-shrink: 0;
+	}
+
+	.newsletter-row {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		margin-top: 0.75rem;
+	}
+
+	.newsletter-input {
+		flex: 1;
+		min-inline-size: 200px;
+		padding: 0.6rem 0.85rem;
+		border: 2px solid var(--border);
+		border-radius: 9px;
+		font-size: 0.95rem;
+		background: var(--bg);
+		color: var(--text);
+	}
+
+	.newsletter-input:focus {
+		outline: none;
+		border-color: var(--brand);
+	}
+
+	.newsletter-error {
+		margin-top: 0.5rem;
+		font-size: 0.82rem;
+		color: #c0392b;
+	}
+
+	.newsletter-done {
+		margin-top: 1.25rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--border);
+		font-size: 0.92rem;
+		font-weight: 600;
+		color: var(--brand-subtle);
 	}
 
 	/* Suite après envoi */
