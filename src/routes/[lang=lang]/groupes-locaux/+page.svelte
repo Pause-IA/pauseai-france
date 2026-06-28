@@ -262,7 +262,10 @@
 				<article class="feature-card" class:reverse={i % 2 === 1}>
 					{#if e.images.length}
 						<div class="feature-media">
-							<img class="feature-main" src={e.images[0]} alt="" loading="lazy" />
+							<div class="feature-main">
+								<div class="feature-main-bg" style="background-image:url('{e.images[0]}')"></div>
+								<img src={e.images[0]} alt="" loading="lazy" />
+							</div>
 							{#if e.images.length > 1}
 								<div class="feature-thumbs">
 									{#each e.images.slice(1, 4) as src}
@@ -548,11 +551,30 @@
 		background: var(--brand-light);
 	}
 
+	/* Photo principale adaptative : l'image est montrée en entier (contain),
+	   quelle que soit sa forme, sur un fond flou de la même image. */
 	.feature-main {
+		position: relative;
 		flex: 1;
 		inline-size: 100%;
 		min-block-size: 0;
-		object-fit: cover;
+		overflow: hidden;
+	}
+
+	.feature-main-bg {
+		position: absolute;
+		inset: -8%;
+		background-size: cover;
+		background-position: center;
+		filter: blur(22px) brightness(0.9);
+	}
+
+	.feature-main img {
+		position: relative;
+		z-index: 1;
+		inline-size: 100%;
+		block-size: 100%;
+		object-fit: contain;
 	}
 
 	.feature-thumbs {
