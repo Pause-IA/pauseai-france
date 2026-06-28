@@ -1,8 +1,13 @@
 import type { PressCoverage } from '$lib/notion'
 
 /**
- * Static press coverage — source de vérité dans le dépôt Git.
- * Ajouter ici tout nouvel article mentionnant l'association.
+ * Revue de presse de SECOURS (fichier statique du dépôt).
+ *
+ * Depuis le branchement de la base Notion « Revue de presse »
+ * (NOTION_PRESS_COVERAGE_DATABASE_ID), la page presse utilise Notion en
+ * priorité et ne retombe sur cette liste QUE si la base Notion est vide ou non
+ * configurée. Pour ajouter un article au quotidien, passer par Notion (voir
+ * docs/espace-presse.md), pas par ce fichier.
  */
 export const staticPressCoverage: PressCoverage[] = [
 	// ── Campagne Emploi & IA / manifestation 1er mai 2026 ───────────────────
