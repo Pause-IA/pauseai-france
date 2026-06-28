@@ -1,11 +1,19 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import { MapPin, Megaphone } from 'lucide-svelte'
+	import France from '$components/icons/france.svelte'
+	import { localGroups } from '$lib/data/local-groups'
 	import type { Lang } from '$lib/i18n'
 
 	export let lang: Lang = 'fr'
 	$: isEn = lang === 'en'
 	$: prefix = lang === 'fr' ? '/fr' : '/en'
+
+	// Pastilles de villes (preuve sociale) : quelques groupes actifs + « +N ».
+	const activeCities = localGroups.filter((g) => !g.forming).map((g) => g.name)
+	const MAX_PILLS = 5
+	const pillCities = activeCities.slice(0, MAX_PILLS)
+	const extraCities = activeCities.length - pillCities.length
 
 	interface LocalEvent {
 		id: string
@@ -47,6 +55,9 @@
 
 <section class="local-groups">
 	<div class="lg-top">
+		<!-- Carte de France (silhouette réelle, recoloriée à la couleur de marque) -->
+		<France class="france-map" />
+
 		<div class="text">
 			<p class="title">
 				<MapPin size="1.2em" />
@@ -61,6 +72,20 @@
 					mouvement dans votre ville.
 				{/if}
 			</p>
+			{#if pillCities.length}
+				<a
+					class="cities"
+					href="{prefix}/groupes-locaux"
+					aria-label={isEn ? 'See local groups' : 'Voir les groupes locaux'}
+				>
+					{#each pillCities as city}
+						<span class="city-pill">{city}</span>
+					{/each}
+					{#if extraCities > 0}
+						<span class="city-pill more">+{extraCities}</span>
+					{/if}
+				</a>
+			{/if}
 		</div>
 		<a class="btn" href="{prefix}/groupes-locaux">
 			{isEn ? 'See local groups' : 'Voir les groupes locaux'}
@@ -101,6 +126,45 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.25rem;
+	}
+
+	/* Carte de France */
+	.local-groups :global(.france-map) {
+		display: none;
+		inline-size: 4.25rem;
+		block-size: auto;
+		flex-shrink: 0;
+		color: var(--brand);
+	}
+
+	/* Pastilles de villes */
+	.cities {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin-top: 0.85rem;
+		text-decoration: none;
+	}
+
+	.city-pill {
+		padding: 0.2rem 0.65rem;
+		border-radius: 999px;
+		background: var(--bg);
+		border: 1px solid color-mix(in srgb, var(--brand) 30%, transparent);
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--text-2);
+		transition: border-color 0.15s;
+	}
+
+	.cities:hover .city-pill {
+		border-color: var(--brand);
+	}
+
+	.city-pill.more {
+		background: color-mix(in srgb, var(--brand) 16%, transparent);
+		color: var(--brand-subtle, var(--brand));
+		border-color: transparent;
 	}
 
 	.text {
@@ -201,11 +265,15 @@
 		}
 	}
 
-	@media (min-width: 900px) {
+	@media (min-width: 720px) {
 		.lg-top {
 			flex-direction: row;
 			align-items: center;
-			gap: 2rem;
+			gap: 1.75rem;
+		}
+
+		.local-groups :global(.france-map) {
+			display: block;
 		}
 
 		.text {
