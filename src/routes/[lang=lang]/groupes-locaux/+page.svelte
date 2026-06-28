@@ -51,12 +51,15 @@
 	const startOfToday = new Date()
 	startOfToday.setHours(0, 0, 0, 0)
 	$: upcoming = events.filter((e) => new Date(e.date) >= startOfToday)
-	// Actions passées : les plus récentes d'abord, limitées pour rester court.
-	$: past = events
+	// Actions passées : les plus récentes d'abord. On en montre 6, puis un bouton
+	// déplie le reste (la page reste courte par défaut).
+	const PAST_PREVIEW = 6
+	let showAllPast = false
+	$: pastAll = events
 		.filter((e) => new Date(e.date) < startOfToday)
 		.slice()
 		.reverse()
-		.slice(0, 4)
+	$: pastShown = showAllPast ? pastAll : pastAll.slice(0, PAST_PREVIEW)
 
 	function fmtDate(d: string): string {
 		const dt = new Date(d)
@@ -242,14 +245,14 @@
 		</ul>
 	</section>
 
-	{#if past.length}
+	{#if pastAll.length}
 		<section class="past-section">
 			<div class="section-title-row">
 				<Megaphone size="1.2em" class="section-icon" />
 				<h2>{isEn ? 'Recent actions' : 'Actions passées'}</h2>
 			</div>
 			<ul class="past-list">
-				{#each past as e (e.id)}
+				{#each pastShown as e (e.id)}
 					<li class="past-item">
 						{#if e.image}
 							<img class="past-thumb" src={e.image} alt="" loading="lazy" />
@@ -266,6 +269,17 @@
 					</li>
 				{/each}
 			</ul>
+			{#if pastAll.length > PAST_PREVIEW}
+				<button class="show-all-btn" on:click={() => (showAllPast = !showAllPast)}>
+					{#if showAllPast}
+						{isEn ? 'Show less' : 'Voir moins'}
+					{:else}
+						{isEn
+							? `See all actions (${pastAll.length})`
+							: `Voir toutes les actions (${pastAll.length})`}
+					{/if}
+				</button>
+			{/if}
 		</section>
 	{/if}
 </article>
@@ -502,6 +516,23 @@
 		color: var(--brand-subtle);
 		font-weight: 600;
 		margin-top: 0.15rem;
+	}
+
+	.show-all-btn {
+		display: block;
+		margin: 1.25rem auto 0;
+		padding: 0.55rem 1.4rem;
+		border: 1px solid var(--brand);
+		border-radius: 999px;
+		background: transparent;
+		color: var(--brand-subtle);
+		font-size: 0.9rem;
+		font-weight: 600;
+		cursor: pointer;
+	}
+
+	.show-all-btn:hover {
+		background: var(--brand-light);
 	}
 
 	/* ── CTA cards ────────────────────────────────────────────────────── */
