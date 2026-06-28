@@ -178,10 +178,82 @@ Côté serveur (hors `.env` applicatif) : `GITHUB_TOKEN`, `ALERT_WEBHOOK`,
 
 ---
 
-## 10. Pistes d'amélioration (non faites)
+## 10. Installation et exploitation serveur
+
+La mise à jour planifiée tourne sur le serveur via un timer systemd. Le repo doit
+vivre dans `/opt/bots/pauseai-france` et tourner sous l'utilisateur `romain`
+(adapter chemin/utilisateur dans les unités systemd si besoin).
+
+### Installation (une fois)
+
+```bash
+# a) Cloner le repo à l'emplacement attendu
+sudo mkdir -p /opt/bots && sudo chown romain:romain /opt/bots
+git clone https://github.com/Pause-IA/pauseai-france.git /opt/bots/pauseai-france
+cd /opt/bots/pauseai-france
+
+# b) Vérifier Node 18+ (le script ne dépend que de Node, git, curl)
+node --version
+
+# c) Créer le fichier de secrets (déjà dans .gitignore), lisible par son seul propriétaire
+sudo tee /opt/bots/pauseai-france/.elus.env >/dev/null <<'EOF'
+GITHUB_TOKEN=github_pat_xxxxxxxxxxxxxxxxxxxx
+ALERT_WEBHOOK=https://discord.com/api/webhooks/XXXX/YYYY
+ALERT_EMAIL=romain@pauseia.fr
+EOF
+sudo chmod 600 /opt/bots/pauseai-france/.elus.env
+sudo chown romain:romain /opt/bots/pauseai-france/.elus.env
+
+# d) Rendre le script exécutable
+chmod +x /opt/bots/pauseai-france/scripts/update-elus-server.sh
+
+# e) Installer les unités systemd et activer le timer (lundi 04h00)
+sudo cp /opt/bots/pauseai-france/scripts/systemd/update-elus.service /etc/systemd/system/
+sudo cp /opt/bots/pauseai-france/scripts/systemd/update-elus.timer   /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now update-elus.timer
+```
+
+Le PAT GitHub doit être _fine-grained_ sur ce repo, avec **Contents: Read and
+write** + **Pull requests: Read and write**.
+
+### Exploitation
+
+```bash
+# Etat du timer et prochaine exécution
+systemctl status update-elus.timer
+systemctl list-timers update-elus.timer
+
+# Lancer une exécution maintenant (génère + ouvre une PR si changement)
+sudo systemctl start update-elus.service
+
+# Journaux
+journalctl -u update-elus -n 100 --no-pager
+```
+
+### Tester l'alerte Discord
+
+```bash
+# Test rapide : connectivité + URL du webhook (format identique au script)
+set -a; source /opt/bots/pauseai-france/.elus.env; set +a
+curl -s -m 15 -H 'Content-Type: application/json' \
+  -d '{"content":"[Pause IA] Test alerte elus : si vous lisez ceci, le webhook fonctionne.","text":"[Pause IA] Test alerte elus"}' \
+  "$ALERT_WEBHOOK"; echo
+
+# Test bout-en-bout : déclenche réellement le trap notify_failure (token bidon)
+cd /opt/bots/pauseai-france
+set -a; source .elus.env; set +a
+GITHUB_TOKEN=mauvais_token_de_test ./scripts/update-elus-server.sh
+```
+
+> Sécurité : ne jamais committer `.elus.env`. Si un token ou un webhook a été
+> exposé, le régénérer et ne mettre que la nouvelle valeur dans `.elus.env`.
+
+---
+
+## 11. Pistes d'amélioration (non faites)
 
 - **Preuve sociale** : « déjà X mails envoyés » (à activer quand le volume BCC
   le permet).
 - Mécanisme actif de **relance** (aujourd'hui seulement expliqué en FAQ).
 - Partage natif mobile (`navigator.share`) si l'on veut de la diffusion.
-- Rendre la statistique du sondage **intemporelle** (éviter l'ancrage « 2026 »).
