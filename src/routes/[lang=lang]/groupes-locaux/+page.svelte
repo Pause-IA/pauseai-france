@@ -36,7 +36,9 @@
 		type: string
 		url: string
 		description: string
-		image?: string
+		images: string[]
+		featured: boolean
+		volunteers: number
 	}
 	let events: LocalEvent[] = []
 	onMount(async () => {
@@ -51,15 +53,18 @@
 	const startOfToday = new Date()
 	startOfToday.setHours(0, 0, 0, 0)
 	$: upcoming = events.filter((e) => new Date(e.date) >= startOfToday)
-	// Actions passées : les plus récentes d'abord. On en montre 6, puis un bouton
-	// déplie le reste (la page reste courte par défaut).
-	const PAST_PREVIEW = 6
-	let showAllPast = false
+	// Actions passées : les plus récentes d'abord.
 	$: pastAll = events
 		.filter((e) => new Date(e.date) < startOfToday)
 		.slice()
 		.reverse()
-	$: pastShown = showAllPast ? pastAll : pastAll.slice(0, PAST_PREVIEW)
+	// Les actions « à la une » sont mises en avant (grandes, avec galerie) ;
+	// les autres vont dans la grille compacte (6 visibles + bouton « tout voir »).
+	$: pastFeatured = pastAll.filter((e) => e.featured)
+	$: pastNormal = pastAll.filter((e) => !e.featured)
+	const PAST_PREVIEW = 6
+	let showAllPast = false
+	$: pastNormalShown = showAllPast ? pastNormal : pastNormal.slice(0, PAST_PREVIEW)
 
 	function fmtDate(d: string): string {
 		const dt = new Date(d)
@@ -251,34 +256,74 @@
 				<Megaphone size="1.2em" class="section-icon" />
 				<h2>{isEn ? 'Recent actions' : 'Actions passées'}</h2>
 			</div>
-			<ul class="past-list">
-				{#each pastShown as e (e.id)}
-					<li class="past-item">
-						{#if e.image}
-							<img class="past-thumb" src={e.image} alt="" loading="lazy" />
-						{/if}
-						<div class="past-body">
-							<strong>{e.title}</strong>
-							<small>{fmtDate(e.date)}{e.city ? ` · ${e.city}` : ''}</small>
-							{#if e.url}
-								<a href={e.url} target="_blank" rel="noopener noreferrer">
-									{isEn ? 'Read more ↗' : 'En savoir plus ↗'}
-								</a>
-							{/if}
+
+			<!-- Actions « à la une » : grandes, avec galerie photo -->
+			{#each pastFeatured as e (e.id)}
+				<article class="feature-card">
+					{#if e.images.length}
+						<div class="feature-gallery" class:single={e.images.length === 1}>
+							{#each e.images.slice(0, 4) as src}
+								<img {src} alt="" loading="lazy" />
+							{/each}
 						</div>
-					</li>
-				{/each}
-			</ul>
-			{#if pastAll.length > PAST_PREVIEW}
-				<button class="show-all-btn" on:click={() => (showAllPast = !showAllPast)}>
-					{#if showAllPast}
-						{isEn ? 'Show less' : 'Voir moins'}
-					{:else}
-						{isEn
-							? `See all actions (${pastAll.length})`
-							: `Voir toutes les actions (${pastAll.length})`}
 					{/if}
-				</button>
+					<div class="feature-body">
+						<span class="feature-meta"
+							>{fmtDate(e.date)}{eventMeta(e) ? ` · ${eventMeta(e)}` : ''}</span
+						>
+						<h3>{e.title}</h3>
+						{#if e.volunteers > 0}
+							<span class="volunteers">
+								<Users size="0.95em" />
+								{e.volunteers}
+								{isEn ? (e.volunteers > 1 ? 'volunteers' : 'volunteer') : 'bénévoles'}
+							</span>
+						{/if}
+						{#if e.description}<p>{e.description}</p>{/if}
+						{#if e.url}
+							<a class="feature-link" href={e.url} target="_blank" rel="noopener noreferrer">
+								{isEn ? 'Read more ↗' : 'En savoir plus ↗'}
+							</a>
+						{/if}
+					</div>
+				</article>
+			{/each}
+
+			<!-- Autres actions : grille compacte -->
+			{#if pastNormal.length}
+				<ul class="past-list">
+					{#each pastNormalShown as e (e.id)}
+						<li class="past-item">
+							{#if e.images.length}
+								<img class="past-thumb" src={e.images[0]} alt="" loading="lazy" />
+							{/if}
+							<div class="past-body">
+								<strong>{e.title}</strong>
+								<small>
+									{fmtDate(e.date)}{e.city ? ` · ${e.city}` : ''}{e.volunteers > 0
+										? ` · ${e.volunteers} ${isEn ? 'vol.' : 'bénév.'}`
+										: ''}
+								</small>
+								{#if e.url}
+									<a href={e.url} target="_blank" rel="noopener noreferrer">
+										{isEn ? 'Read more ↗' : 'En savoir plus ↗'}
+									</a>
+								{/if}
+							</div>
+						</li>
+					{/each}
+				</ul>
+				{#if pastNormal.length > PAST_PREVIEW}
+					<button class="show-all-btn" on:click={() => (showAllPast = !showAllPast)}>
+						{#if showAllPast}
+							{isEn ? 'Show less' : 'Voir moins'}
+						{:else}
+							{isEn
+								? `See all actions (${pastNormal.length})`
+								: `Voir toutes les actions (${pastNormal.length})`}
+						{/if}
+					</button>
+				{/if}
 			{/if}
 		</section>
 	{/if}
@@ -470,6 +515,97 @@
 
 	.past-section {
 		margin-bottom: 5rem;
+	}
+
+	/* Action « à la une » : grande carte avec galerie */
+	.feature-card {
+		border: 1px solid var(--border);
+		border-radius: 14px;
+		overflow: hidden;
+		background: var(--bg-card);
+		margin-bottom: 1.25rem;
+	}
+
+	.feature-gallery {
+		display: grid;
+		grid-template-columns: 2fr 1fr 1fr;
+		grid-auto-rows: 130px;
+		gap: 4px;
+	}
+
+	.feature-gallery.single {
+		grid-template-columns: 1fr;
+		grid-auto-rows: auto;
+	}
+
+	.feature-gallery img {
+		inline-size: 100%;
+		block-size: 100%;
+		object-fit: cover;
+	}
+
+	.feature-gallery img:first-child {
+		grid-row: span 2;
+	}
+
+	.feature-gallery.single img:first-child {
+		grid-row: auto;
+		max-block-size: 22rem;
+	}
+
+	.feature-body {
+		padding: 1.1rem 1.4rem 1.3rem;
+	}
+
+	.feature-meta {
+		font-size: 0.8rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+		color: var(--brand-subtle);
+	}
+
+	.feature-body h3 {
+		margin: 0.3rem 0 0.4rem;
+		font-size: 1.25rem;
+	}
+
+	.volunteers {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--text-2);
+		background: var(--brand-light);
+		padding: 0.15rem 0.55rem;
+		border-radius: 999px;
+	}
+
+	.feature-body p {
+		margin: 0.6rem 0 0;
+		line-height: 1.6;
+		color: var(--text-2);
+	}
+
+	.feature-link {
+		display: inline-block;
+		margin-top: 0.7rem;
+		font-size: 0.88rem;
+		font-weight: 600;
+		color: var(--brand-subtle);
+	}
+
+	@media (max-width: 560px) {
+		.feature-gallery {
+			grid-template-columns: 1fr 1fr;
+			grid-auto-rows: 120px;
+		}
+
+		.feature-gallery img:first-child {
+			grid-column: span 2;
+			grid-row: auto;
+		}
 	}
 
 	.past-list {

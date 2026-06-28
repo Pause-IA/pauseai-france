@@ -1,7 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
 	import Hero from '$components/home/hero.svelte'
-	import LocalGroupsCta from '$components/home/local-groups-cta.svelte'
 	import Lead from '$components/home/lead.svelte'
 	import Campaigns from '$components/home/campaigns.svelte'
 	import Risks from '$components/home/risks.svelte'
@@ -28,8 +27,6 @@
 <PostMeta title={t.home.meta_title} description={t.home.meta_desc} />
 
 <Hero {lang} />
-
-<LocalGroupsCta {lang} />
 
 <Lead {lang} />
 

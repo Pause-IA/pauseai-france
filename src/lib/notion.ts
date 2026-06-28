@@ -131,7 +131,12 @@ export interface LocalEvent {
 	/** Lien d'inscription pour un événement à venir, ou article de presse pour une action passée. Facultatif. */
 	url: string
 	description: string
-	image?: string
+	/** Une ou plusieurs photos (la colonne Notion « Image » accepte plusieurs fichiers). */
+	images: string[]
+	/** Action « à la une » : affichée plus grande, avec galerie. */
+	featured: boolean
+	/** Nombre de bénévoles présents (facultatif, affiché si > 0). */
+	volunteers: number
 	visible: boolean
 }
 
@@ -199,6 +204,14 @@ function getFileUrl(property: NotionProperty | undefined): string {
 		if (file.type === 'external' && file.external?.url) return file.external.url
 	}
 	return property.url || ''
+}
+
+// Helper to extract ALL file URLs (Notion "files" property with several files)
+function getFileUrls(property: NotionProperty | undefined): string[] {
+	if (!property || !property.files) return []
+	return property.files
+		.map((f) => (f.type === 'file' ? (f.file?.url ?? '') : (f.external?.url ?? '')))
+		.filter((u) => u !== '')
 }
 
 // Validation helpers
@@ -772,7 +785,9 @@ export async function getLocalEvents(): Promise<LocalEvent[]> {
 				type: getSelect(page.properties['Type']),
 				url: getUrl(page.properties['URL']),
 				description: getText(page.properties['Description']),
-				image: getFileUrl(page.properties['Image']) || undefined,
+				images: getFileUrls(page.properties['Image']),
+				featured: getCheckbox(page.properties['À la une']),
+				volunteers: getNumber(page.properties['Bénévoles']),
 				visible
 			}
 
