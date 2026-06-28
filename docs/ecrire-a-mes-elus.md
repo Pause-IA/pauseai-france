@@ -52,6 +52,11 @@ La progression (« Écrit ✓ ») et les infos personnelles sont mémorisées
   (`scripts/update-elus-server.sh`, `scripts/systemd/update-elus.{service,timer}`).
   Il régénère les données et **ouvre une PR** (jamais de push direct sur `main`).
   Un humain relit et merge ; Netlify déploie au merge.
+  - **Une seule PR persistante** (branche `chore/maj-elus`) : chaque exécution
+    **empile un commit** sur la PR en cours plutôt que d'en créer une nouvelle
+    ou d'écraser l'historique. Pas de commit vide si rien n'a changé. Activer
+    « Automatically delete head branches » côté GitHub pour que la branche
+    reparte proprement de `main` après chaque merge.
 - **Filet de secours manuel** : workflow GitHub `update-elus.yml`
   (déclenchement manuel uniquement, pour régénérer si le serveur est indispo).
 - **Alerte** : en cas d'échec, notification via `ALERT_WEBHOOK` (Discord/Slack)
