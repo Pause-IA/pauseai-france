@@ -10,8 +10,15 @@
 		Megaphone,
 		Newspaper,
 		Users,
-		CalendarDays
+		CalendarDays,
+		Mic,
+		Lightbulb,
+		Radio,
+		Landmark,
+		FileText,
+		Clock
 	} from 'lucide-svelte'
+	import type { ComponentType } from 'svelte'
 	import { localGroups, activeGroupsCount, formingGroupsCount } from '$lib/data/local-groups'
 	import { onMount } from 'svelte'
 	import type { PageData } from './$types'
@@ -35,10 +42,25 @@
 		city: string
 		type: string
 		url: string
+		time: string
+		place: string
 		description: string
 		images: string[]
 		featured: boolean
 		volunteers: number
+	}
+
+	// Icône selon le type d'action, pour un repérage visuel rapide.
+	function typeIcon(t: string): ComponentType {
+		const k = (t || '').toLowerCase()
+		if (k.includes('manif')) return Megaphone
+		if (k.includes('tract')) return FileText
+		if (k.includes('conf')) return Mic
+		if (k.includes('atelier') || k.includes('fresque')) return Lightbulb
+		if (k.includes('média') || k.includes('media') || k.includes('radio') || k.includes('presse'))
+			return Radio
+		if (k.includes('plaidoyer') || k.includes('élu') || k.includes('elu')) return Landmark
+		return CalendarDays
 	}
 	let events: LocalEvent[] = []
 	onMount(async () => {
@@ -150,14 +172,29 @@
 			<ul class="event-list">
 				{#each upcoming as e (e.id)}
 					<li class="event-card">
-						<div class="event-date">{fmtDate(e.date)}</div>
+						<div class="event-date">
+							{fmtDate(e.date)}{#if e.time}<span class="event-time">
+									<Clock size="0.85em" />{e.time}</span
+								>{/if}
+						</div>
 						<div class="event-body">
 							<strong>{e.title}</strong>
-							{#if eventMeta(e)}<small>{eventMeta(e)}</small>{/if}
+							{#if eventMeta(e) || e.place}
+								<small>
+									<svelte:component this={typeIcon(e.type)} size="0.9em" />
+									{[e.city, e.type, e.place].filter(Boolean).join(' · ')}
+								</small>
+							{/if}
 							{#if e.description}<p>{e.description}</p>{/if}
 						</div>
 						{#if e.url}
-							<a class="event-cta" href={e.url} target="_blank" rel="noopener noreferrer">
+							<a
+								class="event-cta"
+								href={e.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={`${isEn ? 'Take part' : 'Participer'} : ${e.title}`}
+							>
 								{isEn ? 'Take part' : 'Participer'}
 							</a>
 						{/if}
@@ -296,7 +333,12 @@
 					{/if}
 					<div class="feature-body">
 						<span class="feature-meta">
-							{#if e.type}<span class="feature-tag">{e.type}</span>{/if}
+							{#if e.type}
+								<span class="feature-tag">
+									<svelte:component this={typeIcon(e.type)} size="0.8em" />
+									{e.type}
+								</span>
+							{/if}
 							{fmtDate(e.date)}{e.city ? ` · ${e.city}` : ''}
 						</span>
 						<h3>{e.title}</h3>
@@ -309,7 +351,13 @@
 						{/if}
 						{#if e.description}<p>{e.description}</p>{/if}
 						{#if e.url}
-							<a class="feature-link" href={e.url} target="_blank" rel="noopener noreferrer">
+							<a
+								class="feature-link"
+								href={e.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={`${isEn ? 'Read more' : 'En savoir plus'} : ${e.title}`}
+							>
 								{isEn ? 'Read more ↗' : 'En savoir plus ↗'}
 							</a>
 						{/if}
@@ -329,7 +377,12 @@
 								{:else}
 									<div class="past-card-noimg"><Megaphone size="1.7rem" /></div>
 								{/if}
-								{#if e.type}<span class="past-card-tag">{e.type}</span>{/if}
+								{#if e.type}
+									<span class="past-card-tag">
+										<svelte:component this={typeIcon(e.type)} size="0.78em" />
+										{e.type}
+									</span>
+								{/if}
 							</div>
 							<div class="past-card-body">
 								<span class="past-card-meta">{fmtDate(e.date)}{e.city ? ` · ${e.city}` : ''}</span>
@@ -347,6 +400,7 @@
 											href={e.url}
 											target="_blank"
 											rel="noopener noreferrer"
+											aria-label={`${isEn ? 'Read more' : 'En savoir plus'} : ${e.title}`}
 										>
 											{isEn ? 'Read more ↗' : 'En savoir plus ↗'}
 										</a>
@@ -551,6 +605,15 @@
 		min-inline-size: 8rem;
 	}
 
+	.event-time {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		margin-left: 0.5rem;
+		font-weight: 600;
+		color: var(--text-secondary);
+	}
+
 	.event-body {
 		flex: 1;
 		min-inline-size: 12rem;
@@ -560,8 +623,16 @@
 	}
 
 	.event-body small {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
 		font-size: 0.82rem;
 		color: var(--text-secondary);
+	}
+
+	.event-body small :global(svg) {
+		color: var(--brand);
+		flex-shrink: 0;
 	}
 
 	.event-body p {
@@ -675,6 +746,9 @@
 	}
 
 	.feature-tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
 		background: var(--brand);
 		color: #1a1a1a;
 		padding: 0.12rem 0.55rem;
@@ -809,6 +883,9 @@
 		z-index: 2;
 		top: 0.6rem;
 		left: 0.6rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.28rem;
 		background: var(--brand);
 		color: #1a1a1a;
 		padding: 0.15rem 0.6rem;

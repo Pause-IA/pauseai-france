@@ -29,18 +29,20 @@ NOTION_EVENTS_DATABASE_ID = <id de la base Notion>
 
 ## Colonnes de la base Notion
 
-| Colonne       | Type Notion | Obligatoire | Rôle                                                                |
-| ------------- | ----------- | ----------- | ------------------------------------------------------------------- |
-| `Titre`       | Title       | oui         | Nom de l'action (ex. « Manifestation pour une pause »)              |
-| `Date`        | Date        | oui         | Date de l'action (sert à trier passé / à venir)                     |
-| `Ville`       | Text        | non         | Ville (ex. « Lyon »)                                                |
-| `Type`        | Select      | non         | Manifestation, Tractage, Conférence, Autre…                         |
-| `URL`         | URL         | non         | Lien d'inscription (à venir) ou article de presse (passé)           |
-| `Description` | Text        | non         | Phrase courte de contexte                                           |
-| `Image`       | Files       | non         | Une **ou plusieurs** photos (galerie pour les actions « à la une ») |
-| `À la une`    | Checkbox    | non         | Met l'action en avant : grande carte avec galerie photo             |
-| `Bénévoles`   | Number      | non         | Nombre de participants (affiché si renseigné)                       |
-| `Visible`     | Checkbox    | oui         | Décocher pour masquer sans supprimer                                |
+| Colonne       | Type Notion | Obligatoire | Rôle                                                                 |
+| ------------- | ----------- | ----------- | -------------------------------------------------------------------- |
+| `Titre`       | Title       | oui         | Nom de l'action (ex. « Manifestation pour une pause »)               |
+| `Date`        | Date        | oui         | Date de l'action (sert à trier passé / à venir)                      |
+| `Ville`       | Text        | non         | Ville (ex. « Lyon »)                                                 |
+| `Type`        | Select      | non         | Manifestation, Tractage, Conférence, Autre…                          |
+| `URL`         | URL         | non         | Lien d'inscription (à venir) ou article de presse (passé)            |
+| `Heure`       | Text        | non         | Heure (ex. « 18h »), affichée pour les actions à venir               |
+| `Lieu`        | Text        | non         | Lieu précis (ex. « Turbine.Coop »), affiché pour les actions à venir |
+| `Description` | Text        | non         | Phrase courte de contexte                                            |
+| `Image`       | Files       | non         | Une **ou plusieurs** photos (galerie pour les actions « à la une »)  |
+| `À la une`    | Checkbox    | non         | Met l'action en avant : grande carte avec galerie photo              |
+| `Bénévoles`   | Number      | non         | Nombre de participants (affiché si renseigné)                        |
+| `Visible`     | Checkbox    | oui         | Décocher pour masquer sans supprimer                                 |
 
 Notes :
 

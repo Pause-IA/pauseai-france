@@ -641,8 +641,8 @@
 				</span>
 				<p slot="details">
 					{isEn
-						? 'Your name and town stay on your device and are never sent to a server: they only fill the draft. The email leaves from your own mailbox. A blind copy (BCC) reaches us at campagne@pauseia.fr to count the campaign; you can remove it before sending if you prefer.'
-						: "Votre nom et votre ville restent sur votre appareil et ne sont jamais envoyés à un serveur : ils servent seulement à remplir le brouillon. L'email part de votre propre messagerie. Une copie cachée (CCI) nous parvient à campagne@pauseia.fr pour mesurer la campagne ; vous pouvez la retirer avant l'envoi si vous le préférez."}
+						? 'Your name and town stay on your device and are never sent to a server: they only fill the draft. The email leaves from your own mailbox. A blind copy (BCC) reaches us at campagne@pauseia.fr to count the campaign; you can remove it before sending if you prefer. Your email address is only sent to us if you tick the newsletter box yourself, to subscribe you.'
+						: "Votre nom et votre ville restent sur votre appareil et ne sont jamais envoyés à un serveur : ils servent seulement à remplir le brouillon. L'email part de votre propre messagerie. Une copie cachée (CCI) nous parvient à campagne@pauseia.fr pour mesurer la campagne ; vous pouvez la retirer avant l'envoi si vous le préférez. Votre adresse email ne nous est transmise que si vous cochez vous-même l'inscription à la newsletter, pour vous y abonner."}
 				</p>
 			</Accordion>
 			<Accordion id="faq-relance" noHash>

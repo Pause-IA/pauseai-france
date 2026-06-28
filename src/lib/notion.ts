@@ -130,6 +130,10 @@ export interface LocalEvent {
 	type: string
 	/** Lien d'inscription pour un événement à venir, ou article de presse pour une action passée. Facultatif. */
 	url: string
+	/** Heure (texte libre, ex. « 18h »). Affichée pour les actions à venir. */
+	time: string
+	/** Lieu précis (ex. « Turbine.Coop »). Affiché pour les actions à venir. */
+	place: string
 	description: string
 	/** Une ou plusieurs photos (la colonne Notion « Image » accepte plusieurs fichiers). */
 	images: string[]
@@ -784,6 +788,8 @@ export async function getLocalEvents(): Promise<LocalEvent[]> {
 				city: getText(page.properties['Ville']),
 				type: getSelect(page.properties['Type']),
 				url: getUrl(page.properties['URL']),
+				time: getText(page.properties['Heure']),
+				place: getText(page.properties['Lieu']),
 				description: getText(page.properties['Description']),
 				images: getFileUrls(page.properties['Image']),
 				featured: getCheckbox(page.properties['À la une']),
