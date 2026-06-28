@@ -10,6 +10,35 @@ import type { PressCoverage } from '$lib/notion'
  * docs/espace-presse.md), pas par ce fichier.
  */
 export const staticPressCoverage: PressCoverage[] = [
+	// ── G7 2026 / Emploi & IA (juin 2026) ───────────────────────────────────
+	{
+		id: 'static-channelnews-g7-2026-06-17',
+		title: 'Pause IA salue la prise de conscience par le G7 des risques posés par l’IA',
+		source: 'Channel News',
+		date: '2026-06-17',
+		url: 'https://www.channelnews.fr/pause-ia-salue-la-prise-de-conscience-par-le-g7-des-risques-poses-par-lia-157380',
+		order: 0,
+		visible: true
+	},
+	{
+		id: 'static-nouvelobs-g7-2026-06-15',
+		title: 'Le G7 ne doit pas accélérer mais sécuriser l’IA',
+		source: 'Le Nouvel Obs',
+		date: '2026-06-15',
+		url: 'https://www.nouvelobs.com/economie/20260615.OBS115808/le-g7-ne-doit-pas-accelerer-mais-securiser-l-ia.html',
+		order: 0,
+		visible: true
+	},
+	{
+		id: 'static-lemonde-cadres-ia-2026-06-05',
+		title: 'De la réticence au refus, ces cadres qui vivent mal l’injonction d’utiliser l’IA',
+		source: 'Le Monde',
+		date: '2026-06-05',
+		url: 'https://www.lemonde.fr/emploi/article/2026/06/05/de-la-reticence-au-refus-ces-cadres-qui-vivent-mal-l-injonction-d-utiliser-l-ia_6697853_1698637.html',
+		order: 0,
+		visible: true
+	},
+
 	// ── Campagne Emploi & IA / manifestation 1er mai 2026 ───────────────────
 	{
 		id: 'static-radio-france-ici-matin-2026-05-01',

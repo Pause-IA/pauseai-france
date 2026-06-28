@@ -1,7 +1,7 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
 	import Hero from '$components/home/hero.svelte'
-	import NextAction from '$components/home/next-action.svelte'
+	import LocalGroupsCta from '$components/home/local-groups-cta.svelte'
 	import Lead from '$components/home/lead.svelte'
 	import Campaigns from '$components/home/campaigns.svelte'
 	import Risks from '$components/home/risks.svelte'
@@ -29,7 +29,7 @@
 
 <Hero {lang} />
 
-<NextAction {lang} />
+<LocalGroupsCta {lang} />
 
 <Lead {lang} />
 
