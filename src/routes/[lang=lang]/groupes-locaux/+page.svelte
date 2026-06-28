@@ -320,12 +320,12 @@
 						<div class="feature-media">
 							<div class="feature-main">
 								<div class="feature-main-bg" style="background-image:url('{e.images[0]}')"></div>
-								<img src={e.images[0]} alt="" loading="lazy" />
+								<img src={e.images[0]} alt="" loading="lazy" decoding="async" />
 							</div>
 							{#if e.images.length > 1}
 								<div class="feature-thumbs">
 									{#each e.images.slice(1, 4) as src}
-										<img {src} alt="" loading="lazy" />
+										<img {src} alt="" loading="lazy" decoding="async" />
 									{/each}
 								</div>
 							{/if}
@@ -373,7 +373,7 @@
 							<div class="past-card-media">
 								{#if e.images.length}
 									<div class="past-card-bg" style="background-image:url('{e.images[0]}')"></div>
-									<img src={e.images[0]} alt="" loading="lazy" />
+									<img src={e.images[0]} alt="" loading="lazy" decoding="async" />
 								{:else}
 									<div class="past-card-noimg"><Megaphone size="1.7rem" /></div>
 								{/if}
@@ -683,9 +683,9 @@
 	.feature-media {
 		display: flex;
 		flex-direction: column;
-		gap: 4px;
+		gap: 0.5rem;
 		min-block-size: 17rem;
-		background: var(--brand-light);
+		padding: 0.6rem;
 	}
 
 	/* Photo principale adaptative : l'image est montrée en entier (contain),
@@ -696,6 +696,7 @@
 		inline-size: 100%;
 		min-block-size: 0;
 		overflow: hidden;
+		border-radius: 12px;
 	}
 
 	.feature-main-bg {
@@ -716,7 +717,7 @@
 
 	.feature-thumbs {
 		display: flex;
-		gap: 4px;
+		gap: 0.5rem;
 		block-size: 5rem;
 		flex-shrink: 0;
 	}
@@ -726,6 +727,7 @@
 		inline-size: 0;
 		block-size: 100%;
 		object-fit: cover;
+		border-radius: 9px;
 	}
 
 	.feature-body {
@@ -848,6 +850,8 @@
 	.past-card-media {
 		position: relative;
 		block-size: 9.5rem;
+		margin: 0.5rem 0.5rem 0;
+		border-radius: 10px;
 		overflow: hidden;
 		background: var(--brand-light);
 	}
