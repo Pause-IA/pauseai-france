@@ -62,6 +62,8 @@
 	// les autres vont dans la grille compacte (6 visibles + bouton « tout voir »).
 	$: pastFeatured = pastAll.filter((e) => e.featured)
 	$: pastNormal = pastAll.filter((e) => !e.featured)
+	// Total de bénévoles mobilisés (sur les actions qui renseignent ce nombre).
+	$: totalVolunteers = pastAll.reduce((sum, e) => sum + (e.volunteers || 0), 0)
 	const PAST_PREVIEW = 6
 	let showAllPast = false
 	$: pastNormalShown = showAllPast ? pastNormal : pastNormal.slice(0, PAST_PREVIEW)
@@ -101,6 +103,24 @@
 				dynamique dans votre ville.
 			{/if}
 		</p>
+		<div class="hero-stats">
+			<div class="stat">
+				<span class="stat-num">{activeGroupsCount}</span>
+				<span class="stat-label">{isEn ? 'active groups' : 'groupes actifs'}</span>
+			</div>
+			{#if pastAll.length}
+				<div class="stat">
+					<span class="stat-num">{pastAll.length}</span>
+					<span class="stat-label">{isEn ? 'actions carried out' : 'actions menées'}</span>
+				</div>
+			{/if}
+			{#if totalVolunteers > 0}
+				<div class="stat">
+					<span class="stat-num">{totalVolunteers}+</span>
+					<span class="stat-label">{isEn ? 'volunteers mobilised' : 'bénévoles mobilisés'}</span>
+				</div>
+			{/if}
+		</div>
 	</section>
 
 	<section class="impact-section">
@@ -167,7 +187,7 @@
 
 	<section class="cta-section">
 		<div class="cta-card join">
-			<MessageSquare size="2rem" />
+			<span class="cta-icon"><MessageSquare size="1.6rem" /></span>
 			<h2>{isEn ? 'Join a group' : 'Rejoindre un groupe'}</h2>
 			<p>
 				{#if isEn}
@@ -187,7 +207,7 @@
 		</div>
 
 		<div class="cta-card create">
-			<PlusCircle size="2rem" />
+			<span class="cta-icon"><PlusCircle size="1.6rem" /></span>
 			<h2>{isEn ? 'Start a group' : 'Lancer un groupe'}</h2>
 			<p>
 				{#if isEn}
@@ -298,26 +318,41 @@
 				</article>
 			{/each}
 
-			<!-- Autres actions : grille compacte -->
+			<!-- Autres actions : grille de cartes -->
 			{#if pastNormal.length}
-				<ul class="past-list">
+				<ul class="past-grid">
 					{#each pastNormalShown as e (e.id)}
-						<li class="past-item">
-							{#if e.images.length}
-								<img class="past-thumb" src={e.images[0]} alt="" loading="lazy" />
-							{/if}
-							<div class="past-body">
-								<strong>{e.title}</strong>
-								<small>
-									{fmtDate(e.date)}{e.city ? ` · ${e.city}` : ''}{e.volunteers > 0
-										? ` · ${e.volunteers} ${isEn ? 'vol.' : 'bénév.'}`
-										: ''}
-								</small>
-								{#if e.url}
-									<a href={e.url} target="_blank" rel="noopener noreferrer">
-										{isEn ? 'Read more ↗' : 'En savoir plus ↗'}
-									</a>
+						<li class="past-card">
+							<div class="past-card-media">
+								{#if e.images.length}
+									<div class="past-card-bg" style="background-image:url('{e.images[0]}')"></div>
+									<img src={e.images[0]} alt="" loading="lazy" />
+								{:else}
+									<div class="past-card-noimg"><Megaphone size="1.7rem" /></div>
 								{/if}
+								{#if e.type}<span class="past-card-tag">{e.type}</span>{/if}
+							</div>
+							<div class="past-card-body">
+								<span class="past-card-meta">{fmtDate(e.date)}{e.city ? ` · ${e.city}` : ''}</span>
+								<strong class="past-card-title">{e.title}</strong>
+								<div class="past-card-foot">
+									{#if e.volunteers > 0}
+										<span class="past-card-vol">
+											<Users size="0.85em" />
+											{e.volunteers}
+										</span>
+									{/if}
+									{#if e.url}
+										<a
+											class="past-card-link"
+											href={e.url}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											{isEn ? 'Read more ↗' : 'En savoir plus ↗'}
+										</a>
+									{/if}
+								</div>
 							</div>
 						</li>
 					{/each}
@@ -358,6 +393,31 @@
 		color: var(--text-muted);
 		line-height: 1.65;
 		max-inline-size: 48rem;
+	}
+
+	.hero-stats {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2.5rem;
+		margin-top: 1.75rem;
+	}
+
+	.stat {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.stat-num {
+		font-size: 2rem;
+		font-weight: 800;
+		line-height: 1;
+		color: var(--brand);
+	}
+
+	.stat-label {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		margin-top: 0.25rem;
 	}
 
 	/* ── Impact (ce que font les groupes) ────────────────────────────── */
@@ -678,50 +738,126 @@
 		}
 	}
 
-	.past-list {
+	/* Autres actions : cartes avec image en bandeau */
+	.past-grid {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-		gap: 1rem;
+		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+		gap: 1.25rem;
 	}
 
-	.past-item {
-		display: flex;
-		gap: 0.75rem;
-		align-items: center;
-		padding: 0.75rem;
-		border: 1px solid var(--border);
-		border-radius: 12px;
-		background: var(--bg-card);
-	}
-
-	.past-thumb {
-		inline-size: 56px;
-		block-size: 56px;
-		object-fit: cover;
-		border-radius: 8px;
-		flex-shrink: 0;
-	}
-
-	.past-body {
+	.past-card {
 		display: flex;
 		flex-direction: column;
-		gap: 0.1rem;
-		min-inline-size: 0;
+		border: 1px solid var(--border);
+		border-radius: 14px;
+		overflow: hidden;
+		background: var(--bg-card);
+		transition:
+			transform 0.18s,
+			box-shadow 0.18s;
 	}
 
-	.past-body small {
-		font-size: 0.8rem;
+	.past-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+	}
+
+	.past-card-media {
+		position: relative;
+		block-size: 9.5rem;
+		overflow: hidden;
+		background: var(--brand-light);
+	}
+
+	.past-card-bg {
+		position: absolute;
+		inset: -8%;
+		background-size: cover;
+		background-position: center;
+		filter: blur(16px) brightness(0.9);
+	}
+
+	.past-card-media img {
+		position: relative;
+		z-index: 1;
+		inline-size: 100%;
+		block-size: 100%;
+		object-fit: contain;
+	}
+
+	.past-card-noimg {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--brand);
+		opacity: 0.55;
+	}
+
+	.past-card-tag {
+		position: absolute;
+		z-index: 2;
+		top: 0.6rem;
+		left: 0.6rem;
+		background: var(--brand);
+		color: #1a1a1a;
+		padding: 0.15rem 0.6rem;
+		border-radius: 999px;
+		font-size: 0.7rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+	}
+
+	.past-card-body {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		padding: 0.9rem 1rem 1rem;
+		flex: 1;
+	}
+
+	.past-card-meta {
+		font-size: 0.78rem;
 		color: var(--text-secondary);
 	}
 
-	.past-body a {
-		font-size: 0.82rem;
-		color: var(--brand-subtle);
+	.past-card-title {
+		font-size: 1rem;
+		line-height: 1.3;
+	}
+
+	.past-card-foot {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		margin-top: auto;
+		padding-top: 0.4rem;
+	}
+
+	.past-card-vol {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		font-size: 0.8rem;
 		font-weight: 600;
-		margin-top: 0.15rem;
+		color: var(--text-2);
+	}
+
+	.past-card-link {
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: var(--brand-subtle);
+		white-space: nowrap;
+	}
+
+	.past-card-link:hover {
+		text-decoration: underline;
 	}
 
 	.show-all-btn {
@@ -766,7 +902,7 @@
 	}
 
 	.cta-card.join {
-		background: var(--bg-subtle);
+		background: var(--bg-subtle, color-mix(in srgb, var(--brand) 7%, var(--bg)));
 		border: 2px solid var(--brand);
 	}
 
@@ -775,7 +911,19 @@
 		color: white;
 	}
 
-	.cta-card.create :global(svg) {
+	.cta-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		inline-size: 3.2rem;
+		block-size: 3.2rem;
+		border-radius: 50%;
+		background: color-mix(in srgb, var(--brand) 18%, transparent);
+		color: var(--brand);
+	}
+
+	.cta-card.create .cta-icon {
+		background: rgba(255, 255, 255, 0.22);
 		color: white;
 	}
 
