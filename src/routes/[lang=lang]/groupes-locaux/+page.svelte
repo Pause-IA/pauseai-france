@@ -257,20 +257,26 @@
 				<h2>{isEn ? 'Recent actions' : 'Actions passées'}</h2>
 			</div>
 
-			<!-- Actions « à la une » : grandes, avec galerie photo -->
-			{#each pastFeatured as e (e.id)}
-				<article class="feature-card">
+			<!-- Actions « à la une » : grandes cartes, orientation alternée -->
+			{#each pastFeatured as e, i (e.id)}
+				<article class="feature-card" class:reverse={i % 2 === 1}>
 					{#if e.images.length}
-						<div class="feature-gallery" class:single={e.images.length === 1}>
-							{#each e.images.slice(0, 4) as src}
-								<img {src} alt="" loading="lazy" />
-							{/each}
+						<div class="feature-media">
+							<img class="feature-main" src={e.images[0]} alt="" loading="lazy" />
+							{#if e.images.length > 1}
+								<div class="feature-thumbs">
+									{#each e.images.slice(1, 4) as src}
+										<img {src} alt="" loading="lazy" />
+									{/each}
+								</div>
+							{/if}
 						</div>
 					{/if}
 					<div class="feature-body">
-						<span class="feature-meta"
-							>{fmtDate(e.date)}{eventMeta(e) ? ` · ${eventMeta(e)}` : ''}</span
-						>
+						<span class="feature-meta">
+							{#if e.type}<span class="feature-tag">{e.type}</span>{/if}
+							{fmtDate(e.date)}{e.city ? ` · ${e.city}` : ''}
+						</span>
 						<h3>{e.title}</h3>
 						{#if e.volunteers > 0}
 							<span class="volunteers">
@@ -517,94 +523,136 @@
 		margin-bottom: 5rem;
 	}
 
-	/* Action « à la une » : grande carte avec galerie */
+	/* Action « à la une » : grande carte, orientation alternée photo / texte */
 	.feature-card {
+		display: grid;
+		grid-template-columns: 1.05fr 1fr;
 		border: 1px solid var(--border);
-		border-radius: 14px;
+		border-radius: 18px;
 		overflow: hidden;
 		background: var(--bg-card);
-		margin-bottom: 1.25rem;
+		margin-bottom: 1.5rem;
+		box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05);
 	}
 
-	.feature-gallery {
-		display: grid;
-		grid-template-columns: 2fr 1fr 1fr;
-		grid-auto-rows: 130px;
+	.feature-card.reverse .feature-media {
+		order: 2;
+	}
+
+	/* Média : photo principale + bande de vignettes */
+	.feature-media {
+		display: flex;
+		flex-direction: column;
 		gap: 4px;
+		min-block-size: 17rem;
+		background: var(--brand-light);
 	}
 
-	.feature-gallery.single {
-		grid-template-columns: 1fr;
-		grid-auto-rows: auto;
-	}
-
-	.feature-gallery img {
+	.feature-main {
+		flex: 1;
 		inline-size: 100%;
+		min-block-size: 0;
+		object-fit: cover;
+	}
+
+	.feature-thumbs {
+		display: flex;
+		gap: 4px;
+		block-size: 5rem;
+		flex-shrink: 0;
+	}
+
+	.feature-thumbs img {
+		flex: 1;
+		inline-size: 0;
 		block-size: 100%;
 		object-fit: cover;
 	}
 
-	.feature-gallery img:first-child {
-		grid-row: span 2;
-	}
-
-	.feature-gallery.single img:first-child {
-		grid-row: auto;
-		max-block-size: 22rem;
-	}
-
 	.feature-body {
-		padding: 1.1rem 1.4rem 1.3rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0.55rem;
+		padding: 2rem 2.25rem;
 	}
 
 	.feature-meta {
-		font-size: 0.8rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.82rem;
 		font-weight: 600;
+		color: var(--text-secondary);
+	}
+
+	.feature-tag {
+		background: var(--brand);
+		color: #1a1a1a;
+		padding: 0.12rem 0.55rem;
+		border-radius: 999px;
+		font-size: 0.72rem;
 		text-transform: uppercase;
 		letter-spacing: 0.03em;
-		color: var(--brand-subtle);
 	}
 
 	.feature-body h3 {
-		margin: 0.3rem 0 0.4rem;
-		font-size: 1.25rem;
+		margin: 0;
+		font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+		line-height: 1.15;
 	}
 
 	.volunteers {
+		align-self: flex-start;
 		display: inline-flex;
 		align-items: center;
 		gap: 0.3rem;
 		font-size: 0.82rem;
 		font-weight: 600;
-		color: var(--text-2);
+		color: var(--brand-subtle);
 		background: var(--brand-light);
-		padding: 0.15rem 0.55rem;
+		padding: 0.2rem 0.6rem;
 		border-radius: 999px;
 	}
 
 	.feature-body p {
-		margin: 0.6rem 0 0;
-		line-height: 1.6;
+		margin: 0;
+		line-height: 1.65;
 		color: var(--text-2);
 	}
 
 	.feature-link {
-		display: inline-block;
-		margin-top: 0.7rem;
-		font-size: 0.88rem;
-		font-weight: 600;
+		align-self: flex-start;
+		margin-top: 0.35rem;
+		font-size: 0.92rem;
+		font-weight: 700;
 		color: var(--brand-subtle);
 	}
 
-	@media (max-width: 560px) {
-		.feature-gallery {
-			grid-template-columns: 1fr 1fr;
-			grid-auto-rows: 120px;
+	.feature-link:hover {
+		text-decoration: underline;
+	}
+
+	@media (max-width: 760px) {
+		.feature-card,
+		.feature-card.reverse {
+			grid-template-columns: 1fr;
 		}
 
-		.feature-gallery img:first-child {
-			grid-column: span 2;
-			grid-row: auto;
+		.feature-card.reverse .feature-media {
+			order: 0;
+		}
+
+		.feature-media {
+			min-block-size: 0;
+		}
+
+		.feature-main {
+			block-size: 13rem;
+		}
+
+		.feature-body {
+			padding: 1.4rem 1.5rem 1.6rem;
 		}
 	}
 

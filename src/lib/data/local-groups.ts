@@ -20,7 +20,7 @@ export const localGroups: LocalGroup[] = [
 	{ name: 'Dordogne', lat: 45.18, lon: 0.72 },
 	{ name: 'Strasbourg', lat: 48.57, lon: 7.75 },
 	{ name: 'Grenoble', lat: 45.19, lon: 5.72 },
-	{ name: 'Lille', lat: 50.63, lon: 3.06, forming: true },
+	{ name: 'Lille', lat: 50.63, lon: 3.06 },
 	{ name: 'Genève', lat: 46.2, lon: 6.14 }
 ]
 

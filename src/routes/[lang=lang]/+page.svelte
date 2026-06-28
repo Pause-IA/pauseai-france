@@ -3,6 +3,7 @@
 	import Hero from '$components/home/hero.svelte'
 	import Lead from '$components/home/lead.svelte'
 	import Campaigns from '$components/home/campaigns.svelte'
+	import LocalGroups from '$components/home/local-groups.svelte'
 	import Risks from '$components/home/risks.svelte'
 	import Articles from '$components/home/articles.svelte'
 	import NewsletterCta from '$components/home/newsletter-cta.svelte'
@@ -31,6 +32,8 @@
 <Lead {lang} />
 
 <Campaigns {lang} />
+
+<LocalGroups {lang} />
 
 <Risks {lang} />
 
