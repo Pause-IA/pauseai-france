@@ -128,10 +128,9 @@
 		gap: 1.25rem;
 	}
 
-	/* Carte de France */
+	/* Carte de France (visible partout : compacte sur mobile) */
 	.local-groups :global(.france-map) {
-		display: none;
-		inline-size: 4.25rem;
+		inline-size: 3rem;
 		block-size: auto;
 		flex-shrink: 0;
 		color: var(--brand);
@@ -273,7 +272,7 @@
 		}
 
 		.local-groups :global(.france-map) {
-			display: block;
+			inline-size: 4.25rem;
 		}
 
 		.text {
