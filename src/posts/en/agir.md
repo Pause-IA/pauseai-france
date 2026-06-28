@@ -20,7 +20,7 @@ You are now part of that group.
 - **[Inform yourself](/en/dangers)** about AI alignment and the risks threatening us.
 - **Follow our channels** on social media and stay informed: [Discord](https://discord.gg/vyXGd7AeGc), [Twitter](https://twitter.com/pause_ia), [LinkedIn](https://www.linkedin.com/company/pause-ia/)
 - **Talk** about AI risks on social media.
-- **[Send an email to a politician](https://pauseai.info/email-builder)**: Emails are very effective, you might be surprised!
+- **[Write to your representatives](/en/ecrire-a-mes-elus)**: a ready-to-personalise email for your MP and senator. Emails are very effective, you might be surprised!
 - **Spread the word** by sharing our content with your friends, family, and colleagues.
 
 ## Why act now?

@@ -65,6 +65,13 @@ La progression (« Écrit ✓ ») et les infos personnelles sont mémorisées
 
 ## 3. Contenu des mails
 
+Le contenu et la cible de chaque campagne vivent dans **`src/lib/data/elu-actions.ts`**
+(« moteur d'actions »). La page sélectionne une action via `?action=<id>` ; sans
+paramètre, c'est l'action `default` (message générique vers les élus de
+l'utilisateur). Une action peut cibler **les élus de l'utilisateur** (par code
+postal) **ou une liste de destinataires précis** (un ministre, une commission).
+Voir `docs/ecrire-a-mes-elus-actions.md` pour créer une action ciblée.
+
 Le corps est **modulaire** et assemblé côté client (`buildParagraphs`). Voir le
 document séparé `docs/ecrire-a-mes-elus-textes.md` pour le texte complet destiné
 à la validation par l'équipe communication.
@@ -151,20 +158,22 @@ Si l'élu ne publie pas d'email :
 
 ## 8. Fichiers principaux
 
-| Fichier                                                 | Rôle                                |
-| ------------------------------------------------------- | ----------------------------------- |
-| `src/routes/[lang=lang]/ecrire-a-mes-elus/+page.svelte` | Page (UI + contenu des mails)       |
-| `src/routes/api/log-intent/+server.ts`                  | Journalisation des intentions       |
-| `src/lib/data/elus.ts`                                  | Résolution code postal → élus       |
-| `src/lib/data/elus.json`                                | Données générées (élus + emails)    |
-| `src/lib/data/code-postal-circo.json`                   | Géocodage code postal → circo       |
-| `src/lib/data/commune-circo.json`                       | Table commune → circonscription     |
-| `scripts/generate-elus.js`                              | Génération des données              |
-| `scripts/build-commune-circo.py`                        | Construction de la table communes   |
-| `scripts/update-elus-server.sh`                         | Runner serveur (PR + alerte)        |
-| `scripts/systemd/update-elus.{service,timer}`           | Planification serveur               |
-| `.github/workflows/update-elus.yml`                     | Filet de secours manuel (GitHub)    |
-| `docs/ecrire-a-mes-elus-textes.md`                      | Textes des mails (validation comm') |
+| Fichier                                                 | Rôle                                 |
+| ------------------------------------------------------- | ------------------------------------ |
+| `src/routes/[lang=lang]/ecrire-a-mes-elus/+page.svelte` | Page (UI + contenu des mails)        |
+| `src/lib/data/elu-actions.ts`                           | Moteur d'actions (contenu + ciblage) |
+| `src/routes/api/log-intent/+server.ts`                  | Journalisation des intentions        |
+| `src/lib/data/elus.ts`                                  | Résolution code postal → élus        |
+| `src/lib/data/elus.json`                                | Données générées (élus + emails)     |
+| `src/lib/data/code-postal-circo.json`                   | Géocodage code postal → circo        |
+| `src/lib/data/commune-circo.json`                       | Table commune → circonscription      |
+| `scripts/generate-elus.js`                              | Génération des données               |
+| `scripts/build-commune-circo.py`                        | Construction de la table communes    |
+| `scripts/update-elus-server.sh`                         | Runner serveur (PR + alerte)         |
+| `scripts/systemd/update-elus.{service,timer}`           | Planification serveur                |
+| `.github/workflows/update-elus.yml`                     | Filet de secours manuel (GitHub)     |
+| `docs/ecrire-a-mes-elus-textes.md`                      | Textes des mails (validation comm')  |
+| `docs/ecrire-a-mes-elus-actions.md`                     | Guide : créer une action ciblée      |
 
 ---
 

@@ -32,7 +32,7 @@ Vous en faites désormais partie.
 - **Suivez nos chaînes** sur les réseaux sociaux et restez informés : [Discord](https://discord.gg/vyXGd7AeGc), [Twitter](https://twitter.com/pause_ia), [Facebook](https://www.facebook.com/Pause.IA), [TikTok](https://www.tiktok.com/@pause_ia), [LinkedIn](https://www.linkedin.com/company/pause-ia/), [Instagram](https://www.instagram.com/pause_ia), [Threads](https://www.threads.net/@pause_ia), [YouTube](https://www.youtube.com/@Pause_IA)
 - **Ajoutez Pause IA à LinkedIn et activez « partagez ces mises à jour du profil avec votre réseau ».** C'est un moyen simple de faire connaître nos efforts à de nombreuses personnes.
 - **Échangez** sur les risques de l'IA sur les réseaux sociaux.
-- **[Envoyez un email à un politicien](https://pauseai.info/email-builder)** : Les emails sont très efficaces, vous pourriez être surpris !
+- **<a href="/{lang}/ecrire-a-mes-elus">Écrivez à vos élus</a>** : un email prêt à personnaliser pour votre député et votre sénateur. Les emails sont très efficaces, vous pourriez être surpris !
 - **[Faites du lobbying](https://pauseai.info/lobby-tips)** : Persuadez votre gouvernement d'œuvrer pour un moratoire international sur l’IA.
 - **[Manifestez](https://pauseai.info/protests)** : Rejoignez une des [manifestations](https://pauseai.info/protests) en France et dans le monde.
 

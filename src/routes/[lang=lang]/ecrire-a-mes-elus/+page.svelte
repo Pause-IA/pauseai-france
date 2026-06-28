@@ -4,6 +4,7 @@
 	import Accordion from '$components/Accordion.svelte'
 	import { onMount } from 'svelte'
 	import { lookupElus, isSampleData, type Elu, type LookupResult } from '$lib/data/elus'
+	import { getEluAction, type FixedTarget } from '$lib/data/elu-actions'
 	import type { PageData } from './$types'
 
 	export let data: PageData
@@ -12,11 +13,113 @@
 
 	const BCC = 'campagne@pauseia.fr'
 
-	// ── Étape du parcours : 1 = trouver ses élus, 2 = rédiger le mail ──
-	let step: 1 | 2 = 1
-	let selectedElu: Elu | null = null
+	// ── Action courante (moteur de campagnes) : sélectionnée par ?action=<id> ──
+	// La page est prérendue : on ne peut pas lire le query string au build (il
+	// servirait l'action « default »). On lit donc ?action côté client au montage,
+	// puis l'action ciblée remplace l'action par défaut. Une action « fixed »
+	// cible des destinataires précis, sinon ce sont les élus de l'utilisateur.
+	let actionId: string | null = null
+	$: action = getEluAction(actionId)
 
-	// ── Recherche des élus par code postal ──
+	// Indices tirés au hasard une fois par action (objet + accroche tournants).
+	let hookIndex = 0
+	let subjectIndex = 0
+	let angle = ''
+	let seededFor = ''
+	$: if (action.id !== seededFor) {
+		seededFor = action.id
+		hookIndex = Math.floor(Math.random() * action.hooks.length)
+		subjectIndex = Math.floor(Math.random() * action.subjects.length)
+		angle = action.angles[0].id
+	}
+
+	type Version = 'short' | 'long'
+	let version: Version = 'short'
+	$: if (!action.hasDetailed && version !== 'short') version = 'short'
+
+	$: subject = (() => {
+		const s = action.subjects[subjectIndex] ?? action.subjects[0]
+		return isEn ? s.en : s.fr
+	})()
+
+	// ── Vocabulaire selon la cible (élus vs destinataires) ──
+	$: targetNoun = isEn
+		? action.targeting === 'fixed'
+			? 'recipients'
+			: 'representatives'
+		: action.targeting === 'fixed'
+			? 'destinataires'
+			: 'élus'
+
+	// ── Étape du parcours : 1 = choisir le destinataire, 2 = rédiger le mail ──
+	let step: 1 | 2 = 1
+	let selectedRecipient: Recipient | null = null
+
+	// ── Destinataire normalisé (élu OU cible fixe) ──
+	type RecipientRole = 'depute' | 'senateur' | 'ministre' | 'autre'
+	interface Recipient {
+		id: string
+		nom: string
+		civ?: 'M' | 'Mme' | null
+		role: RecipientRole
+		email: string | null
+		contactUrl: string | null
+		photo: string | null
+		subtitle: string
+		introKind: 'depute' | 'senateur' | 'generic'
+		signatureLocality: string
+		salutationOverride?: string
+		emailConfidence: 'high' | 'medium' | 'low' | 'none'
+	}
+
+	function eluLocalite(elu: Elu): string {
+		return elu.role === 'depute'
+			? (elu.nomCirco ?? `${isEn ? 'department' : 'département'} ${elu.departement}`)
+			: (elu.nomDept ?? `${isEn ? 'department' : 'département'} ${elu.departement}`)
+	}
+
+	function eluSubtitle(elu: Elu): string {
+		const base =
+			elu.role === 'depute'
+				? (elu.nomCirco ?? `${isEn ? 'Dept.' : 'Dépt.'} ${elu.departement}`)
+				: (elu.nomDept ?? `${isEn ? 'Dept.' : 'Dépt.'} ${elu.departement}`)
+		return elu.groupe && elu.groupe !== '—' ? `${base} · ${elu.groupe}` : base
+	}
+
+	function fromElu(elu: Elu): Recipient {
+		return {
+			id: elu.id,
+			nom: elu.nom,
+			civ: elu.civ ?? null,
+			role: elu.role,
+			email: elu.email,
+			contactUrl: elu.contactUrl ?? null,
+			photo: elu.photo ?? null,
+			subtitle: eluSubtitle(elu),
+			introKind: elu.role === 'depute' ? 'depute' : 'senateur',
+			signatureLocality: eluLocalite(elu),
+			emailConfidence: elu.emailConfidence
+		}
+	}
+
+	function fromFixed(ft: FixedTarget): Recipient {
+		return {
+			id: ft.id,
+			nom: ft.nom,
+			civ: ft.civ ?? null,
+			role: ft.role,
+			email: ft.email,
+			contactUrl: ft.contactUrl ?? null,
+			photo: ft.photo ?? null,
+			subtitle: ft.fonction ? (isEn ? ft.fonction.en : ft.fonction.fr) : '',
+			introKind: 'generic',
+			signatureLocality: 'France',
+			salutationOverride: ft.salutation ? (isEn ? ft.salutation.en : ft.salutation.fr) : undefined,
+			emailConfidence: ft.email ? 'high' : 'none'
+		}
+	}
+
+	// ── Recherche des élus par code postal (mode 'representatives') ──
 	let codePostal = ''
 	let result: LookupResult | null = null
 	let searched = false
@@ -34,8 +137,50 @@
 		searchError = result ? null : 'notfound'
 	}
 
-	function choose(elu: Elu) {
-		selectedElu = elu
+	// ── Groupes de destinataires affichés (commun aux deux modes) ──
+	$: deputeTitle = !result?.exactDeputes
+		? isEn
+			? 'The MPs of your department'
+			: 'Les députés de votre département'
+		: (result?.deputes.length ?? 0) > 1
+			? isEn
+				? 'Your MPs (your city)'
+				: 'Vos députés (votre ville)'
+			: isEn
+				? 'Your MP'
+				: 'Votre député'
+
+	$: recipientGroups =
+		action.targeting === 'fixed'
+			? action.fixedTargets && action.fixedTargets.length
+				? [
+						{
+							title: action.targetsHeading
+								? isEn
+									? action.targetsHeading.en
+									: action.targetsHeading.fr
+								: isEn
+									? 'Recipients'
+									: 'Destinataires',
+							list: action.fixedTargets.map(fromFixed)
+						}
+					]
+				: []
+			: result
+				? [
+						{
+							title: isEn ? 'Your senators' : 'Vos sénateurs',
+							list: result.senateurs.map(fromElu)
+						},
+						{ title: deputeTitle, list: result.deputes.map(fromElu) }
+					]
+				: []
+
+	$: allRecipients = recipientGroups.flatMap((g) => g.list)
+	$: sentCount = allRecipients.filter((r) => sent.has(r.id)).length
+
+	function choose(r: Recipient) {
+		selectedRecipient = r
 		step = 2
 		if (typeof window !== 'undefined') window.scrollTo({ top: 0 })
 	}
@@ -45,55 +190,79 @@
 		if (typeof window !== 'undefined') window.scrollTo({ top: 0 })
 	}
 
-	// Formule d'appel personnalisée (civilité + titre selon le rôle).
-	function salutation(elu: Elu): string {
-		if (isEn) return `Dear ${elu.nom},`
-		const titre = elu.role === 'depute' ? 'Député' : 'Sénateur'
-		if (elu.civ === 'Mme') return `Madame la ${titre === 'Député' ? 'Députée' : 'Sénatrice'},`
-		if (elu.civ === 'M') return `Monsieur le ${titre},`
-		return `Madame, Monsieur le ${titre},`
+	// Formule d'appel (civilité + titre selon le rôle, ou formule sur mesure).
+	function salutation(r: Recipient): string {
+		if (r.salutationOverride) return r.salutationOverride
+		if (isEn) return `Dear ${r.nom},`
+		if (r.role === 'depute') {
+			if (r.civ === 'Mme') return 'Madame la Députée,'
+			if (r.civ === 'M') return 'Monsieur le Député,'
+			return 'Madame, Monsieur le Député,'
+		}
+		if (r.role === 'senateur') {
+			if (r.civ === 'Mme') return 'Madame la Sénatrice,'
+			if (r.civ === 'M') return 'Monsieur le Sénateur,'
+			return 'Madame, Monsieur le Sénateur,'
+		}
+		if (r.role === 'ministre') {
+			if (r.civ === 'Mme') return 'Madame la Ministre,'
+			if (r.civ === 'M') return 'Monsieur le Ministre,'
+			return 'Madame, Monsieur le Ministre,'
+		}
+		return 'Madame, Monsieur,'
 	}
 
-	// Localité de l'élu (circonscription pour un député, département pour un sénateur).
-	function localite(elu: Elu): string {
-		return elu.role === 'depute'
-			? (elu.nomCirco ?? `${isEn ? 'department' : 'département'} ${elu.departement}`)
-			: (elu.nomDept ?? `${isEn ? 'department' : 'département'} ${elu.departement}`)
-	}
-
-	// 1re phrase : ouverture naturelle qui signale « je suis votre électeur ».
-	// La localité précise figure dans la signature (comme une vraie lettre), on
-	// évite donc le « : Savoie » un peu mécanique dans le corps du message.
+	// 1re phrase : ouverture naturelle qui signale le lien avec le destinataire.
 	// `name` est passé explicitement pour que Svelte recalcule l'aperçu à la frappe.
-	function introLine(elu: Elu, name: string): string {
+	function introLine(r: Recipient, name: string): string {
 		const nom = name.trim() || (isEn ? '[your name]' : '[votre nom]')
+		if (r.introKind === 'generic') {
+			return isEn
+				? `My name is ${nom}, and I am writing to you as a concerned French citizen.`
+				: `Je m'appelle ${nom} et je vous écris en tant que citoyen préoccupé.`
+		}
 		if (isEn) {
-			return elu.role === 'depute'
+			return r.introKind === 'depute'
 				? `My name is ${nom}, and I am writing to you as one of your constituents.`
 				: `My name is ${nom}, and I am writing to you as a resident of your department.`
 		}
-		return elu.role === 'depute'
+		return r.introKind === 'depute'
 			? `Je m'appelle ${nom} et je vous écris en tant qu'habitant de votre circonscription.`
 			: `Je m'appelle ${nom} et je vous écris en tant qu'habitant de votre département.`
 	}
 
-	// L'aperçu (#email-body) est déjà personnalisé pour l'élu choisi : il suffit
-	// d'en prendre le texte brut.
+	// Compose les paragraphes du corps selon l'angle, la longueur et la phrase perso.
+	function buildParagraphs(angleId: string, v: Version, personal: string): string[] {
+		const L = isEn ? 'en' : 'fr'
+		const ang = action.angles.find((a) => a.id === angleId) ?? action.angles[0]
+		const hook = action.hooks[hookIndex] ?? action.hooks[0]
+		const paras = [hook[L], ang.focus[L]]
+		if (v === 'long') {
+			if (ang.complementLong) paras.push(ang.complementLong[L])
+			if (action.poll) paras.push(action.poll[L])
+		}
+		if (personal.trim()) paras.push(personal.trim())
+		paras.push(action.balance[L])
+		paras.push(action.ask[L])
+		return paras
+	}
+
+	// L'aperçu (#email-body) est déjà personnalisé : on en prend le texte brut.
 	function buildBody(): string {
 		const el = document.getElementById('email-body')
 		return el ? el.innerText : ''
 	}
 
-	function mailtoHref(elu: Elu): string {
+	function mailtoHref(r: Recipient): string {
 		const params = new URLSearchParams({ subject, bcc: BCC, body: buildBody() })
 		// URLSearchParams encode les espaces en "+", à reconvertir en %20 pour mailto.
-		return `mailto:${elu.email ?? ''}?${params.toString().replace(/\+/g, '%20')}`
+		return `mailto:${r.email ?? ''}?${params.toString().replace(/\+/g, '%20')}`
 	}
 
-	// ── Infos utilisateur pour personnaliser le mail (jamais envoyées à un serveur,
-	// seulement injectées dans le brouillon et mémorisées localement) ──
+	// ── Infos utilisateur (jamais envoyées à un serveur, mémorisées localement) ──
 	let userName = ''
 	let userVille = ''
+	let personalSentence = ''
 	function saveUser() {
 		try {
 			localStorage.setItem('elus-user', JSON.stringify({ userName, userVille, personalSentence }))
@@ -102,52 +271,62 @@
 		}
 	}
 
-	// ── Suivi de progression : élus déjà contactés (mémorisé localement) ──
+	// ── Suivi de progression (mémorisé localement, par action) ──
+	$: sentKey = action.id === 'default' ? 'elus-contactes' : `elus-contactes:${action.id}`
 	let sent = new Set<string>()
+	let mounted = false
 	onMount(() => {
+		actionId = new URLSearchParams(window.location.search).get('action')
 		try {
-			sent = new Set(JSON.parse(localStorage.getItem('elus-contactes') ?? '[]'))
 			const u = JSON.parse(localStorage.getItem('elus-user') ?? '{}')
 			userName = u.userName ?? ''
 			userVille = u.userVille ?? ''
 			personalSentence = u.personalSentence ?? ''
 		} catch {
+			/* localStorage indisponible */
+		}
+		mounted = true
+	})
+	function loadSent(key: string) {
+		try {
+			sent = new Set(JSON.parse(localStorage.getItem(key) ?? '[]'))
+		} catch {
 			sent = new Set()
 		}
-	})
+	}
+	// Recharge la progression quand l'action (donc la clé) change.
+	$: if (mounted) loadSent(sentKey)
+
 	function markSent(id: string) {
 		sent = new Set(sent).add(id)
 		try {
-			localStorage.setItem('elus-contactes', JSON.stringify([...sent]))
+			localStorage.setItem(sentKey, JSON.stringify([...sent]))
 		} catch {
 			/* localStorage indisponible : on ignore */
 		}
 	}
 
-	// Remet à zéro la progression (les coches « Écrit ✓ »), stockée localement.
-	// N'efface pas le nom / la ville saisis.
+	// Remet à zéro la progression (les coches « Écrit ✓ »). Garde le nom / la ville.
 	function resetProgress() {
 		sent = new Set()
 		try {
-			localStorage.removeItem('elus-contactes')
+			localStorage.removeItem(sentKey)
 		} catch {
 			/* localStorage indisponible : on ignore */
 		}
 	}
 
 	// Journalise l'intention d'envoi côté serveur, sans donnée personnelle.
-	// `sendBeacon` est conçu pour survivre à la navigation immédiate vers le
-	// client mail (un simple fetch serait annulé). Aucune preuve d'envoi réel :
-	// c'est le clic, pas l'email. Le compteur fiable reste le BCC.
-	function logIntent(elu: Elu) {
+	// `sendBeacon` survit à la navigation immédiate vers le client mail. Ce n'est
+	// pas une preuve d'envoi (c'est le clic) : le compteur fiable reste le BCC.
+	function logIntent(r: Recipient) {
 		if (typeof navigator === 'undefined' || !navigator.sendBeacon) return
 		try {
 			const payload = JSON.stringify({
-				eluId: elu.id,
-				eluNom: elu.nom,
-				role: elu.role,
-				departement: elu.departement,
-				circo: elu.circo ?? null,
+				action: action.id,
+				eluId: r.id,
+				eluNom: r.nom,
+				role: r.role,
 				angle,
 				version
 			})
@@ -158,14 +337,15 @@
 	}
 
 	function openMail() {
-		if (!selectedElu) return
-		markSent(selectedElu.id)
-		logIntent(selectedElu)
-		window.location.href = mailtoHref(selectedElu)
+		if (!selectedRecipient) return
+		markSent(selectedRecipient.id)
+		logIntent(selectedRecipient)
+		window.location.href = mailtoHref(selectedRecipient)
 	}
 
-	function confidenceNote(elu: Elu): string | null {
-		if (elu.emailConfidence === 'high' || elu.emailConfidence === 'medium') return null
+	function confidenceNote(r: Recipient): string | null {
+		if (r.emailConfidence === 'high' || r.emailConfidence === 'medium') return null
+		if (!r.email) return null // cas « pas d'email » traité par une note dédiée
 		if (isEn) return 'Please double-check this address before sending.'
 		return "Vérifiez l'adresse avant l'envoi."
 	}
@@ -175,111 +355,13 @@
 		;(e.currentTarget as HTMLImageElement).style.display = 'none'
 	}
 
-	function initials(elu: Elu): string {
-		const parts = elu.nom.trim().split(/\s+/)
+	function initials(r: Recipient): string {
+		const parts = r.nom.trim().split(/\s+/)
 		const first = parts[0]?.[0] ?? ''
 		const last = parts.length > 1 ? parts[parts.length - 1][0] : ''
 		return (first + last).toUpperCase()
 	}
 
-	function eluSubtitle(elu: Elu): string {
-		const base =
-			elu.role === 'depute'
-				? (elu.nomCirco ?? `${isEn ? 'Dept.' : 'Dépt.'} ${elu.departement}`)
-				: (elu.nomDept ?? `${isEn ? 'Dept.' : 'Dépt.'} ${elu.departement}`)
-		return elu.groupe && elu.groupe !== '—' ? `${base} · ${elu.groupe}` : base
-	}
-
-	// ── Angle principal du message (1 choix) ──
-	type Angle = 'ensemble' | 'existentiel' | 'societe'
-	const angles: { id: Angle; fr: string; en: string }[] = [
-		{ id: 'ensemble', fr: "Vue d'ensemble", en: 'Overview' },
-		{ id: 'existentiel', fr: 'Risque existentiel', en: 'Existential risk' },
-		{ id: 'societe', fr: 'Risques pour la société', en: 'Risks to society' }
-	]
-	let angle: Angle = 'ensemble'
-	let personalSentence = ''
-
-	type Version = 'short' | 'long'
-	let version: Version = 'short'
-
-	// ── Contenu du mail (modulaire, sans tirets longs) ──
-	// Registre volontairement humain : on écrit à la première personne, on
-	// reconnaît les bénéfices de l'IA, et on évite l'empilement de citations.
-	// Plusieurs accroches : une est tirée au hasard par visiteur, pour diversifier
-	// les envois (anti « copier-coller » repéré par les équipes parlementaires).
-	const HOOKS = [
-		{
-			fr: "Je vous écris parce que je suis préoccupé par la vitesse à laquelle se développent les intelligences artificielles les plus puissantes. Ce qui m'inquiète n'est pas la science-fiction : ce sont les dirigeants de ces laboratoires eux-mêmes qui reconnaissent publiquement que leurs systèmes pourraient, à terme, échapper à notre contrôle.",
-			en: 'I am writing because I am worried about the speed at which the most powerful artificial intelligence systems are being developed. What concerns me is not science fiction: it is the leaders of these very labs who publicly acknowledge that their systems could, in time, escape our control.'
-		},
-		{
-			fr: "Je suis un citoyen inquiet de la tournure que prend le développement de l'intelligence artificielle. En mai 2023, des centaines de chercheurs et les dirigeants des principaux laboratoires d'IA ont signé une même phrase : « Atténuer le risque d'extinction lié à l'IA devrait être une priorité mondiale, au même titre que les pandémies ou la guerre nucléaire. » Quand ceux qui construisent cette technologie lancent eux-mêmes une telle alerte, il me semble que nous devons l'écouter.",
-			en: 'I am a citizen worried about the direction AI development is taking. In May 2023, hundreds of researchers and the leaders of the main AI labs signed a single sentence: "Mitigating the risk of extinction from AI should be a global priority, alongside other societal-scale risks such as pandemics and nuclear war." When the very people building this technology raise such a warning, it seems to me we should listen.'
-		},
-		{
-			fr: "Comme beaucoup, j'observe avec un mélange d'enthousiasme et d'inquiétude les progrès rapides de l'intelligence artificielle. L'inquiétude l'emporte quand des scientifiques parmi les plus respectés, comme les prix Turing Yoshua Bengio et Geoffrey Hinton, expliquent que personne ne sait aujourd'hui garantir le contrôle des systèmes les plus avancés.",
-			en: 'Like many people, I watch the rapid progress of artificial intelligence with a mix of enthusiasm and concern. Concern wins out when some of the most respected scientists, such as Turing laureates Yoshua Bengio and Geoffrey Hinton, explain that no one today knows how to guarantee control of the most advanced systems.'
-		}
-	]
-	// Tirée à l'initialisation (avant le 1er rendu côté client).
-	let hookIndex = Math.floor(Math.random() * HOOKS.length)
-	const FOCUS: Record<Angle, { fr: string; en: string }> = {
-		ensemble: {
-			fr: 'Ces dangers ne sont pas tous lointains : certains sont déjà là, comme la désinformation de masse ou la surveillance, tandis que la course à des systèmes toujours plus autonomes fait planer un risque bien plus grave encore.',
-			en: 'These dangers are not all distant: some are already here, such as mass disinformation or surveillance, while the race toward ever more autonomous systems raises an even graver risk.'
-		},
-		existentiel: {
-			fr: "Ce qui me préoccupe le plus est le risque le plus extrême : en construisant des machines plus intelligentes que nous sans savoir les maîtriser, nous prenons un pari dont l'humanité pourrait ne jamais se relever. Ce n'est plus une crainte marginale, mais une inquiétude partagée au plus haut niveau de la recherche.",
-			en: 'What worries me most is the most extreme risk: by building machines more intelligent than us without knowing how to control them, we are taking a gamble humanity might never recover from. This is no longer a fringe fear, but a concern shared at the highest levels of research.'
-		},
-		societe: {
-			fr: "Au-delà du long terme, ces systèmes fragilisent déjà notre société : deepfakes et désinformation qui minent le débat démocratique, surveillance et profilage qui menacent la vie privée, automatisation qui déstabilise l'emploi et risque d'aggraver les inégalités.",
-			en: 'Beyond the long term, these systems are already straining our society: deepfakes and disinformation that erode democratic debate, surveillance and profiling that threaten privacy, and automation that destabilises jobs and could deepen inequality.'
-		}
-	}
-	const COMPLEMENT = {
-		wide: {
-			fr: "Ce risque n'efface pas les autres : vie privée, désinformation, emploi, armes autonomes. Tous appellent la même prudence, celle de prendre le temps de comprendre avant de déployer.",
-			en: 'This risk does not erase the others: privacy, disinformation, jobs, autonomous weapons. They all call for the same caution, that of taking the time to understand before deploying.'
-		},
-		exist: {
-			fr: "Et même en mettant de côté ces effets immédiats, une question demeure : nous nous apprêtons à créer des intelligences supérieures à la nôtre sans aucune garantie de pouvoir les garder sous contrôle. C'est ce pari que je trouve déraisonnable.",
-			en: 'And even setting aside these immediate effects, one question remains: we are about to create intelligences greater than our own with no guarantee of keeping them under control. It is this gamble that I find unreasonable.'
-		}
-	}
-	const POLL = {
-		fr: "Cette préoccupation est largement partagée : selon un récent sondage, seuls 8 % des Français souhaitent accélérer le développement de l'IA, et près de huit sur dix sont favorables à des accords internationaux interdisant les capacités d'IA qui menacent la vie humaine ou les droits fondamentaux.",
-		en: 'This concern is widely shared: according to a recent poll, only 8% of French people want to accelerate AI development, and nearly eight in ten support international agreements banning AI capabilities that threaten human life or fundamental rights.'
-	}
-	// Reconnaissance des bénéfices : désamorce le « catastrophisme » et rend le
-	// message plus crédible. Présent dans toutes les versions, juste avant l'appel.
-	const BALANCE = {
-		fr: "Je ne suis pas opposé au progrès : l'IA peut rendre d'immenses services, en médecine, dans la recherche ou au quotidien. C'est précisément parce que cette technologie est puissante qu'elle mérite d'être développée avec prudence et sous contrôle démocratique.",
-		en: 'I am not against progress: AI can bring immense benefits, in medicine, research and everyday life. It is precisely because this technology is so powerful that it deserves to be developed with caution and under democratic oversight.'
-	}
-	const ASK = {
-		fr: "C'est pourquoi je vous demande de soutenir publiquement une gouvernance internationale visant à mettre en pause l'entraînement des modèles d'IA les plus avancés, tant que leur sûreté et leur contrôle démocratique ne sont pas démontrés, et de porter cette position aux niveaux français et européen. L'association Pause IA (pauseia.fr) se tient à votre disposition, ainsi que celle de votre équipe, pour en échanger.",
-		en: 'That is why I ask you to publicly support international governance aimed at pausing the training of the most advanced AI models, until their safety and democratic control are demonstrated, and to carry this position at the French and European level. The Pause AI association (pauseia.fr) would be glad to discuss this with you or your team.'
-	}
-
-	// Compose les paragraphes du corps selon l'angle, la longueur et la phrase perso.
-	function buildParagraphs(a: Angle, v: Version, personal: string): string[] {
-		const L = isEn ? 'en' : 'fr'
-		const paras = [HOOKS[hookIndex][L], FOCUS[a][L]]
-		if (v === 'long') {
-			// On approfondit : l'angle existentiel s'élargit aux autres risques,
-			// les autres angles pointent vers le risque existentiel.
-			paras.push(a === 'existentiel' ? COMPLEMENT.wide[L] : COMPLEMENT.exist[L])
-			paras.push(POLL[L])
-		}
-		if (personal.trim()) paras.push(personal.trim())
-		paras.push(BALANCE[L])
-		paras.push(ASK[L])
-		return paras
-	}
-
-	// ── Suite après envoi : on invite simplement à rejoindre Pause IA ──
 	$: joinHref = isEn ? '/en/rejoindre' : '/fr/rejoindre'
 
 	let copied = false
@@ -293,96 +375,46 @@
 			}, 2500)
 		})
 	}
-
-	// Plusieurs objets : un est tiré au hasard par visiteur, pour éviter qu'un
-	// objet identique se répète dans toutes les boites parlementaires.
-	const SUBJECTS = [
-		{
-			fr: 'Encadrer le développement des IA les plus puissantes',
-			en: 'Governing the most powerful AI systems'
-		},
-		{
-			fr: "Mettre en pause l'IA la plus avancée tant qu'elle n'est pas sous contrôle",
-			en: 'Pausing the most advanced AI until it is under control'
-		},
-		{
-			fr: "Préoccupation d'un électeur sur les risques de l'IA",
-			en: "A constituent's concern about the risks of AI"
-		},
-		{
-			fr: "Pour une gouvernance démocratique de l'intelligence artificielle",
-			en: 'For democratic governance of artificial intelligence'
-		}
-	]
-	let subjectIndex = Math.floor(Math.random() * SUBJECTS.length)
-	$: subject = isEn ? SUBJECTS[subjectIndex].en : SUBJECTS[subjectIndex].fr
-
-	$: eluGroups = result
-		? [
-				{ list: result.senateurs, title: isEn ? 'Your senators' : 'Vos sénateurs' },
-				{
-					list: result.deputes,
-					title: !result.exactDeputes
-						? isEn
-							? 'The MPs of your department'
-							: 'Les députés de votre département'
-						: result.deputes.length > 1
-							? isEn
-								? 'Your MPs (your city)'
-								: 'Vos députés (votre ville)'
-							: isEn
-								? 'Your MP'
-								: 'Votre député'
-				}
-			]
-		: []
-
-	$: allElus = result ? [...result.senateurs, ...result.deputes] : []
-	$: sentCount = allElus.filter((e) => sent.has(e.id)).length
 </script>
 
 <PostMeta
-	title={isEn ? 'Write to your representatives | Pause AI' : 'Écrivez à vos élus | Pause IA'}
-	description={isEn
-		? 'Take 2 minutes to write to your MP and senator about the risks of advanced AI systems. Enter your postal code and send a ready-made email.'
-		: "Prenez 2 minutes pour écrire à votre député et à votre sénateur sur les risques des systèmes d'IA. Entrez votre code postal et envoyez un email prêt à l'emploi."}
+	title={isEn ? action.meta.title.en : action.meta.title.fr}
+	description={isEn ? action.meta.description.en : action.meta.description.fr}
 />
 
 <article>
 	{#if step === 1}
-		<!-- ════════ Étape 1 : trouver ses élus ════════ -->
+		<!-- ════════ Étape 1 : choisir le destinataire ════════ -->
 		<header class="hero-band">
 			<div class="hero-inner">
-				<h1>{isEn ? 'Write to your representatives' : 'Écrivez à vos élus'}</h1>
-				<p class="hero-sub">
-					{#if isEn}
-						The most powerful AI is being built with no real safeguards. Your representatives can
-						change that. Write to them: it takes two minutes.
-					{:else}
-						Les IA les plus puissantes se développent sans véritable garde-fou. Vos élus peuvent
-						changer ça. Écrivez-leur : cela prend deux minutes.
-					{/if}
-				</p>
+				<h1>{isEn ? action.hero.title.en : action.hero.title.fr}</h1>
+				<p class="hero-sub">{isEn ? action.hero.subtitle.en : action.hero.subtitle.fr}</p>
 			</div>
 		</header>
 
 		<section class="card">
 			<h2>
-				<span class="step-num">1</span>{isEn ? 'Find your representatives' : 'Trouvez vos élus'}
+				<span class="step-num">1</span>{#if action.targeting === 'fixed'}{isEn
+						? 'Your recipients'
+						: 'Vos destinataires'}{:else}{isEn
+						? 'Find your representatives'
+						: 'Trouvez vos élus'}{/if}
 			</h2>
 
-			<form class="cp-form" on:submit|preventDefault={search}>
-				<input
-					class="cp-input"
-					type="text"
-					inputmode="numeric"
-					maxlength="5"
-					placeholder={isEn ? 'Your postal code (e.g. 75011)' : 'Votre code postal (ex. 75011)'}
-					bind:value={codePostal}
-					aria-label={isEn ? 'Postal code' : 'Code postal'}
-				/>
-				<Button type="submit">{isEn ? 'Find' : 'Rechercher'}</Button>
-			</form>
+			{#if action.targeting !== 'fixed'}
+				<form class="cp-form" on:submit|preventDefault={search}>
+					<input
+						class="cp-input"
+						type="text"
+						inputmode="numeric"
+						maxlength="5"
+						placeholder={isEn ? 'Your postal code (e.g. 75011)' : 'Votre code postal (ex. 75011)'}
+						bind:value={codePostal}
+						aria-label={isEn ? 'Postal code' : 'Code postal'}
+					/>
+					<Button type="submit">{isEn ? 'Find' : 'Rechercher'}</Button>
+				</form>
+			{/if}
 
 			<!-- Vos infos : saisies une seule fois, elles remplissent chaque mail
 			     (jamais envoyées à un serveur, mémorisées sur votre appareil). -->
@@ -404,7 +436,7 @@
 				/>
 			</div>
 
-			{#if isSampleData}
+			{#if isSampleData && action.targeting !== 'fixed'}
 				<p class="notice notice--warn">
 					{isEn
 						? 'Demo data. Run the generation script to load real representatives and emails.'
@@ -412,68 +444,70 @@
 				</p>
 			{/if}
 
-			{#if searchError === 'format'}
-				<p class="notice notice--error">
-					{isEn
-						? 'A French postal code has 5 digits (e.g. 75011). Please check what you typed.'
-						: 'Un code postal français comporte 5 chiffres (ex. 75011). Vérifiez votre saisie.'}
-				</p>
-			{:else if searchError === 'notfound'}
-				<p class="notice notice--error">
-					{isEn
-						? 'No representative found for this postal code. Double-check it, or use the official directories below.'
-						: 'Aucun élu trouvé pour ce code postal. Vérifiez-le, ou utilisez les annuaires officiels ci-dessous.'}
-				</p>
+			{#if action.targeting !== 'fixed'}
+				{#if searchError === 'format'}
+					<p class="notice notice--error">
+						{isEn
+							? 'A French postal code has 5 digits (e.g. 75011). Please check what you typed.'
+							: 'Un code postal français comporte 5 chiffres (ex. 75011). Vérifiez votre saisie.'}
+					</p>
+				{:else if searchError === 'notfound'}
+					<p class="notice notice--error">
+						{isEn
+							? 'No representative found for this postal code. Double-check it, or use the official directories below.'
+							: 'Aucun élu trouvé pour ce code postal. Vérifiez-le, ou utilisez les annuaires officiels ci-dessous.'}
+					</p>
+				{/if}
 			{/if}
 
-			{#if result}
-				<p class="results-hint" class:done-all={sentCount > 0 && sentCount >= allElus.length}>
-					{#if sentCount >= allElus.length && allElus.length > 0}
+			{#if recipientGroups.length}
+				<p class="results-hint" class:done-all={sentCount > 0 && sentCount >= allRecipients.length}>
+					{#if sentCount >= allRecipients.length && allRecipients.length > 0}
 						🎉 {isEn
-							? `Done! You've written to all ${allElus.length} of your representatives. Thank you, this really helps.`
-							: `Bravo ! Vous avez écrit à vos ${allElus.length} élus. Merci, votre geste compte vraiment.`}
+							? `Done! You've written to all ${allRecipients.length} ${targetNoun}. Thank you, this really helps.`
+							: `Bravo ! Vous avez écrit à vos ${allRecipients.length} ${targetNoun}. Merci, votre geste compte vraiment.`}
 					{:else if sentCount > 0}
-						<strong>{sentCount}/{allElus.length}</strong>
+						<strong>{sentCount}/{allRecipients.length}</strong>
 						{isEn ? 'contacted.' : 'contactés.'}
 						{isEn
 							? 'Keep going with the others, each message counts.'
 							: 'Continuez avec les autres, chaque message compte.'}
 					{:else}
 						{isEn
-							? 'Write to each of your representatives: one personal email each.'
-							: 'Écrivez à chacun de vos élus : un email personnel pour chaque.'}
+							? `Write to each of your ${targetNoun}: one personal email each.`
+							: `Écrivez à chacun de vos ${targetNoun} : un email personnel pour chaque.`}
 					{/if}
 				</p>
-				{#if sentCount >= allElus.length && allElus.length > 0}
+				{#if sentCount >= allRecipients.length && allRecipients.length > 0}
 					<a class="join-link join-link--block" href={joinHref}>
 						{isEn
 							? 'Want to do more? Join Pause AI ↗'
 							: 'Envie d’aller plus loin ? Rejoignez Pause IA ↗'}
 					</a>
 				{/if}
-				{#each eluGroups as group}
+				{#each recipientGroups as group}
 					{#if group.list.length}
 						<div class="elu-group">
 							<h3>{group.title}</h3>
 							<ul class="elu-list">
-								{#each group.list as elu (elu.id)}
-									<li class="elu-card" class:done={sent.has(elu.id)}>
+								{#each group.list as r (r.id)}
+									<li class="elu-card" class:done={sent.has(r.id)}>
 										<div class="elu-left">
 											<span class="avatar">
-												{initials(elu)}
-												{#if elu.photo}
-													<img src={elu.photo} alt="" loading="lazy" on:error={hideImg} />
+												{initials(r)}
+												{#if r.photo}
+													<img src={r.photo} alt="" loading="lazy" on:error={hideImg} />
 												{/if}
 											</span>
 											<div class="elu-info">
 												<strong>
-													{#if sent.has(elu.id)}<span class="done-check">✓</span>{/if}{elu.nom}
+													{#if sent.has(r.id)}<span class="done-check">✓</span>{/if}{r.nom}
 												</strong>
-												<small>{eluSubtitle(elu)}</small>
+												{#if r.subtitle}<small>{r.subtitle}</small>{/if}
 											</div>
 										</div>
-										<Button alt={sent.has(elu.id)} on:click={() => choose(elu)}>
-											{#if sent.has(elu.id)}
+										<Button alt={sent.has(r.id)} on:click={() => choose(r)}>
+											{#if sent.has(r.id)}
 												{isEn ? 'Written ✓' : 'Écrit ✓'}
 											{:else}
 												{isEn ? 'Write' : 'Écrire'}
@@ -492,7 +526,7 @@
 				{/if}
 			{/if}
 
-			{#if searched && !result}
+			{#if action.targeting !== 'fixed' && searched && !result}
 				<details class="manual-fallback" open>
 					<summary>
 						{isEn ? 'Official directories' : 'Annuaires officiels'}
@@ -560,8 +594,8 @@
 				<span slot="head">{isEn ? 'How long does it take?' : 'Combien de temps ça prend ?'}</span>
 				<p slot="details">
 					{isEn
-						? 'About two minutes. Enter your postal code and your name, pick a representative, and send.'
-						: 'Environ deux minutes. Entrez votre code postal et votre nom, choisissez un élu, puis envoyez.'}
+						? 'About two minutes. Enter your name, pick a recipient, and send.'
+						: 'Environ deux minutes. Indiquez votre nom, choisissez un destinataire, puis envoyez.'}
 				</p>
 			</Accordion>
 			<Accordion id="faq-donnees" noHash>
@@ -585,10 +619,10 @@
 				</p>
 			</Accordion>
 		</section>
-	{:else if selectedElu}
+	{:else if selectedRecipient}
 		<!-- ════════ Étape 2 : rédiger le mail ════════ -->
 		<button class="back-link" on:click={back}>
-			← {isEn ? 'Back to my representatives' : 'Retour à mes élus'}
+			← {isEn ? `Back to my ${targetNoun}` : `Retour à mes ${targetNoun}`}
 		</button>
 
 		<section class="card">
@@ -598,19 +632,19 @@
 
 			<div class="recipient">
 				<span class="avatar avatar--lg">
-					{initials(selectedElu)}
-					{#if selectedElu.photo}
-						<img src={selectedElu.photo} alt="" on:error={hideImg} />
+					{initials(selectedRecipient)}
+					{#if selectedRecipient.photo}
+						<img src={selectedRecipient.photo} alt="" on:error={hideImg} />
 					{/if}
 				</span>
 				<div>
 					<span class="recipient-label">{isEn ? 'To:' : 'À :'}</span>
-					<strong>{selectedElu.nom}</strong>
-					<small>{eluSubtitle(selectedElu)}</small>
-					{#if selectedElu.contactUrl}
+					<strong>{selectedRecipient.nom}</strong>
+					{#if selectedRecipient.subtitle}<small>{selectedRecipient.subtitle}</small>{/if}
+					{#if selectedRecipient.contactUrl}
 						<a
 							class="profile-link"
-							href={selectedElu.contactUrl}
+							href={selectedRecipient.contactUrl}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -635,37 +669,39 @@
 				<div class="control">
 					<span class="control-label">{isEn ? 'Focus' : 'Sujet principal'}</span>
 					<div class="theme-chips" role="group" aria-label={isEn ? 'Focus' : 'Sujet principal'}>
-						{#each angles as a}
+						{#each action.angles as a}
 							<button
 								class="chip"
 								class:active={angle === a.id}
 								aria-pressed={angle === a.id}
 								on:click={() => (angle = a.id)}
 							>
-								{isEn ? a.en : a.fr}
+								{isEn ? a.label.en : a.label.fr}
 							</button>
 						{/each}
 					</div>
 				</div>
-				<div class="control">
-					<span class="control-label">{isEn ? 'Length' : 'Longueur'}</span>
-					<div class="segmented" role="group" aria-label={isEn ? 'Length' : 'Longueur'}>
-						<button
-							class:active={version === 'short'}
-							aria-pressed={version === 'short'}
-							on:click={() => (version = 'short')}
-						>
-							{isEn ? 'Short' : 'Courte'}
-						</button>
-						<button
-							class:active={version === 'long'}
-							aria-pressed={version === 'long'}
-							on:click={() => (version = 'long')}
-						>
-							{isEn ? 'Detailed' : 'Détaillée'}
-						</button>
+				{#if action.hasDetailed}
+					<div class="control">
+						<span class="control-label">{isEn ? 'Length' : 'Longueur'}</span>
+						<div class="segmented" role="group" aria-label={isEn ? 'Length' : 'Longueur'}>
+							<button
+								class:active={version === 'short'}
+								aria-pressed={version === 'short'}
+								on:click={() => (version = 'short')}
+							>
+								{isEn ? 'Short' : 'Courte'}
+							</button>
+							<button
+								class:active={version === 'long'}
+								aria-pressed={version === 'long'}
+								on:click={() => (version = 'long')}
+							>
+								{isEn ? 'Detailed' : 'Détaillée'}
+							</button>
+						</div>
 					</div>
-				</div>
+				{/if}
 			</div>
 
 			<label class="perso-field">
@@ -691,42 +727,42 @@
 					<span>{subject}</span>
 				</div>
 				<div class="email-body" id="email-body">
-					<p>{salutation(selectedElu)}</p>
-					<p>{introLine(selectedElu, userName)}</p>
+					<p>{salutation(selectedRecipient)}</p>
+					<p>{introLine(selectedRecipient, userName)}</p>
 					{#each buildParagraphs(angle, version, personalSentence) as para}
 						<p>{para}</p>
 					{/each}
 					<p>
 						{isEn ? 'Yours sincerely,' : 'Cordialement,'}<br />
 						{userName.trim() || (isEn ? '[Your full name]' : '[Votre nom complet]')}<br />
-						{userVille.trim() || localite(selectedElu)}
+						{userVille.trim() || selectedRecipient.signatureLocality}
 					</p>
 				</div>
 			</div>
 
-			{#if confidenceNote(selectedElu)}
-				<p class="notice notice--warn">{confidenceNote(selectedElu)}</p>
+			{#if confidenceNote(selectedRecipient)}
+				<p class="notice notice--warn">{confidenceNote(selectedRecipient)}</p>
 			{/if}
 
-			{#if !selectedElu.email}
+			{#if !selectedRecipient.email}
 				<p class="notice notice--info">
-					{#if selectedElu.contactUrl}
+					{#if selectedRecipient.contactUrl}
 						{isEn
-							? 'This representative does not publish an email address. Copy the text above, open their contact form, and paste it there.'
-							: "Cet élu ne publie pas d'adresse email. Copiez le texte ci-dessus, ouvrez son formulaire de contact, puis collez-le."}
+							? 'This recipient does not publish an email address. Copy the text above, open their contact form, and paste it there.'
+							: "Ce destinataire ne publie pas d'adresse email. Copiez le texte ci-dessus, ouvrez son formulaire de contact, puis collez-le."}
 					{:else}
 						{isEn
-							? 'No public email or contact form was found for this representative. Copy the text above and reach them via their official profile.'
-							: "Aucun email ni formulaire public n'a été trouvé pour cet élu. Copiez le texte ci-dessus et contactez-le via sa fiche officielle."}
+							? 'No public email or contact form was found for this recipient. Copy the text above and reach them via their official profile.'
+							: "Aucun email ni formulaire public n'a été trouvé pour ce destinataire. Copiez le texte ci-dessus et contactez-le via sa fiche officielle."}
 					{/if}
 				</p>
 			{/if}
 
 			<div class="send-row">
-				{#if selectedElu.email}
+				{#if selectedRecipient.email}
 					<Button on:click={openMail}>{isEn ? 'Open my email' : 'Ouvrir mon email'}</Button>
-				{:else if selectedElu.contactUrl}
-					<Button href={selectedElu.contactUrl} target="_blank" rel="noopener noreferrer">
+				{:else if selectedRecipient.contactUrl}
+					<Button href={selectedRecipient.contactUrl} target="_blank" rel="noopener noreferrer">
 						{isEn ? 'Open contact form' : 'Ouvrir le formulaire'}
 					</Button>
 				{/if}
@@ -739,7 +775,7 @@
 				</Button>
 			</div>
 
-			{#if selectedElu.email}
+			{#if selectedRecipient.email}
 				<p class="deliverability">
 					{isEn
 						? 'Send from your personal mailbox: an email from a real constituent carries far more weight than a form. Check the recipient before sending.'
@@ -752,12 +788,12 @@
 				</p>
 			{/if}
 
-			{#if sent.has(selectedElu.id)}
+			{#if sent.has(selectedRecipient.id)}
 				<div class="after-send">
 					<p>
 						{isEn
-							? 'Message ready! Go back to write to your other representatives.'
-							: 'Message prêt ! Revenez en arrière pour écrire à vos autres élus.'}
+							? `Message ready! Go back to write to your other ${targetNoun}.`
+							: `Message prêt ! Revenez en arrière pour écrire à vos autres ${targetNoun}.`}
 					</p>
 					<a class="join-link" href={joinHref}>
 						{isEn
