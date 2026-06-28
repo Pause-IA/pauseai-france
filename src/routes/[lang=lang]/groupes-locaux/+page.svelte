@@ -3,13 +3,20 @@
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$components/Button.svelte'
 	import LocalGroupsMap from '$components/LocalGroupsMap.svelte'
-	import { MessageSquare, PlusCircle, MapPin } from 'lucide-svelte'
+	import { MessageSquare, PlusCircle, MapPin, Megaphone, Newspaper, Users } from 'lucide-svelte'
+	import { localGroups, activeGroupsCount, formingGroupsCount } from '$lib/data/local-groups'
 	import type { PageData } from './$types'
 
 	export let data: PageData
 
 	$: lang = data.lang
 	$: isEn = lang === 'en'
+	$: prefix = isEn ? '/en' : '/fr'
+
+	// Villes triées : groupes actifs d'abord, puis ceux en création.
+	$: sortedGroups = [...localGroups].sort(
+		(a, b) => Number(!!a.forming) - Number(!!b.forming) || a.name.localeCompare(b.name)
+	)
 
 	$: title = isEn ? 'Local groups | Pause AI' : 'Groupes locaux | Pause IA'
 	$: description = isEn
@@ -32,6 +39,42 @@
 				dynamique dans votre ville.
 			{/if}
 		</p>
+	</section>
+
+	<section class="impact-section">
+		<div class="impact-card">
+			<Megaphone size="1.6rem" />
+			<h3>{isEn ? 'Demonstrations & gatherings' : 'Manifestations & rassemblements'}</h3>
+			<p>
+				{isEn
+					? 'Carry the message into the street, in several cities at once, to make the risks of AI visible.'
+					: "Porter le message dans la rue, dans plusieurs villes à la fois, pour rendre visibles les risques de l'IA."}
+			</p>
+		</div>
+		<div class="impact-card">
+			<Users size="1.6rem" />
+			<h3>{isEn ? 'Leafleting & outreach' : 'Tractage & sensibilisation'}</h3>
+			<p>
+				{isEn
+					? 'Meet the public, hand out leaflets and start conversations to grow awareness on the ground.'
+					: 'Aller à la rencontre du public, distribuer des tracts et engager la discussion pour sensibiliser sur le terrain.'}
+			</p>
+		</div>
+		<div class="impact-card">
+			<Newspaper size="1.6rem" />
+			<h3>{isEn ? 'Press coverage' : 'Retombées presse'}</h3>
+			<p>
+				{#if isEn}
+					These actions draw local media and give the movement real visibility. <a
+						href="{prefix}/presse">See the press coverage</a
+					>.
+				{:else}
+					Ces actions attirent les médias locaux et donnent de la visibilité au mouvement. <a
+						href="{prefix}/presse">Voir la revue de presse</a
+					>.
+				{/if}
+			</p>
+		</div>
 	</section>
 
 	<section class="cta-section">
@@ -79,12 +122,26 @@
 		<div class="map-header">
 			<div class="map-title-row">
 				<MapPin size="1.2em" class="map-pin-icon" />
-				<h2>{isEn ? 'Our groups in France' : 'Nos groupes en France'}</h2>
+				<h2>{isEn ? 'Our local groups' : 'Nos groupes locaux'}</h2>
 			</div>
 			<div class="map-meta">
-				<span class="map-stat">{isEn ? '10 active groups' : '10 groupes actifs'}</span>
-				<span class="map-sep">·</span>
-				<span class="map-stat forming">{isEn ? '1 forming' : '1 en cours de création'}</span>
+				<span class="map-stat">
+					{activeGroupsCount}
+					{isEn
+						? activeGroupsCount === 1
+							? 'active group'
+							: 'active groups'
+						: activeGroupsCount === 1
+							? 'groupe actif'
+							: 'groupes actifs'}
+				</span>
+				{#if formingGroupsCount > 0}
+					<span class="map-sep">·</span>
+					<span class="map-stat forming">
+						{formingGroupsCount}
+						{isEn ? 'forming' : 'en cours de création'}
+					</span>
+				{/if}
 				<span class="map-sep">·</span>
 				<span class="map-hint"
 					>{isEn
@@ -94,6 +151,15 @@
 			</div>
 		</div>
 		<LocalGroupsMap />
+
+		<ul class="city-list" aria-label={isEn ? 'Cities with a group' : 'Villes avec un groupe'}>
+			{#each sortedGroups as group}
+				<li class="city-chip" class:forming={group.forming}>
+					{group.name}
+					{#if group.forming}<span class="city-tag">{isEn ? 'forming' : 'en création'}</span>{/if}
+				</li>
+			{/each}
+		</ul>
 	</section>
 </article>
 
@@ -117,6 +183,79 @@
 		color: var(--text-muted);
 		line-height: 1.65;
 		max-inline-size: 48rem;
+	}
+
+	/* ── Impact (ce que font les groupes) ────────────────────────────── */
+
+	.impact-section {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.25rem;
+		margin-bottom: 3.5rem;
+	}
+
+	.impact-card {
+		padding: 1.5rem 1.5rem 1.6rem;
+		border: 1px solid var(--border);
+		border-radius: 14px;
+		background: var(--bg-card);
+	}
+
+	.impact-card :global(svg) {
+		color: var(--brand);
+	}
+
+	.impact-card h3 {
+		margin: 0.6rem 0 0.4rem;
+		font-size: 1.1rem;
+	}
+
+	.impact-card p {
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.55;
+		color: var(--text-2);
+	}
+
+	.impact-card a {
+		color: var(--brand-subtle);
+		font-weight: 600;
+	}
+
+	/* ── Liste des villes ─────────────────────────────────────────────── */
+
+	.city-list {
+		list-style: none;
+		padding: 0;
+		margin: 1.25rem 0 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.city-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.35rem 0.8rem;
+		border-radius: 999px;
+		border: 1px solid var(--border);
+		background: var(--bg-card);
+		font-size: 0.88rem;
+		font-weight: 600;
+	}
+
+	.city-chip.forming {
+		color: var(--text-secondary);
+		font-weight: 500;
+	}
+
+	.city-tag {
+		font-size: 0.7rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+		color: var(--text-secondary);
 	}
 
 	/* ── CTA cards ────────────────────────────────────────────────────── */

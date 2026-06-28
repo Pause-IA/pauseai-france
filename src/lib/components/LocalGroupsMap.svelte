@@ -1,29 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte'
-
-	interface Group {
-		name: string
-		lat: number
-		lon: number
-		forming?: boolean
-	}
-
-	const groups: Group[] = [
-		{ name: 'Paris', lat: 48.86, lon: 2.35 },
-		{ name: 'Lyon', lat: 45.76, lon: 4.84 },
-		{ name: 'Toulouse', lat: 43.6, lon: 1.44 },
-		{ name: 'Bordeaux', lat: 44.84, lon: -0.58 },
-		{ name: 'Colmar', lat: 48.08, lon: 7.36 },
-		{ name: 'Poitiers', lat: 46.58, lon: 0.34 },
-		{ name: 'Dordogne', lat: 45.18, lon: 0.72 },
-		{ name: 'Strasbourg', lat: 48.57, lon: 7.75 },
-		{ name: 'Grenoble', lat: 45.19, lon: 5.72 },
-		{ name: 'Lille', lat: 50.63, lon: 3.06, forming: true },
-		{ name: 'Genève', lat: 46.2, lon: 6.14 }
-	]
-
-	export const activeCount = groups.filter((g) => !g.forming).length
-	export const formingCount = groups.filter((g) => g.forming).length
+	import { localGroups as groups } from '$lib/data/local-groups'
 
 	let mapContainer: HTMLDivElement
 	let map: import('leaflet').Map | null = null
