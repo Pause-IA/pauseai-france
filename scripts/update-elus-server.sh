@@ -76,7 +76,11 @@ git checkout --quiet "$BASE_BRANCH"
 git reset --hard --quiet "origin/$BASE_BRANCH"
 
 echo "→ Génération des données des élus…"
-node scripts/generate-elus.js --report
+# CHECK_PHOTOS=1 : vérifie les portraits et récupère via Wikidata ceux qui sont
+# cassés (plus lent). À lancer ponctuellement pour rafraîchir les photos.
+PHOTO_FLAG=""
+[[ -n "${CHECK_PHOTOS:-}" ]] && PHOTO_FLAG="--check-photos"
+node scripts/generate-elus.js --report $PHOTO_FLAG
 
 DATA_FILES=(src/lib/data/elus.json src/lib/data/code-postal-circo.json)
 if git diff --quiet -- "${DATA_FILES[@]}"; then

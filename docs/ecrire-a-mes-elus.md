@@ -45,6 +45,15 @@ La progression (« Écrit ✓ ») et les infos personnelles sont mémorisées
 - **Garde-fous** : seuils sur le nombre d'élus / d'emails ; en cas d'anomalie,
   le script jette une erreur, n'écrit rien, et sort en code 1 (déclenche une
   alerte).
+- **Photos** : par défaut, le portrait officiel (Assemblée / Sénat) est construit
+  par motif d'URL ; si une photo est cassée, la page bascule proprement sur les
+  initiales (`on:error`). Pour en récupérer davantage, lancer
+  `node scripts/generate-elus.js --check-photos` (ou `CHECK_PHOTOS=1` avec le
+  runner serveur) : chaque portrait est vérifié et, **uniquement s'il est cassé**,
+  remplacé par une photo Wikimedia Commons via Wikidata (appariement strict :
+  humain + nationalité française + politique + libellé exact + résultat unique,
+  pour éviter les homonymes). Les valeurs ainsi validées sont **préservées** par
+  les exécutions suivantes (pas de réécrasement).
 
 ### Mise à jour automatique
 

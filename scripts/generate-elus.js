@@ -10,8 +10,10 @@
  *     par des proxies d'entreprise / environnements sandboxés.
  *
  * Usage :
- *     node scripts/generate-elus.js              # génération complète
- *     node scripts/generate-elus.js --report     # affiche aussi le rapport de qualité
+ *     node scripts/generate-elus.js                 # génération complète
+ *     node scripts/generate-elus.js --report        # + rapport de qualité
+ *     node scripts/generate-elus.js --check-photos  # vérifie les portraits et
+ *         récupère via Wikidata ceux qui sont cassés (lent, réseau requis)
  *
  * Redondance / fiabilité des emails :
  *   On croise plusieurs sources pour chaque élu et on attribue un niveau de
@@ -72,6 +74,11 @@ function deptFromInsee(insee) {
 }
 
 const REPORT = process.argv.includes('--report')
+// --check-photos : vérifie chaque portrait officiel (réseau) et, s'il est cassé,
+// tente de récupérer une photo sur Wikimedia Commons via Wikidata. Lent (~1 req
+// par élu) → réservé aux exécutions manuelles / serveur. Sans ce flag, on
+// préserve les photos déjà committées (pas de réécrasement des replis Wikidata).
+const CHECK_PHOTOS = process.argv.includes('--check-photos')
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Utilitaires
@@ -486,6 +493,132 @@ async function fetchSenateurs() {
 // Pipeline
 // ─────────────────────────────────────────────────────────────────────────────
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Photos : vérification + repli Wikidata
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function fetchWithTimeout(url, opts = {}, ms = 12000) {
+	const ctrl = new AbortController()
+	const t = setTimeout(() => ctrl.abort(), ms)
+	try {
+		return await fetch(url, { ...opts, signal: ctrl.signal })
+	} finally {
+		clearTimeout(t)
+	}
+}
+
+/**
+ * État d'un portrait : true = accessible (image), false = cassé confirmé
+ * (404/403/410 ou type non-image), null = indéterminé (réseau/5xx/429) → on ne
+ * dégrade pas dans ce cas.
+ */
+async function photoReachable(url) {
+	try {
+		const res = await fetchWithTimeout(url, { headers: { ...UA, Range: 'bytes=0-0' } }, 12000)
+		const ct = (res.headers.get('content-type') || '').toLowerCase()
+		try {
+			await res.body?.cancel()
+		} catch {
+			/* ignore */
+		}
+		if (res.status === 200 || res.status === 206) return ct.startsWith('image/')
+		if ([403, 404, 410].includes(res.status)) return false
+		return null
+	} catch {
+		return null
+	}
+}
+
+/**
+ * Cherche un portrait sur Wikimedia Commons via Wikidata, de façon STRICTE pour
+ * éviter les homonymes : être humain (P31=Q5), de nationalité française
+ * (P27=Q142), de profession femme/homme politique (P106=Q82955), avec le libellé
+ * français EXACT, et un seul item correspondant. Renvoie une URL d'image ou null.
+ */
+async function wikidataImage(fullName) {
+	const safe = String(fullName).replace(/["\\]/g, ' ').trim()
+	if (!safe) return null
+	const query = `SELECT ?item ?image WHERE {
+  ?item rdfs:label "${safe}"@fr ;
+        wdt:P31 wd:Q5 ;
+        wdt:P27 wd:Q142 ;
+        wdt:P106 wd:Q82955 ;
+        wdt:P18 ?image .
+} LIMIT 4`
+	try {
+		const res = await fetchWithTimeout(
+			`https://query.wikidata.org/sparql?format=json&query=${encodeURIComponent(query)}`,
+			{ headers: { ...UA, Accept: 'application/sparql-results+json' } },
+			15000
+		)
+		if (!res.ok) return null
+		const json = await res.json()
+		const rows = json?.results?.bindings ?? []
+		const items = new Set(rows.map((r) => r.item.value))
+		if (items.size !== 1) return null // 0 ou ambigu (homonymes) → on s'abstient
+		const img = rows[0].image.value
+		return img.includes('?') ? img : `${img}?width=300`
+	} catch {
+		return null
+	}
+}
+
+/**
+ * Résout la photo de chaque élu.
+ *  - sans --check-photos : on préserve la photo déjà committée (prevPhotos) pour
+ *    ne pas réécraser un repli Wikidata ou un `null` validé ; les nouveaux élus
+ *    gardent l'URL officielle construite.
+ *  - avec --check-photos : on vérifie l'URL officielle ; si cassée, on tente
+ *    Wikidata ; si indéterminé (réseau), on garde la valeur précédente.
+ */
+async function resolvePhotos(elus, prevPhotos) {
+	if (!CHECK_PHOTOS) {
+		let preserved = 0
+		for (const e of elus) {
+			if (prevPhotos.has(e.id)) {
+				e.photo = prevPhotos.get(e.id)
+				preserved++
+			}
+		}
+		console.log(
+			`  Photos : ${preserved} valeurs committées préservées (relancer avec --check-photos pour revérifier).`
+		)
+		return
+	}
+
+	console.log('→ Vérification des photos (officiel + repli Wikidata)…')
+	const stats = { kept: 0, recovered: 0, nulled: 0, indeterminate: 0 }
+	const queue = elus.filter((e) => e.photo)
+	const worker = async () => {
+		for (let e = queue.pop(); e; e = queue.pop()) {
+			const state = await photoReachable(e.photo)
+			if (state === true) {
+				stats.kept++
+				continue
+			}
+			if (state === null) {
+				// Indéterminé : on garde la photo précédente si on en a une.
+				if (prevPhotos.has(e.id)) e.photo = prevPhotos.get(e.id)
+				stats.indeterminate++
+				continue
+			}
+			// Cassée confirmée → repli Wikidata, sinon null.
+			const wiki = await wikidataImage(e.nom)
+			if (wiki) {
+				e.photo = wiki
+				stats.recovered++
+			} else {
+				e.photo = null
+				stats.nulled++
+			}
+		}
+	}
+	await Promise.all(Array.from({ length: 6 }, worker))
+	console.log(
+		`  Photos : ${stats.kept} OK · ${stats.recovered} récupérées (Wikidata) · ${stats.nulled} sans photo · ${stats.indeterminate} indéterminées (conservées)`
+	)
+}
+
 async function main() {
 	console.log('→ Téléchargement des députés (data.gouv, AN)…')
 	const deputes = await fetchDeputes()
@@ -497,6 +630,18 @@ async function main() {
 	// fichier ne change que si un contact change réellement (pas de PR inutile).
 	deputes.sort((a, b) => a.id.localeCompare(b.id))
 	senateurs.sort((a, b) => a.id.localeCompare(b.id))
+
+	// Photos déjà committées (pour préserver les replis Wikidata / null validés).
+	const prevPhotos = new Map()
+	try {
+		const prev = JSON.parse(await readFile(OUT_FILE, 'utf8'))
+		for (const e of [...(prev.deputes ?? []), ...(prev.senateurs ?? [])]) {
+			if ('photo' in e) prevPhotos.set(e.id, e.photo)
+		}
+	} catch {
+		/* premier run ou fichier absent : pas de photos précédentes */
+	}
+	await resolvePhotos([...deputes, ...senateurs], prevPhotos)
 
 	// ── Garde-fous : si une source est cassée/tronquée, on échoue SANS rien
 	// écrire (les données committées restent en ligne). 577 députés / 348
