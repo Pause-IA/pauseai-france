@@ -324,6 +324,60 @@ export const campaigns: Campaign[] = [
 					{ label: 'Cities', value: '11 cities' },
 					{ label: 'Full charters', value: '7 signatories (14/14)' },
 					{ label: 'Press', value: '10 articles + 1 broadcast (France Culture)' }
+				],
+				articles: [
+					{
+						title: "Quand l'IA s'invite dans les municipales",
+						source: 'Next',
+						url: 'https://next.ink/229085/quand-lia-sinvite-dans-les-municipales/'
+					},
+					{
+						title: 'Journal de 18h, vendredi 13 mars 2026',
+						source: 'France Culture',
+						url: 'https://www.radiofrance.fr/franceculture/podcasts/journal-de-18h/journal-de-18h-emission-du-vendredi-13-mars-2026-9405796'
+					},
+					{
+						title: '« Les candidats aux municipales doivent se positionner » (Avignon)',
+						source: 'Presse Agence',
+						url: 'https://presseagence.fr/avignon-clemence-peyrot-les-candidats-aux-municipales-doivent-se-positionner/'
+					},
+					{
+						title:
+							"Annecy : une association interpelle les candidats sur l'intelligence artificielle",
+						source: 'ODS Radio',
+						url: 'https://www.odsradio.com/news/locales/108150/annecy-une-association-interpelle-les-candidats-sur-l-intelligence-artificielle'
+					},
+					{
+						title: "Pause IA s'incruste dans les municipales",
+						source: 'Contexte',
+						url: 'https://www.contexte.com/fr/actualite/tech/pause-ia-sincruste-dans-les-municipales_257807'
+					},
+					{
+						title:
+							"Risques IA : l'association interpelle les candidats aux municipales de Toulouse",
+						source: "L'Opinion",
+						url: 'https://lopinion.com/amp/articles/actualite/32757_risques-ia-association-candidats-municipales-toulouse'
+					},
+					{
+						title: '« Les candidats aux municipales doivent se positionner clairement » (Nice)',
+						source: 'Presse Agence',
+						url: 'https://presseagence.fr/nice-maxime-fournes-les-candidats-aux-municipales-doivent-se-positionner-clairement/'
+					},
+					{
+						title: "Municipales 2026 : Pause IA interpelle les candidats sur les dangers de l'IA",
+						source: "Place Gre'net",
+						url: 'https://www.placegrenet.fr/2026/03/08/municipales-2026-pause-ia-interpelle-les-candidats-sur-les-dangers-de-lintelligence-artificielle/673506'
+					},
+					{
+						title: "Isère / Grenoble : Pause IA appelle les candidats à s'engager sur sa charte",
+						source: 'Le Dauphiné Libéré',
+						url: 'https://www.ledauphine.com/elections/2026/03/06/isere-grenoble-l-association-pause-ia-appelle-les-candidats-a-s-engager-sur-sa-charte'
+					},
+					{
+						title: "Nice : Jean-Marc Governatori s'engage sur la charte de Pause IA",
+						source: 'Presse Agence',
+						url: 'https://presseagence.fr/nice-jean-marc-governatori-sengage-sur-la-charte-de-pause-ia-pour-les-municipales/'
+					}
 				]
 			}
 		},
