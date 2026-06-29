@@ -10265,8 +10265,9 @@
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA857021",
 			"departement": "38",
 			"email": "alim.latreche@assemblee-nationale.fr",
-			"emailConfidence": "low",
+			"emailConfidence": "high",
 			"emailSources": [
+				"source",
 				"pattern"
 			],
 			"groupe": "EPR",
@@ -12940,8 +12941,9 @@
 				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA857021",
 				"departement": "38",
 				"email": "alim.latreche@assemblee-nationale.fr",
-				"emailConfidence": "low",
+				"emailConfidence": "high",
 				"emailSources": [
+					"source",
 					"pattern"
 				],
 				"groupe": "EPR",
@@ -20911,7 +20913,7 @@
 			}
 		]
 	},
-	"generatedAt": "2026-06-27",
+	"generatedAt": "2026-06-29",
 	"senateurs": [
 		{
 			"civ": "M",
