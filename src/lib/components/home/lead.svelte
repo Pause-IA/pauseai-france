@@ -36,7 +36,7 @@
 						>AI safety and ethics experts</a
 					>, unchecked development also entails major risks: large-scale disinformation, mass
 					manipulation, devastating cyberattacks, engineered pandemics, and loss of control over
-					autonomous systems — up to threatening the very survival of humanity.
+					autonomous systems, even threatening the very survival of humanity.
 				</p>
 				<p>
 					Pause AI, in line with the warnings of AI safety researchers, promotes responsible

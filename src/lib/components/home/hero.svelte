@@ -220,7 +220,7 @@
 							Every month, new AI systems cross thresholds we thought were far away. Experts warn:
 							without guardrails, this race poses a catastrophic risk in the near term.
 						</p>
-						<p>The window is closing fast — let's act now.</p>
+						<p>The window is closing fast, let's act now.</p>
 					{:else}
 						<p>
 							Chaque mois, de nouveaux systèmes franchissent des seuils que l'on pensait lointains.

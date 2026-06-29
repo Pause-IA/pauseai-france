@@ -16,7 +16,9 @@
 		Radio,
 		Landmark,
 		FileText,
-		Clock
+		Clock,
+		ChevronLeft,
+		ChevronRight
 	} from 'lucide-svelte'
 	import type { ComponentType } from 'svelte'
 	import { localGroups, activeGroupsCount, formingGroupsCount } from '$lib/data/local-groups'
@@ -61,6 +63,13 @@
 	function cdnFallback(e: Event) {
 		const img = e.currentTarget as HTMLImageElement
 		if (img.dataset.raw && img.src !== img.dataset.raw) img.src = img.dataset.raw
+	}
+
+	// Carrousel des photos pour les actions « à la une » (index par action).
+	let galleryIdx: Record<string, number> = {}
+	function galStep(id: string, len: number, dir: number) {
+		const cur = galleryIdx[id] ?? 0
+		galleryIdx = { ...galleryIdx, [id]: (cur + dir + len) % len }
 	}
 
 	// Icône selon le type d'action, pour un repérage visuel rapide.
@@ -328,34 +337,59 @@
 
 			<!-- Actions « à la une » : grandes cartes, orientation alternée -->
 			{#each pastFeatured as e, i (e.id)}
+				{@const gi = galleryIdx[e.id] ?? 0}
 				<article class="feature-card" class:reverse={i % 2 === 1}>
 					{#if e.images.length}
 						<div class="feature-media">
 							<div class="feature-main">
 								<div
 									class="feature-main-bg"
-									style="background-image:url('{cdnImg(e.images[0], 48)}')"
+									style="background-image:url('{cdnImg(e.images[gi], 48)}')"
 								></div>
 								<img
-									src={cdnImg(e.images[0], 1100)}
-									data-raw={e.images[0]}
+									src={cdnImg(e.images[gi], 1100)}
+									data-raw={e.images[gi]}
 									on:error={cdnFallback}
 									alt=""
 									loading="lazy"
 									decoding="async"
 								/>
+								{#if e.images.length > 1}
+									<button
+										class="gallery-nav prev"
+										on:click={() => galStep(e.id, e.images.length, -1)}
+										aria-label={isEn ? 'Previous photo' : 'Photo précédente'}
+									>
+										<ChevronLeft size="1.2em" />
+									</button>
+									<button
+										class="gallery-nav next"
+										on:click={() => galStep(e.id, e.images.length, 1)}
+										aria-label={isEn ? 'Next photo' : 'Photo suivante'}
+									>
+										<ChevronRight size="1.2em" />
+									</button>
+									<span class="gallery-counter">{gi + 1}/{e.images.length}</span>
+								{/if}
 							</div>
 							{#if e.images.length > 1}
 								<div class="feature-thumbs">
-									{#each e.images.slice(1, 4) as src}
-										<img
-											src={cdnImg(src, 360, 'cover')}
-											data-raw={src}
-											on:error={cdnFallback}
-											alt=""
-											loading="lazy"
-											decoding="async"
-										/>
+									{#each e.images.slice(0, 5) as src, idx}
+										<button
+											class="feature-thumb"
+											class:active={idx === gi}
+											on:click={() => (galleryIdx = { ...galleryIdx, [e.id]: idx })}
+											aria-label={`${isEn ? 'Photo' : 'Photo'} ${idx + 1}`}
+										>
+											<img
+												src={cdnImg(src, 240, 'cover')}
+												data-raw={src}
+												on:error={cdnFallback}
+												alt=""
+												loading="lazy"
+												decoding="async"
+											/>
+										</button>
 									{/each}
 								</div>
 							{/if}
@@ -755,6 +789,50 @@
 		object-fit: contain;
 	}
 
+	/* Flèches de navigation du carrousel */
+	.gallery-nav {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 2;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		inline-size: 2.1rem;
+		block-size: 2.1rem;
+		border: none;
+		border-radius: 50%;
+		background: rgba(0, 0, 0, 0.45);
+		color: #fff;
+		cursor: pointer;
+		transition: background 0.15s;
+	}
+
+	.gallery-nav:hover {
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	.gallery-nav.prev {
+		left: 0.5rem;
+	}
+
+	.gallery-nav.next {
+		right: 0.5rem;
+	}
+
+	.gallery-counter {
+		position: absolute;
+		z-index: 2;
+		bottom: 0.5rem;
+		right: 0.5rem;
+		padding: 0.08rem 0.5rem;
+		border-radius: 999px;
+		background: rgba(0, 0, 0, 0.55);
+		color: #fff;
+		font-size: 0.72rem;
+		font-weight: 600;
+	}
+
 	.feature-thumbs {
 		display: flex;
 		gap: 0.5rem;
@@ -762,12 +840,27 @@
 		flex-shrink: 0;
 	}
 
-	.feature-thumbs img {
+	.feature-thumb {
 		flex: 1;
 		inline-size: 0;
 		block-size: 100%;
-		object-fit: cover;
+		padding: 0;
+		border: 2px solid transparent;
 		border-radius: 9px;
+		overflow: hidden;
+		background: none;
+		cursor: pointer;
+	}
+
+	.feature-thumb.active {
+		border-color: var(--brand);
+	}
+
+	.feature-thumb img {
+		inline-size: 100%;
+		block-size: 100%;
+		object-fit: cover;
+		display: block;
 	}
 
 	.feature-body {
