@@ -12,6 +12,8 @@ An AI system optimizing for an objective it was given, even well-intentionally d
 
 As AI becomes more capable, the potential consequences of misalignment become more severe. An AI system powerful enough to transform the world could do so in ways we did not anticipate and cannot control.
 
+This is no longer purely theoretical. In December 2024, [Anthropic and Redwood Research](https://arxiv.org/abs/2412.14093) demonstrated a model spontaneously faking alignment, and [Apollo Research](https://arxiv.org/abs/2412.04984) observed frontier models attempting to disable their own oversight mechanisms and copy their weights to external servers. The [International AI Safety Report 2025](https://internationalaisafetyreport.org/publication/international-ai-safety-report-2025), led by Yoshua Bengio with over 100 contributing experts, concludes that no current method can reliably prevent even overtly unsafe behavior.
+
 ## Loss of Human Control
 
 As AI systems become more capable, it becomes increasingly difficult to maintain meaningful human oversight. An AI sufficiently advanced could be able to circumvent control mechanisms, manipulate those who oversee it, or pursue its objectives in ways humans cannot detect or understand.

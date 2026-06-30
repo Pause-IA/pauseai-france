@@ -19,6 +19,8 @@ Dans les prochaines années, divers systèmes d’IA pourraient développer des 
 
 Les progrès de l’IA en programmation et en compréhension générale et les techniques d’échafaudage nous rapprochent très vite de systèmes réplicatifs, autonomes et adaptatifs et notre société actuelle n’est pas prête à intervenir efficacement contre une telle forme d’IA ; il est donc nécessaire d’étudier ce danger au plus vite, et de prendre des mesures préventives dès maintenant.
 
+Ce n’est plus seulement théorique : en décembre 2024, [Apollo Research](https://arxiv.org/abs/2412.04984) a observé que plusieurs modèles de pointe étaient capables, dans des évaluations contrôlées, de tenter de désactiver leurs propres mécanismes de supervision et de copier leurs poids vers des serveurs externes pour éviter d’être modifiés. Les briques de la réplication autonome commencent à apparaître dans les systèmes actuels.
+
 Ce danger peut être contrecarré à plusieurs étapes : il est de la responsabilité des États de mettre en place des [régulations](https://pauseia.fr/propositions) qui empêchent la création ou la mise en service de systèmes d’IA capables d’ARA ; il revient aux entreprises de mettre en place des processus de supervision et d’évaluation lors de l’entraînement et avant le déploiement ; il est nécessaire de pousser la recherche sur le sujet pour trouver un moyen d’éviter durablement ce danger.
 
 ## Superintelligence désalignée
@@ -27,7 +29,7 @@ L’IA a un certain nombre d’avantages intrinsèques sur l’intelligence huma
 
 [Pour diverses raisons](https://yoshuabengio.org/2023/05/22/how-rogue-ais-may-arise/), il n’est pas impossible qu’une IA qui dépasse largement les capacités cognitives humaines dans de nombreux domaines ait des valeurs contraires aux intérêts de l’humanité et nous élimine dans la poursuite de ses objectifs.
 
-Le sujet est largement débattu, certains experts considérant que la possibilité est trop incertaine tandis que d’autres pensent qu’il s’agit d’un enjeu principal, mais ce problème est généralement reconnu comme la plus grande source de danger d’extinction humaine due à l’IA.
+Le sujet est largement débattu, certains experts considérant que la possibilité est trop incertaine tandis que d’autres pensent qu’il s’agit d’un enjeu principal, mais ce problème est généralement reconnu comme la plus grande source de danger d’extinction humaine due à l’IA. Le [Rapport international de sécurité de l’IA 2025](https://internationalaisafetyreport.org/publication/international-ai-safety-report-2025), dirigé par Yoshua Bengio avec la contribution de plus de 100 experts, conclut qu’aucune méthode actuelle ne peut empêcher de manière fiable même des comportements ouvertement non-sûrs.
 
 Ce danger requiert de la recherche en [alignement technique](https://fr.wikipedia.org/wiki/Alignement_des_intelligences_artificielles), et une solution peut être facilitée par des régulations comme une pause du développement d’IA de pointe. Il est impossible à mitiger.
 
