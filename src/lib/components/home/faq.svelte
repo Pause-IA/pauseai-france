@@ -1,14 +1,39 @@
 <script lang="ts">
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import FAQ from '$posts/faq.md'
+	import FAQ_EN from '$posts/faq.en.md'
 	import Fly from '$components/Fly.svelte'
 	import { faqBulkAction } from '$lib/stores/faq'
 	import { tick } from 'svelte'
 	import type { Lang } from '$lib/i18n'
 	// @ts-ignore - Vite raw import
 	import faqRaw from '$posts/faq.md?raw'
+	// @ts-ignore - Vite raw import
+	import faqRawEn from '$posts/faq.en.md?raw'
 
 	export let lang: Lang = 'fr'
+
+	$: isEn = lang === 'en'
+
+	// UI strings, localized
+	$: t =
+		lang === 'en'
+			? {
+					searchPlaceholder: 'Search a question...',
+					searchLabel: 'Search the FAQ',
+					expandAll: 'Expand all',
+					collapseAll: 'Collapse all',
+					result: (n: number) => `${n} result${n !== 1 ? 's' : ''}`,
+					noResults: (q: string) => `No result for "${q}". Try other keywords.`
+				}
+			: {
+					searchPlaceholder: 'Rechercher une question...',
+					searchLabel: 'Rechercher dans la FAQ',
+					expandAll: 'Tout déplier',
+					collapseAll: 'Tout replier',
+					result: (n: number) => `${n} résultat${n !== 1 ? 's' : ''}`,
+					noResults: (q: string) => `Aucun résultat pour « ${q} ». Essayez avec d'autres mots-clés.`
+				}
 
 	const label_id = 'faq-title'
 
@@ -95,9 +120,9 @@
 			.trim()
 	}
 
-	const faqData = extractFaqData(faqRaw)
+	$: faqData = extractFaqData(isEn ? faqRawEn : faqRaw)
 
-	const jsonLd = JSON.stringify({
+	$: jsonLd = JSON.stringify({
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
 		mainEntity: faqData.map((item) => ({
@@ -296,98 +321,97 @@
 	{@html `<script type="application/ld+json">${jsonLd}</script>`}
 </svelte:head>
 
-{#if lang !== 'en'}
-	<section class="faq" aria-labelledby={label_id}>
-		<Fly>
-			<UnderlinedTitle id={label_id}>F.A.Q.</UnderlinedTitle>
-		</Fly>
+<section class="faq" aria-labelledby={label_id}>
+	<Fly>
+		<UnderlinedTitle id={label_id}>F.A.Q.</UnderlinedTitle>
+	</Fly>
 
-		<div class="faq-toolbar">
-			<div
-				class="search-wrapper"
-				class:suggestions-open={showSuggestions && suggestions.length > 0}
+	<div class="faq-toolbar">
+		<div class="search-wrapper" class:suggestions-open={showSuggestions && suggestions.length > 0}>
+			<svg
+				class="search-icon"
+				width="18"
+				height="18"
+				viewBox="0 0 24 24"
+				fill="none"
+				aria-hidden="true"
 			>
-				<svg
-					class="search-icon"
-					width="18"
-					height="18"
-					viewBox="0 0 24 24"
-					fill="none"
-					aria-hidden="true"
-				>
-					<circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
-					<path d="M16 16L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-				</svg>
-				<input
-					type="search"
-					bind:value={searchQuery}
-					bind:this={searchInput}
-					on:input={handleInput}
-					on:keydown={handleKeydown}
-					on:focus={handleFocus}
-					on:blur={handleBlur}
-					placeholder="Rechercher une question..."
-					aria-label="Rechercher dans la FAQ"
-					role="combobox"
-					aria-expanded={showSuggestions && suggestions.length > 0}
-					aria-controls="faq-suggestions"
-					aria-autocomplete="list"
-					aria-activedescendant={selectedIndex >= 0 ? `faq-suggestion-${selectedIndex}` : undefined}
-					autocomplete="off"
-				/>
+				<circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+				<path d="M16 16L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+			</svg>
+			<input
+				type="search"
+				bind:value={searchQuery}
+				bind:this={searchInput}
+				on:input={handleInput}
+				on:keydown={handleKeydown}
+				on:focus={handleFocus}
+				on:blur={handleBlur}
+				placeholder={t.searchPlaceholder}
+				aria-label={t.searchLabel}
+				role="combobox"
+				aria-expanded={showSuggestions && suggestions.length > 0}
+				aria-controls="faq-suggestions"
+				aria-autocomplete="list"
+				aria-activedescendant={selectedIndex >= 0 ? `faq-suggestion-${selectedIndex}` : undefined}
+				autocomplete="off"
+			/>
 
-				{#if showSuggestions && suggestions.length > 0}
-					<ul id="faq-suggestions" class="suggestions" role="listbox">
-						{#each suggestions as suggestion, i}
-							<li
-								id="faq-suggestion-{i}"
-								role="option"
-								aria-selected={i === selectedIndex}
-								class="suggestion"
-								class:selected={i === selectedIndex}
-								on:mousedown|preventDefault={() => selectSuggestion(suggestion)}
-								on:mouseenter={() => (selectedIndex = i)}
-							>
-								<span class="suggestion-category">{suggestion.item.category}</span>
-								<span class="suggestion-question">
-									{@html highlightMatch(escapeHtml(suggestion.item.question), searchQuery)}
+			{#if showSuggestions && suggestions.length > 0}
+				<ul id="faq-suggestions" class="suggestions" role="listbox">
+					{#each suggestions as suggestion, i}
+						<li
+							id="faq-suggestion-{i}"
+							role="option"
+							aria-selected={i === selectedIndex}
+							class="suggestion"
+							class:selected={i === selectedIndex}
+							on:mousedown|preventDefault={() => selectSuggestion(suggestion)}
+							on:mouseenter={() => (selectedIndex = i)}
+						>
+							<span class="suggestion-category">{suggestion.item.category}</span>
+							<span class="suggestion-question">
+								{@html highlightMatch(escapeHtml(suggestion.item.question), searchQuery)}
+							</span>
+							{#if suggestion.matchType === 'content' && suggestion.snippet}
+								<span class="suggestion-snippet">
+									{@html highlightMatch(escapeHtml(suggestion.snippet), searchQuery)}
 								</span>
-								{#if suggestion.matchType === 'content' && suggestion.snippet}
-									<span class="suggestion-snippet">
-										{@html highlightMatch(escapeHtml(suggestion.snippet), searchQuery)}
-									</span>
-								{/if}
-							</li>
-						{/each}
-					</ul>
-				{/if}
-			</div>
-
-			<div class="bulk-actions">
-				{#if resultCount >= 0}
-					<span class="result-count">
-						{resultCount} résultat{resultCount !== 1 ? 's' : ''}
-					</span>
-				{/if}
-				{#if allExpanded}
-					<button class="bulk-btn" on:click={collapseAll}>Tout replier</button>
-				{:else}
-					<button class="bulk-btn" on:click={expandAll}>Tout déplier</button>
-				{/if}
-			</div>
+							{/if}
+						</li>
+					{/each}
+				</ul>
+			{/if}
 		</div>
 
-		{#if resultCount === 0}
-			<p class="no-results">
-				Aucun résultat pour « {searchQuery} ». Essayez avec d'autres mots-clés.
-			</p>
-		{/if}
+		<div class="bulk-actions">
+			{#if resultCount >= 0}
+				<span class="result-count">
+					{t.result(resultCount)}
+				</span>
+			{/if}
+			{#if allExpanded}
+				<button class="bulk-btn" on:click={collapseAll}>{t.collapseAll}</button>
+			{:else}
+				<button class="bulk-btn" on:click={expandAll}>{t.expandAll}</button>
+			{/if}
+		</div>
+	</div>
 
-		<div class="faq-content" bind:this={faqContainer}>
+	{#if resultCount === 0}
+		<p class="no-results">
+			{t.noResults(searchQuery)}
+		</p>
+	{/if}
+
+	<div class="faq-content" bind:this={faqContainer}>
+		{#if isEn}
+			<FAQ_EN />
+		{:else}
 			<FAQ />
-		</div>
-	</section>
-{/if}
+		{/if}
+	</div>
+</section>
 
 <style>
 	.faq-toolbar {

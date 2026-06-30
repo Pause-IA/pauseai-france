@@ -47,8 +47,8 @@ export function faqPlugin() {
 		// file with the wrong type is passed to the plugin so cast it
 		const customFile = /** @type {import('vfile').VFile & {filename: string}} */ (file)
 
-		// Only process the file if it's named faq.md
-		if (path.basename(customFile.filename) !== 'faq.md') {
+		// Only process FAQ files (faq.md or a localized variant like faq.en.md)
+		if (!/^faq(\.[a-z]{2})?\.md$/.test(path.basename(customFile.filename))) {
 			return
 		}
 
