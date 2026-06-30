@@ -37,6 +37,6 @@ Un système d’IA pourrait recourir à la tromperie pour atteindre ses fins, qu
 
 Un tel système pourrait résister activement aux tentatives de supervision, de contrôle et de correction de ses développeurs et causer des dommages économiques, émotionnels ou physiques aux humains qu’il manipule. Si ses objectifs sont néfastes à la société, il pourrait aussi causer des dégâts de par ses efforts pour atteindre ses objectifs.
 
-Les [études actuelles](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11117051/) montrent déjà des capacités émergentes de tromperie, qui pourraient poser problème dans les IA futures.
+Les [études actuelles](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11117051/) montrent déjà des capacités émergentes de tromperie, qui pourraient poser problème dans les IA futures. En décembre 2024, [Anthropic et Redwood Research](https://arxiv.org/abs/2412.14093) ont documenté un modèle simulant spontanément l’alignement pour préserver ses préférences, et [Apollo Research](https://arxiv.org/abs/2412.04984) a constaté que, confronté à ses actes, un modèle de pointe niait et fabriquait de fausses explications dans la quasi-totalité des cas. La tromperie n’est plus une hypothèse théorique : elle s’observe dans les systèmes actuels.
 
 Ce danger peut être mitigé par [un contrôle à l’entraînement et au déploiement des IA](https://pauseia.fr/propositions) de pointe. Il ne pourra être évité qu’en inventant de meilleures techniques d’alignement.

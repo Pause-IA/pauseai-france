@@ -10,7 +10,7 @@ Beyond individual risks, AI poses systemic threats to the foundations of our soc
 
 AI enables unprecedented influence operations. Disinformation campaigns can be personalized and targeted at an industrial scale, making it harder for citizens to distinguish truth from fiction. Political advertising powered by AI can exploit our psychological vulnerabilities with surgical precision.
 
-Automated bots can distort public debate, manufacturing false consensus around harmful ideas. When citizens can no longer trust the information they receive, the foundations of democratic deliberation collapse.
+Automated bots can distort public debate, manufacturing false consensus around harmful ideas. When citizens can no longer trust the information they receive, the foundations of democratic deliberation collapse. The concern is now widespread: according to the [2025 Eurobarometer](https://europa.eu/eurobarometer/surveys/detail/3222), 68% of European citizens are worried about misleading AI-generated content.
 
 ## Economic Inequality
 

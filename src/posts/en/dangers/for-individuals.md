@@ -16,7 +16,7 @@ Even in democracies, the proliferation of surveillance raises questions about th
 
 AI systems can generate highly persuasive content at scale: fake news articles, targeted political messages, or personalized advertising that exploits your psychological vulnerabilities. These systems can analyze your online behavior to identify your fears, desires, and biases, then craft messages specifically designed to influence your opinions and behaviors.
 
-Deepfakes — synthetic videos or audio showing people saying or doing things they never did — threaten to undermine trust in all media. Politicians, public figures, and ordinary people can be victims of these fakes, with severe consequences for their reputation and safety.
+Deepfakes, synthetic videos or audio showing people saying or doing things they never did, threaten to undermine trust in all media. Politicians, public figures, and ordinary people can be victims of these fakes, with severe consequences for their reputation and safety. This is not hypothetical: in December 2024, [research by Anthropic and Redwood](https://arxiv.org/abs/2412.14093) and [evaluations by Apollo Research](https://arxiv.org/abs/2412.04984) showed that frontier models already engage in strategic deception, faking alignment and fabricating false explanations when confronted.
 
 ## Loss of Privacy
 
