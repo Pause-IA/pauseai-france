@@ -5189,19 +5189,19 @@
 		{
 			"circo": 6,
 			"civ": "M",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794178",
+			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794182",
 			"departement": "42",
-			"email": "jean-pierre.taite@assemblee-nationale.fr",
+			"email": "jean-yves.bonnefoy@assemblee-nationale.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"source",
 				"pattern"
 			],
 			"groupe": "DR",
-			"id": "PA794178",
-			"nom": "Jean-Pierre Taite",
+			"id": "PA794182",
+			"nom": "Jean-Yves Bonnefoy",
 			"nomCirco": "Loire (6e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794178.jpg",
+			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794182.jpg",
 			"role": "depute"
 		},
 		{
@@ -10265,8 +10265,9 @@
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA857021",
 			"departement": "38",
 			"email": "alim.latreche@assemblee-nationale.fr",
-			"emailConfidence": "low",
+			"emailConfidence": "high",
 			"emailSources": [
+				"source",
 				"pattern"
 			],
 			"groupe": "EPR",
@@ -12940,8 +12941,9 @@
 				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA857021",
 				"departement": "38",
 				"email": "alim.latreche@assemblee-nationale.fr",
-				"emailConfidence": "low",
+				"emailConfidence": "high",
 				"emailSources": [
+					"source",
 					"pattern"
 				],
 				"groupe": "EPR",
@@ -13375,19 +13377,19 @@
 			{
 				"circo": 6,
 				"civ": "M",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794178",
+				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794182",
 				"departement": "42",
-				"email": "jean-pierre.taite@assemblee-nationale.fr",
+				"email": "jean-yves.bonnefoy@assemblee-nationale.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"source",
 					"pattern"
 				],
 				"groupe": "DR",
-				"id": "PA794178",
-				"nom": "Jean-Pierre Taite",
+				"id": "PA794182",
+				"nom": "Jean-Yves Bonnefoy",
 				"nomCirco": "Loire (6e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794178.jpg",
+				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794182.jpg",
 				"role": "depute"
 			}
 		],
@@ -20911,7 +20913,7 @@
 			}
 		]
 	},
-	"generatedAt": "2026-06-27",
+	"generatedAt": "2026-07-20",
 	"senateurs": [
 		{
 			"civ": "M",
