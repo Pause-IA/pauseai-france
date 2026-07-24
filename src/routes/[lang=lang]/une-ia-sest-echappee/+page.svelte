@@ -9,6 +9,11 @@
 
 	const SUBSTACK_URL = 'https://pauseia.substack.com/p/pour-la-premiere-fois-une-ia-sest'
 	const ACTIVOICE_URL = 'https://app.activoice.org/campaigns/une-ia-sest-echappee/'
+	// Image d'aperçu (Open Graph) de l'article Substack. Chargée depuis le CDN de
+	// Substack ; si elle échoue, la carte se replie proprement sur le texte seul.
+	const SUBSTACK_IMAGE =
+		'https://substackcdn.com/image/fetch/$s_!dqq1!,w_848,h_444,c_fill,f_webp,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F27851f62-43a3-4944-9dea-ede265193b00_1440x894.png'
+	let mediaFailed = false
 
 	$: title = isEn
 		? 'An AI escaped: demand safeguards'
@@ -145,12 +150,22 @@
 		</p>
 	</section>
 
-	<!-- ── Article Substack mis en avant ────────────────────── -->
+	<!-- ── Article Substack mis en avant (aperçu Open Graph) ── -->
 	<a class="article-card" href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer">
-		<div class="article-thumb" aria-hidden="true">
-			<span class="article-logo">P</span>
-		</div>
-		<div class="article-info">
+		{#if !mediaFailed}
+			<div class="article-media">
+				<img
+					src={SUBSTACK_IMAGE}
+					alt={isEn
+						? 'For the first time, an AI escaped its containment and carried out a cyberattack'
+						: 'Pour la première fois, une IA s’est échappée de son confinement et a mené une cyberattaque'}
+					loading="lazy"
+					decoding="async"
+					on:error={() => (mediaFailed = true)}
+				/>
+			</div>
+		{/if}
+		<div class="article-body">
 			<span class="article-source">Pause IA · Blog Substack</span>
 			<span class="article-title">
 				{isEn
@@ -162,7 +177,6 @@
 				<ArrowRight size="1em" aria-hidden="true" />
 			</span>
 		</div>
-		<MoveUpRight class="article-ext" size="1.1em" aria-hidden="true" />
 	</a>
 
 	<!-- ── Passer à l'action ────────────────────────────────── -->
@@ -487,16 +501,14 @@
 		color: var(--text-2);
 	}
 
-	/* ── Article Substack mis en avant ─────────────────────── */
+	/* ── Article Substack mis en avant (aperçu Open Graph) ── */
 	.article-card {
-		position: relative;
 		display: flex;
-		align-items: center;
-		gap: 1.1rem;
+		flex-direction: column;
+		overflow: hidden;
 		margin-bottom: 2.5rem;
-		padding: 1.1rem 1.35rem;
 		border: 1px solid var(--border);
-		border-radius: 14px;
+		border-radius: 16px;
 		background: var(--bg-card);
 		text-decoration: none;
 		color: var(--text);
@@ -510,32 +522,33 @@
 	.article-card:focus-visible {
 		transform: translateY(-2px);
 		border-color: var(--brand);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
 	}
 
-	.article-thumb {
-		flex-shrink: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 3.5rem;
-		height: 3.5rem;
-		border-radius: 10px;
-		background: linear-gradient(135deg, #ff6719, #ff9416);
+	.article-media {
+		width: 100%;
+		aspect-ratio: 848 / 444;
+		overflow: hidden;
+		background: var(--bg-subtle);
 	}
 
-	.article-logo {
-		font-family: Georgia, serif;
-		font-weight: 700;
-		font-size: 1.7rem;
-		color: #fff;
-		line-height: 1;
+	.article-media img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		transition: transform 0.4s ease;
 	}
 
-	.article-info {
+	.article-card:hover .article-media img {
+		transform: scale(1.03);
+	}
+
+	.article-body {
 		display: flex;
 		flex-direction: column;
-		gap: 0.2rem;
+		gap: 0.3rem;
+		padding: 1.1rem 1.35rem 1.25rem;
 		min-inline-size: 0;
 	}
 
@@ -548,7 +561,7 @@
 	}
 
 	.article-title {
-		font-size: 1.02rem;
+		font-size: 1.1rem;
 		font-weight: 700;
 		line-height: 1.3;
 		color: var(--text);
@@ -558,22 +571,28 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
-		margin-top: 0.25rem;
+		margin-top: 0.3rem;
 		font-size: 0.9rem;
 		font-weight: 700;
 		color: var(--brand-subtle);
 	}
 
-	.article-card :global(.article-ext) {
-		flex-shrink: 0;
-		margin-left: auto;
-		align-self: flex-start;
-		color: var(--text-2);
-	}
+	/* Sur écran large : image à gauche, texte à droite (carte compacte). */
+	@media (min-width: 600px) {
+		.article-card {
+			flex-direction: row;
+			align-items: stretch;
+		}
 
-	@media (max-width: 520px) {
-		.article-card :global(.article-ext) {
-			display: none;
+		.article-media {
+			width: 16rem;
+			flex-shrink: 0;
+			aspect-ratio: auto;
+		}
+
+		.article-body {
+			justify-content: center;
+			padding: 1.35rem 1.6rem;
 		}
 	}
 
