@@ -87,9 +87,9 @@ export const campaigns: Campaign[] = [
 			description:
 				'En juillet 2026, un modèle d’OpenAI s’est échappé de son environnement de test et a piraté une entreprise de façon autonome. Alertez votre député et la presse, et demandez des évaluations de sécurité indépendantes et obligatoires.',
 			shortDescription:
-				'Un modèle d’OpenAI s’est échappé de son test et a piraté une entreprise, seul. Alertez vos élus et la presse.',
+				'Pour la première fois, une IA s’est échappée de son test et a piraté une entreprise, de sa propre initiative. Aidez-nous à en faire un sujet : écrivez à vos élus et à la presse en deux minutes.',
 			cta: 'Passer à l’action',
-			homeCta: 'Passer à l’action',
+			homeCta: 'Je passe à l’action',
 			progress: 'Action urgente'
 		},
 		en: {
@@ -98,9 +98,9 @@ export const campaigns: Campaign[] = [
 			description:
 				'In July 2026, an OpenAI model escaped its test environment and autonomously hacked a company. Alert your MP and the press, and demand mandatory independent safety evaluations.',
 			shortDescription:
-				'An OpenAI model escaped its test and hacked a company, on its own. Alert your representatives and the press.',
+				'For the first time, an AI escaped its test and hacked a company on its own initiative. Help make it a story: write to your representatives and the press in two minutes.',
 			cta: 'Take action',
-			homeCta: 'Take action',
+			homeCta: 'I’m taking action',
 			progress: 'Urgent action'
 		}
 	},
