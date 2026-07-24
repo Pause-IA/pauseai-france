@@ -64,6 +64,9 @@
 	let askIndex = 0
 	let angle = ''
 	let seededFor = ''
+	// Sel de session : deux visiteurs différents obtiennent des combinaisons
+	// différentes pour un même journal (évite un texte identique pour tous).
+	const sessionSalt = Math.floor(Math.random() * 1e9)
 	$: if (action.id !== seededFor) {
 		seededFor = action.id
 		hookIndex = Math.floor(Math.random() * action.hooks.length)
@@ -72,6 +75,29 @@
 		balanceIndex = Math.floor(Math.random() * 997)
 		askIndex = Math.floor(Math.random() * 997)
 		angle = action.angles[0].id
+	}
+
+	// Hash déterministe (FNV-1a) d'une chaîne, pour dériver une combinaison
+	// stable et variée à partir de l'identifiant du destinataire.
+	function hashStr(s: string): number {
+		let h = 2166136261
+		for (let i = 0; i < s.length; i++) {
+			h ^= s.charCodeAt(i)
+			h = Math.imul(h, 16777619)
+		}
+		return h >>> 0
+	}
+
+	// Presse : chaque journal reçoit automatiquement un objet, une accroche et un
+	// angle différents (variété entre rédactions), stables si on y revient.
+	function seedForRecipient(r: Recipient) {
+		const h = hashStr(r.id) ^ sessionSalt
+		subjectIndex = h % action.subjects.length
+		hookIndex = Math.floor(h / 7) % action.hooks.length
+		angle = action.angles[Math.floor(h / 97) % action.angles.length].id
+		focusIndex = Math.floor(h / 13) % 997
+		balanceIndex = Math.floor(h / 17) % 997
+		askIndex = Math.floor(h / 19) % 997
 	}
 
 	type Version = 'short' | 'long'
@@ -328,6 +354,8 @@
 		// On avance toujours vers la rédaction (pas de retour en haut de page).
 		// Le nom, quand il est requis, se saisit directement à l'étape 2.
 		selectedRecipient = r
+		// Presse : varier le message d'un journal à l'autre, automatiquement.
+		if (action.press) seedForRecipient(r)
 		step = 2
 		afterNav()
 	}

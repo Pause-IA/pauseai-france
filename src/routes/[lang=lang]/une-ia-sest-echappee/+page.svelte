@@ -293,6 +293,30 @@
 					<MoveUpRight size="0.9em" aria-hidden="true" />
 				</a>
 			</li>
+			<li>
+				<a
+					href="https://www.wsj.com/tech/ai/openai-models-escaped-and-hacked-a-company-in-cybersecurity-test-gone-wrong-ee388506"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">The Wall Street Journal</span>
+					<span class="src-title"
+						>OpenAI Models Escaped and Hacked a Company in a Cybersecurity Test Gone Wrong</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://www.apolloresearch.ai/science/frontier-models-are-capable-of-incontext-scheming/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Apollo Research</span>
+					<span class="src-title">Frontier Models Are Capable of In-Context Scheming</span>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
 		</ul>
 	</section>
 
