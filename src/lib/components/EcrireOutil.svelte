@@ -13,9 +13,16 @@
 	// dans l'URL et on n'affiche que l'outil (ni méta, ni bandeau, ni FAQ).
 	export let forcedActionId: string | undefined = undefined
 	export let embedded = false
+	// Gate souple : exige un nom avant de composer le mail (auto-complétion).
+	export let requireName = false
 	$: isEn = lang === 'en'
 
 	const dispatch = createEventDispatcher()
+
+	// Champ « nom » et signalement quand on tente de composer sans l'avoir rempli.
+	let nameInput: HTMLInputElement | undefined
+	let nameError = false
+	$: if (userName.trim()) nameError = false
 
 	const BCC = 'campagne@pauseia.fr'
 
@@ -318,6 +325,14 @@
 	}
 
 	function choose(r: Recipient) {
+		// Gate souple : sans nom, on ne passe pas à la rédaction ; on met en
+		// évidence le champ « nom » pour que l'email se complète tout seul.
+		if (requireName && !userName.trim()) {
+			nameError = true
+			nameInput?.focus()
+			nameInput?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+			return
+		}
 		selectedRecipient = r
 		step = 2
 		afterNav()
@@ -728,11 +743,14 @@
 			<div class="user-fields">
 				<input
 					class="user-input"
+					class:input-error={nameError}
 					type="text"
 					placeholder={isEn ? 'Your full name' : 'Votre nom complet'}
 					autocomplete="name"
 					bind:value={userName}
+					bind:this={nameInput}
 					on:input={saveUser}
+					aria-invalid={nameError}
 				/>
 				<input
 					class="user-input"
@@ -742,6 +760,13 @@
 					on:input={saveUser}
 				/>
 			</div>
+			{#if nameError}
+				<p class="notice notice--error">
+					{isEn
+						? 'Please enter your name first so the email fills in automatically.'
+						: 'Indiquez d’abord votre nom pour que l’email se rédige automatiquement.'}
+				</p>
+			{/if}
 
 			{#if isSampleData && action.targeting !== 'fixed'}
 				<p class="notice notice--warn">
@@ -1521,6 +1546,10 @@
 	.user-input:focus {
 		outline: none;
 		border-color: var(--brand);
+	}
+
+	.user-input.input-error {
+		border-color: #d92d20;
 	}
 
 	/* Recherche code postal */

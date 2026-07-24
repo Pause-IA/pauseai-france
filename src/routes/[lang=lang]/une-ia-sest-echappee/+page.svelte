@@ -152,8 +152,8 @@
 	<section class="prose">
 		<p>
 			{isEn
-				? 'If the damage stayed limited, it is only because, this time, the system was not trying to cause harm. The next, more powerful model is already on its way, and we do not have to wait for it to act.'
-				: 'Si les dégâts sont restés limités, c’est seulement parce que, cette fois, le système ne cherchait pas à nuire. Le prochain modèle, plus puissant, arrive déjà, et nous n’avons pas à attendre qu’il passe à l’acte.'}
+				? 'If the damage stayed limited, it is not because we were in control: it is because the goal the system pursued was, this time, harmless. The underlying problem remains: we still do not know how to robustly align increasingly powerful models with our intentions. The next, more capable one is already on its way.'
+				: 'Si les dégâts sont restés limités, ce n’est pas parce que nous maîtrisions la situation : c’est parce que l’objectif que poursuivait le système était, cette fois, sans gravité. Le problème de fond reste entier : nous ne savons pas aligner de façon robuste des modèles toujours plus puissants sur nos intentions. Le prochain, plus capable, arrive déjà.'}
 		</p>
 	</section>
 
@@ -236,6 +236,7 @@
 					lang={data.lang}
 					forcedActionId="presse-warning-shot"
 					embedded
+					requireName
 					on:navigate={scrollToPress}
 				/>
 			</div>
