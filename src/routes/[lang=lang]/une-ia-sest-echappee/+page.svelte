@@ -7,6 +7,13 @@
 	export let data: PageData
 	$: isEn = data.lang === 'en'
 
+	// Recentre la vue sur la section presse quand l'outil intégré change d'étape
+	// (choix d'un journal / retour), au lieu de remonter en haut de la page.
+	let pressSection: HTMLElement
+	function scrollToPress() {
+		pressSection?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+	}
+
 	const SUBSTACK_URL = 'https://pauseia.substack.com/p/pour-la-premiere-fois-une-ia-sest'
 	const ACTIVOICE_URL = 'https://app.activoice.org/campaigns/une-ia-sest-echappee/'
 	// Image d'aperçu (Open Graph) de l'article Substack. Chargée depuis le CDN de
@@ -211,7 +218,7 @@
 		</div>
 
 		<!-- 2 · Écrire à la presse (outil intégré directement sur la page) -->
-		<div class="action-card press-block">
+		<div class="action-card press-block" bind:this={pressSection}>
 			<div class="action-head">
 				<div class="action-icon"><Newspaper size="1.4rem" aria-hidden="true" /></div>
 				<h3>
@@ -225,7 +232,12 @@
 					: 'Les rédactions couvrent ce que leurs lecteurs réclament. Choisissez le journal que vous lisez et envoyez-lui un email prêt à personnaliser, directement ici.'}
 			</p>
 			<div class="press-tool">
-				<EcrireOutil lang={data.lang} forcedActionId="presse-warning-shot" embedded />
+				<EcrireOutil
+					lang={data.lang}
+					forcedActionId="presse-warning-shot"
+					embedded
+					on:navigate={scrollToPress}
+				/>
 			</div>
 		</div>
 	</section>
@@ -667,6 +679,11 @@
 		line-height: 1.6;
 		color: var(--text-2);
 		max-inline-size: 44rem;
+	}
+
+	/* Décalage pour que le défilement automatique passe sous l'en-tête fixe. */
+	.press-block {
+		scroll-margin-top: 5.5rem;
 	}
 
 	/* Outil presse intégré : un cadre neutre qui accueille le composant. */

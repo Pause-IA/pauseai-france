@@ -2,7 +2,7 @@
 	import PostMeta from '$components/PostMeta.svelte'
 	import Button from '$components/Button.svelte'
 	import Accordion from '$components/Accordion.svelte'
-	import { onMount } from 'svelte'
+	import { onMount, createEventDispatcher } from 'svelte'
 	import { lookupElus, isSampleData, type Elu, type LookupResult } from '$lib/data/elus'
 	import { getEluAction, type FixedTarget } from '$lib/data/elu-actions'
 	import { resolveCirco } from '$lib/data/circo-geo'
@@ -14,6 +14,8 @@
 	export let forcedActionId: string | undefined = undefined
 	export let embedded = false
 	$: isEn = lang === 'en'
+
+	const dispatch = createEventDispatcher()
 
 	const BCC = 'campagne@pauseia.fr'
 
@@ -304,15 +306,26 @@
 	$: allRecipients = recipientGroups.flatMap((g) => g.list)
 	$: sentCount = allRecipients.filter((r) => sent.has(r.id)).length
 
+	// Après un changement d'étape, on repositionne la vue : en pleine page, en
+	// haut ; en mode intégré, on laisse la page hôte recentrer sur sa section
+	// (événement `navigate`) pour ne pas éjecter l'utilisateur vers le haut.
+	function afterNav() {
+		if (embedded) {
+			dispatch('navigate')
+			return
+		}
+		if (typeof window !== 'undefined') window.scrollTo({ top: 0 })
+	}
+
 	function choose(r: Recipient) {
 		selectedRecipient = r
 		step = 2
-		if (typeof window !== 'undefined') window.scrollTo({ top: 0 })
+		afterNav()
 	}
 
 	function back() {
 		step = 1
-		if (typeof window !== 'undefined') window.scrollTo({ top: 0 })
+		afterNav()
 	}
 
 	// Formule d'appel (civilité + titre selon le rôle, ou formule sur mesure).
