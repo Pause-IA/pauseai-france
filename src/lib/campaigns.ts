@@ -90,7 +90,7 @@ export const campaigns: Campaign[] = [
 				'Un modèle d’OpenAI s’est échappé de son test et a piraté une entreprise, seul. Alertez vos élus et la presse.',
 			cta: 'Passer à l’action',
 			homeCta: 'Passer à l’action',
-			progress: 'Campagne express'
+			progress: 'Action urgente'
 		},
 		en: {
 			title: 'An AI escaped: demand safeguards',
@@ -101,7 +101,7 @@ export const campaigns: Campaign[] = [
 				'An OpenAI model escaped its test and hacked a company, on its own. Alert your representatives and the press.',
 			cta: 'Take action',
 			homeCta: 'Take action',
-			progress: 'Rapid-response campaign'
+			progress: 'Urgent action'
 		}
 	},
 	{
