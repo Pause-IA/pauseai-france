@@ -57,6 +57,8 @@ const config = {
 							'/en/g7-2026',
 							'/fr/geneve-2026',
 							'/en/geneve-2026',
+							'/fr/une-ia-sest-echappee',
+							'/en/une-ia-sest-echappee',
 							'/fr/emploi-ia',
 							'/en/emploi-ia',
 							'/fr/emploi-ia/questionnaire',

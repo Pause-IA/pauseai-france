@@ -1,5 +1,5 @@
 ---
-title: Nos financements
+title: Notre financement
 description: D'où vient l'argent de Pause IA, à quoi il sert, et pourquoi nous restons indépendants des entreprises d'IA et des États. Comptes détaillés et rapport financier.
 ---
 
@@ -27,7 +27,7 @@ Nous ne recevons aucun financement d'entreprises d'intelligence artificielle ni 
 
 Certains de nos donateurs individuels sont engagés de longue date dans la sécurité de l'IA ; aucun, quel qu'il soit, n'a de droit de regard sur nos positions, nos campagnes ou nos prises de parole. Nous refuserions un financement plutôt que d'accepter une contrepartie de cette nature.
 
-## D'où vient notre argent
+## Nos ressources financières
 
 Depuis notre création en juin 2024, nous avons reçu environ 84 000 €, répartis ainsi :
 
@@ -47,9 +47,9 @@ Nous comptons aujourd'hui 126 adhérents. La cotisation la plus fréquente est d
 
 ## Nos points de vigilance
 
-Par souci de transparence, nous préférons le dire : nos ressources reposent encore sur un nombre restreint de contributeurs. Lors de notre premier exercice, un seul donateur représentait plus d'un tiers de nos recettes ; aujourd'hui, quelques personnes en représentent encore environ un tiers. Réduire progressivement cette dépendance en élargissant notre base d'adhérents est un objectif explicite de notre stratégie financière, et c'est l'une des raisons pour lesquelles nous encourageons l'adhésion plutôt que le don ponctuel.
+Nos ressources reposent encore sur un nombre restreint de contributeurs. Lors de notre premier exercice, un seul donateur représentait plus d'un tiers de nos recettes ; aujourd'hui, quelques personnes en représentent encore environ un tiers. Réduire progressivement cette dépendance en élargissant notre base d'adhérents est un objectif explicite de notre stratégie financière, et c'est l'une des raisons pour lesquelles nous encourageons l'adhésion plutôt que le don ponctuel.
 
-## À quoi sert l'argent
+## Nos dépenses
 
 Sur notre premier exercice (juin 2024 à novembre 2025), nous avons dépensé 21 198 €, dont 56 % pour l'organisation d'événements publics, 21 % pour les déplacements et l'hébergement des bénévoles, 9 % pour du matériel, et le reste en outils et frais de fonctionnement.
 

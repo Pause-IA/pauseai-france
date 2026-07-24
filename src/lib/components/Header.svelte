@@ -99,6 +99,7 @@
 			label: t.nav.campagnes,
 			items: [
 				{ href: `${prefix}/campagnes`, label: t.nav.toutes_campagnes },
+				{ href: `${prefix}/une-ia-sest-echappee`, label: t.nav.warning_shot },
 				{ href: `${prefix}/ecrire-a-mes-elus`, label: t.nav.ecrire_elus },
 				{ href: `${prefix}/emploi-ia`, label: t.nav.emploi_ia }
 			]

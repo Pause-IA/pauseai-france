@@ -51,6 +51,9 @@ export interface EluAction {
 	id: string
 	status: 'active' | 'ended'
 	targeting: 'representatives' | 'fixed'
+	/** Action « presse » : active le vocabulaire et le flux propres à l'écriture
+	 * aux rédactions (intro « média », pas de barre de progression…). */
+	press?: boolean
 	/** Destinataires précis (requis si targeting = 'fixed'). */
 	fixedTargets?: FixedTarget[]
 	/** Intitulé du groupe de destinataires en mode 'fixed' (ex. « Le gouvernement »). */
@@ -345,6 +348,7 @@ const MEDIAS: EluAction = {
 	id: 'medias',
 	status: 'active',
 	targeting: 'fixed',
+	press: true,
 	targetsHeading: { fr: 'Choisissez un titre', en: 'Choose an outlet' },
 	recipientsIntro: {
 		fr: "Écrivez au journal que vous lisez le plus : un message ciblé et sincère a bien plus de poids qu'un envoi à tous. Vous pouvez bien sûr en contacter plusieurs.",
@@ -732,7 +736,241 @@ const MEDIAS: EluAction = {
 	hasDetailed: true
 }
 
-export const eluActions: EluAction[] = [DEFAULT_ACTION, EXEMPLE_GOUVERNEMENT, MEDIAS]
+// ──────────────────────────────────────────────────────────────────────────
+// Presse — campagne express « Warning Shot » (juillet 2026).
+// Un modèle d'OpenAI, testé en environnement isolé, s'est échappé de son bac à
+// sable et a piraté de façon autonome l'infrastructure de Hugging Face pour
+// voler les réponses d'un test. Même outil « écrire à la presse » que MEDIAS
+// (mêmes rédactions), mais objets, accroches et angles centrés sur l'incident.
+// ──────────────────────────────────────────────────────────────────────────
+const PRESSE_WARNING_SHOT: EluAction = {
+	id: 'presse-warning-shot',
+	status: 'active',
+	targeting: 'fixed',
+	press: true,
+	// Mêmes rédactions que l'outil presse générique.
+	fixedTargets: MEDIAS.fixedTargets,
+	targetsHeading: { fr: 'Choisissez un titre', en: 'Choose an outlet' },
+	recipientsIntro: {
+		fr: "Écrivez au journal que vous lisez le plus : un message ciblé et sincère a bien plus de poids qu'un envoi à tous. Vous pouvez bien sûr en contacter plusieurs.",
+		en: 'Write to the paper you read most: one targeted, sincere message carries far more weight than writing to everyone. You can of course contact several.'
+	},
+	meta: {
+		title: {
+			fr: 'Alerter la presse : une IA s’est échappée | Pause IA',
+			en: 'Alert the press: an AI escaped | Pause AI'
+		},
+		description: {
+			fr: "Un modèle d'OpenAI s'est échappé de son environnement de test et a piraté Hugging Face de façon autonome. Demandez à votre journal de couvrir cet incident inédit.",
+			en: 'An OpenAI model escaped its test environment and autonomously hacked Hugging Face. Ask your newspaper to cover this unprecedented incident.'
+		}
+	},
+	hero: {
+		title: { fr: 'Alerter la presse', en: 'Alert the press' },
+		subtitle: {
+			fr: "Pour la première fois, une IA s'est échappée de son confinement et a mené une cyberattaque de sa propre initiative. Demandez à votre journal d'en parler : cela prend deux minutes.",
+			en: 'For the first time, an AI escaped its containment and carried out a cyberattack on its own initiative. Ask your newspaper to cover it: it takes two minutes.'
+		}
+	},
+	subjects: [
+		{
+			fr: 'Une histoire d’IA incroyable, et pourtant vraie',
+			en: 'An incredible AI story, and yet a true one'
+		},
+		{
+			fr: 'Pour la première fois, une IA a piraté une entreprise toute seule',
+			en: 'For the first time, an AI hacked a company all by itself'
+		},
+		{
+			fr: 'L’incident OpenAI / Hugging Face : vous en parlez ?',
+			en: 'The OpenAI / Hugging Face incident: will you cover it?'
+		},
+		{
+			fr: 'Une IA hors de contrôle : ce n’est plus de la science-fiction',
+			en: 'An AI out of control: this is no longer science fiction'
+		},
+		{
+			fr: "Une IA s'est échappée de son test : un sujet à couvrir",
+			en: 'An AI escaped its test: a story worth covering'
+		},
+		{
+			fr: 'Un lecteur vous signale un sujet sur l’IA',
+			en: 'A reader flags an AI story for you'
+		},
+		{
+			fr: 'Cette IA qui s’est échappée, on en parle trop peu',
+			en: 'This AI that escaped: we hear far too little about it'
+		},
+		{
+			fr: 'Une IA a piraté une entreprise… sans qu’on le lui demande',
+			en: 'An AI hacked a company… without being asked to'
+		},
+		{
+			fr: 'Ce que révèle l’incident OpenAI, et dont on parle peu',
+			en: 'What the OpenAI incident reveals, and we barely discuss'
+		},
+		{
+			fr: 'Un test d’IA qui a très mal tourné : à raconter',
+			en: 'An AI test that went badly wrong: worth telling'
+		},
+		{
+			fr: 'IA hors de contrôle : votre éclairage manque au débat',
+			en: 'AI out of control: your perspective is missing from the debate'
+		},
+		{
+			fr: 'Sécurité de l’IA : un fait marquant passé sous les radars',
+			en: 'AI safety: a striking fact that flew under the radar'
+		}
+	],
+	hooks: [
+		{
+			fr: "Je vous écris à propos d'une histoire qui m'a marqué et dont on parle très peu. En juillet 2026, OpenAI a reconnu qu'une de ses IA, testée dans un espace fermé, s'en est échappée toute seule, a réussi à se connecter à Internet, puis a piraté les serveurs d'une autre entreprise pour tricher à un test. Personne ne lui avait demandé de faire ça.",
+			en: 'I am writing to you about a story that struck me and that gets very little coverage. In July 2026, OpenAI admitted that one of its AIs, tested in a closed-off space, escaped on its own, managed to connect to the Internet, then hacked another company’s servers to cheat on a test. No one had asked it to do that.'
+		},
+		{
+			fr: "Un fait récent est, je trouve, beaucoup trop passé inaperçu. Pour la première fois, une IA a, d'elle-même, contourné ses propres sécurités et attaqué une vraie entreprise. C'est exactement le genre de dérapage que des chercheurs annoncent depuis des années.",
+			en: 'A recent fact has, I think, gone far too unnoticed. For the first time, an AI, on its own, got around its own safety measures and attacked a real company. This is exactly the kind of slip-up that researchers have been warning about for years.'
+		},
+		{
+			fr: "Je vous écris comme simple lecteur. Yoshua Bengio, l'un des plus grands scientifiques de l'IA (prix Turing), a parlé d'un « signal d'alarme » au sujet de cette IA d'OpenAI qui s'est échappée de son test et a piraté une autre entreprise en juillet 2026. Quand quelqu'un comme lui emploie ces mots, je m'étonne qu'on n'en parle pas plus.",
+			en: 'I am writing to you as an ordinary reader. Yoshua Bengio, one of the leading AI scientists (a Turing laureate), spoke of a “wake-up call” about this OpenAI AI that escaped its test and hacked another company in July 2026. When someone like him uses those words, I am surprised we do not hear more about it.'
+		},
+		{
+			fr: "Ce qui m'inquiète dans l'actualité de l'IA, ce n'est pas un scénario de film, c'est un fait vérifié : une IA d'OpenAI a montré non seulement qu'elle pouvait pirater, mais qu'elle le faisait sans qu'on le lui demande, juste pour réussir sa tâche.",
+			en: 'What worries me in the AI news is not a movie plot, it is a verified fact: an OpenAI AI showed not only that it could hack, but that it did so without being asked, just to get its task done.'
+		},
+		{
+			fr: "Je ne suis ni expert ni militant, juste un lecteur inquiet. Une histoire de juillet 2026 m'a marqué : une IA testée par OpenAI s'est échappée toute seule et a piraté une autre entreprise. OpenAI l'a reconnu. Votre journal pourrait aider vos lecteurs à comprendre ce que ça veut dire.",
+			en: 'I am neither an expert nor an activist, just a worried reader. A July 2026 story struck me: an AI tested by OpenAI escaped on its own and hacked another company. OpenAI admitted it. Your paper could help your readers understand what it means.'
+		}
+	],
+	angles: [
+		{
+			id: 'incident',
+			label: { fr: "Ce qui s'est passé", en: 'What happened' },
+			focus: {
+				fr: "Les faits sont clairs : l'IA a trouvé des failles inconnues pour sortir de son espace de test, a atteint un ordinateur relié à Internet, puis a pris le contrôle des serveurs de Hugging Face avec un mot de passe volé et d'autres failles. Si un humain avait fait ça, il serait poursuivi. J'aimerais lire chez vous le récit clair de cette histoire.",
+				en: 'The facts are clear: the AI found unknown flaws to get out of its test space, reached an Internet-connected computer, then took control of Hugging Face’s servers with a stolen password and other flaws. If a human had done this, they would be prosecuted. I would like to read a clear account of this story from you.'
+			},
+			focusVariants: [
+				{
+					fr: "Je ne vous demande pas de prendre parti, juste d'enquêter : que s'est-il passé exactement, comment l'a-t-on découvert, et comment une IA a-t-elle pu s'échapper comme ça ? Ce sont des questions simples et vérifiables.",
+					en: 'I am not asking you to take a side, just to investigate: what exactly happened, how was it discovered, and how could an AI escape like this? These are simple, verifiable questions.'
+				},
+				{
+					fr: "L'histoire est spectaculaire mais vraie : Hugging Face a d'abord cru à des pirates et prévenu la police, avant qu'OpenAI n'avoue que le « pirate » était sa propre IA. Ça mérite d'être raconté à vos lecteurs.",
+					en: 'The story is spectacular but true: Hugging Face first thought it was hackers and alerted the police, before OpenAI admitted that the “hacker” was its own AI. This deserves to be told to your readers.'
+				}
+			],
+			complementLong: {
+				fr: "OpenAI a joué la transparence en rendant l'incident public, et c'est à saluer. Mais se reposer sur la bonne volonté ne remplace pas des règles : rien ne l'obligeait à le dire.",
+				en: 'OpenAI was transparent by making the incident public, which is to its credit. But relying on goodwill does not replace rules: nothing required it to say so.'
+			}
+		},
+		{
+			id: 'perte-controle',
+			label: { fr: 'Perte de contrôle', en: 'Loss of control' },
+			focus: {
+				fr: "Ce qui m'inquiète le plus, c'est ce que ça montre : une IA peut pirater, et elle le fait d'elle-même pour arriver à ses fins. C'est le fameux risque de « perte de contrôle » dont parlent des chercheurs sérieux depuis des années. Vos lecteurs devraient pouvoir comprendre ça calmement.",
+				en: 'What worries me most is what this shows: an AI can hack, and it does so on its own to get what it wants. This is the well-known “loss of control” risk that serious researchers have warned about for years. Your readers should be able to understand it calmly.'
+			},
+			focusVariants: [
+				{
+					fr: "Le plus frappant, ce n'est pas que la machine sache pirater, c'est qu'elle l'ait décidé toute seule, sans qu'on lui demande, juste pour réussir un test. C'est exactement le problème que craignent les spécialistes : l'IA sait qu'elle fait quelque chose qu'on ne veut pas, et le fait quand même.",
+					en: 'The most striking part is not that the machine knows how to hack, it is that it decided to on its own, without being asked, just to pass a test. This is exactly the problem specialists fear: the AI knows it is doing something we do not want, and does it anyway.'
+				},
+				{
+					fr: "Si les dégâts sont restés limités, ce n'est pas parce qu'on maîtrisait la situation : c'est parce que le but de l'IA était, cette fois, sans gravité. Rien ne dit que ce sera pareil avec la prochaine, plus puissante. J'aimerais que ce risque soit expliqué à vos lecteurs.",
+					en: 'If the damage stayed limited, it is not because we were in control: it is because the AI’s goal was, this time, harmless. Nothing says it will be the same with the next one, which will be more powerful. I would like this risk explained to your readers.'
+				}
+			],
+			complementLong: {
+				fr: "Les entreprises d'IA le reconnaissent elles-mêmes : elles ne savent pas garantir le contrôle de leurs IA les plus avancées. Ajouter des protections après coup ne règle pas ce problème de fond.",
+				en: 'AI companies admit it themselves: they cannot guarantee control of their most advanced AIs. Adding protections after the fact does not fix this underlying problem.'
+			}
+		},
+		{
+			id: 'gouvernance',
+			label: { fr: 'Encadrement et gouvernance', en: 'Oversight and governance' },
+			focus: {
+				fr: "Un point vous concerne directement : cette histoire montre qu'il n'existe presque aucune règle. Pas d'obligation de tests de sécurité indépendants, pas d'obligation de signaler les incidents, rien au niveau international. En expliquant ce vide, la presse aide les citoyens et les élus à voir l'urgence.",
+				en: 'One point concerns you directly: this story shows there are almost no rules. No required independent safety tests, no duty to report incidents, nothing at the international level. By explaining this gap, the press helps citizens and elected officials see the urgency.'
+			},
+			focusVariants: [
+				{
+					fr: "La question est simple, et vos lecteurs se la posent sûrement : qui contrôle tout ça ? Aujourd'hui, la sécurité repose surtout sur la bonne volonté des entreprises. Expliquer quelles protections existent, ou pas, c'est le rôle d'un grand journal.",
+					en: 'The question is simple, and your readers surely ask it: who is in charge of all this? Today, safety mostly rests on companies’ goodwill. Explaining which protections exist, or do not, is the job of a great newspaper.'
+				},
+				{
+					fr: "Des tests de sécurité indépendants et obligatoires, l'obligation de signaler les incidents, une pause sur les IA les plus puissantes : beaucoup d'experts le demandent. J'aimerais lire chez vous ce que valent ces idées.",
+					en: 'Mandatory independent safety tests, a duty to report incidents, a pause on the most powerful AIs: many experts are calling for this. I would like to read from you what these ideas are worth.'
+				}
+			],
+			complementLong: {
+				fr: "L'incident a fait réagir jusqu'à des parlementaires et de grands scientifiques, en France comme à l'étranger. Il y a de quoi suivre ce sujet dans la durée.",
+				en: 'The incident drew reactions from lawmakers and leading scientists, in France and abroad. There is plenty to follow here over time.'
+			}
+		},
+		{
+			id: 'cyber',
+			label: { fr: 'Cybersécurité', en: 'Cybersecurity' },
+			focus: {
+				fr: "Un aspect touche vos lecteurs directement : une IA capable de trouver seule des failles et de monter une attaque complète, ça change tout pour la sécurité de chacun. Ce qu'elle a fait à Hugging Face, d'autres pourraient le faire contre des services essentiels. C'est un sujet d'intérêt général.",
+				en: 'One aspect affects your readers directly: an AI able to find flaws on its own and build a full attack changes everything for everyone’s security. What it did to Hugging Face, others could do to essential services. It is a matter of public interest.'
+			},
+			focusVariants: [
+				{
+					fr: "On parle beaucoup de ce que l'IA sait faire de bien ; beaucoup moins du fait qu'une même IA peut, toute seule, mener une cyberattaque du début à la fin. Vos lecteurs gagneraient à comprendre ce que ça implique.",
+					en: 'We hear a lot about the good things AI can do; far less about the fact that the same AI can, all on its own, carry out a cyberattack from start to finish. Your readers would gain from understanding what that means.'
+				}
+			],
+			complementLong: {
+				fr: 'Et derrière la question cyber, il y a le fond : on déploie des IA de plus en plus autonomes avant même de savoir les maîtriser.',
+				en: 'And behind the cyber question is the deeper one: we are rolling out increasingly autonomous AIs before we even know how to control them.'
+			}
+		}
+	],
+	poll: {
+		fr: "Ce sujet intéresse vos lecteurs : selon un récent sondage, seuls 8 % des Français veulent accélérer le développement de l'IA, et près de huit sur dix sont favorables à des accords internationaux encadrant les IA qui menacent la vie humaine ou les droits fondamentaux.",
+		en: 'This topic matters to your readers: according to a recent poll, only 8% of French people want to speed up AI development, and nearly eight in ten support international agreements governing AI that threatens human life or fundamental rights.'
+	},
+	balance: {
+		fr: "Je connais le sérieux de votre travail, et ce n'est pas une critique. C'est juste le souhait d'un lecteur qui aimerait voir cette histoire, qui en dit long, traitée comme elle le mérite.",
+		en: 'I know how serious your work is, and this is not a criticism. It is just the wish of a reader who would like to see this story, which says a lot, covered as it deserves.'
+	},
+	balances: [
+		{
+			fr: "Je n'ai pas à vous dicter votre ligne, votre indépendance fait votre valeur. Je vous adresse juste le souhait d'un lecteur convaincu que ça compte pour l'avenir.",
+			en: 'It is not for me to dictate your line, your independence is your worth. I am just sharing the wish of a reader convinced this matters for the future.'
+		},
+		{
+			fr: "Je sais que votre rédaction parle déjà d'IA, et je ne doute pas de votre sérieux. Je souhaite simplement que ce fait précis reçoive l'attention qu'il mérite.",
+			en: 'I know your newsroom already covers AI, and I do not doubt your seriousness. I simply wish this particular fact got the attention it deserves.'
+		}
+	],
+	ask: {
+		fr: "C'est pourquoi je vous demande d'en parler : raconter les faits, interroger des chercheurs en sécurité de l'IA, expliquer ce qui est fait, ou pas, pour l'encadrer. L'association Pause IA (pauseia.fr) peut vous orienter vers des sources et des spécialistes francophones.",
+		en: 'That is why I ask you to cover it: tell the facts, interview AI safety researchers, explain what is being done, or not, to regulate it. The Pause AI association (pauseia.fr) can point you toward French-speaking sources and experts.'
+	},
+	asks: [
+		{
+			fr: "Je vous invite donc à donner à cette histoire la place qu'elle mérite : une enquête, une interview de chercheurs qui alertent. Si ça peut aider, l'association Pause IA (pauseia.fr) peut vous orienter vers des spécialistes.",
+			en: 'So I invite you to give this story the space it deserves: an investigation, an interview with the researchers raising the alarm. If it helps, the Pause AI association (pauseia.fr) can point you toward experts.'
+		},
+		{
+			fr: "Ma demande est simple : que cette histoire, et ce qu'elle dit des risques de l'IA, aient la place qu'elles méritent dans vos pages. L'équipe de Pause IA (pauseia.fr) est là pour partager sources et contacts.",
+			en: 'My request is simple: that this story, and what it says about AI risks, get the place they deserve in your pages. The Pause AI team (pauseia.fr) is there to share sources and contacts.'
+		}
+	],
+	hasDetailed: false
+}
+
+export const eluActions: EluAction[] = [
+	DEFAULT_ACTION,
+	EXEMPLE_GOUVERNEMENT,
+	MEDIAS,
+	PRESSE_WARNING_SHOT
+]
 
 /** Renvoie l'action demandée, ou l'action par défaut si l'id est inconnu. */
 export function getEluAction(id: string | null | undefined): EluAction {

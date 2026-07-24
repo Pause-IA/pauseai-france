@@ -16,6 +16,7 @@ export default {
 		groupes_locaux: 'Local groups',
 		toutes_campagnes: 'All our campaigns',
 		geneve_2026: 'Geneva 2026',
+		warning_shot: 'An AI escaped',
 		ecrire_elus: 'Write to reps & the press',
 		emploi_ia: 'Employment & AI',
 		g7_2026: 'G7 2026',
