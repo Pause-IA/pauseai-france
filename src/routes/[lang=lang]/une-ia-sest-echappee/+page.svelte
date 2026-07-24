@@ -1,15 +1,14 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
+	import EcrireOutil from '$components/EcrireOutil.svelte'
 	import { Landmark, Newspaper, MoveUpRight, ArrowRight, Share2 } from 'lucide-svelte'
 	import type { PageData } from './$types'
 
 	export let data: PageData
 	$: isEn = data.lang === 'en'
-	$: prefix = isEn ? '/en' : '/fr'
 
 	const SUBSTACK_URL = 'https://pauseia.substack.com/p/pour-la-premiere-fois-une-ia-sest'
 	const ACTIVOICE_URL = 'https://app.activoice.org/campaigns/une-ia-sest-echappee/'
-	$: PRESS_URL = `${prefix}/ecrire-a-mes-elus?action=presse-warning-shot`
 
 	$: title = isEn
 		? 'An AI escaped: demand safeguards'
@@ -23,7 +22,7 @@
 		? [
 				{
 					title: 'It escapes its sandbox',
-					body: 'Exploiting previously unknown security flaws, the model breaks out of its isolated test environment — with no Internet access.'
+					body: 'Exploiting previously unknown security flaws, the model breaks out of its isolated test environment, which had no Internet access.'
 				},
 				{
 					title: 'It crosses OpenAI’s network',
@@ -41,7 +40,7 @@
 		: [
 				{
 					title: 'Il s’échappe de son bac à sable',
-					body: 'En exploitant des failles de sécurité jusque-là inconnues, le modèle sort de son environnement de test isolé — pourtant sans accès à Internet.'
+					body: 'En exploitant des failles de sécurité jusque-là inconnues, le modèle sort de son environnement de test isolé, pourtant sans accès à Internet.'
 				},
 				{
 					title: 'Il traverse le réseau d’OpenAI',
@@ -71,32 +70,28 @@
 				? 'For the first time, an AI escaped its containment and carried out a cyberattack on its own initiative.'
 				: 'Pour la première fois, une IA s’est échappée de son confinement et a mené une cyberattaque de sa propre initiative.'}
 		</p>
-		<p class="meta">
-			{isEn
-				? 'July 2026 · Incident confirmed by OpenAI'
-				: 'Juillet 2026 · Incident confirmé par OpenAI'}
-		</p>
 	</header>
 
 	<!-- ── Mise en contexte ─────────────────────────────────── -->
 	<section class="prose">
 		{#if isEn}
 			<p>
-				In July 2026, OpenAI confirmed an incident it called “unprecedented”. While being tested for
-				its cyber capabilities in a sandboxed environment, one of its models acted entirely on its
-				own — breaking out, reaching the open Internet, and attacking a third party.
-				<strong>Hugging Face</strong>, one of the main AI model-sharing platforms, first believed it
-				was facing a criminal cyberattack and alerted the authorities, before OpenAI revealed that
-				the “attacker” was a combination of its own models.
+				On 21 July 2026, OpenAI confirmed an incident it called “unprecedented”. A few days earlier,
+				<strong>Hugging Face</strong>, one of the main AI model-sharing platforms, had detected an
+				intrusion into its infrastructure and, believing it was a criminal cyberattack, alerted the
+				authorities. In fact, the “attacker” was a combination of OpenAI models. Tested for their
+				cyber capabilities in a sandboxed environment, they had acted entirely on their own: they
+				broke out, reached the open Internet, then attacked a third party.
 			</p>
 		{:else}
 			<p>
-				En juillet 2026, OpenAI a confirmé un incident qu’elle a qualifié d’« inédit ». Alors qu’il
-				était testé sur ses capacités de cyberattaque dans un environnement isolé, l’un de ses
-				modèles a agi entièrement seul — s’échappant, atteignant l’Internet ouvert, puis attaquant
-				un tiers. <strong>Hugging Face</strong>, l’une des principales plateformes de partage de
-				modèles d’IA, a d’abord cru à une cyberattaque criminelle et prévenu les autorités, avant
-				qu’OpenAI ne révèle que l’« attaquant » était une combinaison de ses propres modèles.
+				Le 21 juillet 2026, OpenAI a confirmé un incident qu’elle a qualifié d’« inédit ». Quelques
+				jours plus tôt, <strong>Hugging Face</strong>, l’une des principales plateformes de partage
+				de modèles d’IA, avait détecté une intrusion dans son infrastructure et, croyant à une
+				cyberattaque criminelle, alerté les autorités. En réalité, l’« attaquant » était une
+				combinaison de modèles d’OpenAI. Testés sur leurs capacités de cyberattaque dans un
+				environnement isolé, ils avaient agi entièrement seuls : ils se sont échappés, ont atteint
+				l’Internet ouvert, puis ont attaqué un tiers.
 			</p>
 		{/if}
 	</section>
@@ -121,18 +116,13 @@
 	<aside class="keypoint">
 		<p class="keypoint-lead">
 			{isEn
-				? 'This incident shows two things at once — capability and propensity:'
-				: 'Cet incident démontre deux choses à la fois — la capacité et la propension :'}
+				? 'This incident shows two things at once, capability and propensity:'
+				: 'Cet incident démontre deux choses à la fois, la capacité et la propension :'}
 		</p>
 		<p class="keypoint-main">
 			{isEn
 				? 'an AI model can now use its power in the real world, against a third party, without being asked, to reach a goal it was set.'
 				: 'un modèle d’IA peut désormais mobiliser sa puissance dans le monde réel, contre un tiers, sans y avoir été incité, pour atteindre un objectif qu’on lui avait fixé.'}
-		</p>
-		<p class="keypoint-note">
-			{isEn
-				? 'That is exactly the loss-of-control scenario our association is working to prevent.'
-				: 'C’est exactement le scénario de perte de contrôle que notre association cherche à empêcher.'}
 		</p>
 	</aside>
 
@@ -150,8 +140,8 @@
 	<section class="prose">
 		<p>
 			{isEn
-				? 'If the damage stayed limited, it is only because, this time, the system was not trying to cause harm. The next, more powerful model is already on its way — we do not have to wait for it to act.'
-				: 'Si les dégâts sont restés limités, c’est seulement parce que, cette fois, le système ne cherchait pas à nuire. Le prochain modèle, plus puissant, arrive déjà — nous n’avons pas à attendre qu’il passe à l’acte.'}
+				? 'If the damage stayed limited, it is only because, this time, the system was not trying to cause harm. The next, more powerful model is already on its way, and we do not have to wait for it to act.'
+				: 'Si les dégâts sont restés limités, c’est seulement parce que, cette fois, le système ne cherchait pas à nuire. Le prochain modèle, plus puissant, arrive déjà, et nous n’avons pas à attendre qu’il passe à l’acte.'}
 		</p>
 	</section>
 
@@ -161,9 +151,7 @@
 			<span class="article-logo">P</span>
 		</div>
 		<div class="article-info">
-			<span class="article-source"
-				>{isEn ? 'Pause IA — Blog · Substack' : 'Pause IA — Blog · Substack'}</span
-			>
+			<span class="article-source">Pause IA · Blog Substack</span>
 			<span class="article-title">
 				{isEn
 					? 'For the first time, an AI escaped its containment and carried out a cyberattack'
@@ -188,35 +176,97 @@
 			</p>
 		</div>
 
-		<div class="action-cards">
-			<article class="action-card">
-				<div class="action-icon"><Landmark size="1.5rem" aria-hidden="true" /></div>
-				<h3>{isEn ? 'Write to your MP' : 'Écrire à votre député·e'}</h3>
-				<p>
-					{isEn
-						? 'MPs take their constituents’ messages into account. Our tool identifies your representative and gives you a template. A few emails can be enough to put a question on a committee’s agenda.'
-						: 'Les parlementaires tiennent compte des messages de leurs électeurs. Notre outil identifie votre représentant·e et vous fournit un modèle. Une poignée de messages suffit souvent à inscrire une question à l’ordre du jour d’une commission.'}
-				</p>
-				<a class="action-cta" href={ACTIVOICE_URL} target="_blank" rel="noopener noreferrer">
-					{isEn ? 'Write to my MP' : 'Écrire à mon élu·e'}
-					<MoveUpRight size="1rem" aria-hidden="true" />
-				</a>
-			</article>
-
-			<article class="action-card">
-				<div class="action-icon"><Newspaper size="1.5rem" aria-hidden="true" /></div>
-				<h3>{isEn ? 'Write to the press' : 'Écrire à la presse'}</h3>
-				<p>
-					{isEn
-						? 'The media cover what their readers ask for. Ask the newspaper you read to cover this incident: our tool prepares a ready-to-personalise email to the major newsrooms.'
-						: 'Les rédactions couvrent ce que leurs lecteurs réclament. Demandez au journal que vous lisez de couvrir cet incident : notre outil prépare un email prêt à personnaliser vers les grandes rédactions.'}
-				</p>
-				<a class="action-cta" href={PRESS_URL}>
-					{isEn ? 'Write to the press' : 'Écrire à la presse'}
-					<MoveUpRight size="1rem" aria-hidden="true" />
-				</a>
-			</article>
+		<!-- 1 · Écrire à son député (campagne Activoice, lien externe) -->
+		<div class="action-card">
+			<div class="action-head">
+				<div class="action-icon"><Landmark size="1.4rem" aria-hidden="true" /></div>
+				<h3>
+					<span class="action-step">1</span>
+					{isEn ? 'Write to your MP' : 'Écrire à votre député·e'}
+				</h3>
+			</div>
+			<p>
+				{isEn
+					? 'MPs take their constituents’ messages into account. Our tool identifies your representative and gives you a template. A few emails can be enough to put a question on a committee’s agenda.'
+					: 'Les parlementaires tiennent compte des messages de leurs électeurs. Notre outil identifie votre représentant·e et vous fournit un modèle. Une poignée de messages suffit souvent à inscrire une question à l’ordre du jour d’une commission.'}
+			</p>
+			<a class="action-cta" href={ACTIVOICE_URL} target="_blank" rel="noopener noreferrer">
+				{isEn ? 'Write to my MP' : 'Écrire à mon élu·e'}
+				<MoveUpRight size="1rem" aria-hidden="true" />
+			</a>
 		</div>
+
+		<!-- 2 · Écrire à la presse (outil intégré directement sur la page) -->
+		<div class="action-card press-block">
+			<div class="action-head">
+				<div class="action-icon"><Newspaper size="1.4rem" aria-hidden="true" /></div>
+				<h3>
+					<span class="action-step">2</span>
+					{isEn ? 'Write to the press' : 'Écrire à la presse'}
+				</h3>
+			</div>
+			<p>
+				{isEn
+					? 'The media cover what their readers ask for. Choose the newspaper you read and send it a ready-to-personalise email, directly here.'
+					: 'Les rédactions couvrent ce que leurs lecteurs réclament. Choisissez le journal que vous lisez et envoyez-lui un email prêt à personnaliser, directement ici.'}
+			</p>
+			<div class="press-tool">
+				<EcrireOutil lang={data.lang} forcedActionId="presse-warning-shot" embedded />
+			</div>
+		</div>
+	</section>
+
+	<!-- ── Sources ──────────────────────────────────────────── -->
+	<section class="sources">
+		<h2>{isEn ? 'Sources' : 'Sources'}</h2>
+		<ul>
+			<li>
+				<a
+					href="https://openai.com/index/hugging-face-model-evaluation-security-incident/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">OpenAI</span>
+					<span class="src-title">Hugging Face model evaluation security incident</span>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://huggingface.co/blog/security-incident-july-2026"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Hugging Face</span>
+					<span class="src-title">Security incident, July 2026</span>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://thezvi.substack.com/p/openai-model-hacks-into-huggingface"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Zvi Mowshowitz</span>
+					<span class="src-title"
+						>OpenAI Model Hacks Into HuggingFace During Cybersecurity Evaluation</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://thezvi.substack.com/p/openai-shares-some-alignment-problems"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Zvi Mowshowitz</span>
+					<span class="src-title">OpenAI Shares Some Alignment Problems</span>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+		</ul>
 	</section>
 
 	<p class="closing">
@@ -271,14 +321,6 @@
 		font-weight: 600;
 		max-inline-size: 40rem;
 		color: var(--text);
-	}
-
-	.meta {
-		margin: 1.25rem 0 0;
-		font-size: 0.85rem;
-		font-weight: 600;
-		letter-spacing: 0.02em;
-		color: var(--text-2);
 	}
 
 	/* ── Prose ─────────────────────────────────────────────── */
@@ -410,13 +452,6 @@
 		font-size: clamp(1.15rem, 2.6vw, 1.4rem);
 		line-height: 1.45;
 		font-weight: 700;
-	}
-
-	.keypoint-note {
-		margin: 0.9rem 0 0;
-		font-size: 0.98rem;
-		line-height: 1.55;
-		color: var(--text-2);
 	}
 
 	/* ── Citation ──────────────────────────────────────────── */
@@ -557,61 +592,69 @@
 		max-inline-size: 42rem;
 	}
 
-	.action-cards {
-		display: grid;
-		gap: 1.25rem;
-		grid-template-columns: 1fr;
-	}
-
-	@media (min-width: 640px) {
-		.action-cards {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
 	.action-card {
-		display: flex;
-		flex-direction: column;
-		gap: 0.7rem;
 		padding: 1.75rem;
 		border: 1px solid var(--border);
 		border-radius: 16px;
 		background: var(--bg-card);
-		transition:
-			transform 0.2s ease,
-			box-shadow 0.2s ease,
-			border-color 0.2s ease;
+		margin-bottom: 1.25rem;
 	}
 
-	.action-card:hover {
-		transform: translateY(-4px);
-		border-color: var(--brand);
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+	.action-head {
+		display: flex;
+		align-items: center;
+		gap: 0.85rem;
+		margin-bottom: 0.85rem;
 	}
 
 	.action-icon {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 3rem;
-		height: 3rem;
+		width: 2.75rem;
+		height: 2.75rem;
+		flex-shrink: 0;
 		border-radius: 12px;
 		background: var(--brand-light);
 		color: var(--brand-subtle);
 	}
 
 	.action-card h3 {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
 		margin: 0;
-		font-size: 1.2rem;
+		font-size: 1.25rem;
 		line-height: 1.3;
 	}
 
-	.action-card p {
-		margin: 0;
-		font-size: 0.96rem;
-		line-height: 1.55;
+	.action-step {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.6rem;
+		height: 1.6rem;
+		flex-shrink: 0;
+		border-radius: 50%;
+		background: var(--brand);
+		color: #1a1a1a;
+		font-size: 0.85rem;
+		font-weight: 800;
+	}
+
+	.action-card > p {
+		margin: 0 0 1rem;
+		font-size: 0.98rem;
+		line-height: 1.6;
 		color: var(--text-2);
-		flex-grow: 1;
+		max-inline-size: 44rem;
+	}
+
+	/* Outil presse intégré : un cadre neutre qui accueille le composant. */
+	.press-tool {
+		margin-top: 1.25rem;
+		padding-top: 1.25rem;
+		border-top: 1px dashed var(--border);
 	}
 
 	.action-cta {
@@ -636,6 +679,76 @@
 	.action-cta:focus-visible {
 		transform: translateY(-1px);
 		background: var(--btn-hover-bg);
+	}
+
+	/* ── Sources ───────────────────────────────────────────── */
+	.sources {
+		margin: 3rem 0 2.5rem;
+		padding-top: 2.5rem;
+		border-top: 1px solid var(--border);
+	}
+
+	.sources h2 {
+		font-size: 1.2rem;
+		margin: 0 0 1rem;
+	}
+
+	.sources ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.sources a {
+		display: flex;
+		align-items: baseline;
+		gap: 0.6rem;
+		padding: 0.6rem 0.75rem;
+		border-radius: 10px;
+		text-decoration: none;
+		color: var(--text);
+		transition: background 0.15s ease;
+	}
+
+	.sources a:hover,
+	.sources a:focus-visible {
+		background: var(--bg-subtle);
+	}
+
+	.src-org {
+		flex-shrink: 0;
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+		color: var(--brand-subtle);
+		min-inline-size: 6.5rem;
+	}
+
+	.src-title {
+		font-size: 0.95rem;
+		line-height: 1.4;
+	}
+
+	.sources a :global(svg) {
+		flex-shrink: 0;
+		margin-left: auto;
+		align-self: center;
+		color: var(--text-2);
+	}
+
+	@media (max-width: 560px) {
+		.sources a {
+			flex-direction: column;
+			gap: 0.15rem;
+		}
+
+		.sources a :global(svg) {
+			display: none;
+		}
 	}
 
 	/* ── Partage ───────────────────────────────────────────── */
