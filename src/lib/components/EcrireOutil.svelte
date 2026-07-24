@@ -62,6 +62,7 @@
 	let focusIndex = 0
 	let balanceIndex = 0
 	let askIndex = 0
+	let introIndex = 0
 	let angle = ''
 	let seededFor = ''
 	// Sel de session : deux visiteurs différents obtiennent des combinaisons
@@ -74,6 +75,7 @@
 		focusIndex = Math.floor(Math.random() * 997)
 		balanceIndex = Math.floor(Math.random() * 997)
 		askIndex = Math.floor(Math.random() * 997)
+		introIndex = Math.floor(Math.random() * 997)
 		angle = action.angles[0].id
 	}
 
@@ -98,6 +100,7 @@
 		focusIndex = Math.floor(h / 13) % 997
 		balanceIndex = Math.floor(h / 17) % 997
 		askIndex = Math.floor(h / 19) % 997
+		introIndex = Math.floor(h / 23) % 997
 	}
 
 	type Version = 'short' | 'long'
@@ -392,7 +395,7 @@
 	// Formulations neutres (non genrées) : on utilise des verbes plutôt que des
 	// noms/adjectifs accordés ("je réside", "me préoccupe") pour que le message
 	// convienne à tout le monde sans avoir à demander la civilité de l'expéditeur.
-	function introLine(r: Recipient, name: string): string {
+	function introLine(r: Recipient, name: string, iIdx = 0): string {
 		const nom = name.trim() || (isEn ? '[your name]' : '[votre nom]')
 		if (r.introKind === 'generic') {
 			return isEn
@@ -404,12 +407,27 @@
 				? `My name is ${nom}, and I am writing to you as a resident of your department.`
 				: `Je m'appelle ${nom} et je vous écris car je réside dans votre département.`
 		}
-		// Presse : intro sobre qui pose le cadre (la couverture de l'IA) sans faire
-		// doublon avec l'accroche « lecteur » qui suit, et sans marque de genre.
+		// Presse : ouverture « lecteur » déclinée en plusieurs formulations (variété
+		// d'un journal à l'autre), neutres en genre et sans doublon avec l'accroche.
 		if (r.introKind === 'media') {
-			return isEn
-				? `My name is ${nom}, and I am writing to you about your coverage of artificial intelligence.`
-				: `Je m'appelle ${nom} et je vous écris au sujet de votre couverture de l'intelligence artificielle.`
+			const fr = [
+				`Je m'appelle ${nom} et je vous écris au sujet de votre couverture de l'intelligence artificielle.`,
+				`Je m'appelle ${nom}, je vous lis régulièrement, et je vous écris à propos de l'intelligence artificielle.`,
+				`Je m'appelle ${nom} et je me permets de vous écrire, comme lecteur, à propos de l'IA.`,
+				`Je m'appelle ${nom}. Je vous écris parce qu'un sujet d'actualité sur l'IA me semble mériter votre attention.`,
+				`Je m'appelle ${nom} et je vous adresse ce message en tant que lecteur attentif à ce que vous publiez sur l'IA.`,
+				`Je m'appelle ${nom} et je vous écris, simplement, parce que je fais confiance à votre rédaction sur les sujets d'IA.`
+			]
+			const en = [
+				`My name is ${nom}, and I am writing to you about your coverage of artificial intelligence.`,
+				`My name is ${nom}, I read you regularly, and I am writing to you about artificial intelligence.`,
+				`My name is ${nom}, and I am writing to you as a reader, about AI.`,
+				`My name is ${nom}. I am writing because a piece of AI news seems to me to deserve your attention.`,
+				`My name is ${nom}, and I am sending this as a reader who pays attention to what you publish on AI.`,
+				`My name is ${nom}, and I am writing simply because I trust your newsroom on AI matters.`
+			]
+			const pool = isEn ? en : fr
+			return pool[iIdx % pool.length]
 		}
 		// Députés : la localité affirmée dépend de la fiabilité du géocodage, pour
 		// ne pas prétendre « votre circonscription » quand le code postal en couvre
@@ -442,6 +460,7 @@
 		focusIndex = Math.floor(Math.random() * 997)
 		balanceIndex = Math.floor(Math.random() * 997)
 		askIndex = Math.floor(Math.random() * 997)
+		introIndex = Math.floor(Math.random() * 997)
 	}
 
 	// Compose les paragraphes du corps. Les index (accroche + variantes) sont passés
@@ -490,7 +509,7 @@
 	function buildBodyText(r: Recipient): string {
 		return [
 			salutation(r),
-			introLine(r, userName),
+			introLine(r, userName, introIndex),
 			...buildParagraphs(
 				angle,
 				version,
@@ -1256,7 +1275,7 @@
 				</div>
 				<div class="email-body" id="email-body">
 					<p>{salutation(selectedRecipient)}</p>
-					<p>{introLine(selectedRecipient, userName)}</p>
+					<p>{introLine(selectedRecipient, userName, introIndex)}</p>
 					{#each buildParagraphs(angle, version, personalSentence, hookIndex, focusIndex, balanceIndex, askIndex) as para}
 						<p>{para}</p>
 					{/each}

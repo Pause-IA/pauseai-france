@@ -800,6 +800,26 @@ const PRESSE_WARNING_SHOT: EluAction = {
 		{
 			fr: 'Cette IA qui s’est échappée, on en parle trop peu',
 			en: 'This AI that escaped: we hear far too little about it'
+		},
+		{
+			fr: 'Une IA a piraté une entreprise… sans qu’on le lui demande',
+			en: 'An AI hacked a company… without being asked to'
+		},
+		{
+			fr: 'Ce que révèle l’incident OpenAI, et dont on parle peu',
+			en: 'What the OpenAI incident reveals, and we barely discuss'
+		},
+		{
+			fr: 'Un test d’IA qui a très mal tourné : à raconter',
+			en: 'An AI test that went badly wrong: worth telling'
+		},
+		{
+			fr: 'IA hors de contrôle : votre éclairage manque au débat',
+			en: 'AI out of control: your perspective is missing from the debate'
+		},
+		{
+			fr: 'Sécurité de l’IA : un fait marquant passé sous les radars',
+			en: 'AI safety: a striking fact that flew under the radar'
 		}
 	],
 	hooks: [
