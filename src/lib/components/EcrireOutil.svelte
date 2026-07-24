@@ -19,10 +19,10 @@
 
 	const dispatch = createEventDispatcher()
 
-	// Champ « nom » et signalement quand on tente de composer sans l'avoir rempli.
+	// Nom requis (mode presse intégré) : bloque l'envoi tant qu'il est vide, avec
+	// un champ dédié à l'étape 2 pour que l'email se complète automatiquement.
 	let nameInput: HTMLInputElement | undefined
-	let nameError = false
-	$: if (userName.trim()) nameError = false
+	$: nameMissing = requireName && !userName.trim()
 
 	const BCC = 'campagne@pauseia.fr'
 
@@ -325,14 +325,8 @@
 	}
 
 	function choose(r: Recipient) {
-		// Gate souple : sans nom, on ne passe pas à la rédaction ; on met en
-		// évidence le champ « nom » pour que l'email se complète tout seul.
-		if (requireName && !userName.trim()) {
-			nameError = true
-			nameInput?.focus()
-			nameInput?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-			return
-		}
+		// On avance toujours vers la rédaction (pas de retour en haut de page).
+		// Le nom, quand il est requis, se saisit directement à l'étape 2.
 		selectedRecipient = r
 		step = 2
 		afterNav()
@@ -743,14 +737,11 @@
 			<div class="user-fields">
 				<input
 					class="user-input"
-					class:input-error={nameError}
 					type="text"
 					placeholder={isEn ? 'Your full name' : 'Votre nom complet'}
 					autocomplete="name"
 					bind:value={userName}
-					bind:this={nameInput}
 					on:input={saveUser}
-					aria-invalid={nameError}
 				/>
 				<input
 					class="user-input"
@@ -760,13 +751,6 @@
 					on:input={saveUser}
 				/>
 			</div>
-			{#if nameError}
-				<p class="notice notice--error">
-					{isEn
-						? 'Please enter your name first so the email fills in automatically.'
-						: 'Indiquez d’abord votre nom pour que l’email se rédige automatiquement.'}
-				</p>
-			{/if}
 
 			{#if isSampleData && action.targeting !== 'fixed'}
 				<p class="notice notice--warn">
@@ -1127,7 +1111,37 @@
 				</div>
 			</div>
 
-			{#if !userName.trim()}
+			{#if requireName}
+				<!-- Nom saisi directement ici : l'aperçu se complète en temps réel. -->
+				<div class="name-gate" class:name-gate--error={nameMissing}>
+					<label class="name-gate-label" for="name-gate-input">
+						{isEn
+							? 'Your name (so the email fills in automatically)'
+							: 'Votre nom (pour que l’email se rédige tout seul)'}
+					</label>
+					<div class="user-fields">
+						<input
+							id="name-gate-input"
+							class="user-input"
+							class:input-error={nameMissing}
+							type="text"
+							placeholder={isEn ? 'Your full name' : 'Votre nom complet'}
+							autocomplete="name"
+							bind:value={userName}
+							bind:this={nameInput}
+							on:input={saveUser}
+							aria-invalid={nameMissing}
+						/>
+						<input
+							class="user-input"
+							type="text"
+							placeholder={isEn ? 'Your town' : 'Votre ville'}
+							bind:value={userVille}
+							on:input={saveUser}
+						/>
+					</div>
+				</div>
+			{:else if !userName.trim()}
 				<p class="card-intro">
 					{#if isEn}
 						Tip: add your name and town in step 1 and the email writes itself in full.
@@ -1246,13 +1260,17 @@
 
 			<div class="send-row">
 				{#if selectedRecipient.email}
-					<Button on:click={openMail}>{isEn ? 'Open my email' : 'Ouvrir mon email'}</Button>
-				{:else if selectedRecipient.contactUrl}
+					<Button on:click={openMail} disabled={nameMissing}
+						>{isEn ? 'Open my email' : 'Ouvrir mon email'}</Button
+					>
+				{:else if selectedRecipient.contactUrl && !nameMissing}
 					<Button href={selectedRecipient.contactUrl} target="_blank" rel="noopener noreferrer">
 						{isEn ? 'Open contact form' : 'Ouvrir le formulaire'}
 					</Button>
+				{:else if selectedRecipient.contactUrl}
+					<Button disabled>{isEn ? 'Open contact form' : 'Ouvrir le formulaire'}</Button>
 				{/if}
-				<Button alt on:click={copyEmail}>
+				<Button alt on:click={copyEmail} disabled={nameMissing}>
 					{#if copied}
 						{isEn ? '✓ Copied' : '✓ Copié'}
 					{:else}
@@ -1260,6 +1278,13 @@
 					{/if}
 				</Button>
 			</div>
+			{#if nameMissing}
+				<p class="notice notice--error send-hint">
+					{isEn
+						? 'Enter your name above to send your email.'
+						: 'Indiquez votre nom ci-dessus pour envoyer votre email.'}
+				</p>
+			{/if}
 
 			{#if selectedRecipient.email}
 				<details class="webmail-fallback">
@@ -1522,6 +1547,36 @@
 		line-height: 1.6;
 		color: var(--text-2);
 		margin-bottom: 1.25rem;
+	}
+
+	/* Nom requis à l'étape 2 (mode presse intégré) */
+	.name-gate {
+		margin-bottom: 1.25rem;
+		padding: 0.9rem 1rem;
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		background: var(--bg-subtle);
+		transition: border-color 0.15s ease;
+	}
+
+	.name-gate--error {
+		border-color: #d92d20;
+	}
+
+	.name-gate-label {
+		display: block;
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--text);
+		margin-bottom: 0.5rem;
+	}
+
+	.name-gate .user-fields {
+		margin-top: 0;
+	}
+
+	.send-hint {
+		margin-top: 0.6rem;
 	}
 
 	/* Champs nom / commune */
