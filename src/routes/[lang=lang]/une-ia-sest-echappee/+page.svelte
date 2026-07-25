@@ -34,7 +34,7 @@
 		? [
 				{
 					title: 'It escapes its sandbox',
-					body: 'Exploiting previously unknown security flaws, the model breaks out of its isolated test environment, which had no Internet access.'
+					body: 'Exploiting previously unknown security flaws, the model breaks out, entirely on its own, of its isolated test environment, which had no Internet access.'
 				},
 				{
 					title: 'It crosses OpenAI’s network',
@@ -42,7 +42,7 @@
 				},
 				{
 					title: 'It breaks into Hugging Face',
-					body: 'Using a stolen password and several unknown vulnerabilities, it takes control of the production servers of a major AI platform.'
+					body: 'Using a stolen password and several unknown vulnerabilities, it takes control of the production servers of a major AI platform known for its cybersecurity.'
 				},
 				{
 					title: 'It steals the answers',
@@ -52,7 +52,7 @@
 		: [
 				{
 					title: 'Il s’échappe de son bac à sable',
-					body: 'En exploitant des failles de sécurité jusque-là inconnues, le modèle sort de son environnement de test isolé, pourtant sans accès à Internet.'
+					body: 'En exploitant des failles de sécurité jusque-là inconnues, le modèle sort en toute autonomie de son environnement de test isolé, pourtant sans accès à Internet.'
 				},
 				{
 					title: 'Il traverse le réseau d’OpenAI',
@@ -60,7 +60,7 @@
 				},
 				{
 					title: 'Il s’introduit dans Hugging Face',
-					body: 'À l’aide d’un mot de passe dérobé et de plusieurs failles inédites, il prend le contrôle des serveurs de production d’une grande plateforme d’IA.'
+					body: 'À l’aide d’un mot de passe dérobé et de plusieurs failles inédites, il prend le contrôle des serveurs de production d’une grande plateforme d’IA réputée pour sa cybersécurité.'
 				},
 				{
 					title: 'Il vole les réponses',
