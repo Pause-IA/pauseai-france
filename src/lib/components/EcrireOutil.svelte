@@ -93,7 +93,10 @@
 	// Presse : chaque journal reçoit automatiquement un objet, une accroche et un
 	// angle différents (variété entre rédactions), stables si on y revient.
 	function seedForRecipient(r: Recipient) {
-		const h = hashStr(r.id) ^ sessionSalt
+		// `>>> 0` : le XOR JS opère sur des entiers 32 bits SIGNÉS, donc le résultat
+		// peut être négatif → indices négatifs → plantage. On force un entier non
+		// signé pour garantir des index valides pour tous les journaux.
+		const h = (hashStr(r.id) ^ sessionSalt) >>> 0
 		subjectIndex = h % action.subjects.length
 		hookIndex = Math.floor(h / 7) % action.hooks.length
 		angle = action.angles[Math.floor(h / 97) % action.angles.length].id
@@ -357,6 +360,7 @@
 		// On avance toujours vers la rédaction (pas de retour en haut de page).
 		// Le nom, quand il est requis, se saisit directement à l'étape 2.
 		selectedRecipient = r
+		mailAttempted = false
 		// Presse : varier le message d'un journal à l'autre, automatiquement.
 		if (action.press) seedForRecipient(r)
 		step = 2
@@ -365,6 +369,7 @@
 
 	function back() {
 		step = 1
+		mailAttempted = false
 		afterNav()
 	}
 
@@ -664,11 +669,23 @@
 		}
 	}
 
+	// Le client mail ne s'ouvre pas toujours : sur certains systèmes, un lien
+	// mailto trop long (corps + accents encodés) dépasse la limite de l'OS
+	// (~2000 caractères) et est ignoré silencieusement, ou aucun client n'est
+	// configuré. On révèle alors immédiatement les solutions de secours.
+	let mailAttempted = false
 	function openMail() {
-		if (!selectedRecipient) return
+		if (!selectedRecipient || nameMissing) return
 		markSent(selectedRecipient.id)
 		logIntent(selectedRecipient)
-		window.location.href = mailtoHref(selectedRecipient)
+		mailAttempted = true
+		// Déclenchement par clic d'ancre : plus fiable que window.location.href.
+		const a = document.createElement('a')
+		a.href = mailtoHref(selectedRecipient)
+		a.style.display = 'none'
+		document.body.appendChild(a)
+		a.click()
+		a.remove()
 	}
 
 	function confidenceNote(r: Recipient): string | null {
@@ -1334,11 +1351,11 @@
 			{/if}
 
 			{#if selectedRecipient.email}
-				<details class="webmail-fallback">
+				<details class="webmail-fallback" open={mailAttempted}>
 					<summary>
 						{isEn
-							? 'Nothing opened? Open in a webmail instead'
-							: "Rien ne s'est ouvert ? Ouvrir dans un webmail"}
+							? 'Nothing opened? Send it another way'
+							: "Rien ne s'est ouvert ? Envoyez-le autrement"}
 					</summary>
 					<div class="webmail-links">
 						<button class="webmail-btn" on:click={() => openWebmail('gmail')}>Gmail</button>
