@@ -10,6 +10,18 @@ import type { PressCoverage } from '$lib/notion'
  * docs/espace-presse.md), pas par ce fichier.
  */
 export const staticPressCoverage: PressCoverage[] = [
+	// ── Cyberattaque IA / OpenAI – Hugging Face (juillet 2026) ──────────────
+	{
+		id: 'static-01net-cyberattaque-ia-2026-07-27',
+		title:
+			'Après la « première cyberattaque » menée par l’IA, la victime demande des comptes à OpenAI',
+		source: '01net',
+		date: '2026-07-27',
+		url: 'https://www.01net.com/actualites/cyberattaque-ia-victime-demande-compte-openai.html',
+		order: 0,
+		visible: true
+	},
+
 	// ── G7 2026 / Emploi & IA (juin 2026) ───────────────────────────────────
 	{
 		id: 'static-channelnews-g7-2026-06-17',
