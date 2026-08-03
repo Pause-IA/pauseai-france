@@ -772,24 +772,6 @@
 			"role": "depute"
 		},
 		{
-			"circo": 10,
-			"civ": "M",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA606507",
-			"departement": "33",
-			"email": "florent.boudie@assemblee-nationale.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"source",
-				"pattern"
-			],
-			"groupe": "EPR",
-			"id": "PA606507",
-			"nom": "Florent Boudié",
-			"nomCirco": "Gironde (10e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/606507.jpg",
-			"role": "depute"
-		},
-		{
 			"circo": 1,
 			"civ": "M",
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA606545",
@@ -1927,7 +1909,7 @@
 			"emailSources": [
 				"source"
 			],
-			"groupe": "EPR",
+			"groupe": "HOR",
 			"id": "PA719756",
 			"nom": "Christine Le Nabour",
 			"nomCirco": "Ille-et-Vilaine (5e circonscription)",
@@ -4829,6 +4811,24 @@
 			"role": "depute"
 		},
 		{
+			"circo": 10,
+			"civ": "Mme",
+			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793924",
+			"departement": "33",
+			"email": "marie-sophie.bernadeau@assemblee-nationale.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"source",
+				"pattern"
+			],
+			"groupe": "EPR",
+			"id": "PA793924",
+			"nom": "Marie-Sophie Bernadeau",
+			"nomCirco": "Gironde (10e circonscription)",
+			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793924.jpg",
+			"role": "depute"
+		},
+		{
 			"circo": 11,
 			"civ": "Mme",
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793928",
@@ -5189,19 +5189,19 @@
 		{
 			"circo": 6,
 			"civ": "M",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794178",
+			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794182",
 			"departement": "42",
-			"email": "jean-pierre.taite@assemblee-nationale.fr",
+			"email": "jean-yves.bonnefoy@assemblee-nationale.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"source",
 				"pattern"
 			],
 			"groupe": "DR",
-			"id": "PA794178",
-			"nom": "Jean-Pierre Taite",
+			"id": "PA794182",
+			"nom": "Jean-Yves Bonnefoy",
 			"nomCirco": "Loire (6e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794178.jpg",
+			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794182.jpg",
 			"role": "depute"
 		},
 		{
@@ -10265,8 +10265,9 @@
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA857021",
 			"departement": "38",
 			"email": "alim.latreche@assemblee-nationale.fr",
-			"emailConfidence": "low",
+			"emailConfidence": "high",
 			"emailSources": [
+				"source",
 				"pattern"
 			],
 			"groupe": "EPR",
@@ -12442,20 +12443,20 @@
 			},
 			{
 				"circo": 10,
-				"civ": "M",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA606507",
+				"civ": "Mme",
+				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793924",
 				"departement": "33",
-				"email": "florent.boudie@assemblee-nationale.fr",
+				"email": "marie-sophie.bernadeau@assemblee-nationale.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"source",
 					"pattern"
 				],
 				"groupe": "EPR",
-				"id": "PA606507",
-				"nom": "Florent Boudié",
+				"id": "PA793924",
+				"nom": "Marie-Sophie Bernadeau",
 				"nomCirco": "Gironde (10e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/606507.jpg",
+				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793924.jpg",
 				"role": "depute"
 			},
 			{
@@ -12741,7 +12742,7 @@
 				"emailSources": [
 					"source"
 				],
-				"groupe": "EPR",
+				"groupe": "HOR",
 				"id": "PA719756",
 				"nom": "Christine Le Nabour",
 				"nomCirco": "Ille-et-Vilaine (5e circonscription)",
@@ -12940,8 +12941,9 @@
 				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA857021",
 				"departement": "38",
 				"email": "alim.latreche@assemblee-nationale.fr",
-				"emailConfidence": "low",
+				"emailConfidence": "high",
 				"emailSources": [
+					"source",
 					"pattern"
 				],
 				"groupe": "EPR",
@@ -13375,19 +13377,19 @@
 			{
 				"circo": 6,
 				"civ": "M",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794178",
+				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794182",
 				"departement": "42",
-				"email": "jean-pierre.taite@assemblee-nationale.fr",
+				"email": "jean-yves.bonnefoy@assemblee-nationale.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"source",
 					"pattern"
 				],
 				"groupe": "DR",
-				"id": "PA794178",
-				"nom": "Jean-Pierre Taite",
+				"id": "PA794182",
+				"nom": "Jean-Yves Bonnefoy",
 				"nomCirco": "Loire (6e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794178.jpg",
+				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794182.jpg",
 				"role": "depute"
 			}
 		],
@@ -20911,7 +20913,7 @@
 			}
 		]
 	},
-	"generatedAt": "2026-06-27",
+	"generatedAt": "2026-08-03",
 	"senateurs": [
 		{
 			"civ": "M",
@@ -20991,22 +20993,6 @@
 			"nom": "Patricia Schillinger",
 			"nomDept": "Haut-Rhin",
 			"photo": "https://www.senat.fr/senimg/schillinger_patricia04045f_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/buffet_francois_noel04047h.html",
-			"departement": "69",
-			"email": "fn.buffet@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "04047h",
-			"nom": "François-Noël Buffet",
-			"nomDept": "Rhône",
-			"photo": "https://www.senat.fr/senimg/buffet_francois_noel04047h_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -22788,7 +22774,7 @@
 			"email": null,
 			"emailConfidence": "none",
 			"emailSources": [],
-			"groupe": "SER",
+			"groupe": "RDSE",
 			"id": "19251m",
 			"nom": "Gilbert-Luc Devinaz",
 			"nomDept": "Rhône",
@@ -26260,6 +26246,22 @@
 			"role": "senateur"
 		},
 		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/vidal_paul21416l.html",
+			"departement": "69",
+			"email": "p.vidal@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21416l",
+			"nom": "Paul Vidal",
+			"nomDept": "Rhône",
+			"photo": "https://www.senat.fr/senimg/vidal_paul21416l_carre.jpg",
+			"role": "senateur"
+		},
+		{
 			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/patru_anne_sophie21421h.html",
 			"departement": "35",
@@ -29537,22 +29539,6 @@
 		],
 		"69": [
 			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/buffet_francois_noel04047h.html",
-				"departement": "69",
-				"email": "fn.buffet@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Républicains",
-				"id": "04047h",
-				"nom": "François-Noël Buffet",
-				"nomDept": "Rhône",
-				"photo": "https://www.senat.fr/senimg/buffet_francois_noel04047h_carre.jpg",
-				"role": "senateur"
-			},
-			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/di_folco_catherine14215l.html",
 				"departement": "69",
@@ -29591,7 +29577,7 @@
 				"email": null,
 				"emailConfidence": "none",
 				"emailSources": [],
-				"groupe": "SER",
+				"groupe": "RDSE",
 				"id": "19251m",
 				"nom": "Gilbert-Luc Devinaz",
 				"nomDept": "Rhône",
@@ -29644,6 +29630,22 @@
 				"nom": "Thomas Dossus",
 				"nomDept": "Rhône",
 				"photo": "https://www.senat.fr/senimg/dossus_thomas20134y_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/vidal_paul21416l.html",
+				"departement": "69",
+				"email": "p.vidal@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Républicains",
+				"id": "21416l",
+				"nom": "Paul Vidal",
+				"nomDept": "Rhône",
+				"photo": "https://www.senat.fr/senimg/vidal_paul21416l_carre.jpg",
 				"role": "senateur"
 			}
 		],
