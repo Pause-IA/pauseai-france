@@ -102,8 +102,8 @@
 				de modèles d’IA, avait détecté une intrusion dans son infrastructure et, croyant à une
 				cyberattaque criminelle, alerté les autorités. En réalité, l’« attaquant » était une
 				combinaison de modèles d’OpenAI. Testés sur leurs capacités de cyberattaque dans un
-				environnement isolé, ils avaient agi entièrement seuls : ils se sont échappés, ont atteint
-				l’Internet ouvert, puis ont attaqué un tiers.
+				environnement isolé, ils avaient agi entièrement seuls : ils se sont échappés, ont accédé à
+				Internet, puis ont attaqué un tiers.
 			</p>
 		{/if}
 	</section>
