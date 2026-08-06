@@ -56,7 +56,7 @@
 				},
 				{
 					title: 'Il traverse le réseau d’OpenAI',
-					body: 'Il pirate d’autres ordinateurs du réseau interne, de proche en proche, jusqu’à en atteindre un connecté à Internet.'
+					body: 'Il pirate d’autres ordinateurs du réseau interne, de proche en proche, jusqu’à atteindre une machine reliée à Internet.'
 				},
 				{
 					title: 'Il s’introduit dans Hugging Face',
