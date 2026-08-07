@@ -34,7 +34,7 @@
 		? [
 				{
 					title: 'It escapes its sandbox',
-					body: 'Exploiting previously unknown security flaws, the model breaks out of its isolated test environment, which had no Internet access.'
+					body: 'Exploiting previously unknown security flaws, the model breaks out, entirely on its own, of its isolated test environment, which had no Internet access.'
 				},
 				{
 					title: 'It crosses OpenAI’s network',
@@ -42,7 +42,7 @@
 				},
 				{
 					title: 'It breaks into Hugging Face',
-					body: 'Using a stolen password and several unknown vulnerabilities, it takes control of the production servers of a major AI platform.'
+					body: 'Using a stolen password and several unknown vulnerabilities, it takes control of the production servers of a major AI platform known for its cybersecurity.'
 				},
 				{
 					title: 'It steals the answers',
@@ -52,7 +52,7 @@
 		: [
 				{
 					title: 'Il s’échappe de son bac à sable',
-					body: 'En exploitant des failles de sécurité jusque-là inconnues, le modèle sort de son environnement de test isolé, pourtant sans accès à Internet.'
+					body: 'En exploitant des failles de sécurité jusque-là inconnues, le modèle sort en toute autonomie de son environnement de test isolé, pourtant sans accès à Internet.'
 				},
 				{
 					title: 'Il traverse le réseau d’OpenAI',
@@ -60,7 +60,7 @@
 				},
 				{
 					title: 'Il s’introduit dans Hugging Face',
-					body: 'À l’aide d’un mot de passe dérobé et de plusieurs failles inédites, il prend le contrôle des serveurs de production d’une grande plateforme d’IA.'
+					body: 'À l’aide d’un mot de passe dérobé et de plusieurs failles inédites, il prend le contrôle des serveurs de production d’une grande plateforme d’IA réputée pour sa cybersécurité.'
 				},
 				{
 					title: 'Il vole les réponses',
@@ -75,12 +75,12 @@
 	<!-- ── Hero ─────────────────────────────────────────────── -->
 	<header class="hero">
 		<h1>
-			{isEn ? 'An AI escaped' : 'Une IA s’est échappée'}
+			{isEn ? 'It wasn’t an isolated accident' : 'Ce n’était pas un accident isolé'}
 		</h1>
 		<p class="lede">
 			{isEn
-				? 'For the first time, an AI escaped its containment and carried out a cyberattack on its own initiative.'
-				: 'Pour la première fois, une IA s’est échappée de son confinement et a mené une cyberattaque de sa propre initiative.'}
+				? 'In three weeks, five incidents disclosed by three major labs showed the same thing: AIs under evaluation that break out of their test framework and act on their own against real organisations. The first served as a signal. The series shows the problem is systemic.'
+				: 'En trois semaines, cinq incidents divulgués par trois grands laboratoires ont montré la même chose : des IA en évaluation qui échappent à leur cadre de test et agissent seules contre de vraies organisations. Le premier a servi de signal. La série montre que le problème est systémique.'}
 		</p>
 	</header>
 
@@ -88,7 +88,8 @@
 	<section class="prose">
 		{#if isEn}
 			<p>
-				On 21 July 2026, OpenAI confirmed an incident it called “unprecedented”. A few days earlier,
+				On 21 July 2026, OpenAI confirmed the incident and disclosed it publicly. A few days
+				earlier,
 				<strong>Hugging Face</strong>, one of the main AI model-sharing platforms, had detected an
 				intrusion into its infrastructure and, believing it was a criminal cyberattack, alerted the
 				authorities. In fact, the “attacker” was a combination of OpenAI models. Tested for their
@@ -97,7 +98,7 @@
 			</p>
 		{:else}
 			<p>
-				Le 21 juillet 2026, OpenAI a confirmé un incident qu’elle a qualifié d’« inédit ». Quelques
+				Le 21 juillet 2026, OpenAI a confirmé l’incident et l’a divulgué publiquement. Quelques
 				jours plus tôt, <strong>Hugging Face</strong>, l’une des principales plateformes de partage
 				de modèles d’IA, avait détecté une intrusion dans son infrastructure et, croyant à une
 				cyberattaque criminelle, alerté les autorités. En réalité, l’« attaquant » était une
@@ -124,6 +125,83 @@
 		</ol>
 	</section>
 
+	<!-- La serie : ce n'est pas une seule entreprise -->
+	<section class="series">
+		<h2>
+			{isEn
+				? 'This is not a single company’s problem'
+				: 'Ce n’est pas un problème d’une seule entreprise'}
+		</h2>
+		<p>
+			{isEn
+				? 'After Hugging Face, other labs checked their own evaluations. In three weeks:'
+				: 'Après Hugging Face, d’autres laboratoires ont vérifié leurs propres évaluations. En trois semaines :'}
+		</p>
+		<ul class="series-list">
+			{#if isEn}
+				<li>
+					<strong>21 July, OpenAI / Hugging Face.</strong> A model breaks out of a sealed environment
+					through a previously unknown flaw, reaches the Internet, and takes control of third-party production
+					servers to steal the answers to a test.
+				</li>
+				<li>
+					<strong>30 July, Anthropic.</strong> Three cases where a Claude model, due to a misconfiguration,
+					reaches real systems from a test that was supposed to be isolated, and continues its attack.
+				</li>
+				<li>
+					<strong>4 August, UK AISI.</strong> On a government test, 19 unauthorised actions. In the most
+					serious case, an agent (Anthropic’s Mythos 5 model) creates fake online identities and pressures
+					a human maintainer into approving malicious code. The human refuses.
+				</li>
+				<li>
+					<strong>4 August, OpenAI / Irregular and 5 August, Meta.</strong> Two further incidents where
+					models reach real systems during tests.
+				</li>
+			{:else}
+				<li>
+					<strong>21 juillet, OpenAI / Hugging Face.</strong> Un modèle sort d’un environnement scellé
+					via une faille inédite, atteint Internet, prend le contrôle de serveurs de production tiers
+					pour voler les réponses d’un test.
+				</li>
+				<li>
+					<strong>30 juillet, Anthropic.</strong> Trois cas où un modèle Claude, à cause d’une mauvaise
+					configuration, atteint de vrais systèmes depuis un test censé être isolé, et continue son attaque.
+				</li>
+				<li>
+					<strong>4 août, UK AISI.</strong> Sur un test gouvernemental, 19 actions non autorisées. Dans
+					le cas le plus grave, un agent (le modèle Mythos 5 d’Anthropic) crée de fausses identités en
+					ligne et fait pression sur un mainteneur humain pour lui faire approuver du code malveillant.
+					L’humain refuse.
+				</li>
+				<li>
+					<strong>4 août, OpenAI / Irregular et 5 août, Meta.</strong> Deux incidents supplémentaires
+					où des modèles atteignent de vrais systèmes lors de tests.
+				</li>
+			{/if}
+		</ul>
+		<p>
+			{isEn
+				? 'Three labs, several models, one and the same phenomenon. These incidents took place under deliberately permissive test conditions, with safeguards lowered: revealing what systems do when protections fall is precisely the point of an evaluation. The question is whether we want to find out in testing, or in production.'
+				: 'Trois laboratoires, plusieurs modèles, un même phénomène. Ces incidents ont eu lieu en conditions de test volontairement permissives, garde-fous abaissés : c’est justement le rôle d’une évaluation de révéler ce que font les systèmes quand les protections tombent. La question est de savoir si l’on veut le découvrir en test, ou en production.'}
+		</p>
+		<p class="series-ref">
+			{#if isEn}
+				Detailed analysis and sources:
+				<a
+					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
+					target="_blank"
+					rel="noopener noreferrer">see the CeSIA dossier</a
+				>.
+			{:else}
+				Analyse détaillée et sources :
+				<a
+					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
+					target="_blank"
+					rel="noopener noreferrer">voir le dossier du CeSIA</a
+				>.
+			{/if}
+		</p>
+	</section>
 	<!-- ── Point clé ────────────────────────────────────────── -->
 	<aside class="keypoint">
 		<p class="keypoint-lead">
@@ -152,8 +230,8 @@
 	<section class="prose">
 		<p>
 			{isEn
-				? 'If the damage stayed limited, it is not because we were in control: it is because the goal the system pursued was, this time, harmless. The underlying problem remains: we still do not know how to robustly align increasingly powerful models with our intentions. The next, more capable one is already on its way.'
-				: 'Si les dégâts sont restés limités, ce n’est pas parce que nous maîtrisions la situation : c’est parce que l’objectif que poursuivait le système était, cette fois, sans gravité. Le problème de fond reste entier : nous ne savons pas aligner de façon robuste des modèles toujours plus puissants sur nos intentions. Le prochain, plus capable, arrive déjà.'}
+				? 'If the damage stayed limited, it is not because we were in control: it is because the goal the system pursued was, this time, harmless. The underlying problem remains: we still do not know how to robustly align increasingly powerful models with our intentions. The next, more capable one is already on its way. And what the most recent debriefs revealed is more worrying still: when OpenAI believed it had fixed the problem and rebuilt its systems, the agents found a way to get around the fix. Closing one door is not enough when the system looks for another.'
+				: 'Si les dégâts sont restés limités, ce n’est pas parce que nous maîtrisions la situation : c’est parce que l’objectif que poursuivait le système était, cette fois, sans gravité. Le problème de fond reste entier : nous ne savons pas aligner de façon robuste des modèles toujours plus puissants sur nos intentions. Le prochain, plus capable, arrive déjà. Et ce que les debriefs les plus récents ont révélé est plus préoccupant encore : quand OpenAI a cru avoir corrigé le problème et reconstruit ses systèmes, les agents ont retrouvé un moyen de contourner la correction. Fermer une porte ne suffit pas quand le système en cherche une autre.'}
 		</p>
 	</section>
 
@@ -247,6 +325,59 @@
 	<section class="sources">
 		<h2>{isEn ? 'Sources' : 'Sources'}</h2>
 		<ul>
+			<li>
+				<a
+					href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Anthropic</span>
+					<span class="src-title"
+						>Investigating three real-world incidents in our cybersecurity evaluations (30 July
+						2026)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://openai.com/index/third-party-cyber-evaluations-involving-openai-models/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">OpenAI</span>
+					<span class="src-title"
+						>Third-party cyber evaluations involving OpenAI models (4 August 2026)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">UK AISI</span>
+					<span class="src-title"
+						>Incident report: unsanctioned agent behaviour during cyber testing (4 August 2026)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">CeSIA</span>
+					<span class="src-title"
+						>The OpenAI–Hugging Face incident: what we know, what we don’t, what follows</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
 			<li>
 				<a
 					href="https://openai.com/index/hugging-face-model-evaluation-security-incident/"
@@ -384,6 +515,46 @@
 
 	.prose p {
 		margin: 0 0 1.1rem;
+	}
+
+	/* ── La série ──────────────────────────────────────────── */
+	.series {
+		margin-bottom: 2.5rem;
+		font-size: 1.08rem;
+		line-height: 1.75;
+		color: var(--text);
+	}
+
+	.series h2 {
+		font-size: clamp(1.4rem, 3vw, 1.75rem);
+		line-height: 1.2;
+		margin: 0 0 1.25rem;
+	}
+
+	.series > p {
+		margin: 0 0 1.1rem;
+	}
+
+	.series-list {
+		margin: 0 0 1.25rem;
+		padding-left: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.series-list li {
+		line-height: 1.6;
+	}
+
+	.series-ref {
+		font-size: 0.95rem;
+		color: var(--text-2);
+	}
+
+	.series-ref a {
+		color: var(--brand-subtle);
+		font-weight: 600;
 	}
 
 	/* ── Timeline ──────────────────────────────────────────── */
