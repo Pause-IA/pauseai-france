@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
-	import { ArrowLeft, Send, Briefcase, Banknote, MapPin, CalendarClock } from 'lucide-svelte'
+	import { ArrowLeft, Send } from 'lucide-svelte'
 	import type { PageData } from './$types'
 
 	export let data: PageData
@@ -21,16 +21,16 @@
 	// Faits clés (essentiels uniquement) affichés dans la barre latérale.
 	$: facts = isEn
 		? [
-				{ icon: Briefcase, value: '12-month contract · 60%' },
-				{ icon: Banknote, value: '€25,000 gross/year' },
-				{ icon: MapPin, value: 'Remote (France)' },
-				{ icon: CalendarClock, value: 'Apply by 6 September' }
+				{ label: 'Contract', value: '12-month · 60%' },
+				{ label: 'Salary', value: '€25,000 gross/year' },
+				{ label: 'Location', value: 'Remote (France)' },
+				{ label: 'Deadline', value: '6 September' }
 			]
 		: [
-				{ icon: Briefcase, value: 'CDD 12 mois · 60 %' },
-				{ icon: Banknote, value: '25 000 € brut/an' },
-				{ icon: MapPin, value: 'Télétravail (France)' },
-				{ icon: CalendarClock, value: 'Candidatures avant le 6 septembre' }
+				{ label: 'Contrat', value: 'CDD 12 mois · 60 %' },
+				{ label: 'Rémunération', value: '25 000 € brut/an' },
+				{ label: 'Lieu', value: 'Télétravail (France)' },
+				{ label: 'Date limite', value: '6 septembre' }
 			]
 </script>
 
@@ -46,11 +46,11 @@
 		<h1>
 			{isEn ? 'Communications Officer' : 'Responsable communication'}
 		</h1>
-		<div class="chips">
-			<span class="chip">{isEn ? 'Remote (France)' : 'Télétravail (France)'}</span>
-			<span class="chip">{isEn ? 'Part-time · 60%' : 'Temps partiel · 60 %'}</span>
-			<span class="chip">{isEn ? '12-month contract' : 'CDD 12 mois'}</span>
-		</div>
+		<p class="meta-line">
+			{isEn
+				? 'Remote (France) · Part-time 60% · 12-month contract'
+				: 'Télétravail (France) · Temps partiel 60 % · CDD 12 mois'}
+		</p>
 		<p class="lede">
 			{isEn
 				? 'Pause IA is hiring a Communications Officer to structure and amplify its communications, grow its media presence and build up a team of engaged volunteers.'
@@ -147,17 +147,19 @@
 					crédible dans le débat français sur l'intelligence artificielle.
 				</p>
 				<p>
-					Une part essentielle de votre rôle consistera à structurer et faire fonctionner notre
-					équipe de bénévoles en communication. Pause IA dispose déjà de personnes capables de
-					contribuer à la rédaction, aux réseaux sociaux ou aux relations presse : votre objectif ne
-					sera donc pas de tout produire vous-même, mais de permettre à cette énergie bénévole
-					d'être utilisée au mieux.
+					Une part essentielle de votre rôle consistera à <strong
+						>structurer et faire fonctionner notre équipe de bénévoles en communication</strong
+					>. Pause IA dispose déjà de personnes capables de contribuer à la rédaction, aux réseaux
+					sociaux ou aux relations presse :
+					<strong>votre objectif ne sera pas de tout produire vous-même</strong>, mais de permettre
+					à cette énergie bénévole d'être utilisée au mieux.
 				</p>
 				<p>
 					La priorité sera de faire en sorte que les messages de Pause IA et les actualités
 					importantes liées à l'IA puissent être rapidement transformés en campagnes et contenus
-					accessibles, cohérents et largement diffusés, sans que toute la communication de
-					l'association repose sur une seule personne.
+					accessibles, cohérents et largement diffusés, <strong
+						>sans que toute la communication de l'association repose sur une seule personne</strong
+					>.
 				</p>
 
 				<h3>Animation et structuration de l'équipe communication</h3>
@@ -261,21 +263,23 @@
 				<p>Vous pourriez particulièrement bien correspondre au poste si vous avez :</p>
 				<ul>
 					<li>
-						une forte capacité à mobiliser, coordonner et accompagner des bénévoles, à répartir les
-						responsabilités et à créer un cadre de travail efficace ;
+						une <strong>forte capacité à mobiliser et accompagner des bénévoles</strong>, à répartir
+						les responsabilités et à créer un cadre de travail efficace ;
 					</li>
 					<li>
-						le goût de l'organisation : méthodes, processus simples, formats réutilisables et suivi
-						des projets ;
+						le <strong>goût de l'organisation</strong> : méthodes, processus simples, formats réutilisables
+						et suivi des projets ;
 					</li>
 					<li>
-						une capacité à développer notre présence sur les réseaux sociaux : identifier les
-						formats qui fonctionnent, expérimenter, analyser et faire progresser notre audience ;
+						une capacité à <strong>développer notre présence sur les réseaux sociaux</strong> : identifier
+						les formats qui fonctionnent, expérimenter, analyser et faire progresser notre audience ;
 					</li>
-					<li>de très bonnes capacités rédactionnelles en français ;</li>
+					<li>de <strong>très bonnes capacités rédactionnelles en français</strong> ;</li>
 					<li>une bonne compréhension du fonctionnement des médias et des relations presse ;</li>
 					<li>la capacité à faire avancer plusieurs projets avec autonomie ;</li>
-					<li>un fort intérêt pour les enjeux liés à l'intelligence artificielle ;</li>
+					<li>
+						un <strong>fort intérêt pour les enjeux liés à l'intelligence artificielle</strong> ;
+					</li>
 					<li>un bon niveau d'anglais pour suivre l'actualité internationale sur l'IA ;</li>
 					<li>
 						une aisance avec les outils numériques collaboratifs, notamment Notion et Discord.
@@ -292,11 +296,12 @@
 				<div class="callout">
 					<h3>Vous hésitez à candidater ?</h3>
 					<p>
-						Vous avez l'impression de ne pas correspondre parfaitement au profil ? Candidatez quand
-						même. Les parcours en communication sont très variés, et nous ne cherchons pas une
-						personne qui coche toutes les cases. Si vous vous reconnaissez dans la mission de Pause
-						IA et que les responsabilités décrites vous donnent envie, nous préférons découvrir
-						votre candidature plutôt que vous voir vous auto-éliminer.
+						Vous avez l'impression de ne pas correspondre parfaitement au profil ? <strong
+							>Candidatez quand même.</strong
+						> Les parcours en communication sont très variés, et nous ne cherchons pas une personne qui
+						coche toutes les cases. Si vous vous reconnaissez dans la mission de Pause IA et que les
+						responsabilités décrites vous donnent envie, nous préférons découvrir votre candidature plutôt
+						que vous voir vous auto-éliminer.
 					</p>
 				</div>
 
@@ -404,14 +409,14 @@
 					{isEn ? 'Apply' : 'Postuler'}
 					<Send size="1em" aria-hidden="true" />
 				</a>
-				<ul class="facts">
+				<dl class="facts">
 					{#each facts as fact}
-						<li>
-							<svelte:component this={fact.icon} size="1.05em" aria-hidden="true" />
-							<span>{fact.value}</span>
-						</li>
+						<div class="fact">
+							<dt>{fact.label}</dt>
+							<dd>{fact.value}</dd>
+						</div>
 					{/each}
-				</ul>
+				</dl>
 			</div>
 		</aside>
 	</div>
@@ -429,12 +434,21 @@
 	.hero {
 		position: relative;
 		overflow: hidden;
-		border-radius: 20px;
+		border-radius: 12px;
 		padding: 2.75rem 2.5rem 3rem;
 		margin-bottom: 2.5rem;
-		background: radial-gradient(130% 120% at 100% 0%, rgba(255, 169, 69, 0.55), transparent 60%),
-			linear-gradient(135deg, #ff9416, #ff6b35);
+		background: var(--brand);
 		color: #1a1a1a;
+	}
+
+	/* Fine barre d'accent à gauche, motif récurrent du site. */
+	.hero::before {
+		content: '';
+		position: absolute;
+		inset: 0 auto 0 0;
+		width: 6px;
+		background: #1a1a1a;
+		opacity: 0.85;
 	}
 
 	.breadcrumb {
@@ -462,22 +476,12 @@
 		color: #1a1a1a;
 	}
 
-	.chips {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		margin-top: 1.1rem;
-	}
-
-	.chip {
-		display: inline-flex;
-		align-items: center;
-		padding: 0.3rem 0.85rem;
-		border-radius: 999px;
-		font-size: 0.85rem;
+	.meta-line {
+		margin: 0.9rem 0 0;
+		font-size: 0.95rem;
 		font-weight: 600;
-		background: rgba(26, 26, 26, 0.12);
 		color: #1a1a1a;
+		opacity: 0.9;
 	}
 
 	.lede {
@@ -556,6 +560,8 @@
 
 	.content :global(p) {
 		margin: 0 0 1.1rem;
+		text-align: left;
+		hyphens: none;
 	}
 
 	.content :global(ul) {
@@ -664,25 +670,36 @@
 
 	.facts {
 		margin: 0;
-		padding: 0;
-		list-style: none;
 		display: flex;
 		flex-direction: column;
-		gap: 0.85rem;
+		gap: 0.9rem;
 	}
 
-	.facts li {
+	.fact {
 		display: flex;
-		align-items: center;
-		gap: 0.6em;
-		font-size: 0.95rem;
-		font-weight: 600;
-		color: var(--text);
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+		padding-bottom: 0.9rem;
+		border-bottom: 1px solid var(--border);
 	}
 
-	.facts li :global(svg) {
-		flex-shrink: 0;
-		color: var(--brand-subtle);
+	.fact:last-child {
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+
+	.facts dt {
+		font-size: 0.9rem;
+		color: var(--text-2);
+	}
+
+	.facts dd {
+		margin: 0;
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: var(--text);
+		text-align: right;
 	}
 
 	@media (max-width: 480px) {
