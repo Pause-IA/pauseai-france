@@ -93,7 +93,7 @@
 				intrusion into its infrastructure and, believing it was a criminal cyberattack, alerted the
 				authorities. In fact, the “attacker” was a combination of OpenAI models. Tested for their
 				cyber capabilities in a sandboxed environment, they had acted entirely on their own: they
-				broke out, reached the open Internet, then attacked a third party.
+				broke out, got online, then attacked a third party.
 			</p>
 		{:else}
 			<p>
