@@ -1,16 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
-	import {
-		ArrowLeft,
-		Send,
-		Briefcase,
-		Clock,
-		Banknote,
-		MapPin,
-		Rocket,
-		CalendarClock,
-		HeartHandshake
-	} from 'lucide-svelte'
+	import { ArrowLeft, Send, Briefcase, Banknote, MapPin, CalendarClock } from 'lucide-svelte'
 	import type { PageData } from './$types'
 
 	export let data: PageData
@@ -28,25 +18,19 @@
 		? 'Pause IA is hiring a Communications Officer (12-month fixed-term contract, 60%) to structure its communications, grow its media presence and lead a team of engaged volunteers.'
 		: 'Pause IA recrute un·e chargé·e de communication en CDD 12 mois (60 %) pour structurer sa communication, développer sa présence médiatique et animer une équipe de bénévoles engagés.'
 
-	// Faits clés affichés dans la barre latérale et sous forme de puces dans le hero.
+	// Faits clés (essentiels uniquement) affichés dans la barre latérale.
 	$: facts = isEn
 		? [
-				{ icon: Briefcase, label: 'Contract', value: '12-month fixed-term' },
-				{ icon: Clock, label: 'Working time', value: '60% (21h/week)' },
-				{ icon: Banknote, label: 'Salary', value: '€25,000 gross/year' },
-				{ icon: MapPin, label: 'Location', value: 'Remote (France)' },
-				{ icon: Rocket, label: 'Start date', value: 'As soon as possible' },
-				{ icon: CalendarClock, label: 'Application deadline', value: '6 September' },
-				{ icon: HeartHandshake, label: 'Health cover', value: '100% covered' }
+				{ icon: Briefcase, value: '12-month contract · 60%' },
+				{ icon: Banknote, value: '€25,000 gross/year' },
+				{ icon: MapPin, value: 'Remote (France)' },
+				{ icon: CalendarClock, value: 'Apply by 6 September' }
 			]
 		: [
-				{ icon: Briefcase, label: 'Contrat', value: 'CDD de 12 mois' },
-				{ icon: Clock, label: 'Temps de travail', value: '60 % (21 h/sem.)' },
-				{ icon: Banknote, label: 'Rémunération', value: '25 000 € brut/an' },
-				{ icon: MapPin, label: 'Lieu', value: 'Télétravail (France)' },
-				{ icon: Rocket, label: 'Prise de poste', value: 'Dès que possible' },
-				{ icon: CalendarClock, label: 'Date limite', value: '6 septembre' },
-				{ icon: HeartHandshake, label: 'Mutuelle', value: 'Prise en charge à 100 %' }
+				{ icon: Briefcase, value: 'CDD 12 mois · 60 %' },
+				{ icon: Banknote, value: '25 000 € brut/an' },
+				{ icon: MapPin, value: 'Télétravail (France)' },
+				{ icon: CalendarClock, value: 'Candidatures avant le 6 septembre' }
 			]
 </script>
 
@@ -420,17 +404,14 @@
 					{isEn ? 'Apply' : 'Postuler'}
 					<Send size="1em" aria-hidden="true" />
 				</a>
-				<dl class="facts">
+				<ul class="facts">
 					{#each facts as fact}
-						<div class="fact">
-							<dt>
-								<svelte:component this={fact.icon} size="1.1em" aria-hidden="true" />
-								{fact.label}
-							</dt>
-							<dd>{fact.value}</dd>
-						</div>
+						<li>
+							<svelte:component this={fact.icon} size="1.05em" aria-hidden="true" />
+							<span>{fact.value}</span>
+						</li>
 					{/each}
-				</dl>
+				</ul>
 			</div>
 		</aside>
 	</div>
@@ -683,44 +664,25 @@
 
 	.facts {
 		margin: 0;
+		padding: 0;
+		list-style: none;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 0.85rem;
 	}
 
-	.fact {
+	.facts li {
 		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
-		padding-bottom: 1rem;
-		border-bottom: 1px solid var(--border);
-	}
-
-	.fact:last-child {
-		padding-bottom: 0;
-		border-bottom: none;
-	}
-
-	.facts dt {
-		display: inline-flex;
 		align-items: center;
-		gap: 0.45em;
-		font-size: 0.82rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-		color: var(--text-2);
-	}
-
-	.facts dt :global(svg) {
-		color: var(--brand-subtle);
-	}
-
-	.facts dd {
-		margin: 0;
-		font-size: 1.02rem;
+		gap: 0.6em;
+		font-size: 0.95rem;
 		font-weight: 600;
 		color: var(--text);
+	}
+
+	.facts li :global(svg) {
+		flex-shrink: 0;
+		color: var(--brand-subtle);
 	}
 
 	@media (max-width: 480px) {
