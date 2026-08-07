@@ -56,7 +56,7 @@
 				},
 				{
 					title: 'Il traverse le réseau d’OpenAI',
-					body: 'Il pirate d’autres ordinateurs du réseau interne, de proche en proche, jusqu’à en atteindre un connecté à Internet.'
+					body: 'Il pirate d’autres ordinateurs du réseau interne, de proche en proche, jusqu’à atteindre une machine reliée à Internet.'
 				},
 				{
 					title: 'Il s’introduit dans Hugging Face',
@@ -94,7 +94,7 @@
 				intrusion into its infrastructure and, believing it was a criminal cyberattack, alerted the
 				authorities. In fact, the “attacker” was a combination of OpenAI models. Tested for their
 				cyber capabilities in a sandboxed environment, they had acted entirely on their own: they
-				broke out, reached the open Internet, then attacked a third party.
+				broke out, got online, then attacked a third party.
 			</p>
 		{:else}
 			<p>
@@ -103,8 +103,8 @@
 				de modèles d’IA, avait détecté une intrusion dans son infrastructure et, croyant à une
 				cyberattaque criminelle, alerté les autorités. En réalité, l’« attaquant » était une
 				combinaison de modèles d’OpenAI. Testés sur leurs capacités de cyberattaque dans un
-				environnement isolé, ils avaient agi entièrement seuls : ils se sont échappés, ont atteint
-				l’Internet ouvert, puis ont attaqué un tiers.
+				environnement isolé, ils avaient agi entièrement seuls : ils se sont échappés, ont accédé à
+				Internet, puis ont attaqué un tiers.
 			</p>
 		{/if}
 	</section>
