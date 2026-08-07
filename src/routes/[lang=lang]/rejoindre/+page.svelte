@@ -3,7 +3,7 @@
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$components/Button.svelte'
 	import Accordion from '$components/Accordion.svelte'
-	import { UserCheck, Users, Zap } from 'lucide-svelte'
+	import { UserCheck, Users, Zap, Briefcase } from 'lucide-svelte'
 	import { getT } from '$lib/i18n'
 	import type { PageData } from './$types'
 
@@ -77,6 +77,18 @@
 			</p>
 			<Button alt href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU">Join Pause Action</Button>
 		</div>
+
+		<aside class="recruit-card">
+			<div class="recruit-body">
+				<span class="recruit-eyebrow"><Briefcase size="1em" /> We're hiring</span>
+				<h3>Communications Officer (fixed-term, 60%)</h3>
+				<p>
+					Beyond volunteering, Pause IA is offering a paid position to structure our communications
+					and grow our media presence. Applications are open until 6 September.
+				</p>
+			</div>
+			<Button alt href="/en/recrutement-emploi">See the offer</Button>
+		</aside>
 
 		<section class="faq-section">
 			<UnderlinedTitle>Frequently asked questions</UnderlinedTitle>
@@ -185,6 +197,18 @@
 				>Rejoindre Pause Action</Button
 			>
 		</div>
+
+		<aside class="recruit-card">
+			<div class="recruit-body">
+				<span class="recruit-eyebrow"><Briefcase size="1em" /> Nous recrutons</span>
+				<h3>Responsable communication (CDD, 60 %)</h3>
+				<p>
+					Au-delà du bénévolat, Pause IA propose un poste salarié pour structurer sa communication
+					et développer sa présence médiatique. Les candidatures sont ouvertes jusqu'au 6 septembre.
+				</p>
+			</div>
+			<Button alt href="/fr/recrutement-emploi">Voir l'offre</Button>
+		</aside>
 
 		<section class="faq-section">
 			<UnderlinedTitle>Questions fréquentes</UnderlinedTitle>
@@ -361,6 +385,60 @@
 		width: auto !important;
 		min-width: auto !important;
 		max-width: 300px !important;
+	}
+
+	.recruit-card {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: flex-start;
+		margin: 2rem 0;
+		padding: 1.75rem 2rem;
+		border: 1px solid var(--border);
+		border-left: 4px solid var(--brand);
+		border-radius: 12px;
+		background: var(--bg);
+	}
+
+	.recruit-eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4em;
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: var(--brand);
+	}
+
+	.recruit-card h3 {
+		margin: 0.5rem 0 0.5rem;
+		font-size: 1.2rem;
+		color: var(--text);
+	}
+
+	.recruit-card p {
+		margin: 0;
+		color: #666;
+	}
+
+	.recruit-card :global(a) {
+		width: auto !important;
+		min-width: auto !important;
+		max-width: 300px !important;
+	}
+
+	@media (min-width: 768px) {
+		.recruit-card {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			gap: 2rem;
+		}
+
+		.recruit-card :global(a) {
+			flex-shrink: 0;
+		}
 	}
 
 	.faq-section {
