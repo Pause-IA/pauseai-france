@@ -56,10 +56,6 @@
 				? 'Pause IA is hiring a Communications Officer to structure and amplify its communications, grow its media presence and build up a team of engaged volunteers.'
 				: 'Pause IA recrute un·e chargé·e de communication pour structurer et amplifier sa communication, développer sa présence médiatique et faire grandir une équipe de bénévoles engagés sur ces missions.'}
 		</p>
-		<a class="apply-btn hero-apply" href={APPLY_HREF}>
-			{isEn ? 'Apply' : 'Postuler'}
-			<Send size="1em" aria-hidden="true" />
-		</a>
 	</header>
 
 	<!-- ── Corps + barre latérale ───────────────────────────── -->
@@ -490,10 +486,6 @@
 		line-height: 1.55;
 		font-weight: 500;
 		max-inline-size: 42rem;
-	}
-
-	.hero-apply {
-		margin-top: 1.75rem;
 	}
 
 	/* ── Bouton Postuler ───────────────────────────────────── */
