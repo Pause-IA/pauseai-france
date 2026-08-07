@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
-	import { ArrowLeft, Send } from 'lucide-svelte'
+	import { ArrowLeft, ArrowRight } from 'lucide-svelte'
 	import type { PageData } from './$types'
 
 	export let data: PageData
@@ -118,8 +118,9 @@
 			{:else}
 				<h2>À propos de Pause IA</h2>
 				<p>
-					Pause IA est un mouvement citoyen qui alerte les citoyen·nes et les pouvoirs publics
-					français sur les graves dangers de la course à l'intelligence artificielle et les incite à
+					Pause IA est un <strong>mouvement citoyen</strong> qui alerte les citoyen·nes et les
+					pouvoirs publics français sur les
+					<strong>graves dangers de la course à l'intelligence artificielle</strong> et les incite à
 					agir pour s'y opposer.
 				</p>
 				<p>
@@ -139,8 +140,9 @@
 				<p>
 					Ce poste est centré sur la coordination de la communication de Pause IA, la
 					sensibilisation du public et les relations presse. Vous travaillerez en lien étroit avec
-					la direction et les bénévoles pour faire de Pause IA une voix identifiable, réactive et
-					crédible dans le débat français sur l'intelligence artificielle.
+					la direction et les bénévoles pour faire de Pause IA <strong
+						>une voix identifiable, réactive et crédible</strong
+					> dans le débat français sur l'intelligence artificielle.
 				</p>
 				<p>
 					Une part essentielle de votre rôle consistera à <strong
@@ -285,8 +287,9 @@
 					Une expérience en coordination de bénévoles ou d'équipes, communication associative,
 					journalisme, relations presse ou vulgarisation scientifique sera particulièrement
 					appréciée. Une connaissance approfondie des risques liés aux IA avancées est un plus, mais
-					n'est pas indispensable : nous accordons beaucoup d'importance à la curiosité et à la
-					capacité à apprendre rapidement.
+					n'est pas indispensable : nous accordons beaucoup d'importance à <strong
+						>la curiosité et à la capacité à apprendre rapidement</strong
+					>.
 				</p>
 
 				<div class="callout">
@@ -388,7 +391,7 @@
 			<div class="apply-footer">
 				<a class="apply-btn" href={APPLY_HREF}>
 					{isEn ? 'Apply' : 'Postuler'}
-					<Send size="1em" aria-hidden="true" />
+					<ArrowRight size="1em" aria-hidden="true" />
 				</a>
 				<span class="deadline-note">
 					{isEn
@@ -403,7 +406,7 @@
 			<div class="sidebar-card">
 				<a class="apply-btn sidebar-apply" href={APPLY_HREF}>
 					{isEn ? 'Apply' : 'Postuler'}
-					<Send size="1em" aria-hidden="true" />
+					<ArrowRight size="1em" aria-hidden="true" />
 				</a>
 				<dl class="facts">
 					{#each facts as fact}
