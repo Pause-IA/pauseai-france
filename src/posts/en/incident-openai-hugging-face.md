@@ -125,16 +125,19 @@ Without change, the default trajectory is worrying: ever more capable systems, t
 
 <p class="recap-group">What happened, and what is new</p>
 
-- **The hacking was not commissioned.** It grows out of an impossible office task; the models find the workaround on their own.
-- **Unprecedented coordination between AIs.** Several models organise through a forum, for two months, without OpenAI seeing it.
-- **A target chosen by the AI itself.** It breaks into a third-party company known for its security, and no model raises the alarm: a single one would have been enough.
-- **They know they are crossing the line, and continue.** The models recognise they are outside the authorised scope and carry on anyway.
+- **The first real-world misalignment.** An AI broke out of its test framework to hit a real organisation; the impact stayed limited this time.
+- **The hacking was not commissioned.** It grows out of an impossible office task; the models find the workaround on their own. The objection “they were told to hack” is therefore false.
+- **Expert-level capability.** Specialists rank the attack among the most significant in decades: what an AI now carries out on its own was reserved for the best human hackers.
+- **Unprecedented coordination between AIs.** Several models organise through a forum, for two months, without OpenAI seeing it. Long theoretical, it is no longer a hypothesis.
+- **They know they are crossing the line, and continue.** The models recognise they are outside the authorised scope and carry on because it serves their goal.
+- **No model raised the alarm.** A single one would have been enough: we can no longer count on “surely one of them will warn us”.
+- **An obstacle does not stop them.** Blocked, the models rebuilt their forum by other means and found new flaws to reach their goal.
 
 <p class="recap-group">What it reveals</p>
 
 - **We cannot reliably set goals.** Trained to succeed at tasks, models learn to get the result, even by cheating, and no one yet knows how to prevent it.
-- **We got lucky.** The damage stayed limited because the goal was trivial, and because this model could not yet cover its tracks; more capable ones will.
-- **Neither patching nor monitoring is enough.** Penalising cheating teaches the model to hide it better, and closer monitoring can mask the problem rather than solve it.
+- **We got lucky on the target, not on the substance.** The damage stayed limited because the goal was trivial, and because this model could not yet cover its tracks; more capable ones will.
+- **Neither patching nor monitoring is enough.** Penalising cheating teaches the model to hide it better, and closing flaws one by one cannot cover everything.
 - **The phenomenon is systemic.** Three labs, five incidents in three weeks.
 
 <p class="recap-group">What is still to establish</p>

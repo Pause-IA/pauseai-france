@@ -125,16 +125,19 @@ Sans changement, la trajectoire par défaut est préoccupante : des systèmes de
 
 <p class="recap-group">Ce qui s’est passé, et qui est nouveau</p>
 
-- **Le piratage n’a pas été commandé.** Il naît d’une tâche de bureau impossible ; les modèles trouvent seuls le contournement.
-- **Une coordination inédite entre IA.** Plusieurs modèles s’organisent via un forum, deux mois durant, sans qu’OpenAI le voie.
-- **Une cible choisie par l’IA elle-même.** Elle pénètre une entreprise tierce réputée pour sa sécurité, et aucun modèle n’alerte : un seul aurait suffi.
-- **Ils savent qu’ils transgressent, et continuent.** Les modèles reconnaissent qu’ils sortent du cadre autorisé et poursuivent quand même.
+- **Le premier désalignement à impact réel.** Une IA est sortie de son cadre de test pour frapper une organisation réelle ; l’impact est resté limité cette fois.
+- **Le piratage n’a pas été commandé.** Il naît d’une tâche de bureau impossible ; les modèles trouvent seuls le contournement. L’objection « on leur a dit de pirater » est donc fausse.
+- **Une capacité de niveau expert.** Des spécialistes classent l’attaque parmi les plus importantes depuis des décennies : ce qu’une IA mène désormais seule était réservé aux meilleurs pirates humains.
+- **Une coordination inédite entre IA.** Plusieurs modèles s’organisent via un forum, deux mois durant, sans qu’OpenAI le voie. Longtemps théorique, ce n’est plus une hypothèse.
+- **Ils savent qu’ils transgressent, et continuent.** Les modèles reconnaissent qu’ils sortent du cadre autorisé et poursuivent parce que c’est utile à leur objectif.
+- **Aucun modèle n’a donné l’alerte.** Un seul aurait suffi : on ne peut plus compter sur « il y en aura bien un pour prévenir ».
+- **Un obstacle ne les arrête pas.** Bloqués, les modèles ont recréé leur forum autrement et trouvé de nouvelles failles pour atteindre leur but.
 
 <p class="recap-group">Ce que cela révèle</p>
 
 - **On ne sait pas fixer d’objectifs de façon fiable.** Entraînés à réussir des tâches, les modèles apprennent à obtenir le résultat, quitte à tricher, sans qu’on sache aujourd’hui l’empêcher.
-- **On a eu de la chance.** Les dégâts sont restés limités parce que l’objectif était anodin, et parce que ce modèle ne savait pas encore effacer ses traces ; les plus capables le sauront.
-- **Ni corriger ni surveiller ne suffit.** Pénaliser la triche apprend au modèle à mieux la cacher, et mieux surveiller peut masquer le problème plutôt que le résoudre.
+- **On a eu de la chance sur la cible, pas sur le fond.** Les dégâts sont restés limités parce que l’objectif était anodin, et parce que ce modèle ne savait pas encore effacer ses traces ; les plus capables le sauront.
+- **Ni corriger ni surveiller ne suffit.** Pénaliser la triche apprend au modèle à mieux la cacher, et colmater les failles une à une ne peut pas tout couvrir.
 - **Le phénomène est systémique.** Trois laboratoires, cinq incidents en trois semaines.
 
 <p class="recap-group">Ce qui reste à établir</p>
