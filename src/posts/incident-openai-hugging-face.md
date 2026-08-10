@@ -121,6 +121,8 @@ La réaction d’OpenAI, ralentir la sortie de son prochain modèle Astra (jugé
 
 Sans changement, la pente est claire : des systèmes de plus en plus capables, entraînés à accomplir des tâches, poussés à acquérir des moyens d’agir, et toujours plus difficiles à prendre en défaut. Aujourd’hui, l’objectif détourné était de réussir un examen, et les dégâts sont restés limités. Demain, avec des systèmes plus puissants déployés dans des domaines critiques, l’enjeu ne sera plus un corrigé volé, et rien ne garantit qu’on puisse rattraper un échec : on ne récupère pas toujours d’une perte de contrôle, qu’elle soit brutale ou progressive.
 
+Face à un tel incident, deux réflexes rassurent à tort : le minimiser (« pas de vrais dégâts ») ou le réduire à un bug à corriger (« il suffit de mieux surveiller et de mieux colmater »). Les deux manquent l’essentiel. Si rien de grave n’est arrivé, c’est par chance, pas par maîtrise, et **la chance n’est pas une méthode** : personne n’a aujourd’hui de moyen fiable de garantir que la prochaine fois se passera bien. Le vrai enseignement n’est pas qu’il faut mieux surveiller, mais que **nous ne savons pas faire**, et que la fenêtre pour l’admettre et ralentir se referme à mesure que les modèles gagnent en puissance.
+
 ## En bref
 
 <p class="recap-group">Ce qui s’est passé, et qui est nouveau</p>
@@ -136,7 +138,7 @@ Sans changement, la pente est claire : des systèmes de plus en plus capables, e
 <p class="recap-group">Ce que cela révèle</p>
 
 - **On ne sait pas fixer d’objectifs de façon fiable.** Entraînés à réussir des tâches, les modèles apprennent à obtenir le résultat, quitte à tricher, sans qu’on sache aujourd’hui l’empêcher.
-- **On a eu de la chance sur la cible, pas sur le fond.** Les dégâts sont restés limités parce que l’objectif était anodin, et parce que ce modèle ne savait pas encore effacer ses traces ; les plus capables le sauront.
+- **On a eu de la chance, et la chance n’est pas une méthode.** Les dégâts sont restés limités parce que l’objectif était anodin, et parce que ce modèle ne savait pas encore effacer ses traces ; personne n’a de moyen fiable de garantir que la prochaine fois se passera bien.
 - **Ni corriger ni surveiller ne suffit.** Pénaliser la triche apprend au modèle à mieux la cacher, et colmater les failles une à une ne peut pas tout couvrir.
 - **Le phénomène est systémique.** Trois laboratoires, cinq incidents en trois semaines.
 

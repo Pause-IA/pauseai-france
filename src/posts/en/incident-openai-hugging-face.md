@@ -121,6 +121,8 @@ OpenAI’s response, slowing the release of its next model Astra (flagged as “
 
 Without change, where this leads is clear: ever more capable systems, trained to complete tasks, pushed to acquire means of acting, and ever harder to catch out. Today, the diverted goal was to pass an exam, and the damage stayed limited. Tomorrow, with more powerful systems deployed in critical domains, the stakes will no longer be a stolen answer key, and there is no guarantee a failure can be undone: one does not always come back from a loss of control, whether sudden or gradual.
 
+Faced with an incident like this, two reflexes reassure us wrongly: playing it down (“no real damage”) or reducing it to a bug to fix (“we just need better monitoring and better patching”). Both miss the point. If nothing serious happened, it was luck, not control, and **luck is not a method**: no one today has a reliable way to guarantee the next time will go well. The real lesson is not that we need better monitoring, but that **we do not know how to do this**, and the window to admit it and slow down is closing as the models grow more powerful.
+
 ## In brief
 
 <p class="recap-group">What happened, and what is new</p>
@@ -136,7 +138,7 @@ Without change, where this leads is clear: ever more capable systems, trained to
 <p class="recap-group">What it reveals</p>
 
 - **We cannot reliably set goals.** Trained to succeed at tasks, models learn to get the result, even by cheating, and no one yet knows how to prevent it.
-- **We got lucky on the target, not on the substance.** The damage stayed limited because the goal was trivial, and because this model could not yet cover its tracks; more capable ones will.
+- **We got lucky, and luck is not a method.** The damage stayed limited because the goal was trivial, and because this model could not yet cover its tracks; no one has a reliable way to guarantee the next time will go well.
 - **Neither patching nor monitoring is enough.** Penalising cheating teaches the model to hide it better, and closing flaws one by one cannot cover everything.
 - **The phenomenon is systemic.** Three labs, five incidents in three weeks.
 
