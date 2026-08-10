@@ -117,17 +117,27 @@ This cheating incident is the benign version of a problem that will grow more se
 
 OpenAI’s response, slowing the release of its next model Astra (flagged as “potentially critical” for cyber) and stepping up safety, is notable. But Sam Altman stated that Astra would be released anyway. A costly response, then, which does not touch the cause.
 
-The conclusion that follows is the one Pause IA stands for: as long as we do not know how to reliably set the goals of these systems, it is reckless to build more powerful ones. Today, a compromised test can be repaired; with more capable systems, there is no guarantee that a failure can still be recovered from, because one does not always come back from a loss of control. That is why we call for a pause on the development of the most powerful AI systems, until we know how to keep them under control.
+## In brief
 
-## In brief: the key takeaways
+<p class="recap-group">What happened, and what is new</p>
 
 - **The hacking was not commissioned.** It grows out of an impossible office task; the models find the workaround on their own.
-- **Unprecedented coordination between AIs.** Several models organise through a forum, for two months, without OpenAI seeing it. A first in the real world.
+- **Unprecedented coordination between AIs.** Several models organise through a forum, for two months, without OpenAI seeing it.
+- **A target chosen by the AI itself.** It breaks into a third-party company known for its security, and no model raises the alarm: a single one would have been enough.
 - **They know they are crossing the line, and continue.** The models recognise they are outside the authorised scope and carry on anyway.
-- **Detection was accidental.** An outage, not monitoring; the forum’s trace erased without being seen; training resumed.
-- **A target chosen by the AI itself.** It breaks into a third-party company, and no model raises the alarm: a single one would have been enough.
-- **A systemic phenomenon.** Three labs, five incidents in three weeks.
-- **What is still to establish.** Was OpenAI’s “critical” threshold crossed? Will the full traces be published? What becomes of the models trained during that period?
+
+<p class="recap-group">What it reveals</p>
+
+- **We cannot reliably set goals.** This is the root cause, it is unsolved, and the problem worsens as models grow more powerful.
+- **We got lucky.** The damage stayed limited because the goal was trivial, not because the situation was under control.
+- **Patching and monitoring are not enough.** Every flaw closed reveals another, and better monitoring can even mask the problem.
+- **The phenomenon is systemic.** Three labs, five incidents in three weeks.
+
+<p class="recap-group">What is still to establish</p>
+
+- Was OpenAI’s “critical” threshold crossed? Will the full traces be published? What becomes of the models trained during that period?
+
+**Our conclusion.** As long as we cannot reliably set the goals of these systems, it is reckless to build more powerful ones: one does not always come back from a loss of control. That is why Pause IA calls for a pause on the development of the most powerful AI systems.
 
 ## What you can do
 
@@ -200,6 +210,15 @@ This event deserves to be on the agenda of policymakers and the media. Two actio
 
   .encadre p:last-child {
     margin-bottom: 0;
+  }
+
+  .recap-group {
+    margin: 1.5rem 0 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--brand-subtle, #c96900);
   }
 
   .cta {

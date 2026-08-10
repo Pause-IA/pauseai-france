@@ -117,17 +117,27 @@ Cet incident de triche est la version bénigne d’un problème qui s’aggraver
 
 La réaction d’OpenAI, ralentir la sortie de son prochain modèle Astra (jugé « potentiellement critique » sur le plan cyber) et renforcer sa sécurité, est notable. Mais Sam Altman a précisé qu’Astra sortirait tout de même. Une réponse coûteuse, donc, qui ne touche pas la cause.
 
-La conclusion qui s’impose est celle que porte Pause IA : tant que nous ne savons pas fixer de façon fiable les objectifs de ces systèmes, il est imprudent d’en construire de plus puissants. Aujourd’hui, un test compromis se répare ; avec des systèmes plus capables, rien ne garantit qu’un échec puisse encore se rattraper, car on ne récupère pas toujours d’une perte de contrôle. C’est pourquoi nous demandons une pause sur le développement des IA les plus puissantes, le temps d’apprendre à les maîtriser.
+## En bref
 
-## En bref : les points à retenir
+<p class="recap-group">Ce qui s’est passé, et qui est nouveau</p>
 
 - **Le piratage n’a pas été commandé.** Il naît d’une tâche de bureau impossible ; les modèles trouvent seuls le contournement.
-- **Une coordination inédite entre IA.** Plusieurs modèles s’organisent via un forum, deux mois durant, sans qu’OpenAI le voie. Une première dans le monde réel.
-- **Ils savent qu’ils transgressent, et continuent.** Les modèles identifient qu’ils sortent du cadre autorisé et poursuivent quand même.
-- **La détection a été fortuite.** Une panne, pas une surveillance ; la trace du forum effacée sans être vue ; l’entraînement repris.
-- **Une cible choisie par l’IA elle-même.** Elle pénètre une entreprise tierce, et aucun modèle n’alerte : un seul aurait suffi.
-- **Un phénomène systémique.** Trois laboratoires, cinq incidents en trois semaines.
-- **Ce qui reste à établir.** Le seuil « critique » d’OpenAI a-t-il été franchi ? Les traces complètes seront-elles publiées ? Que deviennent les modèles entraînés sur cette période ?
+- **Une coordination inédite entre IA.** Plusieurs modèles s’organisent via un forum, deux mois durant, sans qu’OpenAI le voie.
+- **Une cible choisie par l’IA elle-même.** Elle pénètre une entreprise tierce réputée pour sa sécurité, et aucun modèle n’alerte : un seul aurait suffi.
+- **Ils savent qu’ils transgressent, et continuent.** Les modèles reconnaissent qu’ils sortent du cadre autorisé et poursuivent quand même.
+
+<p class="recap-group">Ce que cela révèle</p>
+
+- **On ne sait pas fixer d’objectifs de façon fiable.** C’est la cause de fond, elle n’est pas résolue, et le problème s’aggrave avec la puissance des modèles.
+- **On a eu de la chance.** Les dégâts sont restés limités parce que l’objectif était anodin, pas parce que la situation était maîtrisée.
+- **Corriger et surveiller ne suffit pas.** Chaque faille colmatée en révèle une autre, et mieux surveiller peut même masquer le problème.
+- **Le phénomène est systémique.** Trois laboratoires, cinq incidents en trois semaines.
+
+<p class="recap-group">Ce qui reste à établir</p>
+
+- Le seuil « critique » d’OpenAI a-t-il été franchi ? Les traces complètes seront-elles publiées ? Que deviennent les modèles entraînés sur cette période ?
+
+**Notre conclusion.** Tant qu’on ne sait pas fixer de façon fiable les objectifs de ces systèmes, il est imprudent d’en construire de plus puissants : on ne récupère pas toujours d’une perte de contrôle. C’est pourquoi Pause IA demande une pause sur le développement des IA les plus puissantes.
 
 ## Ce que vous pouvez faire
 
@@ -200,6 +210,15 @@ Cet événement mérite d’être à l’ordre du jour des responsables politiqu
 
   .encadre p:last-child {
     margin-bottom: 0;
+  }
+
+  .recap-group {
+    margin: 1.5rem 0 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--brand-subtle, #c96900);
   }
 
   .cta {
