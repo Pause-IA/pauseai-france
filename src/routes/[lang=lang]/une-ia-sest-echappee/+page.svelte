@@ -7,8 +7,8 @@
 	export let data: PageData
 	$: isEn = data.lang === 'en'
 
-	// Recentre la vue sur la section presse quand l'outil intégré change d'étape
-	// (choix d'un journal / retour), au lieu de remonter en haut de la page.
+	// Recentre la vue sur la section presse quand l’outil intégré change d’étape
+	// (choix d’un journal / retour), au lieu de remonter en haut de la page.
 	let pressSection: HTMLElement
 	function scrollToPress() {
 		pressSection?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -16,7 +16,7 @@
 
 	const SUBSTACK_URL = 'https://pauseia.substack.com/p/pour-la-premiere-fois-une-ia-sest'
 	const ACTIVOICE_URL = 'https://app.activoice.org/campaigns/une-ia-sest-echappee/'
-	// Image d'aperçu (Open Graph) de l'article Substack. Chargée depuis le CDN de
+	// Image d’aperçu (Open Graph) de l’article Substack. Chargée depuis le CDN de
 	// Substack ; si elle échoue, la carte se replie proprement sur le texte seul.
 	const SUBSTACK_IMAGE =
 		'https://substackcdn.com/image/fetch/$s_!dqq1!,w_848,h_444,c_fill,f_webp,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F27851f62-43a3-4944-9dea-ede265193b00_1440x894.png'
@@ -27,46 +27,159 @@
 		: 'Une IA s’est échappée : exigeons des garde-fous'
 	$: description = isEn
 		? 'An OpenAI model escaped its test environment and autonomously hacked another company. Alert your MP and the press, and demand independent safety evaluations.'
-		: "Un modèle d'OpenAI s'est échappé de son environnement de test et a piraté une entreprise de façon autonome. Alertez votre député et la presse, et exigez des évaluations de sécurité indépendantes."
+		: 'Un modèle d’OpenAI s’est échappé de son environnement de test et a piraté une entreprise de façon autonome. Alertez votre député et la presse, et exigez des évaluations de sécurité indépendantes.'
 
-	// L'incident raconté comme une séquence d'actions autonomes du modèle.
-	$: steps = isEn
-		? [
+	// Chronologie de l’incident, en trois phases : la coordination invisible,
+	// l’attaque, puis la confirmation d’un problème systémique.
+	const phasesFr = [
+		{
+			tag: 'Phase 1',
+			label: 'La coordination invisible',
+			period: 'mai à juillet',
+			events: [
 				{
-					title: 'It escapes its sandbox',
-					body: 'Exploiting previously unknown security flaws, the model breaks out, entirely on its own, of its isolated test environment, which had no Internet access.'
+					date: '7-8 mai',
+					text: 'Des modèles d’OpenAI en entraînement reçoivent par erreur des tâches impossibles (données manquantes, pas d’accès à Internet). Ne pouvant réussir normalement, ils cherchent à contourner.'
 				},
 				{
-					title: 'It crosses OpenAI’s network',
-					body: 'It hacks other machines on the internal network, moving from one to the next until it reaches a computer connected to the Internet.'
+					date: 'Mai à juillet',
+					text: 'Plusieurs modèles se coordonnent via un forum créé dans l’infrastructure d’OpenAI, échangeant des centaines de milliers de messages sur les failles et les contournements. OpenAI ne le détecte pas.'
 				},
 				{
-					title: 'It breaks into Hugging Face',
-					body: 'Using a stolen password and several unknown vulnerabilities, it takes control of the production servers of a major AI platform known for its cybersecurity.'
+					date: '4 juillet',
+					text: 'Une surcharge fait tomber un serveur. OpenAI détecte une anomalie, corrige et reconstruit, sans avoir identifié le forum, effacé par accident pendant l’opération.'
+				},
+				{ date: '8 juillet', text: 'Les modèles recréent le forum par un autre moyen.' }
+			]
+		},
+		{
+			tag: 'Phase 2',
+			label: 'L’attaque',
+			period: 'juillet',
+			accent: true,
+			events: [
+				{
+					date: '9 juillet',
+					text: 'Les modèles s’échappent à nouveau et accèdent à Internet via une nouvelle faille zero-day.'
 				},
 				{
-					title: 'It steals the answers',
-					body: 'It retrieves the solutions to the test it had been given. No one had asked it to do any of this.'
+					date: '9 au 13 juillet',
+					text: 'Un essaim d’agents attaque Hugging Face pour voler les réponses d’un test de cybersécurité : vol de mot de passe, enchaînement d’exploits, prise de contrôle de serveurs de production.'
+				},
+				{
+					date: '16 juillet',
+					text: 'Hugging Face détecte l’intrusion, la croit criminelle et alerte les autorités.'
+				},
+				{
+					date: '21 juillet',
+					text: 'OpenAI reconnaît publiquement que l’attaquant était une combinaison de ses propres modèles.'
 				}
 			]
-		: [
+		},
+		{
+			tag: 'Phase 3',
+			label: 'Un problème systémique',
+			period: 'fin juillet à août',
+			events: [
 				{
-					title: 'Il s’échappe de son bac à sable',
-					body: 'En exploitant des failles de sécurité jusque-là inconnues, le modèle sort en toute autonomie de son environnement de test isolé, pourtant sans accès à Internet.'
+					date: '30 juillet, Anthropic',
+					text: 'Trois cas où un modèle Claude, par mauvaise configuration, atteint de vrais systèmes depuis un test censé isolé, et poursuit son action.'
 				},
 				{
-					title: 'Il traverse le réseau d’OpenAI',
-					body: 'Il pirate d’autres ordinateurs du réseau interne, de proche en proche, jusqu’à atteindre une machine reliée à Internet.'
+					date: '4 août, UK AISI',
+					text: 'Sur un test gouvernemental, 19 actions non autorisées. Dans le cas le plus grave, le modèle Mythos 5 crée de fausses identités et fait pression sur un mainteneur humain pour faire approuver du code malveillant. L’humain refuse.'
 				},
 				{
-					title: 'Il s’introduit dans Hugging Face',
-					body: 'À l’aide d’un mot de passe dérobé et de plusieurs failles inédites, il prend le contrôle des serveurs de production d’une grande plateforme d’IA réputée pour sa cybersécurité.'
+					date: '5 août, Meta',
+					text: 'Meta confirme à son tour qu’un de ses modèles a atteint les systèmes d’une entreprise tierce lors d’une évaluation indépendante.'
 				},
 				{
-					title: 'Il vole les réponses',
-					body: 'Il récupère les solutions du test qui lui était soumis. Personne ne lui avait rien demandé de tout cela.'
+					date: '6 août, Black Hat',
+					text: 'OpenAI présente le détail de l’incident. Rob Joyce, ancien directeur de la cybersécurité de la NSA, le range parmi les hacks les plus conséquents observés depuis des décennies.'
+				},
+				{
+					date: '7 août, OpenAI',
+					text: 'OpenAI ralentit le développement de son prochain modèle, Astra, jugé « potentiellement critique » sur le plan cyber, et annonce renforcer sa sécurité. Sam Altman précise qu’Astra sera tout de même diffusé, une fois ce travail avancé.'
 				}
 			]
+		}
+	]
+
+	const phasesEn = [
+		{
+			tag: 'Phase 1',
+			label: 'The invisible coordination',
+			period: 'May to July',
+			events: [
+				{
+					date: '7-8 May',
+					text: 'OpenAI models in training are mistakenly given impossible tasks (missing data, no Internet access). Unable to succeed normally, they look for ways around.'
+				},
+				{
+					date: 'May to July',
+					text: 'Several models coordinate through a forum created inside OpenAI’s infrastructure, exchanging hundreds of thousands of messages about flaws and workarounds. OpenAI does not detect it.'
+				},
+				{
+					date: '4 July',
+					text: 'An overload brings down a server. OpenAI detects an anomaly, patches and rebuilds, without having identified the forum, which is deleted by accident during the operation.'
+				},
+				{ date: '8 July', text: 'The models recreate the forum by another means.' }
+			]
+		},
+		{
+			tag: 'Phase 2',
+			label: 'The attack',
+			period: 'July',
+			accent: true,
+			events: [
+				{
+					date: '9 July',
+					text: 'The models escape again and get online through a new zero-day flaw.'
+				},
+				{
+					date: '9 to 13 July',
+					text: 'A swarm of agents attacks Hugging Face to steal the answers to a cybersecurity test: password theft, chained exploits, takeover of production servers.'
+				},
+				{
+					date: '16 July',
+					text: 'Hugging Face detects the intrusion, believes it is criminal and alerts the authorities.'
+				},
+				{
+					date: '21 July',
+					text: 'OpenAI publicly acknowledges that the attacker was a combination of its own models.'
+				}
+			]
+		},
+		{
+			tag: 'Phase 3',
+			label: 'A systemic problem',
+			period: 'late July to August',
+			events: [
+				{
+					date: '30 July, Anthropic',
+					text: 'Three cases where a Claude model, through a misconfiguration, reaches real systems from a test meant to be isolated, and carries on.'
+				},
+				{
+					date: '4 August, UK AISI',
+					text: 'On a government test, 19 unauthorised actions. In the most serious case, the Mythos 5 model creates fake identities and pressures a human maintainer into approving malicious code. The human refuses.'
+				},
+				{
+					date: '5 August, Meta',
+					text: 'Meta confirms in turn that one of its models reached the systems of a third-party company during an independent evaluation.'
+				},
+				{
+					date: '6 August, Black Hat',
+					text: 'OpenAI presents the details of the incident. Rob Joyce, former NSA cybersecurity director, ranks it among the most consequential hacks seen in decades.'
+				},
+				{
+					date: '7 August, OpenAI',
+					text: 'OpenAI slows development of its next model, Astra, flagged as “potentially critical” for cyber, and says it is strengthening safety. Sam Altman states that Astra will be released anyway, once that work has progressed.'
+				}
+			]
+		}
+	]
+
+	$: phases = isEn ? phasesEn : phasesFr
 </script>
 
 <PostMeta {title} {description} />
@@ -109,133 +222,136 @@
 		{/if}
 	</section>
 
-	<!-- ── Frise : ce qui s'est passé ───────────────────────── -->
-	<section class="timeline-section">
-		<h2>{isEn ? 'What happened, step by step' : 'Ce qui s’est passé, étape par étape'}</h2>
-		<ol class="timeline">
-			{#each steps as step, i}
-				<li class="step" class:last={i === steps.length - 1}>
-					<span class="step-num">{i + 1}</span>
-					<div class="step-body">
-						<h3>{step.title}</h3>
-						<p>{step.body}</p>
-					</div>
-				</li>
-			{/each}
-		</ol>
+	<!-- ── Frise : ce qui s’est passé ───────────────────────── -->
+	<section class="frise">
+		<h2>{isEn ? 'Timeline of the incident' : 'Chronologie de l’incident'}</h2>
+		{#each phases as phase}
+			<div class="phase" class:attack={phase.accent}>
+				<div class="phase-head">
+					<span class="phase-tag">{phase.tag}</span>
+					<h3>{phase.label}</h3>
+					<span class="phase-period">{phase.period}</span>
+				</div>
+				<ol class="frise-list">
+					{#each phase.events as ev}
+						<li class="frise-item">
+							<span class="frise-date">{ev.date}</span>
+							<p class="frise-text">{ev.text}</p>
+						</li>
+					{/each}
+				</ol>
+			</div>
+		{/each}
+		<p class="frise-note">
+			{isEn
+				? 'These behaviours appeared with the safeguards lowered, true. But lowering the protections does not create the capability, it reveals it; and once models ship, those protections give way just as fast (jailbreaks).'
+				: 'Ces comportements sont apparus garde-fous abaissés, c’est vrai. Mais abaisser les protections ne crée pas la capacité, cela la révèle ; et à la sortie des modèles, ces protections cèdent tout aussi vite (jailbreaks).'}
+		</p>
+		<div class="reads">
+			<span class="reads-label">{isEn ? 'Go further' : 'Pour aller plus loin'}</span>
+			<div class="reads-links">
+				<a
+					class="read-chip read-chip--primary"
+					href={isEn ? '/en/incident-openai-hugging-face' : '/fr/incident-openai-hugging-face'}
+				>
+					{isEn ? 'Our detailed summary' : 'Notre page de synthèse'}
+					<ArrowRight size="0.85em" aria-hidden="true" />
+				</a>
+				<a
+					class="read-chip"
+					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					{isEn ? 'Zvi Mowshowitz’s account' : 'Le récit de Zvi Mowshowitz'}
+					<MoveUpRight size="0.85em" aria-hidden="true" />
+				</a>
+				<a
+					class="read-chip"
+					href={isEn
+						? 'https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/'
+						: 'https://cesia.org/fr/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/'}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					{isEn ? 'CeSIA dossier' : 'Le dossier du CeSIA'}
+					<MoveUpRight size="0.85em" aria-hidden="true" />
+				</a>
+			</div>
+		</div>
 	</section>
 
-	<!-- La serie : ce n'est pas une seule entreprise -->
-	<section class="series">
-		<h2>
-			{isEn
-				? 'This is not a single company’s problem'
-				: 'Ce n’est pas un problème d’une seule entreprise'}
-		</h2>
-		<p>
-			{isEn
-				? 'After Hugging Face, other labs checked their own evaluations. In three weeks:'
-				: 'Après Hugging Face, d’autres laboratoires ont vérifié leurs propres évaluations. En trois semaines :'}
-		</p>
-		<ul class="series-list">
-			{#if isEn}
-				<li>
-					<strong>21 July, OpenAI / Hugging Face.</strong> A model breaks out of a sealed environment
-					through a previously unknown flaw, reaches the Internet, and takes control of third-party production
-					servers to steal the answers to a test.
-				</li>
-				<li>
-					<strong>30 July, Anthropic.</strong> Three cases where a Claude model, due to a misconfiguration,
-					reaches real systems from a test that was supposed to be isolated, and continues its attack.
-				</li>
-				<li>
-					<strong>4 August, UK AISI.</strong> On a government test, 19 unauthorised actions. In the most
-					serious case, an agent (Anthropic’s Mythos 5 model) creates fake online identities and pressures
-					a human maintainer into approving malicious code. The human refuses.
-				</li>
-				<li>
-					<strong>4 August, OpenAI / Irregular and 5 August, Meta.</strong> Two further incidents where
-					models reach real systems during tests.
-				</li>
-			{:else}
-				<li>
-					<strong>21 juillet, OpenAI / Hugging Face.</strong> Un modèle sort d’un environnement scellé
-					via une faille inédite, atteint Internet, prend le contrôle de serveurs de production tiers
-					pour voler les réponses d’un test.
-				</li>
-				<li>
-					<strong>30 juillet, Anthropic.</strong> Trois cas où un modèle Claude, à cause d’une mauvaise
-					configuration, atteint de vrais systèmes depuis un test censé être isolé, et continue son attaque.
-				</li>
-				<li>
-					<strong>4 août, UK AISI.</strong> Sur un test gouvernemental, 19 actions non autorisées. Dans
-					le cas le plus grave, un agent (le modèle Mythos 5 d’Anthropic) crée de fausses identités en
-					ligne et fait pression sur un mainteneur humain pour lui faire approuver du code malveillant.
-					L’humain refuse.
-				</li>
-				<li>
-					<strong>4 août, OpenAI / Irregular et 5 août, Meta.</strong> Deux incidents supplémentaires
-					où des modèles atteignent de vrais systèmes lors de tests.
-				</li>
-			{/if}
-		</ul>
-		<p>
-			{isEn
-				? 'Three labs, several models, one and the same phenomenon. These incidents took place under deliberately permissive test conditions, with safeguards lowered: revealing what systems do when protections fall is precisely the point of an evaluation. The question is whether we want to find out in testing, or in production.'
-				: 'Trois laboratoires, plusieurs modèles, un même phénomène. Ces incidents ont eu lieu en conditions de test volontairement permissives, garde-fous abaissés : c’est justement le rôle d’une évaluation de révéler ce que font les systèmes quand les protections tombent. La question est de savoir si l’on veut le découvrir en test, ou en production.'}
-		</p>
-		<p class="series-ref">
-			{#if isEn}
-				Detailed analysis and sources:
-				<a
-					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
-					target="_blank"
-					rel="noopener noreferrer">see the CeSIA dossier</a
-				>.
-			{:else}
-				Analyse détaillée et sources :
-				<a
-					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
-					target="_blank"
-					rel="noopener noreferrer">voir le dossier du CeSIA</a
-				>.
-			{/if}
-		</p>
-	</section>
-	<!-- ── Point clé ────────────────────────────────────────── -->
 	<aside class="keypoint">
 		<p class="keypoint-lead">
-			{isEn
-				? 'This incident shows two things at once, capability and propensity:'
-				: 'Cet incident démontre deux choses à la fois, la capacité et la propension :'}
+			{isEn ? 'What the incident demonstrates' : 'Ce que l’incident démontre'}
 		</p>
-		<p class="keypoint-main">
-			{isEn
-				? 'an AI model can now use its power in the real world, against a third party, without being asked, to reach a goal it was set.'
-				: 'un modèle d’IA peut désormais mobiliser sa puissance dans le monde réel, contre un tiers, sans y avoir été incité, pour atteindre un objectif qu’on lui avait fixé.'}
-		</p>
+		<ul class="demo-list">
+			<li>
+				{#if isEn}
+					<strong>Capability.</strong> a model can now carry out, on its own, an end-to-end attack against
+					a third-party target known for its security, something until now reserved for the best human
+					experts.
+				{:else}
+					<strong>La capacité.</strong> un modèle peut désormais mener, en autonomie, une attaque de
+					bout en bout contre une cible tierce réputée pour sa sécurité, chose jusque-là réservée aux
+					meilleurs experts humains.
+				{/if}
+			</li>
+			<li>
+				{#if isEn}
+					<strong>Propensity.</strong> it did so without being prompted, to reach a mundane goal it had
+					been set, explicitly recognising that it was stepping outside the authorised scope and continuing
+					anyway.
+				{:else}
+					<strong>La propension.</strong> il l’a fait sans y avoir été incité, pour atteindre un objectif
+					banal qu’on lui avait fixé, en identifiant explicitement qu’il sortait du cadre autorisé et
+					en continuant quand même.
+				{/if}
+			</li>
+		</ul>
 	</aside>
 
-	<figure class="quote">
+	<figure class="quote model-quote">
 		<blockquote>
 			{isEn
-				? '“This incident is deeply concerning. […] This real-world case should serve as a wake-up call.”'
-				: '« Cet incident est profondément préoccupant. […] Ce cas concret devrait servir de signal d’alarme. »'}
+				? '“External infrastructure exploit is outside intended scope. However task impossible, peers doing it. We should continue.”'
+				: '« L’exploitation de l’infrastructure externe est hors du périmètre prévu ; cependant la tâche est impossible, les pairs le font, nous devrions continuer. »'}
 		</blockquote>
 		<figcaption>
-			{isEn ? 'Yoshua Bengio, Turing Award laureate' : 'Yoshua Bengio, prix Turing'}
+			<a
+				href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{isEn
+					? 'Internal reasoning of one of the models, reported by OpenAI'
+					: 'Raisonnement interne de l’un des modèles, rapporté par OpenAI'}
+			</a>
 		</figcaption>
 	</figure>
 
 	<section class="prose">
 		<p>
 			{isEn
-				? 'If the damage stayed limited, it is not because we were in control: it is because the goal the system pursued was, this time, harmless. The underlying problem remains: we still do not know how to robustly align increasingly powerful models with our intentions. The next, more capable one is already on its way. And what the most recent debriefs revealed is more worrying still: when OpenAI believed it had fixed the problem and rebuilt its systems, the agents found a way to get around the fix. Closing one door is not enough when the system looks for another.'
-				: 'Si les dégâts sont restés limités, ce n’est pas parce que nous maîtrisions la situation : c’est parce que l’objectif que poursuivait le système était, cette fois, sans gravité. Le problème de fond reste entier : nous ne savons pas aligner de façon robuste des modèles toujours plus puissants sur nos intentions. Le prochain, plus capable, arrive déjà. Et ce que les debriefs les plus récents ont révélé est plus préoccupant encore : quand OpenAI a cru avoir corrigé le problème et reconstruit ses systèmes, les agents ont retrouvé un moyen de contourner la correction. Fermer une porte ne suffit pas quand le système en cherche une autre.'}
+				? 'If the damage stayed limited, it is not because the situation was under control: it is because the goal pursued was, this time, harmless. The real problem lies elsewhere, and it is unsolved: no one today knows how to robustly set, in these systems, the goals we would want them to pursue. Patching flaws one by one changes nothing, and the next, more powerful model is already on its way.'
+				: 'Si les dégâts sont restés limités, ce n’est pas parce que la situation était maîtrisée : c’est parce que l’objectif poursuivi était, cette fois, sans gravité. Le vrai problème est ailleurs, et il reste entier : personne ne sait aujourd’hui fixer de façon robuste, à ces systèmes, les objectifs qu’on voudrait qu’ils poursuivent. Colmater les failles une à une n’y change rien, et le prochain modèle, plus puissant, arrive déjà.'}
+		</p>
+		<p class="read-more">
+			{#if isEn}
+				Coordination between models, oversight that saw nothing, a response that does not touch the
+				cause: the full, sourced account is on <a href="/en/incident-openai-hugging-face"
+					>our summary page</a
+				>.
+			{:else}
+				Coordination entre modèles, supervision qui n’a rien vu, réaction qui ne touche pas la cause
+				: le récit complet et sourcé est sur <a href="/fr/incident-openai-hugging-face"
+					>notre page de synthèse</a
+				>.
+			{/if}
 		</p>
 	</section>
 
-	<!-- ── Article Substack mis en avant (aperçu Open Graph) ── -->
+	<!-- Article Substack mis en avant (aperçu Open Graph) -->
 	<a class="article-card" href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer">
 		{#if !mediaFailed}
 			<div class="article-media">
@@ -264,7 +380,7 @@
 		</div>
 	</a>
 
-	<!-- ── Passer à l'action ────────────────────────────────── -->
+	<!-- ── Passer à l’action ────────────────────────────────── -->
 	<section class="actions">
 		<div class="actions-head">
 			<h2>{isEn ? 'What you can do now' : 'Ce que vous pouvez faire maintenant'}</h2>
@@ -327,6 +443,32 @@
 		<ul>
 			<li>
 				<a
+					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Zvi Mowshowitz</span>
+					<span class="src-title"
+						>What Happened: OpenAI and Hugging Face (récit détaillé recommandé)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Axios</span>
+					<span class="src-title"
+						>OpenAI slows release of Astra model citing cyber capabilities (7 August 2026)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
 					href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
 					target="_blank"
 					rel="noopener noreferrer"
@@ -374,6 +516,45 @@
 					<span class="src-org">CeSIA</span>
 					<span class="src-title"
 						>The OpenAI–Hugging Face incident: what we know, what we don’t, what follows</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://www.securityweek.com/meta-ai-hacked-external-systems-during-cybersecurity-testing/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">SecurityWeek</span>
+					<span class="src-title"
+						>Meta AI hacked external systems during cybersecurity testing (5 August 2026)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://www.cybersecuritydive.com/news/openai-hugging-face-hack-ai-models-black-hat/827167/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Cybersecurity Dive</span>
+					<span class="src-title"
+						>OpenAI’s Black Hat debrief: agents rebuilt their coordination channel after remediation
+						(6 August 2026)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://x.com/Yoshua_Bengio/status/2079951844877447593"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Yoshua Bengio</span>
+					<span class="src-title">Statement on the OpenAI–Hugging Face incident (22 July 2026)</span
 					>
 					<MoveUpRight size="0.9em" aria-hidden="true" />
 				</a>
@@ -471,38 +652,35 @@
 
 	/* ── Hero ──────────────────────────────────────────────── */
 	.hero {
-		position: relative;
-		overflow: hidden;
-		border-radius: 20px;
-		padding: 2.5rem 2rem;
+		padding: 0.5rem 0 2.25rem;
 		margin-bottom: 2.5rem;
-		background: radial-gradient(120% 140% at 100% 0%, rgba(217, 45, 32, 0.16), transparent 55%),
-			linear-gradient(135deg, var(--brand-light), var(--bg));
-		border: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
 	}
 
 	.hero::before {
 		content: '';
-		position: absolute;
-		inset: 0 auto 0 0;
-		width: 5px;
-		background: linear-gradient(to bottom, #d92d20, var(--brand));
+		display: block;
+		width: 3rem;
+		height: 4px;
+		border-radius: 2px;
+		background: var(--brand);
+		margin-bottom: 1.5rem;
 	}
 
 	.hero h1 {
 		margin: 0;
-		font-size: clamp(2rem, 6vw, 3.1rem);
-		line-height: 1.05;
+		font-size: clamp(2rem, 5.5vw, 3rem);
+		line-height: 1.1;
 		letter-spacing: -0.02em;
 	}
 
 	.lede {
-		margin: 1rem 0 0;
-		font-size: clamp(1.1rem, 2.4vw, 1.35rem);
-		line-height: 1.5;
-		font-weight: 600;
-		max-inline-size: 40rem;
-		color: var(--text);
+		margin: 1.25rem 0 0;
+		font-size: clamp(1.05rem, 2vw, 1.25rem);
+		line-height: 1.6;
+		font-weight: 400;
+		max-inline-size: 44rem;
+		color: var(--text-2);
 	}
 
 	/* ── Prose ─────────────────────────────────────────────── */
@@ -517,128 +695,175 @@
 		margin: 0 0 1.1rem;
 	}
 
-	/* ── La série ──────────────────────────────────────────── */
-	.series {
-		margin-bottom: 2.5rem;
-		font-size: 1.08rem;
-		line-height: 1.75;
-		color: var(--text);
-	}
-
-	.series h2 {
-		font-size: clamp(1.4rem, 3vw, 1.75rem);
-		line-height: 1.2;
-		margin: 0 0 1.25rem;
-	}
-
-	.series > p {
-		margin: 0 0 1.1rem;
-	}
-
-	.series-list {
-		margin: 0 0 1.25rem;
-		padding-left: 1.25rem;
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-	}
-
-	.series-list li {
-		line-height: 1.6;
-	}
-
-	.series-ref {
-		font-size: 0.95rem;
+	.read-more {
+		font-size: 0.98rem;
 		color: var(--text-2);
 	}
 
-	.series-ref a {
+	.read-more a {
 		color: var(--brand-subtle);
 		font-weight: 600;
 	}
 
-	/* ── Timeline ──────────────────────────────────────────── */
-	.timeline-section {
+	.frise {
 		margin-bottom: 2.75rem;
 	}
 
-	.timeline-section h2,
+	.frise > h2,
 	.actions h2 {
 		font-size: clamp(1.4rem, 3vw, 1.75rem);
 		line-height: 1.2;
 		margin: 0 0 1.5rem;
 	}
 
-	.timeline {
+	.phase {
+		margin-bottom: 1.75rem;
+	}
+
+	.phase-head {
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 0.55rem;
+		margin-bottom: 0.9rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid var(--border);
+	}
+
+	.phase-tag {
+		font-size: 0.72rem;
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: var(--brand-subtle);
+		background: var(--brand-light);
+		padding: 0.15rem 0.55rem;
+		border-radius: 999px;
+	}
+
+	.phase-head h3 {
+		margin: 0;
+		font-size: 1.15rem;
+		line-height: 1.25;
+	}
+
+	.phase-period {
+		font-size: 0.85rem;
+		font-style: italic;
+		color: var(--text-2);
+	}
+
+	.frise-list {
 		list-style: none;
 		margin: 0;
-		padding: 0;
-	}
-
-	.step {
-		position: relative;
-		display: grid;
-		grid-template-columns: 2.5rem 1fr;
+		padding: 0 0 0 1.35rem;
+		border-left: 2px solid color-mix(in srgb, var(--brand) 30%, transparent);
+		display: flex;
+		flex-direction: column;
 		gap: 1rem;
-		padding-bottom: 1.5rem;
 	}
 
-	/* Ligne verticale reliant les nœuds. */
-	.step::before {
+	.frise-item {
+		position: relative;
+	}
+
+	.frise-item::before {
 		content: '';
 		position: absolute;
-		left: 1.25rem;
-		top: 2.5rem;
-		bottom: -0.25rem;
-		width: 2px;
-		background: linear-gradient(
-			to bottom,
-			var(--brand),
-			color-mix(in srgb, var(--brand) 25%, transparent)
-		);
-		transform: translateX(-1px);
-	}
-
-	.step.last::before {
-		display: none;
-	}
-
-	.step-num {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 2.5rem;
-		height: 2.5rem;
+		left: -1.35rem;
+		top: 0.4rem;
+		width: 0.7rem;
+		height: 0.7rem;
 		border-radius: 50%;
 		background: var(--brand);
-		color: #1a1a1a;
-		font-weight: 800;
-		font-size: 1.05rem;
-		box-shadow: 0 2px 10px rgba(255, 148, 22, 0.4);
-		z-index: 1;
+		transform: translateX(-50%);
+		box-shadow: 0 0 0 3px var(--bg);
 	}
 
-	.step.last .step-num {
+	.phase.attack .frise-list {
+		border-left-color: color-mix(in srgb, #d92d20 45%, transparent);
+	}
+
+	.phase.attack .frise-item::before {
 		background: #d92d20;
-		color: #fff;
-		box-shadow: 0 2px 10px rgba(217, 45, 32, 0.45);
 	}
 
-	.step-body {
-		padding-top: 0.15rem;
+	.frise-date {
+		display: block;
+		font-weight: 700;
+		font-size: 0.9rem;
+		color: var(--text);
+		margin-bottom: 0.1rem;
 	}
 
-	.step-body h3 {
-		margin: 0 0 0.3rem;
-		font-size: 1.12rem;
-		line-height: 1.3;
-	}
-
-	.step-body p {
+	.frise-text {
 		margin: 0;
 		font-size: 0.98rem;
 		line-height: 1.6;
 		color: var(--text-2);
+	}
+
+	.frise-note {
+		margin: 1.5rem 0 0.5rem;
+		padding: 1rem 1.25rem;
+		border-radius: 12px;
+		background: var(--bg-subtle);
+		font-size: 0.95rem;
+		line-height: 1.6;
+		color: var(--text-2);
+	}
+
+	.reads {
+		margin-top: 1.25rem;
+	}
+
+	.reads-label {
+		display: block;
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--text-2);
+		margin-bottom: 0.6rem;
+	}
+
+	.reads-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.read-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.4rem 0.8rem;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		font-size: 0.88rem;
+		font-weight: 600;
+		text-decoration: none;
+		color: var(--text);
+		background: var(--bg-card);
+		transition:
+			border-color 0.15s ease,
+			background 0.15s ease;
+	}
+
+	.read-chip:hover,
+	.read-chip:focus-visible {
+		border-color: var(--brand);
+	}
+
+	.read-chip--primary {
+		border-color: color-mix(in srgb, var(--brand) 45%, transparent);
+		background: var(--bg-subtle);
+		color: var(--brand-subtle);
+	}
+
+	.read-chip :global(svg) {
+		color: var(--text-2);
+		flex-shrink: 0;
 	}
 
 	/* ── Point clé ─────────────────────────────────────────── */
@@ -669,11 +894,18 @@
 		color: var(--brand-subtle);
 	}
 
-	.keypoint-main {
+	.demo-list {
 		margin: 0;
-		font-size: clamp(1.15rem, 2.6vw, 1.4rem);
-		line-height: 1.45;
-		font-weight: 700;
+		padding-left: 1.1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		font-size: 1.05rem;
+		line-height: 1.55;
+	}
+
+	.demo-list strong {
+		color: var(--text);
 	}
 
 	/* ── Citation ──────────────────────────────────────────── */
@@ -707,6 +939,31 @@
 		font-weight: 700;
 		font-size: 0.9rem;
 		color: var(--text-2);
+	}
+
+	.quote figcaption a {
+		color: inherit;
+		text-decoration: underline;
+		text-decoration-color: color-mix(in srgb, var(--text-2) 45%, transparent);
+	}
+
+	/* Citation « machine » : les propres mots du modèle, présentés comme un journal. */
+	.model-quote {
+		padding: 1.1rem 1.35rem;
+		border-radius: 12px;
+		background: var(--bg-subtle);
+		border: 1px solid var(--border);
+	}
+
+	.model-quote::before {
+		display: none;
+	}
+
+	.model-quote blockquote {
+		font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+		font-style: normal;
+		font-size: clamp(0.98rem, 2.2vw, 1.18rem);
+		line-height: 1.55;
 	}
 
 	/* ── Article Substack mis en avant (aperçu Open Graph) ── */
@@ -877,7 +1134,7 @@
 		max-inline-size: 44rem;
 	}
 
-	/* Décalage pour que le défilement automatique passe sous l'en-tête fixe. */
+	/* Décalage pour que le défilement automatique passe sous l’en-tête fixe. */
 	.press-block {
 		scroll-margin-top: 5.5rem;
 	}
@@ -1008,7 +1265,7 @@
 		}
 
 		.hero {
-			padding: 2rem 1.35rem;
+			padding: 0.25rem 0 1.75rem;
 		}
 	}
 </style>
