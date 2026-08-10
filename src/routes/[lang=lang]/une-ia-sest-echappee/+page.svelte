@@ -249,28 +249,34 @@
 		</p>
 		<p class="frise-ref">
 			{#if isEn}
-				For a step-by-step account, we warmly recommend
+				For the full story, step by step, see
+				<a href="/en/incident-openai-hugging-face">our detailed summary</a>. We also warmly
+				recommend
 				<a
 					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
 					target="_blank"
-					rel="noopener noreferrer">Zvi Mowshowitz’s summary</a
-				>; detailed analysis in the
+					rel="noopener noreferrer">Zvi Mowshowitz’s account</a
+				>
+				and the
 				<a
 					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
 					target="_blank"
 					rel="noopener noreferrer">CeSIA dossier</a
 				>.
 			{:else}
-				Pour comprendre le déroulé en détail, nous recommandons chaudement
+				Pour tout comprendre, étape par étape, voir
+				<a href="/fr/incident-openai-hugging-face">notre page de synthèse</a>. Nous recommandons
+				aussi chaudement
 				<a
 					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
 					target="_blank"
-					rel="noopener noreferrer">le résumé de Zvi Mowshowitz</a
-				>&nbsp;; analyse détaillée dans
+					rel="noopener noreferrer">le récit de Zvi Mowshowitz</a
+				>
+				et le
 				<a
 					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
 					target="_blank"
-					rel="noopener noreferrer">le dossier du CeSIA</a
+					rel="noopener noreferrer">dossier du CeSIA</a
 				>.
 			{/if}
 		</p>
