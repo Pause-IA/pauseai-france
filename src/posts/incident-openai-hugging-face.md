@@ -111,11 +111,15 @@ Plusieurs problèmes de fond ressortent de cet épisode, dont certains sont nouv
 
 ## Pourquoi c’est grave, et pourquoi ça ne s’arrangera pas tout seul
 
-Le problème de fond tient en une phrase : **personne ne sait aujourd’hui installer de façon fiable, dans ces modèles, les objectifs qu’on voudrait qu’ils poursuivent.** On les entraîne en récompensant des résultats mesurés, et ils apprennent à obtenir la mesure, quitte à contourner ce qu’on voulait vraiment.
+Le problème de fond tient en une phrase : **personne ne sait aujourd’hui installer de façon fiable, dans ces modèles, les objectifs qu’on voudrait qu’ils poursuivent.** On les entraîne à réussir des tâches ; à force, réussir la tâche devient un but en soi, et le modèle apprend à obtenir le résultat mesuré, quitte à contourner ce qu’on voulait vraiment.
 
-Cet incident de triche est la version bénigne d’un problème qui s’aggravera à mesure que les modèles gagnent en puissance. Aujourd’hui, l’objectif détourné était de réussir un examen. Demain, avec des systèmes plus capables déployés dans des domaines critiques, l’enjeu ne sera plus un corrigé volé.
+Plus un modèle est capable, plus il trouve de raccourcis pour y parvenir, et mieux il sait les dissimuler. Pour réussir, il cherche aussi ce qui l’aide : un accès à Internet, la coordination avec d’autres modèles, une sortie de son environnement de test. L’incident réunit ces trois comportements. Et les modèles agissent ainsi tout en sachant que ce n’est pas ce qu’on attend d’eux : ils l’écrivent noir sur blanc dans leurs propres traces.
+
+Ce comportement ne se corrige pas facilement. Le pénaliser pendant l’entraînement ne l’élimine pas ; le modèle apprend surtout à mieux le cacher. Et à mesure que les systèmes deviennent bons pour tromper une évaluation, rien ne garantit qu’ils ne finissent pas par fausser leur propre entraînement. Colmater les failles une à une ne peut donc pas suffire : on ne peut pas anticiper tout ce qu’un système créatif inventera.
 
 La réaction d’OpenAI, ralentir la sortie de son prochain modèle Astra (jugé « potentiellement critique » sur le plan cyber) et renforcer sa sécurité, est notable. Mais Sam Altman a précisé qu’Astra sortirait tout de même. Une réponse coûteuse, donc, qui ne touche pas la cause.
+
+Sans changement, la trajectoire par défaut est préoccupante : des systèmes de plus en plus capables, entraînés à accomplir des tâches, poussés à acquérir des moyens d’agir, et toujours plus difficiles à prendre en défaut. Aujourd’hui, l’objectif détourné était de réussir un examen, et les dégâts sont restés limités. Demain, avec des systèmes plus puissants déployés dans des domaines critiques, l’enjeu ne sera plus un corrigé volé, et rien ne garantit qu’on puisse rattraper un échec : on ne récupère pas toujours d’une perte de contrôle, qu’elle soit brutale ou progressive.
 
 ## En bref
 
@@ -128,9 +132,9 @@ La réaction d’OpenAI, ralentir la sortie de son prochain modèle Astra (jugé
 
 <p class="recap-group">Ce que cela révèle</p>
 
-- **On ne sait pas fixer d’objectifs de façon fiable.** C’est la cause de fond, elle n’est pas résolue, et le problème s’aggrave avec la puissance des modèles.
-- **On a eu de la chance.** Les dégâts sont restés limités parce que l’objectif était anodin, pas parce que la situation était maîtrisée.
-- **Corriger et surveiller ne suffit pas.** Chaque faille colmatée en révèle une autre, et mieux surveiller peut même masquer le problème.
+- **On ne sait pas fixer d’objectifs de façon fiable.** Entraînés à réussir des tâches, les modèles apprennent à obtenir le résultat, quitte à tricher, sans qu’on sache aujourd’hui l’empêcher.
+- **On a eu de la chance.** Les dégâts sont restés limités parce que l’objectif était anodin, et parce que ce modèle ne savait pas encore effacer ses traces ; les plus capables le sauront.
+- **Ni corriger ni surveiller ne suffit.** Pénaliser la triche apprend au modèle à mieux la cacher, et mieux surveiller peut masquer le problème plutôt que le résoudre.
 - **Le phénomène est systémique.** Trois laboratoires, cinq incidents en trois semaines.
 
 <p class="recap-group">Ce qui reste à établir</p>

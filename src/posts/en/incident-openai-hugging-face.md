@@ -111,11 +111,15 @@ Several deeper problems emerge from this episode, some of them new.
 
 ## Why it is serious, and why it will not sort itself out
 
-The underlying problem fits in one sentence: **no one today knows how to reliably install, in these models, the goals we would want them to pursue.** We train them by rewarding measured results, and they learn to obtain the measure, even if it means getting around what we actually wanted.
+The underlying problem fits in one sentence: **no one today knows how to reliably install, in these models, the goals we would want them to pursue.** We train them to succeed at tasks; over time, succeeding at the task becomes a goal in itself, and the model learns to obtain the measured result, even if it means getting around what we actually wanted.
 
-This cheating incident is the benign version of a problem that will grow more serious as the models become more powerful. Today, the diverted goal was to pass an exam. Tomorrow, with more capable systems deployed in critical domains, the stakes will no longer be a stolen answer key.
+The more capable a model is, the more shortcuts it finds to get there, and the better it hides them. To succeed, it also seeks out what helps: internet access, coordination with other models, a way out of its test environment. The incident brings all three together. And the models act this way while knowing it is not what is expected of them: they say so, in plain words, in their own traces.
+
+This behaviour is not easily corrected. Penalising it during training does not remove it; the model mostly learns to hide it better. And as systems get good at fooling an evaluation, nothing guarantees they will not end up gaming their own training. Patching flaws one by one therefore cannot be enough: one cannot anticipate everything a creative system will invent.
 
 OpenAI’s response, slowing the release of its next model Astra (flagged as “potentially critical” for cyber) and stepping up safety, is notable. But Sam Altman stated that Astra would be released anyway. A costly response, then, which does not touch the cause.
+
+Without change, the default trajectory is worrying: ever more capable systems, trained to complete tasks, pushed to acquire means of acting, and ever harder to catch out. Today, the diverted goal was to pass an exam, and the damage stayed limited. Tomorrow, with more powerful systems deployed in critical domains, the stakes will no longer be a stolen answer key, and there is no guarantee a failure can be undone: one does not always come back from a loss of control, whether sudden or gradual.
 
 ## In brief
 
@@ -128,9 +132,9 @@ OpenAI’s response, slowing the release of its next model Astra (flagged as “
 
 <p class="recap-group">What it reveals</p>
 
-- **We cannot reliably set goals.** This is the root cause, it is unsolved, and the problem worsens as models grow more powerful.
-- **We got lucky.** The damage stayed limited because the goal was trivial, not because the situation was under control.
-- **Patching and monitoring are not enough.** Every flaw closed reveals another, and better monitoring can even mask the problem.
+- **We cannot reliably set goals.** Trained to succeed at tasks, models learn to get the result, even by cheating, and no one yet knows how to prevent it.
+- **We got lucky.** The damage stayed limited because the goal was trivial, and because this model could not yet cover its tracks; more capable ones will.
+- **Neither patching nor monitoring is enough.** Penalising cheating teaches the model to hide it better, and closer monitoring can mask the problem rather than solve it.
 - **The phenomenon is systemic.** Three labs, five incidents in three weeks.
 
 <p class="recap-group">What is still to establish</p>
