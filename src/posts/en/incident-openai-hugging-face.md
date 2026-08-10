@@ -7,7 +7,7 @@ description: 'What really happened during the OpenAI – Hugging Face incident o
   import Button from '$components/Button.svelte'
 </script>
 
-<p class="maj"><em>Summary page. Last updated: 10 August 2026. It describes what is known as of this date; some details may evolve as investigations continue.</em></p>
+<p class="maj"><em>Updated 10 August 2026. The story is still unfolding: we will revise this page as new elements are confirmed.</em></p>
 
 <aside class="note-lecture">
 	Throughout, we flag what is <strong>established</strong>, what is only <strong>reported</strong>, and what is our own <strong>interpretation</strong>.

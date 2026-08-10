@@ -7,7 +7,7 @@ description: 'Ce qui s’est réellement passé lors de l’incident OpenAI – 
   import Button from '$components/Button.svelte'
 </script>
 
-<p class="maj"><em>Page de synthèse. Dernière mise à jour : 10 août 2026. Elle décrit l’état des connaissances à cette date ; certains détails peuvent évoluer à mesure que les enquêtes se poursuivent.</em></p>
+<p class="maj"><em>Mis à jour le 10 août 2026. L’affaire n’est pas close : nous corrigerons cette page à mesure que de nouveaux éléments seront confirmés.</em></p>
 
 <aside class="note-lecture">
 	Nous signalons au fil du texte ce qui est <strong>établi</strong>, ce qui est seulement <strong>rapporté</strong>, et ce qui relève de notre <strong>interprétation</strong>.
