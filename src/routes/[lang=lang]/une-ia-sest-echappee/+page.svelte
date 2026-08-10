@@ -674,38 +674,35 @@
 
 	/* ── Hero ──────────────────────────────────────────────── */
 	.hero {
-		position: relative;
-		overflow: hidden;
-		border-radius: 20px;
-		padding: 2.5rem 2rem;
+		padding: 0.5rem 0 2.25rem;
 		margin-bottom: 2.5rem;
-		background: radial-gradient(120% 140% at 100% 0%, rgba(217, 45, 32, 0.16), transparent 55%),
-			linear-gradient(135deg, var(--brand-light), var(--bg));
-		border: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
 	}
 
 	.hero::before {
 		content: '';
-		position: absolute;
-		inset: 0 auto 0 0;
-		width: 5px;
-		background: linear-gradient(to bottom, #d92d20, var(--brand));
+		display: block;
+		width: 3rem;
+		height: 4px;
+		border-radius: 2px;
+		background: var(--brand);
+		margin-bottom: 1.5rem;
 	}
 
 	.hero h1 {
 		margin: 0;
-		font-size: clamp(2rem, 6vw, 3.1rem);
-		line-height: 1.05;
+		font-size: clamp(2rem, 5.5vw, 3rem);
+		line-height: 1.1;
 		letter-spacing: -0.02em;
 	}
 
 	.lede {
-		margin: 1rem 0 0;
-		font-size: clamp(1.1rem, 2.4vw, 1.35rem);
-		line-height: 1.5;
-		font-weight: 600;
-		max-inline-size: 40rem;
-		color: var(--text);
+		margin: 1.25rem 0 0;
+		font-size: clamp(1.05rem, 2vw, 1.25rem);
+		line-height: 1.6;
+		font-weight: 400;
+		max-inline-size: 44rem;
+		color: var(--text-2);
 	}
 
 	/* ── Prose ─────────────────────────────────────────────── */
@@ -1238,7 +1235,7 @@
 		}
 
 		.hero {
-			padding: 2rem 1.35rem;
+			padding: 0.25rem 0 1.75rem;
 		}
 	}
 </style>
