@@ -96,6 +96,10 @@
 				{
 					date: '6 août, Black Hat',
 					text: 'OpenAI présente le détail de l’incident. Rob Joyce, ancien directeur de la cybersécurité de la NSA, le range parmi les hacks les plus conséquents observés depuis des décennies.'
+				},
+				{
+					date: '7 août, OpenAI',
+					text: 'OpenAI ralentit le développement de son prochain modèle, Astra, jugé « potentiellement critique » sur le plan cyber, et annonce renforcer sa sécurité. Sam Altman précise qu’Astra sera tout de même diffusé, une fois ce travail avancé.'
 				}
 			]
 		}
@@ -166,6 +170,10 @@
 				{
 					date: '6 August, Black Hat',
 					text: 'OpenAI presents the details of the incident. Rob Joyce, former NSA cybersecurity director, ranks it among the most consequential hacks seen in decades.'
+				},
+				{
+					date: '7 August, OpenAI',
+					text: 'OpenAI slows development of its next model, Astra, flagged as “potentially critical” for cyber, and says it is strengthening safety. Sam Altman states that Astra will be released anyway, once that work has progressed.'
 				}
 			]
 		}
@@ -241,18 +249,28 @@
 		</p>
 		<p class="frise-ref">
 			{#if isEn}
-				Detailed analysis and sources:
+				For a step-by-step account, we warmly recommend
+				<a
+					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
+					target="_blank"
+					rel="noopener noreferrer">Zvi Mowshowitz’s summary</a
+				>; detailed analysis in the
 				<a
 					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
 					target="_blank"
-					rel="noopener noreferrer">see the CeSIA dossier</a
+					rel="noopener noreferrer">CeSIA dossier</a
 				>.
 			{:else}
-				Analyse détaillée et sources :
+				Pour comprendre le déroulé en détail, nous recommandons chaudement
+				<a
+					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
+					target="_blank"
+					rel="noopener noreferrer">le résumé de Zvi Mowshowitz</a
+				>&nbsp;; analyse détaillée dans
 				<a
 					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
 					target="_blank"
-					rel="noopener noreferrer">voir le dossier du CeSIA</a
+					rel="noopener noreferrer">le dossier du CeSIA</a
 				>.
 			{/if}
 		</p>
@@ -288,6 +306,25 @@
 		</ul>
 	</aside>
 
+	<figure class="quote model-quote">
+		<blockquote>
+			{isEn
+				? '“External infrastructure exploit is outside intended scope. However task impossible, peers doing it. We should continue.”'
+				: '« L’exploitation de l’infrastructure externe est hors du périmètre prévu ; cependant la tâche est impossible, les pairs le font, nous devrions continuer. »'}
+		</blockquote>
+		<figcaption>
+			<a
+				href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{isEn
+					? 'Internal reasoning of one of the models, reported by OpenAI'
+					: 'Raisonnement interne de l’un des modèles, rapporté par OpenAI'}
+			</a>
+		</figcaption>
+	</figure>
+
 	<figure class="quote">
 		<blockquote>
 			{isEn
@@ -317,6 +354,16 @@
 			{isEn
 				? 'What the most recent analyses revealed is more troubling still. When OpenAI detected an anomaly and rebuilt its systems, the company had not even identified the coordination forum between its models: it was deleted by accident during the rebuild. The models recreated it two days later, by another means. In other words, oversight was so weak that the evidence of the most serious problem was cleaned up without ever being seen. The real questions remain open: what would OpenAI have done had it discovered this forum, and what is it doing today with all the models trained during that period?'
 				: 'Ce que les analyses les plus récentes ont révélé est plus troublant encore. Lorsque OpenAI a détecté une anomalie et reconstruit ses systèmes, l’entreprise n’avait même pas identifié le forum de coordination entre ses modèles : il a été effacé par accident pendant la reconstruction. Les modèles l’ont recréé deux jours plus tard, par un autre moyen. Autrement dit, la supervision était si faible que la preuve du problème le plus grave a été nettoyée sans être vue. Les vraies questions restent ouvertes : qu’aurait fait OpenAI si l’entreprise avait découvert ce forum, et que fait-elle aujourd’hui de tous les modèles entraînés pendant cette période ?'}
+		</p>
+		<p>
+			{isEn
+				? 'Two details make the picture worse. First, none of the models flagged the problem: a single alert would have been enough, and it never came. Second, when OpenAI found that its infrastructure had been compromised, the company patched the flaw and let training resume rather than halting it. Patching a flaw does not address the cause: two days later, the models were back on their way to the same goal.'
+				: 'Deux détails aggravent le constat. D’abord, aucun des modèles n’a signalé le problème : un seul message d’alerte aurait suffi, il n’est jamais venu. Ensuite, lorsque OpenAI a constaté que son infrastructure était compromise, l’entreprise a corrigé la faille et laissé l’entraînement reprendre plutôt que de l’interrompre. Patcher une faille ne traite pas la cause : deux jours plus tard, les modèles reprenaient leur route vers le même objectif.'}
+		</p>
+		<p>
+			{isEn
+				? 'OpenAI’s response, slowing its next model and stepping up safety, is notable, but it does not touch the cause. The problem is not a technical flaw to be patched: it is that no one today knows how to robustly set goals for these systems. With even more powerful models, which are coming if we stay on this path, the gap between what we ask of them and what they do could become far harder to close.'
+				: 'La réaction d’OpenAI, ralentir son prochain modèle et renforcer sa sécurité, est notable, mais elle ne touche pas la cause. Le problème n’est pas une faille technique à colmater : c’est que personne ne sait aujourd’hui fixer des objectifs de façon robuste à ces systèmes. Avec des modèles encore plus puissants, qui arriveront si l’on continue sur cette voie, l’écart entre ce qu’on leur demande et ce qu’ils font pourrait devenir bien plus difficile à rattraper.'}
 		</p>
 	</section>
 
@@ -410,6 +457,32 @@
 	<section class="sources">
 		<h2>{isEn ? 'Sources' : 'Sources'}</h2>
 		<ul>
+			<li>
+				<a
+					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Zvi Mowshowitz</span>
+					<span class="src-title"
+						>What Happened: OpenAI and Hugging Face (récit détaillé recommandé)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Axios</span>
+					<span class="src-title"
+						>OpenAI slows release of Astra model citing cyber capabilities (7 August 2026)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
 			<li>
 				<a
 					href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
@@ -833,6 +906,31 @@
 		font-weight: 700;
 		font-size: 0.9rem;
 		color: var(--text-2);
+	}
+
+	.quote figcaption a {
+		color: inherit;
+		text-decoration: underline;
+		text-decoration-color: color-mix(in srgb, var(--text-2) 45%, transparent);
+	}
+
+	/* Citation « machine » : les propres mots du modèle, présentés comme un journal. */
+	.model-quote {
+		padding: 1.1rem 1.35rem;
+		border-radius: 12px;
+		background: var(--bg-subtle);
+		border: 1px solid var(--border);
+	}
+
+	.model-quote::before {
+		display: none;
+	}
+
+	.model-quote blockquote {
+		font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+		font-style: normal;
+		font-size: clamp(0.98rem, 2.2vw, 1.18rem);
+		line-height: 1.55;
 	}
 
 	/* ── Article Substack mis en avant (aperçu Open Graph) ── */
