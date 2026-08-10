@@ -119,6 +119,8 @@ Ce petit incident de triche est la version bénigne d’un problème qui s’agg
 
 La réaction d’OpenAI, ralentir la sortie de son prochain modèle Astra (jugé « potentiellement critique » sur le plan cyber) et renforcer sa sécurité, est notable. Mais Sam Altman a précisé qu’Astra sortirait tout de même. Une réponse coûteuse, donc, qui ne touche pas la cause.
 
+La conclusion qui s’impose est simple, et c’est celle que porte Pause IA : tant que nous ne savons pas fixer de façon fiable les objectifs de ces systèmes, il est imprudent d’en construire de plus puissants. Aujourd’hui, un test compromis se répare. Avec des systèmes plus capables, rien ne garantit qu’un échec puisse encore se rattraper : on ne récupère pas toujours d’une perte de contrôle. C’est pourquoi nous demandons une pause sur le développement des IA les plus puissantes, le temps d’apprendre à les maîtriser.
+
 ## En bref : les points à retenir
 
 <ol class="recap">

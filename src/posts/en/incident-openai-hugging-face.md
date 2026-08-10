@@ -119,6 +119,8 @@ This small cheating incident is the benign version of a problem that will grow m
 
 OpenAI’s response, slowing the release of its next model Astra (flagged as “potentially critical” for cyber) and stepping up safety, is notable. But Sam Altman stated that Astra would be released anyway. A costly response, then, which does not touch the cause.
 
+The conclusion that follows is simple, and it is the one Pause IA stands for: as long as we do not know how to reliably set the goals of these systems, it is reckless to build more powerful ones. Today, a compromised test can be repaired. With more capable systems, there is no guarantee that a failure can still be recovered from: one does not always come back from a loss of control. That is why we call for a pause on the development of the most powerful AI systems, until we know how to keep them under control.
+
 ## In brief: the key takeaways
 
 <ol class="recap">

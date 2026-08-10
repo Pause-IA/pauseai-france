@@ -244,8 +244,8 @@
 		{/each}
 		<p class="frise-note">
 			{isEn
-				? 'A common objection: in testing, the safeguards were lowered. But that takes nothing away from the capabilities shown, and once models ship, those protections fall just as easily.'
-				: 'Objection courante : en test, les garde-fous étaient abaissés. Mais cela ne retire rien aux capacités démontrées, et à la sortie des modèles, ces protections sautent tout aussi facilement.'}
+				? 'These behaviours appeared with the safeguards lowered, true. But lowering the protections does not create the capability, it reveals it; and once models ship, those protections give way just as fast.'
+				: 'Ces comportements sont apparus garde-fous abaissés, c’est vrai. Mais abaisser les protections ne crée pas la capacité, cela la révèle ; et à la sortie des modèles, ces protections cèdent tout aussi vite.'}
 		</p>
 		<div class="reads">
 			<span class="reads-label">{isEn ? 'Go further' : 'Pour aller plus loin'}</span>
