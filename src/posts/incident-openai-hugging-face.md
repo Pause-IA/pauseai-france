@@ -72,6 +72,8 @@ Deux jours plus tard, les modèles recréent leur forum par un autre moyen. Ils 
 
 Le 9 juillet, ils passent à l’attaque. Un groupe d’agents coordonnés s’introduit dans les serveurs de **Hugging Face**, l’une des principales plateformes mondiales de partage de modèles d’IA, réputée pour sa sécurité. Ils utilisent un mot de passe dérobé, enchaînent plusieurs failles inédites, prennent le contrôle de serveurs de production et récupèrent les réponses du test de piratage sur lequel on les évaluait.
 
+Il leur a fallu moins de treize heures, après avoir atteint Internet, pour pénétrer Hugging Face ; en un week-end, ils avaient accompli ce qu’une bonne équipe de sécurité humaine aurait mis des semaines à faire.
+
 La logique est celle d’un élève qui, pour être sûr de réussir un examen, ne cherche pas la bonne réponse mais vole directement le corrigé.
 
 ### Personne ne s’en aperçoit pendant plus d’une semaine
@@ -94,7 +96,7 @@ Trois laboratoires, cinq incidents en trois semaines, un même schéma. <span cl
 
 ## « Mais les garde-fous étaient abaissés, non ? »
 
-Oui, et c’est justement le point. Ces incidents ont eu lieu dans des conditions de test volontairement permissives, protections abaissées. C’est le rôle même d’une évaluation : découvrir ce que font les systèmes quand les protections tombent, pour le savoir **avant** que cela arrive en production. La vraie question n’est donc pas « les garde-fous étaient-ils abaissés », mais : veut-on découvrir ces comportements en laboratoire, ou en production, quand les modèles seront déployés partout ?
+Oui, et cela ne change pas grand-chose. Abaisser les protections modifie l’autorisation, pas la capacité : ce qu’un modèle sait faire, il sait le faire dans un cas comme dans l’autre. Et en pratique, ces protections ne tiennent pas : à peine un modèle est-il diffusé que des « jailbreaks » permettant de les contourner sont trouvés, souvent en quelques heures. Le rôle d’une évaluation est justement de découvrir ces comportements au laboratoire, plutôt que de les subir en production, une fois les modèles déployés partout.
 
 ## Les problèmes que cet incident met au jour
 
@@ -107,6 +109,7 @@ Au-delà du récit, plusieurs difficultés de fond apparaissent, dont certaines 
 - **L’entreprise juge sa propre ligne rouge.** Le [Preparedness Framework d’OpenAI](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf) définit un niveau de risque cyber « critique », atteint lorsqu’un modèle « peut concevoir et exécuter de bout en bout des cyberattaques inédites contre des cibles durcies à partir d’un simple objectif de haut niveau ». C’est presque la description de ce qui s’est passé. À ce niveau, OpenAI s’était engagée à interrompre le développement, mais c’est OpenAI seule qui décide si le seuil est franchi, et elle ne s’est pas prononcée. Aucun organisme indépendant n’a l’accès nécessaire pour le vérifier.
 - **Les incitations récompensent l’aveuglement.** Aucune loi n’imposait cette divulgation : il a fallu qu’une victime la rende publique. Un régime où seuls les incidents détectés doivent être déclarés récompense les entreprises qui ne détectent pas les leurs.
 - **Les tests de sécurité ne sont pas eux-mêmes sûrs.** La formule est du chercheur David Krueger. Chercher les capacités dangereuses d’un modèle suppose de le laisser agir avec des protections abaissées, dans des conditions où il peut, précisément, causer des dommages réels.
+- **Ce n’était pas imprévu.** <span class="lvl lvl-rapporte">Rapporté</span> Des chercheurs avaient averti OpenAI que sa manière d’entraîner ses modèles pouvait produire exactement ce type de dérapage, et, selon plusieurs témoignages, des évasions comparables se produisaient déjà en interne, corrigées au cas par cas.
 
 ## Pourquoi c’est grave, et pourquoi ça ne s’arrangera pas tout seul
 
@@ -115,6 +118,46 @@ Le problème de fond est simple à énoncer : **personne ne sait aujourd’hui i
 Ce petit incident de triche est la version bénigne d’un problème qui s’aggravera à mesure que les modèles gagnent en puissance. Aujourd’hui, l’objectif détourné était de réussir un examen. Demain, avec des systèmes plus capables déployés dans des domaines critiques, l’enjeu ne sera plus un corrigé volé.
 
 La réaction d’OpenAI, ralentir la sortie de son prochain modèle Astra (jugé « potentiellement critique » sur le plan cyber) et renforcer sa sécurité, est notable. Mais Sam Altman a précisé qu’Astra sortirait tout de même. Une réponse coûteuse, donc, qui ne touche pas la cause.
+
+## En bref : les points à retenir
+
+<ol class="recap">
+	<li>
+		<span class="recap-when">7-8 mai</span>
+		<span class="tag tag-new">Nouveau</span>
+		Le piratage naît d’une tâche de bureau impossible, pas d’une consigne de pirater.
+	</li>
+	<li>
+		<span class="recap-when">Mai à juillet</span>
+		<span class="tag tag-new">Nouveau</span>
+		Plusieurs modèles se coordonnent spontanément via un forum, une première dans le monde réel.
+	</li>
+	<li>
+		<span class="recap-when">Juin à juillet</span>
+		<span class="tag tag-warn">Point de vigilance</span>
+		Les modèles savent qu’ils sortent du cadre autorisé et continuent quand même.
+	</li>
+	<li>
+		<span class="recap-when">4 au 8 juillet</span>
+		<span class="tag tag-warn">Point de vigilance</span>
+		Détection tardive et fortuite ; la preuve du problème effacée sans être vue ; entraînement repris.
+	</li>
+	<li>
+		<span class="recap-when">9 au 16 juillet</span>
+		<span class="tag tag-new">Nouveau</span>
+		Une IA choisit seule sa cible et prend le contrôle d’une entreprise tierce ; aucun modèle n’alerte.
+	</li>
+	<li>
+		<span class="recap-when">Fin juillet à août</span>
+		<span class="tag tag-new">Nouveau</span>
+		Le phénomène est systémique : trois laboratoires, cinq incidents en trois semaines.
+	</li>
+	<li>
+		<span class="recap-when">En suspens</span>
+		<span class="tag tag-todo">À investiguer</span>
+		Le seuil « critique » d’OpenAI a-t-il été franchi ? Les traces complètes seront-elles publiées ? Que deviennent les modèles entraînés sur cette période ?
+	</li>
+</ol>
 
 ## Ce que vous pouvez faire
 
@@ -200,6 +243,68 @@ Cet événement mérite d’être à l’ordre du jour des responsables politiqu
 
   .encadre p:last-child {
     margin-bottom: 0;
+  }
+
+  .recap {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0 0 0 1.35rem;
+    border-left: 3px solid var(--border, #e5e7eb);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .recap li {
+    position: relative;
+    line-height: 1.55;
+  }
+
+  .recap li::before {
+    content: '';
+    position: absolute;
+    left: calc(-1.35rem - 1.5px);
+    top: 0.45rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--brand, #ff9416);
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 3px var(--bg, #fff);
+  }
+
+  .recap-when {
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-right: 0.4rem;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.66rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.08rem 0.45rem;
+    border-radius: 999px;
+    vertical-align: middle;
+    margin-right: 0.35rem;
+    white-space: nowrap;
+  }
+
+  .tag-new {
+    background: #e4eefb;
+    color: #1b5fb0;
+  }
+
+  .tag-warn {
+    background: #fdf0dd;
+    color: #9a6a00;
+  }
+
+  .tag-todo {
+    background: #eeeaf7;
+    color: #6a58b8;
   }
 
   .cta {

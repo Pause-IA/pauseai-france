@@ -244,42 +244,41 @@
 		{/each}
 		<p class="frise-note">
 			{isEn
-				? 'These incidents took place under deliberately permissive test conditions, with safeguards lowered. Revealing what systems do when the protections fall is precisely the role of an evaluation. The question is not whether the safeguards were lowered, but whether we want to discover these behaviours in testing, or in production.'
-				: 'Ces incidents ont eu lieu en conditions de test volontairement permissives, garde-fous abaissés. C’est le rôle d’une évaluation de révéler ce que font les systèmes quand les protections tombent. La question n’est pas de savoir si les garde-fous étaient abaissés, mais si l’on veut découvrir ces comportements en test, ou en production.'}
+				? 'A common objection: in testing, the safeguards were lowered. But that takes nothing away from the capabilities shown, and once models ship, those protections fall just as easily.'
+				: 'Objection courante : en test, les garde-fous étaient abaissés. Mais cela ne retire rien aux capacités démontrées, et à la sortie des modèles, ces protections sautent tout aussi facilement.'}
 		</p>
-		<p class="frise-ref">
-			{#if isEn}
-				For the full story, step by step, see
-				<a href="/en/incident-openai-hugging-face">our detailed summary</a>. We also warmly
-				recommend
+		<div class="reads">
+			<span class="reads-label">{isEn ? 'Go further' : 'Pour aller plus loin'}</span>
+			<div class="reads-links">
 				<a
+					class="read-chip read-chip--primary"
+					href={isEn ? '/en/incident-openai-hugging-face' : '/fr/incident-openai-hugging-face'}
+				>
+					{isEn ? 'Our detailed summary' : 'Notre page de synthèse'}
+					<ArrowRight size="0.85em" aria-hidden="true" />
+				</a>
+				<a
+					class="read-chip"
 					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
 					target="_blank"
-					rel="noopener noreferrer">Zvi Mowshowitz’s account</a
+					rel="noopener noreferrer"
 				>
-				and the
+					{isEn ? 'Zvi Mowshowitz’s account' : 'Le récit de Zvi Mowshowitz'}
+					<MoveUpRight size="0.85em" aria-hidden="true" />
+				</a>
 				<a
-					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
+					class="read-chip"
+					href={isEn
+						? 'https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/'
+						: 'https://cesia.org/fr/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/'}
 					target="_blank"
-					rel="noopener noreferrer">CeSIA dossier</a
-				>.
-			{:else}
-				Pour tout comprendre, étape par étape, voir
-				<a href="/fr/incident-openai-hugging-face">notre page de synthèse</a>. Nous recommandons
-				aussi chaudement
-				<a
-					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
-					target="_blank"
-					rel="noopener noreferrer">le récit de Zvi Mowshowitz</a
+					rel="noopener noreferrer"
 				>
-				et le
-				<a
-					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
-					target="_blank"
-					rel="noopener noreferrer">dossier du CeSIA</a
-				>.
-			{/if}
-		</p>
+					{isEn ? 'CeSIA dossier' : 'Le dossier du CeSIA'}
+					<MoveUpRight size="0.85em" aria-hidden="true" />
+				</a>
+			</div>
+		</div>
 	</section>
 
 	<aside class="keypoint">
@@ -814,15 +813,57 @@
 		color: var(--text-2);
 	}
 
-	.frise-ref {
-		margin-top: 0.75rem;
-		font-size: 0.95rem;
-		color: var(--text-2);
+	.reads {
+		margin-top: 1.25rem;
 	}
 
-	.frise-ref a {
-		color: var(--brand-subtle);
+	.reads-label {
+		display: block;
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--text-2);
+		margin-bottom: 0.6rem;
+	}
+
+	.reads-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.read-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.4rem 0.8rem;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		font-size: 0.88rem;
 		font-weight: 600;
+		text-decoration: none;
+		color: var(--text);
+		background: var(--bg-card);
+		transition:
+			border-color 0.15s ease,
+			background 0.15s ease;
+	}
+
+	.read-chip:hover,
+	.read-chip:focus-visible {
+		border-color: var(--brand);
+	}
+
+	.read-chip--primary {
+		border-color: color-mix(in srgb, var(--brand) 45%, transparent);
+		background: var(--bg-subtle);
+		color: var(--brand-subtle);
+	}
+
+	.read-chip :global(svg) {
+		color: var(--text-2);
+		flex-shrink: 0;
 	}
 
 	/* ── Point clé ─────────────────────────────────────────── */
