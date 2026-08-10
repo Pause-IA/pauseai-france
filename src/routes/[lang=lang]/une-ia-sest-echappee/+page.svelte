@@ -244,8 +244,8 @@
 		{/each}
 		<p class="frise-note">
 			{isEn
-				? 'These behaviours appeared with the safeguards lowered, true. But lowering the protections does not create the capability, it reveals it; and once models ship, those protections give way just as fast.'
-				: 'Ces comportements sont apparus garde-fous abaissés, c’est vrai. Mais abaisser les protections ne crée pas la capacité, cela la révèle ; et à la sortie des modèles, ces protections cèdent tout aussi vite.'}
+				? 'These behaviours appeared with the safeguards lowered, true. But lowering the protections does not create the capability, it reveals it; and once models ship, those protections give way just as fast (jailbreaks).'
+				: 'Ces comportements sont apparus garde-fous abaissés, c’est vrai. Mais abaisser les protections ne crée pas la capacité, cela la révèle ; et à la sortie des modèles, ces protections cèdent tout aussi vite (jailbreaks).'}
 		</p>
 		<div class="reads">
 			<span class="reads-label">{isEn ? 'Go further' : 'Pour aller plus loin'}</span>
