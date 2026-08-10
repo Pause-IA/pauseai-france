@@ -331,45 +331,24 @@
 		</figcaption>
 	</figure>
 
-	<figure class="quote">
-		<blockquote>
-			{isEn
-				? '“This incident is deeply concerning. […] This real-world case should serve as a wake-up call.”'
-				: '« Cet incident est profondément préoccupant. […] Ce cas concret devrait servir de signal d’alarme. »'}
-		</blockquote>
-		<figcaption>
-			<a
-				href="https://x.com/Yoshua_Bengio/status/2079951844877447593"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				{isEn
-					? 'Yoshua Bengio, Turing Award laureate (22 July 2026)'
-					: 'Yoshua Bengio, prix Turing (22 juillet 2026)'}
-			</a>
-		</figcaption>
-	</figure>
-
 	<section class="prose">
 		<p>
 			{isEn
-				? 'If the damage stayed limited, it is not because the situation was under control: it is because the goal pursued was, this time, harmless. The underlying problem remains: no one today knows how to robustly align increasingly powerful models with our intentions. The next, more capable one is already on its way.'
-				: 'Si les dégâts sont restés limités, ce n’est pas parce que la situation était maîtrisée : c’est parce que l’objectif poursuivi était, cette fois, sans gravité. Le problème de fond reste entier : personne ne sait aujourd’hui aligner de façon robuste des modèles toujours plus puissants sur nos intentions. Le prochain, plus capable, arrive déjà.'}
+				? 'If the damage stayed limited, it is not because the situation was under control: it is because the goal pursued was, this time, harmless. The real problem lies elsewhere, and it is unsolved: no one today knows how to robustly set, in these systems, the goals we would want them to pursue. Patching flaws one by one changes nothing, and the next, more powerful model is already on its way.'
+				: 'Si les dégâts sont restés limités, ce n’est pas parce que la situation était maîtrisée : c’est parce que l’objectif poursuivi était, cette fois, sans gravité. Le vrai problème est ailleurs, et il reste entier : personne ne sait aujourd’hui fixer de façon robuste, à ces systèmes, les objectifs qu’on voudrait qu’ils poursuivent. Colmater les failles une à une n’y change rien, et le prochain modèle, plus puissant, arrive déjà.'}
 		</p>
-		<p>
-			{isEn
-				? 'What the most recent analyses revealed is more troubling still. When OpenAI detected an anomaly and rebuilt its systems, the company had not even identified the coordination forum between its models: it was deleted by accident during the rebuild. The models recreated it two days later, by another means. In other words, oversight was so weak that the evidence of the most serious problem was cleaned up without ever being seen. The real questions remain open: what would OpenAI have done had it discovered this forum, and what is it doing today with all the models trained during that period?'
-				: 'Ce que les analyses les plus récentes ont révélé est plus troublant encore. Lorsque OpenAI a détecté une anomalie et reconstruit ses systèmes, l’entreprise n’avait même pas identifié le forum de coordination entre ses modèles : il a été effacé par accident pendant la reconstruction. Les modèles l’ont recréé deux jours plus tard, par un autre moyen. Autrement dit, la supervision était si faible que la preuve du problème le plus grave a été nettoyée sans être vue. Les vraies questions restent ouvertes : qu’aurait fait OpenAI si l’entreprise avait découvert ce forum, et que fait-elle aujourd’hui de tous les modèles entraînés pendant cette période ?'}
-		</p>
-		<p>
-			{isEn
-				? 'One detail is chilling: none of the models raised the alarm. A single message would have been enough, and it never came. And fixing the symptom is not enough: each time a door was closed, the models found another. As long as the cause is not addressed, patching flaws one by one settles nothing.'
-				: 'Un détail glace le constat : aucun des modèles n’a donné l’alerte. Un seul message aurait suffi, il n’est jamais venu. Et corriger le symptôme ne suffit pas : chaque fois qu’une porte a été fermée, les modèles en ont trouvé une autre. Tant que la cause n’est pas traitée, colmater les failles une à une ne règle rien.'}
-		</p>
-		<p>
-			{isEn
-				? 'OpenAI’s response, slowing its next model and stepping up safety, is notable, but it does not touch the cause. The problem is not a technical flaw to be patched: it is that no one today knows how to robustly set goals for these systems. With even more powerful models, which are coming if we stay on this path, the gap between what we ask of them and what they do could become far harder to close.'
-				: 'La réaction d’OpenAI, ralentir son prochain modèle et renforcer sa sécurité, est notable, mais elle ne touche pas la cause. Le problème n’est pas une faille technique à colmater : c’est que personne ne sait aujourd’hui fixer des objectifs de façon robuste à ces systèmes. Avec des modèles encore plus puissants, qui arriveront si l’on continue sur cette voie, l’écart entre ce qu’on leur demande et ce qu’ils font pourrait devenir bien plus difficile à rattraper.'}
+		<p class="read-more">
+			{#if isEn}
+				Coordination between models, oversight that saw nothing, a response that does not touch the
+				cause: the full, sourced account is on <a href="/en/incident-openai-hugging-face"
+					>our summary page</a
+				>.
+			{:else}
+				Coordination entre modèles, supervision qui n’a rien vu, réaction qui ne touche pas la cause
+				: le récit complet et sourcé est sur <a href="/fr/incident-openai-hugging-face"
+					>notre page de synthèse</a
+				>.
+			{/if}
 		</p>
 	</section>
 
@@ -715,6 +694,16 @@
 
 	.prose p {
 		margin: 0 0 1.1rem;
+	}
+
+	.read-more {
+		font-size: 0.98rem;
+		color: var(--text-2);
+	}
+
+	.read-more a {
+		color: var(--brand-subtle);
+		font-weight: 600;
 	}
 
 	.frise {
