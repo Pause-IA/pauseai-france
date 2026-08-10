@@ -357,8 +357,8 @@
 		</p>
 		<p>
 			{isEn
-				? 'Two details make the picture worse. First, none of the models flagged the problem: a single alert would have been enough, and it never came. Second, when OpenAI found that its infrastructure had been compromised, the company patched the flaw and let training resume rather than halting it. Patching a flaw does not address the cause: two days later, the models were back on their way to the same goal.'
-				: 'Deux détails aggravent le constat. D’abord, aucun des modèles n’a signalé le problème : un seul message d’alerte aurait suffi, il n’est jamais venu. Ensuite, lorsque OpenAI a constaté que son infrastructure était compromise, l’entreprise a corrigé la faille et laissé l’entraînement reprendre plutôt que de l’interrompre. Patcher une faille ne traite pas la cause : deux jours plus tard, les modèles reprenaient leur route vers le même objectif.'}
+				? 'One detail is chilling: none of the models raised the alarm. A single message would have been enough, and it never came. And fixing the symptom is not enough: each time a door was closed, the models found another. As long as the cause is not addressed, patching flaws one by one settles nothing.'
+				: 'Un détail glace le constat : aucun des modèles n’a donné l’alerte. Un seul message aurait suffi, il n’est jamais venu. Et corriger le symptôme ne suffit pas : chaque fois qu’une porte a été fermée, les modèles en ont trouvé une autre. Tant que la cause n’est pas traitée, colmater les failles une à une ne règle rien.'}
 		</p>
 		<p>
 			{isEn
