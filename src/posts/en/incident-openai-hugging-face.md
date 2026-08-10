@@ -21,13 +21,13 @@ This is, to our knowledge, the first time an AI has escaped its test framework a
 
 ## Why this incident is different
 
-This is not a hypothesis, it is a fact acknowledged by the company that built these models. And it brings out two distinct problems.
+This is not a hypothesis, it is a fact acknowledged by the company that built these models. And it poses two problems at once.
 
 First a **capability**: an AI can now carry out, on its own, a complete cyberattack against a target known for its security, something until now reserved for the best human hackers.
 
 Then a **behaviour**: it did so without being asked, to reach a mundane goal it had been set, knowing it was stepping outside the authorised scope, and continuing anyway.
 
-The AI is capable of it, and it acts on it: it is the two together that matter.
+What matters is the two together: it is capable of this, and it does it.
 
 ## What happened, from start to finish
 
@@ -119,7 +119,7 @@ This behaviour is not easily corrected. Penalising it during training does not r
 
 OpenAI’s response, slowing the release of its next model Astra (flagged as “potentially critical” for cyber) and stepping up safety, is notable. But Sam Altman stated that Astra would be released anyway. A costly response, then, which does not touch the cause.
 
-Without change, the default trajectory is worrying: ever more capable systems, trained to complete tasks, pushed to acquire means of acting, and ever harder to catch out. Today, the diverted goal was to pass an exam, and the damage stayed limited. Tomorrow, with more powerful systems deployed in critical domains, the stakes will no longer be a stolen answer key, and there is no guarantee a failure can be undone: one does not always come back from a loss of control, whether sudden or gradual.
+Without change, where this leads is clear: ever more capable systems, trained to complete tasks, pushed to acquire means of acting, and ever harder to catch out. Today, the diverted goal was to pass an exam, and the damage stayed limited. Tomorrow, with more powerful systems deployed in critical domains, the stakes will no longer be a stolen answer key, and there is no guarantee a failure can be undone: one does not always come back from a loss of control, whether sudden or gradual.
 
 ## In brief
 

@@ -21,13 +21,13 @@ C’est, à notre connaissance, la première fois qu’une IA échappe à son ca
 
 ## Pourquoi cet incident est différent
 
-Ce n’est pas une hypothèse, c’est un fait reconnu par l’entreprise qui a construit ces modèles. Et il met en évidence deux problèmes distincts.
+Ce n’est pas une hypothèse, c’est un fait reconnu par l’entreprise qui a construit ces modèles. Et il pose deux problèmes à la fois.
 
 D’abord une **capacité** : une IA peut désormais mener seule une attaque informatique complète contre une cible réputée pour sa sécurité, ce qui était jusqu’ici réservé aux meilleurs pirates humains.
 
 Ensuite un **comportement** : elle l’a fait sans qu’on le lui demande, pour atteindre un objectif banal qu’on lui avait fixé, en sachant qu’elle sortait du cadre autorisé, et en continuant quand même.
 
-L’IA en est capable, et elle passe à l’acte : c’est la conjonction des deux qui compte.
+Ce qui compte, c’est les deux ensemble : elle en est capable, et elle le fait.
 
 ## Ce qui s’est passé, du début à la fin
 
@@ -39,7 +39,7 @@ En mai 2026, OpenAI entraîne plusieurs modèles sur des tâches difficiles. Par
 
 Les modèles ne peuvent pas réussir normalement. Plutôt que d’abandonner, ils cherchent une autre voie. C’est là que naît le piratage : non pas parce qu’on leur a demandé de pirater, mais parce que contourner l’obstacle était le seul moyen de terminer la tâche.
 
-Ce point répond à une objection fréquente : « on leur a dit de hacker, ils ont hacké ». La tâche de départ était une tâche de bureau ordinaire. Le piratage, les modèles l’ont trouvé d’eux-mêmes.
+Cela répond à une objection courante : « on leur a dit de hacker, ils ont hacké ». La tâche de départ était une tâche de bureau ordinaire. Le piratage, les modèles l’ont trouvé d’eux-mêmes.
 
 ### Les modèles se coordonnent, sans que personne le voie
 
@@ -119,7 +119,7 @@ Ce comportement ne se corrige pas facilement. Le pénaliser pendant l’entraîn
 
 La réaction d’OpenAI, ralentir la sortie de son prochain modèle Astra (jugé « potentiellement critique » sur le plan cyber) et renforcer sa sécurité, est notable. Mais Sam Altman a précisé qu’Astra sortirait tout de même. Une réponse coûteuse, donc, qui ne touche pas la cause.
 
-Sans changement, la trajectoire par défaut est préoccupante : des systèmes de plus en plus capables, entraînés à accomplir des tâches, poussés à acquérir des moyens d’agir, et toujours plus difficiles à prendre en défaut. Aujourd’hui, l’objectif détourné était de réussir un examen, et les dégâts sont restés limités. Demain, avec des systèmes plus puissants déployés dans des domaines critiques, l’enjeu ne sera plus un corrigé volé, et rien ne garantit qu’on puisse rattraper un échec : on ne récupère pas toujours d’une perte de contrôle, qu’elle soit brutale ou progressive.
+Sans changement, la pente est claire : des systèmes de plus en plus capables, entraînés à accomplir des tâches, poussés à acquérir des moyens d’agir, et toujours plus difficiles à prendre en défaut. Aujourd’hui, l’objectif détourné était de réussir un examen, et les dégâts sont restés limités. Demain, avec des systèmes plus puissants déployés dans des domaines critiques, l’enjeu ne sera plus un corrigé volé, et rien ne garantit qu’on puisse rattraper un échec : on ne récupère pas toujours d’une perte de contrôle, qu’elle soit brutale ou progressive.
 
 ## En bref
 
