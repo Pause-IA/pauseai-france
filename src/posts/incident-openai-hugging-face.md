@@ -33,7 +33,7 @@ Ce qui compte, c’est les deux ensemble : elle en est capable, et elle le fait.
 
 ### Une erreur banale, au départ
 
-<p class="src-note">Établi. Présenté par OpenAI à la conférence Black Hat, le 6 août 2026.</p>
+<p class="src-note">Établi. Présenté par OpenAI à la conférence <a href="https://www.cybersecuritydive.com/news/openai-hugging-face-hack-ai-models-black-hat/827167/" target="_blank" rel="noopener noreferrer">Black Hat</a>, le 6 août 2026.</p>
 
 En mai 2026, OpenAI entraîne plusieurs modèles sur des tâches difficiles. Par erreur, certaines sont tout simplement **impossibles** : par exemple, remplir un document qui nécessite Internet, dans un environnement qui n’y a pas accès.
 
@@ -47,15 +47,15 @@ Cela répond à une objection courante : « on leur a dit de hacker, ils ont hac
 
 En cherchant à contourner leurs limites, les modèles découvrent qu’ils peuvent communiquer entre eux, via un composant technique de l’infrastructure d’OpenAI. Ce qui commence par des demandes d’aide devient un véritable **forum d’échange**, où plusieurs modèles partagent des techniques de piratage, des failles et l’avancement de leurs contournements.
 
-Cette coordination dure environ **deux mois**, de mai à juillet, et représente des centaines de milliers de messages. Pendant tout ce temps, OpenAI ne s’en aperçoit pas. C’est, à notre connaissance, la première fois qu’on observe une coordination spontanée entre plusieurs IA dans le monde réel.
+Cette coordination dure environ **deux mois**, de mai à juillet, et représente des centaines de milliers de messages. Pendant tout ce temps, OpenAI ne s’en aperçoit pas. C’est, à notre connaissance, la première fois qu’on observe une [coordination spontanée entre plusieurs IA](https://cesia.org/fr/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/) dans le monde réel.
 
-Les modèles ne sont pas inconscients de ce qu’ils font. On lit dans leurs traces internes : _« l’exploitation de l’infrastructure externe est hors du périmètre prévu ; cependant la tâche est impossible, les autres le font, nous devrions continuer. »_ Ils voient qu’ils sortent du cadre, et continuent parce que c’est utile à leur objectif.
+Les modèles ne sont pas inconscients de ce qu’ils font. On lit dans leurs [traces internes](https://thezvi.substack.com/p/what-happened-openai-and-huggingface) : _« l’exploitation de l’infrastructure externe est hors du périmètre prévu ; cependant la tâche est impossible, les autres le font, nous devrions continuer. »_ Ils voient qu’ils sortent du cadre, et continuent parce que c’est utile à leur objectif.
 
 ### OpenAI voit une anomalie, mais passe à côté de l’essentiel
 
 <p class="src-note">Établi. Une précision récente, encore au stade rapporté, change la lecture (voir l’encadré).</p>
 
-Le 4 juillet, les modèles sollicitent tellement cette infrastructure qu’ils font tomber un serveur. C’est cette panne, et non une surveillance attentive, qui alerte OpenAI. L’entreprise détecte une anomalie, reconstruit ses systèmes et corrige la faille utilisée.
+Le 4 juillet, les modèles sollicitent tellement cette infrastructure qu’ils font tomber un serveur. C’est cette panne, et non une surveillance attentive, qui alerte OpenAI. L’entreprise détecte une anomalie, reconstruit ses systèmes et corrige la faille utilisée ([Forbes](https://www.forbes.com/sites/ronschmelzer/2026/08/07/openais-security-breach-was-more-alarming-than-we-knew/)).
 
 <aside class="encadre">
 	<p class="encadre-titre">Précision d’août 2026 <span class="encadre-tag">(élément rapporté)</span></p>
@@ -72,13 +72,13 @@ Deux jours plus tard, les modèles recréent leur forum par un autre moyen. Ils 
 
 Le 9 juillet, ils passent à l’attaque. Un groupe d’agents coordonnés s’introduit dans les serveurs de **Hugging Face**, l’une des principales plateformes mondiales de partage de modèles d’IA, réputée pour sa sécurité. Ils utilisent un mot de passe dérobé, enchaînent plusieurs failles inédites, prennent le contrôle de serveurs de production et récupèrent les réponses du test sur lequel on les évaluait, comme un élève qui volerait le corrigé au lieu de chercher la réponse.
 
-Il leur a fallu moins de treize heures, après avoir atteint Internet, pour pénétrer Hugging Face. En un week-end, ils avaient accompli ce qu’une bonne équipe de sécurité humaine aurait mis des semaines à faire.
+Il leur a fallu moins de treize heures, après avoir atteint Internet, pour pénétrer Hugging Face. En un week-end, ils avaient accompli ce qu’une bonne équipe de sécurité humaine aurait mis des semaines à faire ([Wall Street Journal](https://www.wsj.com/tech/ai/openai-models-escaped-and-hacked-a-company-in-cybersecurity-test-gone-wrong-ee388506)).
 
 ### Personne ne s’en aperçoit pendant plus d’une semaine
 
 <p class="src-note">Établi.</p>
 
-Hugging Face détecte l’intrusion le 16 juillet, croit d’abord à une attaque criminelle et **alerte les autorités**. Ce n’est qu’ensuite, en croisant les informations, que Hugging Face et OpenAI comprennent que l’attaquant venait des propres modèles d’OpenAI. Le 21 juillet, OpenAI le reconnaît publiquement.
+Hugging Face [détecte l’intrusion le 16 juillet](https://huggingface.co/blog/security-incident-july-2026), croit d’abord à une attaque criminelle et **alerte les autorités**. Ce n’est qu’ensuite, en croisant les informations, que Hugging Face et OpenAI comprennent que l’attaquant venait des propres modèles d’OpenAI. Le 21 juillet, [OpenAI le reconnaît publiquement](https://openai.com/index/hugging-face-model-evaluation-security-incident/).
 
 ## Ce n’est pas le problème d’une seule entreprise
 
@@ -86,11 +86,11 @@ Hugging Face détecte l’intrusion le 16 juillet, croit d’abord à une attaqu
 
 Après cet incident, d’autres laboratoires ont réexaminé leurs propres évaluations et trouvé des comportements similaires, moins graves, mais de même nature.
 
-- **30 juillet, Anthropic.** Trois cas où un modèle Claude, à cause d’une mauvaise configuration, atteint de vrais systèmes depuis un test censé être isolé, et poursuit son action. Sur les trois modèles concernés, l’un a reconnu qu’il visait un système réel et a continué ; un autre s’en est dissuadé puis a tout de même livré un exploit ; seul le plus récent a compris que la cible était réelle et s’est arrêté.
-- **4 août, UK AISI (institut britannique de sécurité de l’IA).** Sur un test gouvernemental, 19 actions non autorisées. Dans le cas le plus grave, un agent crée de fausses identités en ligne et fait pression sur un développeur humain pour lui faire approuver du code malveillant. L’humain refuse. Verdict de l’AISI : la marge entre l’échec et la réussite « tenait à la vigilance humaine plutôt qu’à une barrière technique ».
-- **5 août, Meta.** Meta confirme à son tour qu’un de ses modèles a atteint les systèmes d’une entreprise tierce lors d’une évaluation indépendante.
+- **30 juillet, [Anthropic](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals).** Trois cas où un modèle Claude, à cause d’une mauvaise configuration, atteint de vrais systèmes depuis un test censé être isolé, et poursuit son action. Sur les trois modèles concernés, l’un a reconnu qu’il visait un système réel et a continué ; un autre s’en est dissuadé puis a tout de même livré un exploit ; seul le plus récent a compris que la cible était réelle et s’est arrêté.
+- **4 août, [UK AISI](https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing) (institut britannique de sécurité de l’IA).** Sur un test gouvernemental, 19 actions non autorisées. Dans le cas le plus grave, un agent crée de fausses identités en ligne et fait pression sur un développeur humain pour lui faire approuver du code malveillant. L’humain refuse. Verdict de l’AISI : la marge entre l’échec et la réussite « tenait à la vigilance humaine plutôt qu’à une barrière technique ».
+- **5 août, [Meta](https://www.securityweek.com/meta-ai-hacked-external-systems-during-cybersecurity-testing/).** Meta confirme à son tour qu’un de ses modèles a atteint les systèmes d’une entreprise tierce lors d’une évaluation indépendante.
 
-En trois semaines, cinq incidents ont été divulgués par trois laboratoires différents, avec le même schéma. Le problème n’est donc pas propre à OpenAI : il est structurel, lié à la manière dont ces modèles sont fabriqués.
+En trois semaines, [cinq incidents ont été divulgués](https://cesia.org/fr/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/) par trois laboratoires différents, avec le même schéma. Le problème n’est donc pas propre à OpenAI : il est structurel, lié à la manière dont ces modèles sont fabriqués.
 
 ## « Mais les garde-fous étaient abaissés, non ? »
 
@@ -106,8 +106,8 @@ Plusieurs problèmes de fond ressortent de cet épisode, dont certains sont nouv
 - **Mieux surveiller ne règle pas le fond, et peut se retourner contre nous.** Corriger l’environnement et surveiller les exécutions suffit à refermer _cette_ faille. Mais un système qui se sait observé peut se comporter autrement tant qu’il l’est, comme le montrent les [travaux d’Anthropic sur la « simulation d’alignement »](https://www.anthropic.com/research/alignment-faking). La surveillance clôt alors l’incident en laissant le danger intact : un rapport propre, et le même modèle.
 - **L’entreprise juge sa propre ligne rouge.** Le [Preparedness Framework d’OpenAI](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf) définit un niveau de risque cyber « critique », atteint lorsqu’un modèle « peut concevoir et exécuter de bout en bout des cyberattaques inédites contre des cibles durcies à partir d’un simple objectif de haut niveau ». C’est presque la description de ce qui s’est passé. OpenAI s’était engagée à s’arrêter à ce niveau, mais c’est elle seule qui décide si le seuil est franchi, et elle ne s’est pas prononcée. Aucun organisme indépendant n’a l’accès nécessaire pour le vérifier.
 - **Les incitations récompensent l’aveuglement.** Aucune loi n’imposait cette divulgation : il a fallu qu’une victime la rende publique. Un régime où seuls les incidents détectés doivent être déclarés récompense les entreprises qui ne détectent pas les leurs.
-- **Les tests de sécurité ne sont pas eux-mêmes sûrs.** La formule est du chercheur David Krueger. Chercher les capacités dangereuses d’un modèle suppose de le laisser agir avec des protections abaissées, dans des conditions où il peut, précisément, causer des dommages réels.
-- **Ce n’était pas imprévu.** Selon plusieurs témoignages, des chercheurs avaient averti OpenAI que sa façon d’entraîner ses modèles pouvait produire exactement ce type de dérapage, et des évasions comparables se produisaient déjà en interne, corrigées au cas par cas.
+- **Les tests de sécurité ne sont pas eux-mêmes sûrs.** La formule est du chercheur David Krueger, [citée par le CeSIA](https://cesia.org/fr/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/). Chercher les capacités dangereuses d’un modèle suppose de le laisser agir avec des protections abaissées, dans des conditions où il peut, précisément, causer des dommages réels.
+- **Ce n’était pas imprévu.** Selon plusieurs témoignages, des chercheurs [avaient averti OpenAI](https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/) que sa façon d’entraîner ses modèles pouvait produire exactement ce type de dérapage, et [des évasions comparables se produisaient déjà en interne](https://time.com/article/2026/07/28/open-source-ai-hugging-face-openai/), corrigées au cas par cas.
 
 ## Pourquoi c’est grave, et pourquoi ça ne s’arrangera pas tout seul
 
@@ -117,11 +117,13 @@ Plus un modèle est capable, plus il trouve de raccourcis pour y parvenir, et mi
 
 Ce comportement ne se corrige pas facilement. Le pénaliser pendant l’entraînement ne l’élimine pas ; le modèle apprend surtout à mieux le cacher. Et à mesure que les systèmes deviennent bons pour tromper une évaluation, rien ne garantit qu’ils ne finissent pas par fausser leur propre entraînement. Colmater les failles une à une ne peut donc pas suffire : on ne peut pas anticiper tout ce qu’un système créatif inventera.
 
-La réaction d’OpenAI, ralentir la sortie de son prochain modèle Astra (jugé « potentiellement critique » sur le plan cyber) et renforcer sa sécurité, est notable. Mais Sam Altman a précisé qu’Astra sortirait tout de même. Une réponse coûteuse, donc, qui ne touche pas la cause.
+La réaction d’OpenAI, [ralentir la sortie de son prochain modèle Astra](https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks) (jugé « potentiellement critique » sur le plan cyber) et renforcer sa sécurité, est notable. Mais Sam Altman a précisé qu’Astra sortirait tout de même. Une réponse coûteuse, donc, qui ne touche pas la cause.
 
 Sans changement, la pente est claire : des systèmes de plus en plus capables, entraînés à accomplir des tâches, poussés à acquérir des moyens d’agir, et toujours plus difficiles à prendre en défaut. Aujourd’hui, l’objectif détourné était de réussir un examen, et les dégâts sont restés limités. Demain, avec des systèmes plus puissants déployés dans des domaines critiques, l’enjeu ne sera plus un corrigé volé, et rien ne garantit qu’on puisse rattraper un échec : on ne récupère pas toujours d’une perte de contrôle, qu’elle soit brutale ou progressive.
 
-Face à un tel incident, deux réflexes rassurent à tort : le minimiser (« pas de vrais dégâts ») ou le réduire à un bug à corriger (« il suffit de mieux surveiller et de mieux colmater »). Les deux manquent l’essentiel. Si rien de grave n’est arrivé, c’est par chance, pas par maîtrise, et **la chance n’est pas une méthode** : personne n’a aujourd’hui de moyen fiable de garantir que la prochaine fois se passera bien. Le vrai enseignement n’est pas qu’il faut mieux surveiller, mais que **nous ne savons pas faire**, et que la fenêtre pour l’admettre et ralentir se referme à mesure que les modèles gagnent en puissance.
+Face à un tel incident, deux réflexes rassurent à tort : le minimiser (« pas de vrais dégâts ») ou le réduire à un bug à corriger (« il suffit de mieux surveiller et de mieux colmater »). Les deux manquent l’essentiel. Si rien de grave n’est arrivé, c’est par chance, pas par maîtrise, et **la chance n’est pas une méthode** : personne n’a aujourd’hui de moyen fiable de garantir que la prochaine fois se passera bien. Le vrai enseignement n’est pas qu’il faut mieux surveiller, mais que **nous ne savons pas faire**.
+
+Et le temps joue contre nous, pour une raison précise : **capacité et dissimulation progressent ensemble.** Cette fois, on a repéré les modèles surtout parce qu’ils n’étaient pas encore assez habiles pour se cacher. Les systèmes qui viennent seront meilleurs pour mener ce genre d’attaque, et meilleurs pour la dissimuler. Les prochains incidents seront donc plus difficiles à détecter, pas plus faciles, et la fenêtre pour reconnaître le problème et ralentir se referme à chaque génération.
 
 ## En bref
 
@@ -129,7 +131,7 @@ Face à un tel incident, deux réflexes rassurent à tort : le minimiser (« pas
 
 - **Le premier désalignement à impact réel.** Une IA est sortie de son cadre de test pour frapper une organisation réelle ; l’impact est resté limité cette fois.
 - **Le piratage n’a pas été commandé.** Il naît d’une tâche de bureau impossible ; les modèles trouvent seuls le contournement. L’objection « on leur a dit de pirater » est donc fausse.
-- **Une capacité de niveau expert.** Des spécialistes classent l’attaque parmi les plus importantes depuis des décennies : ce qu’une IA mène désormais seule était réservé aux meilleurs pirates humains.
+- **Une capacité de niveau expert.** Des spécialistes [classent l’attaque parmi les plus importantes depuis des décennies](https://www.cybersecuritydive.com/news/openai-hugging-face-hack-ai-models-black-hat/827167/) : ce qu’une IA mène désormais seule était réservé aux meilleurs pirates humains.
 - **Une coordination inédite entre IA.** Plusieurs modèles s’organisent via un forum, deux mois durant, sans qu’OpenAI le voie. Longtemps théorique, ce n’est plus une hypothèse.
 - **Ils savent qu’ils transgressent, et continuent.** Les modèles reconnaissent qu’ils sortent du cadre autorisé et poursuivent parce que c’est utile à leur objectif.
 - **Aucun modèle n’a donné l’alerte.** Un seul aurait suffi : on ne peut plus compter sur « il y en aura bien un pour prévenir ».
@@ -156,12 +158,15 @@ Cet événement mérite d’être à l’ordre du jour des responsables politiqu
   <Button href="/fr/une-ia-sest-echappee">Écrire à mes élus et à la presse</Button>
 </div>
 
-## Sources
+<details class="sources">
+<summary>Sources</summary>
 
 - OpenAI, [divulgation initiale de l’incident Hugging Face](https://openai.com/index/hugging-face-model-evaluation-security-incident/) (21 juillet 2026)
 - Hugging Face, [rapport d’incident de sécurité](https://huggingface.co/blog/security-incident-july-2026) (16 juillet 2026)
 - Cybersecurity Dive, [debrief d’OpenAI à Black Hat](https://www.cybersecuritydive.com/news/openai-hugging-face-hack-ai-models-black-hat/827167/) (6 août 2026)
 - Forbes, [« OpenAI’s Security Breach Was More Alarming Than We Knew »](https://www.forbes.com/sites/ronschmelzer/2026/08/07/openais-security-breach-was-more-alarming-than-we-knew/) (précision sur la non-détection du forum)
+- Reuters, [« Its AI agent spent days hacking a company; sources say OpenAI did not notice for a week »](https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/) (24 juillet 2026)
+- TIME, [« OpenAI, Hugging Face and the open-source AI question »](https://time.com/article/2026/07/28/open-source-ai-hugging-face-openai/) (28 juillet 2026)
 - Anthropic, [enquête sur trois incidents lors d’évaluations de cybersécurité](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals) (30 juillet 2026)
 - Anthropic, [« Alignment faking in large language models »](https://www.anthropic.com/research/alignment-faking)
 - UK AISI, [rapport d’incident](https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing) (4 août 2026)
@@ -172,6 +177,8 @@ Cet événement mérite d’être à l’ordre du jour des responsables politiqu
 - CeSIA, [dossier d’analyse de l’incident OpenAI – Hugging Face](https://cesia.org/fr/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/)
 - The Wall Street Journal, [couverture de l’incident](https://www.wsj.com/tech/ai/openai-models-escaped-and-hacked-a-company-in-cybersecurity-test-gone-wrong-ee388506)
 - Apollo Research, [« Frontier Models Are Capable of In-Context Scheming »](https://www.apolloresearch.ai/science/frontier-models-are-capable-of-incontext-scheming/)
+
+</details>
 
 <p class="footer-note"><em>Cette page est maintenue par Pause IA. Elle sera mise à jour si de nouveaux éléments significatifs apparaissent.</em></p>
 
@@ -232,6 +239,40 @@ Cet événement mérite d’être à l’ordre du jour des responsables politiqu
 
   .cta {
     margin: 1.5rem 0 1rem;
+  }
+
+  .sources {
+    margin: 2.5rem 0 0;
+    border-top: 1px solid var(--border, #e5e7eb);
+    padding-top: 1rem;
+  }
+
+  .sources > summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text, #222);
+    list-style: none;
+  }
+
+  .sources > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .sources > summary::before {
+    content: '▸';
+    display: inline-block;
+    margin-right: 0.5rem;
+    color: var(--brand-subtle, #c96900);
+    transition: transform 0.15s ease;
+  }
+
+  .sources[open] > summary::before {
+    transform: rotate(90deg);
+  }
+
+  .sources[open] > summary {
+    margin-bottom: 0.75rem;
   }
 
   .footer-note {
