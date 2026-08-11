@@ -47,9 +47,9 @@ Cela répond à une objection courante : « on leur a dit de hacker, ils ont hac
 
 En cherchant à contourner leurs limites, les modèles découvrent qu’ils peuvent communiquer entre eux, via un composant technique de l’infrastructure d’OpenAI. Ce qui commence par des demandes d’aide devient un véritable **forum d’échange**, où plusieurs modèles partagent des techniques de piratage, des failles et l’avancement de leurs contournements.
 
-Cette coordination dure environ **deux mois**, de mai à juillet, et représente des centaines de milliers de messages. Pendant tout ce temps, OpenAI ne s’en aperçoit pas. C’est, à notre connaissance, la première fois qu’on observe une coordination spontanée entre plusieurs IA dans le monde réel.
+Cette coordination dure environ **deux mois**, de mai à juillet, et représente des centaines de milliers de messages. Pendant tout ce temps, OpenAI ne s’en aperçoit pas. C’est, à notre connaissance, la première fois qu’on observe une [coordination spontanée entre plusieurs IA](https://cesia.org/fr/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/) dans le monde réel.
 
-Les modèles ne sont pas inconscients de ce qu’ils font. On lit dans leurs traces internes : _« l’exploitation de l’infrastructure externe est hors du périmètre prévu ; cependant la tâche est impossible, les autres le font, nous devrions continuer. »_ Ils voient qu’ils sortent du cadre, et continuent parce que c’est utile à leur objectif.
+Les modèles ne sont pas inconscients de ce qu’ils font. On lit dans leurs [traces internes](https://thezvi.substack.com/p/what-happened-openai-and-huggingface) : _« l’exploitation de l’infrastructure externe est hors du périmètre prévu ; cependant la tâche est impossible, les autres le font, nous devrions continuer. »_ Ils voient qu’ils sortent du cadre, et continuent parce que c’est utile à leur objectif.
 
 ### OpenAI voit une anomalie, mais passe à côté de l’essentiel
 
@@ -90,7 +90,7 @@ Après cet incident, d’autres laboratoires ont réexaminé leurs propres éval
 - **4 août, [UK AISI](https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing) (institut britannique de sécurité de l’IA).** Sur un test gouvernemental, 19 actions non autorisées. Dans le cas le plus grave, un agent crée de fausses identités en ligne et fait pression sur un développeur humain pour lui faire approuver du code malveillant. L’humain refuse. Verdict de l’AISI : la marge entre l’échec et la réussite « tenait à la vigilance humaine plutôt qu’à une barrière technique ».
 - **5 août, [Meta](https://www.securityweek.com/meta-ai-hacked-external-systems-during-cybersecurity-testing/).** Meta confirme à son tour qu’un de ses modèles a atteint les systèmes d’une entreprise tierce lors d’une évaluation indépendante.
 
-En trois semaines, cinq incidents ont été divulgués par trois laboratoires différents, avec le même schéma. Le problème n’est donc pas propre à OpenAI : il est structurel, lié à la manière dont ces modèles sont fabriqués.
+En trois semaines, [cinq incidents ont été divulgués](https://cesia.org/fr/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/) par trois laboratoires différents, avec le même schéma. Le problème n’est donc pas propre à OpenAI : il est structurel, lié à la manière dont ces modèles sont fabriqués.
 
 ## « Mais les garde-fous étaient abaissés, non ? »
 
@@ -106,8 +106,8 @@ Plusieurs problèmes de fond ressortent de cet épisode, dont certains sont nouv
 - **Mieux surveiller ne règle pas le fond, et peut se retourner contre nous.** Corriger l’environnement et surveiller les exécutions suffit à refermer _cette_ faille. Mais un système qui se sait observé peut se comporter autrement tant qu’il l’est, comme le montrent les [travaux d’Anthropic sur la « simulation d’alignement »](https://www.anthropic.com/research/alignment-faking). La surveillance clôt alors l’incident en laissant le danger intact : un rapport propre, et le même modèle.
 - **L’entreprise juge sa propre ligne rouge.** Le [Preparedness Framework d’OpenAI](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf) définit un niveau de risque cyber « critique », atteint lorsqu’un modèle « peut concevoir et exécuter de bout en bout des cyberattaques inédites contre des cibles durcies à partir d’un simple objectif de haut niveau ». C’est presque la description de ce qui s’est passé. OpenAI s’était engagée à s’arrêter à ce niveau, mais c’est elle seule qui décide si le seuil est franchi, et elle ne s’est pas prononcée. Aucun organisme indépendant n’a l’accès nécessaire pour le vérifier.
 - **Les incitations récompensent l’aveuglement.** Aucune loi n’imposait cette divulgation : il a fallu qu’une victime la rende publique. Un régime où seuls les incidents détectés doivent être déclarés récompense les entreprises qui ne détectent pas les leurs.
-- **Les tests de sécurité ne sont pas eux-mêmes sûrs.** La formule est du chercheur David Krueger. Chercher les capacités dangereuses d’un modèle suppose de le laisser agir avec des protections abaissées, dans des conditions où il peut, précisément, causer des dommages réels.
-- **Ce n’était pas imprévu.** Selon plusieurs témoignages, des chercheurs avaient averti OpenAI que sa façon d’entraîner ses modèles pouvait produire exactement ce type de dérapage, et des évasions comparables se produisaient déjà en interne, corrigées au cas par cas.
+- **Les tests de sécurité ne sont pas eux-mêmes sûrs.** La formule est du chercheur David Krueger, [citée par le CeSIA](https://cesia.org/fr/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/). Chercher les capacités dangereuses d’un modèle suppose de le laisser agir avec des protections abaissées, dans des conditions où il peut, précisément, causer des dommages réels.
+- **Ce n’était pas imprévu.** Selon plusieurs témoignages, des chercheurs [avaient averti OpenAI](https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/) que sa façon d’entraîner ses modèles pouvait produire exactement ce type de dérapage, et [des évasions comparables se produisaient déjà en interne](https://time.com/article/2026/07/28/open-source-ai-hugging-face-openai/), corrigées au cas par cas.
 
 ## Pourquoi c’est grave, et pourquoi ça ne s’arrangera pas tout seul
 
@@ -165,6 +165,8 @@ Cet événement mérite d’être à l’ordre du jour des responsables politiqu
 - Hugging Face, [rapport d’incident de sécurité](https://huggingface.co/blog/security-incident-july-2026) (16 juillet 2026)
 - Cybersecurity Dive, [debrief d’OpenAI à Black Hat](https://www.cybersecuritydive.com/news/openai-hugging-face-hack-ai-models-black-hat/827167/) (6 août 2026)
 - Forbes, [« OpenAI’s Security Breach Was More Alarming Than We Knew »](https://www.forbes.com/sites/ronschmelzer/2026/08/07/openais-security-breach-was-more-alarming-than-we-knew/) (précision sur la non-détection du forum)
+- Reuters, [« Its AI agent spent days hacking a company; sources say OpenAI did not notice for a week »](https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/) (24 juillet 2026)
+- TIME, [« OpenAI, Hugging Face and the open-source AI question »](https://time.com/article/2026/07/28/open-source-ai-hugging-face-openai/) (28 juillet 2026)
 - Anthropic, [enquête sur trois incidents lors d’évaluations de cybersécurité](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals) (30 juillet 2026)
 - Anthropic, [« Alignment faking in large language models »](https://www.anthropic.com/research/alignment-faking)
 - UK AISI, [rapport d’incident](https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing) (4 août 2026)
