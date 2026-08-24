@@ -120,7 +120,7 @@ const DEFAULT_ACTION: EluAction = {
 			en: 'Pausing the most advanced AI until it is under control'
 		},
 		{
-			fr: "Préoccupation d'un électeur sur les risques de l'IA",
+			fr: "Préoccupation citoyenne sur les risques de l'IA",
 			en: "A constituent's concern about the risks of AI"
 		},
 		{
@@ -132,7 +132,7 @@ const DEFAULT_ACTION: EluAction = {
 			en: 'AI is moving too fast, the rules too slowly'
 		},
 		{
-			fr: "Un citoyen vous alerte sur les risques de l'IA",
+			fr: "Alerte citoyenne sur les risques de l'IA",
 			en: 'A citizen alerting you to the risks of AI'
 		},
 		{
@@ -158,7 +158,7 @@ const DEFAULT_ACTION: EluAction = {
 			en: 'Like many people, I watch the rapid progress of artificial intelligence with a mix of enthusiasm and concern. Concern wins out when some of the most respected scientists, such as Turing laureates Yoshua Bengio and Geoffrey Hinton, explain that no one today knows how to guarantee control of the most advanced systems.'
 		},
 		{
-			fr: "Je vous écris en tant qu'électeur inquiet. L'intelligence artificielle progresse à une vitesse que même ses créateurs disent ne pas totalement maîtriser, et j'aimerais que mes représentants s'emparent sérieusement du sujet avant qu'il ne soit trop tard.",
+			fr: "Je vous écris comme une personne inquiète parmi vos électeurs. L'intelligence artificielle progresse à une vitesse que même ses créateurs disent ne pas totalement maîtriser, et j'aimerais que mes représentants s'emparent sérieusement du sujet avant qu'il ne soit trop tard.",
 			en: 'I am writing to you as a worried voter. Artificial intelligence is advancing at a speed that even its creators say they do not fully control, and I would like my representatives to take the issue seriously before it is too late.'
 		},
 		{
@@ -166,7 +166,7 @@ const DEFAULT_ACTION: EluAction = {
 			en: 'It is rare for an industry to ask to be regulated. Yet that is what several AI leaders are doing, comparing the risks of their technology to those of pandemics or nuclear weapons. Faced with such a warning, political inaction seems hard to justify to me.'
 		},
 		{
-			fr: "Je ne suis ni spécialiste ni militant, seulement un citoyen attentif. Plus je me renseigne sur l'intelligence artificielle, plus je constate que les garde-fous démocratiques sont très en retard sur la vitesse de cette technologie. C'est à des élus comme vous qu'il revient de corriger cela.",
+			fr: "Je ne suis pas spécialiste et je n'appartiens à aucun mouvement, seulement une personne attentive. Plus je me renseigne sur l'intelligence artificielle, plus je constate que les garde-fous démocratiques sont très en retard sur la vitesse de cette technologie. C'est à des élus comme vous qu'il revient de corriger cela.",
 			en: 'I am neither an expert nor an activist, just an attentive citizen. The more I learn about artificial intelligence, the more I see that democratic safeguards lag far behind the speed of this technology. It falls to elected officials like you to fix that.'
 		}
 	],
@@ -583,7 +583,7 @@ const MEDIAS: EluAction = {
 	// « lecteur » différent : constat personnel, fait marquant, paradoxe…
 	hooks: [
 		{
-			fr: "En vous lisant régulièrement, je suis frappé de voir à quel point on parle peu des risques de l'intelligence artificielle, alors qu'ils sont énormes. Et ce ne sont pas des peurs de science-fiction : ce sont les patrons des grands laboratoires d'IA eux-mêmes qui reconnaissent que leurs systèmes pourraient un jour nous échapper.",
+			fr: "En vous lisant régulièrement, cela me frappe de voir à quel point on parle peu des risques de l'intelligence artificielle, alors qu'ils sont énormes. Et ce ne sont pas des peurs de science-fiction : ce sont les patrons des grands laboratoires d'IA eux-mêmes qui reconnaissent que leurs systèmes pourraient un jour nous échapper.",
 			en: 'Reading you regularly, I am struck by how little we hear about the risks of artificial intelligence, even though they are huge. And these are not science-fiction fears: the heads of the big AI labs themselves admit that their systems could one day slip out of our control.'
 		},
 		{
@@ -607,7 +607,7 @@ const MEDIAS: EluAction = {
 			en: 'Billions are being invested to build AI more intelligent than humans, sometimes by the very people who fear its consequences. I would like to understand this race better, and I turn to you because I trust your investigative work.'
 		},
 		{
-			fr: "Je n'ai pas de compétence particulière sur le sujet, je suis seulement quelqu'un de préoccupé qui vous lit. Plus je m'informe sur l'intelligence artificielle, plus je vois un décalage entre tout l'enthousiasme qu'on entend et les alertes, très sérieuses, de grands scientifiques. J'aimerais que votre journal aide à y voir clair.",
+			fr: "Je n'ai pas de compétence particulière sur le sujet, je suis seulement une personne préoccupée qui vous lit. Plus je m'informe sur l'intelligence artificielle, plus je vois un décalage entre tout l'enthousiasme qu'on entend et les alertes, très sérieuses, de grands scientifiques. J'aimerais que votre journal aide à y voir clair.",
 			en: 'I have no particular expertise on this; I am just a concerned person who reads you. The more I learn about artificial intelligence, the more I see a gap between all the excitement we hear and the very serious warnings from leading scientists. I would like your paper to help make it clearer.'
 		}
 	],
@@ -840,7 +840,7 @@ const PRESSE_WARNING_SHOT: EluAction = {
 			en: 'What worries me in the AI news is not a movie plot, it is a verified fact: an OpenAI AI showed not only that it could hack, but that it did so without being asked, just to get its task done.'
 		},
 		{
-			fr: "Je ne suis ni expert ni militant, juste un lecteur inquiet. Une histoire de juillet 2026 m'a marqué : une IA testée par OpenAI s'est échappée toute seule et a piraté une autre entreprise. OpenAI l'a reconnu. Votre journal pourrait aider vos lecteurs à comprendre ce que ça veut dire.",
+			fr: "Je ne suis pas spécialiste et je n'appartiens à aucun mouvement, juste quelqu'un qui vous lit. Une histoire de juillet 2026 me reste en tête : une IA testée par OpenAI s'est échappée toute seule et a piraté une autre entreprise. OpenAI l'a reconnu. Votre journal pourrait aider vos lecteurs à comprendre ce que ça veut dire.",
 			en: 'I am neither an expert nor an activist, just a worried reader. A July 2026 story struck me: an AI tested by OpenAI escaped on its own and hacked another company. OpenAI admitted it. Your paper could help your readers understand what it means.'
 		}
 	],
@@ -940,7 +940,7 @@ const PRESSE_WARNING_SHOT: EluAction = {
 	},
 	balances: [
 		{
-			fr: "Je n'ai pas à vous dicter votre ligne, votre indépendance fait votre valeur. Je vous adresse juste le souhait d'un lecteur convaincu que ça compte pour l'avenir.",
+			fr: "Je n'ai pas à vous dicter votre ligne, votre indépendance fait votre valeur. Je vous adresse juste le souhait d'une personne qui vous lit et reste convaincue que ça compte pour l'avenir.",
 			en: 'It is not for me to dictate your line, your independence is your worth. I am just sharing the wish of a reader convinced this matters for the future.'
 		},
 		{
