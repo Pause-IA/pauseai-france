@@ -4,6 +4,8 @@ description: Notre charte de valeurs chez Pause IA.
 slug: charte-des-valeurs
 ---
 
+_v2 — en vigueur au 25 août 2026_
+
 ## La mission
 
 La priorité de Pause IA est de **préserver l’avenir de notre civilisation** face aux dangers de l’intelligence artificielle. L'IA doit rester au service de l'humanité, et non l'inverse.
