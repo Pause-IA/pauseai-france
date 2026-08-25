@@ -4,7 +4,7 @@ description: Notre charte de valeurs chez Pause IA.
 slug: charte-des-valeurs
 ---
 
-_v2 — en vigueur au 25 août 2026_
+_v2 · en vigueur au 25 août 2026_
 
 ## La mission
 
@@ -16,7 +16,7 @@ Nous mesurons **l’importance capitale de notre mission** que nous prenons avec
 
 ## Quelles sont nos valeurs ?
 
-> 💡 Nos valeurs sont numérotées par ordre de priorité. Lorsque deux valeurs s'opposent, la plus haut placée l'emporte. Nous attendons de chaque personne au sein du mouvement qu'elle les respecte en tout temps et qu'elle soit capable de les invoquer par leur numéro pour résoudre un désaccord.
+> Nos valeurs sont numérotées par ordre de priorité. Lorsque deux valeurs s'opposent, la plus haut placée l'emporte. Nous attendons de chaque personne au sein du mouvement qu'elle les respecte en tout temps et qu'elle soit capable de les invoquer par leur numéro pour résoudre un désaccord.
 
 1. **Non-violence.** Nous n'utiliserons, n'encouragerons ni ne tolérerons jamais la violence, y compris les dommages matériels, les menaces ou les plaisanteries sur la violence. Notre mouvement est strictement pacifique et légal. Une seule infraction, où qu'elle ait lieu, nuit à l'ensemble du groupe, partout.
 2. **Bénéfique ou pas du tout.** L'IA doit être développée de manière à bénéficier à l'humanité, ou ne pas être développée du tout. C'est notre raison d'être.

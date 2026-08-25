@@ -5,7 +5,6 @@
 	import Button from '$components/Button.svelte'
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Accordion from '$components/Accordion.svelte'
-	import Callout from '$components/Callout.svelte'
 	import FAQEn from '$posts/en/qui-sommes-nous.md'
 	import type { TeamMember } from '$lib/notion'
 	import type { Lang } from '$lib/i18n'
@@ -431,12 +430,12 @@
 
 		<div class="team-section" id="nos-valeurs">
 			<h2 class="section-title">Nos valeurs</h2>
-			<Callout>
+			<p class="values-note">
 				Nos valeurs sont numérotées par ordre de priorité. Lorsque deux valeurs s'opposent, la plus
 				haut placée l'emporte. Nous attendons de chaque personne au sein du mouvement qu'elle les
 				respecte en tout temps et qu'elle soit capable de les invoquer par leur numéro pour résoudre
 				un désaccord.
-			</Callout>
+			</p>
 
 			<div class="accordion-stack">
 				{#each values as v}
@@ -458,11 +457,11 @@
 	{#if lang === 'en'}
 		<div class="team-section" id="our-values">
 			<h2 class="section-title">Our values</h2>
-			<Callout>
+			<p class="values-note">
 				Our values are numbered in order of priority. When two values conflict, the one ranked
 				higher prevails. We expect everyone within the movement to uphold them at all times and to
 				be able to invoke them by their number to resolve a disagreement.
-			</Callout>
+			</p>
 
 			<div class="accordion-stack">
 				{#each valuesEn as v}
@@ -561,6 +560,16 @@
 		box-shadow: none;
 		margin: 0 0 0.5rem;
 		padding: 0 0 1rem;
+	}
+
+	.values-note {
+		margin: 0.5rem 0 1.5rem;
+		padding: 0.75rem 0 0.75rem 1rem;
+		border-left: 3px solid var(--border, #e5e7eb);
+		color: var(--text-secondary, #4b5563);
+		font-size: 0.95rem;
+		line-height: 1.6;
+		text-align: left;
 	}
 
 	.value-text {

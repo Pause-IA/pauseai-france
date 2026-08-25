@@ -3,7 +3,7 @@ title: Values Charter
 description: The values and principles that guide Pause AI France in its mission.
 ---
 
-_v2 — in effect as of 25 August 2026_
+_v2 · in effect as of 25 August 2026_
 
 ## Our mission
 
@@ -15,7 +15,7 @@ We are keenly aware of the **vital importance of our mission**, which we take on
 
 ## What are our values?
 
-> 💡 Our values are numbered in order of priority. When two values conflict, the one ranked higher prevails. We expect everyone within the movement to uphold them at all times and to be able to invoke them by their number to resolve a disagreement.
+> Our values are numbered in order of priority. When two values conflict, the one ranked higher prevails. We expect everyone within the movement to uphold them at all times and to be able to invoke them by their number to resolve a disagreement.
 
 1. **Non-violence.** We will never use, encourage or tolerate violence, including property damage, threats or jokes about violence. Our movement is strictly peaceful and lawful. A single breach, wherever it happens, harms the whole group, everywhere.
 2. **Beneficial or not at all.** AI must be developed in a way that benefits humanity, or not developed at all. This is our reason for being.
