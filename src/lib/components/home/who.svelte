@@ -332,6 +332,31 @@
 	</p>
 
 	{#if lang !== 'en'}
+		<div class="team-section" id="nos-valeurs">
+			<h2 class="section-title">Nos valeurs</h2>
+			<p class="values-note">
+				Nos valeurs sont numérotées par ordre de priorité. Lorsque deux valeurs s'opposent, la plus
+				haut placée l'emporte. Nous attendons de chaque personne au sein du mouvement qu'elle les
+				respecte en tout temps et qu'elle soit capable de les invoquer par leur numéro pour résoudre
+				un désaccord.
+			</p>
+
+			<div class="accordion-stack">
+				{#each values as v}
+					<Accordion id={`valeur-${v.n}`} noHash>
+						<svelte:fragment slot="head">{v.n}. {v.name}</svelte:fragment>
+						<svelte:fragment slot="details">
+							<p class="value-text">{v.text}</p>
+						</svelte:fragment>
+					</Accordion>
+				{/each}
+			</div>
+
+			<p class="section-description charte-link">
+				Ces valeurs constituent notre <a href="/charte-des-valeurs">charte des valeurs</a>.
+			</p>
+		</div>
+
 		<div class="team-section">
 			<h2 class="section-title">Notre positionnement</h2>
 			<p class="section-description">
@@ -419,39 +444,14 @@
 					</svelte:fragment>
 				</Accordion>
 			</div>
-
-			<p class="independence">
-				Association à but non lucratif créée en juin 2024, nous sommes <strong
-					>totalement indépendants de l'industrie de l'IA et de la tech</strong
-				>&nbsp;: nous fonctionnons grâce aux <a href="/dons">dons</a> de nos soutiens, qui financent
-				nos campagnes, nos événements et le fonctionnement de l'association.
-			</p>
 		</div>
 
-		<div class="team-section" id="nos-valeurs">
-			<h2 class="section-title">Nos valeurs</h2>
-			<p class="values-note">
-				Nos valeurs sont numérotées par ordre de priorité. Lorsque deux valeurs s'opposent, la plus
-				haut placée l'emporte. Nous attendons de chaque personne au sein du mouvement qu'elle les
-				respecte en tout temps et qu'elle soit capable de les invoquer par leur numéro pour résoudre
-				un désaccord.
-			</p>
-
-			<div class="accordion-stack">
-				{#each values as v}
-					<Accordion id={`valeur-${v.n}`} noHash>
-						<svelte:fragment slot="head">{v.n}. {v.name}</svelte:fragment>
-						<svelte:fragment slot="details">
-							<p class="value-text">{v.text}</p>
-						</svelte:fragment>
-					</Accordion>
-				{/each}
-			</div>
-
-			<p class="section-description charte-link">
-				Ces valeurs constituent notre <a href="/charte-des-valeurs">charte des valeurs</a>.
-			</p>
-		</div>
+		<p class="independence">
+			Association à but non lucratif créée en juin 2024, nous sommes <strong
+				>totalement indépendants de l'industrie de l'IA et de la tech</strong
+			>&nbsp;: nous fonctionnons grâce aux <a href="/dons">dons</a> de nos soutiens, qui financent nos
+			campagnes, nos événements et le fonctionnement de l'association.
+		</p>
 	{/if}
 
 	{#if lang === 'en'}
