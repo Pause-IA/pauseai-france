@@ -263,12 +263,10 @@ Cet événement mérite d’être à l’ordre du jour des responsables politiqu
   }
 
   .recap-group {
-    margin: 1.5rem 0 0.35rem;
-    font-size: 0.78rem;
+    margin: 1.75rem 0 0.5rem;
+    font-size: 1rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--brand-subtle, #c96900);
+    color: var(--text, #222);
   }
 
   .cta {
@@ -297,7 +295,7 @@ Cet événement mérite d’être à l’ordre du jour des responsables politiqu
     content: '▸';
     display: inline-block;
     margin-right: 0.5rem;
-    color: var(--brand-subtle, #c96900);
+    color: var(--text-2, #555);
     transition: transform 0.15s ease;
   }
 

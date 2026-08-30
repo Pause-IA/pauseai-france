@@ -780,14 +780,9 @@
 	}
 
 	.phase-tag {
-		font-size: 0.72rem;
-		font-weight: 800;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		color: var(--brand-subtle);
-		background: var(--brand-light);
-		padding: 0.15rem 0.55rem;
-		border-radius: 999px;
+		font-size: 0.8rem;
+		font-weight: 700;
+		color: var(--text-2);
 	}
 
 	.phase-head h3 {
@@ -854,9 +849,8 @@
 
 	.frise-note {
 		margin: 1.5rem 0 0.5rem;
-		padding: 1rem 1.25rem;
-		border-radius: 12px;
-		background: var(--bg-subtle);
+		padding: 0.25rem 0 0.25rem 1rem;
+		border-left: 2px solid var(--border);
 		font-size: 0.95rem;
 		line-height: 1.6;
 		color: var(--text-2);
@@ -868,10 +862,8 @@
 
 	.reads-label {
 		display: block;
-		font-size: 0.72rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		font-size: 0.85rem;
+		font-weight: 600;
 		color: var(--text-2);
 		margin-bottom: 0.6rem;
 	}
@@ -886,28 +878,25 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
-		padding: 0.4rem 0.8rem;
+		padding: 0.35rem 0.7rem;
 		border: 1px solid var(--border);
-		border-radius: 999px;
+		border-radius: 4px;
 		font-size: 0.88rem;
-		font-weight: 600;
+		font-weight: 500;
 		text-decoration: none;
 		color: var(--text);
-		background: var(--bg-card);
-		transition:
-			border-color 0.15s ease,
-			background 0.15s ease;
+		background: transparent;
+		transition: border-color 0.15s ease;
 	}
 
 	.read-chip:hover,
 	.read-chip:focus-visible {
-		border-color: var(--brand);
+		border-color: var(--text-2);
 	}
 
 	.read-chip--primary {
-		border-color: color-mix(in srgb, var(--brand) 45%, transparent);
-		background: var(--bg-subtle);
-		color: var(--brand-subtle);
+		border-color: var(--text-2);
+		font-weight: 600;
 	}
 
 	.read-chip :global(svg) {
@@ -917,30 +906,16 @@
 
 	/* ── Point clé ─────────────────────────────────────────── */
 	.keypoint {
-		position: relative;
-		border-radius: 16px;
-		padding: 1.75rem 1.75rem 1.75rem 2rem;
+		padding: 0.5rem 0 0.5rem 1.35rem;
 		margin-bottom: 2.5rem;
-		background: var(--bg-subtle);
-		border: 1px solid color-mix(in srgb, var(--brand) 35%, transparent);
-	}
-
-	.keypoint::before {
-		content: '';
-		position: absolute;
-		inset: 0 auto 0 0;
-		width: 5px;
-		border-radius: 16px 0 0 16px;
-		background: var(--brand);
+		border-left: 3px solid var(--border);
 	}
 
 	.keypoint-lead {
-		margin: 0 0 0.5rem;
-		font-size: 0.82rem;
+		margin: 0 0 0.6rem;
+		font-size: 0.95rem;
 		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.demo-list {
@@ -999,7 +974,7 @@
 	/* Citation « machine » : les propres mots du modèle, présentés comme un journal. */
 	.model-quote {
 		padding: 1.1rem 1.35rem;
-		border-radius: 12px;
+		border-radius: 4px;
 		background: var(--bg-subtle);
 		border: 1px solid var(--border);
 	}
@@ -1022,21 +997,16 @@
 		overflow: hidden;
 		margin-bottom: 2.5rem;
 		border: 1px solid var(--border);
-		border-radius: 16px;
+		border-radius: 6px;
 		background: var(--bg-card);
 		text-decoration: none;
 		color: var(--text);
-		transition:
-			transform 0.2s ease,
-			box-shadow 0.2s ease,
-			border-color 0.2s ease;
+		transition: border-color 0.2s ease;
 	}
 
 	.article-card:hover,
 	.article-card:focus-visible {
-		transform: translateY(-2px);
-		border-color: var(--brand);
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+		border-color: var(--text-2);
 	}
 
 	.article-media {
@@ -1051,11 +1021,6 @@
 		height: 100%;
 		object-fit: cover;
 		display: block;
-		transition: transform 0.4s ease;
-	}
-
-	.article-card:hover .article-media img {
-		transform: scale(1.03);
 	}
 
 	.article-body {
@@ -1067,10 +1032,8 @@
 	}
 
 	.article-source {
-		font-size: 0.72rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
+		font-size: 0.85rem;
+		font-weight: 600;
 		color: var(--text-2);
 	}
 
@@ -1128,7 +1091,7 @@
 	.action-card {
 		padding: 1.75rem;
 		border: 1px solid var(--border);
-		border-radius: 16px;
+		border-radius: 6px;
 		background: var(--bg-card);
 		margin-bottom: 1.25rem;
 	}
@@ -1144,12 +1107,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.75rem;
-		height: 2.75rem;
+		width: 2rem;
+		height: 2rem;
 		flex-shrink: 0;
-		border-radius: 12px;
-		background: var(--brand-light);
-		color: var(--brand-subtle);
+		color: var(--text-2);
 	}
 
 	.action-card h3 {
@@ -1169,10 +1130,10 @@
 		height: 1.6rem;
 		flex-shrink: 0;
 		border-radius: 50%;
-		background: var(--brand);
-		color: #1a1a1a;
+		border: 1.5px solid var(--text-2);
+		color: var(--text);
 		font-size: 0.85rem;
-		font-weight: 800;
+		font-weight: 700;
 	}
 
 	.action-card > p {
@@ -1207,15 +1168,12 @@
 		font-weight: 700;
 		font-size: 0.92rem;
 		padding: 0.6rem 1.1rem;
-		border-radius: 999px;
-		transition:
-			transform 0.2s ease,
-			background 0.2s ease;
+		border-radius: 6px;
+		transition: background 0.2s ease;
 	}
 
 	.action-cta:hover,
 	.action-cta:focus-visible {
-		transform: translateY(-1px);
 		background: var(--btn-hover-bg);
 	}
 
@@ -1258,11 +1216,9 @@
 
 	.src-org {
 		flex-shrink: 0;
-		font-size: 0.72rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-		color: var(--brand-subtle);
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--text-2);
 		min-inline-size: 6.5rem;
 	}
 
@@ -1295,9 +1251,8 @@
 		align-items: center;
 		gap: 0.6rem;
 		margin: 0 0 5rem;
-		padding: 1rem 1.25rem;
-		border-radius: 12px;
-		background: var(--bg-subtle);
+		padding: 1rem 0 0;
+		border-top: 1px solid var(--border);
 		color: var(--text-2);
 		font-size: 0.98rem;
 		line-height: 1.5;
@@ -1305,7 +1260,7 @@
 
 	.closing :global(svg) {
 		flex-shrink: 0;
-		color: var(--brand-subtle);
+		color: var(--text-2);
 	}
 
 	@media (max-width: 640px) {
