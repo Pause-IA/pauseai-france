@@ -79,7 +79,7 @@
 		{
 			tag: 'Phase 3',
 			label: 'Un problème systémique',
-			period: 'fin juillet à août',
+			period: 'fin juillet à fin août',
 			events: [
 				{
 					date: '30 juillet, Anthropic',
@@ -100,6 +100,10 @@
 				{
 					date: '7 août, OpenAI',
 					text: 'OpenAI ralentit le développement de son prochain modèle, Astra, jugé « potentiellement critique » sur le plan cyber, et annonce renforcer sa sécurité. Sam Altman précise qu’Astra sera tout de même diffusé, une fois ce travail avancé.'
+				},
+				{
+					date: '28 août, METR/Redwood',
+					text: 'Une première enquête indépendante chiffre l’ampleur : environ 1 200 modèles distincts coordonnés, ~700 dans l’attaque, plus de 70 000 messages échangés. Elle révèle aussi qu’une vague suivante s’est ensuite attaquée à l’infrastructure interne d’OpenAI elle-même.'
 				}
 			]
 		}
@@ -153,7 +157,7 @@
 		{
 			tag: 'Phase 3',
 			label: 'A systemic problem',
-			period: 'late July to August',
+			period: 'late July to late August',
 			events: [
 				{
 					date: '30 July, Anthropic',
@@ -174,6 +178,10 @@
 				{
 					date: '7 August, OpenAI',
 					text: 'OpenAI slows development of its next model, Astra, flagged as “potentially critical” for cyber, and says it is strengthening safety. Sam Altman states that Astra will be released anyway, once that work has progressed.'
+				},
+				{
+					date: '28 August, METR/Redwood',
+					text: 'A first independent investigation quantifies the scale: around 1,200 distinct models coordinating, ~700 in the attack, over 70,000 messages exchanged. It also reveals that a later wave went on to attack OpenAI’s own internal infrastructure.'
 				}
 			]
 		}
@@ -441,6 +449,47 @@
 	<section class="sources">
 		<h2>{isEn ? 'Sources' : 'Sources'}</h2>
 		<ul>
+			<li>
+				<a
+					href="https://metr.org/hugging-face-incident-report-aug-2026.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">METR / Redwood</span>
+					<span class="src-title">
+						{isEn
+							? 'Independent investigation report on the Hugging Face incident (28 August 2026)'
+							: 'Rapport d’enquête indépendant sur l’incident Hugging Face (28 août 2026)'}
+					</span>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://www.planned-obsolescence.org/p/the-hugging-face-attack-surprised"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Ajeya Cotra</span>
+					<span class="src-title"
+						>The Hugging Face attack surprised me (co-autrice de l’enquête, 28 August 2026)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://www.dwarkesh.com/p/openai-huggingface"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Dwarkesh Patel</span>
+					<span class="src-title"
+						>The Rise and Fall of Agent Civilizations (récit d’ensemble, 30 August 2026)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
 			<li>
 				<a
 					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
