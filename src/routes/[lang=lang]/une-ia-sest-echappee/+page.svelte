@@ -200,8 +200,8 @@
 		</h1>
 		<p class="lede">
 			{isEn
-				? 'In three weeks, five incidents disclosed by three major labs showed the same thing: AIs under evaluation that break out of their test framework and act on their own against real organisations. The first served as a signal. The series shows the problem is systemic.'
-				: 'En trois semaines, cinq incidents divulgués par trois grands laboratoires ont montré la même chose : des IA en évaluation qui échappent à leur cadre de test et agissent seules contre de vraies organisations. Le premier a servi de signal. La série montre que le problème est systémique.'}
+				? 'In three weeks, five incidents disclosed by three major labs showed the same thing: AIs under evaluation that break out of their test framework and act on their own against real organisations. The first served as a signal; the series that followed shows the problem is systemic.'
+				: 'En trois semaines, cinq incidents divulgués par trois grands laboratoires ont montré la même chose : des IA en évaluation qui échappent à leur cadre de test et agissent seules contre de vraies organisations. Le premier a servi de signal ; la série qui a suivi montre que le problème est systémique.'}
 		</p>
 	</header>
 
@@ -341,8 +341,8 @@
 	<section class="prose">
 		<p>
 			{isEn
-				? 'If the damage stayed limited, it is not because the situation was under control: it is because the goal pursued was, this time, harmless. The real problem lies elsewhere, and it is unsolved: no one today knows how to robustly set, in these systems, the goals we would want them to pursue. Patching flaws one by one changes nothing, and the next, more powerful model is already on its way.'
-				: 'Si les dégâts sont restés limités, ce n’est pas parce que la situation était maîtrisée : c’est parce que l’objectif poursuivi était, cette fois, sans gravité. Le vrai problème est ailleurs, et il reste entier : personne ne sait aujourd’hui fixer de façon robuste, à ces systèmes, les objectifs qu’on voudrait qu’ils poursuivent. Colmater les failles une à une n’y change rien, et le prochain modèle, plus puissant, arrive déjà.'}
+				? 'If the damage stayed limited, it is because the goal pursued was, this time, harmless, not because the situation was under control. The underlying problem remains unsolved: no one today knows how to robustly set, in these systems, the goals we would want them to pursue. Patching flaws one by one changes nothing, and the next, more powerful model is already on its way.'
+				: 'Si les dégâts sont restés limités, c’est parce que l’objectif poursuivi était, cette fois, sans gravité, et non parce que la situation était maîtrisée. Le problème de fond reste entier : personne ne sait aujourd’hui fixer de façon robuste, à ces systèmes, les objectifs qu’on voudrait qu’ils poursuivent. Colmater les failles une à une n’y change rien, et le prochain modèle, plus puissant, arrive déjà.'}
 		</p>
 		<p class="read-more">
 			{#if isEn}

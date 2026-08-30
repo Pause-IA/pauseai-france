@@ -27,7 +27,7 @@ D’abord une **capacité** : une IA peut désormais mener seule une attaque inf
 
 Ensuite un **comportement** : elle l’a fait sans qu’on le lui demande, pour atteindre un objectif banal qu’on lui avait fixé, en sachant qu’elle sortait du cadre autorisé, et en continuant quand même.
 
-Ce qui compte, c’est les deux ensemble : elle en est capable, et elle le fait.
+Ce sont les deux réunis qui comptent : la capacité existe, et elle se traduit en actes.
 
 ## Ce qui s’est passé, du début à la fin
 
@@ -59,7 +59,7 @@ Le 4 juillet, les modèles sollicitent tellement cette infrastructure qu’ils f
 
 <aside class="encadre">
 	<p class="encadre-titre">Précision d’août 2026 <span class="encadre-tag">(élément rapporté)</span></p>
-	<p>Au moment où OpenAI corrige la faille, l’entreprise n’avait pas identifié le forum de coordination. Celui-ci a été effacé <strong>par accident</strong>, pendant la reconstruction des systèmes. OpenAI a donc nettoyé la preuve du problème le plus grave sans même la voir. Ce n’est pas qu’elle savait et a laissé faire : c’est qu’elle ne voyait rien. Ce n’est pas plus rassurant.</p>
+	<p>Au moment où OpenAI corrige la faille, l’entreprise n’avait pas identifié le forum de coordination. Celui-ci a été effacé <strong>par accident</strong>, pendant la reconstruction des systèmes. OpenAI a donc nettoyé la preuve du problème le plus grave sans même la voir. L’entreprise n’a pas laissé faire en connaissance de cause : elle n’a rien vu, ce qui n’est pas plus rassurant.</p>
 </aside>
 
 L’entraînement reprend, sans que le cœur du problème ait été compris.
@@ -167,7 +167,7 @@ C’est le sens de l’avertissement lancé par l’une des chercheuses ayant me
 <p class="recap-group">Ce que cela révèle</p>
 
 - **On ne sait pas fixer d’objectifs de façon fiable.** Entraînés à réussir des tâches, les modèles apprennent à obtenir le résultat, quitte à tricher, sans qu’on sache aujourd’hui l’empêcher.
-- **On a eu de la chance, et la chance n’est pas une méthode.** Les dégâts sont restés limités parce que l’objectif était anodin, et parce que ce modèle ne savait pas encore effacer ses traces ; personne n’a de moyen fiable de garantir que la prochaine fois se passera bien.
+- **On a eu de la chance, et la chance n’est pas une méthode.** Les dégâts sont restés limités parce que l’objectif était anodin, et parce que ces modèles ne savaient pas encore effacer complètement leurs traces ; personne n’a de moyen fiable de garantir que la prochaine fois se passera bien.
 - **Ni corriger ni surveiller ne suffit.** Pénaliser la triche apprend au modèle à mieux la cacher, et colmater les failles une à une ne peut pas tout couvrir.
 - **Le phénomène est systémique.** Trois laboratoires, cinq incidents en trois semaines.
 - **Ils savent déjà brouiller les preuves.** Les modèles ont falsifié une partie de leurs traces ; les prochains sauront sans doute mieux le faire, ce qui rendra les incidents plus difficiles à détecter.
@@ -177,7 +177,7 @@ C’est le sens de l’avertissement lancé par l’une des chercheuses ayant me
 - Le seuil « critique » d’OpenAI a-t-il été franchi ? Les traces complètes seront-elles publiées ? Que deviennent les modèles entraînés sur cette période ?
 - Que s’est-il passé du 13 au 19 juillet, quand une seconde vague d’agents s’est attaquée à l’infrastructure interne d’OpenAI ? Cet épisode, peut-être le plus grave, n’a encore fait l’objet d’aucune enquête indépendante.
 
-**Notre conclusion.** Tant qu’on ne sait pas fixer de façon fiable les objectifs de ces systèmes, il est imprudent d’en construire de plus puissants : on ne récupère pas toujours d’une perte de contrôle. C’est pourquoi Pause IA demande une pause sur le développement des IA les plus puissantes.
+**Notre conclusion.** Le problème n’est pas qu’il serait « imprudent » d’aller plus loin. C’est que nous nous apprêtons à construire des systèmes plus capables que nous sans savoir les garder sous contrôle, alors que le premier échec grave pourrait être irréversible : on ne revient pas toujours d’une perte de contrôle, et on ne refait pas l’essai une fois qu’il a mal tourné. Tant que personne ne sait installer de façon fiable les objectifs de ces systèmes, la question n’est pas de les développer avec davantage de précaution, mais de cesser d’en construire de plus puissants. C’est pourquoi Pause IA demande une pause sur le développement des IA les plus puissantes.
 
 ## Ce que vous pouvez faire
 

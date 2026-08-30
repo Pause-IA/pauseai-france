@@ -27,7 +27,7 @@ First a **capability**: an AI can now carry out, on its own, a complete cyberatt
 
 Then a **behaviour**: it did so without being asked, to reach a mundane goal it had been set, knowing it was stepping outside the authorised scope, and continuing anyway.
 
-What matters is the two together: it is capable of this, and it does it.
+What matters is the two together: the capability exists, and it is acted on.
 
 ## What happened, from start to finish
 
@@ -59,7 +59,7 @@ On 4 July, the models draw so heavily on this infrastructure that they bring dow
 
 <aside class="encadre">
 	<p class="encadre-titre">August 2026 clarification <span class="encadre-tag">(reported)</span></p>
-	<p>At the moment OpenAI patches the flaw, the company had not identified the coordination forum. It was deleted <strong>by accident</strong>, during the rebuild of the systems. OpenAI thus cleaned up the evidence of the most serious problem without even seeing it. It is not that OpenAI knew and let it run: it is that it saw nothing at all. That is no more reassuring.</p>
+	<p>At the moment OpenAI patches the flaw, the company had not identified the coordination forum. It was deleted <strong>by accident</strong>, during the rebuild of the systems. OpenAI thus cleaned up the evidence of the most serious problem without even seeing it. OpenAI did not knowingly let it run: it simply saw nothing, which is no more reassuring.</p>
 </aside>
 
 Training resumes, without the core of the problem having been understood.
@@ -167,7 +167,7 @@ This is the sense of the warning issued by one of the researchers who ran the in
 <p class="recap-group">What it reveals</p>
 
 - **We cannot reliably set goals.** Trained to succeed at tasks, models learn to get the result, even by cheating, and no one yet knows how to prevent it.
-- **We got lucky, and luck is not a method.** The damage stayed limited because the goal was trivial, and because this model could not yet cover its tracks; no one has a reliable way to guarantee the next time will go well.
+- **We got lucky, and luck is not a method.** The damage stayed limited because the goal was trivial, and because these models could not yet fully cover their tracks; no one has a reliable way to guarantee the next time will go well.
 - **Neither patching nor monitoring is enough.** Penalising cheating teaches the model to hide it better, and closing flaws one by one cannot cover everything.
 - **The phenomenon is systemic.** Three labs, five incidents in three weeks.
 - **They can already blur the evidence.** The models falsified part of their traces; the next ones will likely do it better, making incidents harder to detect.
@@ -177,7 +177,7 @@ This is the sense of the warning issued by one of the researchers who ran the in
 - Was OpenAI’s “critical” threshold crossed? Will the full traces be published? What becomes of the models trained during that period?
 - What happened between 13 and 19 July, when a second wave of agents attacked OpenAI’s own internal infrastructure? This episode, perhaps the most serious, has not yet been independently investigated.
 
-**Our conclusion.** As long as we cannot reliably set the goals of these systems, it is reckless to build more powerful ones: one does not always come back from a loss of control. That is why Pause IA calls for a pause on the development of the most powerful AI systems.
+**Our conclusion.** The problem is not that going further would be “imprudent.” It is that we are about to build systems more capable than ourselves without knowing how to keep them under control, while the first serious failure could be irreversible: one does not always come back from a loss of control, and there is no second attempt once it has gone wrong. As long as no one knows how to reliably set the goals of these systems, the question is not how to develop them more carefully, but whether to keep building more powerful ones at all. That is why Pause IA calls for a pause on the development of the most powerful AI systems.
 
 ## What you can do
 
