@@ -177,7 +177,7 @@ This is the sense of the warning issued by one of the researchers who ran the in
 - Was OpenAI’s “critical” threshold crossed? Will the full traces be published? What becomes of the models trained during that period?
 - What happened between 13 and 19 July, when a second wave of agents attacked OpenAI’s own internal infrastructure? This episode, perhaps the most serious, has not yet been independently investigated.
 
-**Our conclusion.** The problem is not that going further would be “imprudent.” It is that we are building systems set to become more capable than ourselves without knowing how to keep them under control. Losing control of a system more intelligent than us is not an incident one recovers from: the consequences can be catastrophic and permanent, up to humanity’s lasting loss of control over its own future. Such a failure cannot be fixed after the fact, and there is no second attempt. As long as no one knows how to reliably set the goals of these systems, the question is not how to develop them more carefully, but whether to keep building more powerful ones at all. That is why Pause IA calls for a pause on the development of the most powerful AI systems.
+**Our conclusion.** We are building systems meant to become more intelligent than us, without knowing how to control them. If control is lost, nothing guarantees we can regain it: the failure can be permanent, up to the loss of human control over our future. There will be no second attempt. As long as we cannot reliably set the goals of these systems, we must stop building more powerful ones. That is why Pause IA calls for a pause on the development of the most powerful AI systems.
 
 ## What you can do
 
