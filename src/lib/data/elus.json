@@ -1598,24 +1598,6 @@
 		},
 		{
 			"circo": 2,
-			"civ": "M",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA719218",
-			"departement": "22",
-			"email": "herve.berville@assemblee-nationale.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"source",
-				"pattern"
-			],
-			"groupe": "EPR",
-			"id": "PA719218",
-			"nom": "Hervé Berville",
-			"nomCirco": "Côtes-d'armor (2e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/719218.jpg",
-			"role": "depute"
-		},
-		{
-			"circo": 2,
 			"civ": "Mme",
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA719272",
 			"departement": "19",
@@ -4325,6 +4307,24 @@
 			"role": "depute"
 		},
 		{
+			"circo": 2,
+			"civ": "Mme",
+			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793528",
+			"departement": "22",
+			"email": "chantal.bouloux@assemblee-nationale.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"source",
+				"pattern"
+			],
+			"groupe": "EPR",
+			"id": "PA793528",
+			"nom": "Chantal Bouloux",
+			"nomCirco": "Côtes-d'armor (2e circonscription)",
+			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793528.jpg",
+			"role": "depute"
+		},
+		{
 			"circo": 4,
 			"civ": "Mme",
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793532",
@@ -6210,24 +6210,6 @@
 			"nom": "Caroline Yadan",
 			"nomCirco": "Français établis hors de France (8e circonscription)",
 			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795046.jpg",
-			"role": "depute"
-		},
-		{
-			"circo": 4,
-			"civ": "Mme",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA795050",
-			"departement": "75",
-			"email": "astrid.panosyan-bouvet@assemblee-nationale.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"source",
-				"pattern"
-			],
-			"groupe": "EPR",
-			"id": "PA795050",
-			"nom": "Astrid Panosyan-Bouvet",
-			"nomCirco": "Paris (4e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795050.jpg",
 			"role": "depute"
 		},
 		{
@@ -9380,6 +9362,24 @@
 			"role": "depute"
 		},
 		{
+			"circo": 4,
+			"civ": "Mme",
+			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841709",
+			"departement": "75",
+			"email": "emmanuelle.hoffman@assemblee-nationale.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"source",
+				"pattern"
+			],
+			"groupe": "EPR",
+			"id": "PA841709",
+			"nom": "Emmanuelle Hoffman",
+			"nomCirco": "Paris (4e circonscription)",
+			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/841709.jpg",
+			"role": "depute"
+		},
+		{
 			"circo": 2,
 			"civ": "M",
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841713",
@@ -11311,20 +11311,20 @@
 			},
 			{
 				"circo": 2,
-				"civ": "M",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA719218",
+				"civ": "Mme",
+				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793528",
 				"departement": "22",
-				"email": "herve.berville@assemblee-nationale.fr",
+				"email": "chantal.bouloux@assemblee-nationale.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"source",
 					"pattern"
 				],
 				"groupe": "EPR",
-				"id": "PA719218",
-				"nom": "Hervé Berville",
+				"id": "PA793528",
+				"nom": "Chantal Bouloux",
 				"nomCirco": "Côtes-d'armor (2e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/719218.jpg",
+				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793528.jpg",
 				"role": "depute"
 			},
 			{
@@ -16761,19 +16761,19 @@
 			{
 				"circo": 4,
 				"civ": "Mme",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA795050",
+				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841709",
 				"departement": "75",
-				"email": "astrid.panosyan-bouvet@assemblee-nationale.fr",
+				"email": "emmanuelle.hoffman@assemblee-nationale.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"source",
 					"pattern"
 				],
 				"groupe": "EPR",
-				"id": "PA795050",
-				"nom": "Astrid Panosyan-Bouvet",
+				"id": "PA841709",
+				"nom": "Emmanuelle Hoffman",
 				"nomCirco": "Paris (4e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795050.jpg",
+				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/841709.jpg",
 				"role": "depute"
 			},
 			{
@@ -20913,7 +20913,7 @@
 			}
 		]
 	},
-	"generatedAt": "2026-08-03",
+	"generatedAt": "2026-08-31",
 	"senateurs": [
 		{
 			"civ": "M",
@@ -21281,22 +21281,6 @@
 			"nom": "Nicole Bonnefoy",
 			"nomDept": "Charente",
 			"photo": "https://www.senat.fr/senimg/bonnefoy_nicole08060w_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/patriat_francois08061x.html",
-			"departement": "21",
-			"email": "f.patriat@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "RDPI",
-			"id": "08061x",
-			"nom": "François Patriat",
-			"nomDept": "Côte-d'Or",
-			"photo": "https://www.senat.fr/senimg/patriat_francois08061x_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -24778,22 +24762,6 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/verzelen_pierre_jean20122u.html",
-			"departement": "02",
-			"email": "pj.verzelen@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Indépendants",
-			"id": "20122u",
-			"nom": "Pierre-Jean Verzelen",
-			"nomDept": "Aisne",
-			"photo": "https://www.senat.fr/senimg/verzelen_pierre_jean20122u_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/drexler_sabine20124w.html",
 			"departement": "68",
@@ -26406,6 +26374,34 @@
 			"role": "senateur"
 		},
 		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/camerac_anne21630q.html",
+			"departement": "02",
+			"email": null,
+			"emailConfidence": "none",
+			"emailSources": [],
+			"groupe": "Les Indépendants",
+			"id": "21630q",
+			"nom": "Anne Camerac",
+			"nomDept": "Aisne",
+			"photo": "https://www.senat.fr/senimg/camerac_anne21630q_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/maingault_didier21634u.html",
+			"departement": "21",
+			"email": null,
+			"emailConfidence": "none",
+			"emailSources": [],
+			"groupe": "RDPI",
+			"id": "21634u",
+			"nom": "Didier Maingault",
+			"nomDept": "Côte-d'Or",
+			"photo": "https://www.senat.fr/senimg/maingault_didier21634u_carre.jpg",
+			"role": "senateur"
+		},
+		{
 			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/larcher_gerard86034e.html",
 			"departement": "78",
@@ -26924,22 +26920,6 @@
 		"21": [
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/patriat_francois08061x.html",
-				"departement": "21",
-				"email": "f.patriat@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "RDPI",
-				"id": "08061x",
-				"nom": "François Patriat",
-				"nomDept": "Côte-d'Or",
-				"photo": "https://www.senat.fr/senimg/patriat_francois08061x_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/houpert_alain08069g.html",
 				"departement": "21",
 				"email": "a.houpert@senat.fr",
@@ -26968,6 +26948,20 @@
 				"nom": "Anne-Catherine Loisier",
 				"nomDept": "Côte-d'Or",
 				"photo": "https://www.senat.fr/senimg/loisier_anne_catherine14205j_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/maingault_didier21634u.html",
+				"departement": "21",
+				"email": null,
+				"emailConfidence": "none",
+				"emailSources": [],
+				"groupe": "RDPI",
+				"id": "21634u",
+				"nom": "Didier Maingault",
+				"nomDept": "Côte-d'Or",
+				"photo": "https://www.senat.fr/senimg/maingault_didier21634u_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -31919,19 +31913,17 @@
 				"role": "senateur"
 			},
 			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/verzelen_pierre_jean20122u.html",
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/camerac_anne21630q.html",
 				"departement": "02",
-				"email": "pj.verzelen@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
+				"email": null,
+				"emailConfidence": "none",
+				"emailSources": [],
 				"groupe": "Les Indépendants",
-				"id": "20122u",
-				"nom": "Pierre-Jean Verzelen",
+				"id": "21630q",
+				"nom": "Anne Camerac",
 				"nomDept": "Aisne",
-				"photo": "https://www.senat.fr/senimg/verzelen_pierre_jean20122u_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/camerac_anne21630q_carre.jpg",
 				"role": "senateur"
 			}
 		],
