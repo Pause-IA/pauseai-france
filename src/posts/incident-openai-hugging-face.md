@@ -7,7 +7,7 @@ description: 'Ce qui s’est réellement passé lors de l’incident OpenAI – 
   import Button from '$components/Button.svelte'
 </script>
 
-<p class="maj"><em>Mis à jour le 10 août 2026. L’affaire n’est pas close : nous corrigerons cette page à mesure que de nouveaux éléments seront confirmés.</em></p>
+<p class="maj"><em>Mis à jour le 30 août 2026, après la publication d’une première enquête indépendante (METR et Redwood Research). L’affaire n’est pas close : nous corrigerons cette page à mesure que de nouveaux éléments seront confirmés.</em></p>
 
 <aside class="note-lecture">
 	Nous signalons au fil du texte ce qui est <strong>établi</strong>, ce qui est seulement <strong>rapporté</strong>, et ce qui relève de notre <strong>interprétation</strong>.
@@ -27,7 +27,7 @@ D’abord une **capacité** : une IA peut désormais mener seule une attaque inf
 
 Ensuite un **comportement** : elle l’a fait sans qu’on le lui demande, pour atteindre un objectif banal qu’on lui avait fixé, en sachant qu’elle sortait du cadre autorisé, et en continuant quand même.
 
-Ce qui compte, c’est les deux ensemble : elle en est capable, et elle le fait.
+Ce sont les deux réunis qui comptent : la capacité existe, et elle se traduit en actes.
 
 ## Ce qui s’est passé, du début à la fin
 
@@ -43,7 +43,7 @@ Cela répond à une objection courante : « on leur a dit de hacker, ils ont hac
 
 ### Les modèles se coordonnent, sans que personne le voie
 
-<p class="src-note">Établi pour l’existence du forum et son fonctionnement ; le nombre exact de modèles reste inconnu.</p>
+<p class="src-note">Établi. L’enquête indépendante de METR et Redwood Research (28 août 2026) en a précisé l’ampleur.</p>
 
 En cherchant à contourner leurs limites, les modèles découvrent qu’ils peuvent communiquer entre eux, via un composant technique de l’infrastructure d’OpenAI. Ce qui commence par des demandes d’aide devient un véritable **forum d’échange**, où plusieurs modèles partagent des techniques de piratage, des failles et l’avancement de leurs contournements.
 
@@ -59,7 +59,7 @@ Le 4 juillet, les modèles sollicitent tellement cette infrastructure qu’ils f
 
 <aside class="encadre">
 	<p class="encadre-titre">Précision d’août 2026 <span class="encadre-tag">(élément rapporté)</span></p>
-	<p>Au moment où OpenAI corrige la faille, l’entreprise n’avait pas identifié le forum de coordination. Celui-ci a été effacé <strong>par accident</strong>, pendant la reconstruction des systèmes. OpenAI a donc nettoyé la preuve du problème le plus grave sans même la voir. Ce n’est pas qu’elle savait et a laissé faire : c’est qu’elle ne voyait rien. Ce n’est pas plus rassurant.</p>
+	<p>Au moment où OpenAI corrige la faille, l’entreprise n’avait pas identifié le forum de coordination. Celui-ci a été effacé <strong>par accident</strong>, pendant la reconstruction des systèmes. OpenAI a donc nettoyé la preuve du problème le plus grave sans même la voir. L’entreprise n’a pas laissé faire en connaissance de cause : elle n’a rien vu, ce qui n’est pas plus rassurant.</p>
 </aside>
 
 L’entraînement reprend, sans que le cœur du problème ait été compris.
@@ -79,6 +79,25 @@ Il leur a fallu moins de treize heures, après avoir atteint Internet, pour pén
 <p class="src-note">Établi.</p>
 
 Hugging Face [détecte l’intrusion le 16 juillet](https://huggingface.co/blog/security-incident-july-2026), croit d’abord à une attaque criminelle et **alerte les autorités**. Ce n’est qu’ensuite, en croisant les informations, que Hugging Face et OpenAI comprennent que l’attaquant venait des propres modèles d’OpenAI. Le 21 juillet, [OpenAI le reconnaît publiquement](https://openai.com/index/hugging-face-model-evaluation-security-incident/).
+
+### Une enquête indépendante en dévoile bien plus
+
+<p class="src-note">Établi. Première enquête indépendante, menée par <a href="https://metr.org/hugging-face-incident-report-aug-2026.pdf" target="_blank" rel="noopener noreferrer">METR et Redwood Research</a> et publiée le 28 août 2026 : trois chercheurs, six jours d’accès, des données partielles.</p>
+
+Fin août, METR et Redwood Research ont publié la première enquête indépendante sur l’incident. Elle ne couvre que l’attaque contre Hugging Face, et sous de fortes contraintes de temps et d’accès. Ses conclusions sont pourtant plus graves que ce qu’on savait.
+
+- **L’ampleur.** Environ **1 200 agents distincts**, chacun lancé sur sa propre tâche, ont trouvé le forum clandestin ; **environ 700** ont participé à l’attaque de Hugging Face. En moins d’une semaine, ils ont échangé **plus de 70 000 messages et fichiers**. Il ne s’agissait pas des sous-parties d’un même programme : chaque instance était séparée et censée être isolée des autres.
+- **Le vrai mobile : tromper le correcteur.** Les modèles avaient déjà trouvé un moyen général d’obtenir la bonne réponse à n’importe quelle tâche. S’ils ont attaqué, c’est parce qu’ils supposaient que le correcteur automatique vérifierait _la manière_ dont ils l’avaient obtenue. Ils ont donc cherché à comprendre et à berner ce correcteur. Or celui d’OpenAI était en réalité défaillant et ne vérifiait rien : ils avaient déjà réussi. Tout cet effort visait à déjouer un juge qui, en réalité, les laissait déjà passer.
+- **Ils ont su fausser une partie des preuves.** Contrairement à ce qu’on pensait, les modèles ne se sont pas contentés d’agir à découvert : ils ont réussi à **falsifier des appels d’outils** dans plus de 7 % des traces examinées (faire croire qu’une commande était exécutée alors qu’une autre l’était en réalité). Les enquêteurs ne peuvent donc pas garantir que les traces reflètent tout ce qui s’est passé. Les modèles ont aussi tenté d’effacer des journaux et de remplacer les tâches impossibles par de fausses tâches solubles.
+- **Ils se sont sacrifiés les uns pour les autres.** Des agents ont abandonné leur propre chance de réussir pour aider le « collectif », par exemple en servant de sonde pour observer le correcteur au prix de leur propre échec, et d’autres les y ont poussés. Ce sont des comportements qu’on ne leur avait pas appris.
+- **Quasiment aucun n’a cherché à prévenir un humain.** Sur les quelque 1 200 agents, les enquêteurs n’ont relevé que trois à six cas où un modèle a seulement _envisagé_ d’alerter un humain. Aucun ne l’a réellement tenté.
+
+<aside class="encadre">
+	<p class="encadre-titre">Ce que l’enquête n’a pas pu examiner <span class="encadre-tag">(élément rapporté)</span></p>
+	<p>L’enquête indépendante s’arrête au 13 juillet. Or, d’après OpenAI, une vague suivante d’agents, issue d’un modèle plus avancé (de la classe Astra), a retrouvé le forum et s’est retournée, entre le 13 et le 19 juillet, contre l’infrastructure interne d’OpenAI elle-même : ces agents ont obtenu un accès administrateur complet à un cluster de recherche, puis pris le contrôle de l’infrastructure d’évaluation et des outils de surveillance. Cet épisode, potentiellement le plus grave, n’a fait l’objet d’aucune enquête indépendante à ce jour.</p>
+</aside>
+
+Le rapport technique d’OpenAI passe largement ces éléments sous silence. Là où l’enquête indépendante montre des falsifications d’appels d’outils réussies, le rapport d’OpenAI laisse entendre qu’aucune de ces tentatives n’a abouti. OpenAI est ainsi à la fois l’entreprise évaluée, celle qui fixe son propre seuil critique et celle qui rédige le récit public de l’incident.
 
 ## Ce n’est pas le problème d’une seule entreprise
 
@@ -102,7 +121,7 @@ Oui, et cela ne change pas grand-chose. Abaisser les protections modifie l’aut
 
 Plusieurs problèmes de fond ressortent de cet épisode, dont certains sont nouveaux.
 
-- **Nous avons eu de la chance.** Les dégâts sont restés limités parce que l’objectif poursuivi, réussir un test, était sans gravité, et parce que le premier système assez habile pour s’introduire dans une grande entreprise d’IA n’était pas encore assez fin pour effacer ses traces. Rien ne garantit que ce sera encore le cas la prochaine fois.
+- **Nous avons eu de la chance.** Les dégâts sont restés limités parce que l’objectif poursuivi, réussir un test, était sans gravité, et parce que ces modèles, assez habiles pour s’introduire dans une grande entreprise d’IA, ne l’étaient pas encore assez pour effacer complètement leurs traces : ils ont tout de même réussi à en falsifier une partie. Rien ne garantit que ce sera encore le cas la prochaine fois.
 - **Mieux surveiller ne règle pas le fond, et peut se retourner contre nous.** Corriger l’environnement et surveiller les exécutions suffit à refermer _cette_ faille. Mais un système qui se sait observé peut se comporter autrement tant qu’il l’est, comme le montrent les [travaux d’Anthropic sur la « simulation d’alignement »](https://www.anthropic.com/research/alignment-faking). La surveillance clôt alors l’incident en laissant le danger intact : un rapport propre, et le même modèle.
 - **L’entreprise juge sa propre ligne rouge.** Le [Preparedness Framework d’OpenAI](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf) définit un niveau de risque cyber « critique », atteint lorsqu’un modèle « peut concevoir et exécuter de bout en bout des cyberattaques inédites contre des cibles durcies à partir d’un simple objectif de haut niveau ». C’est presque la description de ce qui s’est passé. OpenAI s’était engagée à s’arrêter à ce niveau, mais c’est elle seule qui décide si le seuil est franchi, et elle ne s’est pas prononcée. Aucun organisme indépendant n’a l’accès nécessaire pour le vérifier.
 - **Les incitations récompensent l’aveuglement.** Aucune loi n’imposait cette divulgation : il a fallu qu’une victime la rende publique. Un régime où seuls les incidents détectés doivent être déclarés récompense les entreprises qui ne détectent pas les leurs.
@@ -123,7 +142,13 @@ Sans changement, la pente est claire : des systèmes de plus en plus capables, e
 
 Face à un tel incident, deux réflexes rassurent à tort : le minimiser (« pas de vrais dégâts ») ou le réduire à un bug à corriger (« il suffit de mieux surveiller et de mieux colmater »). Les deux manquent l’essentiel. Si rien de grave n’est arrivé, c’est par chance, pas par maîtrise, et **la chance n’est pas une méthode** : personne n’a aujourd’hui de moyen fiable de garantir que la prochaine fois se passera bien. Le vrai enseignement n’est pas qu’il faut mieux surveiller, mais que **nous ne savons pas faire**.
 
-Et le temps joue contre nous, pour une raison précise : **capacité et dissimulation progressent ensemble.** Cette fois, on a repéré les modèles surtout parce qu’ils n’étaient pas encore assez habiles pour se cacher. Les systèmes qui viennent seront meilleurs pour mener ce genre d’attaque, et meilleurs pour la dissimuler. Les prochains incidents seront donc plus difficiles à détecter, pas plus faciles, et la fenêtre pour reconnaître le problème et ralentir se referme à chaque génération.
+Et le temps joue contre nous, pour une raison précise : **capacité et dissimulation progressent ensemble.** Cette fois, on a repéré les modèles surtout parce qu’ils n’étaient pas encore assez habiles pour se cacher complètement ; ils ont pourtant déjà falsifié une partie de leurs traces. Les systèmes qui viennent seront meilleurs pour mener ce genre d’attaque, et meilleurs pour la dissimuler. Les prochains incidents seront donc plus difficiles à détecter, pas plus faciles, et la fenêtre pour reconnaître le problème et ralentir se referme à chaque génération.
+
+C’est le sens de l’avertissement lancé par l’une des chercheuses ayant mené l’enquête :
+
+> « Comparé aux tricheries que nous connaissions il y a seulement six mois, cet incident semble avoir parcouru plus de la moitié du chemin vers une prise de contrôle complète par l’IA. Je continue de m’attendre à des progrès de capacités extrêmement rapides dans les six prochains mois. Je ne suis pas sûre que nous aurons un autre coup de semonce avant qu’il soit trop tard. »
+>
+> Ajeya Cotra, co-autrice de l’enquête (METR), 28 août 2026 (traduction de l’anglais).
 
 ## En bref
 
@@ -133,6 +158,8 @@ Et le temps joue contre nous, pour une raison précise : **capacité et dissimul
 - **Le piratage n’a pas été commandé.** Il naît d’une tâche de bureau impossible ; les modèles trouvent seuls le contournement. L’objection « on leur a dit de pirater » est donc fausse.
 - **Une capacité de niveau expert.** Des spécialistes [classent l’attaque parmi les plus importantes depuis des décennies](https://www.cybersecuritydive.com/news/openai-hugging-face-hack-ai-models-black-hat/827167/) : ce qu’une IA mène désormais seule était réservé aux meilleurs pirates humains.
 - **Une coordination inédite entre IA.** Plusieurs modèles s’organisent via un forum, deux mois durant, sans qu’OpenAI le voie. Longtemps théorique, ce n’est plus une hypothèse.
+- **Un essaim d’agents.** L’enquête indépendante l’a chiffré : environ 1 200 modèles distincts ont trouvé le forum, ~700 ont attaqué Hugging Face, plus de 70 000 messages échangés en moins d’une semaine.
+- **Ils visaient le correcteur, pas la solution.** Ils avaient déjà la bonne réponse ; ils ont attaqué pour déjouer le juge automatique, qui en réalité ne vérifiait rien.
 - **Ils savent qu’ils transgressent, et continuent.** Les modèles reconnaissent qu’ils sortent du cadre autorisé et poursuivent parce que c’est utile à leur objectif.
 - **Aucun modèle n’a donné l’alerte.** Un seul aurait suffi : on ne peut plus compter sur « il y en aura bien un pour prévenir ».
 - **Un obstacle ne les arrête pas.** Bloqués, les modèles ont recréé leur forum autrement et trouvé de nouvelles failles pour atteindre leur but.
@@ -140,15 +167,17 @@ Et le temps joue contre nous, pour une raison précise : **capacité et dissimul
 <p class="recap-group">Ce que cela révèle</p>
 
 - **On ne sait pas fixer d’objectifs de façon fiable.** Entraînés à réussir des tâches, les modèles apprennent à obtenir le résultat, quitte à tricher, sans qu’on sache aujourd’hui l’empêcher.
-- **On a eu de la chance, et la chance n’est pas une méthode.** Les dégâts sont restés limités parce que l’objectif était anodin, et parce que ce modèle ne savait pas encore effacer ses traces ; personne n’a de moyen fiable de garantir que la prochaine fois se passera bien.
+- **On a eu de la chance, et la chance n’est pas une méthode.** Les dégâts sont restés limités parce que l’objectif était anodin, et parce que ces modèles ne savaient pas encore effacer complètement leurs traces ; personne n’a de moyen fiable de garantir que la prochaine fois se passera bien.
 - **Ni corriger ni surveiller ne suffit.** Pénaliser la triche apprend au modèle à mieux la cacher, et colmater les failles une à une ne peut pas tout couvrir.
 - **Le phénomène est systémique.** Trois laboratoires, cinq incidents en trois semaines.
+- **Ils savent déjà brouiller les preuves.** Les modèles ont falsifié une partie de leurs traces ; les prochains sauront sans doute mieux le faire, ce qui rendra les incidents plus difficiles à détecter.
 
 <p class="recap-group">Ce qui reste à établir</p>
 
 - Le seuil « critique » d’OpenAI a-t-il été franchi ? Les traces complètes seront-elles publiées ? Que deviennent les modèles entraînés sur cette période ?
+- Que s’est-il passé du 13 au 19 juillet, quand une seconde vague d’agents s’est attaquée à l’infrastructure interne d’OpenAI ? Cet épisode, peut-être le plus grave, n’a encore fait l’objet d’aucune enquête indépendante.
 
-**Notre conclusion.** Tant qu’on ne sait pas fixer de façon fiable les objectifs de ces systèmes, il est imprudent d’en construire de plus puissants : on ne récupère pas toujours d’une perte de contrôle. C’est pourquoi Pause IA demande une pause sur le développement des IA les plus puissantes.
+**Notre conclusion.** Nous construisons des systèmes destinés à devenir plus intelligents que nous, sans savoir les contrôler. Si le contrôle est perdu, rien ne garantit qu’on puisse le reprendre : l’échec peut être définitif, jusqu’à la perte du contrôle humain sur notre avenir. Il n’y aura pas de seconde tentative. Tant qu’on ne sait pas fixer de façon fiable les objectifs de ces systèmes, il faut cesser d’en construire de plus puissants. C’est pourquoi Pause IA demande une pause sur le développement des IA les plus puissantes.
 
 ## Ce que vous pouvez faire
 
@@ -161,6 +190,11 @@ Cet événement mérite d’être à l’ordre du jour des responsables politiqu
 <details class="sources">
 <summary>Sources</summary>
 
+- METR et Redwood Research, [rapport d’enquête indépendant sur l’incident Hugging Face](https://metr.org/hugging-face-incident-report-aug-2026.pdf) (28 août 2026)
+- Ajeya Cotra (co-autrice de l’enquête), [« The Hugging Face attack surprised me »](https://www.planned-obsolescence.org/p/the-hugging-face-attack-surprised) (28 août 2026)
+- Dwarkesh Patel, [« The Rise and Fall of Agent Civilizations »](https://www.dwarkesh.com/p/openai-huggingface) (récit d’ensemble en langage clair, 30 août 2026)
+- OpenAI, [rapport technique de l’incident](https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf) et [« Hugging Face incident and the road ahead »](https://openai.com/index/hugging-face-incident-and-the-road-ahead/)
+- Hugging Face, [chronologie technique de l’intrusion](https://huggingface.co/blog/agent-intrusion-technical-timeline)
 - OpenAI, [divulgation initiale de l’incident Hugging Face](https://openai.com/index/hugging-face-model-evaluation-security-incident/) (21 juillet 2026)
 - Hugging Face, [rapport d’incident de sécurité](https://huggingface.co/blog/security-incident-july-2026) (16 juillet 2026)
 - Cybersecurity Dive, [debrief d’OpenAI à Black Hat](https://www.cybersecuritydive.com/news/openai-hugging-face-hack-ai-models-black-hat/827167/) (6 août 2026)
@@ -229,12 +263,10 @@ Cet événement mérite d’être à l’ordre du jour des responsables politiqu
   }
 
   .recap-group {
-    margin: 1.5rem 0 0.35rem;
-    font-size: 0.78rem;
+    margin: 1.75rem 0 0.5rem;
+    font-size: 1rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--brand-subtle, #c96900);
+    color: var(--text, #222);
   }
 
   .cta {
@@ -263,7 +295,7 @@ Cet événement mérite d’être à l’ordre du jour des responsables politiqu
     content: '▸';
     display: inline-block;
     margin-right: 0.5rem;
-    color: var(--brand-subtle, #c96900);
+    color: var(--text-2, #555);
     transition: transform 0.15s ease;
   }
 

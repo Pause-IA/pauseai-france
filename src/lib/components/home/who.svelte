@@ -14,6 +14,113 @@
 
 	const label_id = 'who-title'
 
+	// Charte des valeurs : numérotées par ordre de priorité.
+	const values = [
+		{
+			n: 1,
+			name: 'Non-violence',
+			text: "Nous n'utiliserons, n'encouragerons ni ne tolérerons jamais la violence, y compris les dommages matériels, les menaces ou les plaisanteries sur la violence. Notre mouvement est strictement pacifique et légal. Une seule infraction, où qu'elle ait lieu, nuit à l'ensemble du groupe, partout."
+		},
+		{
+			n: 2,
+			name: 'Bénéfique ou pas du tout',
+			text: "L'IA doit être développée de manière à bénéficier à l'humanité, ou ne pas être développée du tout. C'est notre raison d'être."
+		},
+		{
+			n: 3,
+			name: 'Rigueur intellectuelle',
+			text: "Nous représentons l'état des connaissances aussi fidèlement que possible. Nous reconnaissons l'incertitude et n'exagérons pas nos affirmations pour gagner un débat. Nous sommes ouverts à la critique et à la possibilité de nous tromper sur la meilleure façon d'atteindre nos objectifs. Notre crédibilité en dépend."
+		},
+		{
+			n: 4,
+			name: 'Honnêteté',
+			text: "Nous n'avons aucun intérêt caché ni conflit d'intérêts, nous sommes donc libres de dire ce que nous croyons. Nous n'édulcorons pas notre message pour le rendre plus acceptable."
+		},
+		{
+			n: 5,
+			name: "Diversité des risques, unité dans l'action",
+			text: "Que vous soyez préoccupé(e) par le risque existentiel, la cybersécurité, la perte d'emplois ou les menaces pour la démocratie, nous sommes unis dans notre volonté de mettre en pause le développement de l'IA de pointe (frontier AI). Nous mettons nos différences de côté pour faire avancer notre objectif commun."
+		},
+		{
+			n: 6,
+			name: 'Pas de politique partisane',
+			text: "La sécurité de l'IA n'est pas encore un sujet clivant entre la gauche et la droite, et nous entendons préserver cela. Nous ne laissons pas d'autres opinions politiques nous détourner de notre mission."
+		},
+		{
+			n: 7,
+			name: 'Transparence par défaut',
+			text: "Nous agissons et discutons publiquement et ouvertement, sauf s'il existe une bonne raison de ne pas le faire. Notre site web est en open source, nos espaces communautaires sont ouverts à tous et nos raisonnements sont publiés. Être accessibles réduit les freins à l'engagement."
+		},
+		{
+			n: 8,
+			name: "Priorité à l'action",
+			text: "Nous n'attendons pas la perfection pour agir. Nous encourageons l'initiative et concrétisons les projets, même sans financements importants. Le mieux est l'ennemi du bien."
+		},
+		{
+			n: 9,
+			name: 'Communauté et inclusivité',
+			text: 'Un mouvement repose sur les relations humaines. Nous sommes portés par des bénévoles et chacun peut contribuer. Nous créons des espaces accueillants pour se rencontrer, créer des liens et se sentir chez soi. Toute personne, quel que soit son parcours, a sa place ici.'
+		},
+		{
+			n: 10,
+			name: "L'utilisation de l'IA est acceptable",
+			text: "Même si nous souhaitons stopper le développement de l'IA de pointe, nous sommes tout à fait à l'aise avec l'utilisation des IA existantes pour nous aider à atteindre nos objectifs. Nous ne cédons pas à la surenchère de pureté."
+		}
+	]
+
+	const valuesEn = [
+		{
+			n: 1,
+			name: 'Non-violence',
+			text: 'We will never use, encourage or tolerate violence, including property damage, threats or jokes about violence. Our movement is strictly peaceful and lawful. A single breach, wherever it happens, harms the whole group, everywhere.'
+		},
+		{
+			n: 2,
+			name: 'Beneficial or not at all',
+			text: 'AI must be developed in a way that benefits humanity, or not developed at all. This is our reason for being.'
+		},
+		{
+			n: 3,
+			name: 'Intellectual rigour',
+			text: 'We represent the state of knowledge as faithfully as possible. We acknowledge uncertainty and do not overstate our claims to win a debate. We are open to criticism and to the possibility that we are wrong about the best way to achieve our goals. Our credibility depends on it.'
+		},
+		{
+			n: 4,
+			name: 'Honesty',
+			text: 'We have no hidden agenda and no conflicts of interest, so we are free to say what we believe. We do not water down our message to make it more palatable.'
+		},
+		{
+			n: 5,
+			name: 'Diversity of risks, unity in action',
+			text: 'Whether you are concerned about existential risk, cybersecurity, job losses or threats to democracy, we are united in our determination to pause the development of frontier AI. We set our differences aside to advance our common goal.'
+		},
+		{
+			n: 6,
+			name: 'No partisan politics',
+			text: 'AI safety is not yet a left-versus-right dividing line, and we intend to keep it that way. We do not let other political opinions distract us from our mission.'
+		},
+		{
+			n: 7,
+			name: 'Transparency by default',
+			text: 'We act and discuss publicly and openly, unless there is a good reason not to. Our website is open source, our community spaces are open to all, and our reasoning is published. Being accessible lowers the barriers to getting involved.'
+		},
+		{
+			n: 8,
+			name: 'Bias for action',
+			text: 'We do not wait for perfection before acting. We encourage initiative and get projects done, even without significant funding. The perfect is the enemy of the good.'
+		},
+		{
+			n: 9,
+			name: 'Community and inclusiveness',
+			text: 'A movement rests on human relationships. We are driven by volunteers and everyone can contribute. We create welcoming spaces to meet, build connections and feel at home. Everyone, whatever their background, has a place here.'
+		},
+		{
+			n: 10,
+			name: 'Using AI is acceptable',
+			text: 'Even though we want to stop the development of frontier AI, we are entirely comfortable using existing AI to help us achieve our goals. We do not give in to purity spirals.'
+		}
+	]
+
 	// Fallback data when Notion is not configured
 	const fallbackLeadership = [
 		{
@@ -225,6 +332,31 @@
 	</p>
 
 	{#if lang !== 'en'}
+		<div class="team-section" id="nos-valeurs">
+			<h2 class="section-title">Nos valeurs</h2>
+			<p class="values-note">
+				Nos valeurs sont numérotées par ordre de priorité. Lorsque deux valeurs s'opposent, la plus
+				haut placée l'emporte. Nous attendons de chaque personne au sein du mouvement qu'elle les
+				respecte en tout temps et qu'elle soit capable de les invoquer par leur numéro pour résoudre
+				un désaccord.
+			</p>
+
+			<div class="accordion-stack">
+				{#each values as v}
+					<Accordion id={`valeur-${v.n}`} noHash>
+						<svelte:fragment slot="head">{v.n}. {v.name}</svelte:fragment>
+						<svelte:fragment slot="details">
+							<p class="value-text">{v.text}</p>
+						</svelte:fragment>
+					</Accordion>
+				{/each}
+			</div>
+
+			<p class="section-description charte-link">
+				Ces valeurs constituent notre <a href="/charte-des-valeurs">charte des valeurs</a>.
+			</p>
+		</div>
+
 		<div class="team-section">
 			<h2 class="section-title">Notre positionnement</h2>
 			<p class="section-description">
@@ -312,12 +444,38 @@
 					</svelte:fragment>
 				</Accordion>
 			</div>
+		</div>
 
-			<p class="independence">
-				Association à but non lucratif créée en juin 2024, nous sommes <strong
-					>totalement indépendants de l'industrie de l'IA et de la tech</strong
-				>&nbsp;: nous fonctionnons grâce aux <a href="/dons">dons</a> de nos soutiens, qui financent
-				nos campagnes, nos événements et le fonctionnement de l'association.
+		<p class="independence">
+			Association à but non lucratif créée en juin 2024, nous sommes <strong
+				>totalement indépendants de l'industrie de l'IA et de la tech</strong
+			>&nbsp;: nous fonctionnons grâce aux <a href="/dons">dons</a> de nos soutiens, qui financent nos
+			campagnes, nos événements et le fonctionnement de l'association.
+		</p>
+	{/if}
+
+	{#if lang === 'en'}
+		<div class="team-section" id="our-values">
+			<h2 class="section-title">Our values</h2>
+			<p class="values-note">
+				Our values are numbered in order of priority. When two values conflict, the one ranked
+				higher prevails. We expect everyone within the movement to uphold them at all times and to
+				be able to invoke them by their number to resolve a disagreement.
+			</p>
+
+			<div class="accordion-stack">
+				{#each valuesEn as v}
+					<Accordion id={`value-${v.n}`} noHash>
+						<svelte:fragment slot="head">{v.n}. {v.name}</svelte:fragment>
+						<svelte:fragment slot="details">
+							<p class="value-text">{v.text}</p>
+						</svelte:fragment>
+					</Accordion>
+				{/each}
+			</div>
+
+			<p class="section-description charte-link">
+				These values make up our <a href="/en/charte-des-valeurs">values charter</a>.
 			</p>
 		</div>
 	{/if}
@@ -402,6 +560,26 @@
 		box-shadow: none;
 		margin: 0 0 0.5rem;
 		padding: 0 0 1rem;
+	}
+
+	.values-note {
+		margin: 0.5rem 0 1.5rem;
+		padding: 0.75rem 0 0.75rem 1rem;
+		border-left: 3px solid var(--border, #e5e7eb);
+		color: var(--text-secondary, #4b5563);
+		font-size: 0.95rem;
+		line-height: 1.6;
+		text-align: left;
+	}
+
+	.value-text {
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	.charte-link {
+		margin-top: 1.5rem;
+		margin-bottom: 0;
 	}
 
 	.independence {

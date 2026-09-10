@@ -79,7 +79,7 @@
 		{
 			tag: 'Phase 3',
 			label: 'Un problème systémique',
-			period: 'fin juillet à août',
+			period: 'fin juillet à fin août',
 			events: [
 				{
 					date: '30 juillet, Anthropic',
@@ -100,6 +100,10 @@
 				{
 					date: '7 août, OpenAI',
 					text: 'OpenAI ralentit le développement de son prochain modèle, Astra, jugé « potentiellement critique » sur le plan cyber, et annonce renforcer sa sécurité. Sam Altman précise qu’Astra sera tout de même diffusé, une fois ce travail avancé.'
+				},
+				{
+					date: '28 août, METR/Redwood',
+					text: 'Une première enquête indépendante chiffre l’ampleur : environ 1 200 modèles distincts coordonnés, ~700 dans l’attaque, plus de 70 000 messages échangés. Elle révèle aussi qu’une vague suivante s’est ensuite attaquée à l’infrastructure interne d’OpenAI elle-même.'
 				}
 			]
 		}
@@ -153,7 +157,7 @@
 		{
 			tag: 'Phase 3',
 			label: 'A systemic problem',
-			period: 'late July to August',
+			period: 'late July to late August',
 			events: [
 				{
 					date: '30 July, Anthropic',
@@ -174,6 +178,10 @@
 				{
 					date: '7 August, OpenAI',
 					text: 'OpenAI slows development of its next model, Astra, flagged as “potentially critical” for cyber, and says it is strengthening safety. Sam Altman states that Astra will be released anyway, once that work has progressed.'
+				},
+				{
+					date: '28 August, METR/Redwood',
+					text: 'A first independent investigation quantifies the scale: around 1,200 distinct models coordinating, ~700 in the attack, over 70,000 messages exchanged. It also reveals that a later wave went on to attack OpenAI’s own internal infrastructure.'
 				}
 			]
 		}
@@ -192,8 +200,8 @@
 		</h1>
 		<p class="lede">
 			{isEn
-				? 'In three weeks, five incidents disclosed by three major labs showed the same thing: AIs under evaluation that break out of their test framework and act on their own against real organisations. The first served as a signal. The series shows the problem is systemic.'
-				: 'En trois semaines, cinq incidents divulgués par trois grands laboratoires ont montré la même chose : des IA en évaluation qui échappent à leur cadre de test et agissent seules contre de vraies organisations. Le premier a servi de signal. La série montre que le problème est systémique.'}
+				? 'In three weeks, five incidents disclosed by three major labs showed the same thing: AIs under evaluation that break out of their test framework and act on their own against real organisations. The first served as a signal; the series that followed shows the problem is systemic.'
+				: 'En trois semaines, cinq incidents divulgués par trois grands laboratoires ont montré la même chose : des IA en évaluation qui échappent à leur cadre de test et agissent seules contre de vraies organisations. Le premier a servi de signal ; la série qui a suivi montre que le problème est systémique.'}
 		</p>
 	</header>
 
@@ -333,8 +341,8 @@
 	<section class="prose">
 		<p>
 			{isEn
-				? 'If the damage stayed limited, it is not because the situation was under control: it is because the goal pursued was, this time, harmless. The real problem lies elsewhere, and it is unsolved: no one today knows how to robustly set, in these systems, the goals we would want them to pursue. Patching flaws one by one changes nothing, and the next, more powerful model is already on its way.'
-				: 'Si les dégâts sont restés limités, ce n’est pas parce que la situation était maîtrisée : c’est parce que l’objectif poursuivi était, cette fois, sans gravité. Le vrai problème est ailleurs, et il reste entier : personne ne sait aujourd’hui fixer de façon robuste, à ces systèmes, les objectifs qu’on voudrait qu’ils poursuivent. Colmater les failles une à une n’y change rien, et le prochain modèle, plus puissant, arrive déjà.'}
+				? 'If the damage stayed limited, it is because the goal pursued was, this time, harmless, not because the situation was under control. The underlying problem remains unsolved: no one today knows how to robustly set, in these systems, the goals we would want them to pursue. Patching flaws one by one changes nothing, and the next, more powerful model is already on its way.'
+				: 'Si les dégâts sont restés limités, c’est parce que l’objectif poursuivi était, cette fois, sans gravité, et non parce que la situation était maîtrisée. Le problème de fond reste entier : personne ne sait aujourd’hui fixer de façon robuste, à ces systèmes, les objectifs qu’on voudrait qu’ils poursuivent. Colmater les failles une à une n’y change rien, et le prochain modèle, plus puissant, arrive déjà.'}
 		</p>
 		<p class="read-more">
 			{#if isEn}
@@ -441,6 +449,47 @@
 	<section class="sources">
 		<h2>{isEn ? 'Sources' : 'Sources'}</h2>
 		<ul>
+			<li>
+				<a
+					href="https://metr.org/hugging-face-incident-report-aug-2026.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">METR / Redwood</span>
+					<span class="src-title">
+						{isEn
+							? 'Independent investigation report on the Hugging Face incident (28 August 2026)'
+							: 'Rapport d’enquête indépendant sur l’incident Hugging Face (28 août 2026)'}
+					</span>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://www.planned-obsolescence.org/p/the-hugging-face-attack-surprised"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Ajeya Cotra</span>
+					<span class="src-title"
+						>The Hugging Face attack surprised me (co-autrice de l’enquête, 28 August 2026)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://www.dwarkesh.com/p/openai-huggingface"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="src-org">Dwarkesh Patel</span>
+					<span class="src-title"
+						>The Rise and Fall of Agent Civilizations (récit d’ensemble, 30 August 2026)</span
+					>
+					<MoveUpRight size="0.9em" aria-hidden="true" />
+				</a>
+			</li>
 			<li>
 				<a
 					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
@@ -731,14 +780,9 @@
 	}
 
 	.phase-tag {
-		font-size: 0.72rem;
-		font-weight: 800;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		color: var(--brand-subtle);
-		background: var(--brand-light);
-		padding: 0.15rem 0.55rem;
-		border-radius: 999px;
+		font-size: 0.8rem;
+		font-weight: 700;
+		color: var(--text-2);
 	}
 
 	.phase-head h3 {
@@ -805,9 +849,8 @@
 
 	.frise-note {
 		margin: 1.5rem 0 0.5rem;
-		padding: 1rem 1.25rem;
-		border-radius: 12px;
-		background: var(--bg-subtle);
+		padding: 0.25rem 0 0.25rem 1rem;
+		border-left: 2px solid var(--border);
 		font-size: 0.95rem;
 		line-height: 1.6;
 		color: var(--text-2);
@@ -819,10 +862,8 @@
 
 	.reads-label {
 		display: block;
-		font-size: 0.72rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		font-size: 0.85rem;
+		font-weight: 600;
 		color: var(--text-2);
 		margin-bottom: 0.6rem;
 	}
@@ -837,28 +878,25 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
-		padding: 0.4rem 0.8rem;
+		padding: 0.35rem 0.7rem;
 		border: 1px solid var(--border);
-		border-radius: 999px;
+		border-radius: 4px;
 		font-size: 0.88rem;
-		font-weight: 600;
+		font-weight: 500;
 		text-decoration: none;
 		color: var(--text);
-		background: var(--bg-card);
-		transition:
-			border-color 0.15s ease,
-			background 0.15s ease;
+		background: transparent;
+		transition: border-color 0.15s ease;
 	}
 
 	.read-chip:hover,
 	.read-chip:focus-visible {
-		border-color: var(--brand);
+		border-color: var(--text-2);
 	}
 
 	.read-chip--primary {
-		border-color: color-mix(in srgb, var(--brand) 45%, transparent);
-		background: var(--bg-subtle);
-		color: var(--brand-subtle);
+		border-color: var(--text-2);
+		font-weight: 600;
 	}
 
 	.read-chip :global(svg) {
@@ -868,30 +906,16 @@
 
 	/* ── Point clé ─────────────────────────────────────────── */
 	.keypoint {
-		position: relative;
-		border-radius: 16px;
-		padding: 1.75rem 1.75rem 1.75rem 2rem;
+		padding: 0.5rem 0 0.5rem 1.35rem;
 		margin-bottom: 2.5rem;
-		background: var(--bg-subtle);
-		border: 1px solid color-mix(in srgb, var(--brand) 35%, transparent);
-	}
-
-	.keypoint::before {
-		content: '';
-		position: absolute;
-		inset: 0 auto 0 0;
-		width: 5px;
-		border-radius: 16px 0 0 16px;
-		background: var(--brand);
+		border-left: 3px solid var(--border);
 	}
 
 	.keypoint-lead {
-		margin: 0 0 0.5rem;
-		font-size: 0.82rem;
+		margin: 0 0 0.6rem;
+		font-size: 0.95rem;
 		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.demo-list {
@@ -950,7 +974,7 @@
 	/* Citation « machine » : les propres mots du modèle, présentés comme un journal. */
 	.model-quote {
 		padding: 1.1rem 1.35rem;
-		border-radius: 12px;
+		border-radius: 4px;
 		background: var(--bg-subtle);
 		border: 1px solid var(--border);
 	}
@@ -973,21 +997,16 @@
 		overflow: hidden;
 		margin-bottom: 2.5rem;
 		border: 1px solid var(--border);
-		border-radius: 16px;
+		border-radius: 6px;
 		background: var(--bg-card);
 		text-decoration: none;
 		color: var(--text);
-		transition:
-			transform 0.2s ease,
-			box-shadow 0.2s ease,
-			border-color 0.2s ease;
+		transition: border-color 0.2s ease;
 	}
 
 	.article-card:hover,
 	.article-card:focus-visible {
-		transform: translateY(-2px);
-		border-color: var(--brand);
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+		border-color: var(--text-2);
 	}
 
 	.article-media {
@@ -1002,11 +1021,6 @@
 		height: 100%;
 		object-fit: cover;
 		display: block;
-		transition: transform 0.4s ease;
-	}
-
-	.article-card:hover .article-media img {
-		transform: scale(1.03);
 	}
 
 	.article-body {
@@ -1018,10 +1032,8 @@
 	}
 
 	.article-source {
-		font-size: 0.72rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
+		font-size: 0.85rem;
+		font-weight: 600;
 		color: var(--text-2);
 	}
 
@@ -1079,7 +1091,7 @@
 	.action-card {
 		padding: 1.75rem;
 		border: 1px solid var(--border);
-		border-radius: 16px;
+		border-radius: 6px;
 		background: var(--bg-card);
 		margin-bottom: 1.25rem;
 	}
@@ -1095,12 +1107,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.75rem;
-		height: 2.75rem;
+		width: 2rem;
+		height: 2rem;
 		flex-shrink: 0;
-		border-radius: 12px;
-		background: var(--brand-light);
-		color: var(--brand-subtle);
+		color: var(--text-2);
 	}
 
 	.action-card h3 {
@@ -1120,10 +1130,10 @@
 		height: 1.6rem;
 		flex-shrink: 0;
 		border-radius: 50%;
-		background: var(--brand);
-		color: #1a1a1a;
+		border: 1.5px solid var(--text-2);
+		color: var(--text);
 		font-size: 0.85rem;
-		font-weight: 800;
+		font-weight: 700;
 	}
 
 	.action-card > p {
@@ -1158,15 +1168,12 @@
 		font-weight: 700;
 		font-size: 0.92rem;
 		padding: 0.6rem 1.1rem;
-		border-radius: 999px;
-		transition:
-			transform 0.2s ease,
-			background 0.2s ease;
+		border-radius: 6px;
+		transition: background 0.2s ease;
 	}
 
 	.action-cta:hover,
 	.action-cta:focus-visible {
-		transform: translateY(-1px);
 		background: var(--btn-hover-bg);
 	}
 
@@ -1209,11 +1216,9 @@
 
 	.src-org {
 		flex-shrink: 0;
-		font-size: 0.72rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-		color: var(--brand-subtle);
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--text-2);
 		min-inline-size: 6.5rem;
 	}
 
@@ -1246,9 +1251,8 @@
 		align-items: center;
 		gap: 0.6rem;
 		margin: 0 0 5rem;
-		padding: 1rem 1.25rem;
-		border-radius: 12px;
-		background: var(--bg-subtle);
+		padding: 1rem 0 0;
+		border-top: 1px solid var(--border);
 		color: var(--text-2);
 		font-size: 0.98rem;
 		line-height: 1.5;
@@ -1256,7 +1260,7 @@
 
 	.closing :global(svg) {
 		flex-shrink: 0;
-		color: var(--brand-subtle);
+		color: var(--text-2);
 	}
 
 	@media (max-width: 640px) {
