@@ -326,10 +326,18 @@ const EXEMPLE_GOUVERNEMENT: EluAction = {
 // qui ne rebondit pas), (2) adresse de RÉDACTION institutionnelle (jamais un
 // journaliste individuel : ces contacts servent aux relations presse de
 // l'équipe, pas à un outil citoyen de masse). Les titres dont l'email générique
-// rebondit (Libération, La Croix, Ouest-France, France Inter…) passent par leur
-// formulaire de contact officiel (email null → l'outil propose « copier le
-// texte » + ouverture du formulaire). On se limite aux grands généralistes à
-// large audience ; la presse tech/pro, qui couvre déjà l'IA, est écartée.
+// rebondit (Ouest-France, France Inter…) passent par leur formulaire de contact
+// officiel (email null → l'outil propose « copier le texte » + ouverture du
+// formulaire). On se limite aux grands généralistes à large audience ; la
+// presse tech/pro, qui couvre déjà l'IA, est écartée.
+//
+// Sept. 2026 : retour lecteur → liens morts (Libération, La Croix) et email
+// qui rebondit (Le Point). Corrigé : Libération et La Croix basculent sur un
+// email de rédaction/lecteurs, Le Point bascule sur le formulaire officiel
+// (https://www.lepoint.fr/html/contact/). Ces trois contacts n'ont pas pu être
+// re-vérifiés en direct depuis cet environnement (accès aux sites de presse
+// bloqué par la politique réseau) : à confirmer par un envoi de test avant la
+// prochaine campagne « médias ».
 //
 // Remarque efficacité : tout le monde écrit aux MÊMES adresses. Des messages
 // quasi identiques sont vite repérés et perdent tout poids. On invite donc à
@@ -384,8 +392,7 @@ const MEDIAS: EluAction = {
 			nom: 'Libération',
 			domain: 'liberation.fr',
 			role: 'autre',
-			email: null,
-			contactUrl: 'https://www.liberation.fr/contact/',
+			email: 'redaction@liberation.fr',
 			fonction: QUOTIDIEN
 		},
 		{
@@ -409,8 +416,7 @@ const MEDIAS: EluAction = {
 			nom: 'La Croix',
 			domain: 'la-croix.com',
 			role: 'autre',
-			email: null,
-			contactUrl: 'https://www.la-croix.com/contactez-nous',
+			email: 'lecteurs.lacroix@bayard-presse.com',
 			fonction: QUOTIDIEN
 		},
 		{
@@ -418,7 +424,8 @@ const MEDIAS: EluAction = {
 			nom: 'Le Point',
 			domain: 'lepoint.fr',
 			role: 'autre',
-			email: 'redaction@lepoint.fr',
+			email: null,
+			contactUrl: 'https://www.lepoint.fr/html/contact/',
 			fonction: HEBDO
 		},
 		{
