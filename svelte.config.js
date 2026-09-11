@@ -64,7 +64,9 @@ const config = {
 							'/fr/emploi-ia/questionnaire',
 							'/en/emploi-ia/questionnaire',
 							'/fr/emploi-ia/merci',
-							'/en/emploi-ia/merci'
+							'/en/emploi-ia/merci',
+							'/fr/campagne-modele',
+							'/en/campagne-modele'
 						]
 		},
 		alias: {
