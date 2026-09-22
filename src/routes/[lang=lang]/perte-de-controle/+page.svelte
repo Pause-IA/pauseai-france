@@ -271,13 +271,13 @@
 				<div class="fresque-text">
 					<p>
 						{isEn
-							? 'A collaborative workshop built around a deck of cards. Participants discuss, lay out the cards and connect them to one another. Everyone leaves with an overview of AI, its risks and the solutions.'
-							: 'Un atelier collaboratif construit autour d’un jeu de cartes. Les participants discutent, disposent les cartes et les relient entre elles. Chacun repart avec une vue d’ensemble de l’IA, de ses risques et des solutions.'}
+							? 'A collaborative workshop built around a deck of cards. Participants discuss the cards and connect them to one another. Everyone leaves with an overview of AI, its risks and the solutions.'
+							: 'Un atelier collaboratif construit autour d’un jeu de cartes. Les participants en discutent et les relient entre elles. Chacun repart avec une vue d’ensemble de l’IA, de ses risques et des solutions.'}
 					</p>
 					<p>
 						{isEn
-							? 'The project was carried by our volunteers all summer; it is free and open-licensed. All the information is on the cards, so anyone can run it in turn. The website lets you schedule a workshop or sign up for one. We even built a tool to run it online.'
-							: 'Le projet a été porté par nos bénévoles tout l’été, il est gratuit et en licence libre. Toutes les informations sont sur les cartes, donc n’importe qui peut l’animer à son tour. Le site permet de programmer un atelier ou de s’y inscrire. Nous sommes même allés jusqu’à développer un outil pour l’animer en ligne.'}
+							? 'Carried by our volunteers all summer, free and open-licensed. The website lets you schedule a workshop, sign up for one, and even run it remotely.'
+							: 'Porté par nos bénévoles tout l’été, gratuit et en licence libre. Le site permet de programmer un atelier, de s’y inscrire, et même de l’animer à distance.'}
 					</p>
 					<Button
 						href="https://fresquedesrisquesdelia.org/"
