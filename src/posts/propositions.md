@@ -5,6 +5,7 @@ description: Nous demandons une pause mondiale de l'entraînement des modèles d
 
 <script lang="ts">
   import Accordion from '$components/Accordion.svelte'
+  import Callout from '$components/Callout.svelte'
 </script>
 
 ## **Nous demandons une pause mondiale de l'entraînement des modèles d'IA de pointe**
@@ -110,6 +111,14 @@ Le mouvement Pause AI a proposé une approche matérielle de la pause lors de l'
 
 </div>
 </Accordion>
+
+<Callout title="Vous êtes d'accord ? Passez à l'action">
+
+Le plus efficace : **[écrire à vos élus et à la presse](/fr/ecrire-a-mes-elus)**. Cela prend deux minutes, et un message personnel pèse bien plus qu'une signature.
+
+Vous pouvez aussi [signer la déclaration PauseAI](/fr/declaration), qui appelle les gouvernements à un traité international instaurant une pause dans l'entraînement des IA les plus puissantes.
+
+</Callout>
 
 ## **Une pause est possible, elle est indispensable.<br/>Aidez-nous à réaliser cet objectif**
 

@@ -124,6 +124,8 @@
 		</div>
 		<div class="column">
 			<h2>{t.footer.act_title}</h2>
+			<a href="{prefix}/ecrire-a-mes-elus">{t.footer.ecrire_elus}</a>
+			<a href="{prefix}/declaration">{t.footer.declaration}</a>
 			<a href="{prefix}/rejoindre">{t.footer.join_pauseia}</a>
 			<a href="{prefix}/agir">{t.footer.how_to_help}</a>
 			<a href="{prefix}/dons">{t.footer.make_donation}</a>

@@ -99,7 +99,10 @@
 			id: 'agir',
 			label: t.nav.agir,
 			items: [
+				// Écrire aux élus et à la presse reste l'action prioritaire ; la
+				// déclaration vient juste après.
 				{ href: `${prefix}/ecrire-a-mes-elus`, label: t.nav.ecrire_elus },
+				{ href: `${prefix}/declaration`, label: t.nav.declaration },
 				{ href: `${prefix}/agir`, label: t.nav.comment_agir },
 				{ href: `${prefix}/groupes-locaux`, label: t.nav.groupes_locaux }
 			]

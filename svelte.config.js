@@ -45,6 +45,11 @@ const config = {
 					? []
 					: [
 							'*',
+							// Copie de secours de la liste de PauseAI Global (page /declaration).
+							'/api/declaration/global.json',
+							// Page du lien de confirmation (jamais liée depuis le site).
+							'/fr/declaration/confirmer',
+							'/en/declaration/confirmer',
 							'/fr/campagnes',
 							'/en/campagnes',
 							'/fr/merci',

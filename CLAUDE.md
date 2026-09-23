@@ -84,6 +84,7 @@ This is a SvelteKit-based website with Markdown-powered content. Content files l
 | `/recrutement`       | Quick recruitment guide                        | `src/routes/recrutement/+page.svelte`                                           |
 | `/guide-recrutement` | Full recruitment guide (markdown)              | `src/routes/guide-recrutement/+page.md`                                         |
 | `/senat2025`         | Senate 2025 campaign page                      | `src/routes/senat2025/+page.svelte`                                             |
+| `/declaration`       | PauseAI statement (French form, CiviCRM)       | `src/routes/[lang=lang]/declaration/+page.svelte`                               |
 
 **Special Routing Patterns:**
 
@@ -97,14 +98,15 @@ This is a SvelteKit-based website with Markdown-powered content. Content files l
 
 #### API Endpoints
 
-| Endpoint            | Method | Purpose                                     | Key Details                        |
-| ------------------- | ------ | ------------------------------------------- | ---------------------------------- |
-| `/api/posts`        | GET    | Returns all blog posts                      | Uses `getPosts()` from `$lib/api`  |
-| `/api/dangers`      | GET    | Returns all danger articles                 | Uses `getPosts('/dangers')`        |
-| `/api/subscribe`    | POST   | Newsletter subscription via CiviCRM         | See CiviCRM Integration below      |
-| `/api/wise-webhook` | POST   | Wise webhook for bank transfer confirmation | See Wise Webhook Integration below |
-| `/sitemap.xml`      | GET    | XML sitemap for SEO                         | Prerendered, includes all posts    |
-| `/sitemap.txt`      | GET    | Text sitemap                                | Alternative format                 |
+| Endpoint            | Method   | Purpose                                     | Key Details                        |
+| ------------------- | -------- | ------------------------------------------- | ---------------------------------- |
+| `/api/posts`        | GET      | Returns all blog posts                      | Uses `getPosts()` from `$lib/api`  |
+| `/api/dangers`      | GET      | Returns all danger articles                 | Uses `getPosts('/dangers')`        |
+| `/api/subscribe`    | POST     | Newsletter subscription via CiviCRM         | See CiviCRM Integration below      |
+| `/api/wise-webhook` | POST     | Wise webhook for bank transfer confirmation | See Wise Webhook Integration below |
+| `/api/declaration`  | GET/POST | PauseAI statement: stats / sign             | CiviCRM groups, see below          |
+| `/sitemap.xml`      | GET      | XML sitemap for SEO                         | Prerendered, includes all posts    |
+| `/sitemap.txt`      | GET      | Text sitemap                                | Alternative format                 |
 
 ### External Integrations
 
@@ -150,6 +152,22 @@ Handles newsletter and mailing list subscriptions with full contact management.
 - `CIVICRM_CONFERENCE_GROUP_ID`
 - `CIVICRM_POLICY_GROUP_ID`
 - `CIVICRM_NEWSLETTER_API_CONTACT_ID`
+
+#### PauseAI statement (`/api/declaration`)
+
+The PauseAI Global statement, translated, with our own French form. Signatures are stored in **our** CiviCRM (no dependency on pauseai.info to sign), with **email double opt-in**:
+
+1. `POST /api/declaration` finds/creates the contact (never overwrites an existing name), puts it in group **73** as `Pending` and emails a signed confirmation link (`/[lang]/declaration/confirmer?t=…`, valid 30 days). At most one email per address every 10 minutes: the send time is written in UTC in the details of the « e-mail de confirmation envoyé » activity (`sent_at=…`), never compared with `activity_date_time`, which CiviCRM stores in Paris time. When no new email is sent, the response says so (`resent: false`, `retryInMinutes`) and the page tells the user.
+2. The confirm page calls `POST /api/declaration/confirm` on a button click (not on link open: mail scanners open links). Only then: group 73 → `Added` (counted), group **74** → `Added` if the person asked to be listed, Newsletter + Call to Action groups if they opted in.
+
+- Groups: `CIVICRM_DECLARATION_GROUP_ID` (73, all confirmed signatories) and `CIVICRM_DECLARATION_PUBLIC_GROUP_ID` (74, listed publicly with name + `job_title`); defaults 73/74, overridable. Remove someone from 74 to hide them (moderation), from 73 to cancel the signature.
+- Email: `src/lib/server/mailer.ts` (nodemailer, SMTP / AWS SES). Same variables as the membership reminder bot (Romain-Deleglise/bot-relance-hello-asso): `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_USE_SSL`, `MAIL_FROM`, `MAIL_FROM_NAME`, `MAIL_REPLY_TO`, `MAIL_BCC`, `MAIL_REDIRECT_TO` (test mode). Without SMTP, signing returns 503.
+- Token: `src/lib/server/declarationToken.ts` (HMAC, `DECLARATION_TOKEN_SECRET`, falls back to a key derived from `CIVICRM_API_KEY`). Template: `src/lib/server/declarationEmail.ts`.
+- `GET` returns `{ local, global }`: our CiviCRM data and PauseAI Global's signatories (pauseai.info/api/signatories, read server-side via `src/lib/server/declarationGlobal.ts`). Each source can fail independently. If Global is down, the last known list is kept in memory, and the page falls back to `/api/declaration/global.json`, a snapshot prerendered at each deploy. Our signatures are not in Global's count, so the page adds both. The list must match pauseai.info/statement exactly: every Global signatory is kept, untruncated, anonymous ones shown as « Anonyme » with country and message (like Global does); our own non-public signatories appear as « Anonyme · France », so the list total equals the counter. Live check: `node scripts/verifier-declaration.mjs [site]` (tests: `tests/declarationMatch.test.ts`).
+- `/fr|en/declaration/confirmer` and `/api/declaration/global.json` are listed in `prerender.entries` (nothing links to them): removing them breaks the build.
+- Optional comment (« pourquoi c'est important pour vous », 500 chars): stored as a CiviCRM activity « Déclaration PauseAI : commentaire », `Scheduled` until the email is confirmed (activity id carried in the token), then `Completed`. Only confirmed comments of publicly listed signatories are shown. Moderation: edit or delete the activity. A failure to store the comment never blocks the signature.
+- Signing latency: contact + email are created in one chained API4 call, and the independent reads run in parallel.
+- Page uses the charter components (`PageHero`, `Card`, `SectionTitle`, `FilterChips`, `Button`). Country filter: the most represented countries as chips (`src/lib/countries.ts` maps Global's free-text English names to ISO codes, labels via `Intl.DisplayNames`); any other country is found through the search box. Tests: `tests/declaration.test.ts`, `tests/mailer.test.ts`, `tests/countries.test.ts`.
 
 #### Wise Webhook Integration (`/api/wise-webhook`)
 

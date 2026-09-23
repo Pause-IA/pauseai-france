@@ -24,6 +24,8 @@
 /dangers/*  /fr/dangers/:splat  301!
 /ressources  /fr/ressources  301!
 /agir  /fr/agir  301!
+/declaration  /fr/declaration  301!
+/statement  /fr/declaration  301!
 
 # ── Anciennes URL historiques ──────────────────────────────────────────
 /senat-2025  /fr/senat2025  301!

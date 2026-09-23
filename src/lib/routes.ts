@@ -5,7 +5,7 @@
  * Routes à ne pas référencer dans les sitemaps, en chemin sans préfixe de
  * langue. Les gabarits de page n'ont rien à faire dans l'index des moteurs.
  */
-const EXCLUDED = ['/campagne-modele']
+const EXCLUDED = ['/campagne-modele', '/declaration/confirmer']
 
 /**
  * Chemins sans préfixe de langue redirigés en 301 par static/_redirects : un

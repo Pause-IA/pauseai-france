@@ -3,6 +3,10 @@ title: Our Proposals
 description: Pause AI's concrete proposals to ensure that AI development is safe and beneficial for all of humanity.
 ---
 
+<script lang="ts">
+  import Callout from '$components/Callout.svelte'
+</script>
+
 Pause AI advocates for concrete measures to ensure that AI development is safe and beneficial for all of humanity. Here are our main proposals.
 
 ## An International AI Treaty
@@ -41,5 +45,13 @@ A transition to a world with more powerful AI must be managed fairly:
 ## Why These Proposals?
 
 These measures are not about stopping technological progress. They are about ensuring that this progress happens in a way that is safe, equitable, and subject to democratic control. The window to put these guardrails in place is closing — we must act now.
+
+<Callout title="Do you agree? Take action">
+
+The most effective step: **[write to your representatives and the press](/en/ecrire-a-mes-elus)**. It takes two minutes, and a personal message carries far more weight than a signature.
+
+You can also [sign the PauseAI statement](/en/declaration), which calls on governments to sign an international treaty implementing a pause on the training of the most powerful AI systems.
+
+</Callout>
 
 [Join us](/en/rejoindre) to advocate for these proposals with French and European decision-makers.
