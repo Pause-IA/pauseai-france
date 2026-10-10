@@ -1489,24 +1489,6 @@
 			"role": "depute"
 		},
 		{
-			"circo": 2,
-			"civ": "Mme",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA718884",
-			"departement": "10",
-			"email": "valerie.bazin-malgras@assemblee-nationale.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"source",
-				"pattern"
-			],
-			"groupe": "DR",
-			"id": "PA718884",
-			"nom": "Valérie Bazin-Malgras",
-			"nomCirco": "Aube (2e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/718884.jpg",
-			"role": "depute"
-		},
-		{
 			"circo": 4,
 			"civ": "M",
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA719024",
@@ -1540,24 +1522,6 @@
 			"nom": "Bertrand Bouyx",
 			"nomCirco": "Calvados (5e circonscription)",
 			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/719032.jpg",
-			"role": "depute"
-		},
-		{
-			"circo": 3,
-			"civ": "M",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA719052",
-			"departement": "18",
-			"email": "loic.kervran@assemblee-nationale.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"source",
-				"pattern"
-			],
-			"groupe": "HOR",
-			"id": "PA719052",
-			"nom": "Loïc Kervran",
-			"nomCirco": "Cher (3e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/719052.jpg",
 			"role": "depute"
 		},
 		{
@@ -4397,24 +4361,6 @@
 			"role": "depute"
 		},
 		{
-			"circo": 5,
-			"civ": "M",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793572",
-			"departement": "17",
-			"email": "christophe.plassard@assemblee-nationale.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"source",
-				"pattern"
-			],
-			"groupe": "HOR",
-			"id": "PA793572",
-			"nom": "Christophe Plassard",
-			"nomCirco": "Charente-Maritime (5e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793572.jpg",
-			"role": "depute"
-		},
-		{
 			"circo": 4,
 			"civ": "Mme",
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793592",
@@ -4844,24 +4790,6 @@
 			"nom": "Marie-Sophie Bernadeau",
 			"nomCirco": "Gironde (10e circonscription)",
 			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793924.jpg",
-			"role": "depute"
-		},
-		{
-			"circo": 11,
-			"civ": "Mme",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793928",
-			"departement": "33",
-			"email": "edwige.diaz@assemblee-nationale.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"source",
-				"pattern"
-			],
-			"groupe": "RN",
-			"id": "PA793928",
-			"nom": "Edwige Diaz",
-			"nomCirco": "Gironde (11e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793928.jpg",
 			"role": "depute"
 		},
 		{
@@ -6071,20 +5999,19 @@
 		},
 		{
 			"circo": 6,
-			"civ": "M",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794906",
+			"civ": "Mme",
+			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794910",
 			"departement": "69",
-			"email": "gabriel.amard@assemblee-nationale.fr",
-			"emailConfidence": "high",
+			"email": "melouka.hadj-mimoune@assemblee-nationale.fr",
+			"emailConfidence": "low",
 			"emailSources": [
-				"source",
 				"pattern"
 			],
-			"groupe": "LFI-NFP",
-			"id": "PA794906",
-			"nom": "Gabriel Amard",
+			"groupe": "SOC",
+			"id": "PA794910",
+			"nom": "Melouka Hadj-Mimoune",
 			"nomCirco": "Rhône (6e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794906.jpg",
+			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794910.jpg",
 			"role": "depute"
 		},
 		{
@@ -7447,24 +7374,6 @@
 			"role": "depute"
 		},
 		{
-			"circo": 6,
-			"civ": "M",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA796034",
-			"departement": "83",
-			"email": "frank.giletti@assemblee-nationale.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"source",
-				"pattern"
-			],
-			"groupe": "RN",
-			"id": "PA796034",
-			"nom": "Frank Giletti",
-			"nomCirco": "Var (6e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/796034.jpg",
-			"role": "depute"
-		},
-		{
 			"circo": 7,
 			"civ": "M",
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA796042",
@@ -7843,6 +7752,24 @@
 			"role": "depute"
 		},
 		{
+			"circo": 6,
+			"civ": "Mme",
+			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA840195",
+			"departement": "83",
+			"email": "muriel.fiol@assemblee-nationale.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"source",
+				"pattern"
+			],
+			"groupe": "RN",
+			"id": "PA840195",
+			"nom": "Muriel Fiol",
+			"nomCirco": "Var (6e circonscription)",
+			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/840195.jpg",
+			"role": "depute"
+		},
+		{
 			"circo": 1,
 			"civ": "M",
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA840235",
@@ -8166,6 +8093,24 @@
 			"role": "depute"
 		},
 		{
+			"circo": 3,
+			"civ": "M",
+			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA840849",
+			"departement": "18",
+			"email": "emmanuel.riotte@assemblee-nationale.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"source",
+				"pattern"
+			],
+			"groupe": "HOR",
+			"id": "PA840849",
+			"nom": "Emmanuel Riotte",
+			"nomCirco": "Cher (3e circonscription)",
+			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/840849.jpg",
+			"role": "depute"
+		},
+		{
 			"circo": 1,
 			"civ": "Mme",
 			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA840857",
@@ -8454,19 +8399,19 @@
 		{
 			"circo": 6,
 			"civ": "Mme",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841075",
+			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841079",
 			"departement": "30",
-			"email": "sylvie.josserand@assemblee-nationale.fr",
+			"email": "laurence.gardet@assemblee-nationale.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"source",
 				"pattern"
 			],
 			"groupe": "RN",
-			"id": "PA841075",
-			"nom": "Sylvie Josserand",
+			"id": "PA841079",
+			"nom": "Laurence Gardet",
 			"nomCirco": "Gard (6e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/841075.jpg",
+			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/841079.jpg",
 			"role": "depute"
 		},
 		{
@@ -8507,20 +8452,20 @@
 		},
 		{
 			"circo": 4,
-			"civ": "Mme",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841131",
+			"civ": "M",
+			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841135",
 			"departement": "34",
-			"email": "manon.bouquin@assemblee-nationale.fr",
+			"email": "benoit.gilhet@assemblee-nationale.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"source",
 				"pattern"
 			],
 			"groupe": "RN",
-			"id": "PA841131",
-			"nom": "Manon Bouquin",
+			"id": "PA841135",
+			"nom": "Benoit Gilhet",
 			"nomCirco": "Hérault (4e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/841131.jpg",
+			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/841135.jpg",
 			"role": "depute"
 		},
 		{
@@ -10371,24 +10316,6 @@
 				"role": "depute"
 			},
 			{
-				"circo": 2,
-				"civ": "Mme",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA718884",
-				"departement": "10",
-				"email": "valerie.bazin-malgras@assemblee-nationale.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"source",
-					"pattern"
-				],
-				"groupe": "DR",
-				"id": "PA718884",
-				"nom": "Valérie Bazin-Malgras",
-				"nomCirco": "Aube (2e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/718884.jpg",
-				"role": "depute"
-			},
-			{
 				"circo": 3,
 				"civ": "Mme",
 				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793230",
@@ -11085,24 +11012,6 @@
 				"nomCirco": "Charente-Maritime (4e circonscription)",
 				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/840837.jpg",
 				"role": "depute"
-			},
-			{
-				"circo": 5,
-				"civ": "M",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793572",
-				"departement": "17",
-				"email": "christophe.plassard@assemblee-nationale.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"source",
-					"pattern"
-				],
-				"groupe": "HOR",
-				"id": "PA793572",
-				"nom": "Christophe Plassard",
-				"nomCirco": "Charente-Maritime (5e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793572.jpg",
-				"role": "depute"
 			}
 		],
 		"18": [
@@ -11145,19 +11054,19 @@
 			{
 				"circo": 3,
 				"civ": "M",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA719052",
+				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA840849",
 				"departement": "18",
-				"email": "loic.kervran@assemblee-nationale.fr",
+				"email": "emmanuel.riotte@assemblee-nationale.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"source",
 					"pattern"
 				],
 				"groupe": "HOR",
-				"id": "PA719052",
-				"nom": "Loïc Kervran",
+				"id": "PA840849",
+				"nom": "Emmanuel Riotte",
 				"nomCirco": "Cher (3e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/719052.jpg",
+				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/840849.jpg",
 				"role": "depute"
 			}
 		],
@@ -12044,19 +11953,19 @@
 			{
 				"circo": 6,
 				"civ": "Mme",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841075",
+				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841079",
 				"departement": "30",
-				"email": "sylvie.josserand@assemblee-nationale.fr",
+				"email": "laurence.gardet@assemblee-nationale.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"source",
 					"pattern"
 				],
 				"groupe": "RN",
-				"id": "PA841075",
-				"nom": "Sylvie Josserand",
+				"id": "PA841079",
+				"nom": "Laurence Gardet",
 				"nomCirco": "Gard (6e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/841075.jpg",
+				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/841079.jpg",
 				"role": "depute"
 			}
 		],
@@ -12461,24 +12370,6 @@
 				"role": "depute"
 			},
 			{
-				"circo": 11,
-				"civ": "Mme",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA793928",
-				"departement": "33",
-				"email": "edwige.diaz@assemblee-nationale.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"source",
-					"pattern"
-				],
-				"groupe": "RN",
-				"id": "PA793928",
-				"nom": "Edwige Diaz",
-				"nomCirco": "Gironde (11e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793928.jpg",
-				"role": "depute"
-			},
-			{
 				"circo": 12,
 				"civ": "Mme",
 				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841251",
@@ -12553,20 +12444,20 @@
 			},
 			{
 				"circo": 4,
-				"civ": "Mme",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841131",
+				"civ": "M",
+				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA841135",
 				"departement": "34",
-				"email": "manon.bouquin@assemblee-nationale.fr",
+				"email": "benoit.gilhet@assemblee-nationale.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"source",
 					"pattern"
 				],
 				"groupe": "RN",
-				"id": "PA841131",
-				"nom": "Manon Bouquin",
+				"id": "PA841135",
+				"nom": "Benoit Gilhet",
 				"nomCirco": "Hérault (4e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/841131.jpg",
+				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/841135.jpg",
 				"role": "depute"
 			},
 			{
@@ -16139,20 +16030,19 @@
 			},
 			{
 				"circo": 6,
-				"civ": "M",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794906",
+				"civ": "Mme",
+				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA794910",
 				"departement": "69",
-				"email": "gabriel.amard@assemblee-nationale.fr",
-				"emailConfidence": "high",
+				"email": "melouka.hadj-mimoune@assemblee-nationale.fr",
+				"emailConfidence": "low",
 				"emailSources": [
-					"source",
 					"pattern"
 				],
-				"groupe": "LFI-NFP",
-				"id": "PA794906",
-				"nom": "Gabriel Amard",
+				"groupe": "SOC",
+				"id": "PA794910",
+				"nom": "Melouka Hadj-Mimoune",
 				"nomCirco": "Rhône (6e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794906.jpg",
+				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/794910.jpg",
 				"role": "depute"
 			},
 			{
@@ -17962,20 +17852,20 @@
 			},
 			{
 				"circo": 6,
-				"civ": "M",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA796034",
+				"civ": "Mme",
+				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA840195",
 				"departement": "83",
-				"email": "frank.giletti@assemblee-nationale.fr",
+				"email": "muriel.fiol@assemblee-nationale.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"source",
 					"pattern"
 				],
 				"groupe": "RN",
-				"id": "PA796034",
-				"nom": "Frank Giletti",
+				"id": "PA840195",
+				"nom": "Muriel Fiol",
 				"nomCirco": "Var (6e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/796034.jpg",
+				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/840195.jpg",
 				"role": "depute"
 			},
 			{
@@ -20915,7 +20805,7 @@
 			}
 		]
 	},
-	"generatedAt": "2026-09-28",
+	"generatedAt": "2026-10-10",
 	"senateurs": [
 		{
 			"civ": "M",
@@ -20931,6 +20821,22 @@
 			"nom": "Bruno Sido",
 			"nomDept": "Haute-Marne",
 			"photo": "https://www.senat.fr/senimg/sido_bruno01058x_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/muselier_renaud02042t.html",
+			"departement": "13",
+			"email": "r.muselier@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UCI",
+			"id": "02042t",
+			"nom": "Renaud Muselier",
+			"nomDept": "Bouches-du-Rhône",
+			"photo": "https://www.senat.fr/senimg/muselier_renaud02042t_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -20983,22 +20889,6 @@
 		},
 		{
 			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/schillinger_patricia04045f.html",
-			"departement": "68",
-			"email": "p.schillinger@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "RDPI",
-			"id": "04045f",
-			"nom": "Patricia Schillinger",
-			"nomDept": "Haut-Rhin",
-			"photo": "https://www.senat.fr/senimg/schillinger_patricia04045f_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/morin_desailly_catherine04070g.html",
 			"departement": "76",
 			"email": "c.morin-desailly@senat.fr",
@@ -21006,43 +20896,11 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "04070g",
 			"nom": "Catherine Morin-Desailly",
 			"nomDept": "Seine-Maritime",
 			"photo": "https://www.senat.fr/senimg/morin_desailly_catherine04070g_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/milon_alain04092n.html",
-			"departement": "84",
-			"email": "a.milon@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "04092n",
-			"nom": "Alain Milon",
-			"nomDept": "Vaucluse",
-			"photo": "https://www.senat.fr/senimg/milon_alain04092n_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/pointereau_remy05012a.html",
-			"departement": "18",
-			"email": "r.pointereau@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "05012a",
-			"nom": "Rémy Pointereau",
-			"nomDept": "Cher",
-			"photo": "https://www.senat.fr/senimg/pointereau_remy05012a_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -21054,7 +20912,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "07004j",
 			"nom": "Nathalie Goulet",
 			"nomDept": "Orne",
@@ -21102,7 +20960,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "08009t",
 			"nom": "Hervé Maurey",
 			"nomDept": "Eure",
@@ -21145,7 +21003,7 @@
 			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/lozach_jean_jacques08012n.html",
 			"departement": "23",
-			"email": "jjlozach@jjlozach.fr",
+			"email": "jj.lozach@senat.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"senat"
@@ -21158,102 +21016,6 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/laurent_daniel08015r.html",
-			"departement": "17",
-			"email": "cab.daniel.laurent@orange.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "08015r",
-			"nom": "Daniel Laurent",
-			"nomDept": "Charente-Maritime",
-			"photo": "https://www.senat.fr/senimg/laurent_daniel08015r_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/frassa_christophe_andre08018u.html",
-			"departement": "",
-			"email": "c.frassa@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "08018u",
-			"nom": "Christophe-André Frassa",
-			"nomDept": "Français établis hors de France",
-			"photo": "https://www.senat.fr/senimg/frassa_christophe_andre08018u_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/chatillon_alain08028w.html",
-			"departement": "31",
-			"email": "a.chatillon@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "08028w",
-			"nom": "Alain Chatillon",
-			"nomDept": "Haute-Garonne",
-			"photo": "https://www.senat.fr/senimg/chatillon_alain08028w_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/de_legge_dominique08034u.html",
-			"departement": "35",
-			"email": "d.de-legge@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "08034u",
-			"nom": "Dominique de Legge",
-			"nomDept": "Ille-et-Vilaine",
-			"photo": "https://www.senat.fr/senimg/de_legge_dominique08034u_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/fichet_jean_luc08045x.html",
-			"departement": "29",
-			"email": "jl.fichet@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "SER",
-			"id": "08045x",
-			"nom": "Jean-Luc Fichet",
-			"nomDept": "Finistère",
-			"photo": "https://www.senat.fr/senimg/fichet_jean_luc08045x_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/paul_philippe08047a.html",
-			"departement": "29",
-			"email": "p.paul@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "08047a",
-			"nom": "Philippe Paul",
-			"nomDept": "Finistère",
-			"photo": "https://www.senat.fr/senimg/paul_philippe08047a_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/goy_chavent_sylvie08056b.html",
 			"departement": "01",
@@ -21262,7 +21024,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "Les Républicains",
+			"groupe": "UNT",
 			"id": "08056b",
 			"nom": "Sylvie Goy-Chavent",
 			"nomDept": "Ain",
@@ -21303,18 +21065,18 @@
 		},
 		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/patient_georges08073c.html",
-			"departement": "973",
-			"email": "g.patient@senat.fr",
+			"contactUrl": "https://www.senat.fr/senateur/rebsamen_francois08070y.html",
+			"departement": "21",
+			"email": "f.rebsamen@senat.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "RDPI",
-			"id": "08073c",
-			"nom": "Georges Patient",
-			"nomDept": "Guyane",
-			"photo": "https://www.senat.fr/senimg/patient_georges08073c_carre.jpg",
+			"groupe": "SER",
+			"id": "08070y",
+			"nom": "François Rebsamen",
+			"nomDept": "Côte-d'Or",
+			"photo": "https://www.senat.fr/senimg/rebsamen_francois08070y_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -21331,22 +21093,6 @@
 			"nom": "Hélène Conway-Mouret",
 			"nomDept": "Français établis hors de France",
 			"photo": "https://www.senat.fr/senimg/conway_mouret_helene11027h_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/savin_michel11043h.html",
-			"departement": "38",
-			"email": "m.savin@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "11043h",
-			"nom": "Michel Savin",
-			"nomDept": "Isère",
-			"photo": "https://www.senat.fr/senimg/savin_michel11043h_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -21390,7 +21136,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "11053k",
 			"nom": "Vincent Capo-Canellas",
 			"nomDept": "Seine-Saint-Denis",
@@ -21438,7 +21184,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "11070l",
 			"nom": "Vincent Delahaye",
 			"nomDept": "Essonne",
@@ -21486,7 +21232,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "11085t",
 			"nom": "Hervé Marseille",
 			"nomDept": "Hauts-de-Seine",
@@ -21534,7 +21280,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "11115u",
 			"nom": "Édouard Courtial",
 			"nomDept": "Oise",
@@ -21575,22 +21321,6 @@
 		},
 		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/marie_didier14001x.html",
-			"departement": "76",
-			"email": "d.marie@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "SER",
-			"id": "14001x",
-			"nom": "Didier Marie",
-			"nomDept": "Seine-Maritime",
-			"photo": "https://www.senat.fr/senimg/marie_didier14001x_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/kanner_patrick14021p.html",
 			"departement": "59",
 			"email": "p.kanner@senat.fr",
@@ -21607,22 +21337,6 @@
 		},
 		{
 			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/gruny_pascale14026u.html",
-			"departement": "02",
-			"email": "p.gruny@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "14026u",
-			"nom": "Pascale Gruny",
-			"nomDept": "Aisne",
-			"photo": "https://www.senat.fr/senimg/gruny_pascale14026u_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/billon_annick14030q.html",
 			"departement": "85",
 			"email": "a.billon@senat.fr",
@@ -21630,27 +21344,11 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "14030q",
 			"nom": "Annick Billon",
 			"nomDept": "Vendée",
 			"photo": "https://www.senat.fr/senimg/billon_annick14030q_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/mandelli_didier14031r.html",
-			"departement": "85",
-			"email": "d.mandelli@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "14031r",
-			"nom": "Didier Mandelli",
-			"nomDept": "Vendée",
-			"photo": "https://www.senat.fr/senimg/mandelli_didier14031r_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -21686,22 +21384,6 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/chaize_patrick14038y.html",
-			"departement": "01",
-			"email": "p.chaize@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "14038y",
-			"nom": "Patrick Chaize",
-			"nomDept": "Ain",
-			"photo": "https://www.senat.fr/senimg/chaize_patrick14038y_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/doineau_elisabeth14042u.html",
 			"departement": "53",
@@ -21710,7 +21392,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "14042u",
 			"nom": "Élisabeth Doineau",
 			"nomDept": "Mayenne",
@@ -21731,38 +21413,6 @@
 			"nom": "Agnès Canayer",
 			"nomDept": "Seine-Maritime",
 			"photo": "https://www.senat.fr/senimg/canayer_agnes14053l_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/ravier_stephane14055n.html",
-			"departement": "13",
-			"email": "s.ravier@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "NI",
-			"id": "14055n",
-			"nom": "Stéphane Ravier",
-			"nomDept": "Bouches-du-Rhône",
-			"photo": "https://www.senat.fr/senimg/ravier_stephane14055n_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/lopez_vivette14059s.html",
-			"departement": "30",
-			"email": "v.lopez@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "14059s",
-			"nom": "Vivette Lopez",
-			"nomDept": "Gard",
-			"photo": "https://www.senat.fr/senimg/lopez_vivette14059s_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -21799,22 +21449,6 @@
 		},
 		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/kern_claude14073q.html",
-			"departement": "67",
-			"email": "c.kern@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "UC",
-			"id": "14073q",
-			"nom": "Claude Kern",
-			"nomDept": "Bas-Rhin",
-			"photo": "https://www.senat.fr/senimg/kern_claude14073q_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/canevet_michel14083s.html",
 			"departement": "29",
 			"email": "m.canevet@senat.fr",
@@ -21822,27 +21456,11 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "14083s",
 			"nom": "Michel Canévet",
 			"nomDept": "Finistère",
 			"photo": "https://www.senat.fr/senimg/canevet_michel14083s_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/jourda_gisele14097y.html",
-			"departement": "11",
-			"email": "g.jourda@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "SER",
-			"id": "14097y",
-			"nom": "Gisèle Jourda",
-			"nomDept": "Aude",
-			"photo": "https://www.senat.fr/senimg/jourda_gisele14097y_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -21862,22 +21480,6 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/monier_marie_pierre14109k.html",
-			"departement": "26",
-			"email": "mp.monier@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "SER",
-			"id": "14109k",
-			"nom": "Marie-Pierre Monier",
-			"nomDept": "Drôme",
-			"photo": "https://www.senat.fr/senimg/monier_marie_pierre14109k_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/marc_alain14111d.html",
 			"departement": "12",
@@ -21886,27 +21488,11 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "Les Indépendants",
+			"groupe": "UCI",
 			"id": "14111d",
 			"nom": "Alain Marc",
 			"nomDept": "Aveyron",
 			"photo": "https://www.senat.fr/senimg/marc_alain14111d_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/jeansannetas_eric14121f.html",
-			"departement": "23",
-			"email": "e.jeansannetas@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "SER",
-			"id": "14121f",
-			"nom": "Éric Jeansannetas",
-			"nomDept": "Creuse",
-			"photo": "https://www.senat.fr/senimg/jeansannetas_eric14121f_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -21927,18 +21513,18 @@
 		},
 		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/allizard_pascal14133k.html",
+			"contactUrl": "https://www.senat.fr/senateur/aubey_francois14137p.html",
 			"departement": "14",
-			"email": "p.allizard@senat.fr",
+			"email": "f.aubey@senat.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "Les Républicains",
-			"id": "14133k",
-			"nom": "Pascal Allizard",
+			"groupe": "RDSE",
+			"id": "14137p",
+			"nom": "François Aubey",
 			"nomDept": "Calvados",
-			"photo": "https://www.senat.fr/senimg/allizard_pascal14133k_carre.jpg",
+			"photo": "https://www.senat.fr/senimg/aubey_francois14137p_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -21955,22 +21541,6 @@
 			"nom": "Marie Mercier",
 			"nomDept": "Saône-et-Loire",
 			"photo": "https://www.senat.fr/senimg/mercier_marie14147r_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/de_nicolay_louis_jean14169x.html",
-			"departement": "72",
-			"email": "lj.de-nicolay@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "14169x",
-			"nom": "Louis-Jean de Nicolaÿ",
-			"nomDept": "Sarthe",
-			"photo": "https://www.senat.fr/senimg/de_nicolay_louis_jean14169x_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -21998,7 +21568,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "14179a",
 			"nom": "Loïc Hervé",
 			"nomDept": "Haute-Savoie",
@@ -22030,7 +21600,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "14189c",
 			"nom": "Jean-Michel Arnaud",
 			"nomDept": "Hautes-Alpes",
@@ -22070,22 +21640,6 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/chasseing_daniel14195a.html",
-			"departement": "19",
-			"email": "d.chasseing@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Indépendants",
-			"id": "14195a",
-			"nom": "Daniel Chasseing",
-			"nomDept": "Corrèze",
-			"photo": "https://www.senat.fr/senimg/chasseing_daniel14195a_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/loisier_anne_catherine14205j.html",
 			"departement": "21",
@@ -22094,43 +21648,11 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "14205j",
 			"nom": "Anne-Catherine Loisier",
 			"nomDept": "Côte-d'Or",
 			"photo": "https://www.senat.fr/senimg/loisier_anne_catherine14205j_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/cabanel_henri14207l.html",
-			"departement": "34",
-			"email": "h.cabanel@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "RDSE",
-			"id": "14207l",
-			"nom": "Henri Cabanel",
-			"nomDept": "Hérault",
-			"photo": "https://www.senat.fr/senimg/cabanel_henri14207l_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/grand_jean_pierre14211g.html",
-			"departement": "34",
-			"email": "jp.grand@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Indépendants",
-			"id": "14211g",
-			"nom": "Jean-Pierre Grand",
-			"nomDept": "Hérault",
-			"photo": "https://www.senat.fr/senimg/grand_jean_pierre14211g_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -22166,22 +21688,6 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/deseyne_chantal14217n.html",
-			"departement": "28",
-			"email": "c.deseyne@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "14217n",
-			"nom": "Chantal Deseyne",
-			"nomDept": "Eure-et-Loir",
-			"photo": "https://www.senat.fr/senimg/deseyne_chantal14217n_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/longeot_jean_francois14219q.html",
 			"departement": "25",
@@ -22190,7 +21696,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "14219q",
 			"nom": "Jean-François Longeot",
 			"nomDept": "Doubs",
@@ -22206,7 +21712,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "Les Indépendants",
+			"groupe": "UCI",
 			"id": "14221j",
 			"nom": "Pierre Médevielle",
 			"nomDept": "Haute-Garonne",
@@ -22230,22 +21736,6 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/raynal_claude14225n.html",
-			"departement": "31",
-			"email": "c.raynal@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "SER",
-			"id": "14225n",
-			"nom": "Claude Raynal",
-			"nomDept": "Haute-Garonne",
-			"photo": "https://www.senat.fr/senimg/raynal_claude14225n_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/robert_sylvie14229s.html",
 			"departement": "35",
@@ -22262,6 +21752,20 @@
 			"role": "senateur"
 		},
 		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/gatel_francoise14231l.html",
+			"departement": "35",
+			"email": null,
+			"emailConfidence": "none",
+			"emailSources": [],
+			"groupe": "UCI",
+			"id": "14231l",
+			"nom": "Françoise Gatel",
+			"nomDept": "Ille-et-Vilaine",
+			"photo": "https://www.senat.fr/senimg/gatel_francoise14231l_carre.jpg",
+			"role": "senateur"
+		},
+		{
 			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/pellevat_cyril14237s.html",
 			"departement": "74",
@@ -22270,43 +21774,11 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "Les Indépendants",
+			"groupe": "UCI",
 			"id": "14237s",
 			"nom": "Cyril Pellevat",
 			"nomDept": "Haute-Savoie",
 			"photo": "https://www.senat.fr/senimg/pellevat_cyril14237s_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/jouve_mireille14241n.html",
-			"departement": "13",
-			"email": "m.jouve@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "RDSE",
-			"id": "14241n",
-			"nom": "Mireille Jouve",
-			"nomDept": "Bouches-du-Rhône",
-			"photo": "https://www.senat.fr/senimg/jouve_mireille14241n_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/duranton_nicole14249w.html",
-			"departement": "27",
-			"email": "n.duranton@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "RDPI",
-			"id": "14249w",
-			"nom": "Nicole Duranton",
-			"nomDept": "Eure",
-			"photo": "https://www.senat.fr/senimg/duranton_nicole14249w_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -22327,22 +21799,6 @@
 		},
 		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/nougein_claude14253s.html",
-			"departement": "19",
-			"email": "c.nougein@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "14253s",
-			"nom": "Claude Nougein",
-			"nomDept": "Corrèze",
-			"photo": "https://www.senat.fr/senimg/nougein_claude14253s_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/cadic_olivier14255u.html",
 			"departement": "",
 			"email": "o.cadic@senat.fr",
@@ -22350,27 +21806,11 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "14255u",
 			"nom": "Olivier Cadic",
 			"nomDept": "Français établis hors de France",
 			"photo": "https://www.senat.fr/senimg/cadic_olivier14255u_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/montauge_franck14257w.html",
-			"departement": "32",
-			"email": "f.montauge@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "SER",
-			"id": "14257w",
-			"nom": "Franck Montaugé",
-			"nomDept": "Gers",
-			"photo": "https://www.senat.fr/senimg/montauge_franck14257w_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -22398,7 +21838,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "14267y",
 			"nom": "Olivier Cigolotti",
 			"nomDept": "Haute-Loire",
@@ -22414,7 +21854,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "14275y",
 			"nom": "Lana Tetuanui",
 			"nomDept": "Polynésie française",
@@ -22446,7 +21886,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "14327t",
 			"nom": "Bernard Delcros",
 			"nomDept": "Cantal",
@@ -22486,22 +21926,6 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/gerbaud_frederique14355x.html",
-			"departement": "36",
-			"email": "f.gerbaud@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "14355x",
-			"nom": "Frédérique Gerbaud",
-			"nomDept": "Indre",
-			"photo": "https://www.senat.fr/senimg/gerbaud_frederique14355x_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/cuypers_pierre14357a.html",
 			"departement": "77",
@@ -22524,11 +21948,27 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "15197g",
 			"nom": "Franck Dhersin",
 			"nomDept": "Nord",
 			"photo": "https://www.senat.fr/senimg/dhersin_franck15197g_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/fritch_edouard15689x.html",
+			"departement": "987",
+			"email": "e.fritch@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "15689x",
+			"nom": "Édouard Fritch",
+			"nomDept": "Polynésie française",
+			"photo": "https://www.senat.fr/senimg/fritch_edouard15689x_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -22540,7 +21980,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "17023s",
 			"nom": "Philippe Folliot",
 			"nomDept": "Tarn",
@@ -22556,7 +21996,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "17229f",
 			"nom": "Stéphane Demilly",
 			"nomDept": "Somme",
@@ -22565,18 +22005,34 @@
 		},
 		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/blanc_etienne17367q.html",
-			"departement": "69",
-			"email": "e.blanc@senat.fr",
+			"contactUrl": "https://www.senat.fr/senateur/le_mener_dominique17305a.html",
+			"departement": "72",
+			"email": "d.le-mener@senat.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"senat"
 			],
 			"groupe": "Les Républicains",
-			"id": "17367q",
-			"nom": "Étienne Blanc",
+			"id": "17305a",
+			"nom": "Dominique Le Mèner",
+			"nomDept": "Sarthe",
+			"photo": "https://www.senat.fr/senimg/le_mener_dominique17305a_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/guilloteau_christophe17331c.html",
+			"departement": "69",
+			"email": "c.guilloteau@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "17331c",
+			"nom": "Christophe Guilloteau",
 			"nomDept": "Rhône",
-			"photo": "https://www.senat.fr/senimg/blanc_etienne17367q_carre.jpg",
+			"photo": "https://www.senat.fr/senimg/guilloteau_christophe17331c_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -22613,22 +22069,6 @@
 		},
 		{
 			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/poumirol_emilienne17965h.html",
-			"departement": "31",
-			"email": "e.poumirol@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "SER",
-			"id": "17965h",
-			"nom": "Émilienne Poumirol",
-			"nomDept": "Haute-Garonne",
-			"photo": "https://www.senat.fr/senimg/poumirol_emilienne17965h_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/bourguignon_brigitte18045d.html",
 			"departement": "62",
 			"email": "b.bourguignon@senat.fr",
@@ -22636,7 +22076,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "18045d",
 			"nom": "Brigitte Bourguignon",
 			"nomDept": "Pas-de-Calais",
@@ -22657,6 +22097,22 @@
 			"nom": "Guillaume Chevrollier",
 			"nomDept": "Mayenne",
 			"photo": "https://www.senat.fr/senimg/chevrollier_guillaume18083k_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/gibbs_daniel18153g.html",
+			"departement": "978",
+			"email": "d.gibbs@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "18153g",
+			"nom": "Daniel Gibbs",
+			"nomDept": "Saint-Martin",
+			"photo": "https://www.senat.fr/senimg/gibbs_daniel18153g_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -22707,6 +22163,22 @@
 		},
 		{
 			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/nieson_nathalie18233f.html",
+			"departement": "26",
+			"email": "n.nieson@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "RDPI",
+			"id": "18233f",
+			"nom": "Nathalie Nieson",
+			"nomDept": "Drôme",
+			"photo": "https://www.senat.fr/senimg/nieson_nathalie18233f_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/daniel_karine18395y.html",
 			"departement": "44",
 			"email": "k.daniel@senat.fr",
@@ -22723,18 +22195,34 @@
 		},
 		{
 			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/cazebonne_samantha19057m.html",
-			"departement": "",
-			"email": "s.cazebonne@senat.fr",
+			"contactUrl": "https://www.senat.fr/senateur/bazin_malgras_valerie18503j.html",
+			"departement": "10",
+			"email": "v.bazin-malgras@senat.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "RDPI",
-			"id": "19057m",
-			"nom": "Samantha Cazebonne",
-			"nomDept": "Français établis hors de France",
-			"photo": "https://www.senat.fr/senimg/cazebonne_samantha19057m_carre.jpg",
+			"groupe": "Les Républicains",
+			"id": "18503j",
+			"nom": "Valérie Bazin-Malgras",
+			"nomDept": "Aube",
+			"photo": "https://www.senat.fr/senimg/bazin_malgras_valerie18503j_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/kervran_loic18543s.html",
+			"departement": "18",
+			"email": "l.kervran@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Indépendants",
+			"id": "18543s",
+			"nom": "Loïc Kervran",
+			"nomDept": "Cher",
+			"photo": "https://www.senat.fr/senimg/kervran_loic18543s_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -22746,25 +22234,11 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19111a",
 			"nom": "Isabelle Florennes",
 			"nomDept": "Hauts-de-Seine",
 			"photo": "https://www.senat.fr/senimg/florennes_isabelle19111a_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/devinaz_gilbert_luc19251m.html",
-			"departement": "69",
-			"email": null,
-			"emailConfidence": "none",
-			"emailSources": [],
-			"groupe": "RDSE",
-			"id": "19251m",
-			"nom": "Gilbert-Luc Devinaz",
-			"nomDept": "Rhône",
-			"photo": "https://www.senat.fr/senimg/devinaz_gilbert_luc19251m_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -22792,7 +22266,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "RDPI",
+			"groupe": "RDSE",
 			"id": "19301e",
 			"nom": "Dominique Théophile",
 			"nomDept": "Guadeloupe",
@@ -22824,7 +22298,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19335q",
 			"nom": "Jean-Marie Mizzon",
 			"nomDept": "Moselle",
@@ -22984,7 +22458,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19479g",
 			"nom": "Sylvie Vermeillet",
 			"nomDept": "Jura",
@@ -23096,7 +22570,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19563b",
 			"nom": "Franck Menonville",
 			"nomDept": "Meuse",
@@ -23128,7 +22602,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19569h",
 			"nom": "Olivier Henno",
 			"nomDept": "Nord",
@@ -23176,7 +22650,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "Les Indépendants",
+			"groupe": "RDSE",
 			"id": "19585h",
 			"nom": "Dany Wattebled",
 			"nomDept": "Nord",
@@ -23224,7 +22698,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19611r",
 			"nom": "Laurent Lafon",
 			"nomDept": "Val-de-Marne",
@@ -23240,7 +22714,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19619a",
 			"nom": "Denise Saint-Pé",
 			"nomDept": "Pyrénées-Atlantiques",
@@ -23430,7 +22904,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "SER",
+			"groupe": "GEST",
 			"id": "19683j",
 			"nom": "Bernard Jomier",
 			"nomDept": "Paris",
@@ -23446,7 +22920,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19685l",
 			"nom": "Christine Herzog",
 			"nomDept": "Moselle",
@@ -23478,7 +22952,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19691j",
 			"nom": "Jocelyne Guidez",
 			"nomDept": "Essonne",
@@ -23542,7 +23016,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19699s",
 			"nom": "Michel Laugier",
 			"nomDept": "Yvelines",
@@ -23638,7 +23112,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19713w",
 			"nom": "Nadia Sollogoub",
 			"nomDept": "Nièvre",
@@ -23662,70 +23136,6 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/cazabonne_alain19721w.html",
-			"departement": "33",
-			"email": "a.cazabonne@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "UC",
-			"id": "19721w",
-			"nom": "Alain Cazabonne",
-			"nomDept": "Gironde",
-			"photo": "https://www.senat.fr/senimg/cazabonne_alain19721w_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/lassarade_florence19723y.html",
-			"departement": "33",
-			"email": "f.lassarade@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "19723y",
-			"nom": "Florence Lassarade",
-			"nomDept": "Gironde",
-			"photo": "https://www.senat.fr/senimg/lassarade_florence19723y_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/harribey_laurence19725b.html",
-			"departement": "33",
-			"email": "l.harribey@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "SER",
-			"id": "19725b",
-			"nom": "Laurence Harribey",
-			"nomDept": "Gironde",
-			"photo": "https://www.senat.fr/senimg/harribey_laurence19725b_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/leroy_henri19729f.html",
-			"departement": "06",
-			"email": "h.leroy@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "19729f",
-			"nom": "Henri Leroy",
-			"nomDept": "Alpes-Maritimes",
-			"photo": "https://www.senat.fr/senimg/leroy_henri19729f_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/de_la_provote_sonia19735d.html",
 			"departement": "14",
@@ -23734,25 +23144,11 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19735d",
 			"nom": "Sonia de La Provôté",
 			"nomDept": "Calvados",
 			"photo": "https://www.senat.fr/senimg/de_la_provote_sonia19735d_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/perrot_evelyne19745f.html",
-			"departement": "10",
-			"email": null,
-			"emailConfidence": "none",
-			"emailSources": [],
-			"groupe": "UC",
-			"id": "19745f",
-			"nom": "Évelyne Perrot",
-			"nomDept": "Aube",
-			"photo": "https://www.senat.fr/senimg/perrot_evelyne19745f_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -23764,7 +23160,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19749k",
 			"nom": "Dominique Vérien",
 			"nomDept": "Yonne",
@@ -23821,38 +23217,6 @@
 		},
 		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/buis_bernard19782l.html",
-			"departement": "26",
-			"email": "b.buis@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "RDPI",
-			"id": "19782l",
-			"nom": "Bernard Buis",
-			"nomDept": "Drôme",
-			"photo": "https://www.senat.fr/senimg/buis_bernard19782l_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/richer_marie_pierre19798u.html",
-			"departement": "18",
-			"email": "mp.richer@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "19798u",
-			"nom": "Marie-Pierre Richer",
-			"nomDept": "Cher",
-			"photo": "https://www.senat.fr/senimg/richer_marie_pierre19798u_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/gille_herve19820y.html",
 			"departement": "33",
 			"email": "h.gille@senat.fr",
@@ -23876,7 +23240,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "19826f",
 			"nom": "Pascal Martin",
 			"nomDept": "Seine-Maritime",
@@ -23900,6 +23264,22 @@
 			"role": "senateur"
 		},
 		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/coriton_bastien19916g.html",
+			"departement": "76",
+			"email": "b.coriton@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "SER",
+			"id": "19916g",
+			"nom": "Bastien Coriton",
+			"nomDept": "Seine-Maritime",
+			"photo": "https://www.senat.fr/senimg/coriton_bastien19916g_carre.jpg",
+			"role": "senateur"
+		},
+		{
 			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/belrhiti_catherine19954n.html",
 			"departement": "57",
@@ -23917,22 +23297,6 @@
 		},
 		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/kulimoetoke_mikaele20016t.html",
-			"departement": "986",
-			"email": "m.kulimoetoke@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "RDPI",
-			"id": "20016t",
-			"nom": "Mikaele Kulimoetoke",
-			"nomDept": "Iles Wallis et Futuna",
-			"photo": "https://www.senat.fr/senimg/kulimoetoke_mikaele20016t_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/michau_jean_jacques20018v.html",
 			"departement": "09",
 			"email": "jj.michau@senat.fr",
@@ -23940,7 +23304,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "SER",
+			"groupe": "RDSE",
 			"id": "20018v",
 			"nom": "Jean-Jacques Michau",
 			"nomDept": "Ariège",
@@ -24084,27 +23448,11 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "20036x",
 			"nom": "Paul Toussaint Parigi",
 			"nomDept": "Haute-Corse",
 			"photo": "https://www.senat.fr/senimg/parigi_paul_toussaint20036x_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/favreau_gilbert20038a.html",
-			"departement": "79",
-			"email": "g.favreau@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "20038a",
-			"nom": "Gilbert Favreau",
-			"nomDept": "Deux-Sèvres",
-			"photo": "https://www.senat.fr/senimg/favreau_gilbert20038a_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -24116,7 +23464,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "20040t",
 			"nom": "Alain Duffourg",
 			"nomDept": "Gers",
@@ -24132,7 +23480,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "20042v",
 			"nom": "François Bonneau",
 			"nomDept": "Charente",
@@ -24180,7 +23528,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "20048c",
 			"nom": "Jean Hingray",
 			"nomDept": "Vosges",
@@ -24212,7 +23560,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "20052x",
 			"nom": "Pierre-Antoine Levi",
 			"nomDept": "Tarn-et-Garonne",
@@ -24316,38 +23664,6 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/jacquemet_annick20066e.html",
-			"departement": "25",
-			"email": "a.jacquemet@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "UC",
-			"id": "20066e",
-			"nom": "Annick Jacquemet",
-			"nomDept": "Doubs",
-			"photo": "https://www.senat.fr/senimg/jacquemet_annick20066e_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/gueret_daniel20068g.html",
-			"departement": "28",
-			"email": "d.gueret@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "20068g",
-			"nom": "Daniel Gueret",
-			"nomDept": "Eure-et-Loir",
-			"photo": "https://www.senat.fr/senimg/gueret_daniel20068g_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/cozic_thierry20070a.html",
 			"departement": "72",
@@ -24364,22 +23680,6 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/guiol_andre20072c.html",
-			"departement": "83",
-			"email": "a.guiol@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "RDSE",
-			"id": "20072c",
-			"nom": "André Guiol",
-			"nomDept": "Var",
-			"photo": "https://www.senat.fr/senimg/guiol_andre20072c_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/dumont_francoise20074e.html",
 			"departement": "83",
@@ -24393,38 +23693,6 @@
 			"nom": "Françoise Dumont",
 			"nomDept": "Var",
 			"photo": "https://www.senat.fr/senimg/dumont_francoise20074e_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/bacci_jean20076g.html",
-			"departement": "83",
-			"email": "j.bacci@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "20076g",
-			"nom": "Jean Bacci",
-			"nomDept": "Var",
-			"photo": "https://www.senat.fr/senimg/bacci_jean20076g_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/bonnus_michel20078j.html",
-			"departement": "83",
-			"email": "m.bonnus@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "20078j",
-			"nom": "Michel Bonnus",
-			"nomDept": "Var",
-			"photo": "https://www.senat.fr/senimg/bonnus_michel20078j_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -24461,25 +23729,9 @@
 		},
 		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/stanzione_lucien20084g.html",
-			"departement": "84",
-			"email": "l.stanzione@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "SER",
-			"id": "20084g",
-			"nom": "Lucien Stanzione",
-			"nomDept": "Vaucluse",
-			"photo": "https://www.senat.fr/senimg/stanzione_lucien20084g_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/blanc_jean_baptiste20086j.html",
 			"departement": "84",
-			"email": "senateurjbblanc@gmail.com",
+			"email": "jb.blanc@senat.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"senat"
@@ -24589,22 +23841,6 @@
 		},
 		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/fernique_jacques20100n.html",
-			"departement": "67",
-			"email": "j.fernique@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "GEST",
-			"id": "20100n",
-			"nom": "Jacques Fernique",
-			"nomDept": "Bas-Rhin",
-			"photo": "https://www.senat.fr/senimg/fernique_jacques20100n_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/lahellec_gerard20102q.html",
 			"departement": "22",
 			"email": "g.lahellec@senat.fr",
@@ -24653,22 +23889,6 @@
 		},
 		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/le_rudulier_stephane20108w.html",
-			"departement": "13",
-			"email": "s.le-rudulier@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "20108w",
-			"nom": "Stéphane Le Rudulier",
-			"nomDept": "Bouches-du-Rhône",
-			"photo": "https://www.senat.fr/senimg/le_rudulier_stephane20108w_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
 			"contactUrl": "https://www.senat.fr/senateur/benarroche_guy20110q.html",
 			"departement": "13",
 			"email": "g.benarroche@senat.fr",
@@ -24713,22 +23933,6 @@
 			"nom": "Hussein Bourgi",
 			"nomDept": "Hérault",
 			"photo": "https://www.senat.fr/senimg/bourgi_hussein20114u_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/bilhac_christian20116w.html",
-			"departement": "34",
-			"email": "c.bilhac@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "RDSE",
-			"id": "20116w",
-			"nom": "Christian Bilhac",
-			"nomDept": "Hérault",
-			"photo": "https://www.senat.fr/senimg/bilhac_christian20116w_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -24804,27 +24008,11 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "20128b",
 			"nom": "Ludovic Haye",
 			"nomDept": "Haut-Rhin",
 			"photo": "https://www.senat.fr/senimg/haye_ludovic20128b_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/poncet_monge_raymonde20130u.html",
-			"departement": "69",
-			"email": "r.poncet@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "GEST",
-			"id": "20130u",
-			"nom": "Raymonde Poncet Monge",
-			"nomDept": "Rhône",
-			"photo": "https://www.senat.fr/senimg/poncet_monge_raymonde20130u_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -24877,102 +24065,6 @@
 		},
 		{
 			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/demas_patricia20140w.html",
-			"departement": "06",
-			"email": "p.demas@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "20140w",
-			"nom": "Patricia Demas",
-			"nomDept": "Alpes-Maritimes",
-			"photo": "https://www.senat.fr/senimg/demas_patricia20140w_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/de_marco_monique20142y.html",
-			"departement": "33",
-			"email": "m.de-marco@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "GEST",
-			"id": "20142y",
-			"nom": "Monique de Marco",
-			"nomDept": "Gironde",
-			"photo": "https://www.senat.fr/senimg/de_marco_monique20142y_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/chauvet_patrick20144b.html",
-			"departement": "76",
-			"email": "p.chauvet@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "UC",
-			"id": "20144b",
-			"nom": "Patrick Chauvet",
-			"nomDept": "Seine-Maritime",
-			"photo": "https://www.senat.fr/senimg/chauvet_patrick20144b_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/phinera_horth_marie_laure20146d.html",
-			"departement": "973",
-			"email": "ml.phinera-horth@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "RDPI",
-			"id": "20146d",
-			"nom": "Marie-Laure Phinera-Horth",
-			"nomDept": "Guyane",
-			"photo": "https://www.senat.fr/senimg/phinera_horth_marie_laure20146d_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/petrus_annick20148f.html",
-			"departement": "978",
-			"email": "a.petrus@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "20148f",
-			"nom": "Annick Petrus",
-			"nomDept": "Saint-Martin",
-			"photo": "https://www.senat.fr/senimg/petrus_annick20148f_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/rohfritsch_teva20150y.html",
-			"departement": "987",
-			"email": "t.rohfritsch@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "RDPI",
-			"id": "20150y",
-			"nom": "Teva Rohfritsch",
-			"nomDept": "Polynésie française",
-			"photo": "https://www.senat.fr/senimg/rohfritsch_teva20150y_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/garnier_laurence20172f.html",
 			"departement": "44",
 			"email": "l.garnier@senat.fr",
@@ -25012,7 +24104,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "20248j",
 			"nom": "Brigitte Devésa",
 			"nomDept": "Bouches-du-Rhône",
@@ -25074,11 +24166,75 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "20286q",
 			"nom": "Amel Gacquerre",
 			"nomDept": "Pas-de-Calais",
 			"photo": "https://www.senat.fr/senimg/gacquerre_amel20286q_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/diaz_edwige20390p.html",
+			"departement": "33",
+			"email": "e.diaz@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UNT",
+			"id": "20390p",
+			"nom": "Edwige Diaz",
+			"nomDept": "Gironde",
+			"photo": "https://www.senat.fr/senimg/diaz_edwige20390p_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/amard_gabriel20684b.html",
+			"departement": "69",
+			"email": "g.amard@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "NI",
+			"id": "20684b",
+			"nom": "Gabriel Amard",
+			"nomDept": "Rhône",
+			"photo": "https://www.senat.fr/senimg/amard_gabriel20684b_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/plassard_christophe20718t.html",
+			"departement": "17",
+			"email": "c.plassard@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Indépendants",
+			"id": "20718t",
+			"nom": "Christophe Plassard",
+			"nomDept": "Charente-Maritime",
+			"photo": "https://www.senat.fr/senimg/plassard_christophe20718t_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/giletti_frank20874f.html",
+			"departement": "83",
+			"email": "f.giletti@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UNT",
+			"id": "20874f",
+			"nom": "Frank Giletti",
+			"nomDept": "Var",
+			"photo": "https://www.senat.fr/senimg/giletti_frank20874f_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -25090,7 +24246,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "Les Républicains",
+			"groupe": "UCI",
 			"id": "21029d",
 			"nom": "Georges Naturel",
 			"nomDept": "Nouvelle-Calédonie",
@@ -25234,7 +24390,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "21038e",
 			"nom": "Olivia Richard",
 			"nomDept": "Français établis hors de France",
@@ -25298,7 +24454,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "21042a",
 			"nom": "Jocelyne Antoine",
 			"nomDept": "Meuse",
@@ -25312,7 +24468,7 @@
 			"email": null,
 			"emailConfidence": "none",
 			"emailSources": [],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "21043b",
 			"nom": "Olivier Bitz",
 			"nomDept": "Orne",
@@ -25424,7 +24580,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "21050a",
 			"nom": "Yves Bleunven",
 			"nomDept": "Morbihan",
@@ -25456,7 +24612,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "Les Indépendants",
+			"groupe": "UCI",
 			"id": "21052c",
 			"nom": "Jean-Luc Brault",
 			"nomDept": "Loir-et-Cher",
@@ -25472,7 +24628,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "21053d",
 			"nom": "Bernard Pillefer",
 			"nomDept": "Loir-et-Cher",
@@ -25644,7 +24800,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "21064g",
 			"nom": "Anne-Sophie Romagny",
 			"nomDept": "Marne",
@@ -25724,7 +24880,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "NI",
+			"groupe": "UNT",
 			"id": "21069m",
 			"nom": "Christopher Szczurek",
 			"nomDept": "Pas-de-Calais",
@@ -25804,7 +24960,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "NI",
+			"groupe": "UNT",
 			"id": "21074j",
 			"nom": "Aymeric Durox",
 			"nomDept": "Seine-et-Marne",
@@ -25836,7 +24992,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "Les Indépendants",
+			"groupe": "UCI",
 			"id": "21076l",
 			"nom": "Louis Vogel",
 			"nomDept": "Seine-et-Marne",
@@ -25946,7 +25102,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "21083k",
 			"nom": "Guislain Cambier",
 			"nomDept": "Nord",
@@ -25976,7 +25132,7 @@
 			"email": null,
 			"emailConfidence": "none",
 			"emailSources": [],
-			"groupe": "NI",
+			"groupe": "UNT",
 			"id": "21085m",
 			"nom": "Joshua Hochart",
 			"nomDept": "Nord",
@@ -25992,7 +25148,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "21086n",
 			"nom": "Daniel Fargeot",
 			"nomDept": "Val-d'Oise",
@@ -26008,7 +25164,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "Les Indépendants",
+			"groupe": "RDSE",
 			"id": "21087p",
 			"nom": "Marie-Claude Lermytte",
 			"nomDept": "Nord",
@@ -26185,6 +25341,38 @@
 		},
 		{
 			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/josserand_sylvie21217f.html",
+			"departement": "30",
+			"email": "s.josserand@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UNT",
+			"id": "21217f",
+			"nom": "Sylvie Josserand",
+			"nomDept": "Gard",
+			"photo": "https://www.senat.fr/senimg/josserand_sylvie21217f_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/bouquin_manon21223d.html",
+			"departement": "34",
+			"email": "m.bouquin@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UNT",
+			"id": "21223d",
+			"nom": "Manon Bouquin",
+			"nomDept": "Hérault",
+			"photo": "https://www.senat.fr/senimg/bouquin_manon21223d_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
 			"contactUrl": "https://www.senat.fr/senateur/briante_guillemont_sophie21404g.html",
 			"departement": "",
 			"email": "s.briante-guillemont@senat.fr",
@@ -26208,7 +25396,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
+			"groupe": "UCI",
 			"id": "21415k",
 			"nom": "Marie-Lise Housseau",
 			"nomDept": "Tarn",
@@ -26216,35 +25404,19 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/vidal_paul21416l.html",
-			"departement": "69",
-			"email": "p.vidal@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "21416l",
-			"nom": "Paul Vidal",
-			"nomDept": "Rhône",
-			"photo": "https://www.senat.fr/senimg/vidal_paul21416l_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/patru_anne_sophie21421h.html",
-			"departement": "35",
-			"email": "as.patru@senat.fr",
+			"contactUrl": "https://www.senat.fr/senateur/rousselot_marie_ange21436q.html",
+			"departement": "",
+			"email": "ma.rousselot@senat.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "UC",
-			"id": "21421h",
-			"nom": "Anne-Sophie Patru",
-			"nomDept": "Ille-et-Vilaine",
-			"photo": "https://www.senat.fr/senimg/patru_anne_sophie21421h_carre.jpg",
+			"groupe": "RDPI",
+			"id": "21436q",
+			"nom": "Marie-Ange Rousselot",
+			"nomDept": "Français établis hors de France",
+			"photo": "https://www.senat.fr/senimg/rousselot_marie_ange21436q_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -26261,6 +25433,20 @@
 			"nom": "Alexandre Basquin",
 			"nomDept": "Nord",
 			"photo": "https://www.senat.fr/senimg/basquin_alexandre21460q_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/delia_jean_marc21470s.html",
+			"departement": "06",
+			"email": null,
+			"emailConfidence": "none",
+			"emailSources": [],
+			"groupe": "Les Républicains",
+			"id": "21470s",
+			"nom": "Jean-Marc Delia",
+			"nomDept": "Alpes-Maritimes",
+			"photo": "https://www.senat.fr/senimg/delia_jean_marc21470s_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -26360,51 +25546,771 @@
 			"role": "senateur"
 		},
 		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/paire_sandra21592c.html",
-			"departement": "06",
-			"email": "s.paire@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "21592c",
-			"nom": "Sandra Paire",
-			"nomDept": "Alpes-Maritimes",
-			"photo": "https://www.senat.fr/senimg/paire_sandra21592c_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/camerac_anne21630q.html",
-			"departement": "02",
-			"email": "a.camerac@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Indépendants",
-			"id": "21630q",
-			"nom": "Anne Camerac",
-			"nomDept": "Aisne",
-			"photo": "https://www.senat.fr/senimg/camerac_anne21630q_carre.jpg",
-			"role": "senateur"
-		},
-		{
 			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/maingault_didier21634u.html",
-			"departement": "21",
-			"email": "d.maingault@senat.fr",
+			"contactUrl": "https://www.senat.fr/senateur/tukumuli_lafaele21638y.html",
+			"departement": "986",
+			"email": "l.tukumuli@senat.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"senat"
 			],
 			"groupe": "RDPI",
-			"id": "21634u",
-			"nom": "Didier Maingault",
-			"nomDept": "Côte-d'Or",
-			"photo": "https://www.senat.fr/senimg/maingault_didier21634u_carre.jpg",
+			"id": "21638y",
+			"nom": "Lafaele Tukumuli",
+			"nomDept": "Iles Wallis et Futuna",
+			"photo": "https://www.senat.fr/senimg/tukumuli_lafaele21638y_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/bounie_julien21640s.html",
+			"departement": "19",
+			"email": "j.bounie@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21640s",
+			"nom": "Julien Bounie",
+			"nomDept": "Corrèze",
+			"photo": "https://www.senat.fr/senimg/bounie_julien21640s_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/coste_pascal21642u.html",
+			"departement": "19",
+			"email": "p.coste@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21642u",
+			"nom": "Pascal Coste",
+			"nomDept": "Corrèze",
+			"photo": "https://www.senat.fr/senimg/coste_pascal21642u_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/doussot_dimitri21644w.html",
+			"departement": "70",
+			"email": "d.doussot@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21644w",
+			"nom": "Dimitri Doussot",
+			"nomDept": "Haute-Saône",
+			"photo": "https://www.senat.fr/senimg/doussot_dimitri21644w_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/faucon_mejean_claudie21646y.html",
+			"departement": "11",
+			"email": "c.faucon-mejean@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "SER",
+			"id": "21646y",
+			"nom": "Claudie Faucon Mejean",
+			"nomDept": "Aude",
+			"photo": "https://www.senat.fr/senimg/faucon_mejean_claudie21646y_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/labar_bertrand21648b.html",
+			"departement": "23",
+			"email": "b.labar@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21648b",
+			"nom": "Bertrand Labar",
+			"nomDept": "Creuse",
+			"photo": "https://www.senat.fr/senimg/labar_bertrand21648b_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/rhimini_samir21650u.html",
+			"departement": "18",
+			"email": "s.rhimini@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21650u",
+			"nom": "Samir Rhimini",
+			"nomDept": "Cher",
+			"photo": "https://www.senat.fr/senimg/rhimini_samir21650u_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/blanchet_regis21652w.html",
+			"departement": "36",
+			"email": "r.blanchet@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UCI",
+			"id": "21652w",
+			"nom": "Régis Blanchet",
+			"nomDept": "Indre",
+			"photo": "https://www.senat.fr/senimg/blanchet_regis21652w_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/rolando_carole21654y.html",
+			"departement": "32",
+			"email": "c.rolando@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "SER",
+			"id": "21654y",
+			"nom": "Carole Rolando",
+			"nomDept": "Gers",
+			"photo": "https://www.senat.fr/senimg/rolando_carole21654y_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/missioux_marie_pierre21656b.html",
+			"departement": "79",
+			"email": "mp.missioux@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21656b",
+			"nom": "Marie-Pierre Missioux",
+			"nomDept": "Deux-Sèvres",
+			"photo": "https://www.senat.fr/senimg/missioux_marie_pierre21656b_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/quentin_virginie21658d.html",
+			"departement": "28",
+			"email": "v.quentin@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21658d",
+			"nom": "Virginie Quentin",
+			"nomDept": "Eure-et-Loir",
+			"photo": "https://www.senat.fr/senimg/quentin_virginie21658d_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/robin_alexis21660w.html",
+			"departement": "28",
+			"email": "a.robin@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21660w",
+			"nom": "Alexis Robin",
+			"nomDept": "Eure-et-Loir",
+			"photo": "https://www.senat.fr/senimg/robin_alexis21660w_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/huin_benjamin21662y.html",
+			"departement": "68",
+			"email": "b.huin@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "RDPI",
+			"id": "21662y",
+			"nom": "Benjamin Huin",
+			"nomDept": "Haut-Rhin",
+			"photo": "https://www.senat.fr/senimg/huin_benjamin21662y_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/fricoteaux_nicolas21664b.html",
+			"departement": "02",
+			"email": "n.fricoteaux@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "RDPI",
+			"id": "21664b",
+			"nom": "Nicolas Fricoteaux",
+			"nomDept": "Aisne",
+			"photo": "https://www.senat.fr/senimg/fricoteaux_nicolas21664b_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/mougenot_paul21666d.html",
+			"departement": "02",
+			"email": "p.mougenot@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "NI",
+			"id": "21666d",
+			"nom": "Paul Mougenot",
+			"nomDept": "Aisne",
+			"photo": "https://www.senat.fr/senimg/mougenot_paul21666d_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/callet_marie_pierre21668f.html",
+			"departement": "13",
+			"email": "mp.callet@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UNT",
+			"id": "21668f",
+			"nom": "Marie-Pierre Callet",
+			"nomDept": "Bouches-du-Rhône",
+			"photo": "https://www.senat.fr/senimg/callet_marie_pierre21668f_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/bravi_fabien21670y.html",
+			"departement": "13",
+			"email": "f.bravi@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UNT",
+			"id": "21670y",
+			"nom": "Fabien Bravi",
+			"nomDept": "Bouches-du-Rhône",
+			"photo": "https://www.senat.fr/senimg/bravi_fabien21670y_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/dupont_bertrand21672b.html",
+			"departement": "",
+			"email": "b.dupont@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21672b",
+			"nom": "Bertrand Dupont",
+			"nomDept": "Français établis hors de France",
+			"photo": "https://www.senat.fr/senimg/dupont_bertrand21672b_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/baude_veronique21674d.html",
+			"departement": "01",
+			"email": "v.baude@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21674d",
+			"nom": "Véronique Baude",
+			"nomDept": "Ain",
+			"photo": "https://www.senat.fr/senimg/baude_veronique21674d_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/de_rugy_maxence21676f.html",
+			"departement": "85",
+			"email": "m.de-rugy@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21676f",
+			"nom": "Maxence de Rugy",
+			"nomDept": "Vendée",
+			"photo": "https://www.senat.fr/senimg/de_rugy_maxence21676f_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/richardot_pernelle21678h.html",
+			"departement": "67",
+			"email": "p.richardot@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "SER",
+			"id": "21678h",
+			"nom": "Pernelle Richardot",
+			"nomDept": "Bas-Rhin",
+			"photo": "https://www.senat.fr/senimg/richardot_pernelle21678h_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/dollinger_isabelle21680b.html",
+			"departement": "67",
+			"email": "i.dollinger@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UCI",
+			"id": "21680b",
+			"nom": "Isabelle Dollinger",
+			"nomDept": "Bas-Rhin",
+			"photo": "https://www.senat.fr/senimg/dollinger_isabelle21680b_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/duche_frederic21682d.html",
+			"departement": "27",
+			"email": "f.duche@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Indépendants",
+			"id": "21682d",
+			"nom": "Frédéric Duché",
+			"nomDept": "Eure",
+			"photo": "https://www.senat.fr/senimg/duche_frederic21682d_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/belloir_nicolas21684f.html",
+			"departement": "35",
+			"email": "n.belloir@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21684f",
+			"nom": "Nicolas Belloir",
+			"nomDept": "Ille-et-Vilaine",
+			"photo": "https://www.senat.fr/senimg/belloir_nicolas21684f_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/alexandre_rodolphe21686h.html",
+			"departement": "973",
+			"email": "r.alexandre@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "RDPI",
+			"id": "21686h",
+			"nom": "Rodolphe Alexandre",
+			"nomDept": "Guyane",
+			"photo": "https://www.senat.fr/senimg/alexandre_rodolphe21686h_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/leclerc_patrick21688k.html",
+			"departement": "29",
+			"email": "p.leclerc@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Indépendants",
+			"id": "21688k",
+			"nom": "Patrick Leclerc",
+			"nomDept": "Finistère",
+			"photo": "https://www.senat.fr/senimg/leclerc_patrick21688k_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/dadkhah_forough21690d.html",
+			"departement": "29",
+			"email": "f.dadkhah@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "SER",
+			"id": "21690d",
+			"nom": "Forough Dadkhah",
+			"nomDept": "Finistère",
+			"photo": "https://www.senat.fr/senimg/dadkhah_forough21690d_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/levasseur_leon21692f.html",
+			"departement": "76",
+			"email": "l.levasseur@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UNT",
+			"id": "21692f",
+			"nom": "Léon Levasseur",
+			"nomDept": "Seine-Maritime",
+			"photo": "https://www.senat.fr/senimg/levasseur_leon21692f_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/brunet_florent21694h.html",
+			"departement": "26",
+			"email": "f.brunet@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21694h",
+			"nom": "Florent Brunet",
+			"nomDept": "Drôme",
+			"photo": "https://www.senat.fr/senimg/brunet_florent21694h_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/simon_christian21696k.html",
+			"departement": "83",
+			"email": "c.simon@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21696k",
+			"nom": "Christian Simon",
+			"nomDept": "Var",
+			"photo": "https://www.senat.fr/senimg/simon_christian21696k_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/leroy_carine21698m.html",
+			"departement": "83",
+			"email": "c.leroy@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UNT",
+			"id": "21698m",
+			"nom": "Carine Leroy",
+			"nomDept": "Var",
+			"photo": "https://www.senat.fr/senimg/leroy_carine21698m_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/marthey_arnaud21700m.html",
+			"departement": "25",
+			"email": "a.marthey@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "SER",
+			"id": "21700m",
+			"nom": "Arnaud Marthey",
+			"nomDept": "Doubs",
+			"photo": "https://www.senat.fr/senimg/marthey_arnaud21700m_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/santoni_dominique21702p.html",
+			"departement": "84",
+			"email": "d.santoni@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21702p",
+			"nom": "Dominique Santoni",
+			"nomDept": "Vaucluse",
+			"photo": "https://www.senat.fr/senimg/santoni_dominique21702p_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/d_aigremont_thierry21704r.html",
+			"departement": "84",
+			"email": "t.d-aigremont@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UNT",
+			"id": "21704r",
+			"nom": "Thierry d'Aigremont",
+			"nomDept": "Vaucluse",
+			"photo": "https://www.senat.fr/senimg/d_aigremont_thierry21704r_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/freche_julie21706t.html",
+			"departement": "34",
+			"email": "j.freche@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "SER",
+			"id": "21706t",
+			"nom": "Julie Frêche",
+			"nomDept": "Hérault",
+			"photo": "https://www.senat.fr/senimg/freche_julie21706t_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/francis_joseph21708v.html",
+			"departement": "34",
+			"email": "j.francis@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21708v",
+			"nom": "Joseph Francis",
+			"nomDept": "Hérault",
+			"photo": "https://www.senat.fr/senimg/francis_joseph21708v_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/bost_christine21710p.html",
+			"departement": "33",
+			"email": "c.bost@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "SER",
+			"id": "21710p",
+			"nom": "Christine Bost",
+			"nomDept": "Gironde",
+			"photo": "https://www.senat.fr/senimg/bost_christine21710p_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/breillat_jacques21712r.html",
+			"departement": "33",
+			"email": "j.breillat@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Indépendants",
+			"id": "21712r",
+			"nom": "Jacques Breillat",
+			"nomDept": "Gironde",
+			"photo": "https://www.senat.fr/senimg/breillat_jacques21712r_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/amouroux_geraldine21714t.html",
+			"departement": "33",
+			"email": "g.amouroux@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21714t",
+			"nom": "Géraldine Amouroux",
+			"nomDept": "Gironde",
+			"photo": "https://www.senat.fr/senimg/amouroux_geraldine21714t_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/castillo_laurent21716v.html",
+			"departement": "06",
+			"email": "l.castillo@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UNT",
+			"id": "21716v",
+			"nom": "Laurent Castillo",
+			"nomDept": "Alpes-Maritimes",
+			"photo": "https://www.senat.fr/senimg/castillo_laurent21716v_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/frontoni_gaelle21718x.html",
+			"departement": "06",
+			"email": "g.frontoni@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UNT",
+			"id": "21718x",
+			"nom": "Gaëlle Frontoni",
+			"nomDept": "Alpes-Maritimes",
+			"photo": "https://www.senat.fr/senimg/frontoni_gaelle21718x_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/suaud_thierry21720r.html",
+			"departement": "31",
+			"email": "t.suaud@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "SER",
+			"id": "21720r",
+			"nom": "Thierry Suaud",
+			"nomDept": "Haute-Garonne",
+			"photo": "https://www.senat.fr/senimg/suaud_thierry21720r_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/gasto_oustric_magali21722t.html",
+			"departement": "31",
+			"email": "m.gasto-oustric@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "RDSE",
+			"id": "21722t",
+			"nom": "Magali Gasto Oustric",
+			"nomDept": "Haute-Garonne",
+			"photo": "https://www.senat.fr/senimg/gasto_oustric_magali21722t_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/pere_marc21724v.html",
+			"departement": "31",
+			"email": "m.pere@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "GEST",
+			"id": "21724v",
+			"nom": "Marc Péré",
+			"nomDept": "Haute-Garonne",
+			"photo": "https://www.senat.fr/senimg/pere_marc21724v_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/michel_sebastien21726x.html",
+			"departement": "69",
+			"email": "s.michel@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21726x",
+			"nom": "Sébastien Michel",
+			"nomDept": "Rhône",
+			"photo": "https://www.senat.fr/senimg/michel_sebastien21726x_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/berard_serge21728a.html",
+			"departement": "69",
+			"email": "s.berard@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21728a",
+			"nom": "Serge Berard",
+			"nomDept": "Rhône",
+			"photo": "https://www.senat.fr/senimg/berard_serge21728a_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.senat.fr/senateur/persaud_ryan21730t.html",
+			"departement": "973",
+			"email": "r.persaud@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "RDPI",
+			"id": "21730t",
+			"nom": "Ryan Persaud",
+			"nomDept": "Guyane",
+			"photo": "https://www.senat.fr/senimg/persaud_ryan21730t_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/merle_annick21732v.html",
+			"departement": "38",
+			"email": "a.merle@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "Les Républicains",
+			"id": "21732v",
+			"nom": "Annick Merle",
+			"nomDept": "Isère",
+			"photo": "https://www.senat.fr/senimg/merle_annick21732v_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -26421,22 +26327,6 @@
 			"nom": "Gérard Larcher",
 			"nomDept": "Yvelines",
 			"photo": "https://www.senat.fr/senimg/larcher_gerard86034e_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "M",
-			"contactUrl": "https://www.senat.fr/senateur/joyandet_alain95041e.html",
-			"departement": "70",
-			"email": "a.joyandet@senat.fr",
-			"emailConfidence": "high",
-			"emailSources": [
-				"senat"
-			],
-			"groupe": "Les Républicains",
-			"id": "95041e",
-			"nom": "Alain Joyandet",
-			"nomDept": "Haute-Saône",
-			"photo": "https://www.senat.fr/senimg/joyandet_alain95041e_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -26460,16 +26350,18 @@
 		"10": [
 			{
 				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/perrot_evelyne19745f.html",
+				"contactUrl": "https://www.senat.fr/senateur/bazin_malgras_valerie18503j.html",
 				"departement": "10",
-				"email": null,
-				"emailConfidence": "none",
-				"emailSources": [],
-				"groupe": "UC",
-				"id": "19745f",
-				"nom": "Évelyne Perrot",
+				"email": "v.bazin-malgras@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Républicains",
+				"id": "18503j",
+				"nom": "Valérie Bazin-Malgras",
 				"nomDept": "Aube",
-				"photo": "https://www.senat.fr/senimg/perrot_evelyne19745f_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/bazin_malgras_valerie18503j_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -26491,22 +26383,6 @@
 		],
 		"11": [
 			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/jourda_gisele14097y.html",
-				"departement": "11",
-				"email": "g.jourda@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "SER",
-				"id": "14097y",
-				"nom": "Gisèle Jourda",
-				"nomDept": "Aude",
-				"photo": "https://www.senat.fr/senimg/jourda_gisele14097y_carre.jpg",
-				"role": "senateur"
-			},
-			{
 				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/pla_sebastien20030r.html",
 				"departement": "11",
@@ -26521,6 +26397,22 @@
 				"nomDept": "Aude",
 				"photo": "https://www.senat.fr/senimg/pla_sebastien20030r_carre.jpg",
 				"role": "senateur"
+			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/faucon_mejean_claudie21646y.html",
+				"departement": "11",
+				"email": "c.faucon-mejean@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "SER",
+				"id": "21646y",
+				"nom": "Claudie Faucon Mejean",
+				"nomDept": "Aude",
+				"photo": "https://www.senat.fr/senimg/faucon_mejean_claudie21646y_carre.jpg",
+				"role": "senateur"
 			}
 		],
 		"12": [
@@ -26533,7 +26425,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Indépendants",
+				"groupe": "UCI",
 				"id": "14111d",
 				"nom": "Alain Marc",
 				"nomDept": "Aveyron",
@@ -26559,6 +26451,22 @@
 		],
 		"13": [
 			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/muselier_renaud02042t.html",
+				"departement": "13",
+				"email": "r.muselier@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "UCI",
+				"id": "02042t",
+				"nom": "Renaud Muselier",
+				"nomDept": "Bouches-du-Rhône",
+				"photo": "https://www.senat.fr/senimg/muselier_renaud02042t_carre.jpg",
+				"role": "senateur"
+			},
+			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/carlotti_marie_arlette12028b.html",
 				"departement": "13",
@@ -26575,38 +26483,6 @@
 				"role": "senateur"
 			},
 			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/ravier_stephane14055n.html",
-				"departement": "13",
-				"email": "s.ravier@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "NI",
-				"id": "14055n",
-				"nom": "Stéphane Ravier",
-				"nomDept": "Bouches-du-Rhône",
-				"photo": "https://www.senat.fr/senimg/ravier_stephane14055n_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/jouve_mireille14241n.html",
-				"departement": "13",
-				"email": "m.jouve@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "RDSE",
-				"id": "14241n",
-				"nom": "Mireille Jouve",
-				"nomDept": "Bouches-du-Rhône",
-				"photo": "https://www.senat.fr/senimg/jouve_mireille14241n_carre.jpg",
-				"role": "senateur"
-			},
-			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/boyer_valerie17737w.html",
 				"departement": "13",
@@ -26620,22 +26496,6 @@
 				"nom": "Valérie Boyer",
 				"nomDept": "Bouches-du-Rhône",
 				"photo": "https://www.senat.fr/senimg/boyer_valerie17737w_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/le_rudulier_stephane20108w.html",
-				"departement": "13",
-				"email": "s.le-rudulier@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Républicains",
-				"id": "20108w",
-				"nom": "Stéphane Le Rudulier",
-				"nomDept": "Bouches-du-Rhône",
-				"photo": "https://www.senat.fr/senimg/le_rudulier_stephane20108w_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -26679,29 +26539,61 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "20248j",
 				"nom": "Brigitte Devésa",
 				"nomDept": "Bouches-du-Rhône",
 				"photo": "https://www.senat.fr/senimg/devesa_brigitte20248j_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/callet_marie_pierre21668f.html",
+				"departement": "13",
+				"email": "mp.callet@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "UNT",
+				"id": "21668f",
+				"nom": "Marie-Pierre Callet",
+				"nomDept": "Bouches-du-Rhône",
+				"photo": "https://www.senat.fr/senimg/callet_marie_pierre21668f_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/bravi_fabien21670y.html",
+				"departement": "13",
+				"email": "f.bravi@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "UNT",
+				"id": "21670y",
+				"nom": "Fabien Bravi",
+				"nomDept": "Bouches-du-Rhône",
+				"photo": "https://www.senat.fr/senimg/bravi_fabien21670y_carre.jpg",
 				"role": "senateur"
 			}
 		],
 		"14": [
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/allizard_pascal14133k.html",
+				"contactUrl": "https://www.senat.fr/senateur/aubey_francois14137p.html",
 				"departement": "14",
-				"email": "p.allizard@senat.fr",
+				"email": "f.aubey@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Républicains",
-				"id": "14133k",
-				"nom": "Pascal Allizard",
+				"groupe": "RDSE",
+				"id": "14137p",
+				"nom": "François Aubey",
 				"nomDept": "Calvados",
-				"photo": "https://www.senat.fr/senimg/allizard_pascal14133k_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/aubey_francois14137p_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -26729,7 +26621,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19735d",
 				"nom": "Sonia de La Provôté",
 				"nomDept": "Calvados",
@@ -26747,7 +26639,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "14327t",
 				"nom": "Bernard Delcros",
 				"nomDept": "Cantal",
@@ -26797,7 +26689,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "20042v",
 				"nom": "François Bonneau",
 				"nomDept": "Charente",
@@ -26806,22 +26698,6 @@
 			}
 		],
 		"17": [
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/laurent_daniel08015r.html",
-				"departement": "17",
-				"email": "cab.daniel.laurent@orange.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Républicains",
-				"id": "08015r",
-				"nom": "Daniel Laurent",
-				"nomDept": "Charente-Maritime",
-				"photo": "https://www.senat.fr/senimg/laurent_daniel08015r_carre.jpg",
-				"role": "senateur"
-			},
 			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/imbert_corinne14213j.html",
@@ -26853,73 +26729,89 @@
 				"nomDept": "Charente-Maritime",
 				"photo": "https://www.senat.fr/senimg/vallet_mickael20064c_carre.jpg",
 				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/plassard_christophe20718t.html",
+				"departement": "17",
+				"email": "c.plassard@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Indépendants",
+				"id": "20718t",
+				"nom": "Christophe Plassard",
+				"nomDept": "Charente-Maritime",
+				"photo": "https://www.senat.fr/senimg/plassard_christophe20718t_carre.jpg",
+				"role": "senateur"
 			}
 		],
 		"18": [
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/pointereau_remy05012a.html",
+				"contactUrl": "https://www.senat.fr/senateur/kervran_loic18543s.html",
 				"departement": "18",
-				"email": "r.pointereau@senat.fr",
+				"email": "l.kervran@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Républicains",
-				"id": "05012a",
-				"nom": "Rémy Pointereau",
+				"groupe": "Les Indépendants",
+				"id": "18543s",
+				"nom": "Loïc Kervran",
 				"nomDept": "Cher",
-				"photo": "https://www.senat.fr/senimg/pointereau_remy05012a_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/kervran_loic18543s_carre.jpg",
 				"role": "senateur"
 			},
 			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/richer_marie_pierre19798u.html",
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/rhimini_samir21650u.html",
 				"departement": "18",
-				"email": "mp.richer@senat.fr",
+				"email": "s.rhimini@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "19798u",
-				"nom": "Marie-Pierre Richer",
+				"id": "21650u",
+				"nom": "Samir Rhimini",
 				"nomDept": "Cher",
-				"photo": "https://www.senat.fr/senimg/richer_marie_pierre19798u_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/rhimini_samir21650u_carre.jpg",
 				"role": "senateur"
 			}
 		],
 		"19": [
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/chasseing_daniel14195a.html",
+				"contactUrl": "https://www.senat.fr/senateur/bounie_julien21640s.html",
 				"departement": "19",
-				"email": "d.chasseing@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Indépendants",
-				"id": "14195a",
-				"nom": "Daniel Chasseing",
-				"nomDept": "Corrèze",
-				"photo": "https://www.senat.fr/senimg/chasseing_daniel14195a_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/nougein_claude14253s.html",
-				"departement": "19",
-				"email": "c.nougein@senat.fr",
+				"email": "j.bounie@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "14253s",
-				"nom": "Claude Nougein",
+				"id": "21640s",
+				"nom": "Julien Bounie",
 				"nomDept": "Corrèze",
-				"photo": "https://www.senat.fr/senimg/nougein_claude14253s_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/bounie_julien21640s_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/coste_pascal21642u.html",
+				"departement": "19",
+				"email": "p.coste@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Républicains",
+				"id": "21642u",
+				"nom": "Pascal Coste",
+				"nomDept": "Corrèze",
+				"photo": "https://www.senat.fr/senimg/coste_pascal21642u_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -26941,6 +26833,22 @@
 				"role": "senateur"
 			},
 			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/rebsamen_francois08070y.html",
+				"departement": "21",
+				"email": "f.rebsamen@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "SER",
+				"id": "08070y",
+				"nom": "François Rebsamen",
+				"nomDept": "Côte-d'Or",
+				"photo": "https://www.senat.fr/senimg/rebsamen_francois08070y_carre.jpg",
+				"role": "senateur"
+			},
+			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/loisier_anne_catherine14205j.html",
 				"departement": "21",
@@ -26949,27 +26857,11 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "14205j",
 				"nom": "Anne-Catherine Loisier",
 				"nomDept": "Côte-d'Or",
 				"photo": "https://www.senat.fr/senimg/loisier_anne_catherine14205j_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/maingault_didier21634u.html",
-				"departement": "21",
-				"email": "d.maingault@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "RDPI",
-				"id": "21634u",
-				"nom": "Didier Maingault",
-				"nomDept": "Côte-d'Or",
-				"photo": "https://www.senat.fr/senimg/maingault_didier21634u_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -27028,7 +26920,7 @@
 				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/lozach_jean_jacques08012n.html",
 				"departement": "23",
-				"email": "jjlozach@jjlozach.fr",
+				"email": "jj.lozach@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
@@ -27042,18 +26934,18 @@
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/jeansannetas_eric14121f.html",
+				"contactUrl": "https://www.senat.fr/senateur/labar_bertrand21648b.html",
 				"departement": "23",
-				"email": "e.jeansannetas@senat.fr",
+				"email": "b.labar@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "SER",
-				"id": "14121f",
-				"nom": "Éric Jeansannetas",
+				"groupe": "Les Républicains",
+				"id": "21648b",
+				"nom": "Bertrand Labar",
 				"nomDept": "Creuse",
-				"photo": "https://www.senat.fr/senimg/jeansannetas_eric14121f_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/labar_bertrand21648b_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -27117,7 +27009,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "14219q",
 				"nom": "Jean-François Longeot",
 				"nomDept": "Doubs",
@@ -27125,53 +27017,37 @@
 				"role": "senateur"
 			},
 			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/jacquemet_annick20066e.html",
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/marthey_arnaud21700m.html",
 				"departement": "25",
-				"email": "a.jacquemet@senat.fr",
+				"email": "a.marthey@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
-				"id": "20066e",
-				"nom": "Annick Jacquemet",
+				"groupe": "SER",
+				"id": "21700m",
+				"nom": "Arnaud Marthey",
 				"nomDept": "Doubs",
-				"photo": "https://www.senat.fr/senimg/jacquemet_annick20066e_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/marthey_arnaud21700m_carre.jpg",
 				"role": "senateur"
 			}
 		],
 		"26": [
 			{
 				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/monier_marie_pierre14109k.html",
+				"contactUrl": "https://www.senat.fr/senateur/nieson_nathalie18233f.html",
 				"departement": "26",
-				"email": "mp.monier@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "SER",
-				"id": "14109k",
-				"nom": "Marie-Pierre Monier",
-				"nomDept": "Drôme",
-				"photo": "https://www.senat.fr/senimg/monier_marie_pierre14109k_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/buis_bernard19782l.html",
-				"departement": "26",
-				"email": "b.buis@senat.fr",
+				"email": "n.nieson@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "RDPI",
-				"id": "19782l",
-				"nom": "Bernard Buis",
+				"id": "18233f",
+				"nom": "Nathalie Nieson",
 				"nomDept": "Drôme",
-				"photo": "https://www.senat.fr/senimg/buis_bernard19782l_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/nieson_nathalie18233f_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -27189,6 +27065,22 @@
 				"nomDept": "Drôme",
 				"photo": "https://www.senat.fr/senimg/mouton_marie_pierre21534r_carre.jpg",
 				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/brunet_florent21694h.html",
+				"departement": "26",
+				"email": "f.brunet@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Républicains",
+				"id": "21694h",
+				"nom": "Florent Brunet",
+				"nomDept": "Drôme",
+				"photo": "https://www.senat.fr/senimg/brunet_florent21694h_carre.jpg",
+				"role": "senateur"
 			}
 		],
 		"27": [
@@ -27201,27 +27093,11 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "08009t",
 				"nom": "Hervé Maurey",
 				"nomDept": "Eure",
 				"photo": "https://www.senat.fr/senimg/maurey_herve08009t_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/duranton_nicole14249w.html",
-				"departement": "27",
-				"email": "n.duranton@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "RDPI",
-				"id": "14249w",
-				"nom": "Nicole Duranton",
-				"nomDept": "Eure",
-				"photo": "https://www.senat.fr/senimg/duranton_nicole14249w_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -27238,6 +27114,22 @@
 				"nom": "Kristina Pluchet",
 				"nomDept": "Eure",
 				"photo": "https://www.senat.fr/senimg/pluchet_kristina20118y_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/duche_frederic21682d.html",
+				"departement": "27",
+				"email": "f.duche@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Indépendants",
+				"id": "21682d",
+				"nom": "Frédéric Duché",
+				"nomDept": "Eure",
+				"photo": "https://www.senat.fr/senimg/duche_frederic21682d_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -27260,70 +27152,38 @@
 			},
 			{
 				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/deseyne_chantal14217n.html",
+				"contactUrl": "https://www.senat.fr/senateur/quentin_virginie21658d.html",
 				"departement": "28",
-				"email": "c.deseyne@senat.fr",
+				"email": "v.quentin@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "14217n",
-				"nom": "Chantal Deseyne",
+				"id": "21658d",
+				"nom": "Virginie Quentin",
 				"nomDept": "Eure-et-Loir",
-				"photo": "https://www.senat.fr/senimg/deseyne_chantal14217n_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/quentin_virginie21658d_carre.jpg",
 				"role": "senateur"
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/gueret_daniel20068g.html",
+				"contactUrl": "https://www.senat.fr/senateur/robin_alexis21660w.html",
 				"departement": "28",
-				"email": "d.gueret@senat.fr",
+				"email": "a.robin@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "20068g",
-				"nom": "Daniel Gueret",
+				"id": "21660w",
+				"nom": "Alexis Robin",
 				"nomDept": "Eure-et-Loir",
-				"photo": "https://www.senat.fr/senimg/gueret_daniel20068g_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/robin_alexis21660w_carre.jpg",
 				"role": "senateur"
 			}
 		],
 		"29": [
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/fichet_jean_luc08045x.html",
-				"departement": "29",
-				"email": "jl.fichet@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "SER",
-				"id": "08045x",
-				"nom": "Jean-Luc Fichet",
-				"nomDept": "Finistère",
-				"photo": "https://www.senat.fr/senimg/fichet_jean_luc08045x_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/paul_philippe08047a.html",
-				"departement": "29",
-				"email": "p.paul@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Républicains",
-				"id": "08047a",
-				"nom": "Philippe Paul",
-				"nomDept": "Finistère",
-				"photo": "https://www.senat.fr/senimg/paul_philippe08047a_carre.jpg",
-				"role": "senateur"
-			},
 			{
 				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/canevet_michel14083s.html",
@@ -27333,7 +27193,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "14083s",
 				"nom": "Michel Canévet",
 				"nomDept": "Finistère",
@@ -27355,25 +27215,41 @@
 				"nomDept": "Finistère",
 				"photo": "https://www.senat.fr/senimg/havet_nadege20106u_carre.jpg",
 				"role": "senateur"
-			}
-		],
-		"30": [
+			},
 			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/lopez_vivette14059s.html",
-				"departement": "30",
-				"email": "v.lopez@senat.fr",
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/leclerc_patrick21688k.html",
+				"departement": "29",
+				"email": "p.leclerc@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Républicains",
-				"id": "14059s",
-				"nom": "Vivette Lopez",
-				"nomDept": "Gard",
-				"photo": "https://www.senat.fr/senimg/lopez_vivette14059s_carre.jpg",
+				"groupe": "Les Indépendants",
+				"id": "21688k",
+				"nom": "Patrick Leclerc",
+				"nomDept": "Finistère",
+				"photo": "https://www.senat.fr/senimg/leclerc_patrick21688k_carre.jpg",
 				"role": "senateur"
 			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/dadkhah_forough21690d.html",
+				"departement": "29",
+				"email": "f.dadkhah@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "SER",
+				"id": "21690d",
+				"nom": "Forough Dadkhah",
+				"nomDept": "Finistère",
+				"photo": "https://www.senat.fr/senimg/dadkhah_forough21690d_carre.jpg",
+				"role": "senateur"
+			}
+		],
+		"30": [
 			{
 				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/bouad_denis20088l.html",
@@ -27405,25 +27281,25 @@
 				"nomDept": "Gard",
 				"photo": "https://www.senat.fr/senimg/burgoa_laurent20090e_carre.jpg",
 				"role": "senateur"
-			}
-		],
-		"31": [
+			},
 			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/chatillon_alain08028w.html",
-				"departement": "31",
-				"email": "a.chatillon@senat.fr",
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/josserand_sylvie21217f.html",
+				"departement": "30",
+				"email": "s.josserand@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Républicains",
-				"id": "08028w",
-				"nom": "Alain Chatillon",
-				"nomDept": "Haute-Garonne",
-				"photo": "https://www.senat.fr/senimg/chatillon_alain08028w_carre.jpg",
+				"groupe": "UNT",
+				"id": "21217f",
+				"nom": "Sylvie Josserand",
+				"nomDept": "Gard",
+				"photo": "https://www.senat.fr/senimg/josserand_sylvie21217f_carre.jpg",
 				"role": "senateur"
-			},
+			}
+		],
+		"31": [
 			{
 				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/medevielle_pierre14221j.html",
@@ -27433,7 +27309,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Indépendants",
+				"groupe": "UCI",
 				"id": "14221j",
 				"nom": "Pierre Médevielle",
 				"nomDept": "Haute-Garonne",
@@ -27458,54 +27334,54 @@
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/raynal_claude14225n.html",
+				"contactUrl": "https://www.senat.fr/senateur/suaud_thierry21720r.html",
 				"departement": "31",
-				"email": "c.raynal@senat.fr",
+				"email": "t.suaud@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "SER",
-				"id": "14225n",
-				"nom": "Claude Raynal",
+				"id": "21720r",
+				"nom": "Thierry Suaud",
 				"nomDept": "Haute-Garonne",
-				"photo": "https://www.senat.fr/senimg/raynal_claude14225n_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/suaud_thierry21720r_carre.jpg",
 				"role": "senateur"
 			},
 			{
 				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/poumirol_emilienne17965h.html",
+				"contactUrl": "https://www.senat.fr/senateur/gasto_oustric_magali21722t.html",
 				"departement": "31",
-				"email": "e.poumirol@senat.fr",
+				"email": "m.gasto-oustric@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "SER",
-				"id": "17965h",
-				"nom": "Émilienne Poumirol",
+				"groupe": "RDSE",
+				"id": "21722t",
+				"nom": "Magali Gasto Oustric",
 				"nomDept": "Haute-Garonne",
-				"photo": "https://www.senat.fr/senimg/poumirol_emilienne17965h_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/gasto_oustric_magali21722t_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/pere_marc21724v.html",
+				"departement": "31",
+				"email": "m.pere@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "GEST",
+				"id": "21724v",
+				"nom": "Marc Péré",
+				"nomDept": "Haute-Garonne",
+				"photo": "https://www.senat.fr/senimg/pere_marc21724v_carre.jpg",
 				"role": "senateur"
 			}
 		],
 		"32": [
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/montauge_franck14257w.html",
-				"departement": "32",
-				"email": "f.montauge@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "SER",
-				"id": "14257w",
-				"nom": "Franck Montaugé",
-				"nomDept": "Gers",
-				"photo": "https://www.senat.fr/senimg/montauge_franck14257w_carre.jpg",
-				"role": "senateur"
-			},
 			{
 				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/duffourg_alain20040t.html",
@@ -27515,11 +27391,27 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "20040t",
 				"nom": "Alain Duffourg",
 				"nomDept": "Gers",
 				"photo": "https://www.senat.fr/senimg/duffourg_alain20040t_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/rolando_carole21654y.html",
+				"departement": "32",
+				"email": "c.rolando@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "SER",
+				"id": "21654y",
+				"nom": "Carole Rolando",
+				"nomDept": "Gers",
+				"photo": "https://www.senat.fr/senimg/rolando_carole21654y_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -27542,54 +27434,6 @@
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/cazabonne_alain19721w.html",
-				"departement": "33",
-				"email": "a.cazabonne@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "UC",
-				"id": "19721w",
-				"nom": "Alain Cazabonne",
-				"nomDept": "Gironde",
-				"photo": "https://www.senat.fr/senimg/cazabonne_alain19721w_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/lassarade_florence19723y.html",
-				"departement": "33",
-				"email": "f.lassarade@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Républicains",
-				"id": "19723y",
-				"nom": "Florence Lassarade",
-				"nomDept": "Gironde",
-				"photo": "https://www.senat.fr/senimg/lassarade_florence19723y_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/harribey_laurence19725b.html",
-				"departement": "33",
-				"email": "l.harribey@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "SER",
-				"id": "19725b",
-				"nom": "Laurence Harribey",
-				"nomDept": "Gironde",
-				"photo": "https://www.senat.fr/senimg/harribey_laurence19725b_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/gille_herve19820y.html",
 				"departement": "33",
 				"email": "h.gille@senat.fr",
@@ -27606,54 +27450,70 @@
 			},
 			{
 				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/de_marco_monique20142y.html",
+				"contactUrl": "https://www.senat.fr/senateur/diaz_edwige20390p.html",
 				"departement": "33",
-				"email": "m.de-marco@senat.fr",
+				"email": "e.diaz@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "GEST",
-				"id": "20142y",
-				"nom": "Monique de Marco",
+				"groupe": "UNT",
+				"id": "20390p",
+				"nom": "Edwige Diaz",
 				"nomDept": "Gironde",
-				"photo": "https://www.senat.fr/senimg/de_marco_monique20142y_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/diaz_edwige20390p_carre.jpg",
 				"role": "senateur"
-			}
-		],
-		"34": [
+			},
 			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/cabanel_henri14207l.html",
-				"departement": "34",
-				"email": "h.cabanel@senat.fr",
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/bost_christine21710p.html",
+				"departement": "33",
+				"email": "c.bost@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "RDSE",
-				"id": "14207l",
-				"nom": "Henri Cabanel",
-				"nomDept": "Hérault",
-				"photo": "https://www.senat.fr/senimg/cabanel_henri14207l_carre.jpg",
+				"groupe": "SER",
+				"id": "21710p",
+				"nom": "Christine Bost",
+				"nomDept": "Gironde",
+				"photo": "https://www.senat.fr/senimg/bost_christine21710p_carre.jpg",
 				"role": "senateur"
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/grand_jean_pierre14211g.html",
-				"departement": "34",
-				"email": "jp.grand@senat.fr",
+				"contactUrl": "https://www.senat.fr/senateur/breillat_jacques21712r.html",
+				"departement": "33",
+				"email": "j.breillat@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Indépendants",
-				"id": "14211g",
-				"nom": "Jean-Pierre Grand",
-				"nomDept": "Hérault",
-				"photo": "https://www.senat.fr/senimg/grand_jean_pierre14211g_carre.jpg",
+				"id": "21712r",
+				"nom": "Jacques Breillat",
+				"nomDept": "Gironde",
+				"photo": "https://www.senat.fr/senimg/breillat_jacques21712r_carre.jpg",
 				"role": "senateur"
 			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/amouroux_geraldine21714t.html",
+				"departement": "33",
+				"email": "g.amouroux@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Républicains",
+				"id": "21714t",
+				"nom": "Géraldine Amouroux",
+				"nomDept": "Gironde",
+				"photo": "https://www.senat.fr/senimg/amouroux_geraldine21714t_carre.jpg",
+				"role": "senateur"
+			}
+		],
+		"34": [
 			{
 				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/bourgi_hussein20114u.html",
@@ -27671,39 +27531,55 @@
 				"role": "senateur"
 			},
 			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/bilhac_christian20116w.html",
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/bouquin_manon21223d.html",
 				"departement": "34",
-				"email": "c.bilhac@senat.fr",
+				"email": "m.bouquin@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "RDSE",
-				"id": "20116w",
-				"nom": "Christian Bilhac",
+				"groupe": "UNT",
+				"id": "21223d",
+				"nom": "Manon Bouquin",
 				"nomDept": "Hérault",
-				"photo": "https://www.senat.fr/senimg/bilhac_christian20116w_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/bouquin_manon21223d_carre.jpg",
 				"role": "senateur"
-			}
-		],
-		"35": [
+			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/freche_julie21706t.html",
+				"departement": "34",
+				"email": "j.freche@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "SER",
+				"id": "21706t",
+				"nom": "Julie Frêche",
+				"nomDept": "Hérault",
+				"photo": "https://www.senat.fr/senimg/freche_julie21706t_carre.jpg",
+				"role": "senateur"
+			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/de_legge_dominique08034u.html",
-				"departement": "35",
-				"email": "d.de-legge@senat.fr",
+				"contactUrl": "https://www.senat.fr/senateur/francis_joseph21708v.html",
+				"departement": "34",
+				"email": "j.francis@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "08034u",
-				"nom": "Dominique de Legge",
-				"nomDept": "Ille-et-Vilaine",
-				"photo": "https://www.senat.fr/senimg/de_legge_dominique08034u_carre.jpg",
+				"id": "21708v",
+				"nom": "Joseph Francis",
+				"nomDept": "Hérault",
+				"photo": "https://www.senat.fr/senimg/francis_joseph21708v_carre.jpg",
 				"role": "senateur"
-			},
+			}
+		],
+		"35": [
 			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/robert_sylvie14229s.html",
@@ -27718,6 +27594,20 @@
 				"nom": "Sylvie Robert",
 				"nomDept": "Ille-et-Vilaine",
 				"photo": "https://www.senat.fr/senimg/robert_sylvie14229s_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/gatel_francoise14231l.html",
+				"departement": "35",
+				"email": null,
+				"emailConfidence": "none",
+				"emailSources": [],
+				"groupe": "UCI",
+				"id": "14231l",
+				"nom": "Françoise Gatel",
+				"nomDept": "Ille-et-Vilaine",
+				"photo": "https://www.senat.fr/senimg/gatel_francoise14231l_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -27737,39 +27627,23 @@
 				"role": "senateur"
 			},
 			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/patru_anne_sophie21421h.html",
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/belloir_nicolas21684f.html",
 				"departement": "35",
-				"email": "as.patru@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "UC",
-				"id": "21421h",
-				"nom": "Anne-Sophie Patru",
-				"nomDept": "Ille-et-Vilaine",
-				"photo": "https://www.senat.fr/senimg/patru_anne_sophie21421h_carre.jpg",
-				"role": "senateur"
-			}
-		],
-		"36": [
-			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/gerbaud_frederique14355x.html",
-				"departement": "36",
-				"email": "f.gerbaud@senat.fr",
+				"email": "n.belloir@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "14355x",
-				"nom": "Frédérique Gerbaud",
-				"nomDept": "Indre",
-				"photo": "https://www.senat.fr/senimg/gerbaud_frederique14355x_carre.jpg",
+				"id": "21684f",
+				"nom": "Nicolas Belloir",
+				"nomDept": "Ille-et-Vilaine",
+				"photo": "https://www.senat.fr/senimg/belloir_nicolas21684f_carre.jpg",
 				"role": "senateur"
-			},
+			}
+		],
+		"36": [
 			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/bellurot_nadine20022r.html",
@@ -27784,6 +27658,22 @@
 				"nom": "Nadine Bellurot",
 				"nomDept": "Indre",
 				"photo": "https://www.senat.fr/senimg/bellurot_nadine20022r_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/blanchet_regis21652w.html",
+				"departement": "36",
+				"email": "r.blanchet@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "UCI",
+				"id": "21652w",
+				"nom": "Régis Blanchet",
+				"nomDept": "Indre",
+				"photo": "https://www.senat.fr/senimg/blanchet_regis21652w_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -27836,22 +27726,6 @@
 			}
 		],
 		"38": [
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/savin_michel11043h.html",
-				"departement": "38",
-				"email": "m.savin@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Républicains",
-				"id": "11043h",
-				"nom": "Michel Savin",
-				"nomDept": "Isère",
-				"photo": "https://www.senat.fr/senimg/savin_michel11043h_carre.jpg",
-				"role": "senateur"
-			},
 			{
 				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/gontard_guillaume19347u.html",
@@ -27915,6 +27789,22 @@
 				"nomDept": "Isère",
 				"photo": "https://www.senat.fr/senimg/michallet_damien21080g_carre.jpg",
 				"role": "senateur"
+			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/merle_annick21732v.html",
+				"departement": "38",
+				"email": "a.merle@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Républicains",
+				"id": "21732v",
+				"nom": "Annick Merle",
+				"nomDept": "Isère",
+				"photo": "https://www.senat.fr/senimg/merle_annick21732v_carre.jpg",
+				"role": "senateur"
 			}
 		],
 		"39": [
@@ -27927,7 +27817,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19479g",
 				"nom": "Sylvie Vermeillet",
 				"nomDept": "Jura",
@@ -27995,7 +27885,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Indépendants",
+				"groupe": "UCI",
 				"id": "21052c",
 				"nom": "Jean-Luc Brault",
 				"nomDept": "Loir-et-Cher",
@@ -28011,7 +27901,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "21053d",
 				"nom": "Bernard Pillefer",
 				"nomDept": "Loir-et-Cher",
@@ -28095,7 +27985,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "14267y",
 				"nom": "Olivier Cigolotti",
 				"nomDept": "Haute-Loire",
@@ -28479,7 +28369,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "21064g",
 				"nom": "Anne-Sophie Romagny",
 				"nomDept": "Marne",
@@ -28547,7 +28437,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "14042u",
 				"nom": "Élisabeth Doineau",
 				"nomDept": "Mayenne",
@@ -28647,7 +28537,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19563b",
 				"nom": "Franck Menonville",
 				"nomDept": "Meuse",
@@ -28663,7 +28553,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "21042a",
 				"nom": "Jocelyne Antoine",
 				"nomDept": "Meuse",
@@ -28697,7 +28587,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "21050a",
 				"nom": "Yves Bleunven",
 				"nomDept": "Morbihan",
@@ -28731,7 +28621,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19335q",
 				"nom": "Jean-Marie Mizzon",
 				"nomDept": "Moselle",
@@ -28747,7 +28637,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19685l",
 				"nom": "Christine Herzog",
 				"nomDept": "Moselle",
@@ -28829,7 +28719,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19713w",
 				"nom": "Nadia Sollogoub",
 				"nomDept": "Nièvre",
@@ -28879,7 +28769,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "15197g",
 				"nom": "Franck Dhersin",
 				"nomDept": "Nord",
@@ -28927,7 +28817,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19569h",
 				"nom": "Olivier Henno",
 				"nomDept": "Nord",
@@ -28943,7 +28833,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Indépendants",
+				"groupe": "RDSE",
 				"id": "19585h",
 				"nom": "Dany Wattebled",
 				"nomDept": "Nord",
@@ -28959,7 +28849,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "21083k",
 				"nom": "Guislain Cambier",
 				"nomDept": "Nord",
@@ -28973,7 +28863,7 @@
 				"email": null,
 				"emailConfidence": "none",
 				"emailSources": [],
-				"groupe": "NI",
+				"groupe": "UNT",
 				"id": "21085m",
 				"nom": "Joshua Hochart",
 				"nomDept": "Nord",
@@ -28989,7 +28879,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Indépendants",
+				"groupe": "RDSE",
 				"id": "21087p",
 				"nom": "Marie-Claude Lermytte",
 				"nomDept": "Nord",
@@ -29023,7 +28913,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "11115u",
 				"nom": "Édouard Courtial",
 				"nomDept": "Oise",
@@ -29087,7 +28977,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "07004j",
 				"nom": "Nathalie Goulet",
 				"nomDept": "Orne",
@@ -29101,7 +28991,7 @@
 				"email": null,
 				"emailConfidence": "none",
 				"emailSources": [],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "21043b",
 				"nom": "Olivier Bitz",
 				"nomDept": "Orne",
@@ -29135,7 +29025,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "18045d",
 				"nom": "Brigitte Bourguignon",
 				"nomDept": "Pas-de-Calais",
@@ -29183,7 +29073,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "20286q",
 				"nom": "Amel Gacquerre",
 				"nomDept": "Pas-de-Calais",
@@ -29215,7 +29105,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "NI",
+				"groupe": "UNT",
 				"id": "21069m",
 				"nom": "Christopher Szczurek",
 				"nomDept": "Pas-de-Calais",
@@ -29299,7 +29189,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19619a",
 				"nom": "Denise Saint-Pé",
 				"nomDept": "Pyrénées-Atlantiques",
@@ -29393,22 +29283,6 @@
 		],
 		"67": [
 			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/kern_claude14073q.html",
-				"departement": "67",
-				"email": "c.kern@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "UC",
-				"id": "14073q",
-				"nom": "Claude Kern",
-				"nomDept": "Bas-Rhin",
-				"photo": "https://www.senat.fr/senimg/kern_claude14073q_carre.jpg",
-				"role": "senateur"
-			},
-			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/muller_bronn_laurence20096l.html",
 				"departement": "67",
@@ -29442,22 +29316,6 @@
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/fernique_jacques20100n.html",
-				"departement": "67",
-				"email": "j.fernique@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "GEST",
-				"id": "20100n",
-				"nom": "Jacques Fernique",
-				"nomDept": "Bas-Rhin",
-				"photo": "https://www.senat.fr/senimg/fernique_jacques20100n_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/sene_marc21510h.html",
 				"departement": "67",
 				"email": "m.sene@senat.fr",
@@ -29471,25 +29329,41 @@
 				"nomDept": "Bas-Rhin",
 				"photo": "https://www.senat.fr/senimg/sene_marc21510h_carre.jpg",
 				"role": "senateur"
-			}
-		],
-		"68": [
+			},
 			{
 				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/schillinger_patricia04045f.html",
-				"departement": "68",
-				"email": "p.schillinger@senat.fr",
+				"contactUrl": "https://www.senat.fr/senateur/richardot_pernelle21678h.html",
+				"departement": "67",
+				"email": "p.richardot@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "RDPI",
-				"id": "04045f",
-				"nom": "Patricia Schillinger",
-				"nomDept": "Haut-Rhin",
-				"photo": "https://www.senat.fr/senimg/schillinger_patricia04045f_carre.jpg",
+				"groupe": "SER",
+				"id": "21678h",
+				"nom": "Pernelle Richardot",
+				"nomDept": "Bas-Rhin",
+				"photo": "https://www.senat.fr/senimg/richardot_pernelle21678h_carre.jpg",
 				"role": "senateur"
 			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/dollinger_isabelle21680b.html",
+				"departement": "67",
+				"email": "i.dollinger@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "UCI",
+				"id": "21680b",
+				"nom": "Isabelle Dollinger",
+				"nomDept": "Bas-Rhin",
+				"photo": "https://www.senat.fr/senimg/dollinger_isabelle21680b_carre.jpg",
+				"role": "senateur"
+			}
+		],
+		"68": [
 			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/drexler_sabine20124w.html",
@@ -29531,11 +29405,27 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "20128b",
 				"nom": "Ludovic Haye",
 				"nomDept": "Haut-Rhin",
 				"photo": "https://www.senat.fr/senimg/haye_ludovic20128b_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/huin_benjamin21662y.html",
+				"departement": "68",
+				"email": "b.huin@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "RDPI",
+				"id": "21662y",
+				"nom": "Benjamin Huin",
+				"nomDept": "Haut-Rhin",
+				"photo": "https://www.senat.fr/senimg/huin_benjamin21662y_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -29558,48 +29448,18 @@
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/blanc_etienne17367q.html",
+				"contactUrl": "https://www.senat.fr/senateur/guilloteau_christophe17331c.html",
 				"departement": "69",
-				"email": "e.blanc@senat.fr",
+				"email": "c.guilloteau@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "17367q",
-				"nom": "Étienne Blanc",
+				"id": "17331c",
+				"nom": "Christophe Guilloteau",
 				"nomDept": "Rhône",
-				"photo": "https://www.senat.fr/senimg/blanc_etienne17367q_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/devinaz_gilbert_luc19251m.html",
-				"departement": "69",
-				"email": null,
-				"emailConfidence": "none",
-				"emailSources": [],
-				"groupe": "RDSE",
-				"id": "19251m",
-				"nom": "Gilbert-Luc Devinaz",
-				"nomDept": "Rhône",
-				"photo": "https://www.senat.fr/senimg/devinaz_gilbert_luc19251m_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/poncet_monge_raymonde20130u.html",
-				"departement": "69",
-				"email": "r.poncet@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "GEST",
-				"id": "20130u",
-				"nom": "Raymonde Poncet Monge",
-				"nomDept": "Rhône",
-				"photo": "https://www.senat.fr/senimg/poncet_monge_raymonde20130u_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/guilloteau_christophe17331c_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -29636,18 +29496,50 @@
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/vidal_paul21416l.html",
+				"contactUrl": "https://www.senat.fr/senateur/amard_gabriel20684b.html",
 				"departement": "69",
-				"email": "p.vidal@senat.fr",
+				"email": "g.amard@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "NI",
+				"id": "20684b",
+				"nom": "Gabriel Amard",
+				"nomDept": "Rhône",
+				"photo": "https://www.senat.fr/senimg/amard_gabriel20684b_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/michel_sebastien21726x.html",
+				"departement": "69",
+				"email": "s.michel@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "21416l",
-				"nom": "Paul Vidal",
+				"id": "21726x",
+				"nom": "Sébastien Michel",
 				"nomDept": "Rhône",
-				"photo": "https://www.senat.fr/senimg/vidal_paul21416l_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/michel_sebastien21726x_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/berard_serge21728a.html",
+				"departement": "69",
+				"email": "s.berard@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Républicains",
+				"id": "21728a",
+				"nom": "Serge Berard",
+				"nomDept": "Rhône",
+				"photo": "https://www.senat.fr/senimg/berard_serge21728a_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -29670,18 +29562,18 @@
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/joyandet_alain95041e.html",
+				"contactUrl": "https://www.senat.fr/senateur/doussot_dimitri21644w.html",
 				"departement": "70",
-				"email": "a.joyandet@senat.fr",
+				"email": "d.doussot@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "95041e",
-				"nom": "Alain Joyandet",
+				"id": "21644w",
+				"nom": "Dimitri Doussot",
 				"nomDept": "Haute-Saône",
-				"photo": "https://www.senat.fr/senimg/joyandet_alain95041e_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/doussot_dimitri21644w_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -29738,22 +29630,6 @@
 		"72": [
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/de_nicolay_louis_jean14169x.html",
-				"departement": "72",
-				"email": "lj.de-nicolay@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Républicains",
-				"id": "14169x",
-				"nom": "Louis-Jean de Nicolaÿ",
-				"nomDept": "Sarthe",
-				"photo": "https://www.senat.fr/senimg/de_nicolay_louis_jean14169x_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/vogel_jean_pierre14173t.html",
 				"departement": "72",
 				"email": "jp.vogel@senat.fr",
@@ -29766,6 +29642,22 @@
 				"nom": "Jean Pierre Vogel",
 				"nomDept": "Sarthe",
 				"photo": "https://www.senat.fr/senimg/vogel_jean_pierre14173t_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/le_mener_dominique17305a.html",
+				"departement": "72",
+				"email": "d.le-mener@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Républicains",
+				"id": "17305a",
+				"nom": "Dominique Le Mèner",
+				"nomDept": "Sarthe",
+				"photo": "https://www.senat.fr/senimg/le_mener_dominique17305a_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -29829,7 +29721,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "14179a",
 				"nom": "Loïc Hervé",
 				"nomDept": "Haute-Savoie",
@@ -29845,7 +29737,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Indépendants",
+				"groupe": "UCI",
 				"id": "14237s",
 				"nom": "Cyril Pellevat",
 				"nomDept": "Haute-Savoie",
@@ -29925,7 +29817,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "SER",
+				"groupe": "GEST",
 				"id": "19683j",
 				"nom": "Bernard Jomier",
 				"nomDept": "Paris",
@@ -30065,27 +29957,11 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "04070g",
 				"nom": "Catherine Morin-Desailly",
 				"nomDept": "Seine-Maritime",
 				"photo": "https://www.senat.fr/senimg/morin_desailly_catherine04070g_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/marie_didier14001x.html",
-				"departement": "76",
-				"email": "d.marie@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "SER",
-				"id": "14001x",
-				"nom": "Didier Marie",
-				"nomDept": "Seine-Maritime",
-				"photo": "https://www.senat.fr/senimg/marie_didier14001x_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -30129,7 +30005,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19826f",
 				"nom": "Pascal Martin",
 				"nomDept": "Seine-Maritime",
@@ -30138,18 +30014,34 @@
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/chauvet_patrick20144b.html",
+				"contactUrl": "https://www.senat.fr/senateur/coriton_bastien19916g.html",
 				"departement": "76",
-				"email": "p.chauvet@senat.fr",
+				"email": "b.coriton@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
-				"id": "20144b",
-				"nom": "Patrick Chauvet",
+				"groupe": "SER",
+				"id": "19916g",
+				"nom": "Bastien Coriton",
 				"nomDept": "Seine-Maritime",
-				"photo": "https://www.senat.fr/senimg/chauvet_patrick20144b_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/coriton_bastien19916g_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/levasseur_leon21692f.html",
+				"departement": "76",
+				"email": "l.levasseur@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "UNT",
+				"id": "21692f",
+				"nom": "Léon Levasseur",
+				"nomDept": "Seine-Maritime",
+				"photo": "https://www.senat.fr/senimg/levasseur_leon21692f_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -30209,7 +30101,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "NI",
+				"groupe": "UNT",
 				"id": "21074j",
 				"nom": "Aymeric Durox",
 				"nomDept": "Seine-et-Marne",
@@ -30241,7 +30133,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Indépendants",
+				"groupe": "UCI",
 				"id": "21076l",
 				"nom": "Louis Vogel",
 				"nomDept": "Seine-et-Marne",
@@ -30291,7 +30183,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19699s",
 				"nom": "Michel Laugier",
 				"nomDept": "Yvelines",
@@ -30365,19 +30257,19 @@
 				"role": "senateur"
 			},
 			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/favreau_gilbert20038a.html",
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/missioux_marie_pierre21656b.html",
 				"departement": "79",
-				"email": "g.favreau@senat.fr",
+				"email": "mp.missioux@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "20038a",
-				"nom": "Gilbert Favreau",
+				"id": "21656b",
+				"nom": "Marie-Pierre Missioux",
 				"nomDept": "Deux-Sèvres",
-				"photo": "https://www.senat.fr/senimg/favreau_gilbert20038a_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/missioux_marie_pierre21656b_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -30391,7 +30283,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "17229f",
 				"nom": "Stéphane Demilly",
 				"nomDept": "Somme",
@@ -30441,7 +30333,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "17023s",
 				"nom": "Philippe Folliot",
 				"nomDept": "Tarn",
@@ -30457,7 +30349,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "21415k",
 				"nom": "Marie-Lise Housseau",
 				"nomDept": "Tarn",
@@ -30491,7 +30383,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "20052x",
 				"nom": "Pierre-Antoine Levi",
 				"nomDept": "Tarn-et-Garonne",
@@ -30500,22 +30392,6 @@
 			}
 		],
 		"83": [
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/guiol_andre20072c.html",
-				"departement": "83",
-				"email": "a.guiol@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "RDSE",
-				"id": "20072c",
-				"nom": "André Guiol",
-				"nomDept": "Var",
-				"photo": "https://www.senat.fr/senimg/guiol_andre20072c_carre.jpg",
-				"role": "senateur"
-			},
 			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/dumont_francoise20074e.html",
@@ -30534,75 +30410,59 @@
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/bacci_jean20076g.html",
+				"contactUrl": "https://www.senat.fr/senateur/giletti_frank20874f.html",
 				"departement": "83",
-				"email": "j.bacci@senat.fr",
+				"email": "f.giletti@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Républicains",
-				"id": "20076g",
-				"nom": "Jean Bacci",
+				"groupe": "UNT",
+				"id": "20874f",
+				"nom": "Frank Giletti",
 				"nomDept": "Var",
-				"photo": "https://www.senat.fr/senimg/bacci_jean20076g_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/giletti_frank20874f_carre.jpg",
 				"role": "senateur"
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/bonnus_michel20078j.html",
+				"contactUrl": "https://www.senat.fr/senateur/simon_christian21696k.html",
 				"departement": "83",
-				"email": "m.bonnus@senat.fr",
+				"email": "c.simon@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "20078j",
-				"nom": "Michel Bonnus",
+				"id": "21696k",
+				"nom": "Christian Simon",
 				"nomDept": "Var",
-				"photo": "https://www.senat.fr/senimg/bonnus_michel20078j_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/simon_christian21696k_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/leroy_carine21698m.html",
+				"departement": "83",
+				"email": "c.leroy@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "UNT",
+				"id": "21698m",
+				"nom": "Carine Leroy",
+				"nomDept": "Var",
+				"photo": "https://www.senat.fr/senimg/leroy_carine21698m_carre.jpg",
 				"role": "senateur"
 			}
 		],
 		"84": [
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/milon_alain04092n.html",
-				"departement": "84",
-				"email": "a.milon@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Républicains",
-				"id": "04092n",
-				"nom": "Alain Milon",
-				"nomDept": "Vaucluse",
-				"photo": "https://www.senat.fr/senimg/milon_alain04092n_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/stanzione_lucien20084g.html",
-				"departement": "84",
-				"email": "l.stanzione@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "SER",
-				"id": "20084g",
-				"nom": "Lucien Stanzione",
-				"nomDept": "Vaucluse",
-				"photo": "https://www.senat.fr/senimg/stanzione_lucien20084g_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/blanc_jean_baptiste20086j.html",
 				"departement": "84",
-				"email": "senateurjbblanc@gmail.com",
+				"email": "jb.blanc@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
@@ -30612,6 +30472,38 @@
 				"nom": "Jean-Baptiste Blanc",
 				"nomDept": "Vaucluse",
 				"photo": "https://www.senat.fr/senimg/blanc_jean_baptiste20086j_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/santoni_dominique21702p.html",
+				"departement": "84",
+				"email": "d.santoni@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Républicains",
+				"id": "21702p",
+				"nom": "Dominique Santoni",
+				"nomDept": "Vaucluse",
+				"photo": "https://www.senat.fr/senimg/santoni_dominique21702p_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/d_aigremont_thierry21704r.html",
+				"departement": "84",
+				"email": "t.d-aigremont@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "UNT",
+				"id": "21704r",
+				"nom": "Thierry d'Aigremont",
+				"nomDept": "Vaucluse",
+				"photo": "https://www.senat.fr/senimg/d_aigremont_thierry21704r_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -30641,7 +30533,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "14030q",
 				"nom": "Annick Billon",
 				"nomDept": "Vendée",
@@ -30650,18 +30542,18 @@
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/mandelli_didier14031r.html",
+				"contactUrl": "https://www.senat.fr/senateur/de_rugy_maxence21676f.html",
 				"departement": "85",
-				"email": "d.mandelli@senat.fr",
+				"email": "m.de-rugy@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "14031r",
-				"nom": "Didier Mandelli",
+				"id": "21676f",
+				"nom": "Maxence de Rugy",
 				"nomDept": "Vendée",
-				"photo": "https://www.senat.fr/senimg/mandelli_didier14031r_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/de_rugy_maxence21676f_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -30759,7 +30651,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "20048c",
 				"nom": "Jean Hingray",
 				"nomDept": "Vosges",
@@ -30793,7 +30685,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19749k",
 				"nom": "Dominique Vérien",
 				"nomDept": "Yonne",
@@ -30829,7 +30721,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "11070l",
 				"nom": "Vincent Delahaye",
 				"nomDept": "Essonne",
@@ -30861,7 +30753,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19691j",
 				"nom": "Jocelyne Guidez",
 				"nomDept": "Essonne",
@@ -30911,7 +30803,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "11085t",
 				"nom": "Hervé Marseille",
 				"nomDept": "Hauts-de-Seine",
@@ -30927,7 +30819,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19111a",
 				"nom": "Isabelle Florennes",
 				"nomDept": "Hauts-de-Seine",
@@ -31025,7 +30917,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "11053k",
 				"nom": "Vincent Capo-Canellas",
 				"nomDept": "Seine-Saint-Denis",
@@ -31149,7 +31041,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "19611r",
 				"nom": "Laurent Lafon",
 				"nomDept": "Val-de-Marne",
@@ -31279,7 +31171,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "21086n",
 				"nom": "Daniel Fargeot",
 				"nomDept": "Val-d'Oise",
@@ -31313,7 +31205,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "RDPI",
+				"groupe": "RDSE",
 				"id": "19301e",
 				"nom": "Dominique Théophile",
 				"nomDept": "Guadeloupe",
@@ -31372,34 +31264,34 @@
 		"973": [
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/patient_georges08073c.html",
+				"contactUrl": "https://www.senat.fr/senateur/alexandre_rodolphe21686h.html",
 				"departement": "973",
-				"email": "g.patient@senat.fr",
+				"email": "r.alexandre@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "RDPI",
-				"id": "08073c",
-				"nom": "Georges Patient",
+				"id": "21686h",
+				"nom": "Rodolphe Alexandre",
 				"nomDept": "Guyane",
-				"photo": "https://www.senat.fr/senimg/patient_georges08073c_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/alexandre_rodolphe21686h_carre.jpg",
 				"role": "senateur"
 			},
 			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/phinera_horth_marie_laure20146d.html",
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/persaud_ryan21730t.html",
 				"departement": "973",
-				"email": "ml.phinera-horth@senat.fr",
+				"email": "r.persaud@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "RDPI",
-				"id": "20146d",
-				"nom": "Marie-Laure Phinera-Horth",
+				"id": "21730t",
+				"nom": "Ryan Persaud",
 				"nomDept": "Guyane",
-				"photo": "https://www.senat.fr/senimg/phinera_horth_marie_laure20146d_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/persaud_ryan21730t_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -31541,37 +31433,37 @@
 		],
 		"978": [
 			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/petrus_annick20148f.html",
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/gibbs_daniel18153g.html",
 				"departement": "978",
-				"email": "a.petrus@senat.fr",
+				"email": "d.gibbs@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "Les Républicains",
-				"id": "20148f",
-				"nom": "Annick Petrus",
+				"id": "18153g",
+				"nom": "Daniel Gibbs",
 				"nomDept": "Saint-Martin",
-				"photo": "https://www.senat.fr/senimg/petrus_annick20148f_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/gibbs_daniel18153g_carre.jpg",
 				"role": "senateur"
 			}
 		],
 		"986": [
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/kulimoetoke_mikaele20016t.html",
+				"contactUrl": "https://www.senat.fr/senateur/tukumuli_lafaele21638y.html",
 				"departement": "986",
-				"email": "m.kulimoetoke@senat.fr",
+				"email": "l.tukumuli@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
 				"groupe": "RDPI",
-				"id": "20016t",
-				"nom": "Mikaele Kulimoetoke",
+				"id": "21638y",
+				"nom": "Lafaele Tukumuli",
 				"nomDept": "Iles Wallis et Futuna",
-				"photo": "https://www.senat.fr/senimg/kulimoetoke_mikaele20016t_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/tukumuli_lafaele21638y_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -31585,7 +31477,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "14275y",
 				"nom": "Lana Tetuanui",
 				"nomDept": "Polynésie française",
@@ -31594,18 +31486,18 @@
 			},
 			{
 				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/rohfritsch_teva20150y.html",
+				"contactUrl": "https://www.senat.fr/senateur/fritch_edouard15689x.html",
 				"departement": "987",
-				"email": "t.rohfritsch@senat.fr",
+				"email": "e.fritch@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "RDPI",
-				"id": "20150y",
-				"nom": "Teva Rohfritsch",
+				"groupe": "Les Républicains",
+				"id": "15689x",
+				"nom": "Édouard Fritch",
 				"nomDept": "Polynésie française",
-				"photo": "https://www.senat.fr/senimg/rohfritsch_teva20150y_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/fritch_edouard15689x_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -31619,7 +31511,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Républicains",
+				"groupe": "UCI",
 				"id": "21029d",
 				"nom": "Georges Naturel",
 				"nomDept": "Nouvelle-Calédonie",
@@ -31645,22 +31537,6 @@
 		],
 		"": [
 			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/frassa_christophe_andre08018u.html",
-				"departement": "",
-				"email": "c.frassa@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Républicains",
-				"id": "08018u",
-				"nom": "Christophe-André Frassa",
-				"nomDept": "Français établis hors de France",
-				"photo": "https://www.senat.fr/senimg/frassa_christophe_andre08018u_carre.jpg",
-				"role": "senateur"
-			},
-			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/conway_mouret_helene11027h.html",
 				"departement": "",
@@ -31685,27 +31561,11 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "14255u",
 				"nom": "Olivier Cadic",
 				"nomDept": "Français établis hors de France",
 				"photo": "https://www.senat.fr/senimg/cadic_olivier14255u_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/cazebonne_samantha19057m.html",
-				"departement": "",
-				"email": "s.cazebonne@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "RDPI",
-				"id": "19057m",
-				"nom": "Samantha Cazebonne",
-				"nomDept": "Français établis hors de France",
-				"photo": "https://www.senat.fr/senimg/cazebonne_samantha19057m_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -31813,7 +31673,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "21038e",
 				"nom": "Olivia Richard",
 				"nomDept": "Français établis hors de France",
@@ -31835,6 +31695,38 @@
 				"nomDept": "Français établis hors de France",
 				"photo": "https://www.senat.fr/senimg/briante_guillemont_sophie21404g_carre.jpg",
 				"role": "senateur"
+			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/rousselot_marie_ange21436q.html",
+				"departement": "",
+				"email": "ma.rousselot@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "RDPI",
+				"id": "21436q",
+				"nom": "Marie-Ange Rousselot",
+				"nomDept": "Français établis hors de France",
+				"photo": "https://www.senat.fr/senimg/rousselot_marie_ange21436q_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/dupont_bertrand21672b.html",
+				"departement": "",
+				"email": "b.dupont@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Républicains",
+				"id": "21672b",
+				"nom": "Bertrand Dupont",
+				"nomDept": "Français établis hors de France",
+				"photo": "https://www.senat.fr/senimg/dupont_bertrand21672b_carre.jpg",
+				"role": "senateur"
 			}
 		],
 		"01": [
@@ -31847,27 +31739,11 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Républicains",
+				"groupe": "UNT",
 				"id": "08056b",
 				"nom": "Sylvie Goy-Chavent",
 				"nomDept": "Ain",
 				"photo": "https://www.senat.fr/senimg/goy_chavent_sylvie08056b_carre.jpg",
-				"role": "senateur"
-			},
-			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/chaize_patrick14038y.html",
-				"departement": "01",
-				"email": "p.chaize@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Républicains",
-				"id": "14038y",
-				"nom": "Patrick Chaize",
-				"nomDept": "Ain",
-				"photo": "https://www.senat.fr/senimg/chaize_patrick14038y_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -31884,6 +31760,22 @@
 				"nom": "Florence Blatrix Contat",
 				"nomDept": "Ain",
 				"photo": "https://www.senat.fr/senimg/blatrix_contat_florence20094j_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/baude_veronique21674d.html",
+				"departement": "01",
+				"email": "v.baude@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "Les Républicains",
+				"id": "21674d",
+				"nom": "Véronique Baude",
+				"nomDept": "Ain",
+				"photo": "https://www.senat.fr/senimg/baude_veronique21674d_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -31905,35 +31797,35 @@
 				"role": "senateur"
 			},
 			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/gruny_pascale14026u.html",
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/fricoteaux_nicolas21664b.html",
 				"departement": "02",
-				"email": "p.gruny@senat.fr",
+				"email": "n.fricoteaux@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Républicains",
-				"id": "14026u",
-				"nom": "Pascale Gruny",
+				"groupe": "RDPI",
+				"id": "21664b",
+				"nom": "Nicolas Fricoteaux",
 				"nomDept": "Aisne",
-				"photo": "https://www.senat.fr/senimg/gruny_pascale14026u_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/fricoteaux_nicolas21664b_carre.jpg",
 				"role": "senateur"
 			},
 			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/camerac_anne21630q.html",
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/mougenot_paul21666d.html",
 				"departement": "02",
-				"email": "a.camerac@senat.fr",
+				"email": "p.mougenot@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Indépendants",
-				"id": "21630q",
-				"nom": "Anne Camerac",
+				"groupe": "NI",
+				"id": "21666d",
+				"nom": "Paul Mougenot",
 				"nomDept": "Aisne",
-				"photo": "https://www.senat.fr/senimg/camerac_anne21630q_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/mougenot_paul21666d_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -31999,7 +31891,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "14189c",
 				"nom": "Jean-Michel Arnaud",
 				"nomDept": "Hautes-Alpes",
@@ -32025,22 +31917,6 @@
 				"role": "senateur"
 			},
 			{
-				"civ": "M",
-				"contactUrl": "https://www.senat.fr/senateur/leroy_henri19729f.html",
-				"departement": "06",
-				"email": "h.leroy@senat.fr",
-				"emailConfidence": "high",
-				"emailSources": [
-					"senat"
-				],
-				"groupe": "Les Républicains",
-				"id": "19729f",
-				"nom": "Henri Leroy",
-				"nomDept": "Alpes-Maritimes",
-				"photo": "https://www.senat.fr/senimg/leroy_henri19729f_carre.jpg",
-				"role": "senateur"
-			},
-			{
 				"civ": "Mme",
 				"contactUrl": "https://www.senat.fr/senateur/borchio_fontimp_alexandra20138d.html",
 				"departement": "06",
@@ -32057,35 +31933,49 @@
 				"role": "senateur"
 			},
 			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/demas_patricia20140w.html",
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/delia_jean_marc21470s.html",
 				"departement": "06",
-				"email": "p.demas@senat.fr",
+				"email": null,
+				"emailConfidence": "none",
+				"emailSources": [],
+				"groupe": "Les Républicains",
+				"id": "21470s",
+				"nom": "Jean-Marc Delia",
+				"nomDept": "Alpes-Maritimes",
+				"photo": "https://www.senat.fr/senimg/delia_jean_marc21470s_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "M",
+				"contactUrl": "https://www.senat.fr/senateur/castillo_laurent21716v.html",
+				"departement": "06",
+				"email": "l.castillo@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Républicains",
-				"id": "20140w",
-				"nom": "Patricia Demas",
+				"groupe": "UNT",
+				"id": "21716v",
+				"nom": "Laurent Castillo",
 				"nomDept": "Alpes-Maritimes",
-				"photo": "https://www.senat.fr/senimg/demas_patricia20140w_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/castillo_laurent21716v_carre.jpg",
 				"role": "senateur"
 			},
 			{
 				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/paire_sandra21592c.html",
+				"contactUrl": "https://www.senat.fr/senateur/frontoni_gaelle21718x.html",
 				"departement": "06",
-				"email": "s.paire@senat.fr",
+				"email": "g.frontoni@senat.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Républicains",
-				"id": "21592c",
-				"nom": "Sandra Paire",
+				"groupe": "UNT",
+				"id": "21718x",
+				"nom": "Gaëlle Frontoni",
 				"nomDept": "Alpes-Maritimes",
-				"photo": "https://www.senat.fr/senimg/paire_sandra21592c_carre.jpg",
+				"photo": "https://www.senat.fr/senimg/frontoni_gaelle21718x_carre.jpg",
 				"role": "senateur"
 			}
 		],
@@ -32167,7 +32057,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "SER",
+				"groupe": "RDSE",
 				"id": "20018v",
 				"nom": "Jean-Jacques Michau",
 				"nomDept": "Ariège",
@@ -32203,7 +32093,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "UC",
+				"groupe": "UCI",
 				"id": "20036x",
 				"nom": "Paul Toussaint Parigi",
 				"nomDept": "Haute-Corse",
