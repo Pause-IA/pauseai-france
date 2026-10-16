@@ -43,7 +43,8 @@ jobs:
 
       - name: Vérifier qu'il est à jour
         run: |
-          if git diff --quiet -- docs/plan-du-site.md src/lib/data/plan-du-site.json; then
+          # La ligne « Dernière génération : <date> » change chaque jour : ignorée.
+          if git diff --quiet -I 'Dernière génération' -I '"genere"' -- docs/plan-du-site.md src/lib/data/plan-du-site.json; then
             echo "✓ Plan du site à jour."
             exit 0
           fi
