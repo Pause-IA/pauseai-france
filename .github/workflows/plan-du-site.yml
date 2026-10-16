@@ -1,18 +1,16 @@
 name: Plan du site
 
-# Régénère docs/plan-du-site.md et le commite si l'arborescence a bougé.
+# Vérifie que docs/plan-du-site.md et src/lib/data/plan-du-site.json sont à
+# jour. Ils sont régénérés par le hook pre-commit (.husky/pre-commit) : ce
+# contrôle ne rattrape que les commits faits sans le hook (édition depuis
+# l'interface GitHub, --no-verify).
 #
-# Pourquoi un workflow et non le build Netlify : Netlify construit le site mais
-# ne peut rien réécrire dans le dépôt. Le document doit vivre dans le code pour
-# être lisible et commentable sur GitHub, donc c'est une action qui le met à
-# jour, au même moment que le déploiement (à chaque push sur main).
-#
-# Pas de boucle sans fin : un push fait avec GITHUB_TOKEN ne déclenche pas de
-# nouveau workflow. Le filtre `paths` évite en plus de tourner pour rien.
+# Pas de commit automatique : main est protégée (PR obligatoire), un push du
+# workflow y est refusé. En cas d'échec : `pnpm run plan-du-site`, puis
+# commiter les deux fichiers.
 
 on:
-  push:
-    branches: [main]
+  pull_request:
     paths:
       - 'src/routes/**'
       - 'src/posts/**'
@@ -20,10 +18,12 @@ on:
       - 'src/lib/components/Footer.svelte'
       - 'src/lib/i18n/**'
       - 'scripts/plan-du-site.mjs'
+      - 'docs/plan-du-site.md'
+      - 'src/lib/data/plan-du-site.json'
   workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   plan-du-site:
@@ -35,25 +35,18 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version-file: '.nvmrc'
-          # Même raison que les autres workflows : le cache automatique de la v5
-          # cherche pnpm avant que Corepack ne l'installe.
           package-manager-cache: false
 
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: pnpm install
-
+      # Le script n'utilise que les modules intégrés de Node : pas d'install.
       - name: Régénérer le plan du site
-        run: pnpm run plan-du-site
+        run: node scripts/plan-du-site.mjs
 
-      - name: Commiter si le plan a changé
+      - name: Vérifier qu'il est à jour
         run: |
-          if git diff --quiet -- docs/plan-du-site.md; then
-            echo "✓ Plan du site inchangé."
+          if git diff --quiet -- docs/plan-du-site.md src/lib/data/plan-du-site.json; then
+            echo "✓ Plan du site à jour."
             exit 0
           fi
-          git -c user.name="Pause IA Bot" -c user.email="bot@pauseia.fr" \
-            commit -m "chore: mise a jour du plan du site" -- docs/plan-du-site.md
-          git push
+          git diff --stat -- docs/plan-du-site.md src/lib/data/plan-du-site.json
+          echo "::error::Plan du site pas à jour : lancer \`pnpm run plan-du-site\` et commiter docs/plan-du-site.md et src/lib/data/plan-du-site.json."
+          exit 1

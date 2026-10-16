@@ -5,17 +5,17 @@
 > du menu principal, du pied de page et des articles du dépôt, donc il ne
 > peut pas diverger du site.
 >
-> Dernière génération : 2026-10-09.
+> Dernière génération : 2026-10-16.
 
 Ce document décrit le site **réel**. Le plan _souhaité_ est une décision
 d'équipe et se tient ailleurs.
 
 ## En un coup d’œil
 
-- **34 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
+- **35 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
 - **6 gabarits dynamiques** (articles, campagnes, dangers…)
 - **33 articles** en Markdown dans `src/posts`
-- **18 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
+- **19 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
 
 ## Arborescence depuis le menu principal
 
@@ -86,8 +86,10 @@ flowchart LR
   class n34 orpheline
   orph -.-> n35["/sommet-ia-2026"]
   class n35 orpheline
-  orph -.-> n36["/une-ia-sest-echappee"]
+  orph -.-> n36["/tribunes/le-monde-octobre-2026"]
   class n36 orpheline
+  orph -.-> n37["/une-ia-sest-echappee"]
+  class n37 orpheline
   classDef externe stroke-dasharray: 4 3
   classDef orpheline fill:#fff5e8,stroke:#ff9416
 ```
@@ -202,6 +204,7 @@ campagne, confirmations, remerciements.
 - `/posts`
 - `/recrutement`
 - `/sommet-ia-2026`
+- `/tribunes/le-monde-octobre-2026`
 - `/une-ia-sest-echappee`
 
 ## Gabarits dynamiques

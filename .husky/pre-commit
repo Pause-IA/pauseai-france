@@ -1,2 +1,5 @@
 pnpm lint-staged
 bash translation-info.sh && git add TRANSLATIONS.md
+# Plan du site : régénéré à chaque commit (1 s, sans dépendance). main est
+# protégée, un workflow ne peut pas le commiter après coup.
+node scripts/plan-du-site.mjs && git add docs/plan-du-site.md src/lib/data/plan-du-site.json

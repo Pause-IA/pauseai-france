@@ -1,5 +1,5 @@
 {
-	"genere": "2026-10-09",
+	"genere": "2026-10-16",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -319,6 +319,10 @@
 			"url": "/fr/sommet-ia-2026"
 		},
 		{
+			"chemin": "/tribunes/le-monde-octobre-2026",
+			"url": "/fr/tribunes/le-monde-octobre-2026"
+		},
+		{
 			"chemin": "/une-ia-sest-echappee",
 			"url": "/fr/une-ia-sest-echappee"
 		}
@@ -466,7 +470,7 @@
 		}
 	],
 	"total": {
-		"pages": 34,
+		"pages": 35,
 		"dynamiques": 6,
 		"articles": 33
 	}
