@@ -1,0 +1,50 @@
+[
+	{
+		"id": "jan-leike",
+		"nom": "Jan Leike",
+		"labo": "OpenAI",
+		"poste": "Co-responsable de l’équipe Superalignment",
+		"date": "2024-05",
+		"citation": "Ces dernières années, la culture et les processus de sécurité sont passés au second plan, derrière des produits rutilants.",
+		"citation_originale": "Over the past years, safety culture and processes have taken a backseat to shiny products.",
+		"contexte": "Annonce son départ sur X le 17 mai 2024, quelques jours après celui d’Ilya Sutskever. L’équipe chargée de la sécurité des futurs systèmes très puissants est dissoute peu après. Il rejoint ensuite Anthropic.",
+		"source": {
+			"titre": "Fortune, 17 mai 2024",
+			"url": "https://fortune.com/2024/05/17/openai-researcher-resigns-safety/"
+		},
+		"photo": null,
+		"statut": "valide"
+	},
+	{
+		"id": "geoffrey-hinton",
+		"nom": "Geoffrey Hinton",
+		"labo": "Google",
+		"poste": "Vice-président et chercheur émérite",
+		"date": "2023-05",
+		"citation": "Je suis parti pour pouvoir parler des dangers de l’IA sans avoir à me soucier des conséquences pour Google.",
+		"citation_originale": "I left so that I could talk about the dangers of AI without considering how this impacts Google.",
+		"contexte": "Pionnier de l’apprentissage profond, prix Turing 2018 puis prix Nobel de physique 2024. Quitte Google après dix ans pour alerter librement sur les risques de l’IA, dont la perte de contrôle.",
+		"source": {
+			"titre": "CBS News, mai 2023",
+			"url": "https://www.cbsnews.com/amp/news/artificial-intelligence-geoffrey-hinton-leaves-google-dangers-of-ai"
+		},
+		"photo": null,
+		"statut": "valide"
+	},
+	{
+		"id": "daniel-kokotajlo",
+		"nom": "Daniel Kokotajlo",
+		"labo": "OpenAI",
+		"poste": "Chercheur en gouvernance de l’IA",
+		"date": "2024-04",
+		"citation": "J’ai perdu confiance dans le fait qu’OpenAI se comporterait de manière responsable à l’approche de l’AGI.",
+		"citation_originale": "[I] lost confidence that it would behave responsibly around the time of AGI.",
+		"contexte": "Quitte OpenAI en refusant de signer une clause de non-dénigrement, au risque de perdre ses parts dans l’entreprise. Il cofonde ensuite l’AI Futures Project, auteur du scénario « AI 2027 ».",
+		"source": {
+			"titre": "Futurism (repris par Yahoo), mai 2024",
+			"url": "https://au.news.yahoo.com/openai-safety-worker-quit-due-175257906.html"
+		},
+		"photo": null,
+		"statut": "valide"
+	}
+]

@@ -54,6 +54,8 @@ const config = {
 							// de page, donc invisible au robot d'exploration du prérendu.
 							'/fr/plan-du-site',
 							'/en/plan-du-site',
+							// Démissions de chercheurs : pas encore dans le menu (choix de l'équipe com).
+							'/fr/demissions',
 							// Signataires des tribunes : jamais liées depuis le site.
 							'/fr/tribunes/le-monde-octobre-2026',
 							'/en/tribunes/le-monde-octobre-2026',
