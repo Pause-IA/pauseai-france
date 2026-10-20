@@ -65,7 +65,7 @@ export const signataires: Signataire[] = [
 		qualite: 'philosophe, essayiste et enseignant à l’IÉSEG School of Management'
 	},
 	{
-		nom: 'Elie Goudout',
+		nom: 'Élie Goudout',
 		qualite: 'normalien et ancien chercheur en IA de confiance chez Thales'
 	},
 	{
