@@ -14,6 +14,7 @@ export default {
 		declaration: 'Signer la déclaration',
 		blog: 'Blog',
 		fresque: 'La fresque des risques de l’IA',
+		faits: 'Les faits',
 		comment_agir: 'Comment agir ?',
 		groupes_locaux: 'Groupes locaux',
 		toutes_campagnes: 'Toutes nos campagnes',

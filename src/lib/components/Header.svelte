@@ -90,7 +90,10 @@
 				{ href: `${prefix}/ressources`, label: t.nav.liens_utiles },
 				{ href: `${prefix}/newsletters`, label: t.nav.newsletter },
 				{ href: 'https://pauseia.substack.com/', label: t.nav.blog, external: true },
-				{ href: `${prefix}/fresque`, label: t.nav.fresque }
+				{ href: `${prefix}/fresque`, label: t.nav.fresque },
+				// « Les faits » (démissions, déclarations, sondages) n'existe qu'en
+				// français : pas de lien depuis le site anglais.
+				...(lang === 'fr' ? [{ href: `${prefix}/faits`, label: t.nav.faits }] : [])
 				// « Les dangers de l'IA » est retiré du menu le temps de retravailler le
 				// discours. La route reste en place : les liens existants fonctionnent.
 			]
