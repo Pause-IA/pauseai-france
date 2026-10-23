@@ -104,6 +104,30 @@ describe('conversion d’une ligne Notion', () => {
 		expect(i?.categorie).toBe('Nature de l’IA')
 	})
 
+	it('apostrophes typographiques dans tous les textes affichés, jamais dans le slug', () => {
+		const i = versIdeeRecue(
+			ligne('p1', 'ce-n-est-que-du-code', '1', {
+				Objection: titre("Ce n'est que du code"),
+				'Réponse courte': txt("L'IA n'est pas codée ligne par ligne."),
+				Auteur: txt("L'équipe Pause IA")
+			})
+		)
+		expect(i?.objection).toBe('Ce n’est que du code')
+		expect(i?.reponseCourte).toBe('L’IA n’est pas codée ligne par ligne.')
+		expect(i?.auteur).toBe('L’équipe Pause IA')
+		expect(i?.slug).toBe('ce-n-est-que-du-code')
+		const [bloc] = versBlocs([
+			{
+				type: 'paragraph',
+				paragraph: {
+					rich_text: [{ plain_text: "Voir l'étude", href: "https://exemple.org/l'etude" }]
+				}
+			}
+		]) as { segments: { texte: string; lien?: string }[] }[]
+		expect(bloc.segments[0].texte).toBe('Voir l’étude')
+		expect(bloc.segments[0].lien).toBe("https://exemple.org/l'etude") // adresse intacte
+	})
+
 	it('écarte une ligne sans réponse courte ou au slug mal formé', () => {
 		vi.spyOn(console, 'warn').mockImplementation(() => undefined)
 		expect(versIdeeRecue(ligne('p1', 'ok', '1-1', { 'Réponse courte': txt('') }))).toBeNull()
