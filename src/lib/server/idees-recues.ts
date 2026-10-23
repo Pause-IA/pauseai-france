@@ -144,14 +144,19 @@ export function dateEnFrancais(iso: string): string {
 	return `${Number(jourDuMois)} ${nomDuMois} ${annee}`
 }
 
-/** Apostrophe droite -> typographique, pour comparer « Nature de l'IA » et « Nature de l’IA ». */
+/**
+ * Apostrophe droite -> typographique (’), le style du reste du site. Notion garde
+ * l'apostrophe tapée au clavier : on la convertit pour tout texte affiché (les
+ * adresses des liens et le slug ne passent pas par ici). Sert aussi à comparer
+ * « Nature de l'IA » et « Nature de l’IA » dans les filtres.
+ */
 const typo = (valeur: string) => valeur.replace(/'/g, '’')
 
 function segments(riche: TexteRiche[] | undefined): Segment[] {
 	return (riche ?? [])
 		.filter((r) => r.plain_text)
 		.map((r) => {
-			const s: Segment = { texte: r.plain_text }
+			const s: Segment = { texte: typo(r.plain_text) }
 			if (r.annotations?.bold) s.gras = true
 			if (r.annotations?.italic) s.italique = true
 			// Un lien n'est gardé que s'il mène vers un site en https (jamais « javascript: »).
@@ -164,13 +169,13 @@ export function versIdeeRecue(page: PageNotion): IdeeRecue | null {
 	const p = page.properties
 	const idee: IdeeRecue = {
 		id: page.id,
-		objection: texte(p[COLONNES.objection]).replace(/[.…\s]+$/, ''),
+		objection: typo(texte(p[COLONNES.objection])).replace(/[.…\s]+$/, ''),
 		slug: texte(p[COLONNES.slug]).toLowerCase(),
 		numero: texte(p[COLONNES.numero]),
 		categorie: typo(texte(p[COLONNES.categorie])),
-		themes: etiquettes(p[COLONNES.themes]),
-		reponseCourte: texte(p[COLONNES.reponseCourte]),
-		auteur: texte(p[COLONNES.auteur]),
+		themes: etiquettes(p[COLONNES.themes]).map(typo),
+		reponseCourte: typo(texte(p[COLONNES.reponseCourte])),
+		auteur: typo(texte(p[COLONNES.auteur])),
 		publieLe: jour(p[COLONNES.publieLe]),
 		misAJourLe: jour(p[COLONNES.misAJourLe])
 	}
