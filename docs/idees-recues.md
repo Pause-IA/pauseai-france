@@ -24,18 +24,28 @@ Partager), puis l'argumentaire et les sources.
 
 ## Colonnes
 
-| Colonne                                             | Type Notion | Obligatoire | Rôle                                                                                                                       |
-| --------------------------------------------------- | ----------- | ----------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `Objection`                                         | Title       | oui         | L'idée reçue (les « … » finaux sont ajoutés par le site)                                                                   |
-| `Slug`                                              | Text        | oui         | Fin de l'adresse (minuscules, chiffres, tirets). **Ne plus la modifier une fois publiée** : les liens partagés casseraient |
-| `Numéro`                                            | Text        | non         | Ordre d'affichage (1-1, 2-1…)                                                                                              |
-| `Catégorie`                                         | Select      | oui         | Sert aux filtres                                                                                                           |
-| `Réponse courte`                                    | Text        | oui         | « En bref », aussi reprise sur les réseaux sociaux                                                                         |
-| `Visible`                                           | Checkbox    | oui         | Cocher quand la réponse est validée                                                                                        |
-| `Type`, `Récit implicite`, `Fonction psychologique` | —           | non         | Internes à la com, jamais affichés                                                                                         |
+| Colonne                                             | Type Notion  | Obligatoire | Rôle                                                                                                                       |
+| --------------------------------------------------- | ------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `Objection`                                         | Title        | oui         | L'idée reçue (les « … » finaux sont ajoutés par le site)                                                                   |
+| `Slug`                                              | Text         | oui         | Fin de l'adresse (minuscules, chiffres, tirets). **Ne plus la modifier une fois publiée** : les liens partagés casseraient |
+| `Numéro`                                            | Text         | non         | Ordre d'affichage (1-1, 2-1…)                                                                                              |
+| `Catégorie`                                         | Select       | oui         | Sert aux filtres                                                                                                           |
+| `Réponse courte`                                    | Text         | oui         | « En bref », aussi reprise sur les réseaux sociaux                                                                         |
+| `Thèmes`                                            | Multi-select | non         | Tags trans-catégories (alignement, emploi…) : second filtre sur la page liste, combiné aux catégories                      |
+| `Auteur`                                            | Text         | non         | La signature affichée sur la page de détail                                                                                |
+| `Publié le`                                         | Date         | non         | Affichée sous le titre                                                                                                     |
+| `Mis à jour le`                                     | Date         | non         | Affichée sous le titre. Saisie à la main : le champ automatique de Notion bougerait pour une virgule corrigée              |
+| `Visible`                                           | Checkbox     | oui         | Cocher quand la réponse est validée                                                                                        |
+| `Type`, `Récit implicite`, `Fonction psychologique` | —            | non         | Internes à la com, jamais affichés                                                                                         |
 
 Les noms de colonnes sont regroupés dans `COLONNES`, en haut de
 `src/lib/server/idees-recues.ts`.
+
+Les quatre dernières colonnes sont facultatives : une base remplie avant leur
+ajout continue de fonctionner, et les mentions correspondantes ne s'affichent
+simplement pas. Les dates acceptent une colonne Date ou une colonne Texte, et
+sont mises en français côté serveur (`dateEnFrancais`) : une date mal saisie
+n'affiche rien plutôt qu'une valeur approximative.
 
 Catégories (ordre des filtres) : Nature de l'IA, Contrôle technique, Économie
 et monde du travail, Gouvernance et géopolitique, Évaluation du risque,

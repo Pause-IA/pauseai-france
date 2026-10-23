@@ -39,6 +39,20 @@
 	</a>
 	<PageHero eyebrow={idee.categorie}>«&nbsp;{idee.objection}…&nbsp;»</PageHero>
 
+	{#if idee.auteur || data.publieLe || data.misAJourLe}
+		<p class="signature">
+			{#if idee.auteur}<span>Par {idee.auteur}</span>{/if}
+			{#if data.publieLe}<span>Publié le {data.publieLe}</span>{/if}
+			{#if data.misAJourLe}<span>Mis à jour le {data.misAJourLe}</span>{/if}
+		</p>
+	{/if}
+
+	{#if idee.themes.length}
+		<ul class="themes">
+			{#each idee.themes as t}<li>{t}</li>{/each}
+		</ul>
+	{/if}
+
 	<section class="en-bref">
 		<h2>En bref</h2>
 		<p>{idee.reponseCourte}</p>
@@ -101,6 +115,38 @@
 
 	.retour:hover {
 		text-decoration: underline;
+	}
+
+	.signature {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.3rem 0.75rem;
+		margin: -0.5rem 0 1rem;
+		color: var(--text-2);
+		font-size: 0.9rem;
+	}
+
+	/* Séparateur entre les mentions, sans l'écrire dans le balisage : il ne doit pas
+	   apparaître quand une seule des trois est renseignée. */
+	.signature span + span::before {
+		content: '· ';
+	}
+
+	.themes {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin: 0 0 1.5rem;
+		padding: 0;
+		list-style: none;
+	}
+
+	.themes li {
+		padding: 0.12rem 0.55rem;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		color: var(--text-2);
+		font-size: 0.8rem;
 	}
 
 	.en-bref {
