@@ -30,12 +30,26 @@
 			}))
 	]
 
+	// Les thèmes traversent les catégories (#alignement peut toucher plusieurs
+	// rubriques) : second filtre, qui se combine au premier.
+	$: themes = [...new Set(idees.flatMap((i) => i.themes))].sort((a, b) => a.localeCompare(b, 'fr'))
+	let theme = 'tous'
+	$: optionsThemes = [
+		{ value: 'tous', label: 'Tous les thèmes', count: idees.length },
+		...themes.map((t) => ({
+			value: t,
+			label: t,
+			count: idees.filter((i) => i.themes.includes(t)).length
+		}))
+	]
+
 	// Recherche dans l'objection et la réponse courte, sans tenir compte des accents.
 	let recherche = ''
 	const simple = (t: string) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
 	$: affichees = idees.filter(
 		(i) =>
 			(categorie === 'toutes' || i.categorie === categorie) &&
+			(theme === 'tous' || i.themes.includes(theme)) &&
 			simple(`${i.objection} ${i.reponseCourte}`).includes(simple(recherche.trim()))
 	)
 </script>
@@ -50,6 +64,9 @@
 
 	{#if idees.length}
 		<FilterChips {options} bind:selected={categorie} />
+		{#if themes.length}
+			<FilterChips options={optionsThemes} bind:selected={theme} />
+		{/if}
 		<label class="recherche">
 			<Search size={16} aria-hidden="true" />
 			<span class="sr-only">Rechercher une idée reçue</span>
@@ -62,6 +79,11 @@
 					<p class="categorie">{i.categorie}</p>
 					<h2>«&nbsp;{i.objection}…&nbsp;»</h2>
 					<p class="courte">{i.reponseCourte}</p>
+					{#if i.themes.length}
+						<ul class="themes">
+							{#each i.themes as t}<li>{t}</li>{/each}
+						</ul>
+					{/if}
 					<span class="suite">Lire l’argumentaire <ArrowRight size={14} aria-hidden="true" /></span>
 				</Card>
 			{:else}
@@ -124,6 +146,23 @@
 		grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
 		gap: 1.25rem;
 		align-items: start;
+	}
+
+	.themes {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+		margin: 0 0 0.6rem;
+		padding: 0;
+		list-style: none;
+	}
+
+	.themes li {
+		padding: 0.1rem 0.5rem;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		color: var(--text-2);
+		font-size: 0.78rem;
 	}
 
 	.categorie {

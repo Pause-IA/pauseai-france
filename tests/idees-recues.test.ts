@@ -3,13 +3,14 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 const env: Record<string, string | undefined> = {}
 vi.mock('$env/dynamic/private', () => ({ env }))
 
-const { chargerArgumentaire, chargerIdeesRecues, versBlocs, versIdeeRecue } = await import(
-	'../src/lib/server/idees-recues'
-)
+const { chargerArgumentaire, chargerIdeesRecues, dateEnFrancais, versBlocs, versIdeeRecue } =
+	await import('../src/lib/server/idees-recues')
 
 const titre = (t: string) => ({ title: [{ plain_text: t }] })
 const txt = (t: string) => ({ rich_text: [{ plain_text: t }] })
 const choix = (t: string) => ({ select: { name: t } })
+const choixMultiple = (...noms: string[]) => ({ multi_select: noms.map((name) => ({ name })) })
+const dateNotion = (jour: string) => ({ date: { start: jour } })
 const ligne = (id: string, slug: string, numero: string, extra: Record<string, unknown> = {}) => ({
 	id,
 	properties: {
@@ -27,6 +28,69 @@ afterEach(() => {
 	vi.restoreAllMocks()
 	vi.unstubAllGlobals()
 	for (const k of Object.keys(env)) env[k] = undefined
+})
+
+describe('colonnes demandées par la rédaction', () => {
+	it('thèmes, auteur et dates sont lus', () => {
+		const i = versIdeeRecue(
+			ligne('p1', 'slug-valide', '1', {
+				Thèmes: choixMultiple('alignement', 'emploi'),
+				Auteur: txt('L’équipe Pause IA'),
+				'Publié le': dateNotion('2026-10-23'),
+				'Mis à jour le': dateNotion('2026-11-02')
+			})
+		)
+		expect(i?.themes).toEqual(['alignement', 'emploi'])
+		expect(i?.auteur).toBe('L’équipe Pause IA')
+		expect(i?.publieLe).toBe('2026-10-23')
+		expect(i?.misAJourLe).toBe('2026-11-02')
+	})
+
+	it('colonnes absentes : la ligne reste publiable', () => {
+		// Les quatre colonnes sont facultatives : une base remplie avant leur ajout
+		// ne doit pas voir ses lignes écartées.
+		const i = versIdeeRecue(ligne('p2', 'slug-valide', '1'))
+		expect(i).not.toBeNull()
+		expect(i?.themes).toEqual([])
+		expect(i?.auteur).toBe('')
+		expect(i?.publieLe).toBe('')
+	})
+
+	it('thèmes vides ou en espaces : écartés', () => {
+		const i = versIdeeRecue(
+			ligne('p3', 'slug-valide', '1', { Thèmes: choixMultiple('alignement', '  ', '') })
+		)
+		expect(i?.themes).toEqual(['alignement'])
+	})
+
+	it('date restée en colonne Texte : lue quand même', () => {
+		// Si la rédaction crée « Publié le » en Texte au lieu de Date, on ne perd rien.
+		const i = versIdeeRecue(ligne('p4', 'slug-valide', '1', { 'Publié le': txt('2026-10-23') }))
+		expect(i?.publieLe).toBe('2026-10-23')
+	})
+})
+
+describe('dates en français', () => {
+	it('jour, mois et année', () => {
+		expect(dateEnFrancais('2026-10-23')).toBe('23 octobre 2026')
+	})
+
+	it('pas de décalage de fuseau sur le premier du mois', () => {
+		// « new Date('2026-01-01') » vaut minuit UTC : affiché à l'ouest de Greenwich,
+		// il reculerait au 31 décembre. C'est ce que ce cas interdit.
+		expect(dateEnFrancais('2026-01-01')).toBe('1 janvier 2026')
+	})
+
+	it('mois seul, puis année seule', () => {
+		expect(dateEnFrancais('2026-10')).toBe('octobre 2026')
+		expect(dateEnFrancais('2026')).toBe('2026')
+	})
+
+	it('valeur vide ou illisible : chaîne vide, rien ne s’affiche', () => {
+		for (const brut of ['', '   ', 'bientôt', '26-10-23', '2026-13-01']) {
+			expect(dateEnFrancais(brut)).toBe('')
+		}
+	})
 })
 
 describe('conversion d’une ligne Notion', () => {

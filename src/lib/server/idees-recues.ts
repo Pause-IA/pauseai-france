@@ -20,7 +20,12 @@ export const COLONNES = {
 	slug: 'Slug', // fin de l'adresse : /fr/idees-recues/<slug> ; ne plus la changer une fois publiée
 	numero: 'Numéro', // 1-1, 2-1… : ordre d'affichage
 	categorie: 'Catégorie',
+	themes: 'Thèmes', // sélection multiple : tags trans-catégories (#alignement…)
 	reponseCourte: 'Réponse courte',
+	auteur: 'Auteur', // la signature affichée, pas un compte Notion
+	publieLe: 'Publié le',
+	misAJourLe: 'Mis à jour le', // saisie à la main : une virgule corrigée ne doit pas
+	// faire remonter une fausse actualité, contrairement au champ automatique de Notion
 	visible: 'Visible'
 } as const
 
@@ -40,7 +45,11 @@ export interface IdeeRecue {
 	slug: string
 	numero: string
 	categorie: string
+	themes: string[]
 	reponseCourte: string
+	auteur: string
+	publieLe: string // AAAA-MM-JJ tel que Notion le donne ; '' si la colonne est vide
+	misAJourLe: string
 }
 
 /** Un morceau de texte, éventuellement en gras, en italique ou lié (https seulement). */
@@ -67,6 +76,8 @@ interface Propriete {
 	title?: TexteRiche[]
 	rich_text?: TexteRiche[]
 	select?: { name: string } | null
+	multi_select?: { name: string }[]
+	date?: { start: string } | null
 	checkbox?: boolean
 }
 export interface PageNotion {
@@ -87,6 +98,50 @@ function texte(p: Propriete | undefined): string {
 			.join('')
 			.trim()
 	return p.select?.name.trim() ?? ''
+}
+
+/** Les étiquettes d'une colonne « sélection multiple », vides écartées. */
+function etiquettes(p: Propriete | undefined): string[] {
+	return (p?.multi_select ?? []).map((e) => e.name.trim()).filter(Boolean)
+}
+
+/** Le jour d'une colonne Date, ou son texte si la colonne est restée en Texte. */
+function jour(p: Propriete | undefined): string {
+	return p?.date?.start ?? texte(p)
+}
+
+const MOIS = [
+	'janvier',
+	'février',
+	'mars',
+	'avril',
+	'mai',
+	'juin',
+	'juillet',
+	'août',
+	'septembre',
+	'octobre',
+	'novembre',
+	'décembre'
+]
+
+/**
+ * « 2026-10-23 » -> « 23 octobre 2026 ». Accepte aussi « 2026-10 » et « 2026 ».
+ *
+ * Écrit à la main plutôt qu'avec Intl : `new Date('2026-10-23')` vaut minuit UTC,
+ * et l'afficher dans le fuseau du visiteur décale la date d'un jour à l'ouest de
+ * Greenwich. Ici il n'y a pas de fuseau, donc pas de décalage.
+ */
+export function dateEnFrancais(iso: string): string {
+	const [annee, mois, jourDuMois] = iso.trim().split('-')
+	if (!/^\d{4}$/.test(annee ?? '')) return ''
+	if (!mois) return annee
+	// Un mois hors bornes vient d'une saisie fautive : mieux vaut ne rien afficher
+	// que l'année seule, qui aurait l'air d'une date volontairement imprécise.
+	const nomDuMois = MOIS[Number(mois) - 1]
+	if (!nomDuMois) return ''
+	if (!/^\d{1,2}$/.test(jourDuMois ?? '')) return `${nomDuMois} ${annee}`
+	return `${Number(jourDuMois)} ${nomDuMois} ${annee}`
 }
 
 /** Apostrophe droite -> typographique, pour comparer « Nature de l'IA » et « Nature de l’IA ». */
@@ -113,7 +168,11 @@ export function versIdeeRecue(page: PageNotion): IdeeRecue | null {
 		slug: texte(p[COLONNES.slug]).toLowerCase(),
 		numero: texte(p[COLONNES.numero]),
 		categorie: typo(texte(p[COLONNES.categorie])),
-		reponseCourte: texte(p[COLONNES.reponseCourte])
+		themes: etiquettes(p[COLONNES.themes]),
+		reponseCourte: texte(p[COLONNES.reponseCourte]),
+		auteur: texte(p[COLONNES.auteur]),
+		publieLe: jour(p[COLONNES.publieLe]),
+		misAJourLe: jour(p[COLONNES.misAJourLe])
 	}
 	const ecarter = (raison: string) => {
 		console.warn(`[idees-recues] ligne Notion ${page.id} écartée (${raison})`)
