@@ -45,7 +45,10 @@
 
 	// Recherche dans l'objection et la réponse courte, sans tenir compte des accents.
 	let recherche = ''
-	const simple = (t: string) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+	// Recherche tolérante : sans accents, sans majuscules, et « n'est » tapé au
+	// clavier trouve « n’est » affiché.
+	const simple = (t: string) =>
+		t.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/’/g, "'").toLowerCase()
 	$: affichees = idees.filter(
 		(i) =>
 			(categorie === 'toutes' || i.categorie === categorie) &&
