@@ -1,0 +1,104 @@
+[
+	{
+		"id": "turing-1951",
+		"type": "individuel",
+		"auteur": "Alan Turing",
+		"fonction": "Mathématicien, père de l’informatique",
+		"categorie": "scientifiques",
+		"date": "1951",
+		"citation": "Il semble probable qu’une fois la méthode de pensée des machines lancée, il ne lui faudrait pas longtemps pour dépasser nos faibles capacités. […] À un certain stade, il faudrait donc s’attendre à ce que les machines prennent le contrôle.",
+		"citation_originale": "It seems probable that once the machine thinking method had started, it would not take long to outstrip our feeble powers. […] At some stage therefore we should have to expect the machines to take control.",
+		"source": {
+			"titre": "Conférence « Intelligent Machinery, A Heretical Theory », Manchester, 1951",
+			"url": "https://quoteinvestigator.com/2022/01/06/outstrip/"
+		},
+		"statut": "valide"
+	},
+	{
+		"id": "altman-2015",
+		"type": "individuel",
+		"auteur": "Sam Altman",
+		"fonction": "Directeur général d’OpenAI (à l’époque, président de Y Combinator)",
+		"categorie": "labos",
+		"date": "2015-02",
+		"citation": "Le développement d’une intelligence artificielle surhumaine est probablement la plus grande menace pour la survie de l’humanité.",
+		"citation_originale": "Development of superhuman machine intelligence (SMI) is probably the greatest threat to the continued existence of humanity.",
+		"contexte": "Écrit avant la création d’OpenAI. Il dirige aujourd’hui l’entreprise, qui affiche l’objectif de construire une intelligence artificielle générale puis une superintelligence.",
+		"source": {
+			"titre": "Blog de Sam Altman, « Machine intelligence, part 1 », février 2015",
+			"url": "https://blog.samaltman.com/machine-intelligence-part-1"
+		},
+		"statut": "valide"
+	},
+	{
+		"id": "cais-2023",
+		"type": "collectif",
+		"auteur": "Déclaration sur les risques de l’IA",
+		"fonction": "Signée par des centaines de chercheurs et de dirigeants, dont Geoffrey Hinton, Yoshua Bengio, Sam Altman, Dario Amodei et Demis Hassabis",
+		"date": "2023-05",
+		"citation": "Réduire le risque d’extinction lié à l’IA devrait être une priorité mondiale, au même titre que d’autres risques à l’échelle de la société, comme les pandémies et la guerre nucléaire.",
+		"citation_originale": "Mitigating the risk of extinction from AI should be a global priority alongside other societal-scale risks such as pandemics and nuclear war.",
+		"source": {
+			"titre": "Center for AI Safety, mai 2023",
+			"url": "https://safe.ai/work/statement-on-ai-risk"
+		},
+		"statut": "valide"
+	},
+	{
+		"id": "amodei-2025",
+		"type": "individuel",
+		"auteur": "Dario Amodei",
+		"fonction": "Directeur général d’Anthropic",
+		"categorie": "labos",
+		"date": "2025-09",
+		"citation": "Il y a 25 % de chances que les choses tournent vraiment, vraiment mal.",
+		"citation_originale": "There's a 25% chance that things go really, really badly.",
+		"source": {
+			"titre": "Axios, 17 septembre 2025",
+			"url": "https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent"
+		},
+		"statut": "valide"
+	},
+	{
+		"id": "bengio-2026",
+		"type": "individuel",
+		"auteur": "Yoshua Bengio",
+		"fonction": "Professeur à l’Université de Montréal, prix Turing 2018",
+		"categorie": "scientifiques",
+		"date": "2026-09",
+		"citation": "Ce n’est pas pour rien que les compagnies disent que ça va trop vite, on perd le contrôle.",
+		"source": {
+			"titre": "Entretien à l’AFP (repris par Noovo Info), 16 septembre 2026",
+			"url": "https://www.noovo.info/nouvelles/technologie/article/on-perd-le-controle-avec-lintelligence-artificielle-met-en-garde-le-pionnier-yoshua-bengio/"
+		},
+		"statut": "valide"
+	},
+	{
+		"id": "superintelligence-strategy-2025",
+		"type": "collectif",
+		"auteur": "Rapport « Superintelligence Strategy »",
+		"fonction": "Dan Hendrycks (Center for AI Safety), Eric Schmidt (ancien PDG de Google) et Alexandr Wang (fondateur de Scale AI)",
+		"date": "2025-03",
+		"citation": "Les progrès rapides de l’IA commencent à remodeler la sécurité nationale. Des avancées déstabilisatrices pourraient rompre l’équilibre des pouvoirs et accroître le risque de conflit entre grandes puissances, tandis que la diffusion d’IA aussi compétentes que des pirates informatiques ou des virologues permettrait plus facilement à des acteurs malveillants de provoquer une catastrophe.",
+		"citation_originale": "Rapid advances in AI are beginning to reshape national security. Destabilizing AI developments could rupture the balance of power and raise the odds of great-power conflict, while widespread proliferation of capable AI hackers and virologists would lower barriers for rogue actors to cause catastrophe.",
+		"source": {
+			"titre": "Rapport « Superintelligence Strategy », mars 2025",
+			"url": "https://arxiv.org/abs/2503.05628"
+		},
+		"statut": "valide"
+	},
+	{
+		"id": "superintelligence-statement-2025",
+		"type": "collectif",
+		"auteur": "Déclaration sur la superintelligence",
+		"fonction": "Lancée par le Future of Life Institute et signée notamment par Yoshua Bengio, Geoffrey Hinton, Stuart Russell, Steve Wozniak et plusieurs prix Nobel",
+		"date": "2025-10",
+		"citation": "Nous appelons à interdire le développement de la superintelligence, interdiction qui ne devra pas être levée avant 1) un large consensus scientifique sur le fait qu’elle sera développée de manière sûre et contrôlable, et 2) une forte adhésion du public.",
+		"citation_originale": "We call for a prohibition on the development of superintelligence, not lifted before there is 1) broad scientific consensus that it will be done safely and controllably, and 2) strong public buy-in.",
+		"source": {
+			"titre": "Future of Life Institute, « Statement on Superintelligence », octobre 2025",
+			"url": "https://futureoflife.org/press-release/prominent-scientists-faith-leaders-policymakers-and-artists-call-for-a-prohibition-on-superintelligence/"
+		},
+		"statut": "valide"
+	}
+]

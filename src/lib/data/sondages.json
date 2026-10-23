@@ -1,0 +1,32 @@
+[
+	{
+		"id": "ai-impacts-2023",
+		"titre": "Enquête auprès de 2 778 chercheurs en IA",
+		"organisme": "AI Impacts",
+		"date": "2024-01",
+		"repondants": "2 778 chercheurs ayant publié dans les grandes conférences d’IA, interrogés à l’automne 2023",
+		"chiffre": "5 %",
+		"resultat": "Probabilité médiane que l’IA avancée conduise à l’extinction de l’humanité ou à une perte de pouvoir aussi grave et définitive.",
+		"precision": "Entre 38 % et 51 % des répondants donnent au moins 10 % de chances à un scénario aussi grave que l’extinction humaine.",
+		"source": {
+			"titre": "Grace et al., « Thousands of AI Authors on the Future of AI », janvier 2024",
+			"url": "https://arxiv.org/abs/2401.02843"
+		},
+		"statut": "valide"
+	},
+	{
+		"id": "xpt-2023",
+		"titre": "Tournoi de prévision sur les risques existentiels",
+		"organisme": "Forecasting Research Institute",
+		"date": "2023-07",
+		"repondants": "80 experts de différents domaines (dont 32 spécialistes de l’IA) et des « superprévisionnistes », de juin à octobre 2022",
+		"chiffre": "3 %",
+		"resultat": "Probabilité médiane, selon les experts, d’une extinction de l’humanité causée par l’IA d’ici 2100.",
+		"precision": "Les superprévisionnistes, sélectionnés pour la justesse de leurs prévisions passées, l’estiment à 0,38 %.",
+		"source": {
+			"titre": "Forecasting Research Institute, rapport « Forecasting Existential Risk », juillet 2023",
+			"url": "https://forecastingresearch.org/s/XPT.pdf"
+		},
+		"statut": "valide"
+	}
+]
