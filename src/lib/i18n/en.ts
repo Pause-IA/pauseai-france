@@ -14,6 +14,7 @@ export default {
 		declaration: 'Sign the statement',
 		blog: 'Blog',
 		fresque: 'The AI Risks Fresk',
+		idees_recues: 'Common misconceptions',
 		comment_agir: 'How to act?',
 		groupes_locaux: 'Local groups',
 		toutes_campagnes: 'All our campaigns',
