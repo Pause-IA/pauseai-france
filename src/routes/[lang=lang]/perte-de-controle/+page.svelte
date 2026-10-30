@@ -218,6 +218,49 @@
 		</ol>
 	</CampaignSection>
 
+	<!-- ── Marche du 14 novembre ────────────────────────────── -->
+	<!--
+		Le trajet détaillé et le minutage restent sur la page Luma, seule source :
+		les écrire en double garantirait qu'un changement de dernière minute laisse
+		une fausse information en ligne. Ici, seulement ce qui ne bougera pas.
+	-->
+	<CampaignSection
+		id="marche"
+		variant="card"
+		title={isEn
+			? 'March for an AI treaty, in Paris on 14 November'
+			: 'Marche pour un traité en IA, à Paris le 14 novembre'}
+	>
+		{#if isEn}
+			<p>
+				On 18 November, Trump meets Xi Jinping at the APEC summit. Four days earlier, on
+				<strong>Saturday 14 November from 11am to 1pm</strong>, Pause IA and
+				<strong>Stop The AI Race</strong> march together in Paris to ask both leaders for an agreement
+				that ends the AI arms race.
+			</p>
+			<p>
+				We set off from the United States Embassy, place de la Concorde, and walk to the Trocadéro.
+				The same day, people march in San Francisco, New York and Washington. Bring a sign.
+			</p>
+		{:else}
+			<p>
+				Le 18 novembre, Trump rencontre Xi Jinping au sommet de l’APEC. Quatre jours plus tôt, le
+				<strong>samedi 14 novembre de 11 h à 13 h</strong>, Pause IA et
+				<strong>Stop The AI Race</strong> marchent ensemble à Paris pour demander aux deux dirigeants
+				un accord mettant fin à la course aux armements de l’IA.
+			</p>
+			<p>
+				Départ de l’ambassade des États-Unis, place de la Concorde, jusqu’au Trocadéro. Le même
+				jour, on marche aussi à San Francisco, New York et Washington. Apportez une pancarte.
+			</p>
+		{/if}
+		<p class="cta-row">
+			<Button href="https://luma.com/stop-pjeb">
+				{isEn ? 'Register for the march' : 'S’inscrire à la marche'}
+			</Button>
+		</p>
+	</CampaignSection>
+
 	<!-- ── Rejoindre un groupe local ────────────────────────── -->
 	<CampaignSection
 		id="groupes-locaux"
