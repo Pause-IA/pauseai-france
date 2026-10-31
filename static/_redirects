@@ -38,7 +38,12 @@
 /financements  /fr/financements  301!
 /faq  /fr/faq  301!
 /videos  /fr/videos  301!
-/participer-a-notre-communication  /fr/participer-a-notre-communication  301!
+/relayer-nos-messages  /fr/relayer-nos-messages  301!
+
+# « Participer à notre communication » renommée « Relayer nos messages » (oct. 2026)
+/participer-a-notre-communication     /fr/relayer-nos-messages  301!
+/fr/participer-a-notre-communication  /fr/relayer-nos-messages  301!
+/en/participer-a-notre-communication  /en/relayer-nos-messages  301!
 
 # ── Anciennes URL historiques ──────────────────────────────────────────
 /senat-2025  /fr/senat2025  301!
@@ -50,10 +55,8 @@
 # ── Raccourcis ─────────────────────────────────────────────────────────
 /discord https://discord.gg/vyXGd7AeGc
 
-# La FAQ ne vit plus que sur la page d'accueil (une seule source de vérité).
-/fr/faq  /fr#faq  301!
-/en/faq  /en#faq  301!
-/faq     /fr#faq  301!
+# La FAQ a sa page dédiée (/fr/faq, /en/faq) : l'accueil n'en montre qu'un
+# aperçu. « /faq » est redirigée plus haut avec les autres pages sans préfixe.
 
 # Articles de campagne déplacés sous /articles/AAAA-MM-JJ-slug (octobre 2026).
 # 301 et non 302 : ces adresses ont été partagées et indexées, le moteur doit

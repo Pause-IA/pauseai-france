@@ -1,5 +1,6 @@
 ---
 title: Values Charter
+rubrique: apropos
 description: The values and principles that guide Pause AI France in its mission.
 ---
 

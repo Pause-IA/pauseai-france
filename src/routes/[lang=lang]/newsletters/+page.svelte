@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
+	import { Page } from '$components/ui'
 	import NewsletterCard from '$components/NewsletterCard.svelte'
 	import Button from '$components/Button.svelte'
 	import { Search, X, Mail, ChevronLeft, ChevronRight, Rss } from 'lucide-svelte'
@@ -195,14 +195,12 @@
 	/>
 </svelte:head>
 
-<div class="page">
-	<header class="page-header">
-		<UnderlinedTitle as="h1">{t.newsletters.title}</UnderlinedTitle>
-		<p class="page-subtitle">
-			{t.newsletters.subtitle}
-		</p>
-	</header>
-
+<Page
+	width="wide"
+	eyebrow={t.nav.actualites}
+	title={t.newsletters.title}
+	lede={t.newsletters.subtitle}
+>
 	<div class="subscribe-bar">
 		<div class="subscribe-icon">
 			<Mail size="1.25rem" />
@@ -372,35 +370,12 @@
 			<Button on:click={clearSearch}>{t.newsletters.clear_search}</Button>
 		</div>
 	{/if}
-</div>
+</Page>
 
 <style>
-	.page {
-		max-width: 72rem;
-		margin: 0 auto;
-		padding: 2rem 1rem 4rem;
-	}
-
-	.page-header {
-		text-align: center;
-		margin-bottom: 2rem;
-	}
-
-	.page-header :global(h1) {
-		display: inline-block;
-	}
-
-	.page-subtitle {
-		max-width: 40rem;
-		margin: 0 auto;
-		color: var(--text-secondary);
-		font-size: 1.125rem;
-		line-height: 1.6;
-	}
-
 	.rss-bar {
 		max-width: 36rem;
-		margin: 0 auto 2rem;
+		margin: 0 0 2rem;
 		text-align: right;
 	}
 
@@ -432,7 +407,7 @@
 		align-items: flex-start;
 		gap: 0.75rem;
 		max-width: 36rem;
-		margin: 0 auto 2rem;
+		margin: 0 0 2rem;
 		padding: 1rem 1.25rem;
 		background: var(--brand-light);
 		border: 1px solid rgba(var(--brand-rgb), 0.2);
@@ -525,7 +500,7 @@
 		align-items: center;
 		gap: 0.75rem;
 		max-width: 36rem;
-		margin: 0 auto 2rem;
+		margin: 0 0 2rem;
 		flex-wrap: wrap;
 	}
 
@@ -821,14 +796,6 @@
 	}
 
 	@media (min-width: 640px) {
-		.page {
-			padding: 3rem 2rem 6rem;
-		}
-
-		.page-header {
-			margin-bottom: 3rem;
-		}
-
 		.newsletter-grid {
 			grid-template-columns: repeat(2, 1fr);
 		}
@@ -839,10 +806,6 @@
 	}
 
 	@media (min-width: 1024px) {
-		.page {
-			padding: 4rem 2rem 8rem;
-		}
-
 		.newsletter-grid {
 			grid-template-columns: repeat(2, 1fr);
 		}

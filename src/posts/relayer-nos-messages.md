@@ -1,6 +1,7 @@
 ---
-title: Participer à notre communication
-description: 'Relayer nos messages, rejoindre Pause Action, prêter main-forte à nos campagnes : les trois façons de faire grandir notre voix.'
+title: Relayer nos messages
+rubrique: agir
+description: 'Réseaux sociaux et Pause Action : quelques minutes par semaine pour faire porter la voix de Pause IA bien au-delà de notre cercle.'
 ---
 
 <script lang="ts">
@@ -10,10 +11,9 @@ description: 'Relayer nos messages, rejoindre Pause Action, prêter main-forte �
 
 Nos idées ne manquent pas de relais : elles manquent de volume. Plus nous sommes
 nombreux à les porter, plus elles pèsent sur le débat public et sur les décisions
-politiques. Voici trois façons d'y contribuer, de deux minutes à quelques heures
-par mois.
+politiques. Deux façons d'y contribuer, en quelques minutes par semaine.
 
-## Suivre et relayer nos médias sociaux
+## Suivre et relayer nos réseaux sociaux
 
 C'est l'engagement le plus court et le plus utile au quotidien : un partage, un
 commentaire, un « j'aime » font sortir nos publications de notre cercle habituel.
@@ -30,7 +30,7 @@ commentaire, un « j'aime » font sortir nos publications de notre cercle habitu
 - Relayez une publication par semaine, en ajoutant une phrase à vous. Un partage
   commenté porte bien plus loin qu'un partage sec.
 
-## Faire partie de Pause Action
+## Rejoindre Pause Action
 
 Pause Action est notre groupe WhatsApp d'actions rapides : chaque semaine, une
 action concrète, expliquée en trois lignes, réalisable en quelques minutes :
@@ -44,31 +44,8 @@ signer, écrire, relayer, répondre à une consultation.
   <span class="cta-fleche" aria-hidden="true">&rarr;</span>
 </a>
 
-## Prêter main-forte à une équipe
-
-Nos campagnes ne sont pas faites par des professionnels : elles sont faites par
-des bénévoles répartis en équipes. Communication, rédaction, vidéo, traduction,
-relations presse, veille, relecture : chaque équipe a ses besoins du moment et
-accueille les nouveaux au fil de l'eau.
-
-Concrètement, vous rejoignez l'association, vous choisissez l'équipe qui
-correspond à ce que vous savez faire (ou à ce que vous avez envie d'apprendre),
-et le référent de l'équipe vous dit par où commencer. Pas de test d'entrée, pas
-de volume horaire imposé.
-
-<a class="cta-ligne" href="/{lang}/rejoindre">
-  <span>
-    <strong>Rejoindre l'association et une équipe</strong>
-    <small>Les équipes et leurs besoins sont décrits sur la page Qui sommes-nous</small>
-  </span>
-  <span class="cta-fleche" aria-hidden="true">&rarr;</span>
-</a>
-
-Vous préférez voir d'abord ce sur quoi nous travaillons ?
-<a href="/{lang}/campagnes">Découvrir nos campagnes en cours</a>.
-
-Vous cherchez plutôt une action ponctuelle à faire seul·e ?
-<a href="/{lang}/agir">Voir toutes les formes d'action</a>.
+Vous voulez vous engager davantage ? <a href="/{lang}/rejoindre">Rejoignez une
+équipe de bénévoles</a>, ou <a href="/{lang}/agir">découvrez toutes les façons d'agir</a>.
 
 <style>
   .cta-ligne {

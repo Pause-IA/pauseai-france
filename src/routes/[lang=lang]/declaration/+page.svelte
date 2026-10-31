@@ -145,7 +145,7 @@
 <PostMeta {title} {description} />
 
 <article>
-	<PageHero>
+	<PageHero eyebrow={isEn ? 'Act' : 'Agir'}>
 		{title}
 		<svelte:fragment slot="lede">
 			{#if isEn}
@@ -407,11 +407,13 @@
 
 <style>
 	article {
+		/* Largeur fixe : sans elle, un article centré dans <main> (flex) prend
+		   la largeur de son contenu et la page bouge quand un bloc s'ouvre. */
+		inline-size: 100%;
 		max-inline-size: var(--width-content);
 		margin-inline: auto;
 		margin-top: 3rem;
 		margin-bottom: 5rem;
-		padding: 0 1.5rem;
 	}
 
 	.hero-actions {
@@ -616,9 +618,6 @@
 	}
 
 	@media (max-width: 600px) {
-		article {
-			padding: 0 1.1rem;
-		}
 		.row {
 			grid-template-columns: 1fr;
 		}

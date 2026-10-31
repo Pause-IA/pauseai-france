@@ -3,127 +3,14 @@
 	import ScientificCouncilCard from '$components/ScientificCouncilCard.svelte'
 	import WhoCard from '$components/WhoCard.svelte'
 	import Button from '$components/Button.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
-	import Accordion from '$components/Accordion.svelte'
-	import FAQEn from '$posts/en/qui-sommes-nous.md'
+	import { LinkCard, LinkGrid, Page, SectionTitle } from '$components/ui'
 	import { equipes } from '$lib/data/equipes'
 	import type { TeamMember } from '$lib/notion'
 	import type { Lang } from '$lib/i18n'
 
 	export let teamMembers: TeamMember[] = []
 	export let lang: Lang = 'fr'
-	/** h1 sur la page « Qui sommes-nous », h2 quand la section est sur l'accueil. */
-	export let as: 'h1' | 'h2' = 'h2'
 	$: prefix = lang === 'en' ? '/en' : '/fr'
-
-	const label_id = 'who-title'
-
-	// Charte des valeurs : numérotées par ordre de priorité.
-	const values = [
-		{
-			n: 1,
-			name: 'Non-violence',
-			text: "Nous n'utiliserons, n'encouragerons ni ne tolérerons jamais la violence, y compris les dommages matériels, les menaces ou les plaisanteries sur la violence. Notre mouvement est strictement pacifique et légal. Une seule infraction, où qu'elle ait lieu, nuit à l'ensemble du groupe, partout."
-		},
-		{
-			n: 2,
-			name: 'Bénéfique ou pas du tout',
-			text: "L'IA doit être développée de manière à bénéficier à l'humanité, ou ne pas être développée du tout. C'est notre raison d'être."
-		},
-		{
-			n: 3,
-			name: 'Rigueur intellectuelle',
-			text: "Nous représentons l'état des connaissances aussi fidèlement que possible. Nous reconnaissons l'incertitude et n'exagérons pas nos affirmations pour gagner un débat. Nous sommes ouverts à la critique et à la possibilité de nous tromper sur la meilleure façon d'atteindre nos objectifs. Notre crédibilité en dépend."
-		},
-		{
-			n: 4,
-			name: 'Honnêteté',
-			text: "Nous n'avons aucun intérêt caché ni conflit d'intérêts, nous sommes donc libres de dire ce que nous croyons. Nous n'édulcorons pas notre message pour le rendre plus acceptable."
-		},
-		{
-			n: 5,
-			name: "Diversité des risques, unité dans l'action",
-			text: "Que vous soyez préoccupé(e) par le risque existentiel, la cybersécurité, la perte d'emplois ou les menaces pour la démocratie, nous sommes unis dans notre volonté de mettre en pause le développement de l'IA de pointe (frontier AI). Nous mettons nos différences de côté pour faire avancer notre objectif commun."
-		},
-		{
-			n: 6,
-			name: 'Pas de politique partisane',
-			text: "La sécurité de l'IA n'est pas encore un sujet clivant entre la gauche et la droite, et nous entendons préserver cela. Nous ne laissons pas d'autres opinions politiques nous détourner de notre mission."
-		},
-		{
-			n: 7,
-			name: 'Transparence par défaut',
-			text: "Nous agissons et discutons publiquement et ouvertement, sauf s'il existe une bonne raison de ne pas le faire. Notre site web est en open source, nos espaces communautaires sont ouverts à tous et nos raisonnements sont publiés. Être accessibles réduit les freins à l'engagement."
-		},
-		{
-			n: 8,
-			name: "Priorité à l'action",
-			text: "Nous n'attendons pas la perfection pour agir. Nous encourageons l'initiative et concrétisons les projets, même sans financements importants. Le mieux est l'ennemi du bien."
-		},
-		{
-			n: 9,
-			name: 'Communauté et inclusivité',
-			text: 'Un mouvement repose sur les relations humaines. Nous sommes portés par des bénévoles et chacun peut contribuer. Nous créons des espaces accueillants pour se rencontrer, créer des liens et se sentir chez soi. Toute personne, quel que soit son parcours, a sa place ici.'
-		},
-		{
-			n: 10,
-			name: "L'utilisation de l'IA est acceptable",
-			text: "Même si nous souhaitons stopper le développement de l'IA de pointe, nous sommes tout à fait à l'aise avec l'utilisation des IA existantes pour nous aider à atteindre nos objectifs. Nous ne cédons pas à la surenchère de pureté."
-		}
-	]
-
-	const valuesEn = [
-		{
-			n: 1,
-			name: 'Non-violence',
-			text: 'We will never use, encourage or tolerate violence, including property damage, threats or jokes about violence. Our movement is strictly peaceful and lawful. A single breach, wherever it happens, harms the whole group, everywhere.'
-		},
-		{
-			n: 2,
-			name: 'Beneficial or not at all',
-			text: 'AI must be developed in a way that benefits humanity, or not developed at all. This is our reason for being.'
-		},
-		{
-			n: 3,
-			name: 'Intellectual rigour',
-			text: 'We represent the state of knowledge as faithfully as possible. We acknowledge uncertainty and do not overstate our claims to win a debate. We are open to criticism and to the possibility that we are wrong about the best way to achieve our goals. Our credibility depends on it.'
-		},
-		{
-			n: 4,
-			name: 'Honesty',
-			text: 'We have no hidden agenda and no conflicts of interest, so we are free to say what we believe. We do not water down our message to make it more palatable.'
-		},
-		{
-			n: 5,
-			name: 'Diversity of risks, unity in action',
-			text: 'Whether you are concerned about existential risk, cybersecurity, job losses or threats to democracy, we are united in our determination to pause the development of frontier AI. We set our differences aside to advance our common goal.'
-		},
-		{
-			n: 6,
-			name: 'No partisan politics',
-			text: 'AI safety is not yet a left-versus-right dividing line, and we intend to keep it that way. We do not let other political opinions distract us from our mission.'
-		},
-		{
-			n: 7,
-			name: 'Transparency by default',
-			text: 'We act and discuss publicly and openly, unless there is a good reason not to. Our website is open source, our community spaces are open to all, and our reasoning is published. Being accessible lowers the barriers to getting involved.'
-		},
-		{
-			n: 8,
-			name: 'Bias for action',
-			text: 'We do not wait for perfection before acting. We encourage initiative and get projects done, even without significant funding. The perfect is the enemy of the good.'
-		},
-		{
-			n: 9,
-			name: 'Community and inclusiveness',
-			text: 'A movement rests on human relationships. We are driven by volunteers and everyone can contribute. We create welcoming spaces to meet, build connections and feel at home. Everyone, whatever their background, has a place here.'
-		},
-		{
-			n: 10,
-			name: 'Using AI is acceptable',
-			text: 'Even though we want to stop the development of frontier AI, we are entirely comfortable using existing AI to help us achieve our goals. We do not give in to purity spirals.'
-		}
-	]
 
 	// Fallback data when Notion is not configured
 	const fallbackLeadership = [
@@ -262,35 +149,71 @@
 		: fallbackMembers
 </script>
 
-<section aria-labelledby={label_id}>
-	<UnderlinedTitle {as} id={label_id}
-		>{lang === 'en' ? 'Who are we?' : 'Qui sommes-nous ?'}</UnderlinedTitle
-	>
-
-	<div class="intro">
+<!-- Gabarit Hub : en-tête commun, puis « en bref » (demande, valeurs,
+     financement, chacun sur sa page), puis l'équipe. Les valeurs et le
+     positionnement détaillés ne sont plus recopiés ici : ils vivent sur la
+     charte des valeurs et « Que demandons-nous ? ». -->
+<Page
+	width="wide"
+	eyebrow={lang === 'en' ? 'About' : 'À propos'}
+	title={lang === 'en' ? 'Who are we?' : 'Qui sommes-nous ?'}
+>
+	<svelte:fragment slot="lede">
 		{#if lang === 'en'}
-			<FAQEn />
+			Pause AI France is an <a href="{prefix}/mentions-legales">association</a> that alerts French
+			citizens and public authorities to the
+			<a href="{prefix}/dangers/economic-and-material">serious dangers</a> of the artificial
+			intelligence race, and encourages them to act against it. We represent
+			<a href="https://pauseai.info" target="_blank" rel="noopener noreferrer">PauseAI Global</a> in France.
 		{:else}
-			<p class="lead">
-				Nous sommes une <a href="{prefix}/mentions-legales">association</a> qui alerte les citoyens
-				et les pouvoirs publics français sur les
-				<a href="{prefix}/dangers/economiques-et-materiels">graves dangers</a> de la course à
-				l'intelligence artificielle, et les incite à agir pour s'y opposer. Nous représentons en
-				France
-				<a href="https://pauseai.info" target="_blank" rel="noopener noreferrer">PauseAI Global</a>.
-			</p>
+			Nous sommes une <a href="{prefix}/mentions-legales">association</a> qui alerte les citoyens et
+			les pouvoirs publics français sur les
+			<a href="{prefix}/dangers/economiques-et-materiels">graves dangers</a> de la course à
+			l'intelligence artificielle, et les incite à agir pour s'y opposer. Nous représentons en
+			France
+			<a href="https://pauseai.info" target="_blank" rel="noopener noreferrer">PauseAI Global</a>.
 		{/if}
-		<div class="contact-cta">
-			{#if lang === 'en'}
-				<Button alt href="mailto:contact@pauseia.fr">Contact us</Button>
-			{:else}
-				<Button href="{prefix}/dons">Faire un don</Button>
-				<Button alt href="{prefix}/rejoindre">Nous rejoindre</Button>
-				<Button alt href="mailto:contact@pauseia.fr">Nous contacter</Button>
-			{/if}
-		</div>
+	</svelte:fragment>
+	<div class="contact-cta" slot="actions">
+		<Button href="{prefix}/dons">{lang === 'en' ? 'Donate' : 'Faire un don'}</Button>
+		<Button alt href="{prefix}/rejoindre">{lang === 'en' ? 'Join us' : 'Nous rejoindre'}</Button>
+		<Button alt href="mailto:contact@pauseia.fr"
+			>{lang === 'en' ? 'Contact us' : 'Nous contacter'}</Button
+		>
 	</div>
 
+	<SectionTitle>{lang === 'en' ? 'In short' : 'En bref'}</SectionTitle>
+	<LinkGrid>
+		<LinkCard
+			href="{prefix}/propositions"
+			icon="⏸️"
+			title={lang === 'en' ? 'What we ask for' : 'Notre demande'}
+		>
+			{lang === 'en'
+				? 'A global pause on training frontier AI models, until safety and democratic control are guaranteed.'
+				: 'Une pause mondiale de l’entraînement des IA de pointe, jusqu’à ce que la sécurité et le contrôle démocratique soient garantis.'}
+		</LinkCard>
+		<LinkCard
+			href="{prefix}/charte-des-valeurs"
+			icon="🧭"
+			title={lang === 'en' ? 'Our values' : 'Nos valeurs'}
+		>
+			{lang === 'en'
+				? 'Ten values ranked by priority, starting with non-violence and intellectual rigour.'
+				: 'Dix valeurs classées par priorité, à commencer par la non-violence et la rigueur intellectuelle.'}
+		</LinkCard>
+		<LinkCard
+			href="{prefix}/financements"
+			icon="🤝"
+			title={lang === 'en' ? 'Our funding' : 'Notre financement'}
+		>
+			{lang === 'en'
+				? 'A non-profit founded in June 2024, fully independent of the AI and tech industry.'
+				: 'Association à but non lucratif créée en juin 2024, totalement indépendante de l’industrie de l’IA et de la tech.'}
+		</LinkCard>
+	</LinkGrid>
+
+	<SectionTitle>{lang === 'en' ? 'The team' : 'L’équipe'}</SectionTitle>
 	<div class="team-section">
 		<h2 class="section-title">{lang === 'en' ? 'Leadership' : 'Direction'}</h2>
 		<div class="cards-grid cards-centered">
@@ -362,156 +285,7 @@
 			</Button>
 		</p>
 	</div>
-
-	{#if lang !== 'en'}
-		<div class="team-section" id="nos-valeurs">
-			<h2 class="section-title">Nos valeurs</h2>
-			<p class="values-note">
-				Nos valeurs sont numérotées par ordre de priorité. Lorsque deux valeurs s'opposent, la plus
-				haut placée l'emporte. Nous attendons de chaque personne au sein du mouvement qu'elle les
-				respecte en tout temps et qu'elle soit capable de les invoquer par leur numéro pour résoudre
-				un désaccord.
-			</p>
-
-			<div class="accordion-stack">
-				{#each values as v}
-					<Accordion id={`valeur-${v.n}`} noHash>
-						<svelte:fragment slot="head">{v.n}. {v.name}</svelte:fragment>
-						<svelte:fragment slot="details">
-							<p class="value-text">{v.text}</p>
-						</svelte:fragment>
-					</Accordion>
-				{/each}
-			</div>
-
-			<p class="section-description charte-link">
-				Ces valeurs constituent notre <a href="{prefix}/charte-des-valeurs">charte des valeurs</a>.
-			</p>
-		</div>
-
-		<div class="team-section">
-			<h2 class="section-title">Notre positionnement</h2>
-			<p class="section-description">
-				Nous demandons un <a href="{prefix}/propositions"
-					>moratoire sur l'entraînement des systèmes d'IA généralistes</a
-				> jusqu'à ce que toutes les conditions de sécurité et de contrôle démocratique soient réunies.
-			</p>
-
-			<div class="accordion-stack">
-				<Accordion id="quelle-ia" noHash>
-					<svelte:fragment slot="head">Quelle IA&nbsp;?</svelte:fragment>
-					<svelte:fragment slot="details">
-						<ul class="bullet-list">
-							<li>Nous ne sommes pas contre toute forme d'IA.</li>
-							<li>
-								Nous sommes contre <strong
-									>le développement sans contrôle et sans limite de l'intelligence artificielle
-									généraliste</strong
-								> car il expose notre civilisation à des risques catastrophiques.
-							</li>
-						</ul>
-					</svelte:fragment>
-				</Accordion>
-
-				<Accordion id="pourquoi" noHash>
-					<svelte:fragment slot="head">Pourquoi&nbsp;?</svelte:fragment>
-					<svelte:fragment slot="details">
-						<ul class="bullet-list">
-							<li>
-								Les modèles d'IA généralistes (aujourd'hui tels que GPT, Claude, Gemini) deviennent
-								chaque jour plus puissants, ils sont faciles à utiliser et se déploient à grande
-								vitesse dans la société, sans réelles <a
-									href="https://www.gov.uk/government/publications/international-ai-safety-report-2025"
-									target="_blank"
-									rel="noopener noreferrer">normes de sécurité</a
-								> et hors de tout contrôle institutionnel.
-							</li>
-							<li>
-								Ils présentent déjà des risques majeurs pour la sécurité de nos <a
-									href="{prefix}/dangers/economiques-et-materiels">infrastructures</a
-								>, pour <a href="{prefix}/dangers/pour-la-societe">nos institutions</a>, pour
-								<a href="{prefix}/dangers/pour-les-individus">notre modèle social</a>.
-							</li>
-							<li>
-								Ces modèles d'IA commencent à <a
-									href="https://www.anthropic.com/research/alignment-faking"
-									target="_blank"
-									rel="noopener noreferrer">échapper à leurs créateurs</a
-								>. Certains le reconnaissent publiquement.
-							</li>
-							<li>
-								Dans un scénario catastrophe que l'on ne peut exclure, ils pourraient donner
-								naissance à une <a
-									href="https://www.safe.ai/work/statement-on-ai-risk"
-									target="_blank"
-									rel="noopener noreferrer">super-intelligence incontrôlable</a
-								>.
-							</li>
-						</ul>
-					</svelte:fragment>
-				</Accordion>
-
-				<Accordion id="que-faire" noHash>
-					<svelte:fragment slot="head">Que faire&nbsp;?</svelte:fragment>
-					<svelte:fragment slot="details">
-						<ul class="bullet-list">
-							<li>
-								Les discours «&nbsp;<a href="#faq">rassuristes</a>&nbsp;» nous font perdre du temps.
-								<em
-									>L'IA ne serait pas vraiment intelligente, les géants de la tech exagéreraient les
-									performances de leurs modèles, on serait à la veille de l'explosion d'une bulle
-									spéculative…</em
-								> Rien de tout cela ne nous protège du danger, bien au contraire.
-							</li>
-							<li>
-								La violence, que nous condamnons par principe, est également contre-productive. Elle
-								renforce des antagonismes stériles au moment où l'avenir de l'humanité est en jeu.
-							</li>
-							<li>
-								La seule réponse au danger est la mise en place d'une <a
-									href="{prefix}/propositions">gouvernance mondiale</a
-								> qui ait les moyens institutionnels, techniques et financiers de contrôler l'IA.
-							</li>
-						</ul>
-					</svelte:fragment>
-				</Accordion>
-			</div>
-		</div>
-
-		<p class="independence">
-			Association à but non lucratif créée en juin 2024, nous sommes <strong
-				>totalement indépendants de l'industrie de l'IA et de la tech</strong
-			>&nbsp;: nous fonctionnons grâce aux <a href="{prefix}/dons">dons</a> de nos soutiens, qui financent
-			nos campagnes, nos événements et le fonctionnement de l'association.
-		</p>
-	{/if}
-
-	{#if lang === 'en'}
-		<div class="team-section" id="our-values">
-			<h2 class="section-title">Our values</h2>
-			<p class="values-note">
-				Our values are numbered in order of priority. When two values conflict, the one ranked
-				higher prevails. We expect everyone within the movement to uphold them at all times and to
-				be able to invoke them by their number to resolve a disagreement.
-			</p>
-
-			<div class="accordion-stack">
-				{#each valuesEn as v}
-					<Accordion id={`value-${v.n}`} noHash>
-						<svelte:fragment slot="head">{v.n}. {v.name}</svelte:fragment>
-						<svelte:fragment slot="details">
-							<p class="value-text">{v.text}</p>
-						</svelte:fragment>
-					</Accordion>
-				{/each}
-			</div>
-
-			<p class="section-description charte-link">
-				These values make up our <a href="/en/charte-des-valeurs">values charter</a>.
-			</p>
-		</div>
-	{/if}
-</section>
+</Page>
 
 <style>
 	/* --- Nos équipes ------------------------------------------------------- */
@@ -565,122 +339,11 @@
 		margin: 2rem 0 0;
 	}
 
-	section {
-		max-width: 960px;
-		margin: 0 auto;
-		padding-top: 2.5rem;
-	}
-
-	.intro {
-		margin-bottom: 2rem;
-		text-align: center;
-	}
-
-	.intro :global(p) {
-		text-align: center;
-	}
-
-	.lead {
-		max-width: 720px;
-		margin: 1rem auto 1.5rem;
-		font-size: 1.1rem;
-		line-height: 1.7;
-		color: var(--text);
-	}
-
-	.bullet-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.bullet-list li {
-		position: relative;
-		padding: 0.25rem 0 0.25rem 1.5rem;
-		margin-bottom: 0.5rem;
-		line-height: 1.6;
-	}
-
-	.bullet-list li::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 0.85rem;
-		width: 0.5rem;
-		height: 0.5rem;
-		border-radius: 50%;
-		background: var(--text-secondary);
-	}
-
-	.bullet-list li:last-child {
-		margin-bottom: 0;
-	}
-
-	.accordion-stack {
-		display: flex;
-		flex-direction: column;
-		text-align: left;
-		margin-top: 1.5rem;
-	}
-
-	.accordion-stack :global(.accordion .title) {
-		font-size: 1.1rem;
-		font-weight: 700;
-	}
-
-	.accordion-stack :global(.accordion .header) {
-		padding: 1rem 0;
-		transition: opacity 0.2s ease;
-	}
-
-	.accordion-stack :global(.accordion .header:hover) {
-		opacity: 0.75;
-	}
-
-	.accordion-stack :global(.accordion .details) {
-		background-color: transparent;
-		border: none;
-		box-shadow: none;
-		margin: 0 0 0.5rem;
-		padding: 0 0 1rem;
-	}
-
-	.values-note {
-		margin: 0.5rem 0 1.5rem;
-		padding: 0.75rem 0 0.75rem 1rem;
-		border-left: 3px solid var(--border);
-		color: var(--text-secondary);
-		font-size: 0.95rem;
-		line-height: 1.6;
-		text-align: left;
-	}
-
-	.value-text {
-		margin: 0;
-		line-height: 1.6;
-	}
-
-	.charte-link {
-		margin-top: 1.5rem;
-		margin-bottom: 0;
-	}
-
-	.independence {
-		margin: 1.75rem 0 0;
-		padding-top: 1.5rem;
-		border-top: 1px solid var(--border);
-		font-size: 0.95rem;
-		color: var(--text-secondary);
-		line-height: 1.6;
-		text-align: center;
-	}
-
 	.contact-cta {
 		display: flex;
 		gap: 1rem;
-		justify-content: center;
 		flex-wrap: wrap;
-		margin-top: 1.5rem;
+		margin-top: 1.75rem;
 	}
 
 	.team-section {
@@ -697,13 +360,6 @@
 		margin-bottom: 0.5rem;
 		font-size: 1.5rem;
 		font-weight: 700;
-		text-align: center;
-	}
-
-	.section-description {
-		margin-bottom: 2rem;
-		color: var(--text-secondary);
-		font-size: 1rem;
 		text-align: center;
 	}
 

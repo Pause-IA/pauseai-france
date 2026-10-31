@@ -1,12 +1,11 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import { getT } from '$lib/i18n'
 	import { getSortedCampaigns } from '$lib/campaigns'
 	import type { Campaign } from '$lib/campaigns'
 	import { fade } from 'svelte/transition'
-	import { Badge, Card } from '$components/ui'
+	import { Badge, Card, Page } from '$components/ui'
 	import type { PageData } from './$types'
 
 	export let data: PageData
@@ -80,10 +79,8 @@
 
 <PostMeta title={t.campagnes.meta_title} description={t.campagnes.meta_desc} />
 
-<article>
+<Page width="wide" eyebrow={t.nav.campagnes} title={t.campagnes.title} lede={t.campagnes.subtitle}>
 	<section class="hero">
-		<UnderlinedTitle as="h1">{t.campagnes.title}</UnderlinedTitle>
-		<p class="intro">{t.campagnes.subtitle}</p>
 		<p class="active-count">
 			<Badge variant="success">
 				{activeCount}
@@ -133,7 +130,7 @@
 			</Card>
 		{/each}
 	</section>
-</article>
+</Page>
 
 {#if selectedCampaign?.summary}
 	{@const summary = isEn ? selectedCampaign.summary.en : selectedCampaign.summary.fr}
@@ -224,22 +221,8 @@
 {/if}
 
 <style>
-	article {
-		max-inline-size: var(--width-wide);
-		margin-inline: auto;
-		margin-top: 3rem;
-		padding: 0 2rem;
-	}
-
 	.hero {
-		text-align: left;
-		margin-bottom: 2rem;
-	}
-
-	.intro {
-		font-size: 1.25rem;
-		line-height: 1.6;
-		color: var(--text-muted);
+		margin: -1rem 0 2rem;
 	}
 
 	.campaigns-list {

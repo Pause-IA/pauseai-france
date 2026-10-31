@@ -13,6 +13,9 @@ export function GET() {
 	// La racine est émise à part ci-dessous : on l'enlève de la liste pour ne
 	// pas la déclarer deux fois.
 	const staticRoutes = getStaticRoutes().filter((route) => route !== '/')
+	// Un post dont l'adresse est déjà une page dédiée (ex. faq.md, lu par
+	// /[lang]/faq) ne doit pas apparaître deux fois.
+	const isStatic = (path: string) => staticRoutes.includes(path)
 
 	const headers = { 'Content-Type': 'application/xml' }
 
@@ -42,6 +45,7 @@ export function GET() {
 				)
 				.join('')}
 		  ${[...postsFr.map((p) => `fr/${p.slug}`), ...postsEn.map((p) => `en/${p.slug}`)]
+				.filter((path) => !isStatic(`/${path}`))
 				.map(
 					(path) =>
 						`<url>

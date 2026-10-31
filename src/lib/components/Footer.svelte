@@ -5,11 +5,18 @@
 	import { getT } from '$lib/i18n'
 	import type { Lang } from '$lib/i18n'
 	import { theme } from '$lib/stores/theme'
+	import { page } from '$app/stores'
+	import { switchLangHref } from '$lib/langSwitch'
 
 	export let lang: Lang = 'fr'
 
 	$: t = getT(lang)
 	$: prefix = lang === 'fr' ? '/fr' : '/en'
+	let otherLang: 'fr' | 'en'
+	$: otherLang = lang === 'fr' ? 'en' : 'fr'
+	$: langHref = switchLangHref($page.url.pathname, lang, otherLang)
+
+	const CONTACT = 'contact@pauseia.fr'
 
 	let email = ''
 	let isSubmitting = false
@@ -67,87 +74,118 @@
 	}
 </script>
 
+<!--
+  Organisation (validée par l'équipe) : une colonne d'identité, trois colonnes
+  de liens (S'informer, Agir, Pause IA), puis une barre du bas pour les mentions
+  légales et la langue. Plan du site : docs/plan-du-site.md.
+-->
 <footer>
-	<div class="brand">
-		<a href={prefix} class="logo">
-			<div class="logo">
+	<div class="top">
+		<section class="identity" aria-label="Pause IA">
+			<a href={prefix} class="logo" aria-label="Pause IA">
+				<!-- Hauteur explicite : sans elle, le SVG est mesuré à sa taille
+				     intrinsèque pendant le calcul de la grille et ajoute un grand vide. -->
 				<Logo
+					height={56}
 					animate
 					fill_pause={$theme === 'dark' ? '#f0ede8' : 'black'}
 					fill_circle="white"
 					fill_ai={$theme === 'dark' ? '#f0ede8' : 'white'}
 				/>
+			</a>
+			<p class="association">
+				{t.footer.association_before}<ExternalLink href="https://pauseai.info" target="_blank"
+					>PauseAI</ExternalLink
+				>{t.footer.association_after}
+			</p>
+			<p class="contact">
+				{t.footer.contact} : <a href="mailto:{CONTACT}">{CONTACT}</a>
+			</p>
+			<div class="socials">
+				<h2 class="sr-only">{t.footer.follow_us}</h2>
+				<Socials />
 			</div>
-		</a>
-	</div>
-	<div id="newsletter" class="newsletter-section">
-		<h2>{t.footer.newsletter_title}</h2>
-		<p class="newsletter-desc">{t.footer.newsletter_desc}</p>
-		<form on:submit={handleNewsletterSubmit} class="newsletter-form">
-			<div class="input-group">
-				<input
-					type="email"
-					bind:value={email}
-					placeholder={t.footer.newsletter_placeholder}
-					disabled={isSubmitting}
-					aria-label={t.footer.newsletter_placeholder}
-				/>
-				<button type="submit" disabled={isSubmitting}>
-					{#if isSubmitting}{t.footer.newsletter_loading}{:else}{t.footer.newsletter_subscribe}{/if}
-				</button>
+
+			<div id="newsletter" class="newsletter-section">
+				<h2>{t.footer.newsletter_title}</h2>
+				<p class="newsletter-desc">{t.footer.newsletter_desc}</p>
+				<form on:submit={handleNewsletterSubmit} class="newsletter-form">
+					<div class="input-group">
+						<input
+							type="email"
+							bind:value={email}
+							placeholder={t.footer.newsletter_placeholder}
+							disabled={isSubmitting}
+							aria-label={t.footer.newsletter_placeholder}
+						/>
+						<button type="submit" disabled={isSubmitting}>
+							{#if isSubmitting}{t.footer.newsletter_loading}{:else}{t.footer
+									.newsletter_subscribe}{/if}
+						</button>
+					</div>
+					{#if message}
+						<p class="newsletter-message" class:error={isError} class:success={!isError}>
+							{message}
+						</p>
+					{/if}
+				</form>
 			</div>
-			{#if message}
-				<p class="newsletter-message" class:error={isError} class:success={!isError}>
-					{message}
-				</p>
-			{/if}
-		</form>
+		</section>
+
+		<nav class="footer-links" aria-label={lang === 'en' ? 'Site map' : 'Plan du site'}>
+			<div class="column">
+				<h2>{t.footer.inform_title}</h2>
+				<!-- « Les dangers de l'IA » est retiré, comme dans le menu, le temps de
+				     retravailler le discours (t.footer.dangers reste prêt). -->
+				<a href="{prefix}/ressources">{t.footer.resources}</a>
+				<a href="{prefix}/fresque">{t.footer.fresque}</a>
+				<a href="{prefix}/newsletters">{t.footer.newsletter}</a>
+				<ExternalLink href="https://pauseia.substack.com/" target="_blank"
+					>{t.footer.blog}</ExternalLink
+				>
+			</div>
+			<div class="column">
+				<h2>{t.footer.act_title}</h2>
+				<a href="{prefix}/rejoindre">{t.footer.join_pauseia}</a>
+				<a href="{prefix}/groupes-locaux">{t.footer.local_groups}</a>
+				<a href="{prefix}/agir">{t.footer.all_ways}</a>
+				<a href="{prefix}/ecrire-a-mes-elus">{t.footer.ecrire_elus}</a>
+				<a href="{prefix}/declaration">{t.footer.declaration}</a>
+				<a href="{prefix}/dons">{t.footer.make_donation}</a>
+				<ExternalLink href="https://pauseai-shop.fourthwall.com" target="_blank"
+					>{t.footer.shop}</ExternalLink
+				>
+			</div>
+			<div class="column">
+				<h2>{t.footer.about_title}</h2>
+				<a href="{prefix}/qui-sommes-nous">{t.footer.qui_sommes_nous}</a>
+				<a href="{prefix}/charte-des-valeurs">{t.footer.values}</a>
+				<a href="{prefix}/propositions">{t.footer.demands}</a>
+				<a href="{prefix}/financements">{t.footer.funding}</a>
+				<a href="{prefix}/presse">{t.footer.press}</a>
+				<a href="{prefix}/faq">{t.footer.faq}</a>
+				<a href="{prefix}/recrutement-emploi">{t.footer.jobs}</a>
+			</div>
+		</nav>
 	</div>
-	<div class="socials">
-		<h2>{t.footer.follow_us}</h2>
-		<Socials />
-	</div>
-	<div class="footer-links">
-		<div class="column">
-			<h2>{t.footer.nav_title}</h2>
-			<a href="{prefix}#faq">{t.footer.faq}</a>
-			<a href="{prefix}/propositions">{t.footer.propositions}</a>
-			<a href="{prefix}/newsletters">{t.footer.newsletters}</a>
-			<a href="https://pauseia.substack.com/" target="_blank" rel="noopener noreferrer"
-				>{t.footer.blog}</a
-			>
-			<a href="{prefix}/fresque">{t.footer.fresque}</a>
-			<a href="{prefix}/agir">{t.footer.agir}</a>
-			<a href="{prefix}/dons">{t.footer.donner}</a>
-			<a href="{prefix}/rejoindre">{t.footer.rejoindre}</a>
-			<a href="{prefix}/qui-sommes-nous">{t.footer.qui_sommes_nous}</a>
-		</div>
-		<div class="column">
-			<h2>{t.footer.act_title}</h2>
-			<a href="{prefix}/ecrire-a-mes-elus">{t.footer.ecrire_elus}</a>
-			<a href="{prefix}/declaration">{t.footer.declaration}</a>
-			<a href="{prefix}/rejoindre">{t.footer.join_pauseia}</a>
-			<a href="{prefix}/agir">{t.footer.how_to_help}</a>
-			<a href="{prefix}/dons">{t.footer.make_donation}</a>
-			<ExternalLink href="https://pauseai-shop.fourthwall.com" target="_blank"
-				>{t.footer.merchandise}</ExternalLink
-			>
-			<a href="https://pauseai.info/protests" target="_blank" rel="noopener noreferrer"
-				>{t.footer.protests}</a
-			>
-			<a href="{prefix}/recrutement-emploi">{t.footer.jobs}</a>
-		</div>
-		<div class="column">
-			<h2>{t.footer.other_title}</h2>
-			<a href="{prefix}/presse">{t.footer.press}</a>
-			<a href="{prefix}/financements">{t.footer.funding}</a>
-			<a href="{prefix}/mentions-legales">{t.footer.legal}</a>
-			<a href="{prefix}/politique-de-confidentialite">{t.footer.privacy}</a>
-			<a href="{prefix}/charte-des-valeurs">{t.footer.values}</a>
-			<ExternalLink href="https://creativecommons.org/licenses/by/4.0/deed.fr" target="_blank"
-				>{t.footer.license}</ExternalLink
-			>
-		</div>
+
+	<div class="bottom">
+		<!-- Titre lu par les lecteurs d'écran (et par scripts/plan-du-site.mjs). -->
+		<div class="sr-only"><h2>{t.footer.legal_title}</h2></div>
+		<a href="{prefix}/mentions-legales">{t.footer.legal}</a>
+		<span aria-hidden="true">·</span>
+		<a href="{prefix}/politique-de-confidentialite">{t.footer.privacy}</a>
+		<span aria-hidden="true">·</span>
+		<ExternalLink
+			href={lang === 'en'
+				? 'https://creativecommons.org/licenses/by/4.0/'
+				: 'https://creativecommons.org/licenses/by/4.0/deed.fr'}
+			target="_blank">{t.footer.license}</ExternalLink
+		>
+		<span aria-hidden="true">·</span>
+		<a href={langHref} hreflang={otherLang} lang={otherLang} aria-label={t.footer.switch_lang_label}
+			>{otherLang.toUpperCase()}</a
+		>
 	</div>
 </footer>
 
@@ -157,59 +195,101 @@
 		   est donc foncé et fixe (7,9:1), pas la couleur d'encre de la page. */
 		background-color: var(--brand);
 		color: var(--on-brand);
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
 		overflow: hidden;
-		padding: 2rem;
+		padding: 2.5rem 1.25rem 1.5rem;
 		font-size: 1rem;
 	}
 
-	.logo {
-		height: 66px;
-	}
-
-	.socials {
-		display: flex;
-		flex-direction: column;
-		align-items: start;
-	}
-
-	.footer-links {
-		display: flex;
+	.top {
+		display: grid;
 		gap: 2.5rem;
-		flex-direction: column;
-	}
-
-	.brand,
-	.socials,
-	.column {
-		gap: 0.5rem;
-	}
-
-	.column {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		flex: 1;
 	}
 
 	h2 {
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		font-family: var(--font-heading);
 		font-weight: 700;
-		margin-bottom: 0rem;
-		margin-top: 0;
+		margin: 0 0 0.25rem;
+	}
+
+	/* ── Identité ── */
+	.identity {
+		/* app.css espace les <section> du contenu (5 à 10 rem) : pas ici. */
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.9rem;
+	}
+
+	.logo {
+		display: block;
+		inline-size: fit-content;
+	}
+
+	.association,
+	.contact {
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
+	.identity :global(a),
+	.bottom :global(a) {
+		color: inherit;
+	}
+
+	/* Socials centre ses icônes à partir de 768 px : ici, la colonne est alignée à gauche. */
+	.socials :global(.social) {
+		justify-content: flex-start;
+	}
+
+	.sr-only {
+		position: absolute;
+		inline-size: 1px;
+		block-size: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+
+	/* ── Colonnes de liens ── */
+	.footer-links {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+		gap: 2rem;
+	}
+
+	.column {
+		display: flex;
+		flex-direction: column;
+		gap: 0.55rem;
 	}
 
 	.footer-links :global(a) {
 		color: inherit;
 		text-decoration: none;
-		opacity: 0.85;
+		line-height: 1.35;
 	}
 
-	.footer-links :global(a:hover) {
+	.footer-links :global(a:hover),
+	.bottom :global(a:hover) {
 		text-decoration: underline;
+	}
+
+	/* ── Barre du bas ── */
+	.bottom {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4rem 0.6rem;
+		margin-top: 2.5rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid rgba(var(--ink-rgb), 0.2);
+		font-size: 0.9rem;
+	}
+
+	.bottom :global(a) {
+		text-decoration: none;
 	}
 
 	/* Newsletter section styles */
@@ -298,81 +378,30 @@
 		color: var(--error);
 	}
 
+	.newsletter-section {
+		margin-top: 0.5rem;
+	}
+
 	/* En mode sombre, app.css repasse le pied de page sur le fond de la page :
 	   le texte reprend alors l'encre courante, pas l'encre « sur orange ». */
 	:global([data-theme='dark']) footer {
 		color: var(--text);
 	}
-	@media (min-width: 480px) {
-		.footer-links {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: repeat(2, 1fr);
-		}
-	}
+
 	@media (min-width: 768px) {
 		footer {
-			padding: 4rem 6rem;
-			display: grid;
-			gap: 3rem;
-			grid-template-columns: 1fr 1fr;
-			grid-template-rows: auto auto auto;
-		}
-
-		.brand {
-			grid-column: 1;
-			grid-row: 1;
-		}
-
-		.logo {
-			height: fit-content;
-		}
-
-		.newsletter-section {
-			grid-column: 2;
-			grid-row: 1;
-		}
-
-		.socials {
-			grid-column: 1;
-			grid-row: 2;
-			align-items: start;
-		}
-
-		.footer-links {
-			display: flex;
-			grid-column: 1 / -1;
-			grid-row: 3;
-			flex-direction: row;
+			padding: 4rem 3rem 2rem;
 		}
 	}
-	@media (min-width: 1280px) {
+
+	@media (min-width: 1100px) {
 		footer {
-			padding: 6rem;
-			grid-template-columns: minmax(1rem, auto) 1fr 1fr;
-			grid-template-rows: auto auto;
-			gap: 3rem;
+			padding: 5rem 6rem 2rem;
 		}
 
-		.brand {
-			grid-column: 1;
-			grid-row: 1;
-		}
-
-		.newsletter-section {
-			grid-column: 2;
-			grid-row: 1;
-		}
-
-		.socials {
-			grid-column: 3;
-			grid-row: 1;
-			align-items: center;
-		}
-
-		.footer-links {
-			grid-column: 1 / -1;
-			grid-row: 2;
+		.top {
+			grid-template-columns: minmax(18rem, 1.1fr) 3fr;
+			gap: 4rem;
 		}
 	}
 

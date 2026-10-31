@@ -5,7 +5,7 @@
 	import { page } from '$app/stores'
 	import { browser } from '$app/environment'
 	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
+	import { PageHero } from '$components/ui'
 	import { url as siteUrl } from '$config'
 	import {
 		Lightbulb,
@@ -36,6 +36,7 @@
 	export let data: PageData
 	$: lang = data.lang
 	$: t = getT(lang).liens_utiles_page
+	$: nav = getT(lang).nav
 
 	$: title = t.meta_title
 	$: description = t.meta_desc
@@ -455,12 +456,7 @@
 
 	<article class="ressources-page">
 		<!-- Hero -->
-		<section class="hero">
-			<UnderlinedTitle as="h1">{t.hero_title}</UnderlinedTitle>
-			<p class="hero-description">
-				{t.hero_desc}
-			</p>
-		</section>
+		<PageHero eyebrow={nav.comprendre} lede={t.hero_desc}>{t.hero_title}</PageHero>
 
 		<!-- Controls -->
 		<section class="controls">
@@ -629,7 +625,7 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		max-width: 72rem;
-		margin: 2rem auto 0;
+		margin: 3rem auto 0;
 		padding: 0 1.25rem;
 		gap: 2.5rem;
 	}
@@ -745,24 +741,6 @@
 		.ressources-page {
 			margin: 0;
 		}
-	}
-
-	/* ─── Hero ─────────────────────────────────────────────── */
-	.hero {
-		text-align: center;
-		margin-bottom: 2rem;
-		background: var(--bg);
-		padding: 2rem 1.5rem 1.75rem;
-		border-radius: var(--radius-md);
-		box-shadow: 0 4px 6px rgba(var(--ink-rgb), 0.08);
-	}
-
-	.hero-description {
-		font-size: 1.05rem;
-		line-height: 1.55;
-		color: var(--text-secondary);
-		max-width: 38rem;
-		margin: 0 auto 1.25rem;
 	}
 
 	/* ─── Controls ─────────────────────────────────────────── */
@@ -1185,9 +1163,6 @@
 
 	/* ─── Responsive ───────────────────────────────────────── */
 	@media (max-width: 640px) {
-		.hero {
-			padding: 1.5rem 1rem 1.5rem;
-		}
 		.res-card {
 			flex-direction: column;
 			gap: 0.65rem;

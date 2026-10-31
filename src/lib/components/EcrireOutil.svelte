@@ -2,6 +2,7 @@
 	import PostMeta from '$components/PostMeta.svelte'
 	import Button from '$components/Button.svelte'
 	import Accordion from '$components/Accordion.svelte'
+	import { PageHero } from '$components/ui'
 	import { Landmark, Newspaper } from 'lucide-svelte'
 	import { onMount, createEventDispatcher } from 'svelte'
 	import { lookupElus, isSampleData, type Elu, type LookupResult } from '$lib/data/elus'
@@ -795,12 +796,14 @@
 	{#if step === 1}
 		<!-- ════════ Étape 1 : choisir le destinataire ════════ -->
 		{#if !embedded}
-			<header class="hero-band">
-				<div class="hero-inner">
-					<h1>{isEn ? action.hero.title.en : action.hero.title.fr}</h1>
-					<p class="hero-sub">{isEn ? action.hero.subtitle.en : action.hero.subtitle.fr}</p>
-				</div>
-			</header>
+			<!-- En-tête commun à toutes les pages (gabarit Outil) : l'ancien bandeau
+			     orange pleine largeur était propre à cette page. -->
+			<PageHero
+				eyebrow={isEn ? 'Act' : 'Agir'}
+				lede={isEn ? action.hero.subtitle.en : action.hero.subtitle.fr}
+			>
+				{isEn ? action.hero.title.en : action.hero.title.fr}
+			</PageHero>
 		{/if}
 
 		<!-- Onglets masqués quand la page impose l'action (forcedActionId) : le
@@ -1546,10 +1549,13 @@
 
 <style>
 	article {
+		/* Largeur fixe : sans elle, un article centré dans <main> (flex) prend
+		   la largeur de son contenu et la page bouge quand un bloc s'ouvre. */
+		inline-size: 100%;
 		max-inline-size: var(--width-content);
 		margin-inline: auto;
-		margin-top: 2.5rem;
-		padding: 0 1.25rem 5rem;
+		margin-top: 3rem;
+		padding: 0 0 5rem;
 	}
 
 	/* Mode intégré (dans une autre page) : on retire les marges et la largeur
@@ -1560,9 +1566,7 @@
 		padding: 0;
 	}
 
-	/* Le retrait négatif de .tool-switch sert à le remonter sous le hero de la
-	   page dédiée. Intégré dans une section qui a déjà son titre, il collait au
-	   titre : on le neutralise. */
+	/* Intégré dans une section qui a déjà son titre : pas de marge haute. */
 	article.embedded .tool-switch {
 		margin-top: 0;
 	}
@@ -1570,7 +1574,7 @@
 	/* Sélecteur d'outil (élus / presse) : un vrai commutateur, sous le hero */
 	.tool-switch {
 		max-inline-size: 40rem;
-		margin: -1.25rem auto 2.25rem;
+		margin: 0 0 2.25rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -1628,39 +1632,6 @@
 			font-size: 0.9rem;
 			padding: 0.75rem 0.5rem;
 		}
-	}
-
-	/* Hero coloré pleine largeur (full-bleed : déborde de la largeur de l'article) */
-	.hero-band {
-		width: 100vw;
-		margin-left: calc(50% - 50vw);
-		margin-top: -2.5rem; /* annule le margin-top de l'article */
-		margin-bottom: 2.75rem;
-		padding: 3.5rem 1.25rem 3.25rem;
-		background: var(--brand);
-		text-align: center;
-	}
-
-	.hero-inner {
-		max-inline-size: var(--width-text);
-		margin-inline: auto;
-	}
-
-	.hero-band h1 {
-		font-size: clamp(2rem, 5.5vw, 3rem);
-		font-weight: 800;
-		line-height: 1.05;
-		margin: 0 0 1rem;
-		color: var(--on-brand);
-	}
-
-	.hero-sub {
-		font-size: clamp(1rem, 2.2vw, 1.2rem);
-		line-height: 1.5;
-		margin: 0 auto;
-		max-inline-size: 36rem;
-		color: var(--on-brand-muted);
-		font-weight: 500;
 	}
 
 	/* Cards */

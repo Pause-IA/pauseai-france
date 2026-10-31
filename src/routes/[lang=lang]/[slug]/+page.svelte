@@ -1,27 +1,27 @@
 <script lang="ts">
 	import type { PageData } from './$types'
 	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
+	import { Page } from '$components/ui'
+	import { getT } from '$lib/i18n'
 
 	import { title as siteName } from '$config'
 
 	export let data: PageData
 
 	const { metadata, slug, content } = data
-	const { title = slug, date, description, image, original } = metadata
+	const { title = slug, date, description, image, original, rubrique, chapo } = metadata
+
+	// Surtitre : la rubrique du menu (frontmatter « rubrique: agir »…), qui
+	// rattache la page à sa section. Clés : comprendre, agir, campagnes,
+	// actualites, apropos.
+	$: t = getT(data.lang)
+	$: eyebrow = rubrique ? (t.nav as Record<string, string>)[String(rubrique)] : undefined
 </script>
 
 <PostMeta title={`${title} | ${siteName}`} {description} {date} {image} />
 
-<article>
-	<hgroup>
-		<UnderlinedTitle as="h1">{title}</UnderlinedTitle>
-		{#if date}
-			<!-- <p>Published at {formatDate(date)}</p> -->
-		{/if}
-	</hgroup>
-
-	<div>
+<Page {title} {eyebrow} lede={chapo ? String(chapo) : undefined} width="content" as="article">
+	<div class="prose">
 		<svelte:component this={content} />
 	</div>
 	{#if original}
@@ -34,14 +34,9 @@
 			>.
 		</footer>
 	{/if}
-</article>
+</Page>
 
 <style>
-	article {
-		max-inline-size: var(--width-content);
-		margin-inline: auto;
-		margin-top: 3rem;
-	}
 	footer {
 		color: var(--text-secondary);
 		font-size: 0.8rem;

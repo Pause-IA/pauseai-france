@@ -1,5 +1,6 @@
 ---
 title: Notre financement
+rubrique: apropos
 description: D'où vient l'argent de Pause IA, à quoi il sert, et pourquoi nous restons indépendants des entreprises d'IA et des États. Comptes détaillés et rapport financier.
 ---
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
+	import { Page } from '$components/ui'
 	import Button from '$components/Button.svelte'
 	import LocalGroupsMap from '$components/LocalGroupsMap.svelte'
 	import {
@@ -179,25 +179,24 @@
 
 <PostMeta {title} {description} />
 
-<article>
-	<section class="hero">
-		<UnderlinedTitle as="h1">{isEn ? 'Local groups' : 'Groupes locaux'}</UnderlinedTitle>
-		<p class="hero-description">
-			{#if isEn}
-				Local action is essential for raising public awareness, engaging elected officials and
-				building a strong citizen movement. Join a team near you or start the momentum in your city.
-			{:else}
-				L'action locale est essentielle pour sensibiliser le public, interpeller les élus et
-				construire un mouvement citoyen fort. Rejoignez une équipe près de chez vous ou lancez la
-				dynamique dans votre ville.
-			{/if}
-		</p>
+<Page width="wide" eyebrow={isEn ? 'Act' : 'Agir'} title={isEn ? 'Local groups' : 'Groupes locaux'}>
+	<svelte:fragment slot="lede">
+		{#if isEn}
+			Local action is essential for raising public awareness, engaging elected officials and
+			building a strong citizen movement. Join a team near you or start the momentum in your city.
+		{:else}
+			L'action locale est essentielle pour sensibiliser le public, interpeller les élus et
+			construire un mouvement citoyen fort. Rejoignez une équipe près de chez vous ou lancez la
+			dynamique dans votre ville.
+		{/if}
+	</svelte:fragment>
+	<svelte:fragment slot="actions">
 		<div class="hero-actions">
 			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
 				{isEn ? 'Join a group' : 'Rejoindre un groupe'}
 			</Button>
 		</div>
-	</section>
+	</svelte:fragment>
 
 	<section class="impact-section">
 		<div class="impact-card">
@@ -549,7 +548,7 @@
 			{/if}
 		</p>
 	</section>
-</article>
+</Page>
 
 <style>
 	/* Repère de temps de fin de page : volontairement sobre (pas de carte, pas
@@ -582,27 +581,6 @@
 		font-size: 1.02rem;
 		line-height: 1.6;
 		color: var(--text-2);
-	}
-
-	article {
-		max-inline-size: var(--width-wide);
-		margin-inline: auto;
-		margin-top: 3rem;
-		padding: 0 2rem;
-	}
-
-	/* ── Hero ─────────────────────────────────────────────────────────── */
-
-	.hero {
-		text-align: left;
-		margin-bottom: 3rem;
-	}
-
-	.hero-description {
-		font-size: 1.2rem;
-		color: var(--text-muted);
-		line-height: 1.65;
-		max-inline-size: var(--width-text);
 	}
 
 	.hero-actions {
@@ -1418,10 +1396,6 @@
 	/* ── Responsive ───────────────────────────────────────────────────── */
 
 	@media (max-width: 640px) {
-		article {
-			padding: 0 1rem;
-		}
-
 		.cta-card {
 			padding: 1.75rem 1.25rem;
 		}

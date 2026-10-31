@@ -137,6 +137,14 @@
 		flex-direction: column;
 	}
 
+	/* Dans une colonne flex, un enfant centré par marges automatiques prend la
+	   largeur de son contenu : la page s'élargissait (et bougeait) dès qu'un
+	   bloc s'ouvrait (FAQ, filtres…). Chaque page occupe donc toute la largeur
+	   disponible, dans la limite de sa propre largeur maximale. */
+	main > :global(*) {
+		inline-size: 100%;
+	}
+
 	@media (min-width: 640px) {
 		main {
 			padding: 0rem 2rem 7.5rem 2rem;
