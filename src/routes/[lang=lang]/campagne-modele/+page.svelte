@@ -235,8 +235,8 @@
 		id="agir"
 		title={isEn ? 'Take action' : 'Passer à l’action'}
 		intro={isEn
-			? 'Two minutes for an email to your MPs or to a newsroom. Everything is pre-written; you edit before sending.'
-			: 'Deux minutes pour un mail à vos parlementaires ou à une rédaction. Tout est pré-rédigé, vous modifiez avant d’envoyer.'}
+			? 'Two minutes for an email to your MPs. Everything is pre-written; you edit before sending.'
+			: 'Deux minutes pour un mail à vos parlementaires. Tout est pré-rédigé, vous modifiez avant d’envoyer.'}
 	>
 		<EcrireOutil lang={data.lang} embedded requireName headingLevel="h3" />
 	</CampaignSection>

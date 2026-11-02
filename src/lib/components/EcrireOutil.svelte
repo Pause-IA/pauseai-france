@@ -5,7 +5,7 @@
 	import { Landmark, Newspaper } from 'lucide-svelte'
 	import { onMount, createEventDispatcher } from 'svelte'
 	import { lookupElus, isSampleData, type Elu, type LookupResult } from '$lib/data/elus'
-	import { getEluAction, type FixedTarget } from '$lib/data/elu-actions'
+	import { getEluAction, PRESS_TOOL_ENABLED, type FixedTarget } from '$lib/data/elu-actions'
 	import { resolveCirco } from '$lib/data/circo-geo'
 	import type { Lang } from '$lib/i18n'
 
@@ -805,7 +805,8 @@
 
 		<!-- Onglets masqués quand la page impose l'action (forcedActionId) : le
 		     clic serait sans effet, `action` étant calculé sur forcedActionId. -->
-		{#if isPrimaryAction && !forcedActionId}
+		<!-- Sans outil presse, un seul onglet : on n'affiche pas le sélecteur. -->
+		{#if PRESS_TOOL_ENABLED && isPrimaryAction && !forcedActionId}
 			<div class="tool-switch">
 				<div
 					class="tool-tabs"
@@ -940,21 +941,23 @@
 					</p>
 					{#if sentCount >= allRecipients.length && allRecipients.length > 0}
 						<!-- Prolongement naturel : faire relayer le sujet par la presse. -->
-						<div class="next-tool">
-							<p>
-								{isEn
-									? 'Next step: ask the press to cover the issue. It takes two more minutes.'
-									: 'Étape suivante : demandez à la presse d’en parler. Deux minutes de plus.'}
-							</p>
-							<Button
-								on:click={() => {
-									selectTool('presse')
-								}}
-							>
-								<Newspaper size="1em" aria-hidden="true" />
-								{isEn ? 'Write to the press' : 'Écrire à la presse'}
-							</Button>
-						</div>
+						{#if PRESS_TOOL_ENABLED}
+							<div class="next-tool">
+								<p>
+									{isEn
+										? 'Next step: ask the press to cover the issue. It takes two more minutes.'
+										: 'Étape suivante : demandez à la presse d’en parler. Deux minutes de plus.'}
+								</p>
+								<Button
+									on:click={() => {
+										selectTool('presse')
+									}}
+								>
+									<Newspaper size="1em" aria-hidden="true" />
+									{isEn ? 'Write to the press' : 'Écrire à la presse'}
+								</Button>
+							</div>
+						{/if}
 						<a class="join-link join-link--block" href={joinHref}>
 							{isEn
 								? 'Want to do more? Join Pause AI ↗'

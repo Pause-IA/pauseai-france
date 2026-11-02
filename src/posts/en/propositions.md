@@ -48,7 +48,7 @@ These measures are not about stopping technological progress. They are about ens
 
 <Callout title="Do you agree? Take action">
 
-The most effective step: **[write to your representatives and the press](/en/ecrire-a-mes-elus)**. It takes two minutes, and a personal message carries far more weight than a signature.
+The most effective step: **[write to your representatives](/en/ecrire-a-mes-elus)**. It takes two minutes, and a personal message carries far more weight than a signature.
 
 You can also [sign the PauseAI statement](/en/declaration), which calls on governments to sign an international treaty implementing a pause on the training of the most powerful AI systems.
 

@@ -14,6 +14,15 @@
 //
 // Règle de style : aucun tiret long ( ) dans les textes destinés aux utilisateurs.
 
+/**
+ * Outils « Écrire à la presse » (actions `press: true`) : masqués sur tout le
+ * site tant que ce drapeau est à false. Onglet presse, bouton « étape
+ * suivante », blocs presse des pages de campagne et liens ?action=medias (qui
+ * retombent sur l'outil élus). Les actions restent définies ci-dessous : il
+ * suffit de repasser le drapeau à true pour tout réafficher.
+ */
+export const PRESS_TOOL_ENABLED = false
+
 export interface Bilingual {
 	fr: string
 	en: string
@@ -1364,5 +1373,8 @@ export const eluActions: EluAction[] = [
 /** Renvoie l'action demandée, ou l'action par défaut si l'id est inconnu. */
 export function getEluAction(id: string | null | undefined): EluAction {
 	if (!id) return DEFAULT_ACTION
-	return eluActions.find((a) => a.id === id) ?? DEFAULT_ACTION
+	const action = eluActions.find((a) => a.id === id)
+	// Outil presse masqué : un ancien lien ?action=medias ouvre l'outil élus.
+	if (!action || (action.press && !PRESS_TOOL_ENABLED)) return DEFAULT_ACTION
+	return action
 }
