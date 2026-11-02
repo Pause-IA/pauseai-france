@@ -5,17 +5,17 @@
 > du menu principal, du pied de page et des articles du dépôt, donc il ne
 > peut pas diverger du site.
 >
-> Dernière génération : 2026-10-09.
+> Dernière génération : 2026-11-02.
 
 Ce document décrit le site **réel**. Le plan _souhaité_ est une décision
 d'équipe et se tient ailleurs.
 
 ## En un coup d’œil
 
-- **34 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
+- **35 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
 - **6 gabarits dynamiques** (articles, campagnes, dangers…)
 - **33 articles** en Markdown dans `src/posts`
-- **18 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
+- **19 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
 
 ## Arborescence depuis le menu principal
 
@@ -33,7 +33,7 @@ flowchart LR
   class n4 externe
   g0 --> n5["La fresque des risques de l’IA<br/><small>/fresque</small>"]
   accueil --> g1["Agir"]
-  g1 --> n6["Écrire à vos élus ou à la presse<br/><small>/ecrire-a-mes-elus</small>"]
+  g1 --> n6["Écrire à vos élus<br/><small>/ecrire-a-mes-elus</small>"]
   g1 --> n7["Signer la déclaration<br/><small>/declaration</small>"]
   g1 --> n8["Participer à notre communication<br/><small>/participer-a-notre-communication</small>"]
   g1 --> n9["Agir près de chez vous<br/><small>/groupes-locaux</small>"]
@@ -86,8 +86,10 @@ flowchart LR
   class n34 orpheline
   orph -.-> n35["/sommet-ia-2026"]
   class n35 orpheline
-  orph -.-> n36["/une-ia-sest-echappee"]
+  orph -.-> n36["/tribunes/le-monde-octobre-2026"]
   class n36 orpheline
+  orph -.-> n37["/une-ia-sest-echappee"]
+  class n37 orpheline
   classDef externe stroke-dasharray: 4 3
   classDef orpheline fill:#fff5e8,stroke:#ff9416
 ```
@@ -108,7 +110,7 @@ flowchart LR
 
 | Page                             | Chemin                              |
 | -------------------------------- | ----------------------------------- |
-| Écrire à vos élus ou à la presse | `/ecrire-a-mes-elus`                |
+| Écrire à vos élus                | `/ecrire-a-mes-elus`                |
 | Signer la déclaration            | `/declaration`                      |
 | Participer à notre communication | `/participer-a-notre-communication` |
 | Agir près de chez vous           | `/groupes-locaux`                   |
@@ -155,16 +157,16 @@ flowchart LR
 
 ### Agir
 
-| Lien                           | Chemin                                         |
-| ------------------------------ | ---------------------------------------------- |
-| Écrire aux élus et à la presse | `/ecrire-a-mes-elus`                           |
-| Signer la déclaration          | `/declaration`                                 |
-| Rejoindre Pause IA             | `/rejoindre`                                   |
-| Comment pouvez-vous aider ?    | `/agir`                                        |
-| Faire un don                   | `/dons`                                        |
-| Marchandises                   | _externe_, https://pauseai-shop.fourthwall.com |
-| Manifestations                 | _externe_, https://pauseai.info/protests       |
-| Offres d'emploi                | `/recrutement-emploi`                          |
+| Lien                        | Chemin                                         |
+| --------------------------- | ---------------------------------------------- |
+| Écrire à vos élus           | `/ecrire-a-mes-elus`                           |
+| Signer la déclaration       | `/declaration`                                 |
+| Rejoindre Pause IA          | `/rejoindre`                                   |
+| Comment pouvez-vous aider ? | `/agir`                                        |
+| Faire un don                | `/dons`                                        |
+| Marchandises                | _externe_, https://pauseai-shop.fourthwall.com |
+| Manifestations              | _externe_, https://pauseai.info/protests       |
+| Offres d'emploi             | `/recrutement-emploi`                          |
 
 ### Autres
 
@@ -202,6 +204,7 @@ campagne, confirmations, remerciements.
 - `/posts`
 - `/recrutement`
 - `/sommet-ia-2026`
+- `/tribunes/le-monde-octobre-2026`
 - `/une-ia-sest-echappee`
 
 ## Gabarits dynamiques

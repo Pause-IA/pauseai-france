@@ -1,5 +1,5 @@
 {
-	"genere": "2026-10-09",
+	"genere": "2026-11-02",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -36,7 +36,7 @@
 			"items": [
 				{
 					"href": "/ecrire-a-mes-elus",
-					"label": "Écrire à vos élus ou à la presse",
+					"label": "Écrire à vos élus",
 					"externe": false
 				},
 				{
@@ -173,7 +173,7 @@
 			"liens": [
 				{
 					"href": "/ecrire-a-mes-elus",
-					"label": "Écrire aux élus et à la presse",
+					"label": "Écrire à vos élus",
 					"externe": false
 				},
 				{
@@ -317,6 +317,10 @@
 		{
 			"chemin": "/sommet-ia-2026",
 			"url": "/fr/sommet-ia-2026"
+		},
+		{
+			"chemin": "/tribunes/le-monde-octobre-2026",
+			"url": "/fr/tribunes/le-monde-octobre-2026"
 		},
 		{
 			"chemin": "/une-ia-sest-echappee",
@@ -466,7 +470,7 @@
 		}
 	],
 	"total": {
-		"pages": 34,
+		"pages": 35,
 		"dynamiques": 6,
 		"articles": 33
 	}

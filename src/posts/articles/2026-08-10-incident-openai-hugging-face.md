@@ -185,7 +185,7 @@ C’est le sens de l’avertissement lancé par l’une des chercheuses ayant me
 Cet événement mérite d’être à l’ordre du jour des responsables politiques et des médias. Deux actions, quelques minutes chacune, sur notre page de campagne :
 
 <div class="cta">
-  <Button href="/fr/une-ia-sest-echappee">Écrire à mes élus et à la presse</Button>
+  <Button href="/fr/une-ia-sest-echappee">Écrire à mes élus</Button>
 </div>
 
 <details class="sources">

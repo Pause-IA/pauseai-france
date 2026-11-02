@@ -22,7 +22,7 @@ export default {
 		// au minimum pour tenir dans le menu.
 		perte_de_controle: 'Au bord de la perte de contrôle',
 		warning_shot: 'Une IA s’est échappée',
-		ecrire_elus: 'Écrire à vos élus ou à la presse',
+		ecrire_elus: 'Écrire à vos élus',
 		participer_communication: 'Participer à notre communication',
 		pres_de_chez_vous: 'Agir près de chez vous',
 		convaincre: 'Convaincre autour de vous',
@@ -62,7 +62,7 @@ export default {
 		rejoindre: 'Nous rejoindre',
 		qui_sommes_nous: 'Qui sommes-nous ?',
 		act_title: 'Agir',
-		ecrire_elus: 'Écrire aux élus et à la presse',
+		ecrire_elus: 'Écrire à vos élus',
 		declaration: 'Signer la déclaration',
 		join_pauseia: 'Rejoindre Pause IA',
 		how_to_help: 'Comment pouvez-vous aider ?',

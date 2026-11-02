@@ -208,8 +208,8 @@
 			</li>
 			<li>
 				{#if isEn}
-					That <strong>AI-related safety incidents be reported</strong> to authorities with policing
-					powers, and made public.
+					That <strong>AI-related safety incidents be reported</strong> to authorities with policing powers,
+					and made public.
 				{:else}
 					Que les <strong>incidents de sécurité liés à l’IA soient déclarés</strong> aux autorités ayant
 					pouvoir de police et rendus publics.
@@ -289,9 +289,7 @@
 	<div bind:this={pressSection}>
 		<CampaignSection
 			id="ecrire"
-			title={isEn
-				? 'Write to your representatives and the press'
-				: 'Écrivez à vos élus et à la presse'}
+			title={isEn ? 'Write to your representatives' : 'Écrivez à vos élus'}
 		>
 			<!-- headingLevel=h3 : l'outil s'imbrique sous le h2 de la section.
 			     Mêmes messages que la page « Écrire à mes élus » (actions par défaut) :

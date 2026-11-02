@@ -114,7 +114,7 @@ Le mouvement Pause AI a proposé une approche matérielle de la pause lors de l'
 
 <Callout title="Vous êtes d'accord ? Passez à l'action">
 
-Le plus efficace : **[écrire à vos élus et à la presse](/fr/ecrire-a-mes-elus)**. Cela prend deux minutes, et un message personnel pèse bien plus qu'une signature.
+Le plus efficace : **[écrire à vos élus](/fr/ecrire-a-mes-elus)**. Cela prend deux minutes, et un message personnel pèse bien plus qu'une signature.
 
 Vous pouvez aussi [signer la déclaration PauseAI](/fr/declaration), qui appelle les gouvernements à un traité international instaurant une pause dans l'entraînement des IA les plus puissantes.
 
