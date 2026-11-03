@@ -185,7 +185,7 @@ This is the sense of the warning issued by one of the researchers who ran the in
 This event deserves to be on the agenda of policymakers and the media. Two actions, a few minutes each, on our campaign page:
 
 <div class="cta">
-  <Button href="/en/une-ia-sest-echappee">Write to my representatives and the press</Button>
+  <Button href="/en/une-ia-sest-echappee">Write to my representatives</Button>
 </div>
 
 <details class="sources">

@@ -18,8 +18,8 @@ You don't need to devote your life to it: here are the most useful actions, from
 <a class="lead-action" href="/{lang}/ecrire-a-mes-elus">
   <span class="lead-emoji">✉️</span>
   <span class="lead-text">
-    <strong>Write to your representatives and the press</strong>
-    <small>A ready-to-personalise email for your MP, your senator or a major newsroom. It's short, and far more effective than a petition: a message from a real citizen gets read and counted.</small>
+    <strong>Write to your representatives</strong>
+    <small>A ready-to-personalise email for your MP or your senator. It's short, and far more effective than a petition: a message from a real citizen gets read and counted.</small>
   </span>
   <span class="lead-arrow" aria-hidden="true">→</span>
 </a>

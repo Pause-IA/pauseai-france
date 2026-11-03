@@ -5,7 +5,7 @@
 > du menu principal, du pied de page et des articles du dépôt, donc il ne
 > peut pas diverger du site.
 >
-> Dernière génération : 2026-10-27.
+> Dernière génération : 2026-11-03.
 
 Ce document décrit le site **réel**. Le plan _souhaité_ est une décision
 d'équipe et se tient ailleurs.
@@ -29,7 +29,7 @@ flowchart LR
   g0 --> n1["Ressources<br/><small>/ressources</small>"]
   g0 --> n2["La fresque des risques de l’IA<br/><small>/fresque</small>"]
   accueil --> g1["Agir"]
-  g1 --> n3["Écrire à vos élus ou à la presse<br/><small>/ecrire-a-mes-elus</small>"]
+  g1 --> n3["Écrire à vos élus<br/><small>/ecrire-a-mes-elus</small>"]
   g1 --> n4["Signer la déclaration<br/><small>/declaration</small>"]
   g1 --> n5["Relayer nos messages<br/><small>/relayer-nos-messages</small>"]
   g1 --> n6["Agir près de chez vous<br/><small>/groupes-locaux</small>"]
@@ -100,14 +100,14 @@ flowchart LR
 
 ### Agir
 
-| Page                             | Chemin                  |
-| -------------------------------- | ----------------------- |
-| Écrire à vos élus ou à la presse | `/ecrire-a-mes-elus`    |
-| Signer la déclaration            | `/declaration`          |
-| Relayer nos messages             | `/relayer-nos-messages` |
-| Agir près de chez vous           | `/groupes-locaux`       |
-| Convaincre autour de vous        | _externe_, /recrutement |
-| Toutes les façons d’agir         | `/agir`                 |
+| Page                      | Chemin                  |
+| ------------------------- | ----------------------- |
+| Écrire à vos élus         | `/ecrire-a-mes-elus`    |
+| Signer la déclaration     | `/declaration`          |
+| Relayer nos messages      | `/relayer-nos-messages` |
+| Agir près de chez vous    | `/groupes-locaux`       |
+| Convaincre autour de vous | _externe_, /recrutement |
+| Toutes les façons d’agir  | `/agir`                 |
 
 ### Campagnes
 
@@ -138,15 +138,15 @@ flowchart LR
 
 ### Agir
 
-| Lien                             | Chemin                                         |
-| -------------------------------- | ---------------------------------------------- |
-| Rejoindre Pause IA               | `/rejoindre`                                   |
-| Rejoindre un groupe local        | `/groupes-locaux`                              |
-| Toutes les façons d'agir         | `/agir`                                        |
-| Écrire à vos élus et à la presse | `/ecrire-a-mes-elus`                           |
-| Signer notre déclaration         | `/declaration`                                 |
-| Faire un don                     | `/dons`                                        |
-| Boutique                         | _externe_, https://pauseai-shop.fourthwall.com |
+| Lien                      | Chemin                                         |
+| ------------------------- | ---------------------------------------------- |
+| Rejoindre Pause IA        | `/rejoindre`                                   |
+| Rejoindre un groupe local | `/groupes-locaux`                              |
+| Toutes les façons d'agir  | `/agir`                                        |
+| Écrire à vos élus         | `/ecrire-a-mes-elus`                           |
+| Signer la déclaration     | `/declaration`                                 |
+| Faire un don              | `/dons`                                        |
+| Boutique                  | _externe_, https://pauseai-shop.fourthwall.com |
 
 ### Pause IA
 

@@ -595,10 +595,80 @@ export function analyserSenateurs(buf) {
 	return out
 }
 
+/*
+ * Le fichier ODSEN est public : depuis une connexion ordinaire il se télécharge
+ * sans rien demander, en-tête en clair avec sa colonne « Courrier électronique »
+ * (vérifié le 10 octobre 2026 avec scripts/sonder-sources-elus.mjs). Aucune
+ * authentification n'est en jeu, contrairement à ce qui a d'abord été conclu.
+ *
+ * Ce qui arrive, par intermittence, c'est que data.senat.fr réponde à un client
+ * automatisé par une PAGE HTML au lieu du CSV. Observé sur le timer du serveur
+ * (l'alerte Discord d'octobre) ET sur un run GitHub Actions, alors qu'un run
+ * manuel du 10 octobre est passé sans erreur. Filtrage par adresse IP, quota,
+ * ou protection anti-robot : la cause exacte n'est pas établie, et comme la
+ * panne n'est pas reproductible à volonté, elle ne le sera pas facilement.
+ *
+ * D'où ce repli, qui vaut pour les deux chemins d'exécution : le timer systemd
+ * du serveur comme le workflow GitHub passent par cette fonction.
+ *
+ * data.gouv.fr publie le même jeu (« Les Sénateurs », publié par le Sénat
+ * lui-même) et sert ses ressources derrière une URL stable de son côté. Les
+ * deux environnements atteignent déjà data.gouv.fr sans problème, c'est de là
+ * que viennent les députés, qui n'ont jamais échoué. On passe donc par là
+ * quand l'accès direct est refusé.
+ *
+ * L'identifiant de la ressource n'est pas écrit en dur : il est retrouvé via
+ * l'API, ce qui survit à une republication du fichier.
+ */
+const DATASET_SENATEURS_DATAGOUV = 'les-senateurs'
+
+/** Vrai si le corps téléchargé est une page web et non un fichier de données. */
+function estPageHtml(buf) {
+	const debut = new TextDecoder('latin1').decode(buf.slice(0, 200)).trimStart()
+	return /^(<!doctype|<html|<\?xml[^>]*>\s*<html)/i.test(debut)
+}
+
+/** URL data.gouv.fr de la ressource ODSEN, retrouvée par l'API. */
+async function urlSenateursViaDataGouv() {
+	const d = await fetchJson(
+		`https://www.data.gouv.fr/api/1/datasets/${DATASET_SENATEURS_DATAGOUV}/`
+	)
+	const r = (d.resources ?? []).find(
+		(x) => /ODSEN_GENERAL\.csv/i.test(x.url || '') || /ODSEN_GENERAL\.csv/i.test(x.title || '')
+	)
+	if (!r) throw new Error('ressource ODSEN_GENERAL.csv absente du jeu data.gouv.fr')
+	// `latest` est l'URL stable servie par data.gouv.fr, qui suit les
+	// republications ; à défaut on reprend l'URL déclarée.
+	return r.latest || r.url
+}
+
 async function fetchSenateurs() {
-	const res = await fetch(SOURCES.senateurs, { headers: UA })
-	if (!res.ok) throw new Error(`HTTP ${res.status} pour ${SOURCES.senateurs}`)
-	return analyserSenateurs(await res.arrayBuffer())
+	const essais = [
+		{ nom: 'data.senat.fr (direct)', url: SOURCES.senateurs },
+		{ nom: 'data.gouv.fr (repli)', url: null }
+	]
+	let derniere
+	for (const e of essais) {
+		try {
+			const url = e.url ?? (await urlSenateursViaDataGouv())
+			const res = await fetch(url, {
+				headers: UA,
+				signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
+			})
+			if (!res.ok) throw new Error(`HTTP ${res.status}`)
+			const buf = await res.arrayBuffer()
+			if (estPageHtml(buf)) throw new Error('page HTML reçue à la place du CSV')
+			if (e.url === null) console.warn('⚠️  Sénateurs récupérés via le repli data.gouv.fr.')
+			return analyserSenateurs(buf)
+		} catch (err) {
+			derniere = err
+			console.warn(`⚠️  ${e.nom} : ${err.message}`)
+		}
+	}
+	throw new Error(
+		`impossible de récupérer la liste des sénateurs (dernier échec : ${derniere?.message}). ` +
+			'Les deux voies ont été essayées : data.senat.fr en direct et la ressource data.gouv.fr du jeu « Les Sénateurs ».'
+	)
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

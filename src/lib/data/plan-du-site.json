@@ -1,5 +1,5 @@
 {
-	"genere": "2026-10-27",
+	"genere": "2026-11-03",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -21,7 +21,7 @@
 			"items": [
 				{
 					"href": "/ecrire-a-mes-elus",
-					"label": "Écrire à vos élus ou à la presse",
+					"label": "Écrire à vos élus",
 					"externe": false
 				},
 				{
@@ -138,12 +138,12 @@
 				},
 				{
 					"href": "/ecrire-a-mes-elus",
-					"label": "Écrire à vos élus et à la presse",
+					"label": "Écrire à vos élus",
 					"externe": false
 				},
 				{
 					"href": "/declaration",
-					"label": "Signer notre déclaration",
+					"label": "Signer la déclaration",
 					"externe": false
 				},
 				{

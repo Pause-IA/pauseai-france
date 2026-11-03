@@ -7,7 +7,12 @@
 export type Lang = 'fr' | 'en'
 
 export type Category =
-	'pause-ia' | 'livres' | 'comprendre' | 'risques' | 'declarations' | 'newsletters'
+	| 'pause-ia'
+	| 'livres'
+	| 'comprendre'
+	| 'risques'
+	| 'declarations'
+	| 'newsletters'
 
 // Type of media, second filter axis on the /ressources page.
 export type MediaType =

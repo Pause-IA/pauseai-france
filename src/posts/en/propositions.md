@@ -115,7 +115,7 @@ The PauseAI movement proposed a hardware-based approach to the pause at the 2025
 
 <Callout title="Do you agree? Take action">
 
-The most effective step: **[write to your elected representatives and the press](/en/ecrire-a-mes-elus)**. It takes two minutes, and a personal message carries far more weight than a signature.
+The most effective step: **[write to your representatives](/en/ecrire-a-mes-elus)**. It takes two minutes, and a personal message carries far more weight than a signature.
 
 You can also [sign the PauseAI statement](/en/declaration), which calls on governments to adopt an international treaty establishing a pause on training the most powerful AI.
 

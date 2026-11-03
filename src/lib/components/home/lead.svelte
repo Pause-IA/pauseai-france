@@ -50,9 +50,8 @@
 						problem is.
 					</p>
 					<p>
-						Pause AI is calling for an international public authority to oversee frontier AI. No
-						other industry is allowed to run an experiment of this size on everyone at once. This
-						one does.
+						Pause AI is calling for an international public authority to oversee frontier AI. The AI
+						industry should not be allowed to gamble with our lives. And yet it is.
 					</p>
 				</div>
 				<button type="button" class="plus" on:click={() => (deplie = true)} hidden={deplie}
@@ -84,8 +83,8 @@
 					</p>
 					<p>
 						Pause IA réclame la création d'une autorité publique internationale pour contrôler les
-						IA de pointe. Aucune autre industrie n'a le droit de mener une expérience de cette
-						taille sur tout le monde à la fois. Celle-ci le fait.
+						IA de pointe. L'industrie de l'IA ne devrait pas avoir le droit de jouer avec nos vies.
+						Et pourtant, elle l'a.
 					</p>
 				</div>
 				<button type="button" class="plus" on:click={() => (deplie = true)} hidden={deplie}

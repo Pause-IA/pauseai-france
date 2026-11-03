@@ -8,6 +8,8 @@ date: '2025-05-30'
 	import Callout from '$lib/components/Callout.svelte';
 </script>
 
+<div class="guide">
+
 <header class="guide-header">
 	<h1>📚 Guide de Recrutement Complet</h1>
 	<div class="guide-subtitle">
@@ -504,7 +506,36 @@ Dans les sections suivantes, nous allons nous concentrer sur la "Brèche" (B) po
 
 N'oubliez pas : votre objectif n'est pas de "gagner" le débat, mais d'ouvrir une porte, de semer une graine, et d'inviter à une réflexion partagée. L'écoute et l'empathie restent vos meilleurs alliés.
 
+</div>
+
 <style>
+	/* La page n'avait aucune contrainte de largeur : le texte s'étalait sur
+	   1233 px, soit 128 caractères par ligne, là où les autres pages du site
+	   tiennent à 864 px et 75 caractères (mesuré au navigateur). Au-delà de
+	   85 caractères l'œil perd la ligne en revenant à la marge. On reprend donc
+	   --width-content, la même valeur que /agir, /propositions ou /recrutement.
+
+	   Les tableaux font exception : ils ont des colonnes de script et de
+	   réponse qui deviennent illisibles comprimées, on leur laisse la largeur
+	   large de la charte. */
+	.guide {
+		max-inline-size: var(--width-content);
+		margin-inline: auto;
+	}
+
+	/* Les tableaux débordent volontairement de la colonne de texte : leurs
+	   colonnes de script font des phrases entières, qui deviennent une bouillie
+	   de deux mots par ligne si on les comprime à 54 rem. Ils prennent la
+	   largeur large de la charte, centrés sur la colonne, et seulement quand la
+	   fenêtre est assez grande pour les accueillir sans débordement. */
+	@media (min-width: 1100px) {
+		.guide :global(table) {
+			inline-size: calc(100% + 8rem);
+			max-inline-size: var(--width-wide);
+			margin-inline: -4rem;
+		}
+	}
+
 	/* Guide Header Styling */
 	.guide-header {
 		text-align: center;
@@ -514,7 +545,10 @@ N'oubliez pas : votre objectif n'est pas de "gagner" le débat, mais d'ouvrir un
 
 	.guide-header h1 {
 		font-size: 1.8rem;
-		color: var(--brand);
+		/* --brand sur blanc plafonne à 2,2:1 : la charte l'interdit en texte et
+		   donne --brand-subtle, le seul orange lisible. Le filet dessous reste
+		   en --brand, où la couleur de marque est à sa place. */
+		color: var(--brand-subtle);
 		margin-bottom: 1.5rem;
 		border-bottom: 2px solid var(--brand);
 		padding-bottom: 0.5rem;
@@ -529,7 +563,7 @@ N'oubliez pas : votre objectif n'est pas de "gagner" le débat, mais d'ouvrir un
 		display: block;
 		font-size: 2rem;
 		font-weight: 700;
-		color: var(--brand);
+		color: var(--brand-subtle);
 		margin-bottom: 0.5rem;
 	}
 

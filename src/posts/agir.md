@@ -21,8 +21,8 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
 <a class="lead-action" href="/{lang}/ecrire-a-mes-elus">
   <span class="lead-emoji">✉️</span>
   <span class="lead-text">
-    <strong>Écrire à mes élus et à la presse</strong>
-    <small>Un email prêt à personnaliser pour votre député, votre sénateur ou une grande rédaction. C'est court, et bien plus efficace qu'une pétition : un message d'un vrai citoyen est lu et compté.</small>
+    <strong>Écrire à mes élus</strong>
+    <small>Un email prêt à personnaliser pour votre député ou votre sénateur. C'est court, et bien plus efficace qu'une pétition : un message d'un vrai citoyen est lu et compté.</small>
   </span>
   <span class="lead-arrow" aria-hidden="true">→</span>
 </a>
