@@ -13,25 +13,29 @@ The number of people aware of AI risks is still small. You are now one of them, 
 
 You don't need to devote your life to it: here are the most useful actions, from five minutes to a deeper commitment.
 
-## The most useful action, in 5 minutes
-
-<a class="lead-action" href="/{lang}/ecrire-a-mes-elus">
-  <span class="lead-emoji">✉️</span>
-  <span class="lead-text">
-    <strong>Write to your representatives</strong>
-    <small>A ready-to-personalise email for your MP or your senator. It's short, and far more effective than a petition: a message from a real citizen gets read and counted.</small>
-  </span>
-  <span class="lead-arrow" aria-hidden="true">→</span>
-</a>
-
-## The actions that matter most
+## In a few minutes
 
 <div class="action-grid">
+  <a class="action-card primaire" href="/{lang}/ecrire-a-mes-elus">
+    <span class="ac-emoji">✉️</span>
+    <strong>Write to your representatives</strong>
+    <small>A ready-to-personalise email for your MP or your senator. It's short, and far more effective than a petition: a message from a real citizen gets read and counted.</small>
+  </a>
   <a class="action-card" href="/{lang}/declaration">
     <span class="ac-emoji">✍️</span>
     <strong>Sign the statement</strong>
     <small>Add your name to the call for a moratorium on the most dangerous AI systems.</small>
   </a>
+  <a class="action-card" href="/{lang}/dons">
+    <span class="ac-emoji">💶</span>
+    <strong>Make a donation</strong>
+    <small>Every euro helps us act more, and faster.</small>
+  </a>
+</div>
+
+## Going further
+
+<div class="action-grid">
   <a class="action-card" href="/{lang}/rejoindre">
     <span class="ac-emoji">✊</span>
     <strong>Join Pause AI</strong>
@@ -47,67 +51,14 @@ You don't need to devote your life to it: here are the most useful actions, from
     <strong>Share our messages</strong>
     <small>Share our posts, join Pause Action.</small>
   </a>
-  <a class="action-card" href="/{lang}/dons">
-    <span class="ac-emoji">💶</span>
-    <strong>Donate</strong>
-    <small>Every euro helps us act more and faster.</small>
-  </a>
   <a class="action-card" href="/recrutement">
     <span class="ac-emoji">🗣️</span>
     <strong>Convince those around you</strong>
-    <small>Our guides to mobilise people effectively.</small>
+    <small>Our guides to mobilise effectively around you.</small>
   </a>
 </div>
 
 <style>
-  .lead-action {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.25rem 1.5rem;
-    border: 2px solid var(--brand);
-    border-radius: 16px;
-    background: var(--brand-light);
-    text-decoration: none;
-    color: var(--text);
-    transition:
-      transform 0.15s ease,
-      box-shadow 0.15s ease;
-  }
-
-  .lead-action:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  }
-
-  .lead-emoji {
-    font-size: 2rem;
-    flex-shrink: 0;
-  }
-
-  .lead-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .lead-text strong {
-    font-size: 1.15rem;
-  }
-
-  .lead-text small {
-    font-size: 0.92rem;
-    line-height: 1.5;
-    color: var(--text-2);
-  }
-
-  .lead-arrow {
-    margin-left: auto;
-    font-size: 1.5rem;
-    color: var(--brand-subtle);
-    flex-shrink: 0;
-  }
-
   .action-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
@@ -128,6 +79,13 @@ You don't need to devote your life to it: here are the most useful actions, from
       transform 0.15s ease,
       border-color 0.15s ease,
       box-shadow 0.15s ease;
+  }
+
+  /* Reprend le cadre de l'ancienne carte vedette : dans un bloc de trois,
+     l'écriture aux élus reste l'action la plus efficace. */
+  .action-card.primaire {
+    border: 2px solid var(--brand);
+    background: var(--brand-light);
   }
 
   .action-card:hover {

@@ -16,25 +16,29 @@ Le nombre de personnes conscientes des risques liés à l'IA est encore restrein
 
 Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq minutes à un engagement plus durable.
 
-## L'action la plus utile, en 5 minutes
-
-<a class="lead-action" href="/{lang}/ecrire-a-mes-elus">
-  <span class="lead-emoji">✉️</span>
-  <span class="lead-text">
-    <strong>Écrire à mes élus</strong>
-    <small>Un email prêt à personnaliser pour votre député ou votre sénateur. C'est court, et bien plus efficace qu'une pétition : un message d'un vrai citoyen est lu et compté.</small>
-  </span>
-  <span class="lead-arrow" aria-hidden="true">→</span>
-</a>
-
-## Les actions qui comptent le plus
+## En quelques minutes
 
 <div class="action-grid">
+  <a class="action-card primaire" href="/{lang}/ecrire-a-mes-elus">
+    <span class="ac-emoji">✉️</span>
+    <strong>Écrire à mes élus</strong>
+    <small>Un email prêt à personnaliser pour votre député ou votre sénateur. C'est court, et bien plus efficace qu'une pétition : un message d'un vrai citoyen est lu et compté.</small>
+  </a>
   <a class="action-card" href="/{lang}/declaration">
     <span class="ac-emoji">✍️</span>
     <strong>Signer la déclaration</strong>
     <small>Ajoutez votre nom à l'appel pour un moratoire sur les IA les plus dangereuses.</small>
   </a>
+  <a class="action-card" href="/{lang}/dons">
+    <span class="ac-emoji">💶</span>
+    <strong>Faire un don</strong>
+    <small>Chaque euro nous aide à agir plus et plus vite.</small>
+  </a>
+</div>
+
+## Pour aller plus loin
+
+<div class="action-grid">
   <a class="action-card" href="/{lang}/rejoindre">
     <span class="ac-emoji">✊</span>
     <strong>Rejoindre Pause IA</strong>
@@ -50,11 +54,6 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
     <strong>Relayer nos messages</strong>
     <small>Partager nos publications, rejoindre Pause Action.</small>
   </a>
-  <a class="action-card" href="/{lang}/dons">
-    <span class="ac-emoji">💶</span>
-    <strong>Faire un don</strong>
-    <small>Chaque euro nous aide à agir plus et plus vite.</small>
-  </a>
   <a class="action-card" href="/recrutement">
     <span class="ac-emoji">🗣️</span>
     <strong>Convaincre votre entourage</strong>
@@ -63,54 +62,6 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
 </div>
 
 <style>
-  .lead-action {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.25rem 1.5rem;
-    border: 2px solid var(--brand);
-    border-radius: 16px;
-    background: var(--brand-light);
-    text-decoration: none;
-    color: var(--text);
-    transition:
-      transform 0.15s ease,
-      box-shadow 0.15s ease;
-  }
-
-  .lead-action:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  }
-
-  .lead-emoji {
-    font-size: 2rem;
-    flex-shrink: 0;
-  }
-
-  .lead-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .lead-text strong {
-    font-size: 1.15rem;
-  }
-
-  .lead-text small {
-    font-size: 0.92rem;
-    line-height: 1.5;
-    color: var(--text-2);
-  }
-
-  .lead-arrow {
-    margin-left: auto;
-    font-size: 1.5rem;
-    color: var(--brand-subtle);
-    flex-shrink: 0;
-  }
-
   .action-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
@@ -131,6 +82,13 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
       transform 0.15s ease,
       border-color 0.15s ease,
       box-shadow 0.15s ease;
+  }
+
+  /* Reprend le cadre de l'ancienne carte vedette : dans un bloc de trois,
+     l'écriture aux élus reste l'action la plus efficace. */
+  .action-card.primaire {
+    border: 2px solid var(--brand);
+    background: var(--brand-light);
   }
 
   .action-card:hover {
