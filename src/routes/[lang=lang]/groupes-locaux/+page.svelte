@@ -171,7 +171,9 @@
 		return [e.city, e.type].filter(Boolean).join(' · ')
 	}
 
-	$: title = isEn ? 'Local groups | Pause AI' : 'Groupes locaux | Pause IA'
+	$: title = isEn
+		? 'Local groups: act near you | Pause AI'
+		: 'Groupes locaux : agir près de chez vous | Pause IA'
 	$: description = isEn
 		? 'Find a local Pause AI group near you or create one to take concrete action for a pause on artificial intelligence.'
 		: "Trouvez un groupe local Pause IA près de chez vous ou créez-en un pour agir concrètement en faveur d'une pause sur l'intelligence artificielle."
@@ -179,7 +181,11 @@
 
 <PostMeta {title} {description} />
 
-<Page width="wide" eyebrow={isEn ? 'Act' : 'Agir'} title={isEn ? 'Local groups' : 'Groupes locaux'}>
+<Page
+	width="wide"
+	eyebrow={isEn ? 'Local groups' : 'Groupes locaux'}
+	title={isEn ? 'Act near you' : 'Agir près de chez vous'}
+>
 	<svelte:fragment slot="lede">
 		{#if isEn}
 			Local action is essential for raising public awareness, engaging elected officials and
