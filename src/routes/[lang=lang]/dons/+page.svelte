@@ -112,17 +112,19 @@
 
 	<div class="impact-highlight">
 		{#if lang === 'en'}
-			<h2>Your impact in the face of urgency</h2>
+			<h2>What are your donations used for?</h2>
 			<p>
-				Every day counts as AI development accelerates. Your donations allow us to educate the
-				public, alert decision-makers and build a movement to slow down this dangerous race.
+				They fund our awareness campaigns, the production of educational content, the running of
+				events, and the infrastructure that carries all of it. Concretely: informing the public,
+				alerting decision-makers, and building a movement able to slow this race down.
 			</p>
 		{:else}
-			<h2>Votre impact face à l'urgence</h2>
+			<h2>À quoi servent vos dons ?</h2>
 			<p>
-				Chaque jour compte face à l'accélération du développement de l'IA. Vos dons nous permettent
-				d'éduquer le public, d'alerter les décideurs et de construire un mouvement pour ralentir
-				cette course dangereuse.
+				Ils financent nos campagnes de sensibilisation, la production de contenus éducatifs,
+				l'organisation d'événements et l'infrastructure qui porte le tout. Concrètement : informer
+				le public, alerter les décideurs, et construire un mouvement capable de ralentir cette
+				course.
 			</p>
 		{/if}
 	</div>
@@ -133,99 +135,121 @@
 		>
 
 		{#if lang === 'en'}
-			<Accordion id="faq-usage" open={false}>
-				<svelte:fragment slot="head">What are your donations used for?</svelte:fragment>
-				<svelte:fragment slot="details">
-					<p>
-						Your donations fund our awareness campaigns, educational content production, event
-						organization, and the development of our infrastructure to amplify our impact in France.
-					</p>
-				</svelte:fragment>
-			</Accordion>
-
 			<Accordion id="faq-payment" open={false}>
 				<svelte:fragment slot="head">What payment methods do you accept?</svelte:fragment>
 				<svelte:fragment slot="details">
 					<p>
-						We accept payments by credit card via HelloAsso (one-time or monthly donation) and bank
-						transfers (recommended for larger amounts).
+						Card payments through HelloAsso (one-off or monthly) and bank transfers, which we
+						recommend for larger amounts.
 					</p>
 				</svelte:fragment>
 			</Accordion>
 
-			<Accordion id="faq-about" open={false}>
-				<svelte:fragment slot="head">What is Pause AI?</svelte:fragment>
+			<Accordion id="faq-helloasso" open={false}>
+				<svelte:fragment slot="head">What is HelloAsso, and who issues my receipt?</svelte:fragment>
 				<svelte:fragment slot="details">
 					<p>
-						Pause AI is the French branch of PauseAI Global, a non-profit organization dedicated to
-						promoting responsible development of artificial intelligence. We advocate for a pause in
-						the development of the most dangerous AI systems.
+						HelloAsso is a French payment platform reserved for non-profits. It takes
+						<strong>no commission on your donation</strong>: it is funded by the voluntary
+						contribution it offers to add at checkout. You can lower that contribution or set it to
+						zero, and your donation then reaches us in full.
 					</p>
-				</svelte:fragment>
-			</Accordion>
-
-			<Accordion id="faq-global" open={false}>
-				<svelte:fragment slot="head">What is the relationship with PauseAI Global?</svelte:fragment>
-				<svelte:fragment slot="details">
 					<p>
-						Pause AI is the autonomous French branch of PauseAI Global. Your donations remain
-						entirely in France to fund our local actions. We do not pass any portion of these
-						donations to the international organization.
-					</p>
-				</svelte:fragment>
-			</Accordion>
-		{:else}
-			<Accordion id="faq-usage" open={false}>
-				<svelte:fragment slot="head">À quoi servent vos dons ?</svelte:fragment>
-				<svelte:fragment slot="details">
-					<p>
-						Vos dons financent nos campagnes de sensibilisation, la production de contenus
-						éducatifs, l'organisation d'événements, et le développement de notre infrastructure pour
-						amplifier notre impact en France.
-					</p>
-				</svelte:fragment>
-			</Accordion>
-
-			<Accordion id="faq-payment" open={false}>
-				<svelte:fragment slot="head">Quels moyens de paiement acceptez-vous ?</svelte:fragment>
-				<svelte:fragment slot="details">
-					<p>
-						Nous acceptons les paiements par carte bancaire via HelloAsso (don ponctuel ou mensuel)
-						et les virements bancaires (recommandé pour les montants importants).
-					</p>
-				</svelte:fragment>
-			</Accordion>
-
-			<Accordion id="faq-about" open={false}>
-				<svelte:fragment slot="head">Qu'est-ce que Pause IA ?</svelte:fragment>
-				<svelte:fragment slot="details">
-					<p>
-						Pause IA est la branche française de PauseAI Global, une organisation à but non lucratif
-						dédiée à promouvoir le développement responsable de l'intelligence artificielle. Nous
-						militons pour une pause dans le développement des systèmes d'IA les plus dangereux.
+						HelloAsso also issues your tax receipt: it is generated automatically and emailed to the
+						address you gave, usually within minutes. You can download it again at any time from
+						your HelloAsso account. For a bank transfer, we issue the receipt ourselves.
 					</p>
 				</svelte:fragment>
 			</Accordion>
 
 			<Accordion id="faq-tax" open={false}>
-				<svelte:fragment slot="head"
-					>Comment puis-je déduire mon don de mes impôts ?</svelte:fragment
-				>
+				<svelte:fragment slot="head">How is my donation deducted from my taxes?</svelte:fragment>
 				<svelte:fragment slot="details">
 					<p>
-						En tant qu'organisation à but non lucratif, vos dons à Pause IA sont déductibles à 66%
-						de vos impôts sur le revenu. Nous vous enverrons automatiquement un reçu fiscal après
-						votre don.
+						A donation to Pause IA entitles you to a tax reduction of 66% of the amount, up to 20%
+						of your taxable income.
+					</p>
+					<p>
+						<strong>It is a tax reduction, not a tax credit</strong>: it is subtracted from the
+						income tax you owe. So it only benefits people who actually pay French income tax. If
+						you are not taxable, nothing is refunded to you — and your donation is worth exactly as
+						much to us.
 					</p>
 				</svelte:fragment>
 			</Accordion>
 
-			<Accordion id="faq-global" open={false}>
-				<svelte:fragment slot="head">Quel est le lien avec PauseAI Global ?</svelte:fragment>
+			<Accordion id="faq-about" open={false}>
+				<svelte:fragment slot="head">
+					What is Pause AI, and how does it relate to PauseAI Global?
+				</svelte:fragment>
 				<svelte:fragment slot="details">
 					<p>
-						Pause IA est la branche française autonome de PauseAI Global. Vos dons restent
-						entièrement en France pour financer nos actions locales.
+						Pause AI is the French branch of PauseAI Global, a non-profit campaigning for a pause in
+						the development of the most dangerous AI systems. It is autonomous: your donations stay
+						entirely in France to fund our local actions, and no share is passed on to the
+						international organisation.
+					</p>
+				</svelte:fragment>
+			</Accordion>
+		{:else}
+			<Accordion id="faq-payment" open={false}>
+				<svelte:fragment slot="head">Quels moyens de paiement acceptez-vous ?</svelte:fragment>
+				<svelte:fragment slot="details">
+					<p>
+						La carte bancaire via HelloAsso (don ponctuel ou mensuel) et le virement bancaire, que
+						nous recommandons pour les montants importants.
+					</p>
+				</svelte:fragment>
+			</Accordion>
+
+			<Accordion id="faq-helloasso" open={false}>
+				<svelte:fragment slot="head">
+					Qu'est-ce que HelloAsso, et qui émet mon reçu fiscal ?
+				</svelte:fragment>
+				<svelte:fragment slot="details">
+					<p>
+						HelloAsso est une plateforme de paiement française réservée aux associations. Elle ne
+						prélève <strong>aucune commission sur votre don</strong> : son service est financé par la
+						contribution volontaire qu'elle propose d'ajouter au moment du paiement. Vous pouvez la modifier
+						ou la ramener à zéro, et l'intégralité de votre don nous revient alors.
+					</p>
+					<p>
+						C'est également HelloAsso qui émet votre reçu fiscal : il est généré automatiquement et
+						envoyé par courriel à l'adresse indiquée lors du don, en général dans les minutes qui
+						suivent. Vous pouvez le retrouver à tout moment depuis votre compte HelloAsso. Pour un
+						don par virement, c'est nous qui l'établissons.
+					</p>
+				</svelte:fragment>
+			</Accordion>
+
+			<Accordion id="faq-tax" open={false}>
+				<svelte:fragment slot="head">
+					Comment puis-je déduire mon don de mes impôts ?
+				</svelte:fragment>
+				<svelte:fragment slot="details">
+					<p>
+						Un don à Pause IA ouvre droit à une réduction d'impôt de 66 % du montant versé, dans la
+						limite de 20 % de votre revenu imposable.
+					</p>
+					<p>
+						<strong>Il s'agit d'une réduction d'impôt, et non d'un crédit d'impôt</strong> : elle se
+						soustrait à l'impôt sur le revenu que vous devez. Elle ne profite donc qu'aux personnes qui
+						paient effectivement cet impôt. Si vous n'êtes pas imposable, rien ne vous est remboursé
+						— et votre don a exactement la même valeur pour nous.
+					</p>
+				</svelte:fragment>
+			</Accordion>
+
+			<Accordion id="faq-about" open={false}>
+				<svelte:fragment slot="head">
+					Qu'est-ce que Pause IA, et quel est le lien avec PauseAI Global ?
+				</svelte:fragment>
+				<svelte:fragment slot="details">
+					<p>
+						Pause IA est la branche française de PauseAI Global, une organisation à but non lucratif
+						qui milite pour une pause dans le développement des systèmes d'IA les plus dangereux.
+						Elle est autonome : vos dons restent entièrement en France pour financer nos actions
+						locales, et aucune part n'est reversée à l'organisation internationale.
 					</p>
 				</svelte:fragment>
 			</Accordion>
@@ -359,18 +383,19 @@
 		text-align: left;
 	}
 
+	/* Fond orange retiré : il pesait plus lourd que le bouton de don lui-même.
+	   Une bordure et un fond de carte suffisent à détacher le bloc. */
 	.impact-highlight {
-		background: linear-gradient(135deg, var(--brand), var(--brand-deep));
-		color: var(--black);
 		padding: 2rem;
+		border: 1px solid var(--border);
 		border-radius: var(--radius-md);
+		background: var(--bg-card);
 		margin: 2rem 0;
 		text-align: center;
 	}
 
 	.impact-highlight h2 {
 		margin-bottom: 1rem;
-		color: var(--black);
 	}
 
 	@keyframes slideInFade {
