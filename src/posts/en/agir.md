@@ -20,16 +20,19 @@ You don't need to devote your life to it: here are the most useful actions, from
     <span class="ac-emoji">✉️</span>
     <strong>Write to your representatives</strong>
     <small>A ready-to-personalise email for your MP or your senator. It's short, and far more effective than a petition: a message from a real citizen gets read and counted.</small>
+    <em class="ac-why"><strong>Why :</strong> Representatives count the messages they receive on a topic. On AI they receive very few, so yours carries real weight.</em>
   </a>
   <a class="action-card" href="/{lang}/declaration">
     <span class="ac-emoji">✍️</span>
     <strong>Sign the statement</strong>
     <small>Add your name to the call for a moratorium on the most dangerous AI systems.</small>
+    <em class="ac-why"><strong>Why :</strong> In front of a decision-maker, the number of signatures is the argument you put on the table. A call carried by thousands is no longer one association’s opinion.</em>
   </a>
   <a class="action-card" href="/{lang}/dons">
     <span class="ac-emoji">💶</span>
     <strong>Make a donation</strong>
     <small>Every euro helps us act more, and faster.</small>
+    <em class="ac-why"><strong>Why :</strong> We live on our members and donors. Every euro buys working time, travel, campaign materials.</em>
   </a>
 </div>
 
@@ -40,21 +43,25 @@ You don't need to devote your life to it: here are the most useful actions, from
     <span class="ac-emoji">✊</span>
     <strong>Join Pause AI</strong>
     <small>Join the movement and help us grow.</small>
+    <em class="ac-why"><strong>Why :</strong> A movement is measured first by its size. That is what makes an official grant a meeting and a journalist call back.</em>
   </a>
   <a class="action-card" href="/{lang}/groupes-locaux">
     <span class="ac-emoji">📍</span>
     <strong>Act near you</strong>
     <small>Join or start a local group.</small>
+    <em class="ac-why"><strong>Why :</strong> A street action reaches people our posts never will, and the local press covers what national media ignore.</em>
   </a>
   <a class="action-card" href="/{lang}/relayer-nos-messages">
     <span class="ac-emoji">📣</span>
     <strong>Share our messages</strong>
     <small>Share our posts, join Pause Action.</small>
+    <em class="ac-why"><strong>Why :</strong> Shared by a real person, a message travels much further than one posted by a page. Your account is worth more than ours.</em>
   </a>
   <a class="action-card" href="/recrutement">
     <span class="ac-emoji">🗣️</span>
     <strong>Convince those around you</strong>
     <small>Our guides to mobilise effectively around you.</small>
+    <em class="ac-why"><strong>Why :</strong> People rarely change their mind reading a stranger. They change it talking to someone they trust.</em>
   </a>
 </div>
 
@@ -92,6 +99,16 @@ You don't need to devote your life to it: here are the most useful actions, from
     transform: translateY(-2px);
     border-color: var(--brand);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  }
+
+  .ac-why {
+    margin-top: 0.15rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.84rem;
+    font-style: normal;
+    line-height: 1.5;
+    color: var(--text-2);
   }
 
   .ac-emoji {

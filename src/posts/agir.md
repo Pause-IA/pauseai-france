@@ -22,17 +22,20 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
   <a class="action-card primaire" href="/{lang}/ecrire-a-mes-elus">
     <span class="ac-emoji">✉️</span>
     <strong>Écrire à mes élus</strong>
-    <small>Un email prêt à personnaliser pour votre député ou votre sénateur. C'est court, et bien plus efficace qu'une pétition : un message d'un vrai citoyen est lu et compté.</small>
+    <small>Un email prêt à personnaliser pour votre député ou votre sénateur. C'est court, et bien plus efficace qu'une pétition : un message d'un vrai citoyen est lu et compté.</small>
+    <em class="ac-why"><strong>Pourquoi :</strong> Les parlementaires comptent les messages reçus sur un sujet. Sur l’IA, ils en reçoivent très peu : le vôtre pèse donc lourd.</em>
   </a>
   <a class="action-card" href="/{lang}/declaration">
     <span class="ac-emoji">✍️</span>
     <strong>Signer la déclaration</strong>
     <small>Ajoutez votre nom à l'appel pour un moratoire sur les IA les plus dangereuses.</small>
+    <em class="ac-why"><strong>Pourquoi :</strong> Face à un décideur, le nombre de signatures est l’argument qu’on pose sur la table. Un appel porté par des milliers de personnes n’est plus l’avis d’une association.</em>
   </a>
   <a class="action-card" href="/{lang}/dons">
     <span class="ac-emoji">💶</span>
     <strong>Faire un don</strong>
     <small>Chaque euro nous aide à agir plus et plus vite.</small>
+    <em class="ac-why"><strong>Pourquoi :</strong> Nous vivons de nos membres et de nos donateurs. Chaque euro achète du temps de travail, des déplacements, du matériel de campagne.</em>
   </a>
 </div>
 
@@ -43,21 +46,25 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
     <span class="ac-emoji">✊</span>
     <strong>Rejoindre Pause IA</strong>
     <small>Rejoignez le mouvement et aidez-nous à prendre de l'ampleur.</small>
+    <em class="ac-why"><strong>Pourquoi :</strong> Un mouvement se mesure d’abord à son nombre. C’est ce qui fait qu’un élu accepte un rendez-vous et qu’un journaliste rappelle.</em>
   </a>
   <a class="action-card" href="/{lang}/groupes-locaux">
     <span class="ac-emoji">📍</span>
     <strong>Agir près de chez vous</strong>
     <small>Rejoignez ou lancez un groupe local.</small>
+    <em class="ac-why"><strong>Pourquoi :</strong> Une action de rue touche des gens que nos publications n’atteindront jamais, et la presse locale couvre ce que la presse nationale ignore.</em>
   </a>
   <a class="action-card" href="/{lang}/relayer-nos-messages">
     <span class="ac-emoji">📣</span>
     <strong>Relayer nos messages</strong>
     <small>Partager nos publications, rejoindre Pause Action.</small>
+    <em class="ac-why"><strong>Pourquoi :</strong> Partagé par une personne réelle, un message va bien plus loin que publié par une page. Votre compte vaut mieux que le nôtre.</em>
   </a>
   <a class="action-card" href="/recrutement">
     <span class="ac-emoji">🗣️</span>
     <strong>Convaincre votre entourage</strong>
     <small>Nos guides pour mobiliser efficacement autour de vous.</small>
+    <em class="ac-why"><strong>Pourquoi :</strong> On change rarement d’avis en lisant un inconnu. On en change en parlant à quelqu’un en qui on a confiance.</em>
   </a>
 </div>
 
@@ -95,6 +102,16 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
     transform: translateY(-2px);
     border-color: var(--brand);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  }
+
+  .ac-why {
+    margin-top: 0.15rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.84rem;
+    font-style: normal;
+    line-height: 1.5;
+    color: var(--text-2);
   }
 
   .ac-emoji {
