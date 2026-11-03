@@ -152,7 +152,7 @@
 				<a href="{prefix}/ecrire-a-mes-elus">{t.footer.ecrire_elus}</a>
 				<a href="{prefix}/declaration">{t.footer.declaration}</a>
 				<a href="{prefix}/dons">{t.footer.make_donation}</a>
-				<ExternalLink href="https://pauseai-shop.fourthwall.com" target="_blank"
+				<ExternalLink href="https://boutique.pauseia.fr/" target="_blank"
 					>{t.footer.shop}</ExternalLink
 				>
 			</div>
