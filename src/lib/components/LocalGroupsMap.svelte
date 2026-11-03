@@ -15,10 +15,13 @@
 			attributionControl: true
 		})
 
+		// Bornes de la France métropolitaine. L'ancien cadrage allait de 41,3 à
+		// 51,6 de latitude et jusqu'à 10 de longitude : il montrait autant
+		// l'Espagne et l'Allemagne que la France.
 		map.fitBounds(
 			[
-				[41.3, -5.5],
-				[51.6, 10.0]
+				[42.3, -4.9],
+				[51.2, 8.3]
 			],
 			{ padding: [20, 20] }
 		)
@@ -34,9 +37,13 @@
 		).addTo(map)
 
 		for (const group of groups) {
-			const markerHtml = group.forming
-				? `<div class="lm-forming"><div class="lm-dot"></div></div>`
-				: `<div class="lm-active"><div class="lm-pulse"></div><div class="lm-dot"></div></div>`
+			// Un groupe en sommeil prend le même point discret qu'un groupe en
+			// création : dans les deux cas il n'y a pas d'activité à annoncer, et
+			// seule l'infobulle distingue « à relancer » de « en création ».
+			const markerHtml =
+				group.forming || group.inactif
+					? `<div class="lm-forming"><div class="lm-dot"></div></div>`
+					: `<div class="lm-active"><div class="lm-pulse"></div><div class="lm-dot"></div></div>`
 
 			const icon = L.divIcon({
 				html: markerHtml,
@@ -48,8 +55,13 @@
 
 			const marker = L.marker([group.lat, group.lon], { icon }).addTo(map)
 
-			const tooltipContent = group.forming
-				? `<div class="tt-name">${group.name}</div><div class="tt-status">En cours de création</div>`
+			const statut = group.forming
+				? 'En cours de création'
+				: group.inactif
+					? 'En sommeil, à relancer'
+					: ''
+			const tooltipContent = statut
+				? `<div class="tt-name">${group.name}</div><div class="tt-status">${statut}</div>`
 				: `<div class="tt-name">${group.name}</div>`
 
 			marker.bindTooltip(tooltipContent, {
@@ -75,7 +87,7 @@
 		</span>
 		<span class="legend-item">
 			<span class="legend-dot forming"></span>
-			En cours de création
+			En création ou à relancer
 		</span>
 	</div>
 </div>
@@ -86,6 +98,12 @@
 	}
 
 	.map-container {
+		/* Leaflet met ses tuiles en z-index 400 et ses contrôles en 1000. Sans
+		   contexte d'empilement ici, ces valeurs se comparent à celles de la page
+		   et passent au-dessus de l'en-tête collant (z-index 100) au défilement.
+		   `position: relative` + `z-index: 0` les enferment dans ce conteneur. */
+		position: relative;
+		z-index: 0;
 		height: 500px;
 		border-radius: var(--radius-lg);
 		overflow: hidden;

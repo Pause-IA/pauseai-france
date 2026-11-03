@@ -10,7 +10,7 @@
 	$: prefix = lang === 'fr' ? '/fr' : '/en'
 
 	// Pastilles de villes (preuve sociale) : quelques groupes actifs + « +N ».
-	const activeCities = localGroups.filter((g) => !g.forming).map((g) => g.name)
+	const activeCities = localGroups.filter((g) => !g.forming && !g.inactif).map((g) => g.name)
 	const MAX_PILLS = 5
 	const pillCities = activeCities.slice(0, MAX_PILLS)
 	const extraCities = activeCities.length - pillCities.length
