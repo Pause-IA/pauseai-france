@@ -27,6 +27,11 @@ You don't need to devote your life to it: here are the most useful actions, from
 ## The actions that matter most
 
 <div class="action-grid">
+  <a class="action-card" href="/{lang}/declaration">
+    <span class="ac-emoji">✍️</span>
+    <strong>Sign the statement</strong>
+    <small>Add your name to the call for a moratorium on the most dangerous AI systems.</small>
+  </a>
   <a class="action-card" href="/{lang}/rejoindre">
     <span class="ac-emoji">✊</span>
     <strong>Join Pause AI</strong>

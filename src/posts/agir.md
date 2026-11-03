@@ -30,6 +30,11 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
 ## Les actions qui comptent le plus
 
 <div class="action-grid">
+  <a class="action-card" href="/{lang}/declaration">
+    <span class="ac-emoji">✍️</span>
+    <strong>Signer la déclaration</strong>
+    <small>Ajoutez votre nom à l'appel pour un moratoire sur les IA les plus dangereuses.</small>
+  </a>
   <a class="action-card" href="/{lang}/rejoindre">
     <span class="ac-emoji">✊</span>
     <strong>Rejoindre Pause IA</strong>
