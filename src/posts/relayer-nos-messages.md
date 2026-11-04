@@ -6,14 +6,21 @@ description: 'Réseaux sociaux et Pause Action : quelques minutes par semaine po
 
 <script lang="ts">
   import { page } from '$app/stores'
+  import { LinkCard, LinkGrid } from '$components/ui'
   $: lang = $page.params.lang ?? 'fr'
 </script>
 
 Nos idées ne manquent pas de relais : elles manquent de volume. Plus nous sommes
 nombreux à les porter, plus elles pèsent sur le débat public et sur les décisions
-politiques. Deux façons d'y contribuer, en quelques minutes par semaine.
+politiques. Trois façons d'y contribuer, en quelques minutes par semaine.
 
-## Suivre et relayer nos réseaux sociaux
+<LinkGrid min="14rem">
+  <LinkCard href="#reseaux" icon="📣" title="Suivre et relayer nos réseaux sociaux">Un partage par semaine suffit à sortir le sujet de notre cercle.</LinkCard>
+  <LinkCard href="#pause-action" icon="⚡" title="Faire partie de Pause Action">Une action concrète par semaine, en quelques minutes, sur WhatsApp.</LinkCard>
+  <LinkCard href={`/${lang}/campagnes`} icon="🎯" title="Participer à nos campagnes">Nos mobilisations en cours, et comment y prendre part.</LinkCard>
+</LinkGrid>
+
+<h2 id="reseaux">Suivre et relayer nos réseaux sociaux</h2>
 
 C'est l'engagement le plus court et le plus utile au quotidien : un partage, un
 commentaire, un « j'aime » font sortir nos publications de notre cercle habituel.
@@ -30,7 +37,7 @@ commentaire, un « j'aime » font sortir nos publications de notre cercle habitu
 - Relayez une publication par semaine, en ajoutant une phrase à vous. Un partage
   commenté porte bien plus loin qu'un partage sec.
 
-## Rejoindre Pause Action
+<h2 id="pause-action">Rejoindre Pause Action</h2>
 
 Pause Action est notre groupe WhatsApp d'actions rapides : chaque semaine, une
 action concrète, expliquée en trois lignes, réalisable en quelques minutes :
@@ -43,6 +50,16 @@ signer, écrire, relayer, répondre à une consultation.
   </span>
   <span class="cta-fleche" aria-hidden="true">&rarr;</span>
 </a>
+
+<h2 id="campagnes">Participer à nos campagnes</h2>
+
+Chaque campagne a sa page, avec ce qu'on demande et ce que vous pouvez faire :
+écrire, signer, relayer, venir manifester. C'est le moment où un relais compte le
+plus, parce que l'attention est déjà là.
+
+<p class="renvoi-detail">
+  <a href={`/${lang}/campagnes`}>Voir nos campagnes en cours &rarr;</a>
+</p>
 
 Vous voulez vous engager davantage ? <a href="/{lang}/rejoindre">Rejoignez une
 équipe de bénévoles</a>, ou <a href="/{lang}/agir">découvrez toutes les façons d'agir</a>.
@@ -87,5 +104,19 @@ Vous voulez vous engager davantage ? <a href="/{lang}/rejoindre">Rejoignez une
     font-size: 1.4rem;
     color: var(--brand-subtle);
     flex-shrink: 0;
+  }
+
+  .renvoi-detail a {
+    display: inline-block;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .renvoi-detail a:hover {
+    border-color: var(--brand);
   }
 </style>
