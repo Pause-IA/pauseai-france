@@ -16,19 +16,23 @@
 		map = L.map(mapContainer, {
 			scrollWheelZoom: false,
 			zoomControl: true,
-			attributionControl: true
+			attributionControl: true,
+			// Sans cela, Leaflet n'utilise que des niveaux entiers : il arrondit le
+			// cadrage vers le bas et laisse une large marge vide autour des villes.
+			zoomSnap: 0.25,
+			// Les boutons + et − gardent un cran entier, plus lisible à l'usage.
+			zoomDelta: 1
 		})
 
-		// Bornes de la France métropolitaine. L'ancien cadrage allait de 41,3 à
-		// 51,6 de latitude et jusqu'à 10 de longitude : il montrait autant
-		// l'Espagne et l'Allemagne que la France.
-		map.fitBounds(
-			[
-				[42.3, -4.9],
-				[51.2, 8.3]
-			],
-			{ padding: [20, 20] }
-		)
+		// Cadrage calculé sur les groupes eux-mêmes plutôt que sur les bornes de
+		// la France : les villes s'arrêtent à Lille au nord et à Marseille au
+		// sud, donc un cadre « France entière » laissait de larges marges vides.
+		// `maxZoom` évite de coller à une seule ville le jour où il n'en reste
+		// qu'une dans la liste.
+		map.fitBounds(L.latLngBounds(groups.map((g) => [g.lat, g.lon] as [number, number])).pad(0.12), {
+			padding: [16, 16],
+			maxZoom: 9
+		})
 
 		// Jawg Light, clean minimal design, French labels via lang=fr
 		L.tileLayer(
