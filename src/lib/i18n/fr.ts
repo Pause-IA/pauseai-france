@@ -596,15 +596,15 @@ export default {
 		article1_title: "Remplacer l'humain, tel est l'objectif",
 		article1_desc:
 			"En quelques années, l'IA est devenue capable de remplacer les humains dans des tâches de plus en plus nombreuses, 16 % du travail déjà automatisable en France.",
-		article1_url: '/emploi-ia/remplacer-humain',
+		article1_url: '/articles/remplacer-humain',
 		article2_title: "Pas de pilote dans l'avion France",
 		article2_desc:
 			'Chômage massif des jeunes, modèle social fragilisé, dépendance à la Silicon Valley : à quoi ressemblera notre monde si nous ne réagissons pas.',
-		article2_url: '/emploi-ia/pas-de-pilote',
+		article2_url: '/articles/pas-de-pilote',
 		article3_title: 'Ce que l’IA fait au travail',
 		article3_desc:
 			"Bilan qualitatif de notre enquête sur l'emploi : perte de sens, décisions imposées, adaptation reportée sur les individus, ce qu'une trentaine de témoins nous ont confié.",
-		article3_url: '/emploi-ia/ce-que-lia-fait-au-travail',
+		article3_url: '/articles/ce-que-lia-fait-au-travail',
 		article3_badge: 'Bilan de la campagne',
 		slideshow_empty: 'Les témoignages illustrés arrivent prochainement.',
 		slideshow_nav_aria: 'Navigation du diaporama des témoignages',

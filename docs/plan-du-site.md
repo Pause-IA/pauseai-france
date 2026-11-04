@@ -5,7 +5,7 @@
 > du menu principal, du pied de page et des articles du dépôt, donc il ne
 > peut pas diverger du site.
 >
-> Dernière génération : 2026-11-03.
+> Dernière génération : 2026-11-04.
 
 Ce document décrit le site **réel**. Le plan _souhaité_ est une décision
 d'équipe et se tient ailleurs.
@@ -45,21 +45,21 @@ flowchart LR
   g3 --> n13["Que demandons-nous ?<br/><small>/propositions</small>"]
   g3 --> n14["FAQ<br/><small>/faq</small>"]
   accueil -.-> orph["Hors menu"]
-  orph -.-> n15["/campagne-modele"]
+  orph -.-> n15["/articles/ce-que-lia-fait-au-travail"]
   class n15 orpheline
-  orph -.-> n16["/declaration/confirmer"]
+  orph -.-> n16["/articles/pas-de-pilote"]
   class n16 orpheline
-  orph -.-> n17["/declaration/signataires"]
+  orph -.-> n17["/articles/remplacer-humain"]
   class n17 orpheline
-  orph -.-> n18["/emploi-ia/ce-que-lia-fait-au-travail"]
+  orph -.-> n18["/campagne-modele"]
   class n18 orpheline
-  orph -.-> n19["/emploi-ia/merci"]
+  orph -.-> n19["/declaration/confirmer"]
   class n19 orpheline
-  orph -.-> n20["/emploi-ia/pas-de-pilote"]
+  orph -.-> n20["/declaration/signataires"]
   class n20 orpheline
-  orph -.-> n21["/emploi-ia/questionnaire"]
+  orph -.-> n21["/emploi-ia/merci"]
   class n21 orpheline
-  orph -.-> n22["/emploi-ia/remplacer-humain"]
+  orph -.-> n22["/emploi-ia/questionnaire"]
   class n22 orpheline
   orph -.-> n23["/g7-2026"]
   class n23 orpheline
@@ -138,15 +138,15 @@ flowchart LR
 
 ### Agir
 
-| Lien                      | Chemin                                         |
-| ------------------------- | ---------------------------------------------- |
-| Rejoindre Pause IA        | `/rejoindre`                                   |
-| Rejoindre un groupe local | `/groupes-locaux`                              |
-| Toutes les façons d'agir  | `/agir`                                        |
-| Écrire à vos élus         | `/ecrire-a-mes-elus`                           |
-| Signer la déclaration     | `/declaration`                                 |
-| Faire un don              | `/dons`                                        |
-| Boutique                  | _externe_, https://pauseai-shop.fourthwall.com |
+| Lien                      | Chemin                                  |
+| ------------------------- | --------------------------------------- |
+| Rejoindre Pause IA        | `/rejoindre`                            |
+| Rejoindre un groupe local | `/groupes-locaux`                       |
+| Toutes les façons d'agir  | `/agir`                                 |
+| Écrire à vos élus         | `/ecrire-a-mes-elus`                    |
+| Signer la déclaration     | `/declaration`                          |
+| Faire un don              | `/dons`                                 |
+| Boutique                  | _externe_, https://boutique.pauseia.fr/ |
 
 ### Pause IA
 
@@ -175,14 +175,14 @@ matière des tâches « harmoniser menu et pied de page » et « trier les
 versions anglaises ». Certaines sont normales : pages d’atterrissage de
 campagne, confirmations, remerciements.
 
+- `/articles/ce-que-lia-fait-au-travail`
+- `/articles/pas-de-pilote`
+- `/articles/remplacer-humain`
 - `/campagne-modele`
 - `/declaration/confirmer`
 - `/declaration/signataires`
-- `/emploi-ia/ce-que-lia-fait-au-travail`
 - `/emploi-ia/merci`
-- `/emploi-ia/pas-de-pilote`
 - `/emploi-ia/questionnaire`
-- `/emploi-ia/remplacer-humain`
 - `/g7-2026`
 - `/geneve-2026`
 - `/guide-recrutement`

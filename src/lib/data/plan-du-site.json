@@ -1,5 +1,5 @@
 {
-	"genere": "2026-11-03",
+	"genere": "2026-11-04",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -152,7 +152,7 @@
 					"externe": false
 				},
 				{
-					"href": "https://pauseai-shop.fourthwall.com",
+					"href": "https://boutique.pauseia.fr/",
 					"label": "Boutique",
 					"externe": true
 				}
@@ -216,6 +216,18 @@
 	],
 	"orphelines": [
 		{
+			"chemin": "/articles/ce-que-lia-fait-au-travail",
+			"url": "/fr/articles/ce-que-lia-fait-au-travail"
+		},
+		{
+			"chemin": "/articles/pas-de-pilote",
+			"url": "/fr/articles/pas-de-pilote"
+		},
+		{
+			"chemin": "/articles/remplacer-humain",
+			"url": "/fr/articles/remplacer-humain"
+		},
+		{
 			"chemin": "/campagne-modele",
 			"url": "/fr/campagne-modele"
 		},
@@ -228,24 +240,12 @@
 			"url": "/fr/declaration/signataires"
 		},
 		{
-			"chemin": "/emploi-ia/ce-que-lia-fait-au-travail",
-			"url": "/fr/emploi-ia/ce-que-lia-fait-au-travail"
-		},
-		{
 			"chemin": "/emploi-ia/merci",
 			"url": "/fr/emploi-ia/merci"
 		},
 		{
-			"chemin": "/emploi-ia/pas-de-pilote",
-			"url": "/fr/emploi-ia/pas-de-pilote"
-		},
-		{
 			"chemin": "/emploi-ia/questionnaire",
 			"url": "/fr/emploi-ia/questionnaire"
-		},
-		{
-			"chemin": "/emploi-ia/remplacer-humain",
-			"url": "/fr/emploi-ia/remplacer-humain"
 		},
 		{
 			"chemin": "/g7-2026",
