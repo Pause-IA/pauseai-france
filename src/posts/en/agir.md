@@ -1,5 +1,6 @@
 ---
-title: Take Action
+title: All the ways to act
+rubrique: agir
 description: The most useful actions to help keep AI under control, from 5 minutes to a lasting commitment.
 ---
 
@@ -12,96 +13,59 @@ The number of people aware of AI risks is still small. You are now one of them, 
 
 You don't need to devote your life to it: here are the most useful actions, from five minutes to a deeper commitment.
 
-## The most useful action, in 5 minutes
+## In a few minutes
 
-<a class="lead-action" href="/{lang}/ecrire-a-mes-elus">
-  <span class="lead-emoji">✉️</span>
-  <span class="lead-text">
+<div class="action-grid">
+  <a class="action-card primaire" href="/{lang}/ecrire-a-mes-elus">
+    <span class="ac-emoji">✉️</span>
     <strong>Write to your representatives</strong>
     <small>A ready-to-personalise email for your MP or your senator. It's short, and far more effective than a petition: a message from a real citizen gets read and counted.</small>
-  </span>
-  <span class="lead-arrow" aria-hidden="true">→</span>
-</a>
+    <em class="ac-why"><strong>Why :</strong> Representatives count the messages they receive on a topic. On AI they receive very few, so yours carries real weight.</em>
+  </a>
+  <a class="action-card" href="/{lang}/declaration">
+    <span class="ac-emoji">✍️</span>
+    <strong>Sign the statement</strong>
+    <small>Add your name to the call for a moratorium on the most dangerous AI systems.</small>
+    <em class="ac-why"><strong>Why :</strong> In front of a decision-maker, the number of signatures is the argument you put on the table. A call carried by thousands is no longer one association’s opinion.</em>
+  </a>
+  <a class="action-card" href="/{lang}/dons">
+    <span class="ac-emoji">💶</span>
+    <strong>Make a donation</strong>
+    <small>Every euro helps us act more, and faster.</small>
+    <em class="ac-why"><strong>Why :</strong> We live on our members and donors. Every euro buys working time, travel, campaign materials.</em>
+  </a>
+</div>
 
-## The actions that matter most
+## Going further
 
 <div class="action-grid">
   <a class="action-card" href="/{lang}/rejoindre">
     <span class="ac-emoji">✊</span>
     <strong>Join Pause AI</strong>
     <small>Join the movement and help us grow.</small>
+    <em class="ac-why"><strong>Why :</strong> A movement is measured first by its size. That is what makes an official grant a meeting and a journalist call back.</em>
   </a>
   <a class="action-card" href="/{lang}/groupes-locaux">
     <span class="ac-emoji">📍</span>
     <strong>Act near you</strong>
     <small>Join or start a local group.</small>
+    <em class="ac-why"><strong>Why :</strong> A street action reaches people our posts never will, and the local press covers what national media ignore.</em>
   </a>
-  <a class="action-card" href="/{lang}/participer-a-notre-communication">
+  <a class="action-card" href="/{lang}/relayer-nos-messages">
     <span class="ac-emoji">📣</span>
-    <strong>Help with our communication</strong>
-    <small>Share our posts, join Pause Action, lend a hand on a campaign.</small>
-  </a>
-  <a class="action-card" href="/{lang}/dons">
-    <span class="ac-emoji">💶</span>
-    <strong>Donate</strong>
-    <small>Every euro helps us act more and faster.</small>
+    <strong>Share our messages</strong>
+    <small>Share our posts, join Pause Action.</small>
+    <em class="ac-why"><strong>Why :</strong> Shared by a real person, a message travels much further than one posted by a page. Your account is worth more than ours.</em>
   </a>
   <a class="action-card" href="/recrutement">
     <span class="ac-emoji">🗣️</span>
     <strong>Convince those around you</strong>
-    <small>Our guides to mobilise people effectively.</small>
+    <small>Our guides to mobilise effectively around you.</small>
+    <em class="ac-why"><strong>Why :</strong> People rarely change their mind reading a stranger. They change it talking to someone they trust.</em>
   </a>
 </div>
 
 <style>
-  .lead-action {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.25rem 1.5rem;
-    border: 2px solid var(--brand);
-    border-radius: 16px;
-    background: var(--brand-light);
-    text-decoration: none;
-    color: var(--text);
-    transition:
-      transform 0.15s ease,
-      box-shadow 0.15s ease;
-  }
-
-  .lead-action:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  }
-
-  .lead-emoji {
-    font-size: 2rem;
-    flex-shrink: 0;
-  }
-
-  .lead-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .lead-text strong {
-    font-size: 1.15rem;
-  }
-
-  .lead-text small {
-    font-size: 0.92rem;
-    line-height: 1.5;
-    color: var(--text-2);
-  }
-
-  .lead-arrow {
-    margin-left: auto;
-    font-size: 1.5rem;
-    color: var(--brand-subtle);
-    flex-shrink: 0;
-  }
-
   .action-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
@@ -124,10 +88,27 @@ You don't need to devote your life to it: here are the most useful actions, from
       box-shadow 0.15s ease;
   }
 
+  /* Reprend le cadre de l'ancienne carte vedette : dans un bloc de trois,
+     l'écriture aux élus reste l'action la plus efficace. */
+  .action-card.primaire {
+    border: 2px solid var(--brand);
+    background: var(--brand-light);
+  }
+
   .action-card:hover {
     transform: translateY(-2px);
     border-color: var(--brand);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  }
+
+  .ac-why {
+    margin-top: 0.15rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.84rem;
+    font-style: normal;
+    line-height: 1.5;
+    color: var(--text-2);
   }
 
   .ac-emoji {

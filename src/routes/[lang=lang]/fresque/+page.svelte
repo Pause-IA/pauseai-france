@@ -1,7 +1,7 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
 	import Button from '$components/Button.svelte'
-	import { Card, SectionTitle } from '$components/ui'
+	import { Card, PageHero, SectionTitle } from '$components/ui'
 	import { onMount } from 'svelte'
 	import type { PageData } from './$types'
 
@@ -107,28 +107,29 @@
 		: 'Un atelier collaboratif autour d’un jeu de cartes pour se faire une vision d’ensemble de l’intelligence artificielle, de ses capacités à ses risques, jusqu’aux solutions possibles.'}
 />
 
-<div class="page">
-	<header class="hero">
-		<h1>{isEn ? 'The AI Risks Fresk' : 'La Fresque des risques de l’IA'}</h1>
-		<span class="filet" aria-hidden="true"></span>
-		<p class="lede">
+<div class="page page--top">
+	<PageHero eyebrow={isEn ? 'Learn' : 'Comprendre'}>
+		{isEn ? 'The AI Risks Fresk' : 'La Fresque des risques de l’IA'}
+		<svelte:fragment slot="lede">
 			{isEn
 				? 'A collaborative workshop built around a deck of cards, to build an overall picture of artificial intelligence, from what it can do to the risks it carries, through to the possible solutions.'
 				: 'Un atelier collaboratif autour d’un jeu de cartes pour se faire une vision d’ensemble de l’intelligence artificielle, de ses capacités à ses risques, jusqu’aux solutions possibles.'}
-		</p>
-		<!-- Une seule action dominante : s'inscrire à un atelier, la vraie
-		     conversion de la page. « Découvrir la Fresque » reste accessible,
-		     en second rang : quatre boutons de poids égal ne hiérarchisaient
-		     rien. -->
-		<p class="hero-action">
-			<Button href="{SITE}/participer/" target="_blank" rel="noopener noreferrer">
-				{isEn ? 'See the workshops' : 'Voir les ateliers'}
-			</Button>
-			<a class="lien-second" href={SITE} target="_blank" rel="noopener noreferrer">
-				{isEn ? 'Discover the Fresk' : 'Découvrir la Fresque'}
-			</a>
-		</p>
-	</header>
+		</svelte:fragment>
+		<svelte:fragment slot="actions">
+			<!-- Une seule action dominante : s'inscrire à un atelier, la vraie
+			     conversion de la page. « Découvrir la Fresque » reste accessible,
+			     en second rang : quatre boutons de poids égal ne hiérarchisaient
+			     rien. -->
+			<p class="hero-action">
+				<Button href="{SITE}/participer/" target="_blank" rel="noopener noreferrer">
+					{isEn ? 'See the workshops' : 'Voir les ateliers'}
+				</Button>
+				<a class="lien-second" href={SITE} target="_blank" rel="noopener noreferrer">
+					{isEn ? 'Discover the Fresk' : 'Découvrir la Fresque'}
+				</a>
+			</p>
+		</svelte:fragment>
+	</PageHero>
 </div>
 
 <!-- Bande de photos, pleine largeur : elle sort de la colonne de contenu. -->
@@ -299,39 +300,10 @@
 		inline-size: 100%;
 		max-inline-size: var(--width-wide);
 		margin-inline: auto;
-		padding-inline: 1.5rem;
 	}
 
-	/* Échelle typographique reprise de `PageHero`. Le filet orange est placé
-	   SOUS le titre, comme sur le croquis, la charte le met au-dessus, d'où le
-	   hero écrit ici plutôt qu'une option ajoutée à la brique partagée. */
-	.hero {
-		margin-block: 2.5rem var(--pas);
-	}
-
-	.hero h1 {
-		margin: 0;
-		font-size: clamp(2rem, 5.5vw, 3rem);
-		line-height: 1.08;
-		letter-spacing: -0.02em;
-		color: var(--text);
-	}
-
-	.filet {
-		display: block;
-		inline-size: 3rem;
-		block-size: 4px;
-		border-radius: var(--radius-pill);
-		background: var(--brand);
-		margin-block: 1.25rem 0;
-	}
-
-	.lede {
-		margin: 1.25rem 0 0;
-		max-inline-size: var(--width-text);
-		font-size: 1.1rem;
-		line-height: 1.6;
-		color: var(--text-2);
+	.page--top {
+		margin-top: 3rem;
 	}
 
 	.hero-action {

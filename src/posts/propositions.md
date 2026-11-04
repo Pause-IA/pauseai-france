@@ -1,5 +1,6 @@
 ---
 title: Que demandons-nous ?
+rubrique: apropos
 description: Nous demandons une pause mondiale de l'entraînement des modèles d'IA de pointe, le temps qu'une gouvernance internationale se mette en place pour en encadrer le développement.
 ---
 
@@ -8,68 +9,70 @@ description: Nous demandons une pause mondiale de l'entraînement des modèles d
   import Callout from '$components/Callout.svelte'
 </script>
 
-## **Nous demandons une pause mondiale de l'entraînement des modèles d'IA de pointe**
+<!-- Hiérarchie de la page : la demande, pourquoi, comment, qui la soutient,
+     puis le détail des démarches existantes (replié). Le positionnement qui
+     figurait sur « Qui sommes-nous » vit désormais ici. -->
 
-En l'état de la recherche, les modèles d'intelligence artificielle de pointe, c'est-à-dire ceux susceptibles de conduire à l'intelligence artificielle générale voire à la super-intelligence, présentent des risques immenses que personne ne sait techniquement contrôler.
+## Notre demande : une pause mondiale de l'entraînement des IA de pointe
 
-Une réglementation sera lente à mettre en place, elle ne concernera pas tous les pays et elle sera rapidement dépassée par les progrès des modèles.
+**Nous demandons de mettre en pause, le plus vite possible et à l'échelle mondiale, l'entraînement des modèles d'IA de pointe**, c'est-à-dire ceux susceptibles de conduire à l'intelligence artificielle générale, voire à la super-intelligence.
 
-**La seule solution consiste à mettre en pause l'entraînement de ces modèles, le plus vite possible, à l'échelle mondiale.**
+**Cette pause doit durer jusqu'à ce que toutes les conditions de sécurité et de contrôle démocratique soient réunies.** Pour cela, il faut qu'une gouvernance se mette en place au niveau des États, avec l'appui de scientifiques pour définir les modalités concrètes de la pause et contrôler son application.
 
-**Pour cela, il faut qu'une gouvernance se mette en place au niveau des États, avec l'appui de scientifiques pour définir les modalités concrètes de la pause et contrôler son application.**
+Nous ne sommes pas contre toute forme d'IA. Nous sommes contre **le développement sans contrôle et sans limite de l'intelligence artificielle généraliste**, car il expose notre civilisation à des risques catastrophiques.
 
-Cette position n'est pas marginale. Seuls 8 % des Français souhaitent accélérer le développement de l'IA en France et en Europe, d'après une [enquête exclusive](https://cesia.org/fr/publications/sondage-ia-2026/) réalisée par OpinionWay pour le CeSIA en avril 2026. À l'inverse, 42 % des sondés voudraient ralentir fortement le développement de l'IA ou le mettre en pause temporairement. Et près de huit personnes sur dix se déclarent favorables à des accords internationaux pour interdire les usages et les capacités de l'IA qui menacent la vie humaine ou les droits fondamentaux.
+## Pourquoi ?
 
-Même chose aux États-Unis où, selon un [sondage](https://futureoflife.org/recent-news/americans-want-regulation-or-prohibition-of-superhuman-ai/) commandé en 2025 par le Future of Life Institute, 64 % des sondés estiment que l'IA surhumaine ne devrait pas être développée tant qu'il n'a pas été prouvé qu'elle était sûre et contrôlable, 73 % soutiennent une régulation robuste, et seulement 5 % soutiennent le statu quo actuel de développement rapide.
+- Les modèles d'IA généralistes (aujourd'hui GPT, Claude, Gemini…) deviennent chaque jour plus puissants, sont faciles à utiliser et se déploient à grande vitesse dans la société, sans réelles [normes de sécurité](https://www.gov.uk/government/publications/international-ai-safety-report-2025) et hors de tout contrôle institutionnel.
+- Ils présentent déjà des risques majeurs pour la sécurité de nos [infrastructures](/fr/dangers/economiques-et-materiels), pour [nos institutions](/fr/dangers/pour-la-societe) et pour [notre modèle social](/fr/dangers/pour-les-individus).
+- Ces modèles commencent à [échapper à leurs créateurs](https://www.anthropic.com/research/alignment-faking), et certains le reconnaissent publiquement. Dans un scénario catastrophe que l'on ne peut exclure, ils pourraient donner naissance à une [super-intelligence incontrôlable](https://www.safe.ai/work/statement-on-ai-risk).
 
-En pratique, on ne part pas de rien.
+## Pourquoi une pause, et pas seulement une réglementation ?
 
-- **Les grandes enceintes politiques** ont déjà produit des principes et des codes de conduite. Ces textes non contraignants ne sont pas du tout à la hauteur des risques, mais ils montrent un embryon de gouvernance sur lequel on peut s'appuyer.
-  - **ONU :** [Global Dialogue on AI Governance (2024)](https://www.un.org/global-dialogue-ai-governance/fr)
-  - **G7 :** [Processus d'Hiroshima](https://www.soumu.go.jp/hiroshimaaiprocess/en/index.html) et déclarations sur l'IA (à partir de 2023)
-  - **UNESCO :** [Recommandation sur l'éthique de l'IA (2021)](https://www.unesco.org/en/articles/unescos-recommendation-ethics-artificial-intelligence-key-facts)
-  - **Haut-Commissariat aux droits de l'homme :** [Moratoires ciblés (2021)](https://www.ohchr.org/fr/press-releases/2021/09/artificial-intelligence-risks-privacy-demand-urgent-action-bachelet)
-  - **Comité international de la Croix-Rouge :** [Position sur les systèmes d'armes autonomes](https://www.icrc.org/sites/default/files/document_new/file_list/french_-_icrc_position_and_backgroud_paper.pdf) (2021)
-- **Surtout, des laboratoires et ONG spécialisés en sécurité de l'IA** élaborent déjà des scénarios opérationnels pour arrêter, ralentir ou encadrer très strictement ces systèmes. Ce sont des bases sérieuses pour travailler de manière concrète.
-  - **Machine Intelligence Research Institute :** [AI Governance to Avoid Extinction](https://intelligence.org/2026/04/13/summary-ai-governance-to-avoid-extinction/) (2025-2026)
-  - **ControlAI :** [A Narrow Path](https://www.narrowpath.co/) (2024) et [Direct Institutional Plan](https://controlai.com/dip) (2025)
-  - **Existential Risk Observatory :** [Review and Recommendations for a Conditional AI Safety Treaty](https://arxiv.org/pdf/2503.18956) (2025).
+Personne ne sait aujourd'hui contrôler techniquement ces systèmes. Une réglementation sera lente à mettre en place, ne concernera pas tous les pays et sera vite dépassée par les progrès des modèles. **La seule réponse à la hauteur est une gouvernance mondiale qui ait les moyens institutionnels, techniques et financiers de contrôler l'IA.**
 
-**PauseAI** a également exposé une approche dite « [Building the pause button](https://pauseai.info/building-the-pause-button) » consistant à contrôler la chaîne d'approvisionnement des puces nécessaires au développement logiciel de l'IA.
+Les discours « [rassuristes](/fr/faq) » nous font perdre du temps : l'IA ne serait pas vraiment intelligente, les géants de la tech exagéreraient les performances de leurs modèles, une bulle spéculative serait sur le point d'éclater… Rien de tout cela ne nous protège du danger. La violence, que nous condamnons par principe, est tout aussi contre-productive : elle renforce des antagonismes stériles au moment où l'avenir de l'humanité est en jeu.
 
-Citons également le [Future of Life Institute](https://futureoflife.org/), qui appelle depuis 2023 à un moratoire sur l'entraînement des modèles d'IA de pointe.
+## Une demande largement partagée
+
+- **En France**, seuls 8 % des personnes interrogées souhaitent accélérer le développement de l'IA, et 42 % voudraient le ralentir fortement ou le mettre en pause temporairement ; près de huit sur dix sont favorables à des accords internationaux pour interdire les usages et capacités de l'IA qui menacent la vie humaine ou les droits fondamentaux ([enquête OpinionWay pour le CeSIA](https://cesia.org/fr/publications/sondage-ia-2026/), avril 2026).
+- **Aux États-Unis**, 64 % estiment que l'IA surhumaine ne devrait pas être développée tant qu'elle n'a pas été prouvée sûre et contrôlable, et seulement 5 % soutiennent le statu quo ([sondage du Future of Life Institute](https://futureoflife.org/recent-news/americans-want-regulation-or-prohibition-of-superhuman-ai/), 2025).
+
+## Sur quoi s'appuyer : on ne part pas de rien
+
+- **Les grandes enceintes internationales** (ONU, G7, UNESCO, Haut-Commissariat aux droits de l'homme, Croix-Rouge) ont déjà produit des principes et des codes de conduite. Non contraignants, ils ne sont pas à la hauteur des risques, mais forment un embryon de gouvernance sur lequel s'appuyer.
+- **Des laboratoires et ONG spécialisés en sécurité de l'IA** (MIRI, ControlAI, Existential Risk Observatory, Future of Life Institute) ont élaboré des scénarios opérationnels pour arrêter, ralentir ou encadrer très strictement ces systèmes.
+- **PauseAI** propose de « [construire le bouton Pause](https://pauseai.info/building-the-pause-button) » en contrôlant la chaîne d'approvisionnement des puces nécessaires à l'entraînement des IA.
 
 <Accordion id="demarches">
-<span slot="head">En savoir plus sur ces différentes démarches</span>
+<span slot="head">Le détail de ces démarches</span>
 <div slot="details">
 
-# **Démarches en faveur d'une gouvernance ou d'un moratoire de l'IA**
+### Institutions internationales
 
-## **Institutions internationales**
-
-### UNESCO – [Recommandation sur l'éthique de l'IA](https://www.unesco.org/en/articles/unescos-recommendation-ethics-artificial-intelligence-key-facts)
+#### UNESCO – [Recommandation sur l'éthique de l'IA](https://www.unesco.org/en/articles/unescos-recommendation-ethics-artificial-intelligence-key-facts)
 
 Texte adopté en 2021 au sein de l'UNESCO, puis endossé en 2023 par 193 États membres, définissant des principes (droits humains, transparence, évaluation d'impact, redevabilité) et invitant à des cadres nationaux cohérents. Il sert de référence, sans imposer de limites aux capacités techniques ni prévoir de mécanismes d'arrêt des systèmes d'IA de pointe.
 
-### ONU – [Global Dialogue on AI Governance](https://www.un.org/global-dialogue-ai-governance/fr)
+#### ONU – [Global Dialogue on AI Governance](https://www.un.org/global-dialogue-ai-governance/fr)
 
 En 2024, un « United Nations System White Paper on AI Governance » coordonné par l'UNESCO et l'UIT cartographie les options institutionnelles possibles et insiste sur la coordination et le suivi des risques. En 2025, le Sommet du futur aboutit à la création du Global Dialogue on AI Governance, un forum interétatique et multi-acteurs pour rapprocher les initiatives existantes et préparer d'éventuels accords plus formalisés, sans mécanisme de moratoire global.
 
-### Haut-Commissariat aux droits de l'homme – [Moratoires ciblés](https://www.ohchr.org/fr/press-releases/2021/09/artificial-intelligence-risks-privacy-demand-urgent-action-bachelet)
+#### Haut-Commissariat aux droits de l'homme – [Moratoires ciblés](https://www.ohchr.org/fr/press-releases/2021/09/artificial-intelligence-risks-privacy-demand-urgent-action-bachelet)
 
 En 2021, la Haute-Commissaire Michelle Bachelet appelle à un moratoire sur la vente et l'usage de certaines technologies d'IA, notamment la reconnaissance biométrique à distance dans les espaces publics, tant que des garde-fous adéquats en matière de droits humains ne sont pas en place. La logique est celle d'une pause ciblée sur certains usages, non d'un arrêt des systèmes d'IA de pointe en général.
 
-### CICR / ONU – [Position sur les systèmes d'armes autonomes](https://www.icrc.org/sites/default/files/document_new/file_list/french_-_icrc_position_and_backgroud_paper.pdf)
+#### CICR / ONU – [Position sur les systèmes d'armes autonomes](https://www.icrc.org/sites/default/files/document_new/file_list/french_-_icrc_position_and_backgroud_paper.pdf)
 
 Le Comité international de la Croix-Rouge et le Secrétaire général de l'ONU plaident depuis plusieurs années pour un instrument juridiquement contraignant interdisant ou restreignant certaines catégories d'armes autonomes, afin de préserver un « contrôle humain significatif » sur l'emploi de la force. Il s'agit d'un équivalent de moratoire/ban sectoriel limité à l'IA militaire.
 
-### G7 – [Processus d'Hiroshima](https://www.soumu.go.jp/hiroshimaaiprocess/en/index.html) et déclarations sur l'IA
+#### G7 – [Processus d'Hiroshima](https://www.soumu.go.jp/hiroshimaaiprocess/en/index.html) et déclarations sur l'IA
 
 À partir de 2023, le processus d'Hiroshima sur l'IA au G7 produit des principes et un code de conduite pour l'IA générative et les modèles de fondation : évaluation des risques, transparence, responsabilité, partage d'information avec les autorités. La présidence française du G7 en 2026 annonce vouloir renforcer ces convergences autour d'une IA « sûre » et protectrice, sans remettre en cause la poursuite du développement des systèmes d'IA de pointe.
 
-## **ONG et think tanks**
+### ONG et think tanks
 
-### Future of Life Institute (FLI)
+#### Future of Life Institute (FLI)
 
 **Lettre « [Pause Giant AI Experiments](https://futureoflife.org/open-letter/pause-giant-ai-experiments/) » (2023)**
 
@@ -79,7 +82,7 @@ Publiée en mars 2023, cette lettre appelle à une pause d'au moins six mois sur
 
 En 2025, le FLI coordonne une nouvelle lettre appelant cette fois à une interdiction de long terme du développement d'IA super-intelligente tant qu'il n'existe ni garanties de sûreté suffisantes ni soutien démocratique clair. L'ONG se prononce alors pour une pause sur les expériences d'IA de pointe et pour un moratoire d'au moins quinze ans sur certaines formes d'IA générale ou de super-intelligence.
 
-### Machine Intelligence Research Institute (MIRI)
+#### Machine Intelligence Research Institute (MIRI)
 
 **Rapport « [AI Governance to Avoid Extinction](https://intelligence.org/2026/04/13/summary-ai-governance-to-avoid-extinction/) » (2025)**
 
@@ -89,7 +92,7 @@ Publié en mai 2025, ce rapport propose plusieurs trajectoires possibles pour la
 
 Dans le prolongement, MIRI esquisse un traité international détaillant des seuils de calcul (FLOP) au-delà desquels l'entraînement de systèmes d'IA de pointe requiert une licence, un traçage des puces et des centres de données, des inspections internationales et un régime de sanctions. L'architecture s'inspire des régimes de contrôle des armements, avec une coalition États-Unis–Chine envisagée comme noyau dur.
 
-### ControlAI
+#### ControlAI
 
 **« [A Narrow Path](https://www.narrowpath.co/) » (2024) et « [Direct Institutional Plan](https://controlai.com/dip) » (2025)**
 
@@ -97,13 +100,13 @@ ControlAI, fondé au milieu des années 2020, publie entre 2024 et 2025 son plan
 
 Pour mettre ce cadre en œuvre dans les démocraties, ControlAI développe ensuite le « Direct Institutional Plan » (DIP), un plan d'action en deux étapes (élaboration de politiques ciblant la superintelligence et ses précurseurs, puis mobilisation systématique des acteurs institutionnels) visant à faire adopter des interdictions nationales et, in fine, un accord international durable contre le développement de la superintelligence.
 
-### Existential Risk Observatory (ERO)
+#### Existential Risk Observatory (ERO)
 
 **« [Conditional AI Safety Treaty](https://arxiv.org/pdf/2503.18956) » (2025)**
 
 À partir de 2024–2025, l'Existential Risk Observatory propose un « Conditional AI Safety Treaty » qui se veut plus acceptable politiquement qu'un moratoire immédiat et général. L'idée est de ne pas décréter tout de suite un arrêt des systèmes d'IA de pointe, mais de prévoir un mécanisme : les États s'engagent à stopper certains entraînements dès que des instituts internationaux de sécurité de l'IA indépendants concluent qu'un projet ou un niveau de capacités rapproche trop d'une perte de contrôle. La durée du Halt n'est pas fixée à l'avance ; elle dépend de l'évolution des évaluations de risque et des progrès en matière d'alignement.
 
-### PauseAI (global)
+#### PauseAI (global)
 
 **« [Construire le bouton Pause](https://pauseai.info/building-the-pause-button) » (2025)**
 
@@ -122,4 +125,4 @@ Vous pouvez aussi [signer la déclaration PauseAI](/fr/declaration), qui appelle
 
 ## **Une pause est possible, elle est indispensable.<br/>Aidez-nous à réaliser cet objectif**
 
-[Rejoignez](/rejoindre) le mouvement pour nous aider ou [agissez](/agir) par vous-même !
+[Rejoignez](/fr/rejoindre) le mouvement pour nous aider ou [découvrez toutes les façons d'agir](/fr/agir) !

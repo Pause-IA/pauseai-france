@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte'
-	import { localGroups as groups } from '$lib/data/local-groups'
+	import { localGroups } from '$lib/data/local-groups'
+
+	// Les groupes en sommeil ne sont pas montrés : un point sur la carte est une
+	// promesse de pouvoir rejoindre quelqu'un, et il n'y a personne à rejoindre.
+	const groups = localGroups.filter((g) => !g.inactif)
 
 	let mapContainer: HTMLDivElement
 	let map: import('leaflet').Map | null = null
@@ -15,10 +19,13 @@
 			attributionControl: true
 		})
 
+		// Bornes de la France métropolitaine. L'ancien cadrage allait de 41,3 à
+		// 51,6 de latitude et jusqu'à 10 de longitude : il montrait autant
+		// l'Espagne et l'Allemagne que la France.
 		map.fitBounds(
 			[
-				[41.3, -5.5],
-				[51.6, 10.0]
+				[42.3, -4.9],
+				[51.2, 8.3]
 			],
 			{ padding: [20, 20] }
 		)
@@ -48,8 +55,9 @@
 
 			const marker = L.marker([group.lat, group.lon], { icon }).addTo(map)
 
-			const tooltipContent = group.forming
-				? `<div class="tt-name">${group.name}</div><div class="tt-status">En cours de création</div>`
+			const statut = group.forming ? 'En cours de création' : ''
+			const tooltipContent = statut
+				? `<div class="tt-name">${group.name}</div><div class="tt-status">${statut}</div>`
 				: `<div class="tt-name">${group.name}</div>`
 
 			marker.bindTooltip(tooltipContent, {
@@ -75,7 +83,7 @@
 		</span>
 		<span class="legend-item">
 			<span class="legend-dot forming"></span>
-			En cours de création
+			En création
 		</span>
 	</div>
 </div>
@@ -86,6 +94,12 @@
 	}
 
 	.map-container {
+		/* Leaflet met ses tuiles en z-index 400 et ses contrôles en 1000. Sans
+		   contexte d'empilement ici, ces valeurs se comparent à celles de la page
+		   et passent au-dessus de l'en-tête collant (z-index 100) au défilement.
+		   `position: relative` + `z-index: 0` les enferment dans ce conteneur. */
+		position: relative;
+		z-index: 0;
 		height: 500px;
 		border-radius: var(--radius-lg);
 		overflow: hidden;

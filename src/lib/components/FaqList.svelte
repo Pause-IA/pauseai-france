@@ -5,6 +5,8 @@
 	export let categories: FaqCategory[]
 	// Ouvre tous les items (utile pendant une recherche).
 	export let open = false
+	// Liste simple, sans les titres de thème (aperçu de l'accueil).
+	export let flat = false
 
 	// Deep-linking : ouvre et fait défiler vers la question ciblée par le hash de
 	// l'URL (les <details> natifs ne s'ouvrent pas tout seuls sur une ancre).
@@ -26,10 +28,10 @@
 	})
 </script>
 
-<div class="faq-list">
+<div class="faq-list" class:flat>
 	{#each categories as cat (cat.category)}
 		<section class="faq-cat-block">
-			<h3 class="faq-cat">{cat.category}</h3>
+			{#if !flat}<h3 class="faq-cat">{cat.category}</h3>{/if}
 			{#each cat.items as item (item.id)}
 				<details class="faq-item" id={item.id} {open}>
 					<summary>
@@ -59,6 +61,14 @@
 <style>
 	.faq-cat-block {
 		margin-bottom: 2rem;
+	}
+
+	.flat .faq-cat-block {
+		margin-bottom: 0;
+	}
+
+	.flat .faq-cat-block:first-child .faq-item:first-child {
+		border-top: 1px solid var(--border);
 	}
 
 	.faq-cat {

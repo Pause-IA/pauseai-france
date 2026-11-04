@@ -45,19 +45,17 @@
 					</p>
 					<p>
 						And safety? No regulation worthy of the name. Not even any certainty that these systems
-						can be controlled at all, by technology or by law. The frontrunners themselves, OpenAI
-						and Anthropic, keep publishing statements about the danger and about how hard the safety
-						problem is.
-					</p>
-					<p>
-						Pause AI is calling for an international public authority to oversee frontier AI. The AI
-						industry should not be allowed to gamble with our lives. And yet it is.
+						can be technically controlled. The frontrunners themselves, OpenAI and Anthropic, keep
+						publishing statements about the danger and about how hard the safety problem is.
 					</p>
 				</div>
 				<button type="button" class="plus" on:click={() => (deplie = true)} hidden={deplie}
 					>Read the rest</button
 				>
-				<p>If you think this has to stop, join us and sign our statement.</p>
+				<p>
+					The AI industry is gambling with our lives. If you think this has to stop, join us and
+					sign our call for a pause on training frontier AI models.
+				</p>
 				<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
 					<Button href="{prefix}/declaration">Sign the statement</Button>
 					<Button href="{prefix}/rejoindre" alt>Join us</Button>
@@ -77,20 +75,19 @@
 					</p>
 					<p>
 						Et la sécurité{'\u202F'}? Pas de régulation à la hauteur. Pas même de certitude que ces
-						systèmes soient réellement contrôlables, ni par la technologie, ni par la loi. Les
-						champions eux-mêmes, OpenAI et Anthropic, multiplient les déclarations sur le danger et
-						la complexité des enjeux de sécurité.
-					</p>
-					<p>
-						Pause IA réclame la création d'une autorité publique internationale pour contrôler les
-						IA de pointe. L'industrie de l'IA ne devrait pas avoir le droit de jouer avec nos vies.
-						Et pourtant, elle l'a.
+						systèmes soient techniquement contrôlables. Les champions eux-mêmes, OpenAI et
+						Anthropic, multiplient les déclarations sur le danger et la complexité des enjeux de
+						sécurité.
 					</p>
 				</div>
 				<button type="button" class="plus" on:click={() => (deplie = true)} hidden={deplie}
 					>Lire la suite</button
 				>
-				<p>Si vous pensez que cela doit cesser, rejoignez-nous, signez notre déclaration.</p>
+				<p>
+					L'industrie de l'IA joue avec nos vies. Si vous pensez que cela doit cesser,
+					rejoignez-nous, signez notre appel à une pause dans l'entraînement des modèles d'IA de
+					pointe.
+				</p>
 				<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
 					<Button href="{prefix}/declaration">Signer la déclaration</Button>
 					<Button href="{prefix}/rejoindre" alt>Rejoignez-nous</Button>

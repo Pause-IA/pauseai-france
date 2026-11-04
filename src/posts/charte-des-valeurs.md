@@ -1,5 +1,6 @@
 ---
 title: Charte des valeurs
+rubrique: apropos
 description: Notre charte de valeurs chez Pause IA.
 slug: charte-des-valeurs
 ---

@@ -2,6 +2,7 @@
 	import { MoveUpRight, ChevronLeft, ChevronRight, Search, X, Newspaper } from 'lucide-svelte'
 	import type { PressRelease, LocalPressRelease, PressCoverage } from '$lib/notion'
 	import { getT } from '$lib/i18n'
+	import { Page } from '$components/ui'
 	import type { PageData } from './$types'
 
 	export let data: PageData & {
@@ -352,12 +353,7 @@
 	<meta name="description" content={t.presse.subtitle} />
 </svelte:head>
 
-<div class="press-page">
-	<header class="press-header">
-		<h1>{t.presse.title}</h1>
-		<p class="subtitle">{t.presse.subtitle}</p>
-	</header>
-
+<Page width="wide" eyebrow={t.nav.actualites} title={t.presse.title} lede={t.presse.subtitle}>
 	<section class="contact-section">
 		<div class="contact-card">
 			<h2>{t.presse.contact_title}</h2>
@@ -802,30 +798,9 @@
 			<p>{t.presse.about_p2}</p>
 		</div>
 	</section>
-</div>
+</Page>
 
 <style>
-	.press-page {
-		max-width: var(--width-wide);
-		margin: 0 auto;
-		padding: 2rem 1rem;
-	}
-
-	.press-header {
-		margin-bottom: 3rem;
-	}
-
-	.press-header h1 {
-		font-size: 2rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.subtitle {
-		font-size: 1.1rem;
-		color: var(--text-secondary);
-		margin: 0;
-	}
-
 	/* Contact section */
 	.contact-section {
 		margin-bottom: 3rem;
@@ -1672,14 +1647,6 @@
 	}
 
 	@media (min-width: 640px) {
-		.press-page {
-			padding: 3rem 2rem;
-		}
-
-		.press-header h1 {
-			font-size: 2.5rem;
-		}
-
 		.contact-card {
 			padding: 1.5rem 2rem;
 		}
