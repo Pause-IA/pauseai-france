@@ -48,7 +48,19 @@
 	// clavier trouve « n’est » affiché.
 	const simple = (t: string) =>
 		t.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/’/g, "'").toLowerCase()
-	$: affichees = idees.filter(
+	// Sur « Toutes », les catégories sont mêlées (demande de Jeanne, 04/11/2026) :
+	// la 1re idée de chaque catégorie, puis la 2e de chaque, etc. Un ordre fixe
+	// plutôt qu'un tirage au hasard : la page ne bouge pas d'une visite à l'autre,
+	// et le rendu serveur et celui du navigateur restent identiques.
+	function melangerLesCategories(liste: typeof idees): typeof idees {
+		const parCategorie = ordre.map((c) => liste.filter((i) => i.categorie === c))
+		const tour = Math.max(0, ...parCategorie.map((l) => l.length))
+		return Array.from({ length: tour }, (_, rang) =>
+			parCategorie.flatMap((l) => (rang < l.length ? [l[rang]] : []))
+		).flat()
+	}
+	$: triees = categorie === 'toutes' ? melangerLesCategories(idees) : idees
+	$: affichees = triees.filter(
 		(i) =>
 			(categorie === 'toutes' || i.categorie === categorie) &&
 			simple(`${i.objection} ${i.reponseCourte}`).includes(simple(recherche.trim()))

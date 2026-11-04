@@ -66,8 +66,9 @@
 	</section>
 
 	{#if data.argumentaire.length}
-		<section class="argumentaire">
-			<h2>L’argumentaire</h2>
+		<!-- Sans titre « L’argumentaire » (demande de Jeanne, 04/11/2026) : les titres
+		     de la page Notion suffisent. -->
+		<section class="argumentaire" aria-label="Argumentaire">
 			{#each data.argumentaire as bloc}
 				{#if bloc.type === 'titre'}
 					{#if bloc.niveau === 2}
@@ -198,9 +199,18 @@
 		margin-top: 0;
 	}
 
+	/* Sans le titre « L’argumentaire », les titres de niveau 3 de Notion
+	   (« Argument 1… », « Sources ») deviennent les titres de la section :
+	   assez grands pour se distinguer du texte. */
 	.argumentaire h3 {
-		margin: 1.5rem 0 0.4rem;
-		font-size: 1.08rem;
+		margin: 2rem 0 0.5rem;
+		font-size: 1.3rem;
+		font-weight: 700;
+		color: var(--text);
+	}
+
+	.argumentaire > h3:first-child {
+		margin-top: 0;
 	}
 
 	.argumentaire p,
