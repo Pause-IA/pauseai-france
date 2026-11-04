@@ -49,7 +49,7 @@
 
 	{#if idee.themes.length}
 		<ul class="themes">
-			{#each idee.themes as t}<li>{t}</li>{/each}
+			{#each idee.themes as t}<li>{t.startsWith('#') ? t : `#${t}`}</li>{/each}
 		</ul>
 	{/if}
 
@@ -132,21 +132,19 @@
 		content: '· ';
 	}
 
+	/* Thèmes : du texte, pas des boutons, comme sur la liste. */
 	.themes {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.4rem;
+		gap: 0.2rem 0.7rem;
 		margin: 0 0 1.5rem;
 		padding: 0;
 		list-style: none;
 	}
 
 	.themes li {
-		padding: 0.12rem 0.55rem;
-		border: 1px solid var(--border);
-		border-radius: 999px;
 		color: var(--text-2);
-		font-size: 0.8rem;
+		font-size: 0.85rem;
 	}
 
 	.en-bref {

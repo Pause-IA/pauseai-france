@@ -9,8 +9,14 @@
 	export let data: PageData
 
 	const title = 'Idées reçues sur l’IA'
+	// Texte du haut de page : version de Jeanne (com), 04/11/2026.
+	const accroche =
+		'« Il suffirait de la débrancher », « Ce n’est que du code »… Beaucoup de nos concitoyens sont encore très mal informés sur les dangers de l’IA et s’arrêtent aux idées reçues.'
+	const invitation =
+		'Pour vous aider à informer votre entourage et à répondre aux objections infondées, les bénévoles de Pause IA proposent ici des réponses détaillées aux idées reçues. Ce catalogue se construit progressivement.'
+	// Pour les moteurs de recherche et les aperçus de lien : plus court.
 	const description =
-		'« Il suffirait de la débrancher », « ce n’est que du code »… Nos réponses aux objections les plus courantes, en bref puis en détail.'
+		'« Il suffirait de la débrancher », « Ce n’est que du code »… Les réponses détaillées des bénévoles de Pause IA aux idées reçues sur l’IA.'
 
 	$: idees = data.idees
 	// Une pastille par catégorie présente, dans l'ordre prévu (puis les autres).
@@ -30,18 +36,11 @@
 			}))
 	]
 
-	// Les thèmes traversent les catégories (#alignement peut toucher plusieurs
-	// rubriques) : second filtre, qui se combine au premier.
-	$: themes = [...new Set(idees.flatMap((i) => i.themes))].sort((a, b) => a.localeCompare(b, 'fr'))
-	let theme = 'tous'
-	$: optionsThemes = [
-		{ value: 'tous', label: 'Tous les thèmes', count: idees.length },
-		...themes.map((t) => ({
-			value: t,
-			label: t,
-			count: idees.filter((i) => i.themes.includes(t)).length
-		}))
-	]
+	// Les thèmes (#alignement…) traversent les catégories. Pas de filtre par
+	// thème en haut de page (retour de Jeanne, 04/11/2026 : « simplifions ») ;
+	// ils s'affichent en simple texte sur les cartes, pour ne pas ressembler aux
+	// boutons des catégories.
+	const diese = (t: string) => (t.startsWith('#') ? t : `#${t}`)
 
 	// Recherche dans l'objection et la réponse courte, sans tenir compte des accents.
 	let recherche = ''
@@ -52,7 +51,6 @@
 	$: affichees = idees.filter(
 		(i) =>
 			(categorie === 'toutes' || i.categorie === categorie) &&
-			(theme === 'tous' || i.themes.includes(theme)) &&
 			simple(`${i.objection} ${i.reponseCourte}`).includes(simple(recherche.trim()))
 	)
 </script>
@@ -62,14 +60,14 @@
 <article>
 	<PageHero>
 		{title}
-		<svelte:fragment slot="lede">{description}</svelte:fragment>
+		<svelte:fragment slot="lede"
+			><span class="paragraphe">{accroche}</span><span class="paragraphe">{invitation}</span
+			></svelte:fragment
+		>
 	</PageHero>
 
 	{#if idees.length}
 		<FilterChips {options} bind:selected={categorie} />
-		{#if themes.length}
-			<FilterChips options={optionsThemes} bind:selected={theme} />
-		{/if}
 		<label class="recherche">
 			<Search size={16} aria-hidden="true" />
 			<span class="sr-only">Rechercher une idée reçue</span>
@@ -84,10 +82,10 @@
 					<p class="courte">{i.reponseCourte}</p>
 					{#if i.themes.length}
 						<ul class="themes">
-							{#each i.themes as t}<li>{t}</li>{/each}
+							{#each i.themes as t}<li>{diese(t)}</li>{/each}
 						</ul>
 					{/if}
-					<span class="suite">Lire l’argumentaire <ArrowRight size={14} aria-hidden="true" /></span>
+					<span class="suite">Voir plus <ArrowRight size={14} aria-hidden="true" /></span>
 				</Card>
 			{:else}
 				<p class="vide">Aucune idée reçue ne correspond à cette recherche.</p>
@@ -151,21 +149,27 @@
 		align-items: start;
 	}
 
+	.paragraphe {
+		display: block;
+	}
+
+	.paragraphe + .paragraphe {
+		margin-top: 0.75rem;
+	}
+
+	/* Thèmes : du texte, pas des boutons (les catégories en sont). */
 	.themes {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.35rem;
+		gap: 0.2rem 0.6rem;
 		margin: 0 0 0.6rem;
 		padding: 0;
 		list-style: none;
 	}
 
 	.themes li {
-		padding: 0.1rem 0.5rem;
-		border: 1px solid var(--border);
-		border-radius: 999px;
 		color: var(--text-2);
-		font-size: 0.78rem;
+		font-size: 0.8rem;
 	}
 
 	.categorie {

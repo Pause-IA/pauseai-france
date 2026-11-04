@@ -31,7 +31,7 @@ Partager), puis l'argumentaire et les sources.
 | `Numéro`                                            | Text         | non         | Ordre d'affichage (1-1, 2-1…)                                                                                              |
 | `Catégorie`                                         | Select       | oui         | Sert aux filtres                                                                                                           |
 | `Réponse courte`                                    | Text         | oui         | « En bref », aussi reprise sur les réseaux sociaux                                                                         |
-| `Thèmes`                                            | Multi-select | non         | Tags trans-catégories (alignement, emploi…) : second filtre sur la page liste, combiné aux catégories                      |
+| `Thèmes`                                            | Multi-select | non         | Tags trans-catégories (alignement, emploi…), affichés « #alignement » sur les cartes et la page de détail ; pas de filtre  |
 | `Auteur`                                            | Text         | non         | La signature affichée sur la page de détail                                                                                |
 | `Publié le`                                         | Date         | non         | Affichée sous le titre                                                                                                     |
 | `Mis à jour le`                                     | Date         | non         | Affichée sous le titre. Saisie à la main : le champ automatique de Notion bougerait pour une virgule corrigée              |
