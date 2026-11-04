@@ -5,17 +5,17 @@
 > du menu principal, du pied de page et des articles du dépôt, donc il ne
 > peut pas diverger du site.
 >
-> Dernière génération : 2026-11-03.
+> Dernière génération : 2026-11-04.
 
 Ce document décrit le site **réel**. Le plan _souhaité_ est une décision
 d'équipe et se tient ailleurs.
 
 ## En un coup d’œil
 
-- **36 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
+- **37 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
 - **6 gabarits dynamiques** (articles, campagnes, dangers…)
-- **34 articles** en Markdown dans `src/posts`
-- **20 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
+- **36 articles** en Markdown dans `src/posts`
+- **21 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
 
 ## Arborescence depuis le menu principal
 
@@ -45,21 +45,21 @@ flowchart LR
   g3 --> n13["Que demandons-nous ?<br/><small>/propositions</small>"]
   g3 --> n14["FAQ<br/><small>/faq</small>"]
   accueil -.-> orph["Hors menu"]
-  orph -.-> n15["/campagne-modele"]
+  orph -.-> n15["/articles/ce-que-lia-fait-au-travail"]
   class n15 orpheline
-  orph -.-> n16["/declaration/confirmer"]
+  orph -.-> n16["/articles/pas-de-pilote"]
   class n16 orpheline
-  orph -.-> n17["/declaration/signataires"]
+  orph -.-> n17["/articles/remplacer-humain"]
   class n17 orpheline
-  orph -.-> n18["/emploi-ia/ce-que-lia-fait-au-travail"]
+  orph -.-> n18["/campagne-modele"]
   class n18 orpheline
-  orph -.-> n19["/emploi-ia/merci"]
+  orph -.-> n19["/declaration/confirmer"]
   class n19 orpheline
-  orph -.-> n20["/emploi-ia/pas-de-pilote"]
+  orph -.-> n20["/declaration/signataires"]
   class n20 orpheline
-  orph -.-> n21["/emploi-ia/questionnaire"]
+  orph -.-> n21["/emploi-ia/merci"]
   class n21 orpheline
-  orph -.-> n22["/emploi-ia/remplacer-humain"]
+  orph -.-> n22["/emploi-ia/questionnaire"]
   class n22 orpheline
   orph -.-> n23["/g7-2026"]
   class n23 orpheline
@@ -77,14 +77,16 @@ flowchart LR
   class n29 orpheline
   orph -.-> n30["/recrutement"]
   class n30 orpheline
-  orph -.-> n31["/senat2025"]
+  orph -.-> n31["/ressources-decideurs"]
   class n31 orpheline
-  orph -.-> n32["/sommet-ia-2026"]
+  orph -.-> n32["/senat2025"]
   class n32 orpheline
-  orph -.-> n33["/tribunes/le-monde-octobre-2026"]
+  orph -.-> n33["/sommet-ia-2026"]
   class n33 orpheline
-  orph -.-> n34["/une-ia-sest-echappee"]
+  orph -.-> n34["/tribunes/le-monde-octobre-2026"]
   class n34 orpheline
+  orph -.-> n35["/une-ia-sest-echappee"]
+  class n35 orpheline
   classDef externe stroke-dasharray: 4 3
   classDef orpheline fill:#fff5e8,stroke:#ff9416
 ```
@@ -138,15 +140,15 @@ flowchart LR
 
 ### Agir
 
-| Lien                      | Chemin                                         |
-| ------------------------- | ---------------------------------------------- |
-| Rejoindre Pause IA        | `/rejoindre`                                   |
-| Rejoindre un groupe local | `/groupes-locaux`                              |
-| Toutes les façons d'agir  | `/agir`                                        |
-| Écrire à vos élus         | `/ecrire-a-mes-elus`                           |
-| Signer la déclaration     | `/declaration`                                 |
-| Faire un don              | `/dons`                                        |
-| Boutique                  | _externe_, https://pauseai-shop.fourthwall.com |
+| Lien                      | Chemin                                  |
+| ------------------------- | --------------------------------------- |
+| Rejoindre Pause IA        | `/rejoindre`                            |
+| Rejoindre un groupe local | `/groupes-locaux`                       |
+| Toutes les façons d'agir  | `/agir`                                 |
+| Écrire à vos élus         | `/ecrire-a-mes-elus`                    |
+| Signer la déclaration     | `/declaration`                          |
+| Faire un don              | `/dons`                                 |
+| Boutique                  | _externe_, https://boutique.pauseia.fr/ |
 
 ### Pause IA
 
@@ -175,14 +177,14 @@ matière des tâches « harmoniser menu et pied de page » et « trier les
 versions anglaises ». Certaines sont normales : pages d’atterrissage de
 campagne, confirmations, remerciements.
 
+- `/articles/ce-que-lia-fait-au-travail`
+- `/articles/pas-de-pilote`
+- `/articles/remplacer-humain`
 - `/campagne-modele`
 - `/declaration/confirmer`
 - `/declaration/signataires`
-- `/emploi-ia/ce-que-lia-fait-au-travail`
 - `/emploi-ia/merci`
-- `/emploi-ia/pas-de-pilote`
 - `/emploi-ia/questionnaire`
-- `/emploi-ia/remplacer-humain`
 - `/g7-2026`
 - `/geneve-2026`
 - `/guide-recrutement`
@@ -191,6 +193,7 @@ campagne, confirmations, remerciements.
 - `/plan-du-site`
 - `/posts`
 - `/recrutement`
+- `/ressources-decideurs`
 - `/senat2025`
 - `/sommet-ia-2026`
 - `/tribunes/le-monde-octobre-2026`
@@ -230,6 +233,7 @@ Une seule route sert toutes les pages d’une famille ; le contenu vient de
 | Dangers for Society                                          | `src/posts/en/dangers/for-society.md`                                          |
 | FAQ                                                          | `src/posts/en/faq.md`                                                          |
 | Our funding                                                  | `src/posts/en/financements.md`                                                 |
+| AI governance: where existing efforts stand                  | `src/posts/en/gouvernance-ia-demarches.md`                                     |
 | Legal Notices                                                | `src/posts/en/mentions-legales.md`                                             |
 | Privacy Policy                                               | `src/posts/en/politique-de-confidentialite.md`                                 |
 | What do we ask for?                                          | `src/posts/en/propositions.md`                                                 |
@@ -237,6 +241,7 @@ Une seule route sert toutes les pages d’une famille ; le contenu vient de
 | Share our messages                                           | `src/posts/en/relayer-nos-messages.md`                                         |
 | FAQ                                                          | `src/posts/faq.md`                                                             |
 | Notre financement                                            | `src/posts/financements.md`                                                    |
+| Gouvernance de l'IA : où en sont les démarches existantes    | `src/posts/gouvernance-ia-demarches.md`                                        |
 | Mentions légales                                             | `src/posts/mentions-legales.md`                                                |
 | Politique de confidentialité                                 | `src/posts/politique-de-confidentialite.md`                                    |
 | Que demandons-nous ?                                         | `src/posts/propositions.md`                                                    |

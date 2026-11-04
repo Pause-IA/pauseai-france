@@ -6,14 +6,21 @@ description: "Social media and Pause Action: a few minutes a week to carry Pause
 
 <script lang="ts">
   import { page } from '$app/stores'
+  import { LinkCard, LinkGrid } from '$components/ui'
   $: lang = $page.params.lang ?? 'en'
 </script>
 
 Our ideas do not lack messengers: they lack volume. The more of us carry them, the
-more weight they have in public debate and in political decisions. Two ways to
+more weight they have in public debate and in political decisions. Three ways to
 help, in a few minutes a week.
 
-## Follow and share our social media
+<LinkGrid min="14rem">
+  <LinkCard href="#reseaux" icon="📣" title="Follow and share our social media">One share a week is enough to take the topic beyond our circle.</LinkCard>
+  <LinkCard href="#pause-action" icon="⚡" title="Join Pause Action">One concrete action a week, in a few minutes, on WhatsApp.</LinkCard>
+  <LinkCard href={`/${lang}/campagnes`} icon="🎯" title="Take part in our campaigns">Our current mobilisations, and how to join them.</LinkCard>
+</LinkGrid>
+
+<h2 id="reseaux">Follow and share our social media</h2>
 
 This is the shortest and most useful day-to-day commitment: a share, a comment or
 a like takes our posts beyond our usual circle.
@@ -30,7 +37,7 @@ a like takes our posts beyond our usual circle.
 - Share one post a week, adding a sentence of your own. A commented share travels
   much further than a bare one.
 
-## Join Pause Action
+<h2 id="pause-action">Join Pause Action</h2>
 
 Pause Action is our WhatsApp group for quick actions: every week, one concrete
 action, explained in three lines, doable in a few minutes: sign, write, share,
@@ -43,6 +50,16 @@ respond to a consultation.
   </span>
   <span class="cta-fleche" aria-hidden="true">&rarr;</span>
 </a>
+
+<h2 id="campagnes">Take part in our campaigns</h2>
+
+Every campaign has its own page, with what we are asking for and what you can do:
+write, sign, share, come and march. That is when a relay counts most, because the
+attention is already there.
+
+<p class="renvoi-detail">
+  <a href={`/${lang}/campagnes`}>See our current campaigns &rarr;</a>
+</p>
 
 Want to get more involved? <a href="/{lang}/rejoindre">Join a volunteer team</a>,
 or <a href="/{lang}/agir">see all the ways to act</a>.
@@ -87,5 +104,18 @@ or <a href="/{lang}/agir">see all the ways to act</a>.
     font-size: 1.4rem;
     color: var(--brand-subtle);
     flex-shrink: 0;
+  }
+  .renvoi-detail a {
+    display: inline-block;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .renvoi-detail a:hover {
+    border-color: var(--brand);
   }
 </style>

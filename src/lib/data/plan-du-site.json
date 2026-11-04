@@ -1,5 +1,5 @@
 {
-	"genere": "2026-11-03",
+	"genere": "2026-11-04",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -152,7 +152,7 @@
 					"externe": false
 				},
 				{
-					"href": "https://pauseai-shop.fourthwall.com",
+					"href": "https://boutique.pauseia.fr/",
 					"label": "Boutique",
 					"externe": true
 				}
@@ -216,6 +216,18 @@
 	],
 	"orphelines": [
 		{
+			"chemin": "/articles/ce-que-lia-fait-au-travail",
+			"url": "/fr/articles/ce-que-lia-fait-au-travail"
+		},
+		{
+			"chemin": "/articles/pas-de-pilote",
+			"url": "/fr/articles/pas-de-pilote"
+		},
+		{
+			"chemin": "/articles/remplacer-humain",
+			"url": "/fr/articles/remplacer-humain"
+		},
+		{
 			"chemin": "/campagne-modele",
 			"url": "/fr/campagne-modele"
 		},
@@ -228,24 +240,12 @@
 			"url": "/fr/declaration/signataires"
 		},
 		{
-			"chemin": "/emploi-ia/ce-que-lia-fait-au-travail",
-			"url": "/fr/emploi-ia/ce-que-lia-fait-au-travail"
-		},
-		{
 			"chemin": "/emploi-ia/merci",
 			"url": "/fr/emploi-ia/merci"
 		},
 		{
-			"chemin": "/emploi-ia/pas-de-pilote",
-			"url": "/fr/emploi-ia/pas-de-pilote"
-		},
-		{
 			"chemin": "/emploi-ia/questionnaire",
 			"url": "/fr/emploi-ia/questionnaire"
-		},
-		{
-			"chemin": "/emploi-ia/remplacer-humain",
-			"url": "/fr/emploi-ia/remplacer-humain"
 		},
 		{
 			"chemin": "/g7-2026",
@@ -278,6 +278,10 @@
 		{
 			"chemin": "/recrutement",
 			"url": "/recrutement"
+		},
+		{
+			"chemin": "/ressources-decideurs",
+			"url": "/fr/ressources-decideurs"
 		},
 		{
 			"chemin": "/senat2025",
@@ -378,6 +382,10 @@
 			"titre": "Our funding"
 		},
 		{
+			"slug": "/en/gouvernance-ia-demarches",
+			"titre": "AI governance: where existing efforts stand"
+		},
+		{
 			"slug": "/en/mentions-legales",
 			"titre": "Legal Notices"
 		},
@@ -404,6 +412,10 @@
 		{
 			"slug": "/financements",
 			"titre": "Notre financement"
+		},
+		{
+			"slug": "/gouvernance-ia-demarches",
+			"titre": "Gouvernance de l'IA : où en sont les démarches existantes"
 		},
 		{
 			"slug": "/mentions-legales",
@@ -443,8 +455,8 @@
 		}
 	],
 	"total": {
-		"pages": 36,
+		"pages": 37,
 		"dynamiques": 6,
-		"articles": 34
+		"articles": 36
 	}
 }

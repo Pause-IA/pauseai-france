@@ -172,7 +172,7 @@
 					<p>
 						<strong>It is a tax reduction, not a tax credit</strong>: it is subtracted from the
 						income tax you owe. So it only benefits people who actually pay French income tax. If
-						you are not taxable, nothing is refunded to you — and your donation is worth exactly as
+						you are not taxable, nothing is refunded to you, and your donation is worth exactly as
 						much to us.
 					</p>
 				</svelte:fragment>
@@ -234,8 +234,8 @@
 					<p>
 						<strong>Il s'agit d'une réduction d'impôt, et non d'un crédit d'impôt</strong> : elle se
 						soustrait à l'impôt sur le revenu que vous devez. Elle ne profite donc qu'aux personnes qui
-						paient effectivement cet impôt. Si vous n'êtes pas imposable, rien ne vous est remboursé
-						— et votre don a exactement la même valeur pour nous.
+						paient effectivement cet impôt. Si vous n'êtes pas imposable, rien ne vous est remboursé,
+						et votre don a exactement la même valeur pour nous.
 					</p>
 				</svelte:fragment>
 			</Accordion>
