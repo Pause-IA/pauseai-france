@@ -39,12 +39,13 @@
 	// Mois écoulés depuis le lancement des groupes locaux (mars 2026).
 	const mois = moisDepuisLancement()
 
-	// Villes triées : groupes actifs d'abord, puis ceux en création.
-	// Actifs d'abord, puis en création, puis en sommeil ; alphabétique à l'intérieur.
-	const rang = (g: { forming?: boolean; inactif?: boolean }) => (g.inactif ? 2 : g.forming ? 1 : 0)
-	$: sortedGroups = [...localGroups].sort(
-		(a, b) => rang(a) - rang(b) || a.name.localeCompare(b.name)
-	)
+	// Villes triées : groupes actifs d'abord, puis ceux en création, par ordre
+	// alphabétique à l'intérieur. Les groupes en sommeil ne sont pas listés :
+	// la liste sert à trouver qui rejoindre près de chez soi.
+	const rang = (g: { forming?: boolean }) => (g.forming ? 1 : 0)
+	$: sortedGroups = localGroups
+		.filter((g) => !g.inactif)
+		.sort((a, b) => rang(a) - rang(b) || a.name.localeCompare(b.name))
 
 	// ── Agenda des actions (depuis Notion, via /api/events, non prérendu) ──
 	interface LocalEvent {
@@ -364,11 +365,9 @@
 
 		<ul class="city-list" aria-label={isEn ? 'Cities with a group' : 'Villes avec un groupe'}>
 			{#each sortedGroups as group}
-				<li class="city-chip" class:forming={group.forming || group.inactif}>
+				<li class="city-chip" class:forming={group.forming}>
 					{group.name}
-					{#if group.forming}<span class="city-tag">{isEn ? 'forming' : 'en création'}</span>
-					{:else if group.inactif}<span class="city-tag">{isEn ? 'to restart' : 'à relancer'}</span
-						>{/if}
+					{#if group.forming}<span class="city-tag">{isEn ? 'forming' : 'en création'}</span>{/if}
 				</li>
 			{/each}
 		</ul>

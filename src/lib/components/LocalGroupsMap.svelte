@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte'
-	import { localGroups as groups } from '$lib/data/local-groups'
+	import { localGroups } from '$lib/data/local-groups'
+
+	// Les groupes en sommeil ne sont pas montrés : un point sur la carte est une
+	// promesse de pouvoir rejoindre quelqu'un, et il n'y a personne à rejoindre.
+	const groups = localGroups.filter((g) => !g.inactif)
 
 	let mapContainer: HTMLDivElement
 	let map: import('leaflet').Map | null = null
@@ -37,13 +41,9 @@
 		).addTo(map)
 
 		for (const group of groups) {
-			// Un groupe en sommeil prend le même point discret qu'un groupe en
-			// création : dans les deux cas il n'y a pas d'activité à annoncer, et
-			// seule l'infobulle distingue « à relancer » de « en création ».
-			const markerHtml =
-				group.forming || group.inactif
-					? `<div class="lm-forming"><div class="lm-dot"></div></div>`
-					: `<div class="lm-active"><div class="lm-pulse"></div><div class="lm-dot"></div></div>`
+			const markerHtml = group.forming
+				? `<div class="lm-forming"><div class="lm-dot"></div></div>`
+				: `<div class="lm-active"><div class="lm-pulse"></div><div class="lm-dot"></div></div>`
 
 			const icon = L.divIcon({
 				html: markerHtml,
@@ -55,11 +55,7 @@
 
 			const marker = L.marker([group.lat, group.lon], { icon }).addTo(map)
 
-			const statut = group.forming
-				? 'En cours de création'
-				: group.inactif
-					? 'En sommeil, à relancer'
-					: ''
+			const statut = group.forming ? 'En cours de création' : ''
 			const tooltipContent = statut
 				? `<div class="tt-name">${group.name}</div><div class="tt-status">${statut}</div>`
 				: `<div class="tt-name">${group.name}</div>`
@@ -87,7 +83,7 @@
 		</span>
 		<span class="legend-item">
 			<span class="legend-dot forming"></span>
-			En création ou à relancer
+			En création
 		</span>
 	</div>
 </div>
