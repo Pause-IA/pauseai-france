@@ -280,6 +280,10 @@
 			"url": "/recrutement"
 		},
 		{
+			"chemin": "/ressources-decideurs",
+			"url": "/fr/ressources-decideurs"
+		},
+		{
 			"chemin": "/senat2025",
 			"url": "/fr/senat2025"
 		},
@@ -378,6 +382,10 @@
 			"titre": "Our funding"
 		},
 		{
+			"slug": "/en/gouvernance-ia-demarches",
+			"titre": "AI governance: where existing efforts stand"
+		},
+		{
 			"slug": "/en/mentions-legales",
 			"titre": "Legal Notices"
 		},
@@ -404,6 +412,10 @@
 		{
 			"slug": "/financements",
 			"titre": "Notre financement"
+		},
+		{
+			"slug": "/gouvernance-ia-demarches",
+			"titre": "Gouvernance de l'IA : où en sont les démarches existantes"
 		},
 		{
 			"slug": "/mentions-legales",
@@ -443,8 +455,8 @@
 		}
 	],
 	"total": {
-		"pages": 36,
+		"pages": 37,
 		"dynamiques": 6,
-		"articles": 34
+		"articles": 36
 	}
 }

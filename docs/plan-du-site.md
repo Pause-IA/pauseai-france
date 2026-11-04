@@ -12,10 +12,10 @@ d'équipe et se tient ailleurs.
 
 ## En un coup d’œil
 
-- **36 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
+- **37 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
 - **6 gabarits dynamiques** (articles, campagnes, dangers…)
-- **34 articles** en Markdown dans `src/posts`
-- **20 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
+- **36 articles** en Markdown dans `src/posts`
+- **21 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
 
 ## Arborescence depuis le menu principal
 
@@ -77,14 +77,16 @@ flowchart LR
   class n29 orpheline
   orph -.-> n30["/recrutement"]
   class n30 orpheline
-  orph -.-> n31["/senat2025"]
+  orph -.-> n31["/ressources-decideurs"]
   class n31 orpheline
-  orph -.-> n32["/sommet-ia-2026"]
+  orph -.-> n32["/senat2025"]
   class n32 orpheline
-  orph -.-> n33["/tribunes/le-monde-octobre-2026"]
+  orph -.-> n33["/sommet-ia-2026"]
   class n33 orpheline
-  orph -.-> n34["/une-ia-sest-echappee"]
+  orph -.-> n34["/tribunes/le-monde-octobre-2026"]
   class n34 orpheline
+  orph -.-> n35["/une-ia-sest-echappee"]
+  class n35 orpheline
   classDef externe stroke-dasharray: 4 3
   classDef orpheline fill:#fff5e8,stroke:#ff9416
 ```
@@ -191,6 +193,7 @@ campagne, confirmations, remerciements.
 - `/plan-du-site`
 - `/posts`
 - `/recrutement`
+- `/ressources-decideurs`
 - `/senat2025`
 - `/sommet-ia-2026`
 - `/tribunes/le-monde-octobre-2026`
@@ -230,6 +233,7 @@ Une seule route sert toutes les pages d’une famille ; le contenu vient de
 | Dangers for Society                                          | `src/posts/en/dangers/for-society.md`                                          |
 | FAQ                                                          | `src/posts/en/faq.md`                                                          |
 | Our funding                                                  | `src/posts/en/financements.md`                                                 |
+| AI governance: where existing efforts stand                  | `src/posts/en/gouvernance-ia-demarches.md`                                     |
 | Legal Notices                                                | `src/posts/en/mentions-legales.md`                                             |
 | Privacy Policy                                               | `src/posts/en/politique-de-confidentialite.md`                                 |
 | What do we ask for?                                          | `src/posts/en/propositions.md`                                                 |
@@ -237,6 +241,7 @@ Une seule route sert toutes les pages d’une famille ; le contenu vient de
 | Share our messages                                           | `src/posts/en/relayer-nos-messages.md`                                         |
 | FAQ                                                          | `src/posts/faq.md`                                                             |
 | Notre financement                                            | `src/posts/financements.md`                                                    |
+| Gouvernance de l'IA : où en sont les démarches existantes    | `src/posts/gouvernance-ia-demarches.md`                                        |
 | Mentions légales                                             | `src/posts/mentions-legales.md`                                                |
 | Politique de confidentialité                                 | `src/posts/politique-de-confidentialite.md`                                    |
 | Que demandons-nous ?                                         | `src/posts/propositions.md`                                                    |
