@@ -38,6 +38,8 @@ Partager), puis l'argumentaire et les sources.
 | `Visible`                                           | Checkbox     | oui         | Cocher quand la réponse est validée                                                                                        |
 | `Type`, `Récit implicite`, `Fonction psychologique` | —            | non         | Internes à la com, jamais affichés                                                                                         |
 
+La colonne des thèmes peut s'appeler `Thèmes` ou `Thème` : les deux sont lus.
+
 Les noms de colonnes sont regroupés dans `COLONNES`, en haut de
 `src/lib/server/idees-recues.ts`.
 
@@ -54,10 +56,12 @@ Dynamiques sociales et psychologiques. Une autre catégorie s'affiche après.
 ## L'argumentaire (corps de la page Notion)
 
 - Un **titre de niveau 3** par argument (ex. « Argument 1 (technique) »), suivi
-  de ses paragraphes.
+  de ses paragraphes. Le site n'ajoute pas de titre « L'argumentaire » : ces
+  titres sont ceux de la section.
 - Un titre « Sources » suivi d'une **liste à puces**, avec les liens.
-- Gras, italique et liens sont repris ; seuls les liens en `https://` sont
-  cliquables. Images et tableaux sont ignorés.
+- Gras, italique et liens sont repris. Pour un lien « derrière » un texte : sélectionner
+  le texte dans Notion, Ctrl+K (Cmd+K sur Mac), coller l'adresse. Seuls les liens
+  `https://` et `http://` sont cliquables. Images et tableaux sont ignorés.
 
 ## Contrôle
 

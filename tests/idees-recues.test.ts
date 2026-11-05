@@ -31,6 +31,11 @@ afterEach(() => {
 })
 
 describe('colonnes demandées par la rédaction', () => {
+	it('la colonne des thèmes peut s’appeler « Thème » ou « Thèmes »', () => {
+		const i = versIdeeRecue(ligne('p9', 'slug-valide', '1', { Thème: choixMultiple('Alignement') }))
+		expect(i?.themes).toEqual(['Alignement'])
+	})
+
 	it('thèmes, auteur et dates sont lus', () => {
 		const i = versIdeeRecue(
 			ligne('p1', 'slug-valide', '1', {
@@ -137,7 +142,7 @@ describe('conversion d’une ligne Notion', () => {
 })
 
 describe('corps de la page (argumentaire)', () => {
-	it('titres, paragraphes, listes regroupées ; liens https seulement', () => {
+	it('titres, paragraphes, listes regroupées ; liens web seulement', () => {
 		const blocs = versBlocs([
 			{ type: 'heading_3', heading_3: { rich_text: [{ plain_text: 'Argument 1 (technique)' }] } },
 			{
@@ -147,7 +152,8 @@ describe('corps de la page (argumentaire)', () => {
 						{ plain_text: 'Voir ', annotations: { bold: true } },
 						{ plain_text: 'cette étude', href: 'https://exemple.org/etude' },
 						{ plain_text: ' et ', href: null },
-						{ plain_text: 'ceci', href: 'javascript:alert(1)' }
+						{ plain_text: 'ceci', href: 'javascript:alert(1)' },
+						{ plain_text: 'vieux site', href: 'http://exemple.org' }
 					]
 				}
 			},
@@ -167,6 +173,7 @@ describe('corps de la page (argumentaire)', () => {
 		expect(para.segments[0].gras).toBe(true)
 		expect(para.segments[1].lien).toBe('https://exemple.org/etude')
 		expect(para.segments[3].lien).toBeUndefined() // « javascript: » jamais cliquable
+		expect(para.segments[4].lien).toBe('http://exemple.org')
 		expect((blocs[2] as { elements: unknown[] }).elements).toHaveLength(2)
 	})
 })

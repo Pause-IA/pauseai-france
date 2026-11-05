@@ -21,6 +21,7 @@ export const COLONNES = {
 	numero: 'Numéro', // 1-1, 2-1… : ordre d'affichage
 	categorie: 'Catégorie',
 	themes: 'Thèmes', // sélection multiple : tags trans-catégories (#alignement…)
+	themesAutreNom: 'Thème', // nom donné à la colonne dans Notion (05/11/2026) : les deux sont lus
 	reponseCourte: 'Réponse courte',
 	auteur: 'Auteur', // la signature affichée, pas un compte Notion
 	publieLe: 'Publié le',
@@ -159,8 +160,8 @@ function segments(riche: TexteRiche[] | undefined): Segment[] {
 			const s: Segment = { texte: typo(r.plain_text) }
 			if (r.annotations?.bold) s.gras = true
 			if (r.annotations?.italic) s.italique = true
-			// Un lien n'est gardé que s'il mène vers un site en https (jamais « javascript: »).
-			if (r.href?.startsWith('https://')) s.lien = r.href
+			// Un lien n'est gardé que s'il mène vers un site web (jamais « javascript: »).
+			if (/^https?:\/\//.test(r.href ?? '')) s.lien = r.href ?? undefined
 			return s
 		})
 }
@@ -173,7 +174,7 @@ export function versIdeeRecue(page: PageNotion): IdeeRecue | null {
 		slug: texte(p[COLONNES.slug]).toLowerCase(),
 		numero: texte(p[COLONNES.numero]),
 		categorie: typo(texte(p[COLONNES.categorie])),
-		themes: etiquettes(p[COLONNES.themes]).map(typo),
+		themes: etiquettes(p[COLONNES.themes] ?? p[COLONNES.themesAutreNom]).map(typo),
 		reponseCourte: typo(texte(p[COLONNES.reponseCourte])),
 		auteur: typo(texte(p[COLONNES.auteur])),
 		publieLe: jour(p[COLONNES.publieLe]),
