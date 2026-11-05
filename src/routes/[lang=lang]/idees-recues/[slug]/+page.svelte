@@ -144,6 +144,8 @@
 	}
 
 	.themes li {
+		margin: 0; /* annule la marge et le retrait des <li> du site (app.css) */
+		padding: 0;
 		color: var(--text-2);
 		font-size: 0.85rem;
 	}

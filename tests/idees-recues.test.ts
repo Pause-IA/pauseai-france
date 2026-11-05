@@ -142,6 +142,29 @@ describe('conversion d’une ligne Notion', () => {
 })
 
 describe('corps de la page (argumentaire)', () => {
+	it('les espaces au bord d’un lien ne sont pas soulignés', () => {
+		const [para] = versBlocs([
+			{
+				type: 'paragraph',
+				paragraph: {
+					rich_text: [
+						{ plain_text: 'arXiv:2212.08073.' },
+						{
+							plain_text: ' https://arxiv.org/abs/2212.08073 ',
+							href: 'https://arxiv.org/abs/2212.08073'
+						}
+					]
+				}
+			}
+		])
+		expect((para as { segments: unknown[] }).segments).toEqual([
+			{ texte: 'arXiv:2212.08073.' },
+			{ texte: ' ' },
+			{ texte: 'https://arxiv.org/abs/2212.08073', lien: 'https://arxiv.org/abs/2212.08073' },
+			{ texte: ' ' }
+		])
+	})
+
 	it('titres, paragraphes, listes regroupées ; liens web seulement', () => {
 		const blocs = versBlocs([
 			{ type: 'heading_3', heading_3: { rich_text: [{ plain_text: 'Argument 1 (technique)' }] } },

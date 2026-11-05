@@ -153,6 +153,19 @@ export function dateEnFrancais(iso: string): string {
  */
 const typo = (valeur: string) => valeur.replace(/'/g, '’')
 
+/**
+ * Les espaces au bord d'un lien en sont sortis : dans Notion, l'espace avant une
+ * adresse collée fait souvent partie du lien, et le soulignement commençait par
+ * un blanc (« arXiv:2212.08073 ⎵https://… », 05/11/2026).
+ */
+function sortirLesEspaces(s: Segment): Segment[] {
+	if (!s.lien) return [s]
+	const [, avant = '', coeur = '', apres = ''] = /^(\s*)(.*?)(\s*)$/s.exec(s.texte) ?? []
+	if (!coeur) return [{ ...s, lien: undefined }]
+	const blanc = (t: string): Segment[] => (t ? [{ texte: t }] : [])
+	return [...blanc(avant), { ...s, texte: coeur }, ...blanc(apres)]
+}
+
 function segments(riche: TexteRiche[] | undefined): Segment[] {
 	return (riche ?? [])
 		.filter((r) => r.plain_text)
@@ -164,6 +177,7 @@ function segments(riche: TexteRiche[] | undefined): Segment[] {
 			if (/^https?:\/\//.test(r.href ?? '')) s.lien = r.href ?? undefined
 			return s
 		})
+		.flatMap(sortirLesEspaces)
 }
 
 export function versIdeeRecue(page: PageNotion): IdeeRecue | null {
