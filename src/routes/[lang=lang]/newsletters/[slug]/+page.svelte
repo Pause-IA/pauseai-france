@@ -69,7 +69,7 @@
 				title={data.newsletter.title}
 				class="newsletter-iframe"
 				sandbox="allow-same-origin"
-			/>
+			></iframe>
 		{/if}
 	</article>
 
@@ -131,7 +131,7 @@
 					title={data.newsletter.title}
 					class="newsletter-iframe fullscreen-iframe"
 					sandbox="allow-same-origin"
-				/>
+				></iframe>
 			{/if}
 		</div>
 	</div>

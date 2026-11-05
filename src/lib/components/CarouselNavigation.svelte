@@ -128,7 +128,7 @@
 							on:click={() => {
 								select(dotItem.index)
 							}}
-						/>
+						></button>
 					{:else}
 						<span class="dots__ellipsis">…</span>
 					{/if}
