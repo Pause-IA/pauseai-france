@@ -212,7 +212,7 @@ function processMultilineContent(/** @type {any} */ tree) {
 						// Create script node
 						const scriptNode = {
 							type: 'raw',
-							value: `<script>window.popupContent.${popupType}.set('${popupNumber}', ${JSON.stringify(htmlContent)});</script>`
+							value: `<span hidden><script>window.popupContent.${popupType}.set('${popupNumber}', ${JSON.stringify(htmlContent)});</script></span>`
 						}
 
 						// console.log('Inserted script node:', JSON.stringify(scriptNode))
