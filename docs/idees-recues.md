@@ -68,3 +68,23 @@ Dynamiques sociales et psychologiques. Une autre catégorie s'affiche après.
 Une ligne cochée mais incomplète (objection, slug, catégorie ou réponse courte
 manquants, slug mal formé, slug en double) est écartée, avec un avertissement
 `[idees-recues]` dans le journal Netlify.
+
+## Markdown
+
+Un texte écrit en Markdown dans Notion (souvent collé depuis un autre outil)
+est mis en forme ; un texte ordinaire reste tel quel. Cela vaut pour la
+`Réponse courte` et pour le corps de la page.
+
+- Dans le texte : `**gras**`, `*italique*` ou `_italique_`,
+  `[texte du lien](https://adresse)` ; une adresse nue devient cliquable.
+- En début de ligne d'un paragraphe : `###` (titre ; `#` et `##` donnent un
+  grand titre), `- ` ou `* ` (puces), `1. ` (liste numérotée), `> ` (citation).
+  Une ligne vide sépare deux paragraphes.
+- Un paragraphe lu comme du Markdown ignore la mise en forme Notion (gras,
+  italique) qu'il pourrait aussi avoir ; ses liens Notion sont gardés.
+- Sur les cartes de la liste, la réponse courte garde gras et italique, mais ses
+  liens n'y sont pas cliquables (la carte entière est déjà un lien).
+
+Code : `estDuMarkdown`, `markdownEnLigne`, `markdownEnBlocs` dans
+`src/lib/server/idees-recues.ts`. Jamais de HTML interprété : le résultat reste
+des segments de texte.

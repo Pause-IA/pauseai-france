@@ -47,7 +47,8 @@ export interface IdeeRecue {
 	numero: string
 	categorie: string
 	themes: string[]
-	reponseCourte: string
+	reponseCourte: string // texte seul (recherche, aperçus de lien, partage)
+	reponseCourteMiseEnForme: Segment[] // avec gras, italique et liens (Markdown accepté)
 	auteur: string
 	publieLe: string // AAAA-MM-JJ tel que Notion le donne ; '' si la colonne est vide
 	misAJourLe: string
@@ -180,6 +181,97 @@ function segments(riche: TexteRiche[] | undefined): Segment[] {
 		.flatMap(sortirLesEspaces)
 }
 
+// ── Markdown ─────────────────────────────────────────────────────────────────
+//
+// Demande de Romain (04/11/2026) : un texte écrit en Markdown dans Notion (souvent
+// collé depuis un autre outil) est mis en forme ; un texte ordinaire reste tel
+// quel. Seul un petit Markdown est reconnu : **gras**, *italique* ou _italique_,
+// [texte](https://adresse) ; et, en début de ligne d'un paragraphe : # à ######
+// (titres), - ou * (puces), 1. (liste numérotée), > (citation).
+// Le résultat reste des segments de texte : jamais de HTML interprété.
+
+const LIEN_MD = String.raw`\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)`
+const ADRESSE_NUE = String.raw`(https?:\/\/[^\s<>\]]*[^\s<>\].,;:!?)'"»])`
+const EMPHASE = String.raw`\*\*(?=\S)(.+?)(?<=\S)\*\*|__(?=\S)(.+?)(?<=\S)__|(?<![\w*])\*(?=[^\s*])(.+?)(?<=\S)\*(?![\w*])|(?<![\w_/])_(?=[^\s_])(.+?)(?<=\S)_(?![\w_])`
+// Lecture : les adresses nues deviennent cliquables (avant l'emphase, pour qu'un
+// « _ » d'adresse ne soit jamais pris pour de l'italique).
+const MD_EN_LIGNE = new RegExp(`${LIEN_MD}|${ADRESSE_NUE}|${EMPHASE}`, 'g')
+// Détection : une adresse nue seule ne fait pas d'un texte du Markdown.
+const MD_DETECTION = new RegExp(`${LIEN_MD}|${EMPHASE}`)
+const MD_LIGNE = /^ {0,3}(#{1,6} |[-*+] |\d{1,3}[.)] |> )/m
+
+/** Le texte contient-il du Markdown reconnu ? */
+export function estDuMarkdown(texte: string): boolean {
+	return MD_LIGNE.test(texte) || MD_DETECTION.test(texte)
+}
+
+/** Une ligne de Markdown -> segments (gras, italique, liens). */
+export function markdownEnLigne(texte: string): Segment[] {
+	const sortie: Segment[] = []
+	const brut = (t: string, forme: Partial<Segment> = {}) => {
+		if (t) sortie.push({ texte: typo(t), ...forme })
+	}
+	let debut = 0
+	for (const m of texte.matchAll(MD_EN_LIGNE)) {
+		brut(texte.slice(debut, m.index))
+		const [, lienTexte, lien, nue, gras1, gras2, ital1, ital2] = m
+		if (lien) brut(lienTexte, { lien })
+		else if (nue) brut(nue, { lien: nue })
+		else if (gras1 || gras2) brut(gras1 || gras2, { gras: true })
+		else brut(ital1 || ital2, { italique: true })
+		debut = m.index + m[0].length
+	}
+	brut(texte.slice(debut))
+	return sortie
+}
+
+/** Un paragraphe Notion écrit en Markdown -> titres, listes, citations, paragraphes. */
+export function markdownEnBlocs(texte: string): Bloc[] {
+	const sortie: Bloc[] = []
+	let paragraphe: string[] = []
+	const finirLeParagraphe = () => {
+		if (paragraphe.length)
+			sortie.push({ type: 'paragraphe', segments: markdownEnLigne(paragraphe.join(' ')) })
+		paragraphe = []
+	}
+	for (const ligne of texte.split('\n').map((l) => l.trim())) {
+		const titre = /^(#{1,6}) (.+)$/.exec(ligne)
+		const puce = /^[-*+] (.+)$/.exec(ligne)
+		const numero = /^\d{1,3}[.)] (.+)$/.exec(ligne)
+		const citation = /^> ?(.*)$/.exec(ligne)
+		if (!ligne) finirLeParagraphe()
+		else if (titre) {
+			finirLeParagraphe()
+			const niveau = titre[1].length >= 3 ? 3 : 2 // #### et au-delà : comme ###
+			sortie.push({ type: 'titre', niveau, segments: markdownEnLigne(titre[2]) })
+		} else if (puce ?? numero) {
+			finirLeParagraphe()
+			ajouterAuxBlocs(sortie, {
+				type: 'liste',
+				numerotee: Boolean(numero),
+				elements: [markdownEnLigne((puce ?? numero)?.[1] ?? '')]
+			})
+		} else if (citation) {
+			finirLeParagraphe()
+			sortie.push({ type: 'citation', segments: markdownEnLigne(citation[1]) })
+		} else paragraphe.push(ligne)
+	}
+	finirLeParagraphe()
+	return sortie
+}
+
+/** Ajoute un bloc ; les éléments consécutifs d'une même liste sont regroupés. */
+function ajouterAuxBlocs(sortie: Bloc[], bloc: Bloc) {
+	const precedent = sortie.at(-1)
+	if (
+		bloc.type === 'liste' &&
+		precedent?.type === 'liste' &&
+		precedent.numerotee === bloc.numerotee
+	) {
+		precedent.elements.push(...bloc.elements)
+	} else sortie.push(bloc)
+}
+
 export function versIdeeRecue(page: PageNotion): IdeeRecue | null {
 	const p = page.properties
 	const idee: IdeeRecue = {
@@ -189,11 +281,17 @@ export function versIdeeRecue(page: PageNotion): IdeeRecue | null {
 		numero: texte(p[COLONNES.numero]),
 		categorie: typo(texte(p[COLONNES.categorie])),
 		themes: etiquettes(p[COLONNES.themes] ?? p[COLONNES.themesAutreNom]).map(typo),
-		reponseCourte: typo(texte(p[COLONNES.reponseCourte])),
+		reponseCourte: '',
+		reponseCourteMiseEnForme: [],
 		auteur: typo(texte(p[COLONNES.auteur])),
 		publieLe: jour(p[COLONNES.publieLe]),
 		misAJourLe: jour(p[COLONNES.misAJourLe])
 	}
+	const courte = texte(p[COLONNES.reponseCourte])
+	idee.reponseCourteMiseEnForme = estDuMarkdown(courte)
+		? markdownEnLigne(courte.replace(/\s*\n\s*/g, ' '))
+		: [{ texte: typo(courte) }].filter((s) => s.texte)
+	idee.reponseCourte = idee.reponseCourteMiseEnForme.map((s) => s.texte).join('')
 	const ecarter = (raison: string) => {
 		console.warn(`[idees-recues] ligne Notion ${page.id} écartée (${raison})`)
 		return null
@@ -217,7 +315,27 @@ export function versBlocs(blocs: BlocNotion[]): Bloc[] {
 	const sortie: Bloc[] = []
 	for (const bloc of blocs) {
 		const contenu = bloc[bloc.type] as { rich_text?: TexteRiche[] } | undefined
-		const segs = segments(contenu?.rich_text)
+		// Un lien posé dans Notion sur un texte devient un lien Markdown, pour ne pas
+		// le perdre si le bloc est lu comme du Markdown. Une adresse collée (texte =
+		// adresse) reste telle quelle : elle peut être au milieu d'un [texte](adresse).
+		const brut = (contenu?.rich_text ?? [])
+			.map((r) =>
+				r.href && /^https?:\/\//.test(r.href) && r.plain_text.trim() !== r.href
+					? `[${r.plain_text}](${r.href})`
+					: r.plain_text
+			)
+			.join('')
+		// Écrit en Markdown : on lit le texte brut (la mise en forme Notion, s'il y
+		// en a, est alors ignorée). Sinon, la mise en forme Notion telle quelle.
+		// Détection sur le texte tel qu'écrit (sans les liens Notion convertis).
+		const markdown = estDuMarkdown((contenu?.rich_text ?? []).map((r) => r.plain_text).join(''))
+		if (markdown && bloc.type === 'paragraph') {
+			for (const b of markdownEnBlocs(brut)) ajouterAuxBlocs(sortie, b)
+			continue
+		}
+		const segs = markdown
+			? markdownEnLigne(brut.replace(/\s*\n\s*/g, ' '))
+			: segments(contenu?.rich_text)
 		if (!segs.length) continue
 		switch (bloc.type) {
 			case 'heading_1':
@@ -235,17 +353,13 @@ export function versBlocs(blocs: BlocNotion[]): Bloc[] {
 				sortie.push({ type: 'citation', segments: segs })
 				break
 			case 'bulleted_list_item':
-			case 'numbered_list_item': {
-				const numerotee = bloc.type === 'numbered_list_item'
-				const precedent = sortie.at(-1)
-				// Les éléments consécutifs d'une même liste sont regroupés.
-				if (precedent?.type === 'liste' && precedent.numerotee === numerotee) {
-					precedent.elements.push(segs)
-				} else {
-					sortie.push({ type: 'liste', numerotee, elements: [segs] })
-				}
+			case 'numbered_list_item':
+				ajouterAuxBlocs(sortie, {
+					type: 'liste',
+					numerotee: bloc.type === 'numbered_list_item',
+					elements: [segs]
+				})
 				break
-			}
 			// Images, tableaux, bases imbriquées… : ignorés (non prévus dans un argumentaire).
 		}
 	}

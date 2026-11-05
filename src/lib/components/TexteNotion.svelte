@@ -4,9 +4,11 @@
 	import type { Segment } from '$lib/server/idees-recues'
 
 	export let segments: Segment[]
+	/** false dans un élément déjà cliquable (carte) : un lien dans un lien est interdit. */
+	export let liens = true
 </script>
 
-{#each segments as s}{#if s.lien}<a href={s.lien} target="_blank" rel="noopener"
+{#each segments as s}{#if s.lien && liens}<a href={s.lien} target="_blank" rel="noopener"
 			><span class:gras={s.gras} class:italique={s.italique}>{s.texte}</span></a
 		>{:else}<span class:gras={s.gras} class:italique={s.italique}>{s.texte}</span>{/if}{/each}
 

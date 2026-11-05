@@ -3,8 +3,15 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 const env: Record<string, string | undefined> = {}
 vi.mock('$env/dynamic/private', () => ({ env }))
 
-const { chargerArgumentaire, chargerIdeesRecues, dateEnFrancais, versBlocs, versIdeeRecue } =
-	await import('../src/lib/server/idees-recues')
+const {
+	chargerArgumentaire,
+	chargerIdeesRecues,
+	dateEnFrancais,
+	estDuMarkdown,
+	markdownEnLigne,
+	versBlocs,
+	versIdeeRecue
+} = await import('../src/lib/server/idees-recues')
 
 const titre = (t: string) => ({ title: [{ plain_text: t }] })
 const txt = (t: string) => ({ rich_text: [{ plain_text: t }] })
@@ -253,5 +260,97 @@ describe('lecture de la table', () => {
 		vi.stubGlobal('fetch', appel)
 		expect(await chargerArgumentaire('page')).toHaveLength(2)
 		expect(appel.mock.calls[1][0]).toContain('start_cursor=c2')
+	})
+})
+
+describe('Markdown dans les textes (demande de Romain)', () => {
+	const paragraphe = (texte: string, href: string | null = null) => ({
+		type: 'paragraph',
+		paragraph: { rich_text: [{ plain_text: texte, href }] }
+	})
+
+	it('un texte ordinaire n’est pas pris pour du Markdown', () => {
+		for (const t of [
+			'Un texte simple, sans mise en forme.',
+			'5 * 3 * 2 = 30',
+			'Voir https://exemple.org/a_b_c pour le détail',
+			'snake_case_et_autres',
+			'En 2016, AlphaGo a gagné.'
+		])
+			expect(estDuMarkdown(t), t).toBe(false)
+	})
+
+	it('gras, italique, liens et adresses nues', () => {
+		expect(
+			markdownEnLigne(
+				'Il est **très** _peu_ probable, *dit-on* : [l’étude](https://exemple.org/e) et https://exemple.org/a_b.'
+			)
+		).toEqual([
+			{ texte: 'Il est ' },
+			{ texte: 'très', gras: true },
+			{ texte: ' ' },
+			{ texte: 'peu', italique: true },
+			{ texte: ' probable, ' },
+			{ texte: 'dit-on', italique: true },
+			{ texte: ' : ' },
+			{ texte: 'l’étude', lien: 'https://exemple.org/e' },
+			{ texte: ' et ' },
+			{ texte: 'https://exemple.org/a_b', lien: 'https://exemple.org/a_b' },
+			{ texte: '.' }
+		])
+	})
+
+	it('jamais de lien « javascript: »', () => {
+		const segs = markdownEnLigne('[clic](javascript:alert(1))')
+		expect(segs.some((s) => s.lien)).toBe(false)
+	})
+
+	it('un paragraphe en Markdown devient titres, listes et paragraphes', () => {
+		const blocs = versBlocs([
+			paragraphe(
+				'### Argument 1\nPremière ligne\nsuite du paragraphe.\n\n- source A\n- source **B**\n1. un\n2. deux\n> citation'
+			)
+		])
+		expect(blocs).toEqual([
+			{ type: 'titre', niveau: 3, segments: [{ texte: 'Argument 1' }] },
+			{ type: 'paragraphe', segments: [{ texte: 'Première ligne suite du paragraphe.' }] },
+			{
+				type: 'liste',
+				numerotee: false,
+				elements: [[{ texte: 'source A' }], [{ texte: 'source ' }, { texte: 'B', gras: true }]]
+			},
+			{ type: 'liste', numerotee: true, elements: [[{ texte: 'un' }], [{ texte: 'deux' }]] },
+			{ type: 'citation', segments: [{ texte: 'citation' }] }
+		])
+	})
+
+	it('un lien posé dans Notion survit à la lecture en Markdown', () => {
+		const [bloc] = versBlocs([
+			{
+				type: 'paragraph',
+				paragraph: {
+					rich_text: [
+						{ plain_text: 'Voir **ceci** et ' },
+						{ plain_text: 'cette étude', href: 'https://exemple.org/etude' }
+					]
+				}
+			}
+		])
+		expect((bloc as { segments: unknown[] }).segments).toEqual([
+			{ texte: 'Voir ' },
+			{ texte: 'ceci', gras: true },
+			{ texte: ' et ' },
+			{ texte: 'cette étude', lien: 'https://exemple.org/etude' }
+		])
+	})
+
+	it('la réponse courte : mise en forme pour l’affichage, texte seul pour le reste', () => {
+		const i = versIdeeRecue(
+			ligne('p8', 'slug-valide', '1', {
+				'Réponse courte': txt('C’est **faux** : [voir](https://exemple.org).')
+			})
+		)
+		expect(i?.reponseCourte).toBe('C’est faux : voir.')
+		expect(i?.reponseCourteMiseEnForme).toContainEqual({ texte: 'faux', gras: true })
 	})
 })

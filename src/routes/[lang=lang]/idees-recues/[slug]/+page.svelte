@@ -55,7 +55,7 @@
 
 	<section class="en-bref">
 		<h2>En bref</h2>
-		<p>{idee.reponseCourte}</p>
+		<p><TexteNotion segments={idee.reponseCourteMiseEnForme} /></p>
 		<button type="button" on:click={partager}>
 			{#if copie}
 				<Check size={15} aria-hidden="true" /> Lien copié

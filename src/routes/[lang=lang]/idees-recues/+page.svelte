@@ -2,6 +2,7 @@
 	// Idées reçues sur l'IA : une carte par objection, filtrable par catégorie,
 	// avec une recherche. Données : table Notion « Idées reçues » (+page.server.ts).
 	import PostMeta from '$components/PostMeta.svelte'
+	import TexteNotion from '$components/TexteNotion.svelte'
 	import { Card, FilterChips, PageHero } from '$components/ui'
 	import { ArrowRight, Search } from 'lucide-svelte'
 	import type { PageData } from './$types'
@@ -91,7 +92,9 @@
 				<Card href="/{data.lang}/idees-recues/{i.slug}" padding="compact">
 					<p class="categorie">{i.categorie}</p>
 					<h2>«&nbsp;{i.objection}…&nbsp;»</h2>
-					<p class="courte">{i.reponseCourte}</p>
+					<p class="courte">
+						<TexteNotion segments={i.reponseCourteMiseEnForme} liens={false} />
+					</p>
 					{#if i.themes.length}
 						<ul class="themes">
 							{#each i.themes as t}<li>{diese(t)}</li>{/each}
