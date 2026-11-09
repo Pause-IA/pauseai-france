@@ -1,5 +1,5 @@
 {
-	"genere": "2026-11-03",
+	"genere": "2026-11-09",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -12,6 +12,11 @@
 				{
 					"href": "/fresque",
 					"label": "La fresque des risques de l’IA",
+					"externe": false
+				},
+				{
+					"href": "/idees-recues",
+					"label": "Idées reçues",
 					"externe": false
 				}
 			]
@@ -152,7 +157,7 @@
 					"externe": false
 				},
 				{
-					"href": "https://pauseai-shop.fourthwall.com",
+					"href": "https://boutique.pauseia.fr/",
 					"label": "Boutique",
 					"externe": true
 				}
@@ -280,6 +285,10 @@
 			"url": "/recrutement"
 		},
 		{
+			"chemin": "/ressources-decideurs",
+			"url": "/fr/ressources-decideurs"
+		},
+		{
 			"chemin": "/senat2025",
 			"url": "/fr/senat2025"
 		},
@@ -300,6 +309,7 @@
 		"/[slug]",
 		"/articles/[slug]",
 		"/dangers/[slug]",
+		"/idees-recues/[slug]",
 		"/newsletters/[slug]",
 		"/presse/local/[slug]",
 		"/presse/national/[slug]"
@@ -443,8 +453,8 @@
 		}
 	],
 	"total": {
-		"pages": 36,
-		"dynamiques": 6,
+		"pages": 38,
+		"dynamiques": 7,
 		"articles": 34
 	}
 }
