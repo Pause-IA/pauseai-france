@@ -17,6 +17,13 @@ const EXCLUDED = [
 	'/recrutement-emploi',
 	// Ressources de plaidoyer : on partage le lien lors d'un rendez-vous, la
 	// page n'a pas vocation à être trouvée par un moteur.
+	//
+	// Attention : écartée du sitemap et absente du menu, cette page n'est plus
+	// atteignable par le robot de prérendu, sauf par le plan du site
+	// (src/lib/data/plan-du-site.json, régénéré par `pnpm run plan-du-site`),
+	// qui la liste et la rend donc constructible. Si elle en disparaît, la
+	// construction échoue sur « handleUnseenRoutes » : il faut alors l'ajouter
+	// à `prerender.entries` dans svelte.config.js, comme /declaration/confirmer.
 	'/ressources-decideurs'
 ]
 
