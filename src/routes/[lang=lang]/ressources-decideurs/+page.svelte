@@ -2,7 +2,7 @@
 	import PostMeta from '$components/PostMeta.svelte'
 	import Accordion from '$components/Accordion.svelte'
 	import Button from '$components/Button.svelte'
-	import { Card, PageHero, SectionTitle } from '$components/ui'
+	import { PageHero, SectionTitle } from '$components/ui'
 	import { Check, Copy } from 'lucide-svelte'
 	import {
 		citationHinton,
@@ -48,10 +48,11 @@
      l'entrée dans EXCLUDED de src/lib/routes.ts. Contenu dans
      src/lib/data/ressources-decideurs.ts.
 
-     Deux bandeaux sombres rythment la page (la déclaration, puis la menace et
-     les objections). Leur fond est une encre chaude fixe, qui ne s'inverse pas
-     en mode sombre, avec le texte en --on-dark et l'orange de marque en accent,
-     comme le prévoit la charte pour un aplat qui ne change pas. -->
+     Pas d'aplat sombre : le rythme vient des fonds alternés de la charte
+     (--bg et --bg-subtle, via la classe « ordinaire ») et des filets de
+     séparation, pas d'une couleur hors palette. Le fond blanc de la page est
+     imposé dans src/routes/+layout.svelte (bgWhite), parce qu'une carte
+     blanche sur le crème du site n'a que 1,05:1 de contraste. -->
 <PostMeta {title} {description} />
 <svelte:head>
 	<meta name="robots" content="noindex" />
@@ -69,7 +70,7 @@
 		</svelte:fragment>
 	</PageHero>
 
-	<p class="maj">Mise à jour : {dateMaj}</p>
+	<hr class="filet" />
 
 	<div class="chapo">
 		<p>
@@ -88,8 +89,9 @@
 	</div>
 
 	<!-- ── La déclaration ── -->
-	<section class="ordinaire" aria-labelledby="t-declaration">
+	<section class="sombre" aria-labelledby="t-declaration">
 		<SectionTitle id="t-declaration">Ce que disent ceux qui construisent l’IA</SectionTitle>
+		<span class="guillemet" aria-hidden="true">“</span>
 		<blockquote>
 			Atténuer le risque d’extinction lié à l’intelligence artificielle devrait être une priorité
 			mondiale, au même titre que d’autres risques pour la société comme les pandémies et la guerre
@@ -150,7 +152,7 @@
 	</section>
 
 	<!-- ── À quoi ressemblerait une perte de contrôle ── -->
-	<section class="ordinaire" aria-labelledby="t-menace">
+	<section aria-labelledby="t-menace">
 		<SectionTitle id="t-menace">À quoi ressemblerait une perte de contrôle ?</SectionTitle>
 		<p>
 			Le risque n’a pas la forme d’un robot hostile marchant sur une ville. Il tient à une idée plus
@@ -285,7 +287,7 @@
 	</section>
 
 	<!-- ── Objections ── -->
-	<section class="ordinaire" aria-labelledby="t-objections">
+	<section class="sombre" aria-labelledby="t-objections">
 		<SectionTitle id="t-objections">Objections courantes</SectionTitle>
 		<div class="inView questions">
 			{#each objections as o (o.id)}
@@ -345,7 +347,7 @@
 			risque de perte de contrôle. Nous proposons aux élus et à leurs équipes un point
 			d’information, sans jargon et sans engagement, adapté au temps dont vous disposez.
 		</p>
-		<Card variant="accent">
+		<div class="contact">
 			<h3>Demander un briefing ou un complément</h3>
 			<p>Écrivez-nous ; nous revenons vers vous rapidement pour convenir d’un format.</p>
 			<p class="adresse">
@@ -358,7 +360,7 @@
 					{/if}
 				</button>
 			</p>
-		</Card>
+		</div>
 	</section>
 
 	<!-- ── Pour approfondir ── -->
@@ -400,33 +402,31 @@
 </article>
 
 {#snippet carte(c: Citation)}
-	<Card padding="compact">
-		<figure class="citation">
-			<div class="qui">
-				{#if portraitComplet(c.portrait)}
-					<img class="pastille" src={c.portrait?.fichier} alt="" loading="lazy" />
-				{:else}
-					<span class="pastille" aria-hidden="true">{c.initiales}</span>
-				{/if}
-				<span>
-					<span class="nom">{c.nom}</span>
-					<span class="fonction">{c.titre}</span>
-				</span>
-			</div>
-			<blockquote>{c.propos}</blockquote>
-			<figcaption>
-				{c.source}
-				{#if c.url}
-					<a href={c.url} target="_blank" rel="noopener noreferrer">{c.lienTexte ?? 'Source'}</a>
-				{/if}
-			</figcaption>
-		</figure>
-	</Card>
+	<figure class="citation">
+		<div class="qui">
+			{#if portraitComplet(c.portrait)}
+				<img class="pastille" src={c.portrait?.fichier} alt="" loading="lazy" />
+			{:else}
+				<span class="pastille" aria-hidden="true">{c.initiales}</span>
+			{/if}
+			<span>
+				<span class="nom">{c.nom}</span>
+				<span class="fonction">{c.titre}</span>
+			</span>
+		</div>
+		<blockquote>{c.propos}</blockquote>
+		<figcaption>
+			{c.source}
+			{#if c.url}
+				<a href={c.url} target="_blank" rel="noopener noreferrer">{c.lienTexte ?? 'Source'}</a>
+			{/if}
+		</figcaption>
+	</figure>
 {/snippet}
 
 <style>
 	/* La page se compose avec les briques de $components/ui : PageHero,
-	   SectionTitle, Card, Accordion, Button. Les styles ci-dessous ne font que
+	   SectionTitle, Accordion, Button. Les styles ci-dessous ne font que
 	   ce qu'aucune brique ne couvre : la grille des signataires, l'échelle
 	   d'action, la liste de sources et les crédits. */
 	/* Colonne de lecture étroite : 44 rem, soit environ 66 caractères par ligne,
@@ -459,10 +459,92 @@
 		font-weight: 700;
 	}
 
-	.maj {
-		margin: 0 0 1.5rem;
-		font-size: 0.9rem;
-		color: var(--text-2);
+	.filet {
+		border: 0;
+		border-top: 1px solid var(--text);
+		margin: 1.75rem 0 1.5rem;
+	}
+
+	/* ── Bandeaux ardoise ──
+	   Deux aplats rythment la page : la déclaration, puis les objections. Ils
+	   débordent des gouttières de la colonne de lecture, donc sans calcul sur
+	   100vw (qui ferait apparaître une barre de défilement horizontale selon
+	   le navigateur). L'ardoise est fixe dans les deux thèmes : le texte passe
+	   en --on-dark et l'orange de marque n'y sert que d'accent. */
+	.sombre {
+		margin-inline: calc(-1 * var(--gutter));
+		padding: clamp(2rem, 5vw, 3rem) var(--gutter);
+		background: var(--slate);
+		color: var(--on-dark);
+		border: 0;
+	}
+
+	@media (min-width: 52rem) {
+		.sombre {
+			margin-inline: -3rem;
+			padding-inline: 3rem;
+			border-radius: 2px;
+		}
+	}
+
+	.sombre :global(.ui-section-title) {
+		display: inline-flex;
+		color: var(--on-dark);
+		padding-bottom: 0.55rem;
+		border-bottom: 2px solid var(--brand);
+	}
+
+	.sombre :global(p) {
+		color: var(--on-dark);
+	}
+
+	.sombre .attribution,
+	.sombre .signataires .fonction {
+		color: rgba(var(--on-dark-rgb), 0.68);
+	}
+
+	.sombre blockquote {
+		margin: 0.5rem 0 1.25rem;
+		padding: 0;
+		background: none;
+		border: 0;
+		font-size: clamp(1.25rem, 2.8vw, 1.55rem);
+		line-height: 1.34;
+		font-style: italic;
+		font-weight: 400;
+		color: var(--on-dark);
+	}
+
+	.guillemet {
+		display: block;
+		font-size: 4rem;
+		line-height: 0.5;
+		color: var(--brand);
+		margin-top: 2rem;
+		font-weight: 700;
+	}
+
+	.sombre .pastille {
+		background: rgba(var(--on-dark-rgb), 0.08);
+		color: var(--on-dark);
+	}
+
+	/* L'accordéon est dessiné pour un fond clair : on rhabille ses filets, son
+	   texte et son panneau dépliant pour l'ardoise. */
+	.sombre :global(div.inView:not(:last-child) > .accordion) {
+		border-bottom-color: rgba(var(--on-dark-rgb), 0.18);
+		border-bottom-width: 1px;
+	}
+
+	.sombre :global(.accordion h3),
+	.sombre :global(.accordion .chevron) {
+		color: var(--on-dark);
+	}
+
+	.sombre :global(.accordion .details) {
+		background: var(--slate-2);
+		border-color: rgba(var(--on-dark-rgb), 0.14);
+		box-shadow: none;
 	}
 
 	.chapo p {
@@ -470,18 +552,37 @@
 	}
 
 	/* Respiration : les sections sont espacées d'un cran fixe et séparées d'un
-	   filet d'un pixel, au lieu de marges choisies au cas par cas. */
+	   filet d'un pixel, au lieu de marges choisies au cas par cas. Mesuré :
+	   48 px de marge + 40 px de retrait + la marge basse du dernier paragraphe
+	   font environ 110 px entre deux sections. À 64 + 64 on dépassait 160 px,
+	   et la page se lisait comme une suite de blocs sans lien entre eux. */
 	section {
-		padding-block: clamp(2.5rem, 6vw, 4rem) 0;
+		padding-block: clamp(2rem, 4.5vw, 2.5rem) 0;
 		border-top: 1px solid var(--border);
-		margin-top: clamp(2.5rem, 6vw, 4rem);
+		margin-top: clamp(2rem, 4.5vw, 3rem);
+	}
+
+	section > :last-child {
+		margin-bottom: 0;
+	}
+
+	/* app.css pose « section:not(:last-child) { margin-bottom: 10rem } » au
+	   delà d'une certaine largeur : 160 px entre chaque section, sur tout le
+	   site. C'est beaucoup trop, et c'est une des raisons pour lesquelles nos
+	   pages se lisent comme une suite de blocs sans lien. On la neutralise
+	   ici ; à reprendre globalement lors de la refonte. */
+	section:not(:last-child) {
+		margin-bottom: 0;
 	}
 
 	.note :global(p) {
 		line-height: 1.62;
+		/* La césure automatique de app.css coupe les mots en plein milieu
+		   d'une ligne qui n'est pas justifiée : elle n'a rien à rattraper
+		   ici, et elle hache la lecture. */
+		hyphens: manual;
 	}
 
-	.intro,
 	.attribution {
 		color: var(--text-2);
 	}
@@ -494,22 +595,32 @@
 		margin: 2rem 0 0.4rem;
 	}
 
-	/* Citation de la charte : fond --bg-subtle, barre gauche 4px --brand. */
+	/* Les citations ne sont pas des encadrés : pas d'aplat, pas d'ombre, pas de
+	   coin arrondi. Un filet d'un pixel à gauche suffit à les détacher, et le
+	   poids vient de la taille du texte. Un aplat crème derrière un bloc de
+	   texte, sur une page déjà claire, ajoute du bruit sans ajouter de
+	   hiérarchie. */
 	blockquote {
-		font-size: 1.25rem;
-		line-height: 1.45;
-		font-style: italic;
+		margin: 1.75rem 0 1rem;
+		padding: 0 0 0 1.5rem;
+		background: none;
+		border-radius: 0;
+		border-left: 1px solid var(--brand);
+		font-size: clamp(1.3rem, 2.6vw, 1.6rem);
+		line-height: 1.32;
+		letter-spacing: -0.015em;
+		font-weight: 500;
 	}
 
+	/* Phrase de chute d'une section. Elle était encadrée de deux filets, qui
+	   venaient buter sur le filet de séparation de la section suivante : trois
+	   traits en quinze lignes. Le poids du texte suffit à la détacher. */
 	.saillie {
-		margin: 2rem 0;
-		padding: 1rem 1.5rem;
-		background: var(--bg-subtle);
-		border-left: 4px solid var(--brand);
-		border-radius: var(--radius-sm);
-		font-size: 1.1rem;
-		line-height: 1.45;
-		font-weight: 600;
+		margin: 2.25rem 0 0;
+		font-size: clamp(1.1rem, 2.2vw, 1.25rem);
+		line-height: 1.4;
+		letter-spacing: -0.01em;
+		font-weight: 700;
 	}
 
 	.appuye {
@@ -518,9 +629,9 @@
 
 	/* ── Signataires ── */
 	.signataires {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1.4rem 1.6rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+		gap: 1.5rem 1rem;
 		margin: 1.75rem 0 0;
 		padding: 0;
 		list-style: none;
@@ -531,20 +642,23 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		inline-size: 6rem;
 		margin: 0;
 	}
 
+	/* Médaillon rond cerclé de marque : c'est l'anneau qui tient les visages
+	   ensemble sur le fond sombre, et c'est le seul endroit où l'orange sert
+	   de contour. */
 	.pastille {
 		display: grid;
 		place-items: center;
 		inline-size: 3.6rem;
 		block-size: 3.6rem;
 		border-radius: 50%;
-		margin-bottom: 0.6rem;
+		margin-bottom: 0.65rem;
 		background: var(--bg-subtle);
-		border: 1px solid var(--border);
+		border: 2px solid var(--brand);
 		color: var(--brand-subtle);
+		font-size: 0.9rem;
 		font-weight: 700;
 		object-fit: cover;
 	}
@@ -556,15 +670,22 @@
 	}
 
 	.signataires .fonction {
-		font-size: 0.75rem;
+		font-size: 0.72rem;
 		line-height: 1.3;
 		margin-top: 0.2rem;
 		color: var(--text-2);
 	}
 
-	/* ── Cartes de citation ── */
+	/* ── Citations ── */
+	/* Carte blanche, filet d'un pixel, ombre presque invisible : elle se
+	   détache du fond sans peser. Le relief vient du filet, pas de l'ombre. */
 	.citation {
-		margin: 0;
+		margin: 1.25rem 0 0;
+		padding: 1.5rem;
+		background: var(--bg);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+		box-shadow: 0 1px 2px rgba(var(--ink-rgb), 0.04);
 	}
 
 	.qui {
@@ -597,12 +718,21 @@
 	}
 
 	.citation blockquote {
-		margin: 0 0 0.8rem;
-		padding: 1rem 1.25rem;
-		background: var(--bg-subtle);
-		border-left: 4px solid var(--brand);
-		border-radius: var(--radius-sm);
-		font-size: 1.02rem;
+		margin: 0 0 1rem;
+		padding: 0;
+		background: none;
+		border: 0;
+		border-radius: 0;
+		font-size: 1rem;
+		line-height: 1.55;
+		letter-spacing: 0;
+		font-weight: 400;
+		font-style: italic;
+		color: var(--text-2);
+	}
+
+	.citation figcaption :global(a) {
+		text-decoration: underline;
 	}
 
 	.citation figcaption {
@@ -613,8 +743,9 @@
 
 	.grille-citations {
 		display: grid;
-		gap: 1rem;
-		margin-top: 1.5rem;
+		gap: 1.25rem;
+		margin-top: 0.5rem;
+		align-items: start;
 	}
 
 	@media (min-width: 48rem) {
@@ -632,8 +763,8 @@
 
 	.etapes li {
 		display: grid;
-		grid-template-columns: auto minmax(0, 1fr);
-		gap: 1.1rem;
+		grid-template-columns: 2rem minmax(0, 1fr);
+		gap: 1rem;
 		padding: 1.4rem 0;
 		margin: 0;
 		border-top: 1px solid var(--border);
@@ -644,15 +775,12 @@
 	}
 
 	.numero {
-		display: grid;
-		place-items: center;
-		inline-size: 2.2rem;
-		block-size: 2.2rem;
-		border-radius: 50%;
-		border: 2px solid var(--brand);
+		font-size: 1.5rem;
+		line-height: 1.1;
 		font-weight: 700;
-		font-size: 0.95rem;
-		margin-top: 0.1rem;
+		font-variant-numeric: tabular-nums;
+		color: var(--brand-subtle);
+		letter-spacing: -0.02em;
 	}
 
 	.etapes h3 {
@@ -669,11 +797,26 @@
 	}
 
 	/* ── Contact ── */
-	.contact-titre {
-		margin: 0 0 0.5rem;
-		font-weight: 700;
-		font-size: 1.25rem;
+	/* Le seul bloc encadré de la page, parce que c'est le seul endroit où l'on
+	   demande une action. Un filet d'un pixel et un trait de marque de deux
+	   pixels en tête, pas une carte posée en relief. */
+	.contact {
+		margin-top: 2rem;
+		padding: 1.75rem;
+		border: 1px solid var(--border);
+		border-top: 2px solid var(--brand);
+	}
+
+	.contact h3 {
+		margin: 0 0 0.4rem;
+		font-size: 1.15rem;
 		line-height: 1.25;
+		letter-spacing: -0.01em;
+	}
+
+	.contact :global(p) {
+		margin: 0 0 1rem;
+		color: var(--text-2);
 	}
 
 	.adresse {
@@ -688,10 +831,10 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		padding: 0.5rem 0.9rem;
+		padding: 0.45rem 0.85rem;
 		border: 1px solid var(--border);
-		border-radius: var(--radius-sm);
-		background: var(--bg-card);
+		border-radius: 3px;
+		background: var(--bg);
 		color: var(--text);
 		font: inherit;
 		font-size: 0.88rem;
@@ -728,15 +871,26 @@
 		border-bottom: 1px solid var(--border);
 	}
 
+	/* Le soulignement du lien se propage à tous ses descendants en ligne :
+	   sans cette remise à zéro, la ligne de contexte est soulignée elle aussi
+	   et la liste devient un pavé de traits. On ne souligne que le titre. */
 	.refs a {
 		display: block;
 		padding: 0.7rem 0;
+		text-decoration: none;
+		color: var(--text);
 	}
 
 	.ref-titre {
 		display: block;
 		font-weight: 600;
 		line-height: 1.35;
+	}
+
+	.refs a:hover .ref-titre,
+	.refs a:focus-visible .ref-titre {
+		text-decoration: underline;
+		text-underline-offset: 2px;
 	}
 
 	.ref-meta {

@@ -24,6 +24,13 @@
 	   thème sombre, et infobulle de la carte des groupes locaux. */
 	--overlay-dark-rgb: 30, 30, 30;
 	--tooltip-dark-rgb: 17, 17, 17;
+	/* Ardoise : fond des bandeaux sombres qui rythment les pages longues. Un
+	   gris bleuté, pas une encre chaude ni un noir : sur un noir pur, l'orange
+	   de marque vibre et le texte blanc éblouit. Fixe dans les deux thèmes,
+	   d'où --on-dark pour le texte posé dessus. */
+	--slate-rgb: 32, 40, 51;
+	--slate: rgb(32, 40, 51);
+	--slate-2: rgb(44, 54, 68); /* un cran plus clair : séparateurs, cartes */
 	--brand-light: #fff5e8;
 	--brand-subtle: #a85400; /* orange foncé : le seul orange lisible en texte
 	                            (4,9:1 sur le crème, 5,3:1 sur blanc) */
