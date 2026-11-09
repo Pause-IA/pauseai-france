@@ -16,6 +16,7 @@ export default {
 		blog: 'Blog',
 		fresque: 'The AI Risks Fresk',
 		toutes_facons_agir: 'All the ways to act',
+		idees_recues: 'Common misconceptions',
 		comment_agir: 'How to act?',
 		groupes_locaux: 'Local groups',
 		toutes_campagnes: 'All our campaigns',
