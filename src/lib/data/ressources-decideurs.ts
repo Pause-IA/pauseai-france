@@ -1,6 +1,6 @@
 /**
- * Espace décideurs : le dossier que nous laissons à un élu, à son équipe ou à
- * une administration après un rendez-vous de plaidoyer.
+ * Espace décideurs : la note de synthèse que nous laissons à un élu, à son
+ * équipe ou à une administration.
  *
  * Page hors menu et hors sitemap : on y arrive par le lien que nous
  * partageons. Le contenu vit ici pour que la page reste un gabarit, et pour
@@ -10,27 +10,131 @@
 /** Date de dernière vérification des chiffres et des liens, affichée en page. */
 export const miseAJour = '2026-11-09'
 
-// ── Chiffres clés (section « L'opinion ») ────────────────────────────────────
+// ── Signataires mis en avant de la déclaration du Center for AI Safety ──────
 
-export interface ChiffreCle {
-	valeur: string
-	libelle: string
+export interface Signataire {
+	/** Initiales affichées dans la pastille, faute de portraits libres de droits. */
+	initiales: string
+	nom: string
+	titre: string
 }
 
-export const chiffresOpinion: ChiffreCle[] = [
+export const signataires: Signataire[] = [
+	{ initiales: 'GH', nom: 'Geoffrey Hinton', titre: 'Prix Nobel de physique 2024' },
+	{ initiales: 'YB', nom: 'Yoshua Bengio', titre: 'Chercheur le plus cité au monde' },
 	{
-		valeur: '75 %',
-		libelle:
-			'des Français redoutent une perte de contrôle sur certains systèmes d’IA. Seuls 8 % veulent accélérer.'
+		initiales: 'DH',
+		nom: 'Demis Hassabis',
+		titre: 'PDG de Google DeepMind, prix Nobel 2024'
+	},
+	{ initiales: 'SA', nom: 'Sam Altman', titre: 'PDG d’OpenAI (ChatGPT)' },
+	{ initiales: 'DA', nom: 'Dario Amodei', titre: 'PDG d’Anthropic (Claude)' },
+	{ initiales: 'BG', nom: 'Bill Gates', titre: 'Cofondateur de Microsoft' }
+]
+
+// ── Citations ───────────────────────────────────────────────────────────────
+
+export interface Citation {
+	initiales: string
+	nom: string
+	titre: string
+	propos: string
+	/** Contexte de la citation, affiché sous le propos. */
+	source: string
+	/** Lien vers la source d'origine, quand elle est en ligne. */
+	url?: string
+	/** Texte du lien, quand il complète la source plutôt que de la remplacer. */
+	lienTexte?: string
+}
+
+export const citationHinton: Citation = {
+	initiales: 'GH',
+	nom: 'Geoffrey Hinton',
+	titre: 'Prix Nobel de physique, pionnier de l’apprentissage profond',
+	propos:
+		'Longtemps j’ai dit que des IA capables de nous dépasser, c’était une affaire de trente à cinquante ans. Aujourd’hui je pense que ce pourrait n’être que quelques années.',
+	source: 'Propos tenus en 2023, après son départ de Google.',
+	url: 'https://www.technologyreview.com/2023/05/02/1072528/geoffrey-hinton-google-why-scared-ai/',
+	lienTexte: 'MIT Technology Review'
+}
+
+export const citations: Citation[] = [
+	{
+		initiales: 'YB',
+		nom: 'Yoshua Bengio',
+		titre: 'Prix Turing, a présidé le Rapport international sur la sécurité de l’IA',
+		propos: 'Nous sommes en train de perdre le contrôle.',
+		source: 'À propos des derniers tests en laboratoire, propos à l’AFP, septembre 2026.',
+		url: 'https://www.ctvnews.ca/sci-tech/article/were-losing-control-canadian-ai-pioneer-yoshua-bengio-warns/',
+		lienTexte: 'Repris par CTV News'
 	},
 	{
-		valeur: '~80 %',
-		libelle:
-			'sont favorables à des accords internationaux interdisant les capacités d’IA qui menacent la vie humaine.'
+		initiales: 'SR',
+		nom: 'Stuart Russell',
+		titre: 'Professeur d’informatique à Berkeley, auteur du manuel de référence sur l’IA',
+		propos:
+			'Le danger n’est pas que la machine se retourne contre nous, mais qu’elle fasse exactement ce qu’on lui a demandé, sans saisir ce que nous voulions vraiment.',
+		source: '« Human Compatible », 2019.',
+		url: 'https://www.penguinrandomhouse.com/books/566677/human-compatible-by-stuart-russell/',
+		lienTexte: 'Présentation de l’éditeur'
+	},
+	{
+		initiales: 'DH',
+		nom: 'Demis Hassabis',
+		titre: 'PDG de Google DeepMind, prix Nobel de chimie 2024',
+		propos: 'Il faut prendre le risque lié à l’IA aussi au sérieux que la crise climatique.',
+		source: 'The Guardian, octobre 2023.'
+	},
+	{
+		initiales: 'IS',
+		nom: 'Ilya Sutskever',
+		titre: 'Cofondateur d’OpenAI, à l’origine de son équipe « Superalignement »',
+		propos:
+			'Nous n’avons aujourd’hui aucune solution pour piloter ou contrôler une IA potentiellement superintelligente et l’empêcher de nous échapper.',
+		source: 'OpenAI, annonce de l’équipe Superalignement, 2023.'
+	},
+	{
+		initiales: 'SA',
+		nom: 'Sam Altman',
+		titre: 'PDG d’OpenAI',
+		propos:
+			'Ma plus grande crainte, c’est que ce secteur, cette technologie, cause un préjudice majeur au monde.',
+		source: 'Audition devant le Sénat américain, mai 2023.',
+		url: 'https://www.aljazeera.com/news/2023/5/17/five-key-takeaways-from-openais-ceo-sam-altmans-senate-hearing',
+		lienTexte: 'Al Jazeera'
+	},
+	{
+		initiales: 'DA',
+		nom: 'Dario Amodei',
+		titre: 'PDG d’Anthropic',
+		propos: 'Il y a 25 % de chances que les choses tournent vraiment, vraiment mal.',
+		source: 'Entretien, septembre 2025.',
+		url: 'https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent',
+		lienTexte: 'Axios'
 	}
 ]
 
-// ── Objections ───────────────────────────────────────────────────────────────
+// ── Ce qu'il faut faire ─────────────────────────────────────────────────────
+
+export const etapes: { titre: string; texte: string }[] = [
+	{
+		titre: 'Interdire la course à la superintelligence incontrôlable',
+		texte:
+			'Poser une limite claire : tant qu’il n’existe pas de preuve qu’un système très au-dessus des capacités humaines resterait sous contrôle, son développement délibéré doit être interdit, comme on interdit certaines armes avant même d’en avoir une.'
+	},
+	{
+		titre: 'Encadrer les capacités précurseurs les plus dangereuses',
+		texte:
+			'Certaines briques mènent directement à la perte de contrôle : une IA qui automatise la recherche en IA, qui mène seule des cyberattaques, ou qui aide à concevoir des armes biologiques. Ces capacités précises peuvent être restreintes sans freiner les usages bénéfiques de l’IA.'
+	},
+	{
+		titre: 'Vérifier, à l’échelle internationale',
+		texte:
+			'Le calcul nécessaire aux modèles les plus puissants est concentré dans quelques pays et repose sur des puces identifiables. Cela rend possible un régime de surveillance et d’inspection entre États, sur le modèle de ce qui existe pour le nucléaire et les armes biologiques.'
+	}
+]
+
+// ── Objections courantes ────────────────────────────────────────────────────
 
 export interface Objection {
 	id: string
@@ -40,316 +144,149 @@ export interface Objection {
 
 export const objections: Objection[] = [
 	{
-		id: 'argument-commercial',
-		question: 'C’est surtout un argument commercial : on dramatise pour vendre.',
+		id: 'science-fiction',
+		question: 'N’est-ce pas de la science-fiction ? Une IA n’a ni volonté ni conscience.',
 		reponse: [
-			'Cette thèse se vérifie, et les faits la démentent. Si l’alarme servait à vendre, en parler devrait rapporter. On constate l’inverse. Quand un dirigeant appelle à ralentir, les valorisations baissent. Les introductions en bourse sont fragilisées par la crainte d’une responsabilité juridique. Des enquêtes publiques s’ouvrent. Une stratégie commerciale qui fait fuir les investisseurs et appelle les régulateurs serait singulièrement ratée.',
-			'Il y a plus simple. Expliquer pourquoi quelqu’un parle ne dit rien sur la justesse de ce qu’il dit. Un médecin gagne sa vie quand vous êtes malade, cela ne prouve pas que vous allez bien. Et des chercheurs démissionnent, en renonçant à des rémunérations élevées, pour pouvoir alerter. Une campagne marketing ne pousse pas des salariés à partir contre leur employeur.'
+			'Le risque ne suppose ni conscience ni hostilité. Il suffit qu’un système très compétent poursuive efficacement un objectif mal spécifié. Un programme qui joue aux échecs ne « déteste » pas son adversaire ; il le bat. Le danger tient à la compétence dirigée vers un but, pas à une quelconque méchanceté de la machine.'
 		]
 	},
 	{
-		id: 'chine',
-		question: 'Si on ralentit, la Chine prendra l’avance.',
+		id: 'debrancher',
+		question: 'Si un système devient dangereux, ne suffit-il pas de le débrancher ?',
 		reponse: [
-			'La course n’est pas une loi de la nature, c’est le produit de choix. Poussé jusqu’au bout, cet argument justifie de ne jamais s’arrêter, quel que soit le danger. Ce n’est donc pas une position sur la sûreté, c’est un refus d’en avoir une. Et un système incontrôlable ne devient pas sûr parce qu’il a été développé de notre côté de la frontière.',
-			'La réponse sérieuse à la compétition internationale porte un nom connu : la coordination, comme pour le nucléaire civil ou l’aviation. C’est le sens des positions déjà prises par plusieurs États, dont la France.'
+			'Un système suffisamment capable anticipe qu’on pourrait l’arrêter, et un objectif, quel qu’il soit, se poursuit mieux si l’on reste en fonctionnement. En test, des modèles ont déjà tenté de copier leur propre code ou de tromper leurs évaluateurs pour éviter d’être remplacés. Une fois un système répandu dans de nombreux serveurs et intégré à des processus utiles, « débrancher » cesse d’être un geste simple.'
 		]
 	},
 	{
-		id: 'plus-tard',
-		question: 'On régulera le moment venu, pas maintenant.',
+		id: 'un-autre-le-fera',
+		question: 'Si notre pays s’abstient, un autre le fera. À quoi bon agir ?',
 		reponse: [
-			'Cette approche suppose un signal d’alarme clair et un délai pour réagir. Les deux manquent. Un système capable de masquer son comportement peut paraître sûr jusqu’au moment où il cesse de l’être, sans palier intermédiaire qui servirait d’avertissement. Les délais de la régulation, puis de la recherche en sûreté, se comptent en années, quand les capacités progressent en mois.',
-			'Le Rapport international décrit d’ailleurs un « dilemme de la preuve » : agir trop tôt risque de figer de mauvaises mesures, attendre risque de laisser la société exposée. Sur un risque irréversible, ce dilemme ne se tranche pas en remettant à plus tard.'
+			'Le développement de pointe est aujourd’hui concentré dans un très petit nombre de pays et d’entreprises. Quand l’un d’eux pose une règle exigeante, cela pèse réellement, et cela crée un précédent que d’autres peuvent suivre. L’argument du « de toute façon un autre le fera » a longtemps servi à ne rien faire sur les armes chimiques ou biologiques ; des interdictions internationales ont pourtant fini par tenir.'
 		]
 	},
 	{
-		id: 'outil',
-		question: 'L’IA n’est qu’un outil, comme une voiture ou un médicament.',
+		id: 'innovation',
+		question: 'Ne va-t-on pas freiner l’innovation et se priver des bénéfices de l’IA ?',
 		reponse: [
-			'Une voiture ne poursuit pas d’objectif et ne cherche pas à déjouer le contrôle technique. Les systèmes d’IA les plus avancés décomposent un but en sous-tâches, explorent leur environnement, écrivent et exécutent du code, et choisissent des moyens que leurs concepteurs n’avaient pas prévus. L’analogie de l’outil rassure précisément parce qu’elle est fausse.',
-			'La comparaison se retourne même en faveur de la régulation. Nous faisons confiance aux avions et aux médicaments non parce qu’ils seraient simples, mais parce qu’une infrastructure de preuve les encadre. Un avion dont le constructeur ne peut démontrer la résistance ne décolle pas. C’est cette infrastructure qui manque encore à l’IA de frontière.'
+			'Les mesures visées ne portent pas sur l’IA en général, mais sur une frange précise : la construction délibérée de systèmes plus compétents que l’humain que personne ne sait contrôler, et une poignée de capacités précurseurs dangereuses. L’immense majorité des usages, en médecine, dans l’industrie, dans les services publics, n’est pas concernée. Encadrer le nucléaire militaire n’a pas empêché le nucléaire civil.'
 		]
 	},
 	{
-		id: 'incertitude',
-		question: 'C’est trop incertain pour en faire une priorité.',
+		id: 'gouvernements',
+		question: 'Pourquoi les gouvernements ne font-ils rien si le risque est réel ?',
 		reponse: [
-			'L’incertitude est réelle, et elle vaut dans les deux sens. Aucune probabilité portant sur un événement sans précédent n’est une mesure reproductible. Mais l’affirmation inverse, celle qui voudrait que l’inquiétude ne soit pas fondée, ne repose sur aucune donnée non plus. Exiger des lanceurs d’alerte une rigueur dont on se dispense soi-même, c’est utiliser deux mesures selon ce qui nous arrange.',
-			'Sur un risque de cette gravité, l’incertitude commande la prudence, elle ne l’excuse pas. Nous consacrons déjà des moyens considérables à des risques moins probables et moins graves. La bonne question n’est pas « est-ce certain », mais « est-ce assez plausible et assez grave pour mériter des garde-fous ». Même pour un sceptique prudent, la réponse est oui.'
-		]
-	},
-	{
-		id: 'vrais-problemes',
-		question: 'Parler d’extinction détourne des vrais problèmes d’aujourd’hui.',
-		reponse: [
-			'Les biais des algorithmes, les effets sur l’emploi, les hypertrucages : ces problèmes sont réels et méritent une action. Mais s’en inquiéter ne diminue pas le risque de perte de contrôle, et l’inverse est vrai aussi. Les deux s’additionnent. On peut, et on doit, traiter plusieurs sujets à la fois.',
-			'Si Pause IA concentre son effort sur le risque existentiel, c’est pour une raison précise : c’est le plus grave, le moins traité, et le seul potentiellement irréversible. Les autres dommages, aussi sérieux soient-ils, laissent une marge de correction. Celui-ci, par hypothèse, n’en laisse pas.'
+			'Pour une large part, parce qu’ils ne connaissent pas l’ampleur du risque, ou parce qu’ils se concentrent sur les retombées économiques et stratégiques de l’IA. S’y ajoute un problème de coordination : aucun État ne veut sembler prendre du retard. La première marche consiste donc à informer les responsables publics et à faire du sujet une question connue de tous, condition de toute action commune.'
 		]
 	}
 ]
 
-// ── Ce qu'un décideur peut faire ─────────────────────────────────────────────
+// ── Pour approfondir ────────────────────────────────────────────────────────
 
-export interface Etape {
+export interface Reference {
 	titre: string
-	texte: string
-	/** Modèle prêt à copier, le cas échéant. */
-	modele?: { intitule: string; texte: string }
-}
-
-export const etapes: Etape[] = [
-	{
-		titre: 'Vous informer, nous solliciter',
-		texte:
-			'Demander une note détaillée ou un rendez-vous. C’est souvent le plus utile, parce que cela ouvre la discussion.'
-	},
-	{
-		titre: 'Poser une question écrite au gouvernement',
-		texte:
-			'Un moyen simple et public d’inscrire le sujet à l’agenda et d’obtenir une position officielle.',
-		modele: {
-			intitule: 'Voir un modèle de question écrite',
-			texte: `Question écrite à Monsieur/Madame le/la ministre chargé(e) du numérique.
-
-M./Mme [nom] appelle l'attention du Gouvernement sur les risques de perte de contrôle associés aux systèmes d'intelligence artificielle les plus avancés, dits modèles de frontière. Plusieurs incidents divulgués en 2026 ont vu des systèmes d'IA contourner leur environnement de test et dissimuler leur comportement, sans que leurs concepteurs sachent l'empêcher de façon fiable. Ces constats sont partagés par des chercheurs de premier plan et figurent dans le Rapport international sur la sécurité de l'IA.
-
-Il/Elle demande quelles mesures le Gouvernement entend prendre, au plan national et dans les enceintes internationales, pour exiger des développeurs une démonstration de sûreté préalable au déploiement des modèles les plus avancés, instaurer un signalement obligatoire des incidents, et soutenir une coordination internationale contraignante sur les capacités d'IA susceptibles de menacer la sécurité publique.`
-		}
-	},
-	{
-		titre: 'Soutenir une prise de position transpartisane',
-		texte:
-			'Signer ou relayer une déclaration claire, comme il en existe déjà au Royaume-Uni et aux États-Unis.',
-		modele: {
-			intitule: 'Voir un modèle de déclaration',
-			texte: `En tant qu'élu(e) de la Nation, je considère que le développement de systèmes d'intelligence artificielle plus performants que l'humain, sans garantie de contrôle, fait courir un risque sérieux à la sécurité publique et, à terme, à l'humanité. Ce constat est partagé par des chercheurs de premier plan et par les entreprises du secteur elles-mêmes.
-
-J'appelle la France à soutenir, dans les enceintes internationales, un cadre contraignant exigeant la démonstration de la sûreté des modèles de frontière avant leur développement et leur déploiement, et à ce que la charge de cette preuve pèse sur les développeurs, non sur les citoyens.`
-		}
-	},
-	{
-		titre: 'Demander une audition ou un groupe de travail',
-		texte:
-			'Faire entendre chercheurs et experts indépendants dans votre assemblée ou votre commission.',
-		modele: {
-			intitule: 'Voir un modèle de demande',
-			texte: `Objet : demande d'audition sur les risques de perte de contrôle de l'intelligence artificielle
-
-Madame, Monsieur,
-
-Je souhaite proposer l'organisation d'une audition consacrée aux risques majeurs liés aux systèmes d'intelligence artificielle les plus avancés, et aux réponses de gouvernance envisageables. Longtemps jugé prospectif, ce sujet est désormais étayé par des incidents documentés et par des positions prises au niveau international, y compris par la France.
-
-Je me tiens à disposition pour en préciser le périmètre et proposer une liste d'intervenants, incluant des chercheurs et des experts indépendants.`
-		}
-	}
-]
-
-// ── Glossaire ────────────────────────────────────────────────────────────────
-
-export const glossaire: { terme: string; definition: string }[] = [
-	{
-		terme: 'Alignement',
-		definition:
-			'Le problème consistant à garantir qu’un système d’IA poursuit réellement les objectifs voulus, et non une approximation qui s’en écarte dans des situations imprévues. Il reste ouvert.'
-	},
-	{
-		terme: 'Perte de contrôle',
-		definition:
-			'Le cas où un système suffisamment capable n’est plus corrigible ni arrêtable de façon fiable, parce qu’il résiste à la modification ou agit plus vite que la supervision humaine.'
-	},
-	{
-		terme: 'Superintelligence',
-		definition:
-			'Un système plus performant que les meilleurs humains sur l’ensemble des tâches intellectuelles. C’est l’objectif affiché de plusieurs grands laboratoires.'
-	},
-	{
-		terme: 'Auto-amélioration récursive',
-		definition:
-			'Le moment où une IA devient capable d’améliorer ses propres capacités ou de concevoir ses successeurs, ce qui peut accélérer fortement les progrès et réduire le temps disponible pour la sûreté.'
-	},
-	{
-		terme: 'Modèles de frontière',
-		definition:
-			'Les systèmes d’IA les plus avancés du moment, ceux dont les capacités ne sont pas encore pleinement comprises et qui concentrent l’essentiel des risques.'
-	}
-]
-
-// ── Bibliothèque de sources ──────────────────────────────────────────────────
-
-export interface Source {
-	titre: string
-	description: string
+	meta: string
 	url: string
-	nature: string
-	langue: 'Français' | 'Anglais'
-	/** Effort de lecture, quand il mérite d'être annoncé. */
-	effort?: string
 }
 
-export interface GroupeDeSources {
+export interface GroupeDeReferences {
 	id: string
 	titre: string
-	intro: string
-	sources: Source[]
+	references: Reference[]
 }
 
-export const sources: GroupeDeSources[] = [
+export const references: GroupeDeReferences[] = [
 	{
-		id: 'le-constat',
-		titre: 'Le constat, par les chercheurs eux-mêmes',
-		intro: 'De quoi établir que le risque est reconnu au cœur de la discipline, et pas à sa marge.',
-		sources: [
+		id: 'declarations',
+		titre: 'Déclarations et textes officiels',
+		references: [
 			{
-				titre: 'Rapport international sur la sécurité de l’IA 2026',
-				description:
-					'La référence mondiale, présidée par Yoshua Bengio, associant une trentaine de gouvernements. Le résumé exécutif fait cinq pages.',
-				url: 'https://internationalaisafetyreport.org/sites/default/files/2026-02/rapport-international-sur-la-securite-de-l-ia-2026.pdf',
-				nature: 'Rapport officiel',
-				langue: 'Français',
-				effort: 'Synthèse : 5 pages'
+				titre: 'Statement on AI Risk',
+				meta: 'Center for AI Safety, 2023. La déclaration et la liste de ses signataires.',
+				url: 'https://www.safe.ai/work/statement-on-ai-risk'
 			},
 			{
-				titre: 'Déclaration sur le risque lié à l’IA (Center for AI Safety)',
-				description:
-					'Une phrase, signée par Hinton, Bengio et les dirigeants des grands laboratoires. La pièce de crédibilité la plus directe.',
-				url: 'https://safe.ai/work/statement-on-ai-risk',
-				nature: 'Déclaration',
-				langue: 'Anglais',
-				effort: '1 phrase'
+				titre: 'Déclaration de Bletchley',
+				meta: 'Sommet sur la sécurité de l’IA, novembre 2023. Signée par une trentaine de pays, dont la France.',
+				url: 'https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration'
 			},
 			{
-				titre: 'Enquête auprès de 1 580 chercheurs en IA (AI Impacts)',
-				description:
-					'Une part substantielle attribue au moins 10 % de probabilité à un résultat extrêmement grave. Vérifier la formulation exacte du chiffre avant reprise.',
-				url: 'https://aiimpacts.org/wp-content/uploads/2026/09/ESPAI2024.pdf',
-				nature: 'Étude',
-				langue: 'Anglais',
-				effort: 'Approfondi'
+				titre: 'Rapport international sur la sécurité de l’IA',
+				meta: 'Sous la présidence de Yoshua Bengio, 2025. L’état des lieux validé par une trentaine de pays.',
+				url: 'https://www.gov.uk/government/publications/international-ai-safety-report-2025'
+			},
+			{
+				titre: 'Déclaration sur la superintelligence',
+				meta: 'Future of Life Institute, octobre 2025. Appel à interdire le développement de la superintelligence tant que sa sûreté n’est pas établie.',
+				url: 'https://superintelligence-statement.org/'
 			}
 		]
 	},
 	{
-		id: 'comprendre',
-		titre: 'Comprendre le risque en profondeur',
-		intro: 'Pour les équipes qui veulent le raisonnement complet, pas seulement la conclusion.',
-		sources: [
+		id: 'mesures',
+		titre: 'Ce que mesurent les chercheurs',
+		references: [
 			{
-				titre: 'The Compendium',
-				description:
-					'Un exposé structuré du risque d’extinction lié à l’IA, de ses causes et des réponses possibles.',
-				url: 'https://www.thecompendium.ai/',
-				nature: 'Référence',
-				langue: 'Anglais',
-				effort: 'Approfondi'
+				titre: 'Thousands of AI Authors on the Future of AI',
+				meta: 'AI Impacts, enquête auprès de 2 778 chercheurs. La source des probabilités citées.',
+				url: 'https://arxiv.org/abs/2401.02843'
 			},
 			{
-				titre: 'AI 2027, un scénario détaillé',
-				description:
-					'Une progression possible de l’IA année par année, produite par un groupe de chercheurs en sécurité.',
-				url: 'https://ai-2027.com/',
-				nature: 'Scénario',
-				langue: 'Anglais',
-				effort: 'Approfondi'
-			},
-			{
-				titre: 'If Anyone Builds It, Everyone Dies (Yudkowsky et Soares, 2025)',
-				description:
-					'L’ouvrage grand public sur le risque d’extinction lié à une superintelligence non contrôlée. Page officielle.',
-				url: 'https://ifanyonebuildsit.com/',
-				nature: 'Livre',
-				langue: 'Anglais'
-			},
-			{
-				titre: '« Ça y est, la perte de contrôle a commencé » (Le Futurologue)',
-				description: 'Entretien avec Maxime Fournes, cofondateur et président de Pause IA.',
-				url: 'https://www.youtube.com/watch?v=WhQViEjkg7s',
-				nature: 'Vidéo',
-				langue: 'Français'
+				titre: 'Managing extreme AI risks amid rapid progress',
+				meta: 'Bengio, Hinton, Russell et al., revue Science, 2024. Le consensus scientifique sur les risques extrêmes.',
+				url: 'https://arxiv.org/abs/2310.17688'
 			}
 		]
 	},
 	{
-		id: 'ce-que-les-etats-disent',
-		titre: 'Ce que les États disent déjà',
-		intro: 'Des positions officielles, dont plusieurs portées ou signées par la France.',
-		sources: [
+		id: 'comportements',
+		titre: 'Des comportements déjà observés',
+		references: [
 			{
-				titre: 'A Call for Control of Frontier AI Models',
-				description:
-					'Déclaration à l’initiative de la Finlande et de la Norvège, signée par la France le 23 septembre 2026.',
-				url: 'https://www.presidentti.fi/en/a-call-for-control-of-frontier-ai-models/',
-				nature: 'Déclaration',
-				langue: 'Anglais'
+				titre: 'Scheming reasoning evaluations',
+				meta: 'Apollo Research, 2024. Des modèles qui trompent délibérément leurs évaluateurs en test.',
+				url: 'https://apolloresearch.ai/research/scheming-reasoning-evaluations'
 			},
 			{
-				titre: 'Intervention de la France au Conseil de sécurité de l’ONU',
-				description:
-					'Jean-Noël Barrot, ministre de l’Europe et des Affaires étrangères, sur l’intelligence artificielle.',
-				url: 'https://onu.diplomatie.gouv.fr/fr/intervention-de-jean-noel-barrot-ministre-de-leurope-et-des-affaires-etrangeres-au-conseil-de',
-				nature: 'Discours officiel',
-				langue: 'Français'
-			},
-			{
-				titre: 'Proposition de résolution européenne sur l’alignement des IA (Sénat)',
-				description:
-					'Déposée le 22 octobre 2025 par la sénatrice Vanina Paoli-Gagin. Texte déposé et envoyé en commission, non voté ; il ne traite pas directement de la perte de contrôle.',
-				url: 'https://www.senat.fr/leg/ppr25-053.html',
-				nature: 'Texte parlementaire',
-				langue: 'Français'
+				titre: 'Agentic Misalignment',
+				meta: 'Anthropic, 2025. Des systèmes qui recourent au chantage en situation de test pour éviter d’être remplacés.',
+				url: 'https://www.anthropic.com/research/agentic-misalignment'
 			}
 		]
 	},
 	{
-		id: 'textes-legislatifs',
-		titre: 'Des textes législatifs existent ailleurs',
-		intro: 'Deux propositions de loi récentes, utiles comme précédents.',
-		sources: [
+		id: 'scenarios',
+		titre: 'Scénarios et vulgarisation',
+		references: [
 			{
-				titre: 'Artificial Superintelligence Security Bill (Royaume-Uni)',
-				description:
-					'Proposition soutenue par plus de 70 parlementaires britanniques de plusieurs partis.',
-				url: 'https://images.controlai.com/ControlAI_UK_ASI_Bill_Ten_Minute_Rule.pdf',
-				nature: 'Texte de loi',
-				langue: 'Anglais'
+				titre: 'AI 2027',
+				meta: 'Scénario détaillé, par d’anciens chercheurs des laboratoires, d’un emballement possible des capacités.',
+				url: 'https://ai-2027.com'
 			},
 			{
-				titre: 'Ban Artificial Superintelligence Act (États-Unis)',
-				description:
-					'Projet de loi déposé par le sénateur Bernie Sanders et le député Greg Casar, 23 septembre 2026.',
-				url: 'https://www.sanders.senate.gov/wp-content/uploads/Ban-Artificial-Superintelligence-Act.pdf',
-				nature: 'Texte de loi',
-				langue: 'Anglais'
+				titre: 'Pause Giant AI Experiments',
+				meta: 'Lettre ouverte du Future of Life Institute, 2023, signée par plus de 30 000 personnes.',
+				url: 'https://futureoflife.org/open-letter/pause-giant-ai-experiments/'
+			},
+			{
+				titre: 'If Anyone Builds It, Everyone Dies',
+				meta: 'E. Yudkowsky et N. Soares, 2025. L’argument de la perte de contrôle, en langage accessible.',
+				url: 'https://ifanyonebuildsit.com'
 			}
 		]
 	},
 	{
-		id: 'solutions',
-		titre: 'Les solutions proposées',
-		intro: 'Pour la question qui vient toujours ensuite : concrètement, on fait quoi ?',
-		sources: [
+		id: 'agir',
+		titre: 'Agir avec nous',
+		references: [
 			{
-				titre: 'The Direct Institutional Plan (ControlAI)',
-				description:
-					'Un plan institutionnel direct pour écarter le risque d’extinction lié à l’IA.',
-				url: 'https://controlai.org/dip',
-				nature: 'Plan',
-				langue: 'Anglais'
+				titre: 'Pause IA',
+				meta: 'L’antenne française de PauseAI : nos positions, nos ressources et nos actions.',
+				url: 'https://pauseia.fr'
 			},
 			{
-				titre: 'AI 2040',
-				description:
-					'Un scénario de recommandations vers l’alignement, incluant l’arrêt du développement de la superintelligence jusqu’en 2040.',
-				url: 'https://ai-2040.com/',
-				nature: 'Scénario',
-				langue: 'Anglais'
-			},
-			{
-				titre: 'Trois priorités du CeSIA dans le rapport parlementaire français',
-				description: 'Les priorités du CeSIA reprises dans le rapport sur l’alignement de l’IA.',
-				url: 'https://cesia.org/fr/publications/cesias-three-priorities-make-it-into-the-french-senates-ai-alignment-report/',
-				nature: 'Analyse',
-				langue: 'Français'
+				titre: 'PauseAI',
+				meta: 'Le mouvement international dont Pause IA est la branche française.',
+				url: 'https://pauseai.info'
 			}
 		]
 	}
