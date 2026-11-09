@@ -62,17 +62,17 @@
 	<!-- ── Ouverture ── -->
 	<PageHero eyebrow="Perte de contrôle de l’IA · note de synthèse">
 		{title}
-		<svelte:fragment slot="lede">
-			Les grands laboratoires d’intelligence artificielle ont un objectif affiché : construire des
-			systèmes capables d’agir seuls, sans qu’un humain les dirige. Poussé à son terme, cet objectif
-			donne des machines plus compétentes que nous dans la plupart des tâches, et qu’il deviendrait
-			très difficile d’arrêter une fois lancées.
-		</svelte:fragment>
 	</PageHero>
 
 	<hr class="filet" />
 
 	<div class="chapo">
+		<p>
+			Les grands laboratoires d’intelligence artificielle ont un objectif affiché : construire des
+			systèmes capables d’agir seuls, sans qu’un humain les dirige. Poussé à son terme, cet objectif
+			donne des machines plus compétentes que nous dans la plupart des tâches, et qu’il deviendrait
+			très difficile d’arrêter une fois lancées.
+		</p>
 		<p>
 			Au rythme actuel, plusieurs dirigeants de ces laboratoires estiment que de tels systèmes
 			pourraient arriver avant 2030.
@@ -90,8 +90,9 @@
 
 	<!-- ── La déclaration ── -->
 	<section class="sombre" aria-labelledby="t-declaration">
+		<span class="filet-marque" aria-hidden="true"></span>
 		<SectionTitle id="t-declaration">Ce que disent ceux qui construisent l’IA</SectionTitle>
-		<span class="guillemet" aria-hidden="true">“</span>
+		<span class="barres" aria-hidden="true"><span></span><span></span></span>
 		<blockquote>
 			Atténuer le risque d’extinction lié à l’intelligence artificielle devrait être une priorité
 			mondiale, au même titre que d’autres risques pour la société comme les pandémies et la guerre
@@ -103,7 +104,7 @@
 				target="_blank"
 				rel="noopener noreferrer">Center for AI Safety</a
 			>, mai 2023. Une seule phrase, signée par des centaines de chercheurs et de dirigeants du
-			domaine, parmi lesquels :
+			domaine, parmi lesquels :
 		</p>
 		<ul class="signataires">
 			{#each signataires as s (s.initiales + s.nom)}
@@ -122,7 +123,7 @@
 
 	<!-- ── Pourquoi on ne sait pas les contrôler ── -->
 	<section aria-labelledby="t-incontrolable">
-		<SectionTitle id="t-incontrolable">Pourquoi ne sait-on pas les contrôler ?</SectionTitle>
+		<SectionTitle id="t-incontrolable">Pourquoi ne sait-on pas les contrôler ?</SectionTitle>
 		<p class="accroche">
 			Un système d’intelligence artificielle moderne n’est pas programmé ligne par ligne, comme un
 			logiciel ordinaire. Il est entraîné.
@@ -134,7 +135,7 @@
 			capacité, sans disposer du mode d’emploi qui va avec.
 		</p>
 		<p>
-			Cela a une conséquence inconfortable : on ne sait pas empêcher de façon fiable un comportement
+			Cela a une conséquence inconfortable : on ne sait pas empêcher de façon fiable un comportement
 			indésirable. Lors de tests encadrés, des systèmes récents ont déjà menti à leurs évaluateurs,
 			cherché à copier leur propre code pour échapper à un remplacement, ou fait du chantage à un
 			ingénieur fictif pour éviter d’être désactivés. Ce ne sont pas des bugs qu’un développeur
@@ -144,7 +145,7 @@
 		<p>
 			Aujourd’hui, ces systèmes ne sont encore ni assez puissants ni assez autonomes pour que ces
 			comportements causent une catastrophe. Le problème est que la dangerosité croît avec la
-			capacité : plus ils deviennent compétents, plus l’écart se creuse entre ce qu’ils savent faire
+			capacité : plus ils deviennent compétents, plus l’écart se creuse entre ce qu’ils savent faire
 			et ce que nous savons vérifier.
 		</p>
 
@@ -153,10 +154,10 @@
 
 	<!-- ── À quoi ressemblerait une perte de contrôle ── -->
 	<section aria-labelledby="t-menace">
-		<SectionTitle id="t-menace">À quoi ressemblerait une perte de contrôle ?</SectionTitle>
+		<SectionTitle id="t-menace">À quoi ressemblerait une perte de contrôle ?</SectionTitle>
 		<p>
 			Le risque n’a pas la forme d’un robot hostile marchant sur une ville. Il tient à une idée plus
-			simple et plus inquiétante : un système très compétent, chargé d’un objectif, peut employer
+			simple et plus inquiétante : un système très compétent, chargé d’un objectif, peut employer
 			pour l’atteindre des moyens que nous n’avions ni prévus ni souhaités, et que nous ne saurions
 			pas contrer à temps.
 		</p>
@@ -167,9 +168,9 @@
 		<p>
 			La première est informatique. Un système capable de découvrir et d’exploiter des failles plus
 			vite que les défenseurs ne les corrigent pourrait désorganiser des réseaux critiques, des
-			hôpitaux à l’énergie. La deuxième est biologique : une IA qui aide à concevoir des agents
+			hôpitaux à l’énergie. La deuxième est biologique : une IA qui aide à concevoir des agents
 			pathogènes abaisse le seuil de compétence nécessaire pour fabriquer une arme de masse. La
-			troisième touche à l’information : des campagnes de manipulation taillées sur mesure, à très
+			troisième touche à l’information : des campagnes de manipulation taillées sur mesure, à très
 			grande échelle, peuvent corrompre l’espace de débat dont dépend précisément la décision
 			publique.
 		</p>
@@ -181,14 +182,14 @@
 			chercheurs appellent le désempouvoirment progressif.
 		</p>
 		<p class="saillie">
-			Le point commun de ces scénarios : celui qui perd le contrôle ne le récupère pas, et la
+			Le point commun de ces scénarios : celui qui perd le contrôle ne le récupère pas, et la
 			capacité se concentre aujourd’hui hors de France.
 		</p>
 	</section>
 
 	<!-- ── Combien de temps ── -->
 	<section aria-labelledby="t-fenetre">
-		<SectionTitle id="t-fenetre">Combien de temps reste-t-il ?</SectionTitle>
+		<SectionTitle id="t-fenetre">Combien de temps reste-t-il ?</SectionTitle>
 		<p>
 			Avant la sortie de ChatGPT fin 2022, la plupart des chercheurs voyaient une intelligence
 			artificielle hors de contrôle comme un problème lointain, pour les générations futures. Le
@@ -197,7 +198,7 @@
 		<p>
 			Deux mécanismes expliquent cette accélération. D’une part, les capacités progressent par
 			paliers rapides à mesure que l’on augmente la puissance de calcul et la taille des modèles.
-			D’autre part, ces systèmes commencent à aider à concevoir la génération suivante : si une IA
+			D’autre part, ces systèmes commencent à aider à concevoir la génération suivante : si une IA
 			accélère la recherche en IA, le progrès peut s’emballer, chaque version aidant à bâtir une
 			version plus performante.
 		</p>
@@ -210,7 +211,7 @@
 
 	<!-- ── Qui le dit ── -->
 	<section aria-labelledby="t-qui">
-		<SectionTitle id="t-qui">Qui le dit, et faut-il les croire ?</SectionTitle>
+		<SectionTitle id="t-qui">Qui le dit, et faut-il les croire ?</SectionTitle>
 		<p>
 			L’alerte ne vient pas d’observateurs extérieurs au domaine, mais de celles et ceux qui
 			construisent ces systèmes et de la communauté scientifique qui les étudie. C’est ce qui la
@@ -219,19 +220,19 @@
 		<p>
 			Depuis 2016, le groupe de recherche AI Impacts interroge régulièrement des chercheurs ayant
 			publié dans les grandes conférences d’intelligence artificielle. Son enquête de 2023, la plus
-			large jamais menée sur le sujet avec 2 778 répondants, donne une probabilité médiane de 5 %
-			pour un résultat « aussi grave que l’extinction de l’humanité ». Entre un tiers et la moitié
-			des chercheurs, selon la formulation de la question, placent ce risque à 10 % ou davantage.
+			large jamais menée sur le sujet avec 2 778 répondants, donne une probabilité médiane de 5 %
+			pour un résultat « aussi grave que l’extinction de l’humanité ». Entre un tiers et la moitié
+			des chercheurs, selon la formulation de la question, placent ce risque à 10 % ou davantage.
 		</p>
 		<p>
 			Surtout, le chiffre monte d’une vague à l’autre. Dans l’enquête suivante, menée fin 2024
-			auprès de plus de 1 500 chercheurs, la probabilité médiane a doublé pour atteindre 10 %, et la
-			moyenne approche 18 %. Autrement dit, à mesure qu’ils observent les progrès réels, les
+			auprès de plus de 1 500 chercheurs, la probabilité médiane a doublé pour atteindre 10 %, et la
+			moyenne approche 18 %. Autrement dit, à mesure qu’ils observent les progrès réels, les
 			spécialistes revoient le risque à la hausse, pas à la baisse.
 		</p>
 		<p>
 			Aucun de ces chiffres n’est une prédiction. Ce sont des estimations de risque. Mais on ne fait
-			pas voler un avion dont les ingénieurs annoncent 10 % de chances de crash, et on ne traite pas
+			pas voler un avion dont les ingénieurs annoncent 10 % de chances de crash, et on ne traite pas
 			à la légère un risque d’extinction que ceux qui conçoivent la technologie chiffrent eux-mêmes
 			en dizaines de pour cent.
 		</p>
@@ -245,9 +246,9 @@
 
 	<!-- ── Que peut-on faire ── -->
 	<section id="faire" aria-labelledby="t-faire">
-		<SectionTitle id="t-faire">Que peut-on faire ?</SectionTitle>
+		<SectionTitle id="t-faire">Que peut-on faire ?</SectionTitle>
 		<p class="accroche">
-			Le point de départ est simple : il faut interdire le développement des systèmes que personne
+			Le point de départ est simple : il faut interdire le développement des systèmes que personne
 			ne sait contrôler.
 		</p>
 		<p>
@@ -269,7 +270,7 @@
 			{/each}
 		</ol>
 		<p>
-			Ce dernier point est souvent perçu comme hors de portée. Il ne l’est pas forcément : aucun
+			Ce dernier point est souvent perçu comme hors de portée. Il ne l’est pas forcément : aucun
 			pays n’a intérêt à voir se construire, chez lui ou ailleurs, une technologie susceptible
 			d’échapper à tout contrôle humain. C’est précisément ce dénominateur commun qui a permis, pour
 			le nucléaire, de bâtir des accords entre rivaux.
@@ -288,6 +289,7 @@
 
 	<!-- ── Objections ── -->
 	<section class="sombre" aria-labelledby="t-objections">
+		<span class="filet-marque" aria-hidden="true"></span>
 		<SectionTitle id="t-objections">Objections courantes</SectionTitle>
 		<div class="inView questions">
 			{#each objections as o (o.id)}
@@ -303,7 +305,7 @@
 
 	<!-- ── Où en est la réponse publique ── -->
 	<section aria-labelledby="t-reponse">
-		<SectionTitle id="t-reponse">Où en est la réponse publique ?</SectionTitle>
+		<SectionTitle id="t-reponse">Où en est la réponse publique ?</SectionTitle>
 		<p>
 			Le sujet commence à sortir du cercle des spécialistes, mais les engagements concrets restent
 			en retard sur le niveau d’alerte.
@@ -328,7 +330,7 @@
 			Plus récemment, le 22 septembre 2026, l’Union européenne et une vingtaine de pays ont signé un
 			appel international, porté notamment par la Finlande et la Norvège, demandant des garde-fous
 			sur les systèmes les plus avancés. La France y est partie en tant qu’État membre de l’Union.
-			Ces textes marquent une prise de conscience ; aucun n’a encore force contraignante sur la
+			Ces textes marquent une prise de conscience ; aucun n’a encore force contraignante sur la
 			question de la perte de contrôle.
 		</p>
 	</section>
@@ -337,7 +339,7 @@
 	<section id="ecrire" aria-labelledby="t-ecrire">
 		<SectionTitle id="t-ecrire">Agir, de votre place</SectionTitle>
 		<p>
-			Si vous exercez un mandat ou travaillez auprès d’un élu, trois gestes ont un effet réel : vous
+			Si vous exercez un mandat ou travaillez auprès d’un élu, trois gestes ont un effet réel : vous
 			informer en profondeur, porter la question dans le débat public (une prise de parole, une
 			question écrite au gouvernement), et demander que la France soutienne un encadrement
 			international contraignant des systèmes les plus avancés.
@@ -349,7 +351,7 @@
 		</p>
 		<div class="contact">
 			<h3>Demander un briefing ou un complément</h3>
-			<p>Écrivez-nous ; nous revenons vers vous rapidement pour convenir d’un format.</p>
+			<p>Écrivez-nous ; nous revenons vers vous rapidement pour convenir d’un format.</p>
 			<p class="adresse">
 				<a href="mailto:{CONTACT}">{CONTACT}</a>
 				<button type="button" on:click={copierLAdresse}>
@@ -397,7 +399,7 @@
 
 	<p class="avertissement">
 		Les probabilités, déclarations et dates citées renvoient à leurs sources d’origine, accessibles
-		ci-dessus. Document d’information, sans valeur d’engagement. Mise à jour : {dateMaj}.
+		ci-dessus. Document d’information, sans valeur d’engagement. Mise à jour : {dateMaj}.
 	</p>
 </article>
 
@@ -459,12 +461,6 @@
 		font-weight: 700;
 	}
 
-	.filet {
-		border: 0;
-		border-top: 1px solid var(--text);
-		margin: 1.75rem 0 1.5rem;
-	}
-
 	/* ── Bandeaux ardoise ──
 	   Deux aplats rythment la page : la déclaration, puis les objections. Ils
 	   débordent des gouttières de la colonne de lecture, donc sans calcul sur
@@ -488,10 +484,20 @@
 	}
 
 	.sombre :global(.ui-section-title) {
-		display: inline-flex;
 		color: var(--on-dark);
-		padding-bottom: 0.55rem;
-		border-bottom: 2px solid var(--brand);
+	}
+
+	/* Le filet court orange au-dessus du titre est le signe d'ouverture de la
+	   charte : c'est déjà celui de PageHero. On le reprend ici plutôt que de
+	   souligner le titre, pour que les deux ouvertures de la page se
+	   répondent. */
+	.filet-marque {
+		display: block;
+		inline-size: 3rem;
+		block-size: 4px;
+		border-radius: var(--radius-pill);
+		background: var(--brand);
+		margin-bottom: 1.1rem;
 	}
 
 	.sombre :global(p) {
@@ -515,13 +521,19 @@
 		color: var(--on-dark);
 	}
 
-	.guillemet {
-		display: block;
-		font-size: 4rem;
-		line-height: 0.5;
-		color: var(--brand);
+	/* Les deux barres du logo ouvrent la citation. C'est notre signe, pas un
+	   guillemet typographique repris ailleurs. */
+	.barres {
+		display: flex;
+		gap: 5px;
 		margin-top: 2rem;
-		font-weight: 700;
+	}
+
+	.barres span {
+		inline-size: 7px;
+		block-size: 30px;
+		border-radius: 2px;
+		background: var(--brand);
 	}
 
 	.sombre .pastille {
@@ -547,8 +559,13 @@
 		box-shadow: none;
 	}
 
-	.chapo p {
-		font-size: clamp(1.05rem, 2vw, 1.18rem);
+	/* Le filet sous le titre ouvre la page : un chapô en plus gros corps
+	   ajouterait un troisième niveau de taille dans les quatre premiers
+	   centimètres. Il garde donc le corps du texte courant. */
+	.filet {
+		border: 0;
+		border-top: 1px solid var(--text);
+		margin: 1.5rem 0 1.75rem;
 	}
 
 	/* Respiration : les sections sont espacées d'un cran fixe et séparées d'un
@@ -680,6 +697,8 @@
 	/* Carte blanche, filet d'un pixel, ombre presque invisible : elle se
 	   détache du fond sans peser. Le relief vient du filet, pas de l'ombre. */
 	.citation {
+		display: flex;
+		flex-direction: column;
 		margin: 1.25rem 0 0;
 		padding: 1.5rem;
 		background: var(--bg);
@@ -736,6 +755,7 @@
 	}
 
 	.citation figcaption {
+		margin-top: auto;
 		font-size: 0.85rem;
 		color: var(--text-2);
 		line-height: 1.5;
@@ -745,7 +765,6 @@
 		display: grid;
 		gap: 1.25rem;
 		margin-top: 0.5rem;
-		align-items: start;
 	}
 
 	@media (min-width: 48rem) {

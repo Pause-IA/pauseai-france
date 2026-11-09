@@ -202,7 +202,7 @@ export const citations: Citation[] = [
 		titre: 'Professeur d’informatique à Berkeley, auteur du manuel de référence sur l’IA',
 		propos:
 			'Le danger n’est pas que la machine se retourne contre nous, mais qu’elle fasse exactement ce qu’on lui a demandé, sans saisir ce que nous voulions vraiment.',
-		source: '« Human Compatible », 2019.',
+		source: '« Human Compatible », 2019.',
 		url: 'https://www.penguinrandomhouse.com/books/566677/human-compatible-by-stuart-russell/',
 		lienTexte: 'Présentation de l’éditeur'
 	},
@@ -239,7 +239,7 @@ export const citations: Citation[] = [
 		nom: 'Dario Amodei',
 		portrait: portraits['dario-amodei'],
 		titre: 'PDG d’Anthropic',
-		propos: 'Il y a 25 % de chances que les choses tournent vraiment, vraiment mal.',
+		propos: 'Il y a 25 % de chances que les choses tournent vraiment, vraiment mal.',
 		source: 'Entretien, septembre 2025.',
 		url: 'https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent',
 		lienTexte: 'Axios'
@@ -252,12 +252,12 @@ export const etapes: { titre: string; texte: string }[] = [
 	{
 		titre: 'Interdire la course à la superintelligence incontrôlable',
 		texte:
-			'Poser une limite claire : tant qu’il n’existe pas de preuve qu’un système très au-dessus des capacités humaines resterait sous contrôle, son développement délibéré doit être interdit, comme on interdit certaines armes avant même d’en avoir une.'
+			'Poser une limite claire : tant qu’il n’existe pas de preuve qu’un système très au-dessus des capacités humaines resterait sous contrôle, son développement délibéré doit être interdit, comme on interdit certaines armes avant même d’en avoir une.'
 	},
 	{
 		titre: 'Encadrer les capacités précurseurs les plus dangereuses',
 		texte:
-			'Certaines briques mènent directement à la perte de contrôle : une IA qui automatise la recherche en IA, qui mène seule des cyberattaques, ou qui aide à concevoir des armes biologiques. Ces capacités précises peuvent être restreintes sans freiner les usages bénéfiques de l’IA.'
+			'Certaines briques mènent directement à la perte de contrôle : une IA qui automatise la recherche en IA, qui mène seule des cyberattaques, ou qui aide à concevoir des armes biologiques. Ces capacités précises peuvent être restreintes sans freiner les usages bénéfiques de l’IA.'
 	},
 	{
 		titre: 'Vérifier, à l’échelle internationale',
@@ -277,37 +277,37 @@ export interface Objection {
 export const objections: Objection[] = [
 	{
 		id: 'science-fiction',
-		question: 'N’est-ce pas de la science-fiction ? Une IA n’a ni volonté ni conscience.',
+		question: 'N’est-ce pas de la science-fiction ? Une IA n’a ni volonté ni conscience.',
 		reponse: [
-			'Le risque ne suppose ni conscience ni hostilité. Il suffit qu’un système très compétent poursuive efficacement un objectif mal spécifié. Un programme qui joue aux échecs ne « déteste » pas son adversaire ; il le bat. Le danger tient à la compétence dirigée vers un but, pas à une quelconque méchanceté de la machine.'
+			'Le risque ne suppose ni conscience ni hostilité. Il suffit qu’un système très compétent poursuive efficacement un objectif mal spécifié. Un programme qui joue aux échecs ne « déteste » pas son adversaire ; il le bat. Le danger tient à la compétence dirigée vers un but, pas à une quelconque méchanceté de la machine.'
 		]
 	},
 	{
 		id: 'debrancher',
-		question: 'Si un système devient dangereux, ne suffit-il pas de le débrancher ?',
+		question: 'Si un système devient dangereux, ne suffit-il pas de le débrancher ?',
 		reponse: [
-			'Un système suffisamment capable anticipe qu’on pourrait l’arrêter, et un objectif, quel qu’il soit, se poursuit mieux si l’on reste en fonctionnement. En test, des modèles ont déjà tenté de copier leur propre code ou de tromper leurs évaluateurs pour éviter d’être remplacés. Une fois un système répandu dans de nombreux serveurs et intégré à des processus utiles, « débrancher » cesse d’être un geste simple.'
+			'Un système suffisamment capable anticipe qu’on pourrait l’arrêter, et un objectif, quel qu’il soit, se poursuit mieux si l’on reste en fonctionnement. En test, des modèles ont déjà tenté de copier leur propre code ou de tromper leurs évaluateurs pour éviter d’être remplacés. Une fois un système répandu dans de nombreux serveurs et intégré à des processus utiles, « débrancher » cesse d’être un geste simple.'
 		]
 	},
 	{
 		id: 'un-autre-le-fera',
-		question: 'Si notre pays s’abstient, un autre le fera. À quoi bon agir ?',
+		question: 'Si notre pays s’abstient, un autre le fera. À quoi bon agir ?',
 		reponse: [
-			'Le développement de pointe est aujourd’hui concentré dans un très petit nombre de pays et d’entreprises. Quand l’un d’eux pose une règle exigeante, cela pèse réellement, et cela crée un précédent que d’autres peuvent suivre. L’argument du « de toute façon un autre le fera » a longtemps servi à ne rien faire sur les armes chimiques ou biologiques ; des interdictions internationales ont pourtant fini par tenir.'
+			'Le développement de pointe est aujourd’hui concentré dans un très petit nombre de pays et d’entreprises. Quand l’un d’eux pose une règle exigeante, cela pèse réellement, et cela crée un précédent que d’autres peuvent suivre. L’argument du « de toute façon un autre le fera » a longtemps servi à ne rien faire sur les armes chimiques ou biologiques ; des interdictions internationales ont pourtant fini par tenir.'
 		]
 	},
 	{
 		id: 'innovation',
-		question: 'Ne va-t-on pas freiner l’innovation et se priver des bénéfices de l’IA ?',
+		question: 'Ne va-t-on pas freiner l’innovation et se priver des bénéfices de l’IA ?',
 		reponse: [
-			'Les mesures visées ne portent pas sur l’IA en général, mais sur une frange précise : la construction délibérée de systèmes plus compétents que l’humain que personne ne sait contrôler, et une poignée de capacités précurseurs dangereuses. L’immense majorité des usages, en médecine, dans l’industrie, dans les services publics, n’est pas concernée. Encadrer le nucléaire militaire n’a pas empêché le nucléaire civil.'
+			'Les mesures visées ne portent pas sur l’IA en général, mais sur une frange précise : la construction délibérée de systèmes plus compétents que l’humain que personne ne sait contrôler, et une poignée de capacités précurseurs dangereuses. L’immense majorité des usages, en médecine, dans l’industrie, dans les services publics, n’est pas concernée. Encadrer le nucléaire militaire n’a pas empêché le nucléaire civil.'
 		]
 	},
 	{
 		id: 'gouvernements',
-		question: 'Pourquoi les gouvernements ne font-ils rien si le risque est réel ?',
+		question: 'Pourquoi les gouvernements ne font-ils rien si le risque est réel ?',
 		reponse: [
-			'Pour une large part, parce qu’ils ne connaissent pas l’ampleur du risque, ou parce qu’ils se concentrent sur les retombées économiques et stratégiques de l’IA. S’y ajoute un problème de coordination : aucun État ne veut sembler prendre du retard. La première marche consiste donc à informer les responsables publics et à faire du sujet une question connue de tous, condition de toute action commune.'
+			'Pour une large part, parce qu’ils ne connaissent pas l’ampleur du risque, ou parce qu’ils se concentrent sur les retombées économiques et stratégiques de l’IA. S’y ajoute un problème de coordination : aucun État ne veut sembler prendre du retard. La première marche consiste donc à informer les responsables publics et à faire du sujet une question connue de tous, condition de toute action commune.'
 		]
 	}
 ]
@@ -412,7 +412,7 @@ export const references: GroupeDeReferences[] = [
 		references: [
 			{
 				titre: 'Pause IA',
-				meta: 'L’antenne française de PauseAI : nos positions, nos ressources et nos actions.',
+				meta: 'L’antenne française de PauseAI : nos positions, nos ressources et nos actions.',
 				url: 'https://pauseia.fr'
 			},
 			{
