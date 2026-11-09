@@ -7,6 +7,7 @@
 		citationHinton,
 		citations,
 		creditsPortraits,
+		portraitComplet,
 		etapes,
 		miseAJour,
 		objections,
@@ -109,8 +110,8 @@
 		<ul class="signataires">
 			{#each signataires as s (s.initiales + s.nom)}
 				<li>
-					{#if s.portrait}
-						<img class="pastille" src={s.portrait.fichier} alt="" loading="lazy" />
+					{#if portraitComplet(s.portrait)}
+						<img class="pastille" src={s.portrait?.fichier} alt="" loading="lazy" />
 					{:else}
 						<span class="pastille" aria-hidden="true">{s.initiales}</span>
 					{/if}
@@ -413,8 +414,8 @@
 {#snippet carte(c: Citation)}
 	<figure class="citation">
 		<div class="qui">
-			{#if c.portrait}
-				<img class="pastille" src={c.portrait.fichier} alt="" loading="lazy" />
+			{#if portraitComplet(c.portrait)}
+				<img class="pastille" src={c.portrait?.fichier} alt="" loading="lazy" />
 			{:else}
 				<span class="pastille" aria-hidden="true">{c.initiales}</span>
 			{/if}

@@ -39,17 +39,106 @@ export interface Signataire {
 	portrait?: Portrait
 }
 
+/**
+ * Les portraits, rassemblés ici pour n'écrire qu'une fois le fichier, l'auteur,
+ * la licence et la page de vérification.
+ *
+ * ⚠ `auteur` et `licence` restent à relever sur chaque page Commons (champs
+ * « Author » et « Licensing »). Tant qu'ils sont vides, la page affiche les
+ * initiales au lieu de la photo : les licences CC BY et CC BY-SA imposent de
+ * créditer, et un crédit inventé ne vaut pas mieux qu'une absence de crédit.
+ */
+const portraits: Record<string, Portrait> = {
+	'geoffrey-hinton': {
+		fichier: '/decideurs/geoffrey-hinton.jpg',
+		auteur: '',
+		licence: '',
+		page: 'https://commons.wikimedia.org/wiki/File:Geoffrey_E._Hinton,_2024_Nobel_Prize_Laureate_in_Physics_(cropped1).jpg'
+	},
+	'yoshua-bengio': {
+		fichier: '/decideurs/yoshua-bengio.jpg',
+		auteur: '',
+		licence: '',
+		page: 'https://commons.wikimedia.org/wiki/File:Yoshua_Bengio_2019_cropped.jpg'
+	},
+	'demis-hassabis': {
+		fichier: '/decideurs/demis-hassabis.jpg',
+		auteur: '',
+		licence: '',
+		page: 'https://commons.wikimedia.org/wiki/File:Demis_Hassabis,_2024_Nobel_Prize_Laureate_in_Chemistry_(cropped).jpg'
+	},
+	'sam-altman': {
+		fichier: '/decideurs/sam-altman.jpg',
+		auteur: '',
+		licence: '',
+		page: 'https://commons.wikimedia.org/wiki/File:Sam_Altman_CropEdit_James_Tamim.jpg'
+	},
+	'dario-amodei': {
+		fichier: '/decideurs/dario-amodei.jpg',
+		auteur: '',
+		licence: '',
+		page: 'https://commons.wikimedia.org/wiki/File:Dario_Amodei_at_TechCrunch_Disrupt_2023_02_(cropped).jpg'
+	},
+	'bill-gates': {
+		fichier: '/decideurs/bill-gates.jpg',
+		auteur: '',
+		licence: '',
+		page: 'https://commons.wikimedia.org/wiki/File:Bill_Gates_-_2023_-_P062021-203496_(cropped).jpg'
+	},
+	'stuart-russell': {
+		fichier: '/decideurs/stuart-russell.jpg',
+		auteur: '',
+		licence: '',
+		page: 'https://commons.wikimedia.org/wiki/File:Stuart_Russell.jpg'
+	},
+	'max-tegmark': {
+		fichier: '/decideurs/max-tegmark.jpg',
+		auteur: '',
+		licence: '',
+		page: 'https://commons.wikimedia.org/wiki/File:Max_Tegmark_2024_(cropped).jpg'
+	}
+}
+
+/** Un portrait n'est publiable qu'avec son auteur et sa licence. */
+export const portraitComplet = (p?: Portrait): p is Portrait => Boolean(p && p.auteur && p.licence)
+
 export const signataires: Signataire[] = [
-	{ initiales: 'GH', nom: 'Geoffrey Hinton', titre: 'Prix Nobel de physique 2024' },
-	{ initiales: 'YB', nom: 'Yoshua Bengio', titre: 'Chercheur le plus cité au monde' },
+	{
+		initiales: 'GH',
+		nom: 'Geoffrey Hinton',
+		titre: 'Prix Nobel de physique 2024',
+		portrait: portraits['geoffrey-hinton']
+	},
+	{
+		initiales: 'YB',
+		nom: 'Yoshua Bengio',
+		titre: 'Chercheur le plus cité au monde',
+		portrait: portraits['yoshua-bengio']
+	},
 	{
 		initiales: 'DH',
 		nom: 'Demis Hassabis',
+		portrait: portraits['demis-hassabis'],
 		titre: 'PDG de Google DeepMind, prix Nobel 2024'
 	},
-	{ initiales: 'SA', nom: 'Sam Altman', titre: 'PDG d’OpenAI (ChatGPT)' },
-	{ initiales: 'DA', nom: 'Dario Amodei', titre: 'PDG d’Anthropic (Claude)' },
-	{ initiales: 'BG', nom: 'Bill Gates', titre: 'Cofondateur de Microsoft' }
+	{
+		initiales: 'SA',
+		nom: 'Sam Altman',
+		titre: 'PDG d’OpenAI (ChatGPT)',
+		portrait: portraits['sam-altman']
+	},
+	{
+		initiales: 'DA',
+		nom: 'Dario Amodei',
+		titre: 'PDG d’Anthropic (Claude)',
+		portrait: portraits['dario-amodei']
+	},
+	{
+		initiales: 'BG',
+		nom: 'Bill Gates',
+		titre: 'Cofondateur de Microsoft',
+		portrait: portraits['bill-gates']
+	}
 ]
 
 // ── Citations ───────────────────────────────────────────────────────────────
@@ -71,6 +160,7 @@ export interface Citation {
 export const citationHinton: Citation = {
 	initiales: 'GH',
 	nom: 'Geoffrey Hinton',
+	portrait: portraits['geoffrey-hinton'],
 	titre: 'Prix Nobel de physique, pionnier de l’apprentissage profond',
 	propos:
 		'Longtemps j’ai dit que des IA capables de nous dépasser, c’était une affaire de trente à cinquante ans. Aujourd’hui je pense que ce pourrait n’être que quelques années.',
@@ -83,6 +173,7 @@ export const citations: Citation[] = [
 	{
 		initiales: 'YB',
 		nom: 'Yoshua Bengio',
+		portrait: portraits['yoshua-bengio'],
 		titre: 'Prix Turing, a présidé le Rapport international sur la sécurité de l’IA',
 		propos: 'Nous sommes en train de perdre le contrôle.',
 		source: 'À propos des derniers tests en laboratoire, propos à l’AFP, septembre 2026.',
@@ -92,6 +183,7 @@ export const citations: Citation[] = [
 	{
 		initiales: 'SR',
 		nom: 'Stuart Russell',
+		portrait: portraits['stuart-russell'],
 		titre: 'Professeur d’informatique à Berkeley, auteur du manuel de référence sur l’IA',
 		propos:
 			'Le danger n’est pas que la machine se retourne contre nous, mais qu’elle fasse exactement ce qu’on lui a demandé, sans saisir ce que nous voulions vraiment.',
@@ -102,21 +194,15 @@ export const citations: Citation[] = [
 	{
 		initiales: 'DH',
 		nom: 'Demis Hassabis',
+		portrait: portraits['demis-hassabis'],
 		titre: 'PDG de Google DeepMind, prix Nobel de chimie 2024',
 		propos: 'Il faut prendre le risque lié à l’IA aussi au sérieux que la crise climatique.',
 		source: 'The Guardian, octobre 2023.'
 	},
 	{
-		initiales: 'IS',
-		nom: 'Ilya Sutskever',
-		titre: 'Cofondateur d’OpenAI, à l’origine de son équipe « Superalignement »',
-		propos:
-			'Nous n’avons aujourd’hui aucune solution pour piloter ou contrôler une IA potentiellement superintelligente et l’empêcher de nous échapper.',
-		source: 'OpenAI, annonce de l’équipe Superalignement, 2023.'
-	},
-	{
 		initiales: 'SA',
 		nom: 'Sam Altman',
+		portrait: portraits['sam-altman'],
 		titre: 'PDG d’OpenAI',
 		propos:
 			'Ma plus grande crainte, c’est que ce secteur, cette technologie, cause un préjudice majeur au monde.',
@@ -125,8 +211,18 @@ export const citations: Citation[] = [
 		lienTexte: 'Al Jazeera'
 	},
 	{
+		initiales: 'MT',
+		nom: 'Max Tegmark',
+		titre: 'Physicien au MIT, président du Future of Life Institute',
+		portrait: portraits['max-tegmark'],
+		propos:
+			'Se lancer dans la course à une intelligence plus grande que la nôtre sans savoir la contrôler, ce n’est pas une course aux armements, c’est une course au suicide.',
+		source: 'Entretien, 2023 (Lex Fridman Podcast).'
+	},
+	{
 		initiales: 'DA',
 		nom: 'Dario Amodei',
+		portrait: portraits['dario-amodei'],
 		titre: 'PDG d’Anthropic',
 		propos: 'Il y a 25 % de chances que les choses tournent vraiment, vraiment mal.',
 		source: 'Entretien, septembre 2025.',
@@ -322,5 +418,5 @@ export const creditsPortraits: { nom: string; portrait: Portrait }[] = [
 	{ nom: citationHinton.nom, portrait: citationHinton.portrait },
 	...citations.map((c) => ({ nom: c.nom, portrait: c.portrait }))
 ]
-	.filter((e): e is { nom: string; portrait: Portrait } => Boolean(e.portrait))
+	.filter((e): e is { nom: string; portrait: Portrait } => portraitComplet(e.portrait))
 	.filter((e, i, tous) => tous.findIndex((x) => x.nom === e.nom) === i)
