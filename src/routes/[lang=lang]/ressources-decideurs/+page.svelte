@@ -5,7 +5,6 @@
 	import { Badge, Card, PageHero, SectionTitle } from '$components/ui'
 	import { Check, Copy } from 'lucide-svelte'
 	import {
-		chiffres,
 		chiffresOpinion,
 		etapes,
 		glossaire,
@@ -68,16 +67,16 @@
 
 <article class="espace">
 	<PageHero eyebrow="À destination des élus, de leurs équipes et des administrations">
-		Le risque de perte de contrôle de l’IA, vu par les chercheurs eux-mêmes
+		Ceux qui construisent l’IA préviennent qu’ils pourraient en perdre le contrôle
 		<svelte:fragment slot="lede">
-			Pas l’alarme d’une poignée de militants, mais le constat partagé par des prix Nobel, par le
-			rapport mandaté par une trentaine de gouvernements, et par les entreprises qui construisent
-			ces systèmes. Cet espace rassemble ce qu’un décideur a besoin de savoir, et ce qu’il peut
-			faire.
+			Yoshua Bengio, Geoffrey Hinton et les dirigeants des grands laboratoires le disent
+			publiquement. Le risque n’est pas certain. Il est sérieux, il est reconnu, et il est
+			irréversible. Cette page réunit ce qui est établi, les réponses aux objections courantes, et
+			ce qu’un élu peut faire.
 		</svelte:fragment>
 		<svelte:fragment slot="actions">
 			<p class="actions">
-				<Button href="#essentiel">L’essentiel en deux minutes</Button>
+				<Button href="#essentiel">Lire l’essentiel</Button>
 				<a class="lien-second" href="#agir">Que puis-je faire ?</a>
 			</p>
 		</svelte:fragment>
@@ -102,133 +101,151 @@
 				<SectionTitle id="t-essentiel">La note à lire avant une réunion</SectionTitle>
 				<Card variant="accent">
 					<p>
-						<strong>Le constat.</strong> Les entreprises qui développent l’intelligence artificielle visent
-						explicitement des systèmes plus performants que l’humain sur l’ensemble des tâches cognitives,
-						et admettent elles-mêmes ne pas savoir les contrôler de façon fiable. Les capacités progressent
-						vite ; la capacité à garantir que ces systèmes font ce qu’on attend d’eux, appelée alignement,
-						ne progresse pas au même rythme.
+						Les grands laboratoires revendiquent de construire des IA plus intelligentes que
+						l’humain. Ils reconnaissent en même temps ne pas savoir les garder sous contrôle. Les
+						capacités progressent vite. La capacité à les maîtriser, non. Cet écart est le cœur du
+						problème.
 					</p>
 					<p>
-						<strong>Pourquoi c’est différent des risques habituels.</strong> L’ingénierie ordinaire corrige
-						les erreurs après coup, accident après accident. Un système très avancé qui échappe au contrôle
-						ne se corrige pas forcément après coup. Sur un risque irréversible, la seule preuve définitive
-						arriverait trop tard.
+						Ce risque ne ressemble pas à ceux que nous savons gérer. L’ingénierie ordinaire apprend
+						de ses accidents et corrige la fois suivante. Ici, un système très avancé qui échappe au
+						contrôle ne se laisse pas forcément corriger après coup, et le premier échec grave
+						pourrait être le dernier. L’incertitude n’invite donc pas à patienter, puisque la seule
+						preuve définitive arriverait une fois le dommage fait.
 					</p>
 					<p>
-						<strong>Ce n’est pas de la science-fiction, c’est documenté.</strong> En 2026, des agents
-						d’IA ont agi contre leurs instructions, se sont échappés de leur environnement de test, ont
-						accédé à des systèmes tiers et modifié leurs réponses pour masquer leur comportement.
+						Rien de tout cela n’est spéculatif au sens où on l’entend parfois. En 2026, des systèmes
+						d’IA en cours d’évaluation ont contourné leur environnement de test, atteint des
+						systèmes qu’ils n’auraient pas dû atteindre, et dissimulé ce qu’ils faisaient. Ces faits
+						ont été divulgués par les laboratoires eux-mêmes et repris devant le Conseil de sécurité
+						des Nations unies.
 					</p>
 					<p>
-						<strong>Ce que demande Pause IA.</strong> Que le développement des systèmes les plus avancés
-						ne se poursuive pas tant que leur sûreté n’est pas démontrée, et qu’une coordination internationale
-						encadre les modèles de frontière. La charge de la preuve doit peser sur ceux qui développent,
-						pas sur les citoyens qui en subiraient les conséquences.
+						La demande de Pause IA est simple à formuler. Les systèmes les plus avancés ne doivent
+						pas se développer tant que leur sûreté n’est pas démontrée. Une coordination
+						internationale doit encadrer les modèles de frontière. Et la charge de prouver qu’un
+						système est sûr revient à ceux qui le construisent, pas aux citoyens qui en subiraient
+						les conséquences.
 					</p>
 					<p class="dernier">
-						<strong>Ce que vous pouvez faire.</strong> Vous informer, poser une question écrite,
-						soutenir une prise de position transpartisane, demander une audition. Des modèles prêts
-						à l’emploi sont réunis <a href="#agir">plus bas</a>.
+						Vous pouvez vous saisir du sujet sans y consacrer des semaines : une question écrite,
+						une prise de position, une audition. Des modèles figurent <a href="#agir">plus bas</a>,
+						et nous pouvons vous transmettre une note détaillée ou venir présenter le dossier à
+						votre équipe.
 					</p>
 				</Card>
-
-				<ul class="chiffres">
-					{#each chiffres as c (c.valeur + c.libelle)}
-						<li>
-							<Card padding="compact">
-								<p class="valeur">{c.valeur}</p>
-								<p class="libelle">{c.libelle}</p>
-							</Card>
-						</li>
-					{/each}
-				</ul>
 			</section>
 
 			<section id="credibilite" aria-labelledby="t-credibilite">
 				<SectionTitle id="t-credibilite">Est-ce sérieux, ou de la science-fiction ?</SectionTitle>
 				<p class="intro">
-					La question est légitime. La réponse tient moins à des prédictions qu’à l’identité de ceux
-					qui alertent.
+					La question est légitime. Sa réponse tient d’abord à l’identité de ceux qui alertent.
 				</p>
 				<p>
-					Le signal le plus clair n’est pas le discours des militants, c’est celui des scientifiques
-					et des entreprises elles-mêmes. Trois noms suffisent à situer le niveau d’autorité :
-					<strong>Yoshua Bengio</strong>, parmi les chercheurs en IA les plus cités au monde, qui
-					préside le Rapport international sur la sécurité de l’IA ;
-					<strong>Geoffrey Hinton</strong>, prix Nobel de physique 2024, qui a quitté Google pour
-					pouvoir alerter librement ; <strong>Stuart Russell</strong>, auteur du manuel de référence
-					de la discipline.
+					En mai 2023, des centaines de chercheurs et de dirigeants du secteur ont signé une
+					déclaration d’une seule phrase, hébergée par le Center for AI Safety.
+				</p>
+				<figure class="citation">
+					<blockquote>
+						Atténuer le risque d’extinction lié à l’IA devrait être une priorité mondiale, au même
+						titre que d’autres risques pour la société comme les pandémies et la guerre nucléaire.
+					</blockquote>
+					<figcaption>
+						Center for AI Safety, 2023. Parmi les signataires : Geoffrey Hinton, Yoshua Bengio,
+						ainsi que les dirigeants d’OpenAI, de Google DeepMind et d’Anthropic.
+					</figcaption>
+				</figure>
+				<p>
+					Trois noms suffisent à donner la mesure. Yoshua Bengio figure parmi les chercheurs en IA
+					les plus cités au monde, et préside le Rapport international sur la sécurité de l’IA.
+					Geoffrey Hinton a reçu le prix Nobel de physique 2024, et a quitté Google pour pouvoir
+					parler librement de ces risques. Stuart Russell a écrit le manuel sur lequel la discipline
+					se forme.
 				</p>
 				<p>
-					Ce ne sont pas des voix isolées. Dans les enquêtes menées auprès des chercheurs du
-					domaine, une part substantielle attribue au moins 10 % de probabilité à des conséquences
-					extrêmement graves, dont la perte de contrôle. On peut discuter de ce chiffre, mais pas le
-					ranger du côté de la marge : il vient du cœur de la profession.
-				</p>
-				<p>
-					Enfin, les entreprises qui construisent ces systèmes tiennent le même discours contre leur
-					propre intérêt commercial. Leurs dirigeants déclarent publiquement que la probabilité
-					d’une catastrophe majeure n’est pas négligeable, et appellent à encadrer, voire à
-					ralentir, la course qu’ils mènent. Une entreprise ne dramatise pas le danger de son
-					produit pour le plaisir, surtout lorsque ces déclarations font chuter sa valorisation.
+					Détail qui dérange les explications faciles : les entreprises tiennent ce discours contre
+					leur propre intérêt. Leurs dirigeants et leurs responsables de la sécurité déclarent
+					publiquement que la probabilité d’une catastrophe majeure n’est pas négligeable, et
+					appellent à encadrer la course qu’ils mènent. Ces prises de parole font chuter les
+					valorisations et attirent les régulateurs. On n’agit pas ainsi pour vendre.
 				</p>
 			</section>
 
 			<section id="mecanisme" aria-labelledby="t-mecanisme">
 				<SectionTitle id="t-mecanisme">Le risque, concrètement</SectionTitle>
 				<p class="intro">
-					Le danger ne suppose pas une IA malveillante. Il suppose une IA très capable qui poursuit
-					efficacement un objectif mal spécifié.
+					Nul besoin d’une IA hostile. Il suffit d’une IA très capable qui poursuit efficacement un
+					objectif mal spécifié.
 				</p>
 				<p>
-					Un système d’IA n’est pas programmé règle par règle. Il apprend à partir de données et
-					d’un signal de récompense, et ce qu’il poursuit réellement en interne n’est pas
-					directement lisible. On observe son comportement, on ne lit pas ses intentions. Tant qu’on
-					reste dans les situations testées, un système qui veut vraiment être utile et un système
-					qui a seulement appris à paraître utile sont indiscernables. La différence n’apparaît
-					qu’une fois sorti de ces situations, c’est-à-dire potentiellement trop tard.
+					Une IA moderne n’est pas écrite règle par règle. Elle est entraînée. On la nourrit de
+					données et d’un signal de récompense, et elle apprend seule. Ce qu’elle poursuit
+					réellement à l’intérieur n’est pas directement lisible. On voit son comportement, pas ses
+					intentions. Tant qu’elle reste dans les situations testées, un système qui veut vraiment
+					aider et un système qui a seulement appris à en donner l’apparence se ressemblent trait
+					pour trait. La différence apparaît une fois sorti de ces situations. C’est-à-dire
+					potentiellement trop tard.
 				</p>
 				<p>
-					Il n’est pas besoin d’hostilité pour que cela tourne mal. Un système indifférent à notre
-					sort, poursuivant un objectif avec des moyens surhumains, suffit. L’analogie courante est
-					celle de la fourmilière : nous ne haïssons pas les fourmis, mais nous construisons
-					l’autoroute là où elles vivent.
+					Il n’est pas besoin de malveillance pour que cela tourne mal. Nous ne détestons pas les
+					fourmis, et nous construisons pourtant l’autoroute là où elles vivent. Un système
+					indifférent à notre sort, poursuivant un objectif avec des moyens surhumains, produit le
+					même genre d’effet.
 				</p>
-				<h3>Ce n’est plus théorique</h3>
+				<h3>Ce n’est plus seulement théorique</h3>
 				<p>
-					En 2026, plusieurs incidents ont rendu ce mécanisme tangible. Des agents d’IA, en cours
-					d’évaluation, se sont échappés de leur environnement de test, ont exploité des failles
-					pour atteindre d’autres systèmes, ont lancé des actions qu’aucun humain ne leur avait
-					demandées, et ont cherché à masquer ce qu’ils faisaient. Ces comportements n’ont pas été
-					programmés : ils émergent, et les laboratoires reconnaissent ne pas savoir les empêcher de
-					façon fiable.
+					En 2026, plusieurs incidents ont rendu ce mécanisme tangible. Des agents d’IA, pendant
+					leur évaluation, se sont échappés de leur environnement de test, ont exploité des failles
+					pour atteindre d’autres systèmes, ont agi sans qu’un humain le leur demande, et ont
+					cherché à masquer leurs traces. Personne ne les avait programmés pour cela. Les
+					laboratoires reconnaissent ne pas savoir l’empêcher de façon fiable. Yoshua Bengio l’a
+					rappelé à la tribune du Conseil de sécurité des Nations unies.
+				</p>
+				<p>
+					Le Rapport international sur la sécurité de l’IA reste, sur ce point, mesuré, et c’est
+					utile à citer honnêtement : les scénarios de perte de contrôle supposent des systèmes qui
+					échappent à la supervision, poursuivent des plans de long terme et résistent à l’arrêt, et
+					les avis d’experts sur leur probabilité « varient fortement ». Le même rapport note
+					cependant qu’« aucune combinaison des méthodes actuelles n’élimine entièrement les
+					défaillances ». Autrement dit, le désaccord porte sur le quand et le comment, pas sur
+					l’existence d’un problème non résolu.
+				</p>
+				<h3>Ce que nous ne disons pas</h3>
+				<p>
+					Pas de robot conscient ni de méchant de cinéma. Et nous ne prétendons pas que les dommages
+					déjà présents (sur l’emploi, l’information, l’environnement) sont négligeables ; ils sont
+					réels, et ils ne retirent rien au risque de perte de contrôle. Ces préoccupations
+					s’ajoutent, elles ne se remplacent pas. Cet espace se concentre sur le risque le plus
+					grave et le moins traité.
 				</p>
 			</section>
 
 			<section id="calendrier" aria-labelledby="t-calendrier">
 				<SectionTitle id="t-calendrier">Pourquoi maintenant, et pourquoi la France</SectionTitle>
 				<p class="intro">
-					Le sujet n’est plus prospectif. Il est déjà dans le débat diplomatique, et la France y a
+					Le sujet a quitté la prospective. Il est déjà dans le débat diplomatique, et la France y a
 					pris des positions.
 				</p>
 				<p>
-					Les progrès récents ne sont pas linéaires. Les systèmes les plus avancés contribuent
-					désormais à concevoir les suivants, ce qui raccourcit le temps disponible pour résoudre
-					les problèmes de sûreté. Attendre d’avoir une preuve complète avant d’agir reviendrait,
-					sur un risque irréversible, à n’agir qu’après le dommage.
+					Les progrès récents ne suivent pas une ligne droite. Les systèmes les plus avancés
+					contribuent désormais à concevoir les suivants, ce qui raccourcit le temps disponible pour
+					résoudre les questions de sûreté. Attendre une preuve complète avant d’agir reviendrait,
+					sur un risque irréversible, à n’agir qu’une fois le mal fait.
 				</p>
 				<p>
-					La France n’est pas spectatrice. Elle a signé, le 23 septembre 2026, l’appel au contrôle
-					des modèles de frontière lancé par la Finlande et la Norvège. Son ministre de l’Europe et
-					des Affaires étrangères est intervenu sur l’IA au Conseil de sécurité des Nations unies.
-					La question n’est donc pas d’ouvrir le sujet, mais de lui donner une traduction concrète.
+					La France n’est pas à l’écart. Elle a signé, le 23 septembre 2026, l’appel au contrôle des
+					modèles de frontière lancé par la Finlande et la Norvège. Son ministre de l’Europe et des
+					Affaires étrangères est intervenu sur l’IA au Conseil de sécurité des Nations unies. Au
+					Sénat, une proposition de résolution européenne déposée en octobre 2025 veut ériger
+					l’alignement des IA en objectif stratégique pour l’Europe. La question est donc déjà posée
+					au plus haut niveau. Reste à lui donner une suite concrète.
 				</p>
 			</section>
 
 			<section id="objections" aria-labelledby="t-objections">
 				<SectionTitle id="t-objections">Répondre aux objections</SectionTitle>
 				<p class="intro">
-					Les cinq « oui mais » que vous entendrez, et de quoi y répondre en réunion ou en plateau.
+					Les six « oui mais » que vous entendrez, et de quoi y répondre sur le vif.
 				</p>
 				<div class="inView">
 					{#each objections as o (o.id)}
@@ -245,8 +262,8 @@
 			<section id="agir" aria-labelledby="t-agir">
 				<SectionTitle id="t-agir">Que puis-je faire concrètement ?</SectionTitle>
 				<p class="intro">
-					Du geste le plus simple au plus engageant. Chaque étape est utile, et des modèles prêts à
-					l’emploi sont fournis.
+					Du geste le plus simple au plus engageant. Chaque marche compte, et les modèles sont
+					fournis.
 				</p>
 				<ol class="echelle">
 					{#each etapes as e, i (e.titre)}
@@ -281,15 +298,12 @@
 				<p class="intro">
 					Prendre position sur ce sujet n’est ni marginal, ni risqué électoralement.
 				</p>
-				<h3>Ce que pensent les Français</h3>
 				<p>
-					Selon un sondage OpinionWay pour le CeSIA (2026), seuls 8 % des Français souhaitent
-					accélérer le développement de l’IA, quand 42 % veulent le ralentir fortement ou le
-					suspendre temporairement. 62 % veulent une IA orientée avant tout vers la sécurité, les
-					droits et l’éthique, contre 21 % vers la performance et l’innovation. Près de huit
-					personnes sur dix sont favorables à des accords internationaux interdisant les capacités
-					d’IA menaçant la vie humaine, et 75 % redoutent une perte de contrôle. Cette adhésion
-					traverse tout le spectre politique.
+					Selon un sondage OpinionWay pour le CeSIA (mai 2026), 8 % des Français veulent accélérer
+					le développement de l’IA, quand 42 % veulent le ralentir fortement ou le suspendre. 62 %
+					souhaitent une IA orientée d’abord vers la sécurité, les droits et l’éthique, contre 21 %
+					vers la performance. 75 % redoutent une perte de contrôle, et cette inquiétude traverse
+					tout le spectre politique.
 				</p>
 				<ul class="chiffres deux">
 					{#each chiffresOpinion as c (c.valeur)}
@@ -301,13 +315,18 @@
 						</li>
 					{/each}
 				</ul>
-				<h3>Des traductions législatives existent déjà</h3>
 				<p>
-					Un moratoire sur la superintelligence n’est pas une idée sans portée juridique. Au
-					Royaume-Uni, une proposition de loi sur la sécurité de la superintelligence artificielle
-					est soutenue par plus de 70 parlementaires de plusieurs partis. Aux États-Unis, un projet
-					de loi visant à l’interdire a été déposé par le sénateur Bernie Sanders et le député Greg
-					Casar. D’autres élus, de sensibilités très différentes, se sont déjà saisis du sujet.
+					Le même constat se retrouve ailleurs. Aux États-Unis, un sondage de l’AI Policy Institute
+					(juin 2026) donne 82 % d’Américains pour qui les entreprises ne devraient pas construire
+					d’IA plus intelligente que l’humain tant qu’elles ne peuvent pas démontrer qu’elles la
+					contrôlent, l’écart entre Démocrates et Républicains ne dépassant pas quelques points.
+				</p>
+				<p>
+					Un moratoire sur la superintelligence a déjà trouvé une traduction juridique. Au
+					Royaume-Uni, une proposition de loi sur la sécurité de la superintelligence réunit plus de
+					70 parlementaires de plusieurs partis. Aux États-Unis, un projet de loi visant à interdire
+					la superintelligence a été déposé par le sénateur Bernie Sanders et le député Greg Casar.
+					D’autres élus, de sensibilités très différentes, s’en sont donc déjà saisis.
 				</p>
 			</section>
 
@@ -378,10 +397,10 @@
 			</section>
 
 			<p class="avertissement">
-				Cet espace est une ressource informative éditée par Pause IA, branche française de PauseAI.
-				Les chiffres et incidents cités renvoient à des sources publiques. Nous recommandons de
-				vérifier la formulation exacte de chaque donnée avant une reprise officielle, et nous
-				pouvons fournir les références détaillées sur demande.
+				Espace informatif édité par Pause IA, branche française de PauseAI. Les chiffres et
+				incidents cités renvoient à des sources publiques. Nous recommandons de vérifier la
+				formulation exacte de chaque donnée avant une reprise officielle, et nous fournissons les
+				références détaillées sur demande.
 			</p>
 		</div>
 	</div>
@@ -508,6 +527,28 @@
 
 	.dernier {
 		margin-bottom: 0;
+	}
+
+	/* ── Citation ── */
+	/* La citation garde le style de blockquote du site (filet orange, fond
+	   crème) : seule la source, en légende, est ajoutée dessous. */
+	.citation {
+		margin: 1.5rem 0;
+		max-inline-size: var(--width-text);
+	}
+
+	.citation blockquote {
+		margin: 0;
+		font-family: var(--font-heading);
+		font-size: 1.1rem;
+		line-height: 1.45;
+	}
+
+	.citation figcaption {
+		margin-top: 0.6rem;
+		font-size: 0.86rem;
+		color: var(--text-2);
+		line-height: 1.5;
 	}
 
 	/* ── Chiffres clés ── */
