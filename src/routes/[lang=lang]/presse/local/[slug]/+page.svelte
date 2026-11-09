@@ -73,7 +73,7 @@
 				title={data.pressRelease.title}
 				class="pr-iframe"
 				sandbox="allow-same-origin"
-			/>
+			></iframe>
 		{/if}
 	</article>
 
@@ -134,7 +134,7 @@
 					title={data.pressRelease.title}
 					class="pr-iframe fullscreen-iframe"
 					sandbox="allow-same-origin"
-				/>
+				></iframe>
 			{/if}
 		</div>
 	</div>

@@ -88,7 +88,9 @@
 			label: t.nav.comprendre,
 			items: [
 				{ href: `${prefix}/ressources`, label: t.nav.liens_utiles },
-				{ href: `${prefix}/fresque`, label: t.nav.fresque }
+				{ href: `${prefix}/fresque`, label: t.nav.fresque },
+				// « Idées reçues » n'existe qu'en français : pas de lien depuis le site anglais.
+				...(lang === 'fr' ? [{ href: `${prefix}/idees-recues`, label: t.nav.idees_recues }] : [])
 				// « Les dangers de l'IA » est retiré du menu le temps de retravailler le
 				// discours. La route reste en place : les liens existants fonctionnent.
 				// La FAQ est rangée dans « À propos ».

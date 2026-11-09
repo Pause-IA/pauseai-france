@@ -92,7 +92,10 @@
 		color: var(--text);
 	}
 
-	p {
+	/* Classe doublée : garde à cette règle la priorité qu'elle avait en Svelte 4
+	   face à `.section :global(p)` de CampaignSection (Svelte 5 ne gonfle plus
+	   la spécificité des sélecteurs des composants). */
+	.content.content p {
 		margin: 0;
 		font-size: 0.9375rem;
 		line-height: 1.6;
