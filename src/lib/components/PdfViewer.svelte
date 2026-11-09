@@ -31,7 +31,7 @@
 				height="100%"
 				frameborder="0"
 				{title}
-			/>
+			></iframe>
 		{/if}
 	</object>
 </div>

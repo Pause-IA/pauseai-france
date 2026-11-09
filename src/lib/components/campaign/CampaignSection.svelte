@@ -34,7 +34,10 @@
 		margin: 0 0 1rem;
 	}
 
-	.intro {
+	/* Classe doublée : garde à cette règle la priorité qu'elle avait en Svelte 4
+	   face à `.section :global(p)` (Svelte 5 ne gonfle plus
+	   la spécificité des sélecteurs des composants). */
+	.intro.intro {
 		margin: 0 0 1.5rem;
 		color: var(--text-2);
 		text-align: left;
