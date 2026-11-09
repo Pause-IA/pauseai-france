@@ -2459,7 +2459,10 @@
 		margin: 0 0 1rem;
 	}
 
-	.prose p {
+	/* Classe doublée : garde à cette règle la priorité qu'elle avait en Svelte 4
+	   face à `.section :global(p)` de CampaignSection (Svelte 5 ne gonfle plus
+	   la spécificité des sélecteurs des composants). */
+	.prose.prose p {
 		line-height: 1.7;
 		color: var(--text-2);
 		margin: 0;

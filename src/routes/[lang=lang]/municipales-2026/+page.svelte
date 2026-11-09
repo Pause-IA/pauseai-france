@@ -306,7 +306,7 @@
 				</div>
 			</div>
 		</div>
-		<activoice-embed id="activoice-embed-1d572d9b_9638_4731_84c0_ce7fd867cccb" />
+		<activoice-embed id="activoice-embed-1d572d9b_9638_4731_84c0_ce7fd867cccb"></activoice-embed>
 	</section>
 
 	<!-- ── 2. Candidats signataires ── -->
