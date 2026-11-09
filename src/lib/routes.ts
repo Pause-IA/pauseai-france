@@ -18,6 +18,13 @@ const EXCLUDED = [
 ]
 
 /**
+ * Pages qui n'existent qu'en français : le site anglais n'y mène pas, et leur
+ * contenu vient d'une source française. Seule l'adresse /fr est référencée,
+ * pour ne pas proposer aux moteurs une URL anglaise au contenu français.
+ */
+const FR_SEULEMENT = ['/idees-recues']
+
+/**
  * Chemins sans préfixe de langue redirigés en 301 par static/_redirects : un
  * sitemap ne doit lister que des URL canoniques, pas des sources de
  * redirection. À tenir à jour avec ce fichier.
@@ -54,6 +61,7 @@ export function getStaticRoutes(): string[] {
 				const suffix = routePath.replace('/[lang=lang]', '')
 				if (suffix.includes('[')) return [] // params libres, ex. [slug]
 				if (EXCLUDED.includes(suffix)) return []
+				if (FR_SEULEMENT.includes(suffix)) return [`/fr${suffix}`]
 				return LANGS.map((lang) => `/${lang}${suffix}`)
 			}
 

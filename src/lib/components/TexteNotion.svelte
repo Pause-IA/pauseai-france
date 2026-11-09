@@ -8,7 +8,7 @@
 	export let liens = true
 </script>
 
-{#each segments as s}{#if s.lien && liens}<a href={s.lien} target="_blank" rel="noopener"
+{#each segments as s}{#if s.lien && liens}<a href={s.lien} target="_blank" rel="noopener noreferrer"
 			><span class:gras={s.gras} class:italique={s.italique}>{s.texte}</span></a
 		>{:else}<span class:gras={s.gras} class:italique={s.italique}>{s.texte}</span>{/if}{/each}
 
