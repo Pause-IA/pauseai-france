@@ -6,6 +6,7 @@
 	import {
 		citationHinton,
 		citations,
+		creditsPortraits,
 		etapes,
 		miseAJour,
 		objections,
@@ -108,7 +109,11 @@
 		<ul class="signataires">
 			{#each signataires as s (s.initiales + s.nom)}
 				<li>
-					<span class="pastille" aria-hidden="true">{s.initiales}</span>
+					{#if s.portrait}
+						<img class="pastille" src={s.portrait.fichier} alt="" loading="lazy" />
+					{:else}
+						<span class="pastille" aria-hidden="true">{s.initiales}</span>
+					{/if}
 					<span class="nom">{s.nom}</span>
 					<span class="fonction">{s.titre}</span>
 				</li>
@@ -391,6 +396,14 @@
 		{/each}
 	</section>
 
+	{#if creditsPortraits.length}
+		<p class="credits">
+			Portraits : {#each creditsPortraits as c, i (c.nom)}{i > 0 ? ' · ' : ''}{c.nom}, photo
+				<a href={c.portrait.page} target="_blank" rel="noopener noreferrer">{c.portrait.auteur}</a>, {c
+					.portrait.licence}{/each}.
+		</p>
+	{/if}
+
 	<p class="avertissement">
 		Les probabilités, déclarations et dates citées renvoient à leurs sources d’origine, accessibles
 		ci-dessus. Document d’information, sans valeur d’engagement. Mise à jour : {dateMaj}.
@@ -400,7 +413,11 @@
 {#snippet carte(c: Citation)}
 	<figure class="citation">
 		<div class="qui">
-			<span class="pastille" aria-hidden="true">{c.initiales}</span>
+			{#if c.portrait}
+				<img class="pastille" src={c.portrait.fichier} alt="" loading="lazy" />
+			{:else}
+				<span class="pastille" aria-hidden="true">{c.initiales}</span>
+			{/if}
 			<span>
 				<span class="nom">{c.nom}</span>
 				<span class="fonction">{c.titre}</span>
@@ -642,6 +659,19 @@
 		margin-bottom: 0.9rem;
 	}
 
+	img.pastille {
+		object-fit: cover;
+		background: var(--bg-card);
+	}
+
+	.credits {
+		padding-top: 2rem;
+		border-top: 1px solid var(--border);
+		font-size: 0.8rem;
+		color: var(--text-2);
+		line-height: 1.6;
+	}
+
 	.citation .pastille {
 		margin: 0;
 		inline-size: 3rem;
@@ -864,7 +894,7 @@
 	}
 
 	.avertissement {
-		padding-block: 2rem 4rem;
+		padding-block: 0.75rem 4rem;
 		font-size: 0.85rem;
 		color: var(--text-2);
 		line-height: 1.6;

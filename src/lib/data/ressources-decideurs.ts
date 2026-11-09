@@ -12,11 +12,31 @@ export const miseAJour = '2026-11-09'
 
 // ── Signataires mis en avant de la déclaration du Center for AI Safety ──────
 
+/**
+ * Portrait libre de droits, issu de Wikimedia Commons.
+ *
+ * Les trois champs sont indissociables : sans l'auteur et la licence, la photo
+ * ne peut pas être publiée. Le crédit est repris en bas de page, comme
+ * l'exigent les licences CC BY et CC BY-SA.
+ *
+ * `fichier` est un chemin sous /static, par exemple
+ * « /decideurs/geoffrey-hinton.jpg ».
+ */
+export interface Portrait {
+	fichier: string
+	auteur: string
+	/** Nom court de la licence, tel qu'il figure sur la page du fichier. */
+	licence: string
+	/** La page du fichier sur Commons, où licence et auteur sont vérifiables. */
+	page: string
+}
+
 export interface Signataire {
-	/** Initiales affichées dans la pastille, faute de portraits libres de droits. */
+	/** Initiales de repli, tant qu'aucun portrait n'est disponible. */
 	initiales: string
 	nom: string
 	titre: string
+	portrait?: Portrait
 }
 
 export const signataires: Signataire[] = [
@@ -38,6 +58,7 @@ export interface Citation {
 	initiales: string
 	nom: string
 	titre: string
+	portrait?: Portrait
 	propos: string
 	/** Contexte de la citation, affiché sous le propos. */
 	source: string
@@ -291,3 +312,15 @@ export const references: GroupeDeReferences[] = [
 		]
 	}
 ]
+
+/**
+ * Tous les portraits de la page, dans l'ordre d'apparition, sans doublon :
+ * c'est la liste des crédits à afficher en bas de page.
+ */
+export const creditsPortraits: { nom: string; portrait: Portrait }[] = [
+	...signataires.map((s) => ({ nom: s.nom, portrait: s.portrait })),
+	{ nom: citationHinton.nom, portrait: citationHinton.portrait },
+	...citations.map((c) => ({ nom: c.nom, portrait: c.portrait }))
+]
+	.filter((e): e is { nom: string; portrait: Portrait } => Boolean(e.portrait))
+	.filter((e, i, tous) => tous.findIndex((x) => x.nom === e.nom) === i)
