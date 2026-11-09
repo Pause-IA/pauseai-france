@@ -22,10 +22,13 @@
 	import '../app.css'
 
 	$: lang = ($page.data.lang as Lang | undefined) ?? 'fr'
+	// Fond neutre : l'accueil, et l'espace décideurs, dont les cartes et les
+	// portraits ont besoin d'un fond qui ne les teinte pas.
 	$: bgWhite =
 		$page.url.pathname == '/' ||
 		$page.url.pathname === `/${lang}` ||
-		$page.url.pathname === `/${lang}/`
+		$page.url.pathname === `/${lang}/` ||
+		$page.url.pathname.endsWith('/ressources-decideurs')
 
 	// Fetch banner from Notion API on all pages
 	onMount(async () => {

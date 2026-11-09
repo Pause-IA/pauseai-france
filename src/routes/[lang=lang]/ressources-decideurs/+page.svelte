@@ -429,12 +429,34 @@
 	   SectionTitle, Card, Accordion, Button. Les styles ci-dessous ne font que
 	   ce qu'aucune brique ne couvre : la grille des signataires, l'échelle
 	   d'action, la liste de sources et les crédits. */
+	/* Colonne de lecture étroite : 44 rem, soit environ 66 caractères par ligne,
+	   la longueur sur laquelle l'œil revient à la ligne sans se perdre. En
+	   54 rem (la largeur « éditoriale » par défaut), les lignes approchent 90
+	   caractères et la page paraît aussitôt moins tenue. */
 	.note {
 		inline-size: 100%;
-		max-inline-size: var(--width-content);
+		max-inline-size: var(--width-text);
 		margin-inline: auto;
 		padding-inline: 1.5rem;
 		padding-block: 3rem 0;
+		line-height: 1.62;
+	}
+
+	/* Hiérarchie : le titre de page est nettement plus grand et plus gras que
+	   les titres de section, qui le sont eux-mêmes nettement plus que le texte.
+	   Sans cet écart, tout se vaut et la page paraît plate. */
+	.note :global(h1) {
+		font-size: clamp(2.1rem, 6vw, 3.2rem);
+		line-height: 1.06;
+		letter-spacing: -0.025em;
+		font-weight: 800;
+	}
+
+	.note :global(h2) {
+		font-size: clamp(1.5rem, 3.4vw, 2.05rem);
+		line-height: 1.12;
+		letter-spacing: -0.02em;
+		font-weight: 800;
 	}
 
 	.maj {
@@ -444,21 +466,19 @@
 	}
 
 	.chapo p {
-		max-inline-size: var(--width-text);
-		line-height: 1.65;
+		font-size: clamp(1.05rem, 2vw, 1.18rem);
 	}
 
+	/* Respiration : les sections sont espacées d'un cran fixe et séparées d'un
+	   filet d'un pixel, au lieu de marges choisies au cas par cas. */
 	section {
-		padding-block: 2rem 0;
-	}
-
-	section + section {
-		margin-top: 1.5rem;
+		padding-block: clamp(2.5rem, 6vw, 4rem) 0;
+		border-top: 1px solid var(--border);
+		margin-top: clamp(2.5rem, 6vw, 4rem);
 	}
 
 	.note :global(p) {
-		max-inline-size: var(--width-text);
-		line-height: 1.65;
+		line-height: 1.62;
 	}
 
 	.intro,
