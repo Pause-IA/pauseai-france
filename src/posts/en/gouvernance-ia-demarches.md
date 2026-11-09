@@ -71,3 +71,29 @@ From 2024–2025, the Existential Risk Observatory has proposed a "Conditional A
 **"[Building the Pause Button](https://pauseai.info/building-the-pause-button)" (2025)**
 
 The PauseAI movement proposed a hardware-based approach to the pause at the 2025 AI Safety Camp. Training frontier LLM-type models requires large amounts of highly specialised and expensive hardware (chips). The supply chain for this hardware relies on a very small number of highly specialised companies, such as ASML (Netherlands) and SMEE (China) for the lithography machines needed to make the chips, or TSMC (Taiwan), Samsung (South Korea) and SMIC (China) for the fabrication plants. Through the AI chip supply chain, governments or other regulators can know about, and physically control, the activity of the companies developing AI.
+
+<p class="renvoi-demande">
+  <a href="/en/propositions">Read what Pause IA is asking for &rarr;</a>
+</p>
+
+<style>
+  .renvoi-demande {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .renvoi-demande a {
+    display: inline-block;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .renvoi-demande a:hover {
+    border-color: var(--brand);
+  }
+</style>

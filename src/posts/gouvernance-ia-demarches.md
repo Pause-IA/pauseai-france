@@ -72,3 +72,29 @@ Pour mettre ce cadre en œuvre dans les démocraties, ControlAI développe ensui
 **« [Construire le bouton Pause](https://pauseai.info/building-the-pause-button) » (2025)**
 
 Le mouvement Pause AI a proposé une approche matérielle de la pause lors de l'AI Safety Camp de 2025. L'entraînement de modèles de pointe de type LLM nécessite beaucoup de matériel hautement spécialisé et coûteux (des puces). La chaîne d'approvisionnement pour ce matériel repose sur un très petit nombre d'entreprises extrêmement spécialisées, comme ASML (Pays-Bas) et SMEE (Chine) pour les machines de lithographie nécessaires à la fabrication des puces, ou TSMC (Taïwan), Samsung (Corée du Sud) et SMIC (Chine) pour les usines de fabrication. Via la chaîne d'approvisionnement des puces d'IA, les gouvernements ou d'autres instances de régulation peuvent connaître et contrôler matériellement l'activité des compagnies qui développent l'IA.
+
+<p class="renvoi-demande">
+  <a href="/fr/propositions">Lire ce que demande Pause IA &rarr;</a>
+</p>
+
+<style>
+  .renvoi-demande {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .renvoi-demande a {
+    display: inline-block;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .renvoi-demande a:hover {
+    border-color: var(--brand);
+  }
+</style>
