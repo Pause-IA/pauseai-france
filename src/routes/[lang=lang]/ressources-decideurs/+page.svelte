@@ -449,14 +449,14 @@
 		font-size: clamp(2.1rem, 6vw, 3.2rem);
 		line-height: 1.06;
 		letter-spacing: -0.025em;
-		font-weight: 800;
+		font-weight: 700;
 	}
 
 	.note :global(h2) {
 		font-size: clamp(1.5rem, 3.4vw, 2.05rem);
 		line-height: 1.12;
 		letter-spacing: -0.02em;
-		font-weight: 800;
+		font-weight: 700;
 	}
 
 	.maj {
