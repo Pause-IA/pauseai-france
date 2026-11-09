@@ -10,7 +10,7 @@ largeur 320 px suffit (ils sont affichés à 3 rem) :
 | `yoshua-bengio.jpg`   | https://commons.wikimedia.org/wiki/File:Yoshua_Bengio_2019_cropped.jpg                                          |
 | `demis-hassabis.jpg`  | https://commons.wikimedia.org/wiki/File:Demis_Hassabis,_2024_Nobel_Prize_Laureate_in_Chemistry_(cropped).jpg    |
 | `sam-altman.jpg`      | https://commons.wikimedia.org/wiki/File:Sam_Altman_CropEdit_James_Tamim.jpg                                     |
-| `dario-amodei.jpg`    | https://commons.wikimedia.org/wiki/File:Dario_Amodei_in_2023_(cropped).jpg                                      |
+| `dario-amodei.jpg`    | https://commons.wikimedia.org/wiki/File:Dario_Amodei_at_TechCrunch_Disrupt_2023_02_(cropped).jpg                |
 | `bill-gates.jpg`      | https://commons.wikimedia.org/wiki/File:Bill_Gates_-_2023_-_P062021-203496_(cropped).jpg                        |
 | `stuart-russell.jpg`  | https://commons.wikimedia.org/wiki/File:Stuart_Russell.jpg                                                      |
 | `ilya-sutskever.jpg`  | https://commons.wikimedia.org/wiki/File:Ilya_Sutskever_and_Sam_Altman_in_TAU_(cropped).jpg                      |
