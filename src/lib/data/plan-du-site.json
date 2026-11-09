@@ -1,5 +1,5 @@
 {
-	"genere": "2026-11-04",
+	"genere": "2026-11-09",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -12,6 +12,11 @@
 				{
 					"href": "/fresque",
 					"label": "La fresque des risques de l’IA",
+					"externe": false
+				},
+				{
+					"href": "/idees-recues",
+					"label": "Idées reçues",
 					"externe": false
 				}
 			]
@@ -26,7 +31,7 @@
 				},
 				{
 					"href": "/declaration",
-					"label": "Signer la déclaration",
+					"label": "Signer l'appel",
 					"externe": false
 				},
 				{
@@ -143,7 +148,7 @@
 				},
 				{
 					"href": "/declaration",
-					"label": "Signer la déclaration",
+					"label": "Signer l'appel",
 					"externe": false
 				},
 				{
@@ -280,10 +285,6 @@
 			"url": "/recrutement"
 		},
 		{
-			"chemin": "/ressources-decideurs",
-			"url": "/fr/ressources-decideurs"
-		},
-		{
 			"chemin": "/senat2025",
 			"url": "/fr/senat2025"
 		},
@@ -304,6 +305,7 @@
 		"/[slug]",
 		"/articles/[slug]",
 		"/dangers/[slug]",
+		"/idees-recues/[slug]",
 		"/newsletters/[slug]",
 		"/presse/local/[slug]",
 		"/presse/national/[slug]"
@@ -383,7 +385,7 @@
 		},
 		{
 			"slug": "/en/gouvernance-ia-demarches",
-			"titre": "AI governance: where existing efforts stand"
+			"titre": "AI governance: the efforts under way"
 		},
 		{
 			"slug": "/en/mentions-legales",
@@ -415,7 +417,7 @@
 		},
 		{
 			"slug": "/gouvernance-ia-demarches",
-			"titre": "Gouvernance de l'IA : où en sont les démarches existantes"
+			"titre": "Gouvernance de l'IA : les démarches engagées"
 		},
 		{
 			"slug": "/mentions-legales",
@@ -456,7 +458,7 @@
 	],
 	"total": {
 		"pages": 37,
-		"dynamiques": 6,
+		"dynamiques": 7,
 		"articles": 36
 	}
 }

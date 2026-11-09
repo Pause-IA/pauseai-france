@@ -5,7 +5,7 @@
 > du menu principal, du pied de page et des articles du dépôt, donc il ne
 > peut pas diverger du site.
 >
-> Dernière génération : 2026-11-04.
+> Dernière génération : 2026-11-09.
 
 Ce document décrit le site **réel**. Le plan _souhaité_ est une décision
 d'équipe et se tient ailleurs.
@@ -13,9 +13,9 @@ d'équipe et se tient ailleurs.
 ## En un coup d’œil
 
 - **37 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
-- **6 gabarits dynamiques** (articles, campagnes, dangers…)
+- **7 gabarits dynamiques** (articles, campagnes, dangers…)
 - **36 articles** en Markdown dans `src/posts`
-- **21 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
+- **20 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
 
 ## Arborescence depuis le menu principal
 
@@ -28,56 +28,55 @@ flowchart LR
   accueil --> g0["Comprendre"]
   g0 --> n1["Ressources<br/><small>/ressources</small>"]
   g0 --> n2["La fresque des risques de l’IA<br/><small>/fresque</small>"]
+  g0 --> n3["Idées reçues<br/><small>/idees-recues</small>"]
   accueil --> g1["Agir"]
-  g1 --> n3["Écrire à vos élus<br/><small>/ecrire-a-mes-elus</small>"]
-  g1 --> n4["Signer la déclaration<br/><small>/declaration</small>"]
-  g1 --> n5["Relayer nos messages<br/><small>/relayer-nos-messages</small>"]
-  g1 --> n6["Agir près de chez vous<br/><small>/groupes-locaux</small>"]
-  g1 --> n7["Convaincre autour de vous ↗<br/><small>site externe</small>"]
-  class n7 externe
-  g1 --> n8["Toutes les façons d’agir<br/><small>/agir</small>"]
+  g1 --> n4["Écrire à vos élus<br/><small>/ecrire-a-mes-elus</small>"]
+  g1 --> n5["Signer l'appel<br/><small>/declaration</small>"]
+  g1 --> n6["Relayer nos messages<br/><small>/relayer-nos-messages</small>"]
+  g1 --> n7["Agir près de chez vous<br/><small>/groupes-locaux</small>"]
+  g1 --> n8["Convaincre autour de vous ↗<br/><small>site externe</small>"]
+  class n8 externe
+  g1 --> n9["Toutes les façons d’agir<br/><small>/agir</small>"]
   accueil --> g2["Campagnes"]
-  g2 --> n9["Au bord de la perte de contrôle<br/><small>/perte-de-controle</small>"]
-  g2 --> n10["L’IA ne détruira pas QUE votre emploi<br/><small>/emploi-ia</small>"]
-  g2 --> n11["Toutes nos campagnes<br/><small>/campagnes</small>"]
+  g2 --> n10["Au bord de la perte de contrôle<br/><small>/perte-de-controle</small>"]
+  g2 --> n11["L’IA ne détruira pas QUE votre emploi<br/><small>/emploi-ia</small>"]
+  g2 --> n12["Toutes nos campagnes<br/><small>/campagnes</small>"]
   accueil --> g3["À propos"]
-  g3 --> n12["Qui sommes-nous ?<br/><small>/qui-sommes-nous</small>"]
-  g3 --> n13["Que demandons-nous ?<br/><small>/propositions</small>"]
-  g3 --> n14["FAQ<br/><small>/faq</small>"]
+  g3 --> n13["Qui sommes-nous ?<br/><small>/qui-sommes-nous</small>"]
+  g3 --> n14["Que demandons-nous ?<br/><small>/propositions</small>"]
+  g3 --> n15["FAQ<br/><small>/faq</small>"]
   accueil -.-> orph["Hors menu"]
-  orph -.-> n15["/articles/ce-que-lia-fait-au-travail"]
-  class n15 orpheline
-  orph -.-> n16["/articles/pas-de-pilote"]
+  orph -.-> n16["/articles/ce-que-lia-fait-au-travail"]
   class n16 orpheline
-  orph -.-> n17["/articles/remplacer-humain"]
+  orph -.-> n17["/articles/pas-de-pilote"]
   class n17 orpheline
-  orph -.-> n18["/campagne-modele"]
+  orph -.-> n18["/articles/remplacer-humain"]
   class n18 orpheline
-  orph -.-> n19["/declaration/confirmer"]
+  orph -.-> n19["/campagne-modele"]
   class n19 orpheline
-  orph -.-> n20["/declaration/signataires"]
+  orph -.-> n20["/declaration/confirmer"]
   class n20 orpheline
-  orph -.-> n21["/emploi-ia/merci"]
+  orph -.-> n21["/declaration/signataires"]
   class n21 orpheline
-  orph -.-> n22["/emploi-ia/questionnaire"]
+  orph -.-> n22["/emploi-ia/merci"]
   class n22 orpheline
-  orph -.-> n23["/g7-2026"]
+  orph -.-> n23["/emploi-ia/questionnaire"]
   class n23 orpheline
-  orph -.-> n24["/geneve-2026"]
+  orph -.-> n24["/g7-2026"]
   class n24 orpheline
-  orph -.-> n25["/guide-recrutement"]
+  orph -.-> n25["/geneve-2026"]
   class n25 orpheline
-  orph -.-> n26["/merci"]
+  orph -.-> n26["/guide-recrutement"]
   class n26 orpheline
-  orph -.-> n27["/municipales-2026"]
+  orph -.-> n27["/merci"]
   class n27 orpheline
-  orph -.-> n28["/plan-du-site"]
+  orph -.-> n28["/municipales-2026"]
   class n28 orpheline
-  orph -.-> n29["/posts"]
+  orph -.-> n29["/plan-du-site"]
   class n29 orpheline
-  orph -.-> n30["/recrutement"]
+  orph -.-> n30["/posts"]
   class n30 orpheline
-  orph -.-> n31["/ressources-decideurs"]
+  orph -.-> n31["/recrutement"]
   class n31 orpheline
   orph -.-> n32["/senat2025"]
   class n32 orpheline
@@ -95,17 +94,18 @@ flowchart LR
 
 ### Comprendre
 
-| Page                           | Chemin        |
-| ------------------------------ | ------------- |
-| Ressources                     | `/ressources` |
-| La fresque des risques de l’IA | `/fresque`    |
+| Page                           | Chemin          |
+| ------------------------------ | --------------- |
+| Ressources                     | `/ressources`   |
+| La fresque des risques de l’IA | `/fresque`      |
+| Idées reçues                   | `/idees-recues` |
 
 ### Agir
 
 | Page                      | Chemin                  |
 | ------------------------- | ----------------------- |
 | Écrire à vos élus         | `/ecrire-a-mes-elus`    |
-| Signer la déclaration     | `/declaration`          |
+| Signer l'appel            | `/declaration`          |
 | Relayer nos messages      | `/relayer-nos-messages` |
 | Agir près de chez vous    | `/groupes-locaux`       |
 | Convaincre autour de vous | _externe_, /recrutement |
@@ -146,7 +146,7 @@ flowchart LR
 | Rejoindre un groupe local | `/groupes-locaux`                       |
 | Toutes les façons d'agir  | `/agir`                                 |
 | Écrire à vos élus         | `/ecrire-a-mes-elus`                    |
-| Signer la déclaration     | `/declaration`                          |
+| Signer l'appel            | `/declaration`                          |
 | Faire un don              | `/dons`                                 |
 | Boutique                  | _externe_, https://boutique.pauseia.fr/ |
 
@@ -193,7 +193,6 @@ campagne, confirmations, remerciements.
 - `/plan-du-site`
 - `/posts`
 - `/recrutement`
-- `/ressources-decideurs`
 - `/senat2025`
 - `/sommet-ia-2026`
 - `/tribunes/le-monde-octobre-2026`
@@ -207,6 +206,7 @@ Une seule route sert toutes les pages d’une famille ; le contenu vient de
 - `/[slug]`
 - `/articles/[slug]`
 - `/dangers/[slug]`
+- `/idees-recues/[slug]`
 - `/newsletters/[slug]`
 - `/presse/local/[slug]`
 - `/presse/national/[slug]`
@@ -233,7 +233,7 @@ Une seule route sert toutes les pages d’une famille ; le contenu vient de
 | Dangers for Society                                          | `src/posts/en/dangers/for-society.md`                                          |
 | FAQ                                                          | `src/posts/en/faq.md`                                                          |
 | Our funding                                                  | `src/posts/en/financements.md`                                                 |
-| AI governance: where existing efforts stand                  | `src/posts/en/gouvernance-ia-demarches.md`                                     |
+| AI governance: the efforts under way                         | `src/posts/en/gouvernance-ia-demarches.md`                                     |
 | Legal Notices                                                | `src/posts/en/mentions-legales.md`                                             |
 | Privacy Policy                                               | `src/posts/en/politique-de-confidentialite.md`                                 |
 | What do we ask for?                                          | `src/posts/en/propositions.md`                                                 |
@@ -241,7 +241,7 @@ Une seule route sert toutes les pages d’une famille ; le contenu vient de
 | Share our messages                                           | `src/posts/en/relayer-nos-messages.md`                                         |
 | FAQ                                                          | `src/posts/faq.md`                                                             |
 | Notre financement                                            | `src/posts/financements.md`                                                    |
-| Gouvernance de l'IA : où en sont les démarches existantes    | `src/posts/gouvernance-ia-demarches.md`                                        |
+| Gouvernance de l'IA : les démarches engagées                 | `src/posts/gouvernance-ia-demarches.md`                                        |
 | Mentions légales                                             | `src/posts/mentions-legales.md`                                                |
 | Politique de confidentialité                                 | `src/posts/politique-de-confidentialite.md`                                    |
 | Que demandons-nous ?                                         | `src/posts/propositions.md`                                                    |
