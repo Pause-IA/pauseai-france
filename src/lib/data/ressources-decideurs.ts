@@ -15,18 +15,26 @@ export const miseAJour = '2026-11-09'
 /**
  * Portrait libre de droits, issu de Wikimedia Commons.
  *
- * Les trois champs sont indissociables : sans l'auteur et la licence, la photo
- * ne peut pas être publiée. Le crédit est repris en bas de page, comme
- * l'exigent les licences CC BY et CC BY-SA.
+ * L'attribution se fait par le lien `page` : les licences Creative Commons
+ * acceptent qu'elle soit satisfaite « par un lien vers une ressource qui porte
+ * les informations requises » (CC BY 4.0, article 3.a.2), et la page du fichier
+ * sur Commons porte l'auteur, la licence et son texte intégral.
+ *
+ * `auteur` et `licence` sont facultatifs : renseignés, ils s'affichent dans la
+ * ligne de crédits, ce qui est plus courtois pour le photographe que le seul
+ * lien. Vides, le crédit nomme Wikimedia Commons et renvoie à la page.
  *
  * `fichier` est un chemin sous /static, par exemple
  * « /decideurs/geoffrey-hinton.jpg ».
  */
 export interface Portrait {
 	fichier: string
-	auteur: string
+	/** Nom du photographe, tel qu'il figure sur la page du fichier. */
+	auteur?: string
 	/** Nom court de la licence, tel qu'il figure sur la page du fichier. */
-	licence: string
+	licence?: string
+	/** Le texte de la licence, lié depuis le crédit. */
+	licenceUrl?: string
 	/** La page du fichier sur Commons, où licence et auteur sont vérifiables. */
 	page: string
 }
@@ -40,67 +48,74 @@ export interface Signataire {
 }
 
 /**
- * Les portraits, rassemblés ici pour n'écrire qu'une fois le fichier, l'auteur,
- * la licence et la page de vérification.
+ * Les portraits, rassemblés ici pour n'écrire qu'une fois le fichier, la page
+ * de référence et, quand on les a, l'auteur et la licence.
  *
- * ⚠ `auteur` et `licence` restent à relever sur chaque page Commons (champs
- * « Author » et « Licensing »). Tant qu'ils sont vides, la page affiche les
- * initiales au lieu de la photo : les licences CC BY et CC BY-SA imposent de
- * créditer, et un crédit inventé ne vaut pas mieux qu'une absence de crédit.
+ * Les photos sont recadrées au carré et réduites à 256 px. Trois d'entre elles
+ * (Hinton, Hassabis, Russell) sont sous CC BY-SA : toute version modifiée se
+ * repartage sous la même licence, ce que la ligne de crédits indique.
  */
 const portraits: Record<string, Portrait> = {
 	'geoffrey-hinton': {
 		fichier: '/decideurs/geoffrey-hinton.jpg',
-		auteur: '',
-		licence: '',
+		auteur: 'Arthur Petron',
+		licence: 'CC BY-SA 4.0',
+		licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
 		page: 'https://commons.wikimedia.org/wiki/File:Geoffrey_E._Hinton,_2024_Nobel_Prize_Laureate_in_Physics_(cropped1).jpg'
 	},
 	'yoshua-bengio': {
 		fichier: '/decideurs/yoshua-bengio.jpg',
-		auteur: '',
-		licence: '',
+		auteur: 'Maryse Boyce',
+		licence: 'CC BY 4.0',
+		licenceUrl: 'https://creativecommons.org/licenses/by/4.0/',
 		page: 'https://commons.wikimedia.org/wiki/File:Yoshua_Bengio_2019_cropped.jpg'
 	},
 	'demis-hassabis': {
 		fichier: '/decideurs/demis-hassabis.jpg',
-		auteur: '',
-		licence: '',
+		auteur: 'Arthur Petron',
+		licence: 'CC BY-SA 4.0',
+		licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
 		page: 'https://commons.wikimedia.org/wiki/File:Demis_Hassabis,_2024_Nobel_Prize_Laureate_in_Chemistry_(cropped).jpg'
 	},
 	'sam-altman': {
 		fichier: '/decideurs/sam-altman.jpg',
-		auteur: '',
-		licence: '',
+		auteur: 'TechCrunch',
+		licence: 'CC BY 2.0',
+		licenceUrl: 'https://creativecommons.org/licenses/by/2.0/',
 		page: 'https://commons.wikimedia.org/wiki/File:Sam_Altman_CropEdit_James_Tamim.jpg'
 	},
 	'dario-amodei': {
 		fichier: '/decideurs/dario-amodei.jpg',
-		auteur: '',
-		licence: '',
+		auteur: 'TechCrunch',
+		licence: 'CC BY 2.0',
+		licenceUrl: 'https://creativecommons.org/licenses/by/2.0/',
 		page: 'https://commons.wikimedia.org/wiki/File:Dario_Amodei_at_TechCrunch_Disrupt_2023_02_(cropped).jpg'
 	},
 	'bill-gates': {
 		fichier: '/decideurs/bill-gates.jpg',
-		auteur: '',
-		licence: '',
+		auteur: 'Commission européenne / Jennifer Jacquemart, © Union européenne 2023',
+		licence: 'CC BY 4.0',
+		licenceUrl: 'https://creativecommons.org/licenses/by/4.0/',
 		page: 'https://commons.wikimedia.org/wiki/File:Bill_Gates_-_2023_-_P062021-203496_(cropped).jpg'
 	},
 	'stuart-russell': {
 		fichier: '/decideurs/stuart-russell.jpg',
-		auteur: '',
-		licence: '',
+		auteur: 'auteur inconnu, via Wikimedia Commons',
+		licence: 'CC BY-SA 3.0',
+		licenceUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
 		page: 'https://commons.wikimedia.org/wiki/File:Stuart_Russell.jpg'
 	},
 	'max-tegmark': {
 		fichier: '/decideurs/max-tegmark.jpg',
-		auteur: '',
-		licence: '',
+		auteur: 'Web Summit',
+		licence: 'CC BY 2.0',
+		licenceUrl: 'https://creativecommons.org/licenses/by/2.0/',
 		page: 'https://commons.wikimedia.org/wiki/File:Max_Tegmark_2024_(cropped).jpg'
 	}
 }
 
-/** Un portrait n'est publiable qu'avec son auteur et sa licence. */
-export const portraitComplet = (p?: Portrait): p is Portrait => Boolean(p && p.auteur && p.licence)
+/** Un portrait est publiable dès qu'on a le fichier et sa page de référence. */
+export const portraitComplet = (p?: Portrait): p is Portrait => Boolean(p && p.fichier && p.page)
 
 export const signataires: Signataire[] = [
 	{

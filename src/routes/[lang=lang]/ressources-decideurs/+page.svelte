@@ -399,9 +399,13 @@
 
 	{#if creditsPortraits.length}
 		<p class="credits">
-			Portraits : {#each creditsPortraits as c, i (c.nom)}{i > 0 ? ' · ' : ''}{c.nom}, photo
-				<a href={c.portrait.page} target="_blank" rel="noopener noreferrer">{c.portrait.auteur}</a>, {c
-					.portrait.licence}{/each}.
+			Portraits recadrés, issus de Wikimedia Commons. {#each creditsPortraits as c, i (c.nom)}{i > 0
+					? ' · '
+					: ''}<a href={c.portrait.page} target="_blank" rel="noopener noreferrer">{c.nom}</a
+				>{#if c.portrait.auteur}, {c.portrait.auteur}{/if}{#if c.portrait.licence},
+					<a href={c.portrait.licenceUrl} target="_blank" rel="noopener noreferrer"
+						>{c.portrait.licence}</a
+					>{/if}{/each}. Les images sous CC BY-SA sont repartagées sous la même licence.
 		</p>
 	{/if}
 
