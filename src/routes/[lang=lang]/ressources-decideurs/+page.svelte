@@ -2,6 +2,7 @@
 	import PostMeta from '$components/PostMeta.svelte'
 	import Accordion from '$components/Accordion.svelte'
 	import Button from '$components/Button.svelte'
+	import { Card, PageHero, SectionTitle } from '$components/ui'
 	import { Check, Copy } from 'lucide-svelte'
 	import {
 		citationHinton,
@@ -58,42 +59,37 @@
 
 <article class="note">
 	<!-- ── Ouverture ── -->
-	<header class="ouverture">
-		<p class="surtitre">
-			Perte de contrôle de l’intelligence artificielle · <strong>note de synthèse</strong>
-		</p>
-		<p class="maj">Mise à jour : {dateMaj}</p>
-		<h1>{title}</h1>
-		<hr />
-		<div class="chapo">
-			<p>
-				Les grands laboratoires d’intelligence artificielle ont un objectif affiché : construire des
-				systèmes capables d’agir seuls, sans qu’un humain les dirige. Poussé à son terme, cet
-				objectif donne des machines plus compétentes que nous dans la plupart des tâches, et qu’il
-				deviendrait très difficile d’arrêter une fois lancées.
-			</p>
-			<p>
-				Au rythme actuel, plusieurs dirigeants de ces laboratoires estiment que de tels systèmes
-				pourraient arriver avant 2030.
-				<strong
-					>Personne, aujourd’hui, ne sait garantir qu’une intelligence artificielle de ce niveau
-					resterait sous contrôle humain.</strong
-				>
-			</p>
-			<p>
-				Ce n’est pas une inquiétude marginale. Des centaines de chercheurs parmi les plus cités,
-				plusieurs lauréats du prix Nobel, et jusqu’aux dirigeants des entreprises qui construisent
-				ces systèmes, ont signé des textes alertant sur un risque d’extinction de l’humanité.
-			</p>
-		</div>
-	</header>
-</article>
+	<PageHero eyebrow="Perte de contrôle de l’IA · note de synthèse">
+		{title}
+		<svelte:fragment slot="lede">
+			Les grands laboratoires d’intelligence artificielle ont un objectif affiché : construire des
+			systèmes capables d’agir seuls, sans qu’un humain les dirige. Poussé à son terme, cet objectif
+			donne des machines plus compétentes que nous dans la plupart des tâches, et qu’il deviendrait
+			très difficile d’arrêter une fois lancées.
+		</svelte:fragment>
+	</PageHero>
 
-<!-- ── La déclaration ── -->
-<section class="bandeau" aria-labelledby="t-declaration">
-	<div class="dedans">
-		<h2 id="t-declaration" class="sr-only">La déclaration du Center for AI Safety</h2>
-		<p class="guillemet" aria-hidden="true">“</p>
+	<p class="maj">Mise à jour : {dateMaj}</p>
+
+	<div class="chapo">
+		<p>
+			Au rythme actuel, plusieurs dirigeants de ces laboratoires estiment que de tels systèmes
+			pourraient arriver avant 2030.
+			<strong
+				>Personne, aujourd’hui, ne sait garantir qu’une intelligence artificielle de ce niveau
+				resterait sous contrôle humain.</strong
+			>
+		</p>
+		<p>
+			Ce n’est pas une inquiétude marginale. Des centaines de chercheurs parmi les plus cités,
+			plusieurs lauréats du prix Nobel, et jusqu’aux dirigeants des entreprises qui construisent ces
+			systèmes, ont signé des textes alertant sur un risque d’extinction de l’humanité.
+		</p>
+	</div>
+
+	<!-- ── La déclaration ── -->
+	<section class="ordinaire" aria-labelledby="t-declaration">
+		<SectionTitle id="t-declaration">Ce que disent ceux qui construisent l’IA</SectionTitle>
 		<blockquote>
 			Atténuer le risque d’extinction lié à l’intelligence artificielle devrait être une priorité
 			mondiale, au même titre que d’autres risques pour la société comme les pandémies et la guerre
@@ -120,13 +116,11 @@
 				</li>
 			{/each}
 		</ul>
-	</div>
-</section>
+	</section>
 
-<article class="note">
 	<!-- ── Pourquoi on ne sait pas les contrôler ── -->
 	<section aria-labelledby="t-incontrolable">
-		<h2 id="t-incontrolable">Pourquoi ne sait-on pas les contrôler ?</h2>
+		<SectionTitle id="t-incontrolable">Pourquoi ne sait-on pas les contrôler ?</SectionTitle>
 		<p class="accroche">
 			Un système d’intelligence artificielle moderne n’est pas programmé ligne par ligne, comme un
 			logiciel ordinaire. Il est entraîné.
@@ -154,14 +148,10 @@
 
 		{@render carte(citationHinton)}
 	</section>
-</article>
 
-<!-- ── À quoi ressemblerait une perte de contrôle ── -->
-<section class="bandeau" aria-labelledby="t-menace">
-	<div class="dedans">
-		<h2 id="t-menace">
-			<span class="souligne">À quoi ressemblerait une perte de contrôle ?</span>
-		</h2>
+	<!-- ── À quoi ressemblerait une perte de contrôle ── -->
+	<section class="ordinaire" aria-labelledby="t-menace">
+		<SectionTitle id="t-menace">À quoi ressemblerait une perte de contrôle ?</SectionTitle>
 		<p>
 			Le risque n’a pas la forme d’un robot hostile marchant sur une ville. Il tient à une idée plus
 			simple et plus inquiétante : un système très compétent, chargé d’un objectif, peut employer
@@ -192,13 +182,11 @@
 			Le point commun de ces scénarios : celui qui perd le contrôle ne le récupère pas, et la
 			capacité se concentre aujourd’hui hors de France.
 		</p>
-	</div>
-</section>
+	</section>
 
-<article class="note">
 	<!-- ── Combien de temps ── -->
 	<section aria-labelledby="t-fenetre">
-		<h2 id="t-fenetre">Combien de temps reste-t-il ?</h2>
+		<SectionTitle id="t-fenetre">Combien de temps reste-t-il ?</SectionTitle>
 		<p>
 			Avant la sortie de ChatGPT fin 2022, la plupart des chercheurs voyaient une intelligence
 			artificielle hors de contrôle comme un problème lointain, pour les générations futures. Le
@@ -220,7 +208,7 @@
 
 	<!-- ── Qui le dit ── -->
 	<section aria-labelledby="t-qui">
-		<h2 id="t-qui">Qui le dit, et faut-il les croire ?</h2>
+		<SectionTitle id="t-qui">Qui le dit, et faut-il les croire ?</SectionTitle>
 		<p>
 			L’alerte ne vient pas d’observateurs extérieurs au domaine, mais de celles et ceux qui
 			construisent ces systèmes et de la communauté scientifique qui les étudie. C’est ce qui la
@@ -255,7 +243,7 @@
 
 	<!-- ── Que peut-on faire ── -->
 	<section id="faire" aria-labelledby="t-faire">
-		<h2 id="t-faire">Que peut-on faire ?</h2>
+		<SectionTitle id="t-faire">Que peut-on faire ?</SectionTitle>
 		<p class="accroche">
 			Le point de départ est simple : il faut interdire le développement des systèmes que personne
 			ne sait contrôler.
@@ -295,12 +283,10 @@
 			<Button href="#ecrire">Demander un briefing à Pause IA</Button>
 		</p>
 	</section>
-</article>
 
-<!-- ── Objections ── -->
-<section class="bandeau" aria-labelledby="t-objections">
-	<div class="dedans">
-		<h2 id="t-objections"><span class="souligne">Objections courantes</span></h2>
+	<!-- ── Objections ── -->
+	<section class="ordinaire" aria-labelledby="t-objections">
+		<SectionTitle id="t-objections">Objections courantes</SectionTitle>
 		<div class="inView questions">
 			{#each objections as o (o.id)}
 				<Accordion id={o.id} open={false}>
@@ -311,13 +297,11 @@
 				</Accordion>
 			{/each}
 		</div>
-	</div>
-</section>
+	</section>
 
-<article class="note">
 	<!-- ── Où en est la réponse publique ── -->
 	<section aria-labelledby="t-reponse">
-		<h2 id="t-reponse">Où en est la réponse publique ?</h2>
+		<SectionTitle id="t-reponse">Où en est la réponse publique ?</SectionTitle>
 		<p>
 			Le sujet commence à sortir du cercle des spécialistes, mais les engagements concrets restent
 			en retard sur le niveau d’alerte.
@@ -349,7 +333,7 @@
 
 	<!-- ── Agir ── -->
 	<section id="ecrire" aria-labelledby="t-ecrire">
-		<h2 id="t-ecrire">Agir, de votre place</h2>
+		<SectionTitle id="t-ecrire">Agir, de votre place</SectionTitle>
 		<p>
 			Si vous exercez un mandat ou travaillez auprès d’un élu, trois gestes ont un effet réel : vous
 			informer en profondeur, porter la question dans le débat public (une prise de parole, une
@@ -361,7 +345,7 @@
 			risque de perte de contrôle. Nous proposons aux élus et à leurs équipes un point
 			d’information, sans jargon et sans engagement, adapté au temps dont vous disposez.
 		</p>
-		<div class="contact">
+		<Card variant="accent">
 			<h3>Demander un briefing ou un complément</h3>
 			<p>Écrivez-nous ; nous revenons vers vous rapidement pour convenir d’un format.</p>
 			<p class="adresse">
@@ -374,12 +358,12 @@
 					{/if}
 				</button>
 			</p>
-		</div>
+		</Card>
 	</section>
 
 	<!-- ── Pour approfondir ── -->
 	<section aria-labelledby="t-sources">
-		<h2 id="t-sources">Pour approfondir</h2>
+		<SectionTitle id="t-sources">Pour approfondir</SectionTitle>
 		{#each references as groupe (groupe.id)}
 			<div class="groupe">
 				<h3>{groupe.titre}</h3>
@@ -416,189 +400,100 @@
 </article>
 
 {#snippet carte(c: Citation)}
-	<figure class="citation">
-		<div class="qui">
-			{#if portraitComplet(c.portrait)}
-				<img class="pastille" src={c.portrait?.fichier} alt="" loading="lazy" />
-			{:else}
-				<span class="pastille" aria-hidden="true">{c.initiales}</span>
-			{/if}
-			<span>
-				<span class="nom">{c.nom}</span>
-				<span class="fonction">{c.titre}</span>
-			</span>
-		</div>
-		<blockquote>{c.propos}</blockquote>
-		<figcaption>
-			{c.source}
-			{#if c.url}
-				<a href={c.url} target="_blank" rel="noopener noreferrer">{c.lienTexte ?? 'Source'}</a>
-			{/if}
-		</figcaption>
-	</figure>
+	<Card padding="compact">
+		<figure class="citation">
+			<div class="qui">
+				{#if portraitComplet(c.portrait)}
+					<img class="pastille" src={c.portrait?.fichier} alt="" loading="lazy" />
+				{:else}
+					<span class="pastille" aria-hidden="true">{c.initiales}</span>
+				{/if}
+				<span>
+					<span class="nom">{c.nom}</span>
+					<span class="fonction">{c.titre}</span>
+				</span>
+			</div>
+			<blockquote>{c.propos}</blockquote>
+			<figcaption>
+				{c.source}
+				{#if c.url}
+					<a href={c.url} target="_blank" rel="noopener noreferrer">{c.lienTexte ?? 'Source'}</a>
+				{/if}
+			</figcaption>
+		</figure>
+	</Card>
 {/snippet}
 
 <style>
-	/* ── Colonne de lecture ── */
+	/* La page se compose avec les briques de $components/ui : PageHero,
+	   SectionTitle, Card, Accordion, Button. Les styles ci-dessous ne font que
+	   ce qu'aucune brique ne couvre : la grille des signataires, l'échelle
+	   d'action, la liste de sources et les crédits. */
 	.note {
 		inline-size: 100%;
-		max-inline-size: var(--width-text);
+		max-inline-size: var(--width-content);
 		margin-inline: auto;
 		padding-inline: 1.5rem;
-	}
-
-	.note section {
-		padding-block: clamp(2.5rem, 6vw, 4rem);
-		border-top: 1px solid var(--border);
-	}
-
-	.note section:first-child {
-		border-top: 0;
-	}
-
-	.ouverture {
-		padding-block: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 3vw, 2.5rem);
-	}
-
-	.surtitre {
-		margin: 0 0 0.9rem;
-		font-size: 0.8rem;
-		font-weight: 600;
-		letter-spacing: 0.04em;
-		text-transform: uppercase;
-		color: var(--text-2);
-	}
-
-	.surtitre strong {
-		color: var(--text);
+		padding-block: 3rem 0;
 	}
 
 	.maj {
-		margin: 0 0 1.4rem;
-		font-size: 0.85rem;
+		margin: 0 0 1.5rem;
+		font-size: 0.9rem;
 		color: var(--text-2);
 	}
 
-	h1 {
-		margin: 0 0 1.5rem;
-		font-size: clamp(2rem, 6vw, 3.1rem);
-		line-height: 1.05;
-		letter-spacing: -0.02em;
-	}
-
-	.ouverture hr {
-		margin: 0 0 1.75rem;
-		border: 0;
-		border-top: 1px solid var(--text);
-	}
-
 	.chapo p {
-		font-size: clamp(1.05rem, 2.2vw, 1.18rem);
-		line-height: 1.6;
-	}
-
-	h2 {
-		margin: 0 0 1.1rem;
-		font-size: clamp(1.5rem, 4vw, 2rem);
-		line-height: 1.15;
-		letter-spacing: -0.02em;
-	}
-
-	h3 {
-		margin: 0 0 0.35rem;
-		font-size: 1.1rem;
-	}
-
-	p {
+		max-inline-size: var(--width-text);
 		line-height: 1.65;
+	}
+
+	section {
+		padding-block: 2rem 0;
+	}
+
+	section + section {
+		margin-top: 1.5rem;
+	}
+
+	.note :global(p) {
+		max-inline-size: var(--width-text);
+		line-height: 1.65;
+	}
+
+	.intro,
+	.attribution {
+		color: var(--text-2);
 	}
 
 	.accroche {
 		font-weight: 700;
 	}
 
-	/* ── Bandeaux sombres ──
-	   Encre chaude fixe dans les deux thèmes, comme le prévoit la charte pour un
-	   aplat qui ne s'inverse pas : texte en --on-dark, accent orange de marque. */
-	.bandeau {
-		/* <main> pose un retrait latéral (1 à 2 rem) : on l'annule pour que
-		   l'aplat touche les bords de la fenêtre, comme sur la maquette. */
-		margin-inline: calc(50% - 50vw);
-		inline-size: 100vw;
-		max-inline-size: 100vw;
-		--fond: var(--bg-ink);
-		--voile: rgba(var(--on-dark-rgb), 0.72);
-		background: var(--fond);
-		color: var(--on-dark);
+	h3 {
+		margin: 2rem 0 0.4rem;
 	}
 
-	.dedans {
-		inline-size: 100%;
-		max-inline-size: var(--width-text);
-		margin-inline: auto;
-		padding: clamp(3rem, 7vw, 5rem) 1.5rem;
-	}
-
-	.bandeau h2 {
-		color: var(--on-dark);
-	}
-
-	.bandeau p {
-		color: var(--voile);
-	}
-
-	.souligne {
-		display: inline-block;
-		padding-bottom: 0.35rem;
-		border-bottom: 3px solid var(--brand);
-	}
-
-	.bandeau .guillemet {
-		margin: 0;
-		font-family: Georgia, 'Times New Roman', serif;
-		font-size: 5rem;
-		line-height: 0.4;
-		block-size: 2.2rem;
-		color: var(--brand);
-	}
-
-	.bandeau blockquote {
-		margin: 0 0 1.4rem;
-		padding: 0;
-		border: 0;
-		background: none;
-		border-radius: 0;
-		font-size: clamp(1.3rem, 3.4vw, 1.75rem);
-		line-height: 1.38;
+	/* Citation de la charte : fond --bg-subtle, barre gauche 4px --brand. */
+	blockquote {
+		font-size: 1.25rem;
+		line-height: 1.45;
 		font-style: italic;
-		font-weight: 500;
-		color: var(--on-dark);
 	}
 
-	.attribution {
-		font-size: 0.92rem;
-		line-height: 1.5;
-	}
-
-	.bandeau a {
-		color: var(--on-dark);
-		text-decoration-color: var(--brand);
-		text-underline-offset: 2px;
+	.saillie {
+		margin: 2rem 0;
+		padding: 1rem 1.5rem;
+		background: var(--bg-subtle);
+		border-left: 4px solid var(--brand);
+		border-radius: var(--radius-sm);
+		font-size: 1.1rem;
+		line-height: 1.45;
+		font-weight: 600;
 	}
 
 	.appuye {
 		font-weight: 600;
-		color: var(--on-dark) !important;
-	}
-
-	.saillie {
-		margin-top: 1.75rem;
-		padding-left: 1.3rem;
-		border-left: 3px solid var(--brand);
-		font-size: clamp(1.1rem, 2.6vw, 1.3rem);
-		line-height: 1.4;
-		font-weight: 600;
-		color: var(--on-dark) !important;
 	}
 
 	/* ── Signataires ── */
@@ -606,7 +501,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1.4rem 1.6rem;
-		margin: 2rem 0 0;
+		margin: 1.75rem 0 0;
 		padding: 0;
 		list-style: none;
 	}
@@ -616,7 +511,7 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		inline-size: 5.75rem;
+		inline-size: 6rem;
 		margin: 0;
 	}
 
@@ -627,34 +522,29 @@
 		block-size: 3.6rem;
 		border-radius: 50%;
 		margin-bottom: 0.6rem;
-		background: rgba(var(--on-dark-rgb), 0.08);
-		border: 1px solid rgba(var(--on-dark-rgb), 0.18);
-		color: var(--brand);
+		background: var(--bg-subtle);
+		border: 1px solid var(--border);
+		color: var(--brand-subtle);
 		font-weight: 700;
-		letter-spacing: -0.02em;
+		object-fit: cover;
 	}
 
 	.signataires .nom {
-		font-size: 0.82rem;
+		font-size: 0.85rem;
 		font-weight: 700;
 		line-height: 1.25;
-		color: var(--on-dark);
 	}
 
 	.signataires .fonction {
-		font-size: 0.72rem;
+		font-size: 0.75rem;
 		line-height: 1.3;
 		margin-top: 0.2rem;
-		color: var(--voile);
+		color: var(--text-2);
 	}
 
 	/* ── Cartes de citation ── */
 	.citation {
-		margin: 1.75rem 0 0;
-		padding: 1.4rem;
-		background: var(--bg-card);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-lg);
+		margin: 0;
 	}
 
 	.qui {
@@ -664,27 +554,11 @@
 		margin-bottom: 0.9rem;
 	}
 
-	img.pastille {
-		object-fit: cover;
-		background: var(--bg-card);
-	}
-
-	.credits {
-		padding-top: 2rem;
-		border-top: 1px solid var(--border);
-		font-size: 0.8rem;
-		color: var(--text-2);
-		line-height: 1.6;
-	}
-
 	.citation .pastille {
 		margin: 0;
 		inline-size: 3rem;
 		block-size: 3rem;
 		font-size: 0.95rem;
-		background: var(--brand);
-		border: 0;
-		color: var(--on-brand);
 		flex-shrink: 0;
 	}
 
@@ -704,13 +578,11 @@
 
 	.citation blockquote {
 		margin: 0 0 0.8rem;
-		padding: 0;
-		border: 0;
-		background: none;
-		border-radius: 0;
-		font-style: italic;
+		padding: 1rem 1.25rem;
+		background: var(--bg-subtle);
+		border-left: 4px solid var(--brand);
+		border-radius: var(--radius-sm);
 		font-size: 1.02rem;
-		line-height: 1.5;
 	}
 
 	.citation figcaption {
@@ -722,16 +594,12 @@
 	.grille-citations {
 		display: grid;
 		gap: 1rem;
-		margin-top: 0.5rem;
+		margin-top: 1.5rem;
 	}
 
-	@media (min-width: 46rem) {
+	@media (min-width: 48rem) {
 		.grille-citations {
 			grid-template-columns: 1fr 1fr;
-		}
-
-		.grille-citations .citation {
-			margin-top: 0;
 		}
 	}
 
@@ -761,57 +629,31 @@
 		inline-size: 2.2rem;
 		block-size: 2.2rem;
 		border-radius: 50%;
-		border: 1.5px solid var(--brand);
+		border: 2px solid var(--brand);
 		font-weight: 700;
 		font-size: 0.95rem;
 		margin-top: 0.1rem;
 	}
 
+	.etapes h3 {
+		margin: 0 0 0.3rem;
+	}
+
 	.etapes p {
 		margin: 0;
 		color: var(--text-2);
-		font-size: 0.98rem;
 	}
 
 	.action {
 		margin-top: 2rem;
 	}
 
-	/* ── Objections, sur fond sombre ── */
-	.questions {
-		margin-top: 1.5rem;
-	}
-
-	.questions :global(.accordion) {
-		border-color: rgba(var(--on-dark-rgb), 0.18);
-	}
-
-	.questions :global(.header),
-	.questions :global(.title) {
-		color: var(--on-dark);
-	}
-
-	.questions :global(.details) {
-		background: rgba(var(--on-dark-rgb), 0.06);
-		border-color: rgba(var(--on-dark-rgb), 0.14);
-		box-shadow: none;
-	}
-
-	.questions :global(.details p) {
-		color: var(--voile);
-	}
-
 	/* ── Contact ── */
-	.contact {
-		margin-top: 1.75rem;
-		padding: 1.5rem;
-		background: var(--bg-card);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-lg);
-	}
-
-	.contact p {
-		color: var(--text-2);
+	.contact-titre {
+		margin: 0 0 0.5rem;
+		font-weight: 700;
+		font-size: 1.25rem;
+		line-height: 1.25;
 	}
 
 	.adresse {
@@ -822,10 +664,6 @@
 		margin-bottom: 0;
 	}
 
-	.adresse a {
-		font-weight: 600;
-	}
-
 	button {
 		display: inline-flex;
 		align-items: center;
@@ -833,7 +671,7 @@
 		padding: 0.5rem 0.9rem;
 		border: 1px solid var(--border);
 		border-radius: var(--radius-sm);
-		background: transparent;
+		background: var(--bg-card);
 		color: var(--text);
 		font: inherit;
 		font-size: 0.88rem;
@@ -851,11 +689,8 @@
 	}
 
 	.groupe h3 {
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: var(--text-2);
-		margin-bottom: 0.6rem;
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
 	}
 
 	.refs {
@@ -876,8 +711,6 @@
 	.refs a {
 		display: block;
 		padding: 0.7rem 0;
-		text-decoration: none;
-		color: var(--text);
 	}
 
 	.ref-titre {
@@ -892,25 +725,23 @@
 		color: var(--text-2);
 		line-height: 1.45;
 		margin-top: 0.1rem;
+		text-decoration: none;
 	}
 
-	.refs a:hover .ref-titre {
-		color: var(--brand-subtle);
-	}
-
+	.credits,
 	.avertissement {
-		padding-block: 0.75rem 4rem;
 		font-size: 0.85rem;
 		color: var(--text-2);
 		line-height: 1.6;
 	}
 
-	.sr-only {
-		position: absolute;
-		inline-size: 1px;
-		block-size: 1px;
-		overflow: hidden;
-		clip-path: inset(50%);
-		white-space: nowrap;
+	.credits {
+		margin-top: 3rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--border);
+	}
+
+	.avertissement {
+		padding-block: 0.75rem 4rem;
 	}
 </style>
