@@ -12,7 +12,7 @@ export default {
 		liens_utiles: 'Ressources',
 		newsletter: 'Newsletter',
 		propositions: 'Que demandons-nous ?',
-		declaration: 'Signer la déclaration',
+		declaration: "Signer l'appel",
 		blog: 'Blog',
 		fresque: 'La fresque des risques de l’IA',
 		toutes_facons_agir: 'Toutes les façons d’agir',
@@ -65,7 +65,7 @@ export default {
 		// Agir
 		act_title: 'Agir',
 		ecrire_elus: 'Écrire à vos élus',
-		declaration: 'Signer la déclaration',
+		declaration: "Signer l'appel",
 		join_pauseia: 'Rejoindre Pause IA',
 		local_groups: 'Rejoindre un groupe local',
 		all_ways: "Toutes les façons d'agir",

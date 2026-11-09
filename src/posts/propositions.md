@@ -51,7 +51,7 @@ Les discours « [rassuristes](/fr/faq) » nous font perdre du temps : l'IA ne se
 
 Le plus efficace : **[écrire à vos élus](/fr/ecrire-a-mes-elus)**. Cela prend deux minutes, et un message personnel pèse bien plus qu'une signature.
 
-Vous pouvez aussi [signer la déclaration PauseAI](/fr/declaration), qui appelle les gouvernements à un traité international instaurant une pause dans l'entraînement des IA les plus puissantes.
+Vous pouvez aussi [signer l'appel de PauseAI](/fr/declaration), qui appelle les gouvernements à un traité international instaurant une pause dans l'entraînement des IA les plus puissantes.
 
 </Callout>
 

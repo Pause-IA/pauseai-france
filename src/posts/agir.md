@@ -27,7 +27,7 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
   </a>
   <a class="action-card" href="/{lang}/declaration">
     <span class="ac-emoji">✍️</span>
-    <strong>Signer la déclaration</strong>
+    <strong>Signer l'appel</strong>
     <small>Ajoutez votre nom à l'appel pour un moratoire sur les IA les plus dangereuses.</small>
     <em class="ac-why"><strong>Pourquoi :</strong> Face à un décideur, le nombre de signatures est l’argument qu’on pose sur la table. Un appel porté par des milliers de personnes n’est plus l’avis d’une association.</em>
   </a>

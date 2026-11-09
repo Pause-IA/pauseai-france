@@ -56,7 +56,7 @@
 </svelte:head>
 
 <article>
-	<PageHero>{isEn ? 'The PauseAI statement' : 'La déclaration PauseAI'}</PageHero>
+	<PageHero>{isEn ? 'The PauseAI statement' : 'L’appel de PauseAI'}</PageHero>
 
 	<Card>
 		<div aria-live="polite">
@@ -98,7 +98,7 @@
 						{listed
 							? 'Votre nom apparaît désormais dans la liste des signataires.'
 							: 'Elle est désormais comptée parmi les signatures.'}
-						<a href="{prefix}/declaration">Voir la déclaration</a>.
+						<a href="{prefix}/declaration">Voir l’appel</a>.
 					{/if}
 				</p>
 				<DeclarationNextSteps lang={data.lang} />
