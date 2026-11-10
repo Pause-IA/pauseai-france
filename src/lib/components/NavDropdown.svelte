@@ -130,19 +130,15 @@
 		white-space: nowrap;
 	}
 
-	/* Le survol posait un voile de noir à 5 % et ne changeait pas la couleur
-	   du texte : on obtenait un gris, c'est-à-dire la seule couleur que la
-	   charte n'utilise nulle part. Voile orange et texte à l'accent, pour que
-	   le survol dise « Pause IA » au lieu de « désactivé ». */
 	.trigger:hover,
 	.trigger.active {
-		background: rgba(var(--brand-rgb), 0.12);
-		color: var(--brand-subtle);
+		background: rgba(var(--ink-rgb), 0.05);
+		color: var(--text);
 	}
 
 	:global([data-theme='dark']) .trigger:hover,
 	:global([data-theme='dark']) .trigger.active {
-		background: rgba(var(--brand-rgb), 0.16);
+		background: rgba(var(--on-dark-rgb), 0.07);
 	}
 
 	.trigger {
