@@ -164,8 +164,7 @@
 			citizens and public authorities to the
 			<a href="{prefix}/dangers/economic-and-material">serious dangers</a> of the artificial
 			intelligence race, and encourages them to act against it. We represent
-			<a href="https://pauseai.info" target="_blank" rel="noopener noreferrer">PauseAI Global</a> in
-			France.
+			<a href="https://pauseai.info" target="_blank" rel="noopener noreferrer">PauseAI Global</a> in France.
 		{:else}
 			Nous sommes une <a href="{prefix}/mentions-legales">association</a> qui alerte les citoyens et
 			les pouvoirs publics français sur les
@@ -177,7 +176,9 @@
 	</svelte:fragment>
 	<div class="contact-cta" slot="actions">
 		<Button href="{prefix}/dons">{lang === 'en' ? 'Donate' : 'Faire un don'}</Button>
-		<Button alt href="{prefix}/rejoindre">{lang === 'en' ? 'Join us' : 'Nous rejoindre'}</Button>
+		<Button alt href="{prefix}/rejoindre"
+			>{lang === 'en' ? 'Join Pause IA' : 'Rejoindre Pause IA'}</Button
+		>
 		<Button alt href="mailto:contact@pauseia.fr"
 			>{lang === 'en' ? 'Contact us' : 'Nous contacter'}</Button
 		>

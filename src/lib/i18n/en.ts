@@ -36,8 +36,7 @@ export default {
 		presse: 'Press room',
 		donner: 'Donate',
 		rejoindre: 'Join',
-		faire_un_don: 'Make a donation',
-		nous_rejoindre: 'Join us'
+		faire_un_don: 'Make a donation'
 	},
 	footer: {
 		// Identity column

@@ -38,8 +38,7 @@ export default {
 		presse: 'Espace presse',
 		donner: 'Donner',
 		rejoindre: 'Rejoindre',
-		faire_un_don: 'Faire un don',
-		nous_rejoindre: 'Nous rejoindre'
+		faire_un_don: 'Faire un don'
 	},
 	footer: {
 		// Colonne d'identité

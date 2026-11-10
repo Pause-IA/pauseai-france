@@ -440,7 +440,8 @@
 							{/if}
 						</button>
 						<a href="{prefix}/dons" class="sidebar-cta" on:click={closeMenu}>Faire un don</a>
-						<a href="{prefix}/rejoindre" class="sidebar-join" on:click={closeMenu}>Nous rejoindre</a
+						<a href="{prefix}/rejoindre" class="sidebar-join" on:click={closeMenu}
+							>Rejoindre Pause IA</a
 						>
 					</div>
 				</div>

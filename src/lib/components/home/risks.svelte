@@ -51,8 +51,8 @@
 							> linked to AI directly threaten our infrastructure, businesses and resources. This technology
 							introduces unprecedented vulnerabilities and possibilities for catastrophic failures. Imagine
 							devastating AI-facilitated attacks, or the collapse of entire sectors facing these disruptive
-							technologies. These dangers, though less visible than those directly threatening human
-							lives, can have equally massive consequences.
+							technologies. These dangers, though less visible than those directly threatening human lives,
+							can have equally massive consequences.
 						</p>
 						<p>
 							We must exercise heightened vigilance and put rigorous regulations in place to protect
@@ -63,7 +63,7 @@
 								href="{prefix}/emploi-ia">AI Employment working group</a
 							>.
 						</p>
-						<Button href="{prefix}/dangers/economic-and-material">Learn more</Button>
+						<Button href="{prefix}/dangers/economic-and-material">Read: economic dangers</Button>
 					{:else if tab === 'For individuals'}
 						<p>
 							Imagine yourself on a dating app, exchanging messages with what seems like the perfect
@@ -87,7 +87,7 @@
 								rel="noopener noreferrer">opinions manipulated by disinformation</a
 							>: the consequences would be devastating.
 						</p>
-						<Button href="{prefix}/dangers/for-individuals">Learn more</Button>
+						<Button href="{prefix}/dangers/for-individuals">Read: dangers to individuals</Button>
 					{:else if tab === 'For society'}
 						<p>
 							According to the majority of experts, AI will be capable of designing and synthesizing
@@ -110,7 +110,7 @@
 							Racial biases are exacerbated, <a href="{prefix}/emploi-ia">job automation looms</a>,
 							and the shadow of new forms of war and terrorism hangs over us.
 						</p>
-						<Button href="{prefix}/dangers/for-society">Learn more</Button>
+						<Button href="{prefix}/dangers/for-society">Read: dangers to society</Button>
 					{:else if tab === 'For humanity'}
 						<p>
 							OpenAI, DeepMind, Anthropic and other tech giants are investing billions of dollars in
@@ -135,8 +135,8 @@
 								href="https://wiki.aiimpacts.org/ai_timelines/predictions_of_human-level_ai_timelines/ai_timeline_surveys/2023_expert_survey_on_progress_in_ai"
 								target="_blank"
 								rel="noopener noreferrer">2023 AI Impacts survey</a
-							> of 2,778 AI researchers, the median estimated probability of human extinction is 5%,
-							and more than a third of respondents place it above 10%.
+							> of 2,778 AI researchers, the median estimated probability of human extinction is 5%, and
+							more than a third of respondents place it above 10%.
 						</p>
 						<p>
 							Never before has humanity faced such an imminent and potentially catastrophic threat.
@@ -145,7 +145,7 @@
 							mobilization of the greatest minds of our era.
 						</p>
 						<p>Are we going to wait for a global catastrophe to react?</p>
-						<Button href="{prefix}/dangers/for-humanity">Learn more</Button>
+						<Button href="{prefix}/dangers/for-humanity">Read: dangers to humanity</Button>
 					{/if}
 				{:else if tab === 'Économiques et matériels'}
 					<p>
@@ -180,7 +180,9 @@
 							href="{prefix}/emploi-ia">Emploi IA.</a
 						>
 					</p>
-					<Button href="{prefix}/dangers/economiques-et-materiels">En apprendre davantage</Button>
+					<Button href="{prefix}/dangers/economiques-et-materiels"
+						>Lire : les dangers économiques</Button
+					>
 				{:else if tab === 'Pour les individus'}
 					<p>
 						Imaginez-vous sur une application de rencontre, échangeant des messages avec ce qui
@@ -203,7 +205,9 @@
 							rel="noopener noreferrer">opinions manipulées par la désinformation</a
 						> : les conséquences seraient dévastatrices.
 					</p>
-					<Button href="{prefix}/dangers/pour-les-individus">En apprendre davantage</Button>
+					<Button href="{prefix}/dangers/pour-les-individus"
+						>Lire : les dangers pour les individus</Button
+					>
 				{:else if tab === 'Pour la société'}
 					<p>
 						Selon la majorité des experts, les intelligences artificielles seront capables de
@@ -229,7 +233,8 @@
 							>l'automatisation des emplois se profile</a
 						>, et l'ombre de nouvelles formes de guerre et de terrorisme plane sur nous.
 					</p>
-					<Button href="{prefix}/dangers/pour-la-societe">En apprendre davantage</Button>
+					<Button href="{prefix}/dangers/pour-la-societe">Lire : les dangers pour la société</Button
+					>
 				{:else if tab === 'Pour l\u2019humanité'}
 					<p>
 						OpenAI, DeepMind, Anthropic et d'autres géants technologiques investissent des milliards
@@ -265,7 +270,8 @@
 						époque.
 					</p>
 					<p>Allons-nous attendre une catastrophe mondiale pour réagir ?</p>
-					<Button href="{prefix}/dangers/pour-l'humanite">En apprendre davantage</Button>
+					<Button href="{prefix}/dangers/pour-l'humanite">Lire : les dangers pour l’humanité</Button
+					>
 				{/if}
 			</svelte:fragment>
 		</TabList>
