@@ -312,6 +312,44 @@ export const objections: Objection[] = [
 	}
 ]
 
+// ── L'essentiel et le sommaire ──────────────────────────────────────────────
+
+/** Les trois points qu'un collaborateur pressé doit retenir s'il ne lit que
+    le haut de la page. Chacun reprend une section du corps : ils ne doivent
+    pas dire autre chose qu'elle. */
+export const essentiel: { fort: string; suite: string }[] = [
+	{
+		fort: 'Personne ne sait aujourd’hui garantir qu’une intelligence artificielle plus compétente que nous resterait sous contrôle humain.',
+		suite:
+			'Ces systèmes ne sont pas programmés ligne par ligne mais entraînés : on obtient une capacité sans le mode d’emploi qui va avec.'
+	},
+	{
+		fort: 'Les dirigeants des laboratoires situent eux-mêmes de tels systèmes avant 2030.',
+		suite:
+			'Interrogés en 2024, les chercheurs du domaine donnent une probabilité médiane de 10 % pour un résultat aussi grave que l’extinction de l’humanité ; ce chiffre a doublé d’une enquête à l’autre.'
+	},
+	{
+		fort: 'Ce qui est demandé : interdire le développement des systèmes que personne ne sait contrôler.',
+		suite:
+			'Puis encadrer les quelques capacités qui y mènent directement, et bâtir une vérification entre États, sur le modèle du nucléaire.'
+	}
+]
+
+/** Sommaire. Les identifiants doivent exister dans la page : tests/decideurs.test.ts
+    le vérifie, pour qu'un renommage de section ne laisse pas une ancre morte. */
+export const sommaire: { id: string; titre: string }[] = [
+	{ id: 't-declaration', titre: 'Ce que disent ceux qui construisent l’IA' },
+	{ id: 't-incontrolable', titre: 'Pourquoi ne sait-on pas les contrôler ?' },
+	{ id: 't-menace', titre: 'À quoi ressemblerait une perte de contrôle ?' },
+	{ id: 't-fenetre', titre: 'Combien de temps reste-t-il ?' },
+	{ id: 't-qui', titre: 'Qui le dit, et faut-il les croire ?' },
+	{ id: 't-faire', titre: 'Que peut-on faire ?' },
+	{ id: 't-objections', titre: 'Objections courantes' },
+	{ id: 't-reponse', titre: 'Où en est la réponse publique ?' },
+	{ id: 't-ecrire', titre: 'Agir, de votre place' },
+	{ id: 't-sources', titre: 'Pour approfondir' }
+]
+
 // ── Pour approfondir ────────────────────────────────────────────────────────
 
 export interface Reference {

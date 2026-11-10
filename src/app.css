@@ -45,6 +45,12 @@
 	   15,9:1, --brand 7,2:1 — les deux très au-dessus du minimum WCAG AA.
 
 	   Fixe dans les deux thèmes, d'où --on-dark pour le texte posé dessus. */
+	/* Encre d'impression. Fixe dans les deux thèmes : --black et --white
+	   s'inversent en thème sombre, et une page imprimée depuis le thème sombre
+	   sortirait en blanc sur blanc. */
+	--encre-impression: #000;
+	--filet-impression: #999;
+
 	--surface-sombre-rgb: 14, 36, 51;
 	--surface-sombre: rgb(14, 36, 51);
 	/* OKLCH(0,33 0,04 241) : même teinte, un cran plus clair, pour les
@@ -527,4 +533,59 @@ table td:nth-child(2) {
 [data-theme='dark'] footer a:hover {
 	color: var(--brand);
 	opacity: 1;
+}
+
+/* ── Impression ──────────────────────────────────────────────────────────
+   Nos pages longues finissent imprimées ou exportées en PDF : une note de
+   synthèse se glisse dans un dossier de rendez-vous. Par défaut le navigateur
+   imprimait l'en-tête, la navigation et le pied de page sur la première
+   feuille, et les aplats sombres en pleine encre.
+
+   Ces règles ne concernent que le média « print » : l'affichage à l'écran est
+   inchangé. */
+@media print {
+	/* L'habillage du site n'a pas de sens sur papier : personne ne clique un
+	   menu imprimé. */
+	.layout > header,
+	.layout > footer {
+		display: none !important;
+	}
+
+	.layout,
+	.layout.bgWhite {
+		background: none !important;
+	}
+
+	html,
+	body {
+		background: none !important;
+		color: var(--encre-impression);
+		font-size: 11pt;
+	}
+
+	/* Une marge de reliure généreuse, et jamais un titre seul en bas de page. */
+	@page {
+		margin: 18mm 16mm;
+	}
+
+	h1,
+	h2,
+	h3 {
+		break-after: avoid-page;
+		page-break-after: avoid;
+	}
+
+	p,
+	li,
+	blockquote,
+	figure {
+		orphans: 3;
+		widows: 3;
+	}
+
+	/* Les ombres et les aplats mangent l'encre sans rien apporter. */
+	* {
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
 }

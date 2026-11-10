@@ -7,6 +7,8 @@
 	import {
 		citationHinton,
 		citations,
+		essentiel,
+		sommaire,
 		creditsPortraits,
 		portraitComplet,
 		etapes,
@@ -18,6 +20,19 @@
 	import type { Citation } from '$lib/data/ressources-decideurs'
 
 	const CONTACT = 'contact@pauseia.fr'
+
+	/* Objet et amorce pré-remplis : le frein, pour un collaborateur, n'est pas
+	   de trouver l'adresse, c'est de savoir quoi écrire. L'objet nous sert
+	   aussi à router la demande. Le corps reste neutre et se réécrit.
+	   On garde l'adresse en clair et le bouton de copie juste en dessous :
+	   « mailto: » n'ouvre rien chez qui lit son courrier dans un navigateur. */
+	const SUJET = 'Demande de briefing : perte de contrôle de l’IA'
+	const AMORCE = `Bonjour,
+
+Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de l’intelligence artificielle.
+
+`
+	const lienCourriel = `mailto:${CONTACT}?subject=${encodeURIComponent(SUJET)}&body=${encodeURIComponent(AMORCE)}`
 
 	const title = 'Garder l’humanité aux commandes de l’intelligence artificielle'
 	const description =
@@ -69,6 +84,35 @@
 	</p>
 
 	<hr class="filet" />
+
+	<!-- La note fait une douzaine de pages. Un collaborateur parlementaire qui
+	     a quatre minutes n'arrivera jamais seul à « Que peut-on faire ? », qui
+	     est pourtant la section où on lui demande quelque chose. D'où ce
+	     résumé et ce sommaire, qui donnent la thèse et la forme du document
+	     avant qu'on ait déroulé. -->
+	<section class="essentiel" aria-labelledby="t-essentiel">
+		<h2 id="t-essentiel">L’essentiel</h2>
+		<ol>
+			{#each essentiel as point, i (point.fort)}
+				<li>
+					<span class="rang" aria-hidden="true">{i + 1}</span>
+					<span><strong>{point.fort}</strong> {point.suite}</span>
+				</li>
+			{/each}
+		</ol>
+		<p class="essentiel-action">
+			Vous exercez un mandat ou travaillez auprès d’un élu ?
+			<a href="#ecrire">Demandez un point d’information</a>, sans jargon et sans engagement.
+		</p>
+		<nav class="sommaire" aria-label="Sommaire de la note">
+			<span class="sommaire-titre">Aller à</span>
+			<ul>
+				{#each sommaire as entree (entree.id)}
+					<li><a href="#{entree.id}">{entree.titre}</a></li>
+				{/each}
+			</ul>
+		</nav>
+	</section>
 
 	<div class="chapo">
 		<p>
@@ -305,6 +349,19 @@
 				</Accordion>
 			{/each}
 		</div>
+
+		<!-- Accordion monte son panneau avec {#if open} : replié, la réponse
+		     n'existe pas dans le DOM, et aucune règle d'impression ne peut la
+		     révéler. D'où cette copie dépliée, masquée à l'écran et seule
+		     visible sur papier. -->
+		<div class="questions-impression" aria-hidden="true">
+			{#each objections as o (o.id)}
+				<div class="objection-imprimee">
+					<h3>{o.question}</h3>
+					{#each o.reponse as p}<p>{p}</p>{/each}
+				</div>
+			{/each}
+		</div>
 	</section>
 
 	<!-- ── Où en est la réponse publique ── -->
@@ -356,6 +413,9 @@
 		<div class="contact">
 			<h3>Demander un briefing ou un complément</h3>
 			<p>Écrivez-nous ; nous revenons vers vous rapidement pour convenir d’un format.</p>
+			<p class="action-contact">
+				<Button href={lienCourriel}>Écrire à Pause IA</Button>
+			</p>
 			<p class="adresse">
 				<a href="mailto:{CONTACT}">{CONTACT}</a>
 				<button type="button" on:click={copierLAdresse}>
@@ -870,7 +930,8 @@
 			gap: 0.3rem;
 		}
 
-		.contact {
+		.contact,
+		.essentiel {
 			padding: 1.25rem;
 		}
 	}
@@ -882,6 +943,10 @@
 
 	.action {
 		margin-top: 2rem;
+	}
+
+	.action-contact {
+		margin: 0 0 1rem;
 	}
 
 	/* ── Contact ── */
@@ -1028,5 +1093,236 @@
 
 	.avertissement {
 		padding-block: 0.75rem 4rem;
+	}
+
+	/* La copie imprimée des objections n'existe que pour le papier. Déclarée
+	   avant le bloc @media print : à spécificité égale, c'est la dernière
+	   règle écrite qui gagne, quel que soit le média. */
+	.questions-impression {
+		display: none;
+	}
+
+	/* ── L'essentiel et le sommaire ───────────────────────────────────────
+	   Un seul bloc encadré en tête, filet de marque en haut comme l'encadré
+	   de contact : ce sont les deux endroits de la page où l'on ne raconte
+	   pas, on résume ou on demande. */
+	.essentiel {
+		margin-top: 2rem;
+		padding: 1.6rem 1.75rem;
+		border: 1px solid var(--border);
+		border-top: 2px solid var(--brand);
+	}
+
+	.essentiel h2 {
+		margin: 0 0 1rem;
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--brand-subtle);
+	}
+
+	.essentiel ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.essentiel li {
+		display: grid;
+		grid-template-columns: 1.4rem minmax(0, 1fr);
+		gap: 0.75rem;
+		margin: 0 0 0.85rem;
+		line-height: 1.5;
+	}
+
+	.essentiel li:last-child {
+		margin-bottom: 0;
+	}
+
+	.rang {
+		font-weight: 700;
+		font-variant-numeric: tabular-nums;
+		color: var(--brand-subtle);
+	}
+
+	.essentiel-action {
+		margin: 1.25rem 0 0;
+		padding-top: 1.1rem;
+		border-top: 1px solid var(--border);
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
+	/* Le sommaire en ligne continue : une liste verticale de dix entrées
+	   aurait rallongé le haut de page, ce qu'on cherche justement à éviter. */
+	.sommaire {
+		margin-top: 1.4rem;
+		padding-top: 1.1rem;
+		border-top: 1px solid var(--border);
+		font-size: 0.9rem;
+	}
+
+	.sommaire-titre {
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--text-2);
+	}
+
+	/* En flux de texte et non en flex : des éléments flex se réduisent sous
+	   leur contenu, et la première entrée se repliait à un mot par ligne.
+	   Une liste en ligne est du texte, elle doit couler comme du texte. */
+	.sommaire ul {
+		display: block;
+		list-style: none;
+		margin: 0.45rem 0 0;
+		padding: 0;
+		line-height: 1.75;
+	}
+
+	.sommaire li {
+		display: inline;
+		margin: 0;
+	}
+
+	.sommaire li + li::before {
+		content: '·';
+		margin: 0 0.5rem;
+		color: var(--text-2);
+	}
+
+	.sommaire a {
+		text-decoration: none;
+	}
+
+	.sommaire a:hover,
+	.sommaire a:focus-visible {
+		text-decoration: underline;
+	}
+
+	/* ── Impression ───────────────────────────────────────────────────────
+	   Cette note est faite pour être glissée dans un dossier de rendez-vous.
+	   Sur papier : pas d'aplat, pas de photo, les objections dépliées, et
+	   l'adresse des sources écrite en toutes lettres puisqu'on ne peut pas
+	   cliquer une feuille. */
+	@media print {
+		.note {
+			max-inline-size: none;
+			padding: 0;
+			font-size: 11pt;
+		}
+
+		/* L'aplat deviendrait un rectangle d'encre pleine page. Un filet
+		   suffit à montrer que le bloc se détache. */
+		.sombre {
+			margin-inline: 0;
+			padding: 1.2rem 0 0;
+			background: none;
+			color: var(--encre-impression);
+			border-top: 2px solid var(--encre-impression);
+		}
+
+		.sombre :global(.ui-section-title),
+		.sombre :global(p),
+		.sombre blockquote,
+		.sombre .attribution,
+		.sombre .signataires .fonction,
+		.sombre :global(a) {
+			color: var(--encre-impression);
+		}
+
+		/* Huit portraits en quadrichromie pour une information que les noms
+		   portent déjà. */
+		.pastille {
+			display: none;
+		}
+
+		.signataires {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 0.5rem 1rem;
+		}
+
+		.signataires li {
+			align-items: start;
+			text-align: left;
+		}
+
+		/* L'accordéon replié n'a pas de contenu : on imprime la copie. */
+		.questions {
+			display: none;
+		}
+
+		.questions-impression {
+			display: block;
+		}
+
+		.objection-imprimee {
+			margin-top: 1.1rem;
+			break-inside: avoid;
+			page-break-inside: avoid;
+		}
+
+		.objection-imprimee h3 {
+			margin: 0 0 0.3rem;
+			font-size: 1.05rem;
+			line-height: 1.25;
+		}
+
+		.objection-imprimee p {
+			margin: 0 0 0.4rem;
+		}
+
+		/* Le bouton de copie et le bouton d'appel n'ont pas d'équivalent
+		   papier. */
+		button,
+		.action {
+			display: none;
+		}
+
+		/* Sur papier le sommaire ne sert à rien : on ne clique pas une page
+		   imprimée, et la table des matières serait fausse puisque les
+		   numéros de page ne sont pas ceux de la pagination écran. */
+		.sommaire,
+		.essentiel-action,
+		.action-contact {
+			display: none;
+		}
+
+		.essentiel,
+		.citation,
+		.etapes li,
+		.contact,
+		.groupe {
+			break-inside: avoid;
+			page-break-inside: avoid;
+			box-shadow: none;
+		}
+
+		.citation,
+		.contact {
+			border: 1px solid var(--filet-impression);
+		}
+
+		.barres span {
+			background: var(--encre-impression);
+		}
+
+		.filet-marque {
+			background: var(--encre-impression);
+		}
+
+		/* On ne clique pas une feuille imprimée : l'adresse des sources doit
+		   y figurer. Limité aux liens qui documentent, pas à ceux du corps du
+		   texte, qui rendraient la lecture illisible. */
+		.refs a::after,
+		.citation figcaption :global(a)::after,
+		.attribution :global(a)::after {
+			content: ' (' attr(href) ')';
+			font-size: 0.78em;
+			font-weight: 400;
+			word-break: break-all;
+		}
 	}
 </style>
