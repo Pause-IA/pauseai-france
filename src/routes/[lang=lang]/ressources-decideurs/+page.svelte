@@ -64,6 +64,10 @@
 		{title}
 	</PageHero>
 
+	<p class="maj">
+		Mise à jour le <time datetime={miseAJour}>{dateMaj}</time>
+	</p>
+
 	<hr class="filet" />
 
 	<div class="chapo">
@@ -405,7 +409,7 @@
 
 	<p class="avertissement">
 		Les probabilités, déclarations et dates citées renvoient à leurs sources d’origine, accessibles
-		ci-dessus. Document d’information, sans valeur d’engagement. Mise à jour : {dateMaj}.
+		ci-dessus. Document d’information, sans valeur d’engagement.
 	</p>
 </article>
 
@@ -542,6 +546,14 @@
 		color: rgba(var(--on-dark-rgb), 0.68);
 	}
 
+	/* Les liens du site prennent --brand-subtle (#a85400), l'orange foncé
+	   calculé pour rester lisible sur un fond clair. Sur l'aplat sombre il
+	   tombe à 2,98:1, sous le minimum WCAG de 4,5:1 : le lien disparaît. On
+	   repasse à l'orange de marque, qui donne 7,20:1 sur cette surface. */
+	.sombre :global(a) {
+		color: var(--brand);
+	}
+
 	.sombre blockquote {
 		margin: 0.5rem 0 1.25rem;
 		padding: 0;
@@ -595,6 +607,16 @@
 	/* Le filet sous le titre ouvre la page : un chapô en plus gros corps
 	   ajouterait un troisième niveau de taille dans les quatre premiers
 	   centimètres. Il garde donc le corps du texte courant. */
+	/* Attachée au bloc-titre, au-dessus du filet : on sait de quand date le
+	   document avant d'en lire une ligne. Sous le filet, elle flottait entre
+	   le titre et le texte sans appartenir à l'un ni à l'autre. */
+	.maj {
+		margin: 0.9rem 0 0;
+		font-size: 0.85rem;
+		letter-spacing: 0.01em;
+		color: var(--text-2);
+	}
+
 	.filet {
 		border: 0;
 		border-top: 1px solid var(--text);
