@@ -318,6 +318,10 @@ export interface Reference {
 	titre: string
 	meta: string
 	url: string
+	/** Ressource en français. La quasi-totalité des sources de fond sont
+	    anglophones : la page le dit une fois, et signale les exceptions
+	    plutôt que de répéter « en anglais » sur douze entrées sur treize. */
+	francais?: boolean
 }
 
 export interface GroupeDeReferences {
@@ -413,7 +417,8 @@ export const references: GroupeDeReferences[] = [
 			{
 				titre: 'Pause IA',
 				meta: 'L’antenne française de PauseAI : nos positions, nos ressources et nos actions.',
-				url: 'https://pauseia.fr'
+				url: 'https://pauseia.fr',
+				francais: true
 			},
 			{
 				titre: 'PauseAI',

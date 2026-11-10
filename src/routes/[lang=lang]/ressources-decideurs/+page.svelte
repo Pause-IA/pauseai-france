@@ -368,6 +368,10 @@
 	<!-- ── Pour approfondir ── -->
 	<section aria-labelledby="t-sources">
 		<SectionTitle id="t-sources">Pour approfondir</SectionTitle>
+		<p class="note-langue">
+			Sauf mention contraire, ces ressources sont en anglais : c’est la langue de la quasi-totalité
+			des travaux de référence sur le sujet.
+		</p>
 		{#each references as groupe (groupe.id)}
 			<div class="groupe">
 				<h3>{groupe.titre}</h3>
@@ -375,7 +379,9 @@
 					{#each groupe.references as r (r.url)}
 						<li>
 							<a href={r.url} target="_blank" rel="noopener noreferrer">
-								<span class="ref-titre">{r.titre}</span>
+								<span class="ref-titre"
+									>{r.titre}{#if r.francais}<span class="ref-langue">en français</span>{/if}</span
+								>
 								<span class="ref-meta">{r.meta}</span>
 							</a>
 						</li>
@@ -904,6 +910,29 @@
 		display: block;
 		font-weight: 600;
 		line-height: 1.35;
+	}
+
+	/* Répété sur douze entrées sur treize, « en anglais » cessait d'informer.
+	   La règle est annoncée une fois en tête de section, et seule l'exception
+	   porte une étiquette. */
+	.note-langue {
+		margin: -0.5rem 0 1.5rem;
+		font-size: 0.9rem;
+		color: var(--text-2);
+	}
+
+	.ref-langue {
+		display: inline-block;
+		margin-left: 0.5rem;
+		padding: 0.08rem 0.4rem;
+		border: 1px solid var(--border);
+		border-radius: 3px;
+		font-size: 0.7rem;
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		color: var(--text-2);
+		vertical-align: 0.1em;
+		white-space: nowrap;
 	}
 
 	.refs a:hover .ref-titre,
