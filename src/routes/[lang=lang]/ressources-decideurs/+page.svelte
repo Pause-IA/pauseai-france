@@ -652,10 +652,25 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 		color: var(--text-2);
 	}
 
-	/* Le surtitre prenait --brand-subtle, qui tire sur le marron. --brand-vif
-	   est le rouge orangé le plus vif qui tienne le contraste sur blanc. */
+	/* Le surtitre en étiquette plutôt qu'en texte coloré.
+	   Aucun orange n'est lisible en texte sur blanc : --brand donne 2,21:1 et
+	   --brand-deep 2,84:1, pour un seuil de 4,5:1. On tournait donc autour
+	   d'oranges rabattus, de plus en plus marron à mesure qu'ils devenaient
+	   lisibles. En inversant, le problème disparaît : texte foncé SUR l'orange
+	   de marque, à pleine saturation, 7,87:1.
+	   Le filet court orange de PageHero est masqué : deux marques orange
+	   superposées en deux centimètres, c'est une de trop. */
+	.note :global(.ui-page-hero .rule) {
+		display: none;
+	}
+
 	.note :global(.eyebrow) {
-		color: var(--brand-vif);
+		display: inline-block;
+		margin-bottom: 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
 	}
 
 	.filet {
@@ -914,6 +929,15 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 		.contact {
 			padding: 1.25rem;
 		}
+
+		/* Sur 390 px, le libellé passe sur deux lignes et l'étiquette devient
+		   un pavé. On resserre le corps et les marges intérieures pour qu'elle
+		   reste une étiquette. */
+		.note :global(.eyebrow) {
+			padding: 0.25rem 0.55rem;
+			font-size: 0.75rem;
+			letter-spacing: 0.04em;
+		}
 	}
 
 	.etapes p {
@@ -1088,6 +1112,14 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 	   l'adresse des sources écrite en toutes lettres puisqu'on ne peut pas
 	   cliquer une feuille. */
 	@media print {
+		/* L'étiquette deviendrait un pavé d'encre orange. Sur papier, le
+		   surtitre redevient du texte. */
+		.note :global(.eyebrow) {
+			padding: 0;
+			background: none;
+			color: var(--encre-impression);
+		}
+
 		.note {
 			--filet-note: var(--filet-impression);
 			max-inline-size: none;

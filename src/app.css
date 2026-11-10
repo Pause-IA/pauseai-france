@@ -59,13 +59,6 @@
 	--brand-light: #fff5e8;
 	--brand-subtle: #a85400; /* orange foncé : le seul orange lisible en texte
 	                            (4,9:1 sur le crème, 5,3:1 sur blanc) */
-	/* Rouge orangé le plus vif qui reste lisible en texte sur blanc : 4,53:1,
-	   au-dessus du minimum WCAG AA de 4,5:1. --brand (2,21:1) et --brand-deep
-	   (2,84:1) échouent tous les deux, d'où --brand-subtle, qui tient 5,34:1
-	   mais tire sur le marron. Celui-ci est obtenu en tournant la teinte vers
-	   le rouge : à contraste égal, une teinte plus rouge porte plus de chroma.
-	   OKLCH(0,50 0,184 40). */
-	--brand-vif: #d14800;
 	--brand-deep: #ff6b35; /* fin de dégradé sur les encadrés d'appel */
 	--brand-soft: #ffb347; /* début de dégradé clair (bandeaux) */
 	/* Attention : --white et --black s'inversent en mode sombre. Ce sont la
