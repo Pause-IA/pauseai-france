@@ -483,6 +483,12 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 		   tombait à 34 signes. Sous 40 rem on laisse donc la gouttière du
 		   gabarit faire le travail, et on n'ajoute la nôtre qu'au-delà. */
 		--marge-note: 0rem;
+		/* Rappel d'orange sur les filets de structure, demandé à la relecture.
+		   Il reste un filet, pas un trait : l'orange de marque à 40 %, et
+		   seulement sur les séparations horizontales. Les bordures de cartes,
+		   de bouton et d'étiquette gardent le gris, sinon la page devient
+		   orange partout et l'orange cesse d'attirer l'œil. */
+		--filet-note: rgba(var(--brand-rgb), 0.4);
 		padding-inline: var(--marge-note);
 		padding-block: 3rem 0;
 		line-height: 1.62;
@@ -646,6 +652,12 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 		color: var(--text-2);
 	}
 
+	/* Le surtitre prenait --brand-subtle, qui tire sur le marron. --brand-vif
+	   est le rouge orangé le plus vif qui tienne le contraste sur blanc. */
+	.note :global(.eyebrow) {
+		color: var(--brand-vif);
+	}
+
 	.filet {
 		border: 0;
 		border-top: 1px solid var(--text);
@@ -659,7 +671,7 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 	   et la page se lisait comme une suite de blocs sans lien entre eux. */
 	section {
 		padding-block: clamp(2rem, 4.5vw, 2.5rem) 0;
-		border-top: 1px solid var(--border);
+		border-top: 1px solid var(--filet-note);
 		margin-top: clamp(2rem, 4.5vw, 3rem);
 	}
 
@@ -870,11 +882,11 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 		gap: 1rem;
 		padding: 1.4rem 0;
 		margin: 0;
-		border-top: 1px solid var(--border);
+		border-top: 1px solid var(--filet-note);
 	}
 
 	.etapes li:last-child {
-		border-bottom: 1px solid var(--border);
+		border-bottom: 1px solid var(--filet-note);
 	}
 
 	.numero {
@@ -985,11 +997,11 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 
 	.refs li {
 		margin: 0;
-		border-top: 1px solid var(--border);
+		border-top: 1px solid var(--filet-note);
 	}
 
 	.refs li:last-child {
-		border-bottom: 1px solid var(--border);
+		border-bottom: 1px solid var(--filet-note);
 	}
 
 	/* Le soulignement du lien se propage à tous ses descendants en ligne :
@@ -1056,7 +1068,7 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 	.credits {
 		margin-top: 3rem;
 		padding-top: 1.5rem;
-		border-top: 1px solid var(--border);
+		border-top: 1px solid var(--filet-note);
 	}
 
 	.avertissement {
@@ -1077,6 +1089,7 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 	   cliquer une feuille. */
 	@media print {
 		.note {
+			--filet-note: var(--filet-impression);
 			max-inline-size: none;
 			padding: 0;
 			font-size: 11pt;
