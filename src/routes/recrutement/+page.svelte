@@ -4,60 +4,44 @@
 	import Button from '$components/Button.svelte'
 	import { Card, PageHero, SectionTitle } from '$components/ui'
 	import { base } from '$app/paths'
-
-	// Import the infographic
-	import infographic from '$assets/infographic.png?enhanced'
 </script>
 
 <PostMeta
-	title="Devenez recruteur pour Pause IA - Centre de Ressources"
-	description="Découvrez comment amplifier l'impact de Pause IA grâce au recrutement relationnel. Guides, PDFs et ressources pour devenir un recruteur efficace."
+	title="Convaincre autour de vous"
+	description="Comment parler de Pause IA aux gens que vous connaissez déjà : un guide court à lire sur cette page, et un guide complet pour aller plus loin."
 />
 
 <article class="recruitment-landing">
 	<!-- Hero Section -->
-	<PageHero eyebrow="Recrutement relationnel">
-		Devenez recruteur pour Pause IA
+	<PageHero eyebrow="Agir">
+		Convaincre autour de vous
 		<svelte:fragment slot="lede">
-			Le recrutement relationnel est l'un des leviers les plus puissants pour faire grandir le
-			mouvement. Cette page rassemble les outils dont vous avez besoin : guides pratiques, documents
-			à télécharger et ressources pour maximiser votre impact.
+			Les gens écoutent plus volontiers quelqu'un qu'ils connaissent qu'une affiche ou une
+			publication. En parler à vos proches, vos collègues, vos amis est donc l'une des choses les
+			plus utiles que vous puissiez faire. Voici comment s'y prendre sans braquer personne.
 		</svelte:fragment>
 	</PageHero>
 
 	<!-- Resources Section -->
 	<section class="ressources" aria-labelledby="ressources-titre">
-		<SectionTitle id="ressources-titre">Choisissez votre approche</SectionTitle>
+		<SectionTitle id="ressources-titre">Deux guides, selon le temps que vous avez</SectionTitle>
 
 		<div class="grille">
 			<Card class="ressource principale">
-				<h3>Guide express</h3>
+				<h3>Guide court</h3>
 				<p class="duree">5 à 10 minutes</p>
-				<p>L'essentiel du recrutement relationnel, à lire directement sur cette page.</p>
+				<p>L'essentiel, à lire directement sur cette page.</p>
 				<p class="action"><Button href="#guide-express">Lire maintenant</Button></p>
+				<p class="pdf">
+					<a href="/pdfs/guide_recrutement_express.pdf">Version PDF, à imprimer</a>
+				</p>
 			</Card>
 
 			<Card class="ressource">
 				<h3>Guide complet</h3>
 				<p class="duree">30 minutes et plus</p>
-				<p>Tous les aspects du recrutement, avec des exemples détaillés.</p>
+				<p>Les situations concrètes, les objections fréquentes et comment y répondre.</p>
 				<p class="action"><Button alt href="{base}/guide-recrutement">Accéder au guide</Button></p>
-			</Card>
-
-			<Card class="ressource">
-				<h3>Guide express en PDF</h3>
-				<p class="duree">À imprimer</p>
-				<p>La version portable du guide express, pour lire hors ligne.</p>
-				<p class="action">
-					<Button alt href="/pdfs/guide_recrutement_express.pdf">Télécharger le PDF</Button>
-				</p>
-			</Card>
-
-			<Card class="ressource">
-				<h3>Guide complet en PDF</h3>
-				<p class="duree">Bientôt</p>
-				<p>La version complète portable, avec toutes les techniques.</p>
-				<p class="action"><span class="bientot">Bientôt disponible</span></p>
 			</Card>
 		</div>
 	</section>
@@ -65,87 +49,61 @@
 	<!-- Guide Express Content -->
 	<section id="guide-express" class="guide-section">
 		<header class="guide-header">
-			<h2>Guide express</h2>
+			<h2>Guide court</h2>
 			<div class="guide-subtitle">
-				<span class="guide-title-main">Votre Guide Express :</span>
-				<span class="guide-title-sub">Devenez un Moteur de Croissance pour Pause IA !</span>
+				<span class="guide-title-sub">En parler autour de vous, concrètement</span>
 			</div>
 		</header>
 
 		<Callout>
-			<em>Et si…</em>
-
-			<p>Et si un seul SMS pouvait, en quelques semaines, se transformer en :</p>
-			<ul class="chain-list">
-				<li>
-					1 nouvelle recrue → 3 entrepreneurs mobilisés → 1 rencontre avec un député → 40
-					témoignages citoyens au Parlement ?
-				</li>
-			</ul>
+			<em>Pourquoi vous, plutôt qu'une campagne de publicité</em>
 
 			<p>
-				<strong>C'est exactement le type de cascade que produit le recrutement relationnel.</strong>
+				Sur un sujet aussi inquiétant que l'IA, la plupart des gens ne changent pas d'avis en lisant
+				un tract. Ils en parlent d'abord avec quelqu'un en qui ils ont confiance. C'est pour cela
+				qu'une conversation avec vous vaut mieux que n'importe quelle affiche : vous êtes cette
+				personne-là pour votre entourage.
 			</p>
 
 			<p>
-				En recrutant pour Pause IA, vous ne faites pas qu'ajouter une personne : <strong
-					>vous initiez une potentielle réaction en chaîne, amplifiant votre impact bien au-delà de
-					votre action initiale.</strong
-				>
-			</p>
-
-			<p>
-				Et ce n'est pas tout : cette démarche est aussi une formidable opportunité pour vous de <strong
-					>développer des compétences précieuses</strong
-				> (écoute active, communication persuasive, mobilisation) qui vous enrichiront personnellement
-				et professionnellement.
+				L'objectif n'est pas de convaincre tout le monde, ni de faire du chiffre.
+				<strong>
+					C'est que les gens qui sont déjà inquiets sachent qu'ils ne sont pas seuls, et qu'il
+					existe quelque chose à faire.
+				</strong>
 			</p>
 		</Callout>
 
 		<div class="guide-content">
 			<section>
-				<h3>Pourquoi votre rôle de recruteur est déterminant :</h3>
+				<h3>Pourquoi en parler autour de vous compte</h3>
 
-				<h4>1. L'Effet Exponentiel</h4>
+				<h4>1. Les gens écoutent ceux qu'ils connaissent</h4>
 				<p>
-					Chaque personne que vous ralliez peut, à son tour, en rallier d'autres. Imaginez : 1
-					personne en recrute 1 autre chaque mois. Si ce schéma se répète, on passe de 2 à 4, puis
-					8, 16... et plus de 4000 en un an !
+					Les enquêtes sur l'opinion le montrent régulièrement : sur un sujet technique et
+					anxiogène, c'est l'entourage proche qui pèse le plus, bien avant les médias et les
+					campagnes. Vous avez accès à des personnes qu'aucune communication de l'association
+					n'atteindra jamais.
 				</p>
-
-				<div class="infographic-container">
-					<enhanced:img
-						src={infographic}
-						alt="L'effet exponentiel du recrutement peer-to-peer : de 1 personne à plus de 4000 en un an"
-						class="infographic"
-						loading="lazy"
-					/>
-				</div>
-
-				<p class="reference">
-					<em
-						>(Lire l'analyse complète : <a
-							href="{base}/guide-recrutement#partie-1-pourquoi-votre-role-est-absolument-determinant"
-							>Guide de Recrutement Pause IA</a
-						> – Partie 1 : Pourquoi votre rôle est absolument déterminant)</em
-					>
-				</p>
-
-				<h4>2. Une Course Contre la Montre</h4>
 				<p>
-					Les capacités des IA avancées progressent à une vitesse fulgurante. Notre capacité à
-					sensibiliser, mobiliser et influencer doit suivre ce rythme effréné pour façonner un
-					avenir souhaitable. Votre rôle dans cette accélération est direct.
+					L'idée n'est donc pas de parler au plus grand nombre, mais de parler bien à quelques
+					personnes : celles qui, chez vous, sont déjà mal à l'aise avec ce qu'elles voient arriver.
 				</p>
 
-				<h4>3. La Science du Changement</h4>
+				<h4>2. Le temps joue contre nous</h4>
+				<p>
+					Les capacités des modèles d'IA progressent vite, et les décisions qui comptent se prennent
+					maintenant. Plus l'inquiétude est partagée tôt, plus elle pèse au moment où ces décisions
+					se jouent.
+				</p>
+
+				<h4>3. Ce que montrent les travaux sur l'engagement</h4>
 				<p>
 					Des experts comme Damon Centola (<em>Change: How to Make Big Things Happen</em>) montrent
 					que les changements de comportement "complexes" (comme s'engager activement) se propagent
 					par la <strong>confiance</strong> et la <strong>validation sociale</strong> au sein de réseaux
-					personnels. Un message entendu dans un podcast (contagion simple) informe. Mais ce sont VOS
-					conversations avec VOS proches (contagion complexe) qui transforment la prise de conscience
-					en action.
+					personnels. Un message entendu dans un podcast (contagion simple) informe. Ce sont les conversations
+					avec des proches qui transforment la prise de conscience en action.
 				</p>
 
 				<p class="reference">
@@ -187,30 +145,29 @@
 			</section>
 
 			<section>
-				<h3>Passez à l'Action : Votre Plan en 3 Étapes Simples</h3>
+				<h3>Comment s'y prendre, en trois temps</h3>
 
-				<h4>ÉTAPE 1 : CARTOGRAPHIEZ VOTRE RÉSEAU (Identifiez vos "Étincelles")</h4>
+				<h4>1. Repérer à qui en parler</h4>
 				<ul>
 					<li>
 						<strong>Pourquoi ?</strong> Cet exercice simple vous aide à identifier les personnes de votre
-						entourage les plus susceptibles d'être réceptives ou influentes, pour commencer par les conversations
-						les plus "faciles" et porteuses.
+						entourage avec qui la discussion a le plus de chances d'être utile, plutôt que de parler
+						au hasard.
 					</li>
 					<li>
-						<strong>Comment (en simplifié) ?</strong>
+						<strong>En pratique</strong>
 						<ol>
 							<li>
-								<strong>Listez sans filtre</strong> (10-20 min) : Amis, famille, collègues, anciens contacts,
-								membres d'autres assos...
+								Faites la liste des gens à qui vous pourriez en parler sans que ce soit forcé :
+								famille, amis, collègues, anciens camarades, membres d'autres associations.
 							</li>
 							<li>
-								<strong>Évaluez rapidement</strong> (5 min) : Pour chacun, notez (1 à 3) la force de votre
-								lien, son influence potentielle, et sa sensibilité supposée à nos sujets. Multipliez ces
-								trois chiffres pour obtenir un score.
+								Repérez ceux qui ont déjà montré de l'inquiétude sur le sujet, même en passant. Ce
+								sont les conversations les plus naturelles à ouvrir.
 							</li>
 							<li>
-								<strong>Priorisez</strong> (2 min) : Ciblez les 3-5 personnes avec le "score" le plus
-								prometteur ou avec qui vous êtes le plus à l'aise pour une première discussion.
+								Commencez par deux ou trois personnes, celles avec qui vous êtes le plus à l'aise.
+								Mieux vaut une vraie discussion que dix messages envoyés à la chaîne.
 							</li>
 						</ol>
 					</li>
@@ -226,11 +183,12 @@
 					</li>
 				</ul>
 
-				<h4>ÉTAPE 2 : ENGAGEZ LA CONVERSATION (L'Art d'Écouter pour Connecter)</h4>
+				<h4>2. Engager la conversation, en écoutant</h4>
 				<ul>
 					<li>
-						<strong>La clé : L'ÉCOUTE AUTHENTIQUE.</strong> Votre objectif est de comprendre, pas de prêcher.
-						Visez 80% d'écoute, 20% de parole.
+						<strong>L'essentiel est d'écouter.</strong> L'objectif est de comprendre ce qui préoccupe
+						la personne, pas de dérouler un argumentaire. En pratique : beaucoup plus d'écoute que de
+						parole.
 					</li>
 					<li>
 						<strong>Soyez transparent(e) sur votre démarche</strong> dès le début (voir exemples dans
@@ -267,7 +225,7 @@
 					</li>
 				</ul>
 
-				<h4>ÉTAPE 3 : FAITES UNE DEMANDE CLAIRE (Le "Petit Pas Suivant")</h4>
+				<h4>3. Proposer quelque chose de précis</h4>
 				<ul>
 					<li>Proposez une action <strong>simple, claire et immédiate</strong></li>
 					<li>
@@ -366,9 +324,9 @@
 		<div class="conclusion-content">
 			<h2>Envie d'aller plus loin ?</h2>
 			<p>
-				Ceci était le guide express pour vous donner les bases du recrutement relationnel. Pour une
-				formation complète avec exemples détaillés, techniques avancées, réponses aux objections
-				courantes, et ressources supplémentaires...
+				Ce guide court donne les bases. Le guide complet reprend les mêmes idées avec des exemples
+				de conversations, les objections qui reviennent le plus souvent et comment y répondre
+				honnêtement.
 			</p>
 			<p class="action">
 				<Button href="{base}/guide-recrutement">Découvrir le guide complet</Button>
@@ -436,6 +394,11 @@
 		line-height: 1.6;
 	}
 
+	.grille :global(.pdf) {
+		margin: 0.75rem 0 0;
+		font-size: 0.9rem;
+	}
+
 	.grille :global(.duree) {
 		margin-block-end: 0.75rem !important;
 		font-size: 0.85rem;
@@ -449,16 +412,6 @@
 		padding-block-start: 1.25rem;
 	}
 
-	.grille :global(.bientot) {
-		display: inline-block;
-		padding: 0.4rem 0.8rem;
-		font-size: 0.85rem;
-		color: var(--text-secondary);
-		background: var(--bg-secondary);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-pill);
-	}
-
 	/* --- Corps du guide ---------------------------------------------------- */
 	.guide-section h2 {
 		margin: 0 0 1.5rem;
@@ -467,12 +420,6 @@
 
 	.guide-subtitle {
 		margin-block-end: 2rem;
-	}
-
-	.guide-title-main {
-		display: block;
-		font-weight: 700;
-		color: var(--text);
 	}
 
 	.guide-title-sub {
@@ -508,17 +455,6 @@
 	.reference {
 		font-size: 0.9rem;
 		color: var(--text-2);
-	}
-
-	.infographic-container {
-		margin-block: 1.5rem;
-	}
-
-	.infographic-container :global(img) {
-		inline-size: 100%;
-		block-size: auto;
-		border-radius: var(--radius-md);
-		border: 1px solid var(--border);
 	}
 
 	/* --- Conclusion -------------------------------------------------------- */

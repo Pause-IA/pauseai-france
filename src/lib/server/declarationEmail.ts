@@ -14,18 +14,18 @@ export function confirmationEmail(opts: {
 	const en = lang === 'en'
 	const subject = en
 		? 'Confirm your signature of the PauseAI statement'
-		: 'Confirmez votre signature de la déclaration PauseAI'
+		: 'Confirmez votre signature de l’appel de PauseAI'
 	const hello = en ? `Hello ${firstName},` : `Bonjour ${firstName},`
 	const intro = en
 		? 'Thank you for signing the PauseAI statement. One last step: please confirm your email address so that your signature is counted.'
-		: 'Merci d’avoir signé la déclaration PauseAI. Dernière étape : confirmez votre adresse e-mail pour que votre signature soit comptabilisée.'
+		: 'Merci d’avoir signé l’appel de PauseAI. Dernière étape : confirmez votre adresse e-mail pour que votre signature soit comptabilisée.'
 	const button = en ? 'Confirm my signature' : 'Confirmer ma signature'
 	const statement = en
 		? '“We call on the governments of the world to sign an international treaty implementing a pause on the training of the most powerful general AI systems, until we know how to build them safely and keep them under democratic control.”'
 		: '« Nous appelons les gouvernements du monde entier à signer un traité international instaurant une pause dans l’entraînement des systèmes d’IA généralistes les plus puissants, jusqu’à ce que nous sachions les construire de manière sûre et les maintenir sous contrôle démocratique. »'
 	const ignore = en
 		? 'If you did not sign this statement, simply ignore this email: nothing will be recorded in your name.'
-		: 'Si vous n’avez pas signé cette déclaration, ignorez simplement cet e-mail : rien ne sera enregistré à votre nom.'
+		: 'Si vous n’avez pas signé cet appel, ignorez simplement cet e-mail : rien ne sera enregistré à votre nom.'
 	const validity = en
 		? 'One click is enough. This link is valid for 30 days.'
 		: 'Un clic suffit. Ce lien est valable 30 jours.'
@@ -49,7 +49,7 @@ export function confirmationEmail(opts: {
 
 	const footer = en
 		? 'You are receiving this email because this address was used to sign the PauseAI statement on pauseia.fr.'
-		: 'Vous recevez cet e-mail car cette adresse a été utilisée pour signer la déclaration PauseAI sur pauseia.fr.'
+		: 'Vous recevez cet e-mail car cette adresse a été utilisée pour signer l’appel de PauseAI sur pauseia.fr.'
 	const p = 'margin:0 0 15px;line-height:1.6;color:#555555;font-size:15px;'
 
 	// Même gabarit que les e-mails CiviCRM de Pause IA : logo, colonne de 700px,

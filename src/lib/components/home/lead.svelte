@@ -89,7 +89,7 @@
 					pointe.
 				</p>
 				<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
-					<Button href="{prefix}/declaration">Signer la déclaration</Button>
+					<Button href="{prefix}/declaration">Signer l'appel</Button>
 					<Button href="{prefix}/rejoindre" alt>Rejoignez-nous</Button>
 				</div>
 			{/if}

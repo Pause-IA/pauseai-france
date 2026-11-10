@@ -67,3 +67,13 @@
 /en/personne-ne-controle-lia                     /en/articles/2026-09-15-personne-ne-controle-lia                     301!
 /fr/incident-openai-hugging-face                 /fr/articles/2026-08-10-incident-openai-hugging-face                 301!
 /en/incident-openai-hugging-face                 /en/articles/2026-08-10-incident-openai-hugging-face                 301!
+
+# Articles de la campagne Emploi & IA sortis de /emploi-ia/ (novembre 2026) :
+# leur adresse doit porter « articles », comme les autres. La page de campagne
+# continue de pointer vers eux.
+/fr/emploi-ia/remplacer-humain            /fr/articles/remplacer-humain            301!
+/en/emploi-ia/remplacer-humain            /en/articles/remplacer-humain            301!
+/fr/emploi-ia/pas-de-pilote               /fr/articles/pas-de-pilote               301!
+/en/emploi-ia/pas-de-pilote               /en/articles/pas-de-pilote               301!
+/fr/emploi-ia/ce-que-lia-fait-au-travail  /fr/articles/ce-que-lia-fait-au-travail  301!
+/en/emploi-ia/ce-que-lia-fait-au-travail  /en/articles/ce-que-lia-fait-au-travail  301!

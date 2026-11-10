@@ -124,7 +124,7 @@
 		<footer>Dario Amodei, PDG d'Anthropic, mai 2025</footer>
 	</blockquote>
 
-	<a href="/{data.lang}/emploi-ia/pas-de-pilote" class="next-article">
+	<a href="/{data.lang}/articles/pas-de-pilote" class="next-article">
 		<span class="next-label">Article suivant →</span>
 		<strong class="next-title">Pas de pilote dans l'avion France</strong>
 		<span class="next-desc"

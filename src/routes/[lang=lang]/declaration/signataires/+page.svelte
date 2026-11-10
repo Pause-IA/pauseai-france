@@ -12,12 +12,10 @@
 	export let data: PageData
 	$: isEn = data.lang === 'en'
 	$: prefix = `/${data.lang}`
-	$: title = isEn
-		? 'Signatories of the PauseAI statement'
-		: 'Les signataires de la déclaration PauseAI'
+	$: title = isEn ? 'Signatories of the PauseAI statement' : 'Les signataires de l’appel de PauseAI'
 	$: description = isEn
 		? 'Everyone who signed the PauseAI statement for an international treaty on AI, and why it matters to them.'
-		: 'Toutes les personnes qui ont signé la déclaration PauseAI pour un traité international sur l’IA, et pourquoi c’est important pour elles.'
+		: 'Toutes les personnes qui ont signé l’appel de PauseAI pour un traité international sur l’IA, et pourquoi c’est important pour elles.'
 
 	let d: DeclarationData | null = null
 	onMount(async () => {
@@ -45,20 +43,20 @@
 					{fmt(c.worldCount)} people have signed the PauseAI statement worldwide, including
 					{fmt(c.franceCount)} in France. Discover who they are and why it matters to them.
 				{:else}
-					{fmt(c.worldCount)} personnes ont signé la déclaration PauseAI dans le monde, dont
+					{fmt(c.worldCount)} personnes ont signé l’appel de PauseAI dans le monde, dont
 					{fmt(c.franceCount)} en France. Découvrez qui elles sont et pourquoi c’est important pour elles.
 				{/if}
 			{:else if isEn}
 				Discover who signed the PauseAI statement and why it matters to them.
 			{:else}
-				Découvrez qui a signé la déclaration PauseAI et pourquoi c’est important pour eux.
+				Découvrez qui a signé l’appel de PauseAI et pourquoi c’est important pour eux.
 			{/if}
 		</svelte:fragment>
 		<div slot="actions" class="actions">
 			<Button href="{prefix}/declaration#signer">
-				{isEn ? 'Sign the statement' : 'Signer la déclaration'}
+				{isEn ? 'Sign the statement' : 'Signer l’appel'}
 			</Button>
-			<a href="{prefix}/declaration">{isEn ? 'Read the statement' : 'Lire la déclaration'}</a>
+			<a href="{prefix}/declaration">{isEn ? 'Read the statement' : 'Lire l’appel'}</a>
 		</div>
 	</PageHero>
 

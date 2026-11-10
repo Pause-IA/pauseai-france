@@ -590,15 +590,15 @@ export default {
 		article1_title: 'Replacing humans is the goal',
 		article1_desc:
 			'In a few years, AI has become capable of replacing humans in more and more tasks, 16% of work in France already automatable.',
-		article1_url: '/emploi-ia/remplacer-humain',
+		article1_url: '/articles/remplacer-humain',
 		article2_title: 'France: no pilot in the cockpit',
 		article2_desc:
 			'Mass youth unemployment, a threatened welfare state, dependence on Silicon Valley: what our world could look like if we fail to act.',
-		article2_url: '/emploi-ia/pas-de-pilote',
+		article2_url: '/articles/pas-de-pilote',
 		article3_title: 'What AI is doing to work',
 		article3_desc:
 			'A qualitative review of our employment survey: loss of meaning, decisions imposed from above, adaptation shifted onto individuals, what around thirty witnesses shared with us.',
-		article3_url: '/emploi-ia/ce-que-lia-fait-au-travail',
+		article3_url: '/articles/ce-que-lia-fait-au-travail',
 		article3_badge: 'Campaign review',
 		slideshow_empty: 'Illustrated testimonials are coming soon.',
 		slideshow_nav_aria: 'Testimonials slideshow navigation',
