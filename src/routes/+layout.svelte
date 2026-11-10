@@ -17,6 +17,12 @@
 	import '@fontsource/ibm-plex-sans/latin-400.css' // regular, latin subset only
 	import '@fontsource/ibm-plex-sans/latin-500.css' // medium, latin subset only
 	import '@fontsource/ibm-plex-sans/latin-700.css' // bold, latin subset only
+	// Les italiques doivent être chargées, sinon le navigateur fabrique une
+	// fausse italique en penchant mécaniquement le romain : le « a » reste à
+	// deux étages, le « g » reste droit, et le trait s'épaissit. 22 fichiers
+	// du site utilisent font-style: italic ou <em>, dont toutes les citations.
+	import '@fontsource/ibm-plex-sans/latin-400-italic.css' // italique de labeur
+	import '@fontsource/ibm-plex-sans/latin-700-italic.css' // gras italique
 
 	import '../reset.css'
 	import '../app.css'
