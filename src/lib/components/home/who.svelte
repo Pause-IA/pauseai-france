@@ -1,7 +1,6 @@
 <script lang="ts">
 	import LeadershipCard from '$components/LeadershipCard.svelte'
 	import ScientificCouncilCard from '$components/ScientificCouncilCard.svelte'
-	import WhoCard from '$components/WhoCard.svelte'
 	import Button from '$components/Button.svelte'
 	import { LinkCard, LinkGrid, Page, SectionTitle } from '$components/ui'
 	import { equipes } from '$lib/data/equipes'
@@ -59,74 +58,6 @@
 		}
 	]
 
-	const fallbackMembers = [
-		{
-			name: 'Aurélia',
-			image: '/membres/aurelia.jpg',
-			job: "Professeur d'anglais en classe préparatoire"
-		},
-		{
-			name: 'Éloïse',
-			image: '/membres/eloise.jpg',
-			job: "Chercheuse indépendante en sécurité de l'IA"
-		},
-		{
-			name: 'Salim',
-			image: '/membres/salim.jpg',
-			job: 'Etudiant en mathématiques'
-		},
-		{
-			name: 'Karine',
-			image: '/membres/karine.jpg',
-			job: 'Hypnothérapeute et coach bien-être'
-		},
-		{
-			name: 'Muriel',
-			image: '/membres/muriel.jpg',
-			job: 'Traductrice'
-		},
-		{
-			name: 'Stélian',
-			image: '/membres/stelian.jpg',
-			job: 'Psychologue-psychothérapeute'
-		},
-		{
-			name: 'Sandra',
-			image: '/membres/sandra.jfif',
-			job: 'Enseignante de littérature et autrice'
-		},
-		{
-			name: 'Sandrine',
-			image: '/membres/sandrine.jpg',
-			job: 'Psychopédagogue'
-		},
-		{
-			name: 'Bahman',
-			image: '/membres/bahman.jpeg',
-			job: 'Psychologue cognitiviste'
-		},
-		{
-			name: 'Mandelle',
-			image: '/membres/Mandelle.jpg',
-			job: 'Enseignante'
-		},
-		{
-			name: 'Marilyn',
-			image: '/membres/Marilyn.jpg',
-			job: 'Cheffe de projet en communication digitale'
-		},
-		{
-			name: 'Damien',
-			image: '/membres/damien.jpg',
-			job: 'Ingénieur du son chez studiobreton.fr'
-		},
-		{
-			name: 'Emmanuel',
-			image: '/membres/emmanuel.jpg',
-			job: ''
-		}
-	]
-
 	// Derive display data from Notion or fallback
 	$: hasNotionData = teamMembers.length > 0
 
@@ -141,12 +72,6 @@
 				.filter((m) => m.category === 'Conseil scientifique')
 				.map((m) => ({ name: m.name, job: m.profession, image: m.image || null }))
 		: fallbackScientificCouncil
-
-	$: members = hasNotionData
-		? teamMembers
-				.filter((m) => m.category === 'Membre')
-				.map((m) => ({ name: m.name, job: m.profession, image: m.image || null }))
-		: fallbackMembers
 </script>
 
 <!-- Gabarit Hub : en-tête commun, puis « en bref » (demande, valeurs,
@@ -242,23 +167,20 @@
 		</div>
 	{/if}
 
-	{#if members.length > 0}
-		<div class="team-section">
-			<h2 class="section-title">
-				{lang === 'en' ? 'Members & Volunteers' : 'Membres et bénévoles'}
-			</h2>
-			<div class="cards-grid cards-centered">
-				{#each members as member}
-					<WhoCard name={member.name} image={member.image} job={member.job} />
-				{/each}
-			</div>
-		</div>
-	{/if}
-
-	<p class="member-count">
-		{lang === 'en'
-			? '+ a hundred members and volunteers'
-			: '+ une centaine de membres et bénévoles'}
+	<!-- La galerie « Membres et bénévoles » affichait une quinzaine de visages
+	     pris parmi plus de cent. Le choix n'était pas explicable, et la page
+	     laissait croire à une équipe de quinze personnes au lieu d'un mouvement.
+	     Une phrase dit mieux ce que la galerie disait mal. -->
+	<p class="benevoles">
+		{#if lang === 'en'}
+			Beyond this team, Pause AI France runs on <strong>more than a hundred volunteers</strong>:
+			engineers, teachers, researchers, lawyers, psychologists, students, retirees. Most of the work
+			shown on this site is theirs.
+		{:else}
+			Au-delà de cette équipe, Pause IA repose sur <strong>plus d’une centaine de bénévoles</strong>
+			: ingénieurs, enseignants, chercheurs, juristes, psychologues, étudiants, retraités. L’essentiel
+			du travail présenté sur ce site est le leur.
+		{/if}
 	</p>
 
 	<!-- Vue d'ensemble des équipes : le visiteur doit comprendre de quoi
@@ -275,7 +197,9 @@
 		<ul class="equipes">
 			{#each equipes as equipe}
 				<li class="equipe">
-					<h3>{equipe.nom}</h3>
+					<h3>
+						{equipe.nom}{#if equipe.referent}<span class="referent">{equipe.referent}</span>{/if}
+					</h3>
 					<p>{equipe.description}</p>
 				</li>
 			{/each}
@@ -322,6 +246,13 @@
 	.equipe {
 		padding-block: 1rem;
 		border-block-start: 1px solid var(--border);
+	}
+
+	.referent {
+		margin-inline-start: 0.6rem;
+		font-size: 0.85rem;
+		font-weight: 400;
+		color: var(--text-2);
 	}
 
 	.equipe h3 {
@@ -375,15 +306,12 @@
 		justify-content: center;
 	}
 
-	.member-count {
-		margin-top: 3rem;
-		padding: 1.25rem 2rem;
-		font-size: 1.2rem;
-		font-weight: 600;
-		color: var(--text);
-		text-align: center;
-		background: var(--bg-subtle);
-		border-radius: var(--radius-sm);
-		border: 1px solid var(--border);
+	/* Du texte, et non l'encadré crème de l'ancien compteur : c'est une phrase
+	   qui se lit, pas un chiffre à mettre en avant. */
+	.benevoles {
+		max-inline-size: var(--width-text);
+		margin: 2.5rem auto 0;
+		line-height: 1.7;
+		color: var(--text-2);
 	}
 </style>
