@@ -7,8 +7,6 @@
 	import {
 		citationHinton,
 		citations,
-		essentiel,
-		sommaire,
 		creditsPortraits,
 		portraitComplet,
 		etapes,
@@ -84,35 +82,6 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 	</p>
 
 	<hr class="filet" />
-
-	<!-- La note fait une douzaine de pages. Un collaborateur parlementaire qui
-	     a quatre minutes n'arrivera jamais seul à « Que peut-on faire ? », qui
-	     est pourtant la section où on lui demande quelque chose. D'où ce
-	     résumé et ce sommaire, qui donnent la thèse et la forme du document
-	     avant qu'on ait déroulé. -->
-	<section class="essentiel" aria-labelledby="t-essentiel">
-		<h2 id="t-essentiel">L’essentiel</h2>
-		<ol>
-			{#each essentiel as point, i (point.fort)}
-				<li>
-					<span class="rang" aria-hidden="true">{i + 1}</span>
-					<span><strong>{point.fort}</strong> {point.suite}</span>
-				</li>
-			{/each}
-		</ol>
-		<p class="essentiel-action">
-			Vous exercez un mandat ou travaillez auprès d’un élu ?
-			<a href="#ecrire">Demandez un point d’information</a>, sans jargon et sans engagement.
-		</p>
-		<nav class="sommaire" aria-label="Sommaire de la note">
-			<span class="sommaire-titre">Aller à</span>
-			<ul>
-				{#each sommaire as entree (entree.id)}
-					<li><a href="#{entree.id}">{entree.titre}</a></li>
-				{/each}
-			</ul>
-		</nav>
-	</section>
 
 	<div class="chapo">
 		<p>
@@ -930,8 +899,7 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 			gap: 0.3rem;
 		}
 
-		.contact,
-		.essentiel {
+		.contact {
 			padding: 1.25rem;
 		}
 	}
@@ -1102,106 +1070,6 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 		display: none;
 	}
 
-	/* ── L'essentiel et le sommaire ───────────────────────────────────────
-	   Un seul bloc encadré en tête, filet de marque en haut comme l'encadré
-	   de contact : ce sont les deux endroits de la page où l'on ne raconte
-	   pas, on résume ou on demande. */
-	.essentiel {
-		margin-top: 2rem;
-		padding: 1.6rem 1.75rem;
-		border: 1px solid var(--border);
-		border-top: 2px solid var(--brand);
-	}
-
-	.essentiel h2 {
-		margin: 0 0 1rem;
-		font-size: 0.82rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--brand-subtle);
-	}
-
-	.essentiel ol {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	.essentiel li {
-		display: grid;
-		grid-template-columns: 1.4rem minmax(0, 1fr);
-		gap: 0.75rem;
-		margin: 0 0 0.85rem;
-		line-height: 1.5;
-	}
-
-	.essentiel li:last-child {
-		margin-bottom: 0;
-	}
-
-	.rang {
-		font-weight: 700;
-		font-variant-numeric: tabular-nums;
-		color: var(--brand-subtle);
-	}
-
-	.essentiel-action {
-		margin: 1.25rem 0 0;
-		padding-top: 1.1rem;
-		border-top: 1px solid var(--border);
-		font-size: 0.95rem;
-		line-height: 1.5;
-	}
-
-	/* Le sommaire en ligne continue : une liste verticale de dix entrées
-	   aurait rallongé le haut de page, ce qu'on cherche justement à éviter. */
-	.sommaire {
-		margin-top: 1.4rem;
-		padding-top: 1.1rem;
-		border-top: 1px solid var(--border);
-		font-size: 0.9rem;
-	}
-
-	.sommaire-titre {
-		font-size: 0.78rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--text-2);
-	}
-
-	/* En flux de texte et non en flex : des éléments flex se réduisent sous
-	   leur contenu, et la première entrée se repliait à un mot par ligne.
-	   Une liste en ligne est du texte, elle doit couler comme du texte. */
-	.sommaire ul {
-		display: block;
-		list-style: none;
-		margin: 0.45rem 0 0;
-		padding: 0;
-		line-height: 1.75;
-	}
-
-	.sommaire li {
-		display: inline;
-		margin: 0;
-	}
-
-	.sommaire li + li::before {
-		content: '·';
-		margin: 0 0.5rem;
-		color: var(--text-2);
-	}
-
-	.sommaire a {
-		text-decoration: none;
-	}
-
-	.sommaire a:hover,
-	.sommaire a:focus-visible {
-		text-decoration: underline;
-	}
-
 	/* ── Impression ───────────────────────────────────────────────────────
 	   Cette note est faite pour être glissée dans un dossier de rendez-vous.
 	   Sur papier : pas d'aplat, pas de photo, les objections dépliées, et
@@ -1281,16 +1149,10 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 			display: none;
 		}
 
-		/* Sur papier le sommaire ne sert à rien : on ne clique pas une page
-		   imprimée, et la table des matières serait fausse puisque les
-		   numéros de page ne sont pas ceux de la pagination écran. */
-		.sommaire,
-		.essentiel-action,
 		.action-contact {
 			display: none;
 		}
 
-		.essentiel,
 		.citation,
 		.etapes li,
 		.contact,
