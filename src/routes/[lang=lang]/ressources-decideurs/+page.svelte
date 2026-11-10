@@ -445,9 +445,26 @@
 		inline-size: 100%;
 		max-inline-size: var(--width-text);
 		margin-inline: auto;
-		padding-inline: 1.5rem;
+		/* Le <main> du gabarit pose déjà 16 px de gouttière. En ajoutant ici
+		   24 px de plus, on mangeait 80 px sur un écran de 390 : la ligne
+		   tombait à 34 signes. Sous 40 rem on laisse donc la gouttière du
+		   gabarit faire le travail, et on n'ajoute la nôtre qu'au-delà. */
+		--marge-note: 0rem;
+		padding-inline: var(--marge-note);
 		padding-block: 3rem 0;
 		line-height: 1.62;
+		/* app.css fixe le corps du site à 1,2 rem, soit 19,2 px. Sur un
+		   téléphone de 390 px, cela ne laisse qu'une trentaine de signes par
+		   ligne : l'œil revient à la ligne sans arrêt. On descend à 17 px sur
+		   mobile et on remonte progressivement jusqu'à 19 px sur grand écran,
+		   ce qui tient la ligne autour de 45 à 66 signes partout. */
+		font-size: clamp(1.0625rem, 0.97rem + 0.42vw, 1.1875rem);
+	}
+
+	/* L'en-tête du site est collant : sans cette marge, une ancre (#faire,
+	   #ecrire) amène le titre de section juste sous l'en-tête, qui le cache. */
+	.note :global([id]) {
+		scroll-margin-top: 6rem;
 	}
 
 	/* Hiérarchie : le titre de page est nettement plus grand et plus gras que
@@ -474,11 +491,21 @@
 	   le navigateur). L'ardoise est fixe dans les deux thèmes : le texte passe
 	   en --on-dark et l'orange de marque n'y sert que d'accent. */
 	.sombre {
-		margin-inline: calc(-1 * var(--gutter));
-		padding: clamp(2rem, 5vw, 3rem) var(--gutter);
-		background: var(--slate);
+		margin-inline: calc(-1 * var(--marge-note));
+		padding: clamp(2rem, 5vw, 3rem) 1.25rem;
+		background: var(--surface-sombre);
 		color: var(--on-dark);
 		border: 0;
+	}
+
+	@media (min-width: 40rem) {
+		.note {
+			--marge-note: 1.5rem;
+		}
+
+		.sombre {
+			padding-inline: 2rem;
+		}
 	}
 
 	@media (min-width: 52rem) {
@@ -560,7 +587,7 @@
 	}
 
 	.sombre :global(.accordion .details) {
-		background: var(--slate-2);
+		background: var(--surface-sombre-2);
 		border-color: rgba(var(--on-dark-rgb), 0.14);
 		box-shadow: none;
 	}
@@ -810,6 +837,20 @@
 
 	.etapes h3 {
 		margin: 0 0 0.3rem;
+	}
+
+	/* Sur un écran étroit, la colonne du chiffre et sa gouttière prenaient
+	   48 px sur 358 : le titre de l'étape tombait sur trois lignes. Le chiffre
+	   passe au-dessus et le titre récupère toute la largeur. */
+	@media (max-width: 30rem) {
+		.etapes li {
+			grid-template-columns: 1fr;
+			gap: 0.3rem;
+		}
+
+		.contact {
+			padding: 1.25rem;
+		}
 	}
 
 	.etapes p {

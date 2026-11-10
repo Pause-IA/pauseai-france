@@ -13,16 +13,32 @@
 	import { onMount } from 'svelte'
 	import type { Lang } from '$lib/i18n'
 
-	import '@fontsource/ibm-plex-sans/latin-200.css' // extra-light, latin subset only
-	import '@fontsource/ibm-plex-sans/latin-400.css' // regular, latin subset only
-	import '@fontsource/ibm-plex-sans/latin-500.css' // medium, latin subset only
-	import '@fontsource/ibm-plex-sans/latin-700.css' // bold, latin subset only
-	// Les italiques doivent être chargées, sinon le navigateur fabrique une
-	// fausse italique en penchant mécaniquement le romain : le « a » reste à
-	// deux étages, le « g » reste droit, et le trait s'épaissit. 22 fichiers
-	// du site utilisent font-style: italic ou <em>, dont toutes les citations.
-	import '@fontsource/ibm-plex-sans/latin-400-italic.css' // italique de labeur
-	import '@fontsource/ibm-plex-sans/latin-700-italic.css' // gras italique
+	// ── Polices ───────────────────────────────────────────────────────────
+	// Deux familles, comme le prévoyaient déjà --font-heading et --font-body.
+	//
+	// Titres : Libre Franklin. Lignée Franklin Gothic, la grotesque des
+	// journaux et de la communication publique américaine. Chasse étroite et
+	// dessin ferme : elle donne de l'autorité aux titres et se rapproche du
+	// poids du logo Pause IA.
+	//
+	// Texte : Inter. Dessinée pour les écrans, hauteur d'x haute, formes
+	// neutres : elle se lit sans se faire remarquer, ce qu'on attend d'un
+	// texte de fond.
+	//
+	// Charger exactement les graisses et styles utilisés : toute graisse ou
+	// tout style manquant est fabriqué par le navigateur (faux gras épaissi,
+	// fausse italique simplement penchée), et cela se voit. Relevé dans les
+	// feuilles du site : 400 (9 fois), 500 (26), 600 (121), 700 (125),
+	// 800 (8), plus l'italique dans 22 fichiers.
+	import '@fontsource/libre-franklin/latin-600.css'
+	import '@fontsource/libre-franklin/latin-700.css'
+	import '@fontsource/libre-franklin/latin-800.css'
+	import '@fontsource/inter/latin-400.css'
+	import '@fontsource/inter/latin-500.css'
+	import '@fontsource/inter/latin-600.css'
+	import '@fontsource/inter/latin-700.css'
+	import '@fontsource/inter/latin-400-italic.css'
+	import '@fontsource/inter/latin-700-italic.css'
 
 	import '../reset.css'
 	import '../app.css'
