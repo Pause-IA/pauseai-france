@@ -59,7 +59,7 @@
 			{#if lang === 'en'}
 				Follow our work, get involved, and receive a monthly roundup of the latest AI news.
 			{:else}
-				Suivez nos actions, impliquez-vous et recevez chaque mois l'essentiel de l'actualité IA.
+				Suivez nos actions, impliquez-vous et recevez chaque mois l’essentiel de l’actualité IA.
 			{/if}
 		</p>
 	</div>

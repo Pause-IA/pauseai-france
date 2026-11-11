@@ -24,7 +24,7 @@
 			{#if lang === 'en'}
 				The AI industry should not be allowed to gamble with our lives
 			{:else}
-				L'industrie de l'IA ne devrait pas avoir le droit de jouer avec nos vies
+				L’industrie de l’IA ne devrait pas avoir le droit de jouer avec nos vies
 			{/if}
 		</UnderlinedTitle>
 	</Fly>
@@ -62,15 +62,15 @@
 				</div>
 			{:else}
 				<p>
-					Ce n'est que le début. L'IA a commencé à envahir nos vies, et déjà nous ne contrôlons
+					Ce n’est que le début. L’IA a commencé à envahir nos vies, et déjà nous ne contrôlons
 					rien. Les risques sont immenses, pour nos démocraties, nos emplois, notre santé mentale,
 					le fonctionnement de notre informatique vitale (internet, système bancaire, services
-					publics)… Des catastrophes majeures dues à l'IA ne peuvent plus être exclues.
+					publics)… Des catastrophes majeures dues à l’IA ne peuvent plus être exclues.
 				</p>
 				<div class="repliable" class:deplie>
 					<p>
-						Facteur aggravant, les capacités des modèles d'IA généralistes de pointe augmentent
-						chaque jour. C'est à cela que les quelques entreprises qui les développent consacrent
+						Facteur aggravant, les capacités des modèles d’IA généralistes de pointe augmentent
+						chaque jour. C’est à cela que les quelques entreprises qui les développent consacrent
 						leurs énormes moyens financiers. Leurs succès dans ce domaine sont très inquiétants.
 					</p>
 					<p>
@@ -84,12 +84,12 @@
 					>Lire la suite</button
 				>
 				<p>
-					L'industrie de l'IA joue avec nos vies. Si vous pensez que cela doit cesser,
-					rejoignez-nous, signez notre appel à une pause dans l'entraînement des modèles d'IA de
+					L’industrie de l’IA joue avec nos vies. Si vous pensez que cela doit cesser,
+					rejoignez-nous, signez notre appel à une pause dans l’entraînement des modèles d’IA de
 					pointe.
 				</p>
 				<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
-					<Button href="{prefix}/declaration">Signer l'appel</Button>
+					<Button href="{prefix}/declaration">Signer l’appel</Button>
 					<Button href="{prefix}/rejoindre" alt>Rejoindre Pause IA</Button>
 				</div>
 			{/if}

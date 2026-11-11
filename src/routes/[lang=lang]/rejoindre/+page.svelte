@@ -42,7 +42,7 @@
 				</h2>
 				<p>
 					Officially support our mission and bylaws. As a member, you strengthen our collective
-					weight and participate in the life of the association. It's the strong signal of your
+					weight and participate in the life of the association. It’s the strong signal of your
 					commitment.
 				</p>
 				<Button
@@ -123,8 +123,8 @@
 		<section class="hero">
 			<UnderlinedTitle as="h1">Rejoindre Pause IA</UnderlinedTitle>
 			<p class="hero-description">
-				Face à une course technologique qui s'accélère chaque jour, <strong
-					>l'action collective est notre plus grande force</strong
+				Face à une course technologique qui s’accélère chaque jour, <strong
+					>l’action collective est notre plus grande force</strong
 				>. Chaque voix, chaque heure de bénévolat, chaque adhésion renforce notre capacité à
 				influencer le débat public et à reprendre le contrôle.
 				<br /><br />
@@ -144,11 +144,11 @@
 				</h2>
 				<p>
 					Soutenez officiellement notre mission et nos statuts. En tant que membre, vous renforcez
-					notre poids collectif et participez à la vie de l'association.
+					notre poids collectif et participez à la vie de l’association.
 				</p>
 				<Button
 					href="https://www.helloasso.com/associations/pause-ia/adhesions/formulaire-d-adhesion-a-pause-ia"
-					>Adhérer à l'association</Button
+					>Adhérer à l’association</Button
 				>
 				<small class="engagement-note">Prix libre, minimum 24 €/an.</small>
 			</div>
@@ -159,11 +159,11 @@
 						<Users size="1em" />
 						<span class="title-text">Rejoindre la Communauté</span>
 					</span>
-					<Badge variant="neutral">Le cœur de l'action</Badge>
+					<Badge variant="neutral">Le cœur de l’action</Badge>
 				</h2>
 				<p>
 					Rejoignez notre communauté sur Discord pour échanger, vous informer et, si vous le
-					souhaitez, passer à l'action.
+					souhaitez, passer à l’action.
 				</p>
 				<Button href="https://discord.gg/vyXGd7AeGc">Rejoindre la communauté</Button>
 				<small class="engagement-note">Pour échanger ou devenir bénévole.</small>
@@ -176,8 +176,8 @@
 		<section class="difference">
 			<h2>Quelle est la différence entre un membre et un bénévole ?</h2>
 			<p>
-				Un <strong>membre</strong> soutient formellement l'association via une cotisation. Un
-				<strong>bénévole</strong> donne de son temps. Vous pouvez être l'un, l'autre, ou les deux !
+				Un <strong>membre</strong> soutient formellement l’association via une cotisation. Un
+				<strong>bénévole</strong> donne de son temps. Vous pouvez être l’un, l’autre, ou les deux !
 			</p>
 		</section>
 
@@ -185,12 +185,12 @@
 		     discrètes, après la question membre/bénévole, pour que la hiérarchie
 		     se voie sans l'écrire. -->
 		<section class="options-secondaires">
-			<h2>Deux autres façons de s'engager</h2>
+			<h2>Deux autres façons de s’engager</h2>
 			<div class="secondaires-grille">
 				<div class="carte-secondaire">
 					<h3><Zap size="1em" /> Pause Action</h3>
 					<p>
-						Peu de temps mais l'envie d'agir ? Rejoignez notre groupe WhatsApp : quelques clics, une
+						Peu de temps mais l’envie d’agir ? Rejoignez notre groupe WhatsApp : quelques clics, une
 						action concrète, souvent en moins de dix minutes.
 					</p>
 					<Button alt href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU">
@@ -200,7 +200,7 @@
 				<div class="carte-secondaire">
 					<h3><MapPin size="1em" /> Groupes locaux</h3>
 					<p>
-						Agir près de chez vous : retrouvez d'autres bénévoles de votre ville pour des actions de
+						Agir près de chez vous : retrouvez d’autres bénévoles de votre ville pour des actions de
 						rue, des conférences et des stands.
 					</p>
 					<Button alt href="/{lang}/groupes-locaux">Voir les groupes locaux</Button>

@@ -47,7 +47,7 @@
 		<time class="date" datetime={date}>{formatFrenchDate(date)}</time>
 		<h3 class="title">{title}</h3>
 		<p class="summary">{summary}</p>
-		<span class="cta">Lire l'article</span>
+		<span class="cta">Lire l’article</span>
 	</div>
 </a>
 

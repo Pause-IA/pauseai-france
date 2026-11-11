@@ -293,7 +293,7 @@
 					<h2>Agir pour votre ville</h2>
 					<p>
 						Interpellez les candidats de votre ville et invitez-les à découvrir et signer la charte
-						de Pause IA sur les risques de l'IA. Les signataires sont affichés ci-dessous.
+						de Pause IA sur les risques de l’IA. Les signataires sont affichés ci-dessous.
 					</p>
 				{/if}
 				<div class="cta-container">
@@ -320,7 +320,7 @@
 				These candidates have signed the Pause AI charter on the risks of artificial intelligence.
 				Click on a card to view their signed charter.
 			{:else}
-				Ces candidat·es ont signé la charte de Pause IA sur les risques de l'intelligence
+				Ces candidat·es ont signé la charte de Pause IA sur les risques de l’intelligence
 				artificielle. Cliquez sur une carte pour consulter leur charte signée.
 			{/if}
 		</p>

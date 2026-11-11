@@ -30,7 +30,7 @@
 		{#if lang === 'en'}
 			<p class="hero-description">
 				AI companies are in an unbridled race to develop increasingly powerful systems.
-				<strong>Let's act fast to keep AI under control</strong> before it's too late.
+				<strong>Let’s act fast to keep AI under control</strong> before it’s too late.
 			</p>
 
 			<div class="tax-benefit">
@@ -43,9 +43,9 @@
 			</div>
 		{:else}
 			<p class="hero-description">
-				Les entreprises d'IA sont dans une course effrénée pour développer des systèmes de plus en
+				Les entreprises d’IA sont dans une course effrénée pour développer des systèmes de plus en
 				plus puissants.
-				<strong>Agissons vite pour garder l'IA sous contrôle</strong> avant qu'il ne soit trop tard.
+				<strong>Agissons vite pour garder l’IA sous contrôle</strong> avant qu’il ne soit trop tard.
 			</p>
 
 			<div class="tax-benefit">
@@ -130,7 +130,7 @@
 			<h2>À quoi servent vos dons ?</h2>
 			<p>
 				Ils financent nos campagnes de sensibilisation, la production de contenus éducatifs,
-				l'organisation d'événements et l'infrastructure qui porte le tout. Concrètement : informer
+				l’organisation d’événements et l’infrastructure qui porte le tout. Concrètement : informer
 				le public, alerter les décideurs, et construire un mouvement capable de ralentir cette
 				course.
 			</p>
@@ -212,20 +212,20 @@
 
 			<Accordion id="faq-helloasso" open={false}>
 				<svelte:fragment slot="head">
-					Qu'est-ce que HelloAsso, et qui émet mon reçu fiscal ?
+					Qu’est-ce que HelloAsso, et qui émet mon reçu fiscal ?
 				</svelte:fragment>
 				<svelte:fragment slot="details">
 					<p>
 						HelloAsso est une plateforme de paiement française réservée aux associations. Elle ne
 						prélève <strong>aucune commission sur votre don</strong> : son service est financé par la
-						contribution volontaire qu'elle propose d'ajouter au moment du paiement. Vous pouvez la modifier
-						ou la ramener à zéro, et l'intégralité de votre don nous revient alors.
+						contribution volontaire qu’elle propose d’ajouter au moment du paiement. Vous pouvez la modifier
+						ou la ramener à zéro, et l’intégralité de votre don nous revient alors.
 					</p>
 					<p>
-						C'est également HelloAsso qui émet votre reçu fiscal : il est généré automatiquement et
-						envoyé par courriel à l'adresse indiquée lors du don, en général dans les minutes qui
+						C’est également HelloAsso qui émet votre reçu fiscal : il est généré automatiquement et
+						envoyé par courriel à l’adresse indiquée lors du don, en général dans les minutes qui
 						suivent. Vous pouvez le retrouver à tout moment depuis votre compte HelloAsso. Pour un
-						don par virement, c'est nous qui l'établissons.
+						don par virement, c’est nous qui l’établissons.
 					</p>
 				</svelte:fragment>
 			</Accordion>
@@ -236,13 +236,13 @@
 				</svelte:fragment>
 				<svelte:fragment slot="details">
 					<p>
-						Un don à Pause IA ouvre droit à une réduction d'impôt de 66 % du montant versé, dans la
+						Un don à Pause IA ouvre droit à une réduction d’impôt de 66 % du montant versé, dans la
 						limite de 20 % de votre revenu imposable.
 					</p>
 					<p>
-						<strong>Il s'agit d'une réduction d'impôt, et non d'un crédit d'impôt</strong> : elle se soustrait
-						à l'impôt sur le revenu que vous devez. Elle ne profite donc qu'aux personnes qui paient effectivement
-						cet impôt. Si vous n'êtes pas imposable, rien ne vous est remboursé, et votre don a exactement
+						<strong>Il s’agit d’une réduction d’impôt, et non d’un crédit d’impôt</strong> : elle se soustrait
+						à l’impôt sur le revenu que vous devez. Elle ne profite donc qu’aux personnes qui paient effectivement
+						cet impôt. Si vous n’êtes pas imposable, rien ne vous est remboursé, et votre don a exactement
 						la même valeur pour nous.
 					</p>
 				</svelte:fragment>
@@ -250,14 +250,14 @@
 
 			<Accordion id="faq-about" open={false}>
 				<svelte:fragment slot="head">
-					Qu'est-ce que Pause IA, et quel est le lien avec PauseAI Global ?
+					Qu’est-ce que Pause IA, et quel est le lien avec PauseAI Global ?
 				</svelte:fragment>
 				<svelte:fragment slot="details">
 					<p>
 						Pause IA est la branche française de PauseAI Global, une organisation à but non lucratif
-						qui milite pour une pause dans le développement des systèmes d'IA les plus dangereux.
+						qui milite pour une pause dans le développement des systèmes d’IA les plus dangereux.
 						Elle est autonome : vos dons restent entièrement en France pour financer nos actions
-						locales, et aucune part n'est reversée à l'organisation internationale.
+						locales, et aucune part n’est reversée à l’organisation internationale.
 					</p>
 				</svelte:fragment>
 			</Accordion>

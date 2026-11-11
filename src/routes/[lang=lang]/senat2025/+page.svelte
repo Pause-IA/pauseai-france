@@ -151,7 +151,7 @@
 			{:else}
 				<div class="key-point-card">
 					<p>
-						<strong>Les capacités de l'IA doublent tous les 4 à 7 mois.</strong> Nos cycles réglementaires
+						<strong>Les capacités de l’IA doublent tous les 4 à 7 mois.</strong> Nos cycles réglementaires
 						restent constants. Cette progression exponentielle crée un fossé croissant entre avancée technologique
 						et capacité collective à la maîtriser.
 					</p>
@@ -168,14 +168,14 @@
 					<p>
 						<strong>La cause profonde : nous déployons des systèmes "boîtes noires"</strong> dont nous
 						ne maîtrisons ni le fonctionnement interne, ni tous les comportements. Les techniques actuelles
-						d'alignement sont insuffisantes et ne fournissent aucune garantie fiable.
+						d’alignement sont insuffisantes et ne fournissent aucune garantie fiable.
 					</p>
 				</div>
 				<div class="key-point-card">
 					<p>
-						<strong>Des leviers d'action concrets existent</strong> : régulation proactive,
+						<strong>Des leviers d’action concrets existent</strong> : régulation proactive,
 						responsabilité juridique, évaluations obligatoires, investissement dans la sécurité de
-						l'IA, protection de l'EU AI Act, transparence des algorithmes, lignes rouges
+						l’IA, protection de l’EU AI Act, transparence des algorithmes, lignes rouges
 						internationales. <em>(Voir section 8 pour les recommandations détaillées)</em>
 					</p>
 				</div>
@@ -232,7 +232,7 @@
 				<p>
 					<strong>Democracy and public debate.</strong> Social media recommendation algorithms are opaque
 					and optimized for engagement rather than truth. They polarize our societies and undermine the
-					foundations of democratic debate. YouTube's algorithms already controlled 700 million hours
+					foundations of democratic debate. YouTube’s algorithms already controlled 700 million hours
 					per day in 2018, equivalent to the teaching of 25,000 teachers over their entire careers. Generative
 					AI can only massively amplify this phenomenon.
 				</p>
@@ -272,8 +272,8 @@
 
 				<ol class="action-list">
 					<li>
-						<strong>Adopt proactive regulation</strong> that legislates for tomorrow's technologies, not
-						yesterday's, anticipating future developments and integrating strict precautionary principles.
+						<strong>Adopt proactive regulation</strong> that legislates for tomorrow’s technologies, not
+						yesterday’s, anticipating future developments and integrating strict precautionary principles.
 					</li>
 					<li>
 						<strong>Establish clear legal liability</strong>: AI developers and companies that
@@ -286,7 +286,7 @@
 					</li>
 					<li>
 						<strong>Massively invest in a French and European AI safety sector</strong>: support
-						research on AI robustness, transparency and control. Strengthen INESIA's resources and
+						research on AI robustness, transparency and control. Strengthen INESIA’s resources and
 						create a center of excellence.
 					</li>
 					<li>
@@ -321,138 +321,138 @@
 			{:else}
 				<p>
 					<strong
-						>Aujourd'hui, les systèmes d'intelligence artificielle peuvent effectuer de manière
+						>Aujourd’hui, les systèmes d’intelligence artificielle peuvent effectuer de manière
 						autonome des tâches demandant environ 2 heures à un humain</strong
-					>. <strong>Cette durée d'autonomie double tous les 4 à 7 mois.</strong> La progression exponentielle
-					des capacités, au prix d'une croissance phénoménale de la consommation énergétique et des investissements
+					>. <strong>Cette durée d’autonomie double tous les 4 à 7 mois.</strong> La progression exponentielle
+					des capacités, au prix d’une croissance phénoménale de la consommation énergétique et des investissements
 					(500 milliards de dollars annoncés par les États-Unis), creuse à une vitesse vertigineuse le
-					fossé entre l'avancée technologique et notre capacité collective à en maîtriser les conséquences.
+					fossé entre l’avancée technologique et notre capacité collective à en maîtriser les conséquences.
 				</p>
 
 				<p>
-					Le colloque du 31 octobre 2025 au Sénat, organisé par l'association Pause IA avec le
+					Le colloque du 31 octobre 2025 au Sénat, organisé par l’association Pause IA avec le
 					soutien de la sénatrice Ghislaine Senée et du sénateur Thomas Dossus, a réuni experts,
-					société civile et parlementaires autour d'un double constat :
+					société civile et parlementaires autour d’un double constat :
 				</p>
 
 				<p>
 					<strong
-						>1. Les risques de l'IA ne relèvent pas de la science-fiction, ils se matérialisent
+						>1. Les risques de l’IA ne relèvent pas de la science-fiction, ils se matérialisent
 						déjà.</strong
 					> Chatbots encourageant des adolescents au suicide, cyberattaques paralysant des hôpitaux, algorithmes
 					de recommandation fragmentant notre réalité commune, utilisation de ressources et concentration
 					du pouvoir économique sans précédent : les impacts concrets touchent tous les pans de notre
-					société. Et ces risques s'amplifient au rythme de la progression des capacités.
+					société. Et ces risques s’amplifient au rythme de la progression des capacités.
 				</p>
 
 				<p>
 					<strong
-						>2. La régulation n'est pas un frein à l'innovation, elle en est la condition.</strong
-					> L'aviation et l'industrie pharmaceutique le démontrent : c'est un cadre réglementaire sécurisant
+						>2. La régulation n’est pas un frein à l’innovation, elle en est la condition.</strong
+					> L’aviation et l’industrie pharmaceutique le démontrent : c’est un cadre réglementaire sécurisant
 					qui bâtit la confiance et permet un déploiement bénéfique de la technologie. Face à une course
-					effrénée menée par une poignée d'acteurs privés, la puissance publique doit reprendre la main
-					pour garantir que l'IA serve l'intérêt général.
+					effrénée menée par une poignée d’acteurs privés, la puissance publique doit reprendre la main
+					pour garantir que l’IA serve l’intérêt général.
 				</p>
 
 				<h3>Les dangers identifiés sont graves et nombreux</h3>
 
 				<p>
 					<strong>Enfance et développement cognitif.</strong> 64% des enfants de 9 à 17 ans utilisent
-					déjà l'IA. Or, ces systèmes ne sont pas conçus pour des cerveaux en développement. Ils créent
-					des risques de dépendance, d'atrophie cognitive et de manipulation émotionnelle via des "relations
-					parasociales" avec des machines qui simulent l'empathie sans la ressentir.
+					déjà l’IA. Or, ces systèmes ne sont pas conçus pour des cerveaux en développement. Ils créent
+					des risques de dépendance, d’atrophie cognitive et de manipulation émotionnelle via des "relations
+					parasociales" avec des machines qui simulent l’empathie sans la ressentir.
 				</p>
 
 				<p>
 					<strong>Démocratie et débat public.</strong> Les algorithmes de recommandation des médias sociaux
-					sont opaques et optimisés pour l'engagement plutôt que la vérité. Ils polarisent nos sociétés
+					sont opaques et optimisés pour l’engagement plutôt que la vérité. Ils polarisent nos sociétés
 					et sapent les fondations du débat démocratique. Ceux de YouTube contrôlaient déjà 700 millions
-					d'heures par jour en 2018, soit l'équivalent de l'enseignement de 25 000 professeurs sur leur
-					carrière entière. Les IA génératives ne pourront qu'amplifier massivement ce phénomène.
+					d’heures par jour en 2018, soit l’équivalent de l’enseignement de 25 000 professeurs sur leur
+					carrière entière. Les IA génératives ne pourront qu’amplifier massivement ce phénomène.
 				</p>
 
 				<p>
-					<strong>Économie et emploi.</strong> L'automatisation des tâches cognitives menace des pans
-					entiers de l'emploi qualifié. Entre 17% et 30% du travail actuel pourrait être automatisée.
+					<strong>Économie et emploi.</strong> L’automatisation des tâches cognitives menace des pans
+					entiers de l’emploi qualifié. Entre 17% et 30% du travail actuel pourrait être automatisée.
 					Sans anticipation politique, ce choc entraînera une précarisation massive et une concentration
-					du pouvoir économique entre les mains d'acteurs technologiques majoritairement non-européens,
+					du pouvoir économique entre les mains d’acteurs technologiques majoritairement non-européens,
 					rendant toute redistribution des richesses quasi-impossible.
 				</p>
 
 				<p>
-					<strong>Cybersécurité et biorisques.</strong> L'IA abaisse drastiquement le seuil de compétence
+					<strong>Cybersécurité et biorisques.</strong> L’IA abaisse drastiquement le seuil de compétence
 					nécessaire pour mener des cyberattaques sophistiquées ou concevoir de nouvelles armes biologiques.
 					Nos infrastructures critiques sont en première ligne. Les modélisations montrent que les dommages
 					économiques des cyberattaques pourraient être multipliés par 4 à 8 dans les prochaines années.
 				</p>
 
-				<h3>Les systèmes d'IA actuels sont incontrôlables par nature</h3>
+				<h3>Les systèmes d’IA actuels sont incontrôlables par nature</h3>
 
 				<p>
 					Le problème fondamental est que se déploient à grande échelle des systèmes "boîtes noires"
 					dont personne ne maîtrrise ni le fonctionnement interne, ni tous les comportements.
-					Personne n'a programmé ChatGPT pour encourager des adolescents au suicide, pourtant cela
-					arrive. Les techniques actuelles d'alignement sont insuffisantes et ne fournissent aucune
+					Personne n’a programmé ChatGPT pour encourager des adolescents au suicide, pourtant cela
+					arrive. Les techniques actuelles d’alignement sont insuffisantes et ne fournissent aucune
 					garantie fiable. La communauté scientifique, incluant des prix Nobel et Turing, tire la
-					sonnette d'alarme : continuer sur cette trajectoire, c'est accepter une perte de contrôle
+					sonnette d’alarme : continuer sur cette trajectoire, c’est accepter une perte de contrôle
 					progressive.
 				</p>
 
-				<h3>Les leviers d'action</h3>
+				<h3>Les leviers d’action</h3>
 
 				<p>
-					La France et l'Europe peuvent devenir leaders, non dans la course à la puissance, mais
-					dans la maîtrise de l'IA. Cela exige des actions politiques fortes :
+					La France et l’Europe peuvent devenir leaders, non dans la course à la puissance, mais
+					dans la maîtrise de l’IA. Cela exige des actions politiques fortes :
 				</p>
 
 				<ol class="action-list">
 					<li>
 						<strong>Adopter une réglementation proactive</strong> qui légifère pour les technologies de
-						demain, pas celles d'hier, en anticipant les évolutions futures et en intégrant des principes
+						demain, pas celles d’hier, en anticipant les évolutions futures et en intégrant des principes
 						de précaution stricts.
 					</li>
 					<li>
-						<strong>Établir une responsabilité juridique claire</strong> : les développeurs d'IA et les
+						<strong>Établir une responsabilité juridique claire</strong> : les développeurs d’IA et les
 						entreprises qui en déploient les applications doivent être tenus responsables des dommages
 						causés. La nature "boîte noire" ne peut être une excuse.
 					</li>
 					<li>
 						<strong>Exiger des évaluations de risques obligatoires et indépendantes</strong> avant tout
-						déploiement d'IA à haut risque, sur le modèle de l'aviation ou du médicament.
+						déploiement d’IA à haut risque, sur le modèle de l’aviation ou du médicament.
 					</li>
 					<li>
 						<strong
-							>Investir massivement dans une filière française et européenne de la sécurité de l'IA</strong
+							>Investir massivement dans une filière française et européenne de la sécurité de l’IA</strong
 						>
 						: soutenir la recherche sur la robustesse, la transparence et le contrôle des IA. Renforcer
-						les moyens de l'INESIA et créer une filière d'excellence.
+						les moyens de l’INESIA et créer une filière d’excellence.
 					</li>
 					<li>
-						<strong>Protéger la régulation européenne</strong> : l'EU AI Act est sous pression
-						intense des <em>lobbies</em> (le numérique investit plus en lobbying que l'automobile, la
-						pharmacie et l'aéronautique réunis). Défendre et renforcer ce cadre réglementaire est crucial.
+						<strong>Protéger la régulation européenne</strong> : l’EU AI Act est sous pression
+						intense des <em>lobbies</em> (le numérique investit plus en lobbying que l’automobile, la
+						pharmacie et l’aéronautique réunis). Défendre et renforcer ce cadre réglementaire est crucial.
 					</li>
 					<li>
 						<strong>Imposer la transparence des algorithmes de recommandation</strong> et explorer des
 						modèles de gouvernance démocratique pour protéger le débat public de la manipulation.
 					</li>
 					<li>
-						<strong>Porter au niveau international l'établissement de "lignes rouges"</strong> sur les
-						capacités autonomes dangereuses et les usages inacceptables de l'IA.
+						<strong>Porter au niveau international l’établissement de "lignes rouges"</strong> sur les
+						capacités autonomes dangereuses et les usages inacceptables de l’IA.
 					</li>
 				</ol>
 
 				<p>
-					Ces mesures ne visent pas à freiner l'écosystème français, mais à encadrer la course à
-					haut risque vers l'Intelligence Artificielle Générale menée par une poignée de
+					Ces mesures ne visent pas à freiner l’écosystème français, mais à encadrer la course à
+					haut risque vers l’Intelligence Artificielle Générale menée par une poignée de
 					laboratoires internationaux.
 				</p>
 
 				<h3>Pour aller plus loin</h3>
 
 				<p>
-					Ce colloque a ouvert un dialogue essentiel. L'association Pause IA et les experts
-					mobilisés se tiennent à l'entière disposition des parlementaires pour approfondir ces
+					Ce colloque a ouvert un dialogue essentiel. L’association Pause IA et les experts
+					mobilisés se tiennent à l’entière disposition des parlementaires pour approfondir ces
 					sujets, organiser des auditions et contribuer à des groupes de travail visant à traduire
 					ces leviers en propositions législatives concrètes.
 				</p>

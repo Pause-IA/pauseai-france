@@ -1165,10 +1165,10 @@
 					</p>
 				{:else}
 					<p>
-						Les rédactions couvrent d'abord ce qui intéresse leurs lecteurs. Un message sincère au
-						courrier des lecteurs ou à la rédaction signale qu'un sujet compte pour le public, et il
+						Les rédactions couvrent d’abord ce qui intéresse leurs lecteurs. Un message sincère au
+						courrier des lecteurs ou à la rédaction signale qu’un sujet compte pour le public, et il
 						pèse sur les choix éditoriaux. Contrairement à un commentaire sur les réseaux, il arrive
-						dans une boite lue par l'équipe. Une poignée de messages de lecteurs suffit parfois à
+						dans une boite lue par l’équipe. Une poignée de messages de lecteurs suffit parfois à
 						inspirer un article ou une enquête.
 					</p>
 				{/if}
@@ -1177,16 +1177,16 @@
 					MPs and senators take their constituents' messages into account. A personal email (even a
 					short, sincere one) lands in a human inbox, gets read, and signals that a voter cares
 					about this issue. Unlike a petition or a social media post, it carries real weight. A
-					handful of emails from real citizens is often enough to put a topic on a committee's
+					handful of emails from real citizens is often enough to put a topic on a committee’s
 					agenda.
 				</p>
 			{:else}
 				<p>
 					Les députés et sénateurs prennent en compte les messages de leurs électeurs. Un email
 					personnel (même court et sincère) arrive dans une boite mail humaine, il est lu, et il
-					signale qu'un électeur se préoccupe du sujet. Contrairement à une pétition ou à un post
-					sur les réseaux, il a un vrai poids. Une poignée d'emails de vrais citoyens suffit souvent
-					à inscrire un sujet à l'ordre du jour d'une commission.
+					signale qu’un électeur se préoccupe du sujet. Contrairement à une pétition ou à un post
+					sur les réseaux, il a un vrai poids. Une poignée d’emails de vrais citoyens suffit souvent
+					à inscrire un sujet à l’ordre du jour d’une commission.
 				</p>
 			{/if}
 		</section>
@@ -1346,7 +1346,7 @@
 					{#if isEn}
 						Tip: add your name and town in step 1 and the email writes itself in full.
 					{:else}
-						Astuce : indiquez votre nom et votre ville à l'étape 1 et l'email se rédige entièrement.
+						Astuce : indiquez votre nom et votre ville à l’étape 1 et l’email se rédige entièrement.
 					{/if}
 				</p>
 			{/if}

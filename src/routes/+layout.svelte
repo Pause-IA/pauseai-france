@@ -86,7 +86,7 @@
 	{@html organisationJsonLd}
 </svelte:head>
 
-<!-- Ancre de retour en haut de page. C'était un <h2> masqué : il s'insérait
+<!-- Ancre de retour en haut de page. C'était un <h2> masqué : il s’insérait
      avant le <h1> de chaque page et cassait la hiérarchie des titres. -->
 <span id="top" style="position: absolute; width: 0; height: 0; overflow: hidden;"></span>
 

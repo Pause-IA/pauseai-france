@@ -266,7 +266,7 @@
 							type="button"
 							class="copy-inline"
 							on:click={() => copyToClipboard(IBAN.replace(/\s/g, ''), 'iban')}
-							aria-label="Copier l'IBAN"
+							aria-label="Copier l’IBAN"
 						>
 							{copiedField === 'iban' ? '✓' : '📋'}
 						</button>
@@ -286,7 +286,7 @@
 				</div>
 
 				<button type="button" class="done-btn" on:click={() => (step = 3)}>
-					C'est fait, j'ai viré {montant}&nbsp;€
+					C’est fait, j’ai viré {montant}&nbsp;€
 				</button>
 				<button type="button" class="close-link" on:click={close}>Fermer</button>
 			</div>
@@ -300,7 +300,7 @@
 				</p>
 				<p class="confirm-text">
 					Dès que votre virement nous parviendra (comptez quelques jours ouvrés), nous vous
-					enverrons votre <strong>reçu fiscal</strong> à l'adresse <strong>{email}</strong>. Il vous
+					enverrons votre <strong>reçu fiscal</strong> à l’adresse <strong>{email}</strong>. Il vous
 					permettra de déduire <strong>66&nbsp;%</strong> de votre don de vos impôts.
 				</p>
 				<p class="confirm-note">

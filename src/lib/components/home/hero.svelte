@@ -217,7 +217,7 @@
 						<p>The window to regain control is closing fast.</p>
 					{:else}
 						<p>
-							Chaque mois, de nouveaux systèmes franchissent des seuils que l'on pensait lointains.
+							Chaque mois, de nouveaux systèmes franchissent des seuils que l’on pensait lointains.
 							Les experts alertent&nbsp;: sans garde-fous, cette course fait peser un risque
 							catastrophique à court terme.
 						</p>
