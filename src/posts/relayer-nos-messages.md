@@ -6,7 +6,6 @@ description: 'Réseaux sociaux et Pause Action : quelques minutes par semaine po
 
 <script lang="ts">
   import { page } from '$app/stores'
-  import { LinkCard, LinkGrid } from '$components/ui'
   import Socials from '$components/Socials.svelte'
   $: lang = $page.params.lang ?? 'fr'
 </script>
@@ -15,18 +14,10 @@ Nos publications touchent surtout des gens déjà convaincus. Pour en sortir, il
 faut que d'autres comptes les reprennent, et le vôtre vaut mieux que le nôtre.
 Trois façons de le faire, en quelques minutes par semaine.
 
-<LinkGrid min="14rem">
-  <LinkCard href="#reseaux" icon="📣" title="Suivre et relayer nos réseaux sociaux">Un partage par semaine suffit à sortir le sujet de notre cercle.</LinkCard>
-  <LinkCard href="#pause-action" icon="⚡" title="Faire partie de Pause Action">Une action concrète par semaine, en quelques minutes, sur WhatsApp.</LinkCard>
-  <LinkCard href={`/${lang}/campagnes`} icon="🎯" title="Participer à nos campagnes">Nos mobilisations en cours, et comment y prendre part.</LinkCard>
-</LinkGrid>
+<h2 id="reseaux">Suivre et relayer nos réseaux</h2>
 
-<h2 id="reseaux">Suivre et relayer nos réseaux sociaux</h2>
-
-C'est l'engagement le plus court et le plus utile au quotidien : un partage, un
-commentaire, un « j'aime » font sortir nos publications de notre cercle habituel.
-
-Suivez-nous là où vous êtes déjà :
+Un partage, un commentaire, un « j'aime » suffisent à faire sortir une
+publication de notre cercle. Suivez-nous là où vous êtes déjà :
 
 <div class="reseaux-page"><Socials /></div>
 
@@ -37,9 +28,8 @@ Suivez-nous là où vous êtes déjà :
 
 <h2 id="pause-action">Rejoindre Pause Action</h2>
 
-Pause Action est notre groupe WhatsApp d'actions rapides : chaque semaine, une
-action concrète, expliquée en trois lignes, réalisable en quelques minutes :
-signer, écrire, relayer, répondre à une consultation.
+Chaque semaine, une action concrète expliquée en trois lignes, réalisable en
+quelques minutes : signer, écrire, relayer, répondre à une consultation.
 
 <a class="cta-ligne" href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU" target="_blank" rel="noopener noreferrer">
   <span>
@@ -51,9 +41,8 @@ signer, écrire, relayer, répondre à une consultation.
 
 <h2 id="campagnes">Participer à nos campagnes</h2>
 
-Chaque campagne a sa page, avec ce qu'on demande et ce que vous pouvez faire :
-écrire, signer, relayer, venir manifester. C'est le moment où un relais compte le
-plus, parce que l'attention est déjà là.
+C'est le moment où un relais compte le plus, parce que l'attention est déjà là.
+Chaque campagne a sa page : ce qu'on demande, et ce que vous pouvez faire.
 
 <p class="renvoi-detail">
   <a href={`/${lang}/campagnes`}>Voir nos campagnes en cours &rarr;</a>

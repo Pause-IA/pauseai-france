@@ -6,7 +6,7 @@ description: "Social media and Pause Action: a few minutes a week to carry Pause
 
 <script lang="ts">
   import { page } from '$app/stores'
-  import { LinkCard, LinkGrid } from '$components/ui'
+  import Socials from '$components/Socials.svelte'
   $: lang = $page.params.lang ?? 'en'
 </script>
 
@@ -14,24 +14,13 @@ Our posts mostly reach people who already agree with us. Getting beyond that
 circle takes other accounts sharing them, and yours is worth more than ours.
 Three ways to do it, in a few minutes a week.
 
-<LinkGrid min="14rem">
-  <LinkCard href="#reseaux" icon="📣" title="Follow and share our social media">One share a week is enough to take the topic beyond our circle.</LinkCard>
-  <LinkCard href="#pause-action" icon="⚡" title="Join Pause Action">One concrete action a week, in a few minutes, on WhatsApp.</LinkCard>
-  <LinkCard href={`/${lang}/campagnes`} icon="🎯" title="Take part in our campaigns">Our current mobilisations, and how to join them.</LinkCard>
-</LinkGrid>
-
 <h2 id="reseaux">Follow and share our social media</h2>
 
-This is the shortest and most useful day-to-day commitment: a share, a comment or
-a like takes our posts beyond our usual circle.
+A share, a comment or a like is enough to take a post beyond our circle. Follow
+us where you already are:
 
-- Follow us on [LinkedIn](https://www.linkedin.com/company/pause-ia/),
-  [Twitter/X](https://twitter.com/pause_ia),
-  [Facebook](https://www.facebook.com/Pause.IA),
-  [Instagram](https://www.instagram.com/pause_ia),
-  [TikTok](https://www.tiktok.com/@pause_ia),
-  [Threads](https://www.threads.net/@pause_ia) and
-  [YouTube](https://www.youtube.com/@Pause_IA).
+<div class="reseaux-page"><Socials /></div>
+
 - On LinkedIn, add Pause IA to your profile and turn on "share these updates with
   your network": your professional contacts will see the topic come up.
 - Share one post a week, adding a sentence of your own. A commented share travels
@@ -39,9 +28,8 @@ a like takes our posts beyond our usual circle.
 
 <h2 id="pause-action">Join Pause Action</h2>
 
-Pause Action is our WhatsApp group for quick actions: every week, one concrete
-action, explained in three lines, doable in a few minutes: sign, write, share,
-respond to a consultation.
+Every week, one concrete action explained in three lines, doable in a few
+minutes: sign, write, share, respond to a consultation.
 
 <a class="cta-ligne" href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU" target="_blank" rel="noopener noreferrer">
   <span>
@@ -53,9 +41,8 @@ respond to a consultation.
 
 <h2 id="campagnes">Take part in our campaigns</h2>
 
-Every campaign has its own page, with what we are asking for and what you can do:
-write, sign, share, come and march. That is when a relay counts most, because the
-attention is already there.
+That is when a relay counts most, because the attention is already there. Every
+campaign has its own page: what we ask for, and what you can do.
 
 <p class="renvoi-detail">
   <a href={`/${lang}/campagnes`}>See our current campaigns &rarr;</a>
