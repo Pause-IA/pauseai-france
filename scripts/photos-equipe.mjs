@@ -1,5 +1,5 @@
 /**
- * Télécharge, redimensionne et versionne les photos de l'équipe.
+ * Versionne l'équipe : les photos, et l'instantané des fiches.
  *
  *   pnpm run photos-equipe
  *
@@ -15,6 +15,12 @@
  * Les photos sont donc téléchargées une fois, compressées, et versionnées dans
  * le dépôt. Le site n'appelle plus Notion pour les images, ni au build ni à
  * l'exécution.
+ *
+ * Le script écrit aussi les noms, rôles, catégories et ordre d'affichage dans
+ * src/lib/data/equipe.json. Sans cela, une panne de Notion pendant un
+ * déploiement produisait une page « Qui sommes-nous » entièrement vide : les
+ * photos survivaient, mais il n'y avait plus personne à qui les attacher.
+ * `getTeamMembers()` retombe sur cet instantané.
  *
  * Quand le lancer
  * ---------------
@@ -40,7 +46,7 @@ const RACINE = process.env.PHOTOS_EQUIPE_RACINE
 	? resolve(process.env.PHOTOS_EQUIPE_RACINE)
 	: fileURLToPath(new URL('..', import.meta.url))
 const DOSSIER = join(RACINE, 'static/equipe')
-const MANIFESTE = join(RACINE, 'src/lib/data/photos-equipe.json')
+const MANIFESTE = join(RACINE, 'src/lib/data/equipe.json')
 
 // Affichage à 10 rem, soit 160 px ; 320 pour les écrans à haute densité.
 const COTE = 320
@@ -111,6 +117,26 @@ function texte(propriete) {
 	return Array.isArray(t) ? t.map((x) => x.plain_text).join('') : ''
 }
 
+/**
+ * @param {any} propriete propriété Notion de type « select »
+ * @returns {string}
+ */
+function choix(propriete) {
+	return propriete?.select?.name ?? ''
+}
+
+/**
+ * @param {any} propriete propriété Notion de type « number »
+ * @returns {number}
+ */
+function nombre(propriete) {
+	return typeof propriete?.number === 'number' ? propriete.number : 0
+}
+
+// Doit rester aligné sur TEAM_CATEGORIES dans src/lib/notion.ts : la catégorie
+// vient d'une liste déroulante Notion, qu'on valide au lieu de la présumer.
+const CATEGORIES = ['Direction', 'Conseil scientifique', 'Membre']
+
 /** @returns {Promise<any[]>} les pages de la base d'équipe, toutes pages confondues */
 async function fiches() {
 	/** @type {any[]} */
@@ -146,11 +172,17 @@ async function main() {
 	}
 
 	await mkdir(DOSSIER, { recursive: true })
-	/** @typedef {{ nom: string, fichier: string, cle: string }} Entree */
-	/** @type {Record<string, Entree>} */
-	const ancien = existsSync(MANIFESTE) ? JSON.parse(await readFile(MANIFESTE, 'utf-8')) : {}
-	/** @type {Record<string, Entree>} */
-	const nouveau = {}
+	/**
+	 * @typedef {{ id: string, name: string, role: string, profession: string,
+	 *   category: string, image: string, order: number, cle: string }} Membre
+	 */
+	/** @type {Membre[]} */
+	const anciens = existsSync(MANIFESTE)
+		? (JSON.parse(await readFile(MANIFESTE, 'utf-8')).membres ?? [])
+		: []
+	const ancien = new Map(anciens.map((/** @type {Membre} */ m) => [m.id, m]))
+	/** @type {Membre[]} */
+	const nouveau = []
 	let telecharges = 0
 	let conserves = 0
 
@@ -159,24 +191,45 @@ async function main() {
 	// Une base vide est forcément anormale : l'équipe compte toujours quelqu'un.
 	// Plutôt qu'un site sans aucune photo, on garde ce qui est versionné.
 	if (pages.length === 0) {
-		console.error('Notion ne renvoie aucune fiche : les photos versionnées sont conservées.')
+		console.error("Notion ne renvoie aucune fiche : l'instantané versionné est conservé.")
 		if (!BUILD) process.exitCode = 1
 		return
 	}
 
 	for (const page of pages) {
-		if (page.properties?.Visible?.checkbox === false) continue
+		// Comme dans getTeamMembers() : une case à cocher non renseignée ne vaut
+		// pas « visible ».
+		if (page.properties?.Visible?.checkbox !== true) continue
 		const nom = texte(page.properties?.Nom)
+		if (!nom) continue
+
+		const categorie = choix(page.properties?.['Catégorie'])
+		/** @type {Membre} */
+		const membre = {
+			id: page.id,
+			name: nom,
+			role: texte(page.properties?.['Rôle']),
+			profession: texte(page.properties?.Profession),
+			category: CATEGORIES.includes(categorie) ? categorie : 'Membre',
+			image: '',
+			order: nombre(page.properties?.Ordre),
+			cle: ''
+		}
+		nouveau.push(membre)
+
 		const url = urlPhoto(page.properties?.Photo)
-		if (!nom || !url) continue
+		// Une fiche sans photo reste dans l'instantané : c'est la liste des
+		// personnes qui compte, l'illustration est secondaire.
+		if (!url) continue
 
 		const cle = cleDuFichier(url)
 		const fichier = `/equipe/${slug(nom)}.webp`
 		const chemin = join(RACINE, 'static', fichier)
-		const precedent = ancien[page.id]
+		const precedent = ancien.get(page.id)
+		membre.image = fichier
+		membre.cle = cle
 
-		if (precedent?.cle === cle && precedent.fichier === fichier && existsSync(chemin)) {
-			nouveau[page.id] = precedent
+		if (precedent?.cle === cle && precedent.image === fichier && existsSync(chemin)) {
 			conserves++
 			continue
 		}
@@ -184,8 +237,14 @@ async function main() {
 		const reponse = await fetch(url)
 		if (!reponse.ok) {
 			console.warn(`  ! ${nom} : téléchargement impossible (${reponse.status}), photo conservée`)
-			if (precedent && existsSync(join(RACINE, 'static', precedent.fichier))) {
-				nouveau[page.id] = precedent
+			// On garde la photo déjà versionnée si elle existe, sinon on n'annonce
+			// pas une image absente.
+			if (precedent?.image && existsSync(join(RACINE, 'static', precedent.image))) {
+				membre.image = precedent.image
+				membre.cle = precedent.cle
+			} else {
+				membre.image = ''
+				membre.cle = ''
 			}
 			continue
 		}
@@ -194,14 +253,15 @@ async function main() {
 			.resize(COTE, COTE, { fit: 'cover', position: 'attention' })
 			.webp({ quality: QUALITE })
 			.toFile(chemin)
-		nouveau[page.id] = { nom, fichier, cle }
 		telecharges++
 		console.log(`  + ${nom} → ${fichier}`)
 	}
 
+	nouveau.sort((a, b) => a.order - b.order)
+
 	// Les photos des personnes retirées de Notion n'ont plus de raison d'être
 	// dans le dépôt.
-	const gardes = new Set(Object.values(nouveau).map((v) => v.fichier.replace('/equipe/', '')))
+	const gardes = new Set(nouveau.filter((m) => m.image).map((m) => m.image.replace('/equipe/', '')))
 	for (const f of await readdir(DOSSIER)) {
 		if (f.endsWith('.webp') && !gardes.has(f)) {
 			await unlink(join(DOSSIER, f))
@@ -209,10 +269,11 @@ async function main() {
 		}
 	}
 
-	await writeFile(MANIFESTE, JSON.stringify(nouveau, null, '\t') + '\n')
+	await writeFile(MANIFESTE, JSON.stringify({ membres: nouveau }, null, '\t') + '\n')
 	console.log(
-		`\n${telecharges} photo(s) mise(s) à jour, ${conserves} inchangée(s).` +
-			(BUILD ? '' : '\nPensez à versionner static/equipe/ et src/lib/data/photos-equipe.json.')
+		`\n${nouveau.length} fiche(s), ${telecharges} photo(s) mise(s) à jour, ` +
+			`${conserves} inchangée(s).` +
+			(BUILD ? '' : '\nPensez à versionner static/equipe/ et src/lib/data/equipe.json.')
 	)
 }
 

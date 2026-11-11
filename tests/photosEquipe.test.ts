@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import sharp from 'sharp'
+import { readFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import { slug, cleDuFichier } from '../scripts/photos-equipe.mjs'
 
 describe('photos d’équipe', () => {
@@ -49,5 +51,43 @@ describe('photos d’équipe', () => {
 		expect(meta.height).toBe(320)
 		expect(meta.format).toBe('webp')
 		expect(reduite.byteLength).toBeLessThan(grande.byteLength / 4)
+	})
+})
+
+describe("instantané de l'équipe", () => {
+	// Cet instantané est le repli servi quand Notion ne répond pas pendant un
+	// build. Un fichier mal formé ne se verrait qu'au moment d'une panne, c'est-
+	// à-dire au pire moment : on en vérifie la forme ici.
+	it('a la forme attendue par getTeamMembers()', async () => {
+		const { membres } = JSON.parse(
+			await readFile(new URL('../src/lib/data/equipe.json', import.meta.url), 'utf-8')
+		)
+		expect(Array.isArray(membres)).toBe(true)
+
+		for (const m of membres) {
+			expect(typeof m.id).toBe('string')
+			expect(m.name).toBeTruthy()
+			expect(typeof m.role).toBe('string')
+			expect(typeof m.profession).toBe('string')
+			expect(['Direction', 'Conseil scientifique', 'Membre']).toContain(m.category)
+			expect(typeof m.order).toBe('number')
+			// Une fiche peut ne pas avoir de photo ; si elle en a une, le fichier
+			// doit exister, sinon la page afficherait une image cassée.
+			if (m.image) {
+				expect(m.image).toMatch(/^\/equipe\/[a-z0-9-]+\.webp$/)
+				expect(existsSync(new URL('../static' + m.image, import.meta.url))).toBe(true)
+			}
+		}
+	})
+
+	it("n'a pas deux fois la même personne ni le même fichier", async () => {
+		const { membres } = JSON.parse(
+			await readFile(new URL('../src/lib/data/equipe.json', import.meta.url), 'utf-8')
+		)
+		const ids = membres.map((m: { id: string }) => m.id)
+		expect(new Set(ids).size).toBe(ids.length)
+
+		const images = membres.map((m: { image: string }) => m.image).filter(Boolean)
+		expect(new Set(images).size).toBe(images.length)
 	})
 })

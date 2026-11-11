@@ -7,4 +7,4 @@ URL S3 signée qui expire au bout d'une heure : utilisée telle quelle, elle cas
 dès que la page est mise en cache, et pèse le poids de l'original.
 
 Pour changer une photo : la remplacer dans Notion, lancer `pnpm run
-photos-equipe`, puis committer ce dossier et `src/lib/data/photos-equipe.json`.
+photos-equipe`, puis committer ce dossier et `src/lib/data/equipe.json`.

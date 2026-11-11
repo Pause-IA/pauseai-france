@@ -1,0 +1,74 @@
+{
+	"membres": [
+		{
+			"id": "41528fc9-4b77-80a2-a4d6-c377810d7ed7",
+			"name": "Antonin Peronnet",
+			"role": "",
+			"profession": "",
+			"category": "Membre",
+			"image": "/equipe/antonin-peronnet.webp",
+			"order": 0,
+			"cle": "0313c0811182a203"
+		},
+		{
+			"id": "41528fc9-4b77-804b-ba7c-c8a3fbb85c19",
+			"name": "Hedi Meziou",
+			"role": "",
+			"profession": "",
+			"category": "Membre",
+			"image": "/equipe/hedi-meziou.webp",
+			"order": 1,
+			"cle": "ee4ffb9ad86a4445"
+		},
+		{
+			"id": "41528fc9-4b77-801d-98bb-d3ba16eb876e",
+			"name": "Orlando H.",
+			"role": "",
+			"profession": "",
+			"category": "Membre",
+			"image": "/equipe/orlando-h.webp",
+			"order": 2,
+			"cle": "cb6970e12b2e0100"
+		},
+		{
+			"id": "30a28fc9-4b77-802d-b9e8-f5e0be69af37",
+			"name": "Jeanne Bazard",
+			"role": "",
+			"profession": "",
+			"category": "Membre",
+			"image": "/equipe/jeanne-bazard.webp",
+			"order": 3,
+			"cle": "84c5f4cf882070f8"
+		},
+		{
+			"id": "30a28fc9-4b77-809a-ba42-d7ad01b9aefb",
+			"name": "Romain Deléglise",
+			"role": "",
+			"profession": "",
+			"category": "Membre",
+			"image": "/equipe/romain-deleglise.webp",
+			"order": 4,
+			"cle": "1634d005541f8767"
+		},
+		{
+			"id": "30a28fc9-4b77-80a6-a766-cc7f52c0ef49",
+			"name": "Clémence Peyrot",
+			"role": "",
+			"profession": "",
+			"category": "Membre",
+			"image": "/equipe/clemence-peyrot.webp",
+			"order": 5,
+			"cle": "2496dca8d1e24fb7"
+		},
+		{
+			"id": "30a28fc9-4b77-803e-bf42-de44e029212f",
+			"name": "Maxime Fournes",
+			"role": "",
+			"profession": "",
+			"category": "Membre",
+			"image": "/equipe/maxime-fournes.webp",
+			"order": 6,
+			"cle": "457f8046c95da5fc"
+		}
+	]
+}
