@@ -180,18 +180,20 @@
 	     Maxime Fournes est salarié de PauseAI Global et non de l'association :
 	     « trois salariés » serait faux, d'où la mention séparée.
 
-	     Le nombre est écrit en toutes lettres et non calculé : rien dans Notion
-	     ne distingue un salarié d'un bénévole. À corriger à la prochaine
-	     embauche. -->
+	     Les deux noms et le nombre sont écrits en dur : rien dans Notion ne
+	     distingue un salarié d'un bénévole. À reprendre à la prochaine
+	     embauche ou au prochain départ. Les fonctions ne sont pas répétées
+	     ici, elles figurent sur les fiches juste au-dessus. -->
 	<p class="benevoles">
 		{#if lang === 'en'}
-			The association employs two people, and Maxime Fournes is employed by PauseAI Global. Beyond
-			this team, Pause AI France runs on <strong>more than a hundred volunteers</strong>: engineers,
-			teachers, researchers, lawyers, psychologists, students, retirees. Most of the work shown on
-			this site is theirs.
+			The association employs two people, Clémence Peyrot and Orlando B., and Maxime Fournes is
+			employed by PauseAI Global. Beyond this team, Pause AI France runs on
+			<strong>more than a hundred volunteers</strong>: engineers, teachers, researchers, lawyers,
+			psychologists, students, retirees. Most of the work shown on this site is theirs.
 		{:else}
-			L’association emploie deux personnes, et Maxime Fournes est salarié de PauseAI Global. Au-delà
-			de cette équipe, Pause IA repose sur <strong>plus d’une centaine de bénévoles</strong>
+			L’association emploie deux personnes, Clémence Peyrot et Orlando B., et Maxime Fournes est
+			salarié de PauseAI Global. Au-delà de cette équipe, Pause IA repose sur
+			<strong>plus d’une centaine de bénévoles</strong>
 			: ingénieurs, enseignants, chercheurs, juristes, psychologues, étudiants, retraités. L’essentiel
 			du travail présenté sur ce site est le leur.
 		{/if}
