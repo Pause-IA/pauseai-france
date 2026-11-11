@@ -19,7 +19,8 @@
 <article>
 	{#if lang === 'en'}
 		<section class="hero">
-			<UnderlinedTitle as="h1">Join Pause AI</UnderlinedTitle>
+			<p class="eyebrow">{t.nav.agir}</p>
+			<h1>Join Pause AI</h1>
 			<p class="hero-description">
 				Faced with a technological race that accelerates every day, <strong
 					>collective action is our greatest strength</strong
@@ -121,7 +122,8 @@
 		</section>
 	{:else}
 		<section class="hero">
-			<UnderlinedTitle as="h1">Rejoindre Pause IA</UnderlinedTitle>
+			<p class="eyebrow">{t.nav.agir}</p>
+			<h1>Rejoindre Pause IA</h1>
 			<p class="hero-description">
 				Face à une course technologique qui s’accélère chaque jour, <strong
 					>l’action collective est notre plus grande force</strong
@@ -218,18 +220,39 @@
 		padding: 0 2rem;
 	}
 
+	/* En-tête au modèle : aligné à gauche, sans carte. C'était un encadré
+	   blanc posé sur un fond devenu blanc — seule son ombre le trahissait —
+	   avec un titre et un texte centrés, que rien d'autre sur le site ne
+	   fait. */
 	.hero {
-		text-align: center;
 		margin-bottom: 3rem;
-		background: var(--bg);
-		padding: 3rem 2rem;
-		border-radius: var(--radius-md);
-		box-shadow: var(--shadow-raised);
+	}
+
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.hero h1 {
+		font-size: clamp(2.1rem, 6vw, 3.2rem);
+		line-height: 1.06;
+		letter-spacing: -0.025em;
+		margin-bottom: 1.25rem;
 	}
 
 	.hero-description {
+		max-inline-size: var(--width-text);
 		font-size: 1.1rem;
-		color: var(--text-secondary);
+		line-height: 1.6;
+		color: var(--text-2);
 		margin-bottom: 1.5rem;
 	}
 

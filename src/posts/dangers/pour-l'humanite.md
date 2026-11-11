@@ -1,6 +1,6 @@
 ---
 title: Dangers pour l’humanité
-description: Les dangers existentiels de l'IA, bien que spéculatifs, menacent l'avenir de l'humanité et nécessitent une réflexion anticipée et des recherches en alignement technique, car la régulation seule ne peut contrer l'attrait économique du progrès dans ce domaine.
+description: Les dangers existentiels de l’IA, bien que spéculatifs, menacent l’avenir de l’humanité et nécessitent une réflexion anticipée et des recherches en alignement technique, car la régulation seule ne peut contrer l’attrait économique du progrès dans ce domaine.
 ---
 
 Plus spéculativement, l’IA pose des dangers qui menacent l’avenir de l’humanité. Ces dangers ne peuvent pas forcément être observés, et il est peu probable que nous ayons des signes avant-coureurs évidents avant qu’il ne soit trop tard. C’est pourquoi il est nécessaire d’y réfléchir même s’il existe peu d’arguments empiriques pour aider à y voir plus clair. Ces dangers apocalyptiques sont liés au potentiel de l’Intelligence Artificielle Générale (IAG), et découlent d’innovations technologiques qui pourraient arriver dans 6 mois ou dans 10 ans.
