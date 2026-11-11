@@ -3,7 +3,7 @@
 	// avec une recherche. Données : table Notion « Idées reçues » (+page.server.ts).
 	import PostMeta from '$components/PostMeta.svelte'
 	import TexteNotion from '$components/TexteNotion.svelte'
-	import { Card, FilterChips, PageHero } from '$components/ui'
+	import { Card, FilterChips, LinkGrid, Page } from '$components/ui'
 	import { ArrowRight, Search } from 'lucide-svelte'
 	import type { PageData } from './$types'
 
@@ -70,14 +70,11 @@
 
 <PostMeta {title} {description} />
 
-<article>
-	<PageHero>
-		{title}
-		<svelte:fragment slot="lede"
-			><span class="paragraphe">{accroche}</span><span class="paragraphe">{invitation}</span
-			></svelte:fragment
-		>
-	</PageHero>
+<Page width="wide" {title} as="article">
+	<svelte:fragment slot="lede"
+		><span class="paragraphe">{accroche}</span><span class="paragraphe">{invitation}</span
+		></svelte:fragment
+	>
 
 	{#if idees.length}
 		<FilterChips {options} bind:selected={categorie} />
@@ -87,7 +84,7 @@
 			<input type="search" bind:value={recherche} placeholder="Rechercher une idée reçue" />
 		</label>
 
-		<div class="liste">
+		<LinkGrid min="22rem">
 			{#each affichees as i (i.slug)}
 				<Card href="/{data.lang}/idees-recues/{i.slug}" padding="compact">
 					<p class="categorie">{i.categorie}</p>
@@ -105,21 +102,13 @@
 			{:else}
 				<p class="vide">Aucune idée reçue ne correspond à cette recherche.</p>
 			{/each}
-		</div>
+		</LinkGrid>
 	{:else}
 		<p class="vide">Les premières réponses arrivent très bientôt.</p>
 	{/if}
-</article>
+</Page>
 
 <style>
-	article {
-		max-inline-size: var(--width-wide);
-		margin-inline: auto;
-		margin-top: 3rem;
-		margin-bottom: 5rem;
-		padding: 0 1.5rem;
-	}
-
 	.recherche {
 		display: flex;
 		align-items: center;
@@ -155,13 +144,6 @@
 		overflow: hidden;
 		clip: rect(0 0 0 0);
 		white-space: nowrap;
-	}
-
-	.liste {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
-		gap: 1.25rem;
-		align-items: start;
 	}
 
 	.paragraphe {
@@ -227,11 +209,5 @@
 
 	.vide {
 		color: var(--text-2);
-	}
-
-	@media (max-width: 600px) {
-		article {
-			padding: 0 1.1rem;
-		}
 	}
 </style>

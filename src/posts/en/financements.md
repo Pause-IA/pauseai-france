@@ -1,7 +1,7 @@
 ---
 title: Our funding
 rubrique: apropos
-description: Where Pause IA's money comes from, what it is used for, and why we stay independent from AI companies and states. Detailed accounts and financial report.
+description: Where Pause IA’s money comes from, what it is used for, and why we stay independent from AI companies and states. Detailed accounts and financial report.
 ---
 
 <script lang="ts">

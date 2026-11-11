@@ -119,10 +119,10 @@
 
 	<!-- ── Nos analyses ─────────────────────────────────────── -->
 	<!--
-		Deux médias différents, donc deux composants du site plutôt qu'une grille
-		de cartes maison : l'embed du module pour la vidéo (la vidéo a besoin de
-		toute la largeur), et ArticleCard, la carte d'article utilisée sur
-		l'accueil, pour le renvoi vers l'analyse.
+		Deux médias différents, donc deux composants du site plutôt qu’une grille
+		de cartes maison : l’embed du module pour la vidéo (la vidéo a besoin de
+		toute la largeur), et ArticleCard, la carte d’article utilisée sur
+		l’accueil, pour le renvoi vers l’analyse.
 	-->
 	<CampaignSection id="analyses" title={isEn ? 'Our analyses' : 'Nos analyses'}>
 		<CampaignEmbed
@@ -221,7 +221,7 @@
 	<!-- ── Marche du 14 novembre ────────────────────────────── -->
 	<!--
 		Le trajet détaillé et le minutage restent sur la page Luma, seule source :
-		les écrire en double garantirait qu'un changement de dernière minute laisse
+		les écrire en double garantirait qu’un changement de dernière minute laisse
 		une fausse information en ligne. Ici, seulement ce qui ne bougera pas.
 	-->
 	<CampaignSection
@@ -283,7 +283,7 @@
 
 	<!-- ── Action 2 · Écrire à ses élus et à la presse ───────── -->
 	<!--
-		Une seule section : l'outil gère lui-même le basculement entre « élus » et
+		Une seule section : l’outil gère lui-même le basculement entre « élus » et
 		« presse » via ses onglets. Le sortir en deux blocs faisait doublon.
 	-->
 	<div bind:this={pressSection}>
@@ -291,9 +291,9 @@
 			id="ecrire"
 			title={isEn ? 'Write to your representatives' : 'Écrivez à vos élus'}
 		>
-			<!-- headingLevel=h3 : l'outil s'imbrique sous le h2 de la section.
+			<!-- headingLevel=h3 : l’outil s’imbrique sous le h2 de la section.
 			     Mêmes messages que la page « Écrire à mes élus » (actions par défaut) :
-			     les textes propres à la semaine d'action (perte-de-controle,
+			     les textes propres à la semaine d’action (perte-de-controle,
 			     presse-perte-de-controle) étaient datés. -->
 			<EcrireOutil
 				lang={data.lang}

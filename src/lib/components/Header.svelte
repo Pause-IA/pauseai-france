@@ -87,6 +87,9 @@
 			id: 'comprendre',
 			label: t.nav.comprendre,
 			items: [
+				// En tête : c'est la page qui explique le problème. Le menu ne
+				// proposait que des listes et des outils, jamais l'exposé lui-même.
+				{ href: `${prefix}/comprendre-le-risque`, label: t.nav.comprendre_le_risque },
 				{ href: `${prefix}/ressources`, label: t.nav.liens_utiles },
 				{ href: `${prefix}/fresque`, label: t.nav.fresque },
 				// « Idées reçues » n'existe qu'en français : pas de lien depuis le site anglais.
@@ -315,8 +318,8 @@
 				</button>
 			</div>
 
-			<!-- Mobile/tablet sidebar, use:portal pour l'appender à document.body
-			     et l'extraire du containing block créé par position:sticky -->
+			<!-- Mobile/tablet sidebar, use:portal pour l’appender à document.body
+			     et l’extraire du containing block créé par position:sticky -->
 			<div class="sidebar" class:open use:portal>
 				<div class="sidebar-head">
 					<a href="/" class="sidebar-logo" on:click={closeMenu}>

@@ -1,7 +1,9 @@
 :root {
 	/* Font */
-	--font-body: 'IBM Plex Sans', sans-serif;
-	--font-heading: 'IBM Plex Sans', sans-serif;
+	--font-body: 'Inter', sans-serif; /* texte : neutre, dessinée pour l'écran */
+	--font-heading:
+		'Libre Franklin', sans-serif; /* titres : lignée Franklin
+	   Gothic, chasse étroite, proche du poids du logo */
 
 	/* Colors */
 	--brand: #ff9416;
@@ -24,6 +26,36 @@
 	   thème sombre, et infobulle de la carte des groupes locaux. */
 	--overlay-dark-rgb: 30, 30, 30;
 	--tooltip-dark-rgb: 17, 17, 17;
+	/* ── Surface sombre : la couleur secondaire de la marque ──────────────
+	   Fond des bandeaux qui rythment les pages longues.
+
+	   Choisie comme le complément perceptuel de --brand. En OKLCH, l'orange
+	   #ff9416 est à L 0,764 / C 0,173 / H 61° ; son complément est donc à
+	   241°, et non à 212° comme le donnerait un simple « teinte + 180 » en
+	   HSL — HSL n'est pas perceptuellement uniforme, les deux systèmes ne
+	   désignent pas le même bleu.
+
+	   La chroma est volontairement faible (0,04 contre 0,173 pour l'orange).
+	   Notre orange est à saturation maximale : lui opposer un bleu aussi
+	   saturé les ferait vibrer l'un contre l'autre. À cette chroma, la
+	   surface se lit comme un bleu choisi et non comme du gris, tout en
+	   laissant l'orange seule couleur saturée de la page.
+
+	   OKLCH(0,25 0,04 241) = rgb(14, 36, 51). Contrastes mesurés : blanc
+	   15,9:1, --brand 7,2:1 — les deux très au-dessus du minimum WCAG AA.
+
+	   Fixe dans les deux thèmes, d'où --on-dark pour le texte posé dessus. */
+	/* Encre d'impression. Fixe dans les deux thèmes : --black et --white
+	   s'inversent en thème sombre, et une page imprimée depuis le thème sombre
+	   sortirait en blanc sur blanc. */
+	--encre-impression: #000;
+	--filet-impression: #999;
+
+	--surface-sombre-rgb: 14, 36, 51;
+	--surface-sombre: rgb(14, 36, 51);
+	/* OKLCH(0,33 0,04 241) : même teinte, un cran plus clair, pour les
+	   panneaux et séparateurs posés sur la surface sombre. */
+	--surface-sombre-2: rgb(34, 56, 72);
 	--brand-light: #fff5e8;
 	--brand-subtle: #a85400; /* orange foncé : le seul orange lisible en texte
 	                            (4,9:1 sur le crème, 5,3:1 sur blanc) */
@@ -504,4 +536,59 @@ table td:nth-child(2) {
 [data-theme='dark'] footer a:hover {
 	color: var(--brand);
 	opacity: 1;
+}
+
+/* ── Impression ──────────────────────────────────────────────────────────
+   Nos pages longues finissent imprimées ou exportées en PDF : une note de
+   synthèse se glisse dans un dossier de rendez-vous. Par défaut le navigateur
+   imprimait l'en-tête, la navigation et le pied de page sur la première
+   feuille, et les aplats sombres en pleine encre.
+
+   Ces règles ne concernent que le média « print » : l'affichage à l'écran est
+   inchangé. */
+@media print {
+	/* L'habillage du site n'a pas de sens sur papier : personne ne clique un
+	   menu imprimé. */
+	.layout > header,
+	.layout > footer {
+		display: none !important;
+	}
+
+	.layout,
+	.layout.bgWhite {
+		background: none !important;
+	}
+
+	html,
+	body {
+		background: none !important;
+		color: var(--encre-impression);
+		font-size: 11pt;
+	}
+
+	/* Une marge de reliure généreuse, et jamais un titre seul en bas de page. */
+	@page {
+		margin: 18mm 16mm;
+	}
+
+	h1,
+	h2,
+	h3 {
+		break-after: avoid-page;
+		page-break-after: avoid;
+	}
+
+	p,
+	li,
+	blockquote,
+	figure {
+		orphans: 3;
+		widows: 3;
+	}
+
+	/* Les ombres et les aplats mangent l'encre sans rien apporter. */
+	* {
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
 }

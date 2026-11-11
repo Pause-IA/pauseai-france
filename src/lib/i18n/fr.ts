@@ -6,13 +6,14 @@ export default {
 		article: 'Article',
 		actualites: 'Actualités',
 		apropos: 'À propos',
-		dangers: "Les dangers de l'IA",
+		dangers: "Les dangers de l’IA",
 		faq: 'FAQ',
-		carte: "Carte de l'écosystème",
+		carte: "Carte de l’écosystème",
+		comprendre_le_risque: 'Comprendre le risque',
 		liens_utiles: 'Ressources',
 		newsletter: 'Newsletter',
 		propositions: 'Que demandons-nous ?',
-		declaration: "Signer l'appel",
+		declaration: "Signer l’appel",
 		blog: 'Blog',
 		fresque: 'La fresque des risques de l’IA',
 		toutes_facons_agir: 'Toutes les façons d’agir',
@@ -32,7 +33,7 @@ export default {
 		emploi_ia: 'L’IA ne détruira pas QUE votre emploi',
 		g7_2026: 'G7 2026',
 		municipales: 'Municipales 2026',
-		sommet: "Sommet de l'IA 2026",
+		sommet: "Sommet de l’IA 2026",
 		qui_sommes_nous: 'Qui sommes-nous ?',
 		presse: 'Espace presse',
 		donner: 'Donner',
@@ -40,23 +41,23 @@ export default {
 		faire_un_don: 'Faire un don'
 	},
 	footer: {
-		// Colonne d'identité
+		// Colonne d’identité
 		association_before: 'Association loi 1901 indépendante, branche française de ',
 		association_after: '.',
 		contact: 'Contact',
 		follow_us: 'Suivez-nous',
 		newsletter_title: 'Newsletter',
-		newsletter_desc: "L'essentiel de l'actualité IA décrypté chaque mois",
+		newsletter_desc: "L’essentiel de l’actualité IA décrypté chaque mois",
 		newsletter_placeholder: 'votre@email.com',
-		newsletter_subscribe: "S'inscrire",
+		newsletter_subscribe: "S’inscrire",
 		newsletter_loading: '...',
 		newsletter_success: 'Inscription confirmée !',
 		newsletter_error: 'Une erreur est survenue',
 		newsletter_connection_error: 'Erreur de connexion',
 		newsletter_invalid_email: 'Adresse e-mail invalide',
-		// S'informer
-		inform_title: "S'informer",
-		dangers: "Les dangers de l'IA",
+		// S’informer
+		inform_title: "S’informer",
+		dangers: "Les dangers de l’IA",
 		resources: 'Ressources',
 		fresque: 'Fresque des risques de l’IA',
 		newsletter: 'Newsletter',
@@ -64,10 +65,10 @@ export default {
 		// Agir
 		act_title: 'Agir',
 		ecrire_elus: 'Écrire à vos élus',
-		declaration: "Signer l'appel",
+		declaration: "Signer l’appel",
 		join_pauseia: 'Rejoindre Pause IA',
 		local_groups: 'Rejoindre un groupe local',
-		all_ways: "Toutes les façons d'agir",
+		all_ways: "Toutes les façons d’agir",
 		make_donation: 'Faire un don',
 		shop: 'Boutique',
 		// Pause IA
@@ -78,7 +79,7 @@ export default {
 		funding: 'Notre financement',
 		press: 'Espace presse',
 		faq: 'Foire aux questions',
-		jobs: "Offres d'emploi",
+		jobs: "Offres d’emploi",
 		// Barre du bas
 		legal_title: 'Informations légales',
 		legal: 'Mentions légales',
@@ -88,8 +89,8 @@ export default {
 	},
 	home: {
 		meta_title: 'Pause IA',
-		meta_desc: "Ne laissons pas l'IA nous détruire, agissons maintenant.",
-		hero_title: "Pour garder l'IA sous contrôle,",
+		meta_desc: "Ne laissons pas l’IA nous détruire, agissons maintenant.",
+		hero_title: "Pour garder l’IA sous contrôle,",
 		hero_highlight: 'agissons maintenant',
 		hero_cta: 'Écrire à mes élus',
 		bande_agir_titre: 'Agir',
@@ -111,7 +112,7 @@ export default {
 		title: 'Merci pour votre générosité !',
 		success_title: 'Votre don a été reçu avec succès',
 		success_p1:
-			"Merci infiniment pour votre soutien à Pause IA. Votre contribution nous aide à poursuivre notre mission de sensibilisation aux risques de l'intelligence artificielle.",
+			"Merci infiniment pour votre soutien à Pause IA. Votre contribution nous aide à poursuivre notre mission de sensibilisation aux risques de l’intelligence artificielle.",
 		success_p2:
 			'Vous recevrez un reçu de don par email dans les prochaines minutes. Ce reçu vous permettra de bénéficier des avantages fiscaux en vigueur.',
 		next_steps: 'Et maintenant ?',
@@ -119,7 +120,7 @@ export default {
 		step_social: '🤝 Rejoignez notre communauté sur les réseaux sociaux',
 		step_share: '📰 Partagez nos contenus pour sensibiliser votre entourage',
 		step_action: '🗳️ Participez à nos actions de plaidoyer',
-		back_home: "Retour à l'accueil"
+		back_home: "Retour à l’accueil"
 	},
 	rejoindre: {
 		meta_title: 'Rejoindre Pause IA',
@@ -131,8 +132,8 @@ export default {
 		title: 'Newsletters',
 		subtitle: 'Toutes nos newsletters archivées, accessibles librement.',
 		email_placeholder: 'votre@email.com',
-		email_label: "S'inscrire à la newsletter",
-		subscribe_btn: "S'inscrire",
+		email_label: "S’inscrire à la newsletter",
+		subscribe_btn: "S’inscrire",
 		invalid_email: 'Adresse e-mail invalide',
 		subscribe_success: 'Inscription confirmée !',
 		subscribe_error: 'Une erreur est survenue',
@@ -152,7 +153,7 @@ export default {
 		next_page: 'Page suivante',
 		no_results: 'Aucune newsletter trouvée.',
 		all_newsletters: 'Toutes les newsletters',
-		view_original: "Voir l'original",
+		view_original: "Voir l’original",
 		newer: 'Plus récente',
 		older: 'Plus ancienne',
 		back_to_newsletters: 'Retour aux newsletters',
@@ -162,10 +163,10 @@ export default {
 	liens_utiles_page: {
 		meta_title: 'IA, risques et alignement : ressources - Pause IA',
 		meta_desc:
-			"Une bibliothèque de ressources sélectionnées, en français et en anglais, pour comprendre l'IA, ses risques existentiels et le problème de l'alignement : vidéos de vulgarisation, articles scientifiques, livres de référence, déclarations internationales et newsletters.",
+			"Une bibliothèque de ressources sélectionnées, en français et en anglais, pour comprendre l’IA, ses risques existentiels et le problème de l’alignement : vidéos de vulgarisation, articles scientifiques, livres de référence, déclarations internationales et newsletters.",
 		hero_title: 'Ressources',
 		hero_desc:
-			"Une bibliothèque de ressources sélectionnées, en français et en anglais, pour comprendre l'intelligence artificielle, ses risques et le problème de l'alignement. Des vidéos de vulgarisation aux articles scientifiques, en passant par les livres de référence, les déclarations internationales et les meilleures sources pour suivre l'actualité, cette base de connaissances rassemble de quoi s'informer sur la sécurité de l'IA et les risques existentiels, que vous découvriez le sujet ou que vous souhaitiez l'approfondir. Mise à jour régulièrement.",
+			"Une bibliothèque de ressources sélectionnées, en français et en anglais, pour comprendre l’intelligence artificielle, ses risques et le problème de l’alignement. Des vidéos de vulgarisation aux articles scientifiques, en passant par les livres de référence, les déclarations internationales et les meilleures sources pour suivre l’actualité, cette base de connaissances rassemble de quoi s’informer sur la sécurité de l’IA et les risques existentiels, que vous découvriez le sujet ou que vous souhaitiez l’approfondir. Mise à jour régulièrement.",
 		search_placeholder: 'Rechercher une ressource…',
 		search_clear: 'Effacer la recherche',
 		filter_lang: 'Langue (multi-sélection)',
@@ -180,29 +181,29 @@ export default {
 		toc_title: 'Sections',
 		cta_title: 'Une ressource à suggérer ?',
 		cta_desc:
-			"Vous connaissez une référence francophone ou internationale qui devrait figurer ici ? Écrivez-nous avec le modèle pré-rempli ; votre client mail s'ouvrira directement avec tous les champs prêts.",
+			"Vous connaissez une référence francophone ou internationale qui devrait figurer ici ? Écrivez-nous avec le modèle pré-rempli ; votre client mail s’ouvrira directement avec tous les champs prêts.",
 		cta_button: 'Suggérer une ressource',
 		cat_pause_ia: 'Ressources Pause IA',
 		cat_livres: 'Livres',
-		cat_comprendre: "Mieux comprendre l'IA",
+		cat_comprendre: "Mieux comprendre l’IA",
 		cat_risques: 'Risques existentiels',
-		cat_declarations: "Déclarations et appel à l'action",
-		cat_newsletters: "Suivre l'actualité",
+		cat_declarations: "Déclarations et appel à l’action",
+		cat_newsletters: "Suivre l’actualité",
 		pause_ia_intro: 'Les contenus phares produits par Pause IA pour découvrir le sujet.',
 		livres_intro:
-			"Ouvrages de référence sur les risques existentiels de l'IA et le problème de l'alignement.",
+			"Ouvrages de référence sur les risques existentiels de l’IA et le problème de l’alignement.",
 		comprendre_intro:
-			"Vidéos, podcasts, outils et sites pour comprendre l'IA et ses enjeux, du niveau débutant à plus avancé.",
+			"Vidéos, podcasts, outils et sites pour comprendre l’IA et ses enjeux, du niveau débutant à plus avancé.",
 		declarations_intro:
-			"Déclarations publiques, lettres ouvertes et appels à l'action signés par des chercheurs, dirigeants et organisations.",
+			"Déclarations publiques, lettres ouvertes et appels à l’action signés par des chercheurs, dirigeants et organisations.",
 		newsletters_intro:
-			"Les meilleures newsletters francophones et anglophones pour suivre l'actualité de l'IA et de sa sécurité.",
+			"Les meilleures newsletters francophones et anglophones pour suivre l’actualité de l’IA et de sa sécurité.",
 		sg_essentiels: 'Essentiels (alignement et risques existentiels)',
 		sg_recommandes: 'Recommandés (couvrent des sujets plus larges)',
 		sg_demarrer: 'Pour démarrer',
-		sg_vue_ensemble: "Vue d'ensemble : capacités et tendances actuelles",
+		sg_vue_ensemble: "Vue d’ensemble : capacités et tendances actuelles",
 		sg_aller_plus_loin: 'Pour aller plus loin',
-		sg_general: "Perte de contrôle et menaces d'extinction",
+		sg_general: "Perte de contrôle et menaces d’extinction",
 		sg_recherche_alignement: 'Recherche en alignement (papiers fondateurs et empiriques)',
 		mt_book: 'Livre',
 		mt_paper: 'Article scientifique',
@@ -245,10 +246,10 @@ export default {
 		coverage_title: 'Ils parlent de nous',
 		about_title: 'À propos de Pause IA',
 		about_p1:
-			"Pause IA est une association de bénévoles qui alerte les citoyens et les pouvoirs publics français sur les graves dangers que la course à l'intelligence artificielle fait courir à la société humaine, et les incite à agir à leur niveau pour s'y opposer.",
+			"Pause IA est une association de bénévoles qui alerte les citoyens et les pouvoirs publics français sur les graves dangers que la course à l’intelligence artificielle fait courir à la société humaine, et les incite à agir à leur niveau pour s’y opposer.",
 		about_p2:
-			"Pause IA est la représentation en France de Pause AI Global, qui demande un moratoire sur l'entraînement des systèmes d'IA générale (IAG) jusqu'à ce que toutes les conditions de sécurité et de contrôle démocratique soient réunies.",
-		redirect_non_journalist: "Si vous n'êtes pas journaliste, nous vous invitons à",
+			"Pause IA est la représentation en France de Pause AI Global, qui demande un moratoire sur l’entraînement des systèmes d’IA générale (IAG) jusqu’à ce que toutes les conditions de sécurité et de contrôle démocratique soient réunies.",
+		redirect_non_journalist: "Si vous n’êtes pas journaliste, nous vous invitons à",
 		redirect_link: 'vous rendre sur cette page',
 		redirect_suffix: 'pour nous contacter.',
 		no_dept_found: 'Aucun département trouvé',
@@ -260,15 +261,17 @@ export default {
 	},
 	posts: {
 		title: 'Articles',
-		meta_title: 'Articles - Pause IA'
+		meta_title: 'Articles - Pause IA',
+		lede: 'Nos analyses, nos enquêtes et nos prises de position, de la plus récente à la plus ancienne.',
+		meta_desc: "Les articles de Pause IA : analyses des risques de l’intelligence artificielle, enquêtes et prises de position de l’association."
 	},
 	campagnes: {
 		meta_title: 'Nos campagnes - Pause IA',
 		meta_desc:
-			"Retrouvez toutes les campagnes en cours et passées de Pause IA. Cette page est mise à jour régulièrement pour refléter les actions actuelles de l'association.",
+			"Retrouvez toutes les campagnes en cours et passées de Pause IA. Cette page est mise à jour régulièrement pour refléter les actions actuelles de l’association.",
 		title: 'Nos campagnes',
 		subtitle:
-			"Retrouvez ici les campagnes menées par Pause IA pour alerter les citoyens et les décideurs sur les risques de l'IA.",
+			"Retrouvez ici les campagnes menées par Pause IA pour alerter les citoyens et les décideurs sur les risques de l’IA.",
 		badge_active: 'En cours',
 		badge_ended: 'Terminée',
 		see_archive: 'Voir la page',
@@ -279,17 +282,17 @@ export default {
 		to: 'à'
 	},
 	sommet: {
-		title: "Sommet de l'IA 2026",
+		title: "Sommet de l’IA 2026",
 		description:
-			"Le Sommet de l'IA 2026 en Inde est un moment crucial pour l'avenir de notre société. Vous pouvez agir avec Pause IA pour que les enjeux de sécurité et de contrôle démocratique soient au cœur des discussions.",
+			"Le Sommet de l’IA 2026 en Inde est un moment crucial pour l’avenir de notre société. Vous pouvez agir avec Pause IA pour que les enjeux de sécurité et de contrôle démocratique soient au cœur des discussions.",
 		sign_petition: 'Je signe la pétition',
-		contact_politicians: "J'interpelle les politiques"
+		contact_politicians: "J’interpelle les politiques"
 	},
 	emploi_merci: {
 		title: 'Merci pour votre participation !',
-		p1: "Votre témoignage a bien été enregistré et nous vous en remercions sincèrement. Vos réponses nous aideront à mieux comprendre l'impact de l'IA sur le monde du travail.",
-		p2: "Si vous n'y êtes pas déjà, vous pouvez rejoindre notre communauté pour :",
-		li1: "Échanger avec d'autres personnes concernées par l'IA et l'emploi",
+		p1: "Votre témoignage a bien été enregistré et nous vous en remercions sincèrement. Vos réponses nous aideront à mieux comprendre l’impact de l’IA sur le monde du travail.",
+		p2: "Si vous n’y êtes pas déjà, vous pouvez rejoindre notre communauté pour :",
+		li1: "Échanger avec d’autres personnes concernées par l’IA et l’emploi",
 		li2: 'Vous informer sur les dernières actualités et recherches',
 		li3: 'Participer à des actions concrètes',
 		li4: 'Accéder à des ressources et du soutien',
@@ -300,10 +303,10 @@ export default {
 	emploi_questionnaire: {
 		meta_title: 'Enquête 2025 : IA et emploi | Pause IA',
 		meta_desc:
-			"L'association Pause IA réalise une enquête permanente sur l'IA et l'emploi pour évaluer et comprendre l'impact de l'IA sur le monde du travail.",
+			"L’association Pause IA réalise une enquête permanente sur l’IA et l’emploi pour évaluer et comprendre l’impact de l’IA sur le monde du travail.",
 		title: 'Enquête 2025 : IA et emploi',
 		intro:
-			"L'association Pause IA réalise une enquête permanente sur l'IA et l'emploi pour évaluer et comprendre l'impact de l'IA sur le monde du travail.",
+			"L’association Pause IA réalise une enquête permanente sur l’IA et l’emploi pour évaluer et comprendre l’impact de l’IA sur le monde du travail.",
 		steps: {
 			info: 'Informations',
 			impact: 'Impact',
@@ -317,30 +320,30 @@ export default {
 			age_placeholder: 'Ex: 35',
 			label_statut: 'Votre statut professionnel',
 			label_autre_statut: 'Préciser votre statut professionnel :',
-			label_etudes: "Votre niveau d'études",
-			label_secteur: "Votre secteur d'activité",
-			label_autre_secteur: "Préciser votre secteur d'activité :",
+			label_etudes: "Votre niveau d’études",
+			label_secteur: "Votre secteur d’activité",
+			label_autre_secteur: "Préciser votre secteur d’activité :",
 			label_profession: 'Préciser votre profession :',
 			select_default: '-- Sélectionner --',
 			required: '*'
 		},
 		section2: {
-			title: "2. L'impact de l'IA sur votre vie professionnelle",
-			q21: "Q2.1 À quelle fréquence vous informez-vous sur les apports de l'IA ?",
-			q22: "Q2.2 Dans quelle mesure pensez-vous être impacté par l'IA au travail ?",
-			q23: "Q2.3 Quel rapport(s) avez-vous avec l'IA au travail ?",
+			title: "2. L’impact de l’IA sur votre vie professionnelle",
+			q21: "Q2.1 À quelle fréquence vous informez-vous sur les apports de l’IA ?",
+			q22: "Q2.2 Dans quelle mesure pensez-vous être impacté par l’IA au travail ?",
+			q23: "Q2.3 Quel rapport(s) avez-vous avec l’IA au travail ?",
 			label_autre_rapport: 'Si autre rapport, indiquer lequel :'
 		},
 		section3: {
 			title: '3. Réflexions, témoignage et engagement',
 			q31: 'Q3.1 Seriez-vous intéressé à participer à une cellule de réflexion IA et emplois ?',
-			q32: "Q3.2 qu'y chercheriez-vous ?",
-			label_autre_objectif: "Préciser ce que vous y chercheriez d'autre :",
+			q32: "Q3.2 qu’y chercheriez-vous ?",
+			label_autre_objectif: "Préciser ce que vous y chercheriez d’autre :",
 			q33: 'Q3.3 Vous pouvez nous partager ci-dessous votre témoignage, sous forme libre',
 			placeholder_temoignage:
-				"Comment l'IA impacte-t-elle votre vie professionnelle ? Vous pouvez témoigner de votre vécu : aspects positifs ou négatifs ? Qu'avez-vous expérimenté, accepté, refusé ? Comment vos tâches se sont-elles modifiées ? Cela vous a-t-il demandé d'acquérir des compétences ou d'abandonner certaines parties de votre métier ? Avez-vous dû changer de poste, démissionner, vous reconvertir ? Quelles questions vous posez-vous ? Bref, tout nous intéresse ici.",
+				"Comment l’IA impacte-t-elle votre vie professionnelle ? Vous pouvez témoigner de votre vécu : aspects positifs ou négatifs ? Qu’avez-vous expérimenté, accepté, refusé ? Comment vos tâches se sont-elles modifiées ? Cela vous a-t-il demandé d’acquérir des compétences ou d’abandonner certaines parties de votre métier ? Avez-vous dû changer de poste, démissionner, vous reconvertir ? Quelles questions vous posez-vous ? Bref, tout nous intéresse ici.",
 			consent_label:
-				"J'accepte que mon témoignage soit partagé publiquement (de manière anonyme ou avec mon prénom)",
+				"J’accepte que mon témoignage soit partagé publiquement (de manière anonyme ou avec mon prénom)",
 			label_prenom: 'Votre prénom (pour signer votre témoignage)',
 			prenom_placeholder: 'Ex: Marie',
 			prenom_desc:
@@ -348,15 +351,15 @@ export default {
 			label_email: 'Votre adresse e-mail',
 			email_placeholder: 'exemple@email.com',
 			email_desc:
-				"Nous utiliserons cet email uniquement pour vous recontacter dans le cadre de cette enquête. Nous n'en ferons aucune utilisation commerciale.",
+				"Nous utiliserons cet email uniquement pour vous recontacter dans le cadre de cette enquête. Nous n’en ferons aucune utilisation commerciale.",
 			label_more: 'Avant de se quitter, souhaitez-vous répondre à davantage de questions ?'
 		},
 		section4: {
-			title: "4. Votre utilisation de l'IA au travail",
-			q41: "Q4.1 Quelle est votre utilisation de l'IA dans votre activité professionnelle ?",
-			q42: "Q4.2 Pour quel(s) type(s) de tâches utilisez-vous l'IA ?",
+			title: "4. Votre utilisation de l’IA au travail",
+			q41: "Q4.1 Quelle est votre utilisation de l’IA dans votre activité professionnelle ?",
+			q42: "Q4.2 Pour quel(s) type(s) de tâches utilisez-vous l’IA ?",
 			label_autre_tache: 'Préciser quelles autres tâches :',
-			q43: "Q4.3 Pour quelle(s) raison(s) utilisez-vous l'IA au travail ?",
+			q43: "Q4.3 Pour quelle(s) raison(s) utilisez-vous l’IA au travail ?",
 			label_autre_raison: 'Préciser les autres raisons :',
 			q44: 'Q4.4 Êtes-vous satisfait de cette utilisation ?'
 		},
@@ -387,7 +390,7 @@ export default {
 				benevole: 'Actif bénévole',
 				interimaire: 'Actif intérimaire / intermittent',
 				chomage: 'Actif sans emploi / au chômage',
-				diplome: "Diplômé à la recherche d'un premier emploi",
+				diplome: "Diplômé à la recherche d’un premier emploi",
 				etudiant: 'Élève / étudiant / apprenti',
 				retraite: 'Retraité',
 				autre: 'Autre'
@@ -433,7 +436,7 @@ export default {
 			frequence_info: {
 				no_answer: 'Ne souhaite pas répondre',
 				jamais: 'Jamais',
-				ponctuel: "Moins d'une fois par mois, ponctuellement",
+				ponctuel: "Moins d’une fois par mois, ponctuellement",
 				mensuel: 'Mensuelle et de façon active',
 				hebdo: 'Hebdomadaire ou équivalent',
 				quotidien: 'Quotidienne ou quasi-quotidienne'
@@ -441,18 +444,18 @@ export default {
 			impact: {
 				no_answer: 'Ne souhaite pas répondre',
 				jamais: 'Jamais',
-				peu: "Peu d'impact / Pas tout de suite",
-				moyen: "Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés",
-				fort: "Fort impact : menace de perte d'emploi transformations difficiles",
+				peu: "Peu d’impact / Pas tout de suite",
+				moyen: "Impact moyen : transformations auxquelles je m’adapte sans grandes difficultés",
+				fort: "Fort impact : menace de perte d’emploi transformations difficiles",
 				tres_fort: 'Très fort impact : emploi perdu métier disparu compétences inutiles...'
 			},
 			rapport: {
 				no_answer: 'Ne souhaite pas répondre',
-				excitation: "L'excitation à l'idée de l'utiliser davantage",
+				excitation: "L’excitation à l’idée de l’utiliser davantage",
 				confiance: 'La confiance dans ces nouveaux outils',
 				aucun: 'Pas de rapport particulier',
-				prudence: "L'observation et la prudence",
-				malaise: "Le malaise voire l'anxiété",
+				prudence: "L’observation et la prudence",
+				malaise: "Le malaise voire l’anxiété",
 				autre: 'Un autre rapport'
 			},
 			interesse: {
@@ -465,11 +468,11 @@ export default {
 				partager: 'Partager mon expérience / témoigner',
 				reconversion: 'Du conseil pour une reconversion / un choix avisé de formation',
 				soutien: 'Du soutien psychologique',
-				droits: "De l'information sur mes droits de travailleur",
+				droits: "De l’information sur mes droits de travailleur",
 				avances:
-					"De l'information / échanges sur les avancées de l'IA dans mon métier / secteur / mes compétences",
-				agir_perso: "Des moyens d'agir sur ma situation personnelle au travail",
-				agir_societe: "Des moyens d'agir sur la société et le monde du travail",
+					"De l’information / échanges sur les avancées de l’IA dans mon métier / secteur / mes compétences",
+				agir_perso: "Des moyens d’agir sur ma situation personnelle au travail",
+				agir_societe: "Des moyens d’agir sur la société et le monde du travail",
 				autre: 'Autre'
 			},
 			bool_yes_no: {
@@ -486,7 +489,7 @@ export default {
 				sais_pas: 'Je ne sais pas'
 			},
 			taches: {
-				generation: "Génération d'images, de sons, de vidéos",
+				generation: "Génération d’images, de sons, de vidéos",
 				analyse: 'Analyse / Résumé de document (texte, vidéo...)',
 				traduction: 'Traduction',
 				redaction: 'Correction et rédaction de texte',
@@ -511,14 +514,14 @@ export default {
 			},
 			satisfaction: {
 				no_answer: 'Ne souhaite pas répondre',
-				non_utilisation: "Non je ne sais pas bien l'utiliser",
+				non_utilisation: "Non je ne sais pas bien l’utiliser",
 				non_resultats: 'Non les résultats obtenus ne sont pas satisfaisants',
 				oui_non: 'Oui et non cela dépend des tâches',
-				oui_precieux: "Oui c'est un outil de travail précieux",
+				oui_precieux: "Oui c’est un outil de travail précieux",
 				oui_capacites: 'Oui cela décuple mes capacités'
 			},
 			thanks_msg: {
-				title: "Merci d'avoir répondu à ce questionnaire !",
+				title: "Merci d’avoir répondu à ce questionnaire !",
 				text_p1:
 					'Merci d’avoir répondu à notre questionnaire 🙂. N’hésitez pas à parcourir le site de',
 				link_association: 'Pause IA.fr',
@@ -532,45 +535,45 @@ export default {
 		}
 	},
 	emploi_ia: {
-		meta_title: "L'IA ne détruira pas QUE votre emploi | Pause IA",
+		meta_title: "L’IA ne détruira pas QUE votre emploi | Pause IA",
 		meta_desc:
-			"Les systèmes d'IA généralistes peuvent remplacer du travail humain massivement, sans filet de sécurité. Mais le problème dépasse l'emploi : c'est notre capacité à contrôler ces technologies qui recule.",
+			"Les systèmes d’IA généralistes peuvent remplacer du travail humain massivement, sans filet de sécurité. Mais le problème dépasse l’emploi : c’est notre capacité à contrôler ces technologies qui recule.",
 		keywords:
-			"Emploi, IA, Intelligence Artificielle, Travail, Automatisation, Perte d'emploi, Licenciements, Pause IA, Risques IA",
-		title: "L'IA ne détruira pas QUE votre emploi",
+			"Emploi, IA, Intelligence Artificielle, Travail, Automatisation, Perte d’emploi, Licenciements, Pause IA, Risques IA",
+		title: "L’IA ne détruira pas QUE votre emploi",
 		intro_lead:
-			"L'IA ne menace pas seulement nos emplois : elle participe à une perte de contrôle croissante sur nos vies et sur nos sociétés.",
+			"L’IA ne menace pas seulement nos emplois : elle participe à une perte de contrôle croissante sur nos vies et sur nos sociétés.",
 		intro_text:
-			"Les systèmes d'IA généralistes sont capables d'accomplir un nombre croissant de tâches à une vitesse et à un coût qui rendent possible le remplacement massif de travail humain dans de nombreux secteurs. Rien ne garantit que les emplois détruits seront compensés par de nouveaux emplois, et rien n'a été sérieusement préparé pour absorber un choc social de cette ampleur.",
+			"Les systèmes d’IA généralistes sont capables d’accomplir un nombre croissant de tâches à une vitesse et à un coût qui rendent possible le remplacement massif de travail humain dans de nombreux secteurs. Rien ne garantit que les emplois détruits seront compensés par de nouveaux emplois, et rien n’a été sérieusement préparé pour absorber un choc social de cette ampleur.",
 		// Chiffre volontairement arrondi vers le bas (plancher) : il reste vrai
-		// dans le temps puisque le total ne fait que croître, et évite d'afficher
+		// dans le temps puisque le total ne fait que croître, et évite d’afficher
 		// une date qui se périme. Le total exact et à jour est sur jobloss.ai.
 		stat_number: '125 000+',
-		stat_label: "emplois liés à l'IA supprimés documentés depuis janvier 2025",
+		stat_label: "emplois liés à l’IA supprimés documentés depuis janvier 2025",
 		stat_source: 'Source : jobloss.ai',
 		hero_cta_label: 'Écrire à mes élu·e·s',
 		hero_cta_sub: 'Un e-mail à vos parlementaires. Cinq minutes, un vrai poids.',
-		survey_section_title: "Vous aussi participez à la grande enquête sur l'IA au travail !",
+		survey_section_title: "Vous aussi participez à la grande enquête sur l’IA au travail !",
 		survey_section_text:
-			"Comment l'IA impacte-t-elle votre vie professionnelle ? L'association Pause IA réalise une enquête sur l'IA et l'emploi pour évaluer et comprendre l'impact de l'IA sur le monde du travail.",
+			"Comment l’IA impacte-t-elle votre vie professionnelle ? L’association Pause IA réalise une enquête sur l’IA et l’emploi pour évaluer et comprendre l’impact de l’IA sur le monde du travail.",
 		survey_card_title: 'Questionnaire',
-		survey_card_text: "Répondez à notre questionnaire sur l'IA et l'emploi",
-		survey_card_title_attr: "Questionnaire sur l'IA et l'emploi de Pause IA",
+		survey_card_text: "Répondez à notre questionnaire sur l’IA et l’emploi",
+		survey_card_title_attr: "Questionnaire sur l’IA et l’emploi de Pause IA",
 		testimonials_section_title: 'Vos témoignages',
 		bigger_problem_title: 'Écrivez à vos élu•e•s',
 		elus_intro:
-			"Les conséquences du déploiement de l'IA dans l'économie vont au-delà du chômage. Il est urgent d'agir. Faites savoir votre inquiétude à votre député•e et à vos sénateurs•rices. Dites-leur que vous comptez sur leur action.",
+			"Les conséquences du déploiement de l’IA dans l’économie vont au-delà du chômage. Il est urgent d’agir. Faites savoir votre inquiétude à votre député•e et à vos sénateurs•rices. Dites-leur que vous comptez sur leur action.",
 		elus_models:
-			"Notre outil vous propose des modèles d'e-mail que vous pouvez retoucher ou envoyer tels quels.",
+			"Notre outil vous propose des modèles d’e-mail que vous pouvez retoucher ou envoyer tels quels.",
 		elus_example_label: 'Un exemple (extrait) :',
 		elus_example_quote:
-			"Vous ne pouvez ignorer qu'une hausse brutale du chômage mettrait en jeu notre modèle social, et probablement notre démocratie, et enfin notre souveraineté. On nous promet une croissance mirobolante grâce à l'IA ! Mais qui en profitera quand nous serons piégés dans une dépendance gravissime vis-à-vis de la Silicon Valley (sinon de la Chine) ?",
+			"Vous ne pouvez ignorer qu’une hausse brutale du chômage mettrait en jeu notre modèle social, et probablement notre démocratie, et enfin notre souveraineté. On nous promet une croissance mirobolante grâce à l’IA ! Mais qui en profitera quand nous serons piégés dans une dépendance gravissime vis-à-vis de la Silicon Valley (sinon de la Chine) ?",
 		cta_callout_detail:
-			"Les élus sont tenus d'être à l'écoute des préoccupations des citoyens, et un message personnel pèse bien plus lourd qu'une pétition.",
+			"Les élus sont tenus d’être à l’écoute des préoccupations des citoyens, et un message personnel pèse bien plus lourd qu’une pétition.",
 		elus_guide: 'Cela prend cinq minutes. Laissez-vous guider !',
 		press_section_title: 'Revue de presse : je reste informé',
 		press_section_text:
-			"De nombreux médias abordent l'impact de l'IA sur le marché du travail. Nous collectons régulièrement des articles de presse traitant de ce sujet.",
+			"De nombreux médias abordent l’impact de l’IA sur le marché du travail. Nous collectons régulièrement des articles de presse traitant de ce sujet.",
 		carousel_empty: 'Aucun témoignage pour le moment.',
 		carousel_nav_aria: 'Navigation des témoignages',
 		carousel_prev: 'Témoignage précédent',
@@ -579,9 +582,9 @@ export default {
 		carousel_age: 'ans',
 		articles_all_category: 'Toutes',
 		articles_label: 'Rubrique :',
-		articles_tabs_aria: "Choisir une catégorie d'article",
+		articles_tabs_aria: "Choisir une catégorie d’article",
 		articles_empty: 'Aucun article pour cette catégorie pour le moment.',
-		articles_nav_aria: "Navigation parmi les pages d'articles",
+		articles_nav_aria: "Navigation parmi les pages d’articles",
 		articles_prev: 'Page précédente',
 		articles_next: 'Page suivante',
 		articles_go_to: 'Aller à la page',
@@ -590,19 +593,19 @@ export default {
 		articles_lang_fr: 'Français',
 		articles_lang_en: 'Anglais',
 		analyses_section_title: 'Nos analyses',
-		analyses_section_text: "Des articles de fond sur l'IA et l'emploi, rédigés par nos membres.",
+		analyses_section_text: "Des articles de fond sur l’IA et l’emploi, rédigés par nos membres.",
 		analyses_read: 'Lire',
-		article1_title: "Remplacer l'humain, tel est l'objectif",
+		article1_title: "Remplacer l’humain, tel est l’objectif",
 		article1_desc:
-			"En quelques années, l'IA est devenue capable de remplacer les humains dans des tâches de plus en plus nombreuses, 16 % du travail déjà automatisable en France.",
+			"En quelques années, l’IA est devenue capable de remplacer les humains dans des tâches de plus en plus nombreuses, 16 % du travail déjà automatisable en France.",
 		article1_url: '/articles/remplacer-humain',
-		article2_title: "Pas de pilote dans l'avion France",
+		article2_title: "Pas de pilote dans l’avion France",
 		article2_desc:
 			'Chômage massif des jeunes, modèle social fragilisé, dépendance à la Silicon Valley : à quoi ressemblera notre monde si nous ne réagissons pas.',
 		article2_url: '/articles/pas-de-pilote',
 		article3_title: 'Ce que l’IA fait au travail',
 		article3_desc:
-			"Bilan qualitatif de notre enquête sur l'emploi : perte de sens, décisions imposées, adaptation reportée sur les individus, ce qu'une trentaine de témoins nous ont confié.",
+			"Bilan qualitatif de notre enquête sur l’emploi : perte de sens, décisions imposées, adaptation reportée sur les individus, ce qu’une trentaine de témoins nous ont confié.",
 		article3_url: '/articles/ce-que-lia-fait-au-travail',
 		article3_badge: 'Bilan de la campagne',
 		slideshow_empty: 'Les témoignages illustrés arrivent prochainement.',

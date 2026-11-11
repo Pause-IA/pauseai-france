@@ -14,7 +14,7 @@
 			<div class="consent-widget">
 				<div class="consent-text">
 					Pour afficher le PDF directement sur cette page, nous utilisons le visualiseur Google
-					Docs. En l'activant, vous acceptez que vos données soient traitées conformément à la <ExternalLink
+					Docs. En l’activant, vous acceptez que vos données soient traitées conformément à la <ExternalLink
 						href="https://policies.google.com/privacy?hl=fr"
 						target="_blank">politique de confidentialité de Google</ExternalLink
 					>. Alternativement, vous pouvez télécharger le PDF pour le lire localement.
