@@ -7,7 +7,6 @@
 	import LocalGroups from '$components/home/local-groups.svelte'
 	import Articles from '$components/home/articles.svelte'
 	import NewsletterCta from '$components/home/newsletter-cta.svelte'
-	import Faq from '$components/home/faq.svelte'
 	import Bande from '$components/home/Bande.svelte'
 	import Videos from '$components/home/videos.svelte'
 	import { bannerStore } from '$lib/stores/banner'
@@ -45,5 +44,3 @@
 	<Videos videos={data.videos} {lang} />
 	<Articles articles={data.articles} {lang} />
 </Bande>
-
-<Faq {lang} />

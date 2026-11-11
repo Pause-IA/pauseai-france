@@ -1,4 +1,5 @@
 import { env } from '$env/dynamic/private'
+import equipeBrut from '$lib/data/equipe.json'
 
 const NOTION_API_VERSION = '2022-06-28'
 
@@ -816,6 +817,13 @@ export async function getLocalEvents(): Promise<LocalEvent[]> {
 }
 
 // Team members
+/** Instantané de l'équipe versionné dans le dépôt, produit par
+    scripts/photos-equipe.mjs (lancé à chaque `pnpm build`). Il sert à deux
+    choses : fournir les photos compressées, et tenir lieu de repli quand Notion
+    ne répond pas — sans quoi « Qui sommes-nous » serait entièrement vide.
+    Vide tant que le script n'a pas tourné. */
+const equipeVersionnee: TeamMemberVersionne[] = equipeBrut.membres
+
 export type TeamCategory = 'Direction' | 'Conseil scientifique' | 'Membre'
 
 const TEAM_CATEGORIES: TeamCategory[] = ['Direction', 'Conseil scientifique', 'Membre']
@@ -844,33 +852,67 @@ function isValidTeamMember(member: TeamMember): boolean {
 	return true
 }
 
+interface TeamMemberVersionne {
+	id: string
+	name: string
+	role: string
+	profession: string
+	category: string
+	image: string
+	order: number
+}
+
+/** L'instantané est du JSON : sa catégorie est validée comme celle de Notion. */
+function equipeDeSecours(): TeamMember[] {
+	return equipeVersionnee
+		.map((m) => ({ ...m, category: toTeamCategory(m.category), visible: true }))
+		.sort((a, b) => a.order - b.order)
+}
+
 export async function getTeamMembers(): Promise<TeamMember[]> {
 	const databaseId = env.NOTION_TEAM_DATABASE_ID
-	if (!databaseId) return []
+	if (!databaseId) return equipeDeSecours()
 
-	const members = await queryDatabase<TeamMember | null>(
-		databaseId,
-		(page) => {
-			const visible = getCheckbox(page.properties.Visible)
-			if (!visible) return null
+	const photos = new Map(equipeVersionnee.map((m) => [m.id, m.image]))
+	let members: (TeamMember | null)[]
+	try {
+		members = await queryDatabase<TeamMember | null>(
+			databaseId,
+			(page) => {
+				const visible = getCheckbox(page.properties.Visible)
+				if (!visible) return null
 
-			const categoryValue = getSelect(page.properties['Catégorie'])
+				const categoryValue = getSelect(page.properties['Catégorie'])
 
-			const member: TeamMember = {
-				id: page.id,
-				name: getText(page.properties.Nom),
-				role: getText(page.properties['Rôle']),
-				profession: getText(page.properties.Profession),
-				category: toTeamCategory(categoryValue),
-				image: getFileUrl(page.properties.Photo),
-				order: getNumber(page.properties.Ordre),
-				visible
-			}
+				const member: TeamMember = {
+					id: page.id,
+					name: getText(page.properties.Nom),
+					role: getText(page.properties['Rôle']),
+					profession: getText(page.properties.Profession),
+					category: toTeamCategory(categoryValue),
+					// La photo versionnée l'emporte sur l'URL Notion. Celle-ci est une
+					// adresse S3 SIGNÉE qui expire au bout d'une heure : servie telle
+					// quelle, elle casse dès que la page est mise en cache, et pèse le
+					// poids du fichier d'origine. scripts/photos-equipe.mjs télécharge,
+					// compresse et versionne ; on retombe sur Notion si la photo n'a
+					// pas encore été passée par le script.
+					image: photos.get(page.id) || getFileUrl(page.properties.Photo),
+					order: getNumber(page.properties.Ordre),
+					visible
+				}
 
-			return isValidTeamMember(member) ? member : null
-		},
-		{ sortBy: 'Ordre' }
-	)
+				return isValidTeamMember(member) ? member : null
+			},
+			{ sortBy: 'Ordre' }
+		)
+	} catch (e) {
+		// Notion injoignable pendant un build : mieux vaut l'équipe du dernier
+		// passage du script qu'une page vide.
+		console.warn('Notion injoignable, repli sur l’instantané versionné :', e)
+		return equipeDeSecours()
+	}
 
-	return members.filter((m): m is TeamMember => m !== null)
+	const trouves = members.filter((m): m is TeamMember => m !== null)
+	// Une base qui ne renvoie personne est anormale, et donnerait une page vide.
+	return trouves.length > 0 ? trouves : equipeDeSecours()
 }

@@ -1,32 +1,22 @@
 {
-	"genere": "2026-10-09",
+	"genere": "2026-11-11",
 	"groupes": [
 		{
 			"label": "Comprendre",
 			"items": [
-				{
-					"href": "#faq",
-					"label": "FAQ",
-					"externe": false
-				},
 				{
 					"href": "/ressources",
 					"label": "Ressources",
 					"externe": false
 				},
 				{
-					"href": "/newsletters",
-					"label": "Newsletter",
+					"href": "/fresque",
+					"label": "La fresque des risques de l’IA",
 					"externe": false
 				},
 				{
-					"href": "https://pauseia.substack.com/",
-					"label": "Blog",
-					"externe": true
-				},
-				{
-					"href": "/fresque",
-					"label": "La fresque des risques de l’IA",
+					"href": "/idees-recues",
+					"label": "Idées reçues",
 					"externe": false
 				}
 			]
@@ -36,17 +26,17 @@
 			"items": [
 				{
 					"href": "/ecrire-a-mes-elus",
-					"label": "Écrire à vos élus ou à la presse",
+					"label": "Écrire à vos élus",
 					"externe": false
 				},
 				{
 					"href": "/declaration",
-					"label": "Signer la déclaration",
+					"label": "Signer l'appel",
 					"externe": false
 				},
 				{
-					"href": "/participer-a-notre-communication",
-					"label": "Participer à notre communication",
+					"href": "/relayer-nos-messages",
+					"label": "Relayer nos messages",
 					"externe": false
 				},
 				{
@@ -55,20 +45,20 @@
 					"externe": false
 				},
 				{
-					"href": "/recrutement",
-					"label": "Convaincre autour de vous",
+					"href": "/sensibiliser-votre-entourage",
+					"label": "Sensibiliser votre entourage",
 					"externe": true
+				},
+				{
+					"href": "/agir",
+					"label": "Toutes les façons d’agir",
+					"externe": false
 				}
 			]
 		},
 		{
 			"label": "Campagnes",
 			"items": [
-				{
-					"href": "/campagnes",
-					"label": "Toutes nos campagnes",
-					"externe": false
-				},
 				{
 					"href": "/perte-de-controle",
 					"label": "Au bord de la perte de contrôle",
@@ -78,21 +68,11 @@
 					"href": "/emploi-ia",
 					"label": "L’IA ne détruira pas QUE votre emploi",
 					"externe": false
-				}
-			]
-		},
-		{
-			"label": "Événements",
-			"items": [
-				{
-					"href": "/senat2025",
-					"label": "Colloque Sénat 2025",
-					"externe": false
 				},
 				{
-					"href": "https://controleia.org/solutions/",
-					"label": "Forum solutions 2025",
-					"externe": true
+					"href": "/campagnes",
+					"label": "Toutes nos campagnes",
+					"externe": false
 				}
 			]
 		},
@@ -110,8 +90,8 @@
 					"externe": false
 				},
 				{
-					"href": "/presse",
-					"label": "Espace presse",
+					"href": "/faq",
+					"label": "FAQ",
 					"externe": false
 				}
 			]
@@ -119,52 +99,27 @@
 	],
 	"colonnes": [
 		{
-			"label": "Navigation",
+			"label": "S'informer",
 			"liens": [
 				{
-					"href": "#faq",
-					"label": "FAQ",
+					"href": "/ressources",
+					"label": "Ressources",
 					"externe": false
 				},
 				{
-					"href": "/propositions",
-					"label": "Propositions",
+					"href": "/fresque",
+					"label": "Fresque des risques de l’IA",
 					"externe": false
 				},
 				{
 					"href": "/newsletters",
-					"label": "Newsletters",
+					"label": "Newsletter",
 					"externe": false
 				},
 				{
 					"href": "https://pauseia.substack.com/",
 					"label": "Blog",
 					"externe": true
-				},
-				{
-					"href": "/fresque",
-					"label": "La fresque des risques de l’IA",
-					"externe": false
-				},
-				{
-					"href": "/agir",
-					"label": "Agir",
-					"externe": false
-				},
-				{
-					"href": "/dons",
-					"label": "Donner",
-					"externe": false
-				},
-				{
-					"href": "/rejoindre",
-					"label": "Nous rejoindre",
-					"externe": false
-				},
-				{
-					"href": "/qui-sommes-nous",
-					"label": "Qui sommes-nous ?",
-					"externe": false
 				}
 			]
 		},
@@ -172,23 +127,28 @@
 			"label": "Agir",
 			"liens": [
 				{
-					"href": "/ecrire-a-mes-elus",
-					"label": "Écrire aux élus et à la presse",
-					"externe": false
-				},
-				{
-					"href": "/declaration",
-					"label": "Signer la déclaration",
-					"externe": false
-				},
-				{
 					"href": "/rejoindre",
 					"label": "Rejoindre Pause IA",
 					"externe": false
 				},
 				{
+					"href": "/groupes-locaux",
+					"label": "Rejoindre un groupe local",
+					"externe": false
+				},
+				{
 					"href": "/agir",
-					"label": "Comment pouvez-vous aider ?",
+					"label": "Toutes les façons d'agir",
+					"externe": false
+				},
+				{
+					"href": "/ecrire-a-mes-elus",
+					"label": "Écrire à vos élus",
+					"externe": false
+				},
+				{
+					"href": "/declaration",
+					"label": "Signer l'appel",
 					"externe": false
 				},
 				{
@@ -197,14 +157,44 @@
 					"externe": false
 				},
 				{
-					"href": "https://pauseai-shop.fourthwall.com",
-					"label": "Marchandises",
+					"href": "https://boutique.pauseia.fr/",
+					"label": "Boutique",
 					"externe": true
+				}
+			]
+		},
+		{
+			"label": "Pause IA",
+			"liens": [
+				{
+					"href": "/qui-sommes-nous",
+					"label": "Qui sommes-nous ?",
+					"externe": false
 				},
 				{
-					"href": "https://pauseai.info/protests",
-					"label": "Manifestations",
-					"externe": true
+					"href": "/charte-des-valeurs",
+					"label": "Charte des valeurs",
+					"externe": false
+				},
+				{
+					"href": "/propositions",
+					"label": "Nos demandes",
+					"externe": false
+				},
+				{
+					"href": "/financements",
+					"label": "Notre financement",
+					"externe": false
+				},
+				{
+					"href": "/presse",
+					"label": "Espace presse",
+					"externe": false
+				},
+				{
+					"href": "/faq",
+					"label": "Foire aux questions",
+					"externe": false
 				},
 				{
 					"href": "/recrutement-emploi",
@@ -214,18 +204,8 @@
 			]
 		},
 		{
-			"label": "Autres",
+			"label": "Informations légales",
 			"liens": [
-				{
-					"href": "/presse",
-					"label": "Presse",
-					"externe": false
-				},
-				{
-					"href": "/financements",
-					"label": "Financements",
-					"externe": false
-				},
 				{
 					"href": "/mentions-legales",
 					"label": "Mentions légales",
@@ -235,21 +215,23 @@
 					"href": "/politique-de-confidentialite",
 					"label": "Politique de confidentialité",
 					"externe": false
-				},
-				{
-					"href": "/charte-des-valeurs",
-					"label": "Charte des valeurs",
-					"externe": false
-				},
-				{
-					"href": "https://creativecommons.org/licenses/by/4.0/deed.fr",
-					"label": "Licence : CC-BY 4.0",
-					"externe": true
 				}
 			]
 		}
 	],
 	"orphelines": [
+		{
+			"chemin": "/articles/ce-que-lia-fait-au-travail",
+			"url": "/fr/articles/ce-que-lia-fait-au-travail"
+		},
+		{
+			"chemin": "/articles/pas-de-pilote",
+			"url": "/fr/articles/pas-de-pilote"
+		},
+		{
+			"chemin": "/articles/remplacer-humain",
+			"url": "/fr/articles/remplacer-humain"
+		},
 		{
 			"chemin": "/campagne-modele",
 			"url": "/fr/campagne-modele"
@@ -263,24 +245,12 @@
 			"url": "/fr/declaration/signataires"
 		},
 		{
-			"chemin": "/emploi-ia/ce-que-lia-fait-au-travail",
-			"url": "/fr/emploi-ia/ce-que-lia-fait-au-travail"
-		},
-		{
 			"chemin": "/emploi-ia/merci",
 			"url": "/fr/emploi-ia/merci"
 		},
 		{
-			"chemin": "/emploi-ia/pas-de-pilote",
-			"url": "/fr/emploi-ia/pas-de-pilote"
-		},
-		{
 			"chemin": "/emploi-ia/questionnaire",
 			"url": "/fr/emploi-ia/questionnaire"
-		},
-		{
-			"chemin": "/emploi-ia/remplacer-humain",
-			"url": "/fr/emploi-ia/remplacer-humain"
 		},
 		{
 			"chemin": "/g7-2026",
@@ -311,12 +281,20 @@
 			"url": "/fr/posts"
 		},
 		{
-			"chemin": "/recrutement",
-			"url": "/recrutement"
+			"chemin": "/senat2025",
+			"url": "/fr/senat2025"
+		},
+		{
+			"chemin": "/sensibiliser-votre-entourage",
+			"url": "/sensibiliser-votre-entourage"
 		},
 		{
 			"chemin": "/sommet-ia-2026",
 			"url": "/fr/sommet-ia-2026"
+		},
+		{
+			"chemin": "/tribunes/le-monde-octobre-2026",
+			"url": "/fr/tribunes/le-monde-octobre-2026"
 		},
 		{
 			"chemin": "/une-ia-sest-echappee",
@@ -327,6 +305,7 @@
 		"/[slug]",
 		"/articles/[slug]",
 		"/dangers/[slug]",
+		"/idees-recues/[slug]",
 		"/newsletters/[slug]",
 		"/presse/local/[slug]",
 		"/presse/national/[slug]"
@@ -334,7 +313,7 @@
 	"articles": [
 		{
 			"slug": "/agir",
-			"titre": "Passez à l’action"
+			"titre": "Toutes les façons d’agir"
 		},
 		{
 			"slug": "/articles/2026-08-10-incident-openai-hugging-face",
@@ -370,7 +349,7 @@
 		},
 		{
 			"slug": "/en/agir",
-			"titre": "Take Action"
+			"titre": "All the ways to act"
 		},
 		{
 			"slug": "/en/articles/2026-08-10-incident-openai-hugging-face",
@@ -405,6 +384,10 @@
 			"titre": "Our funding"
 		},
 		{
+			"slug": "/en/gouvernance-ia-demarches",
+			"titre": "AI governance: the efforts under way"
+		},
+		{
 			"slug": "/en/mentions-legales",
 			"titre": "Legal Notices"
 		},
@@ -414,11 +397,15 @@
 		},
 		{
 			"slug": "/en/propositions",
-			"titre": "Our Proposals"
+			"titre": "What do we ask for?"
 		},
 		{
 			"slug": "/en/qui-sommes-nous",
 			"titre": "Who Are We?"
+		},
+		{
+			"slug": "/en/relayer-nos-messages",
+			"titre": "Share our messages"
 		},
 		{
 			"slug": "/faq",
@@ -429,12 +416,12 @@
 			"titre": "Notre financement"
 		},
 		{
-			"slug": "/mentions-legales",
-			"titre": "Mentions légales"
+			"slug": "/gouvernance-ia-demarches",
+			"titre": "Gouvernance de l'IA : les démarches engagées"
 		},
 		{
-			"slug": "/participer-a-notre-communication",
-			"titre": "Participer à notre communication"
+			"slug": "/mentions-legales",
+			"titre": "Mentions légales"
 		},
 		{
 			"slug": "/politique-de-confidentialite",
@@ -447,6 +434,10 @@
 		{
 			"slug": "/qui-sommes-nous",
 			"titre": "Qui sommes-nous ?"
+		},
+		{
+			"slug": "/relayer-nos-messages",
+			"titre": "Relayer nos messages"
 		},
 		{
 			"slug": "/videos",
@@ -466,8 +457,8 @@
 		}
 	],
 	"total": {
-		"pages": 34,
-		"dynamiques": 6,
-		"articles": 33
+		"pages": 37,
+		"dynamiques": 7,
+		"articles": 36
 	}
 }

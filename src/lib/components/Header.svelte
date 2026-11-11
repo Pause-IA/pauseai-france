@@ -7,6 +7,7 @@
 	import { bannerStore } from '$lib/stores/banner'
 	import { theme } from '$lib/stores/theme'
 	import { getT } from '$lib/i18n'
+	import { switchLangHref as switchLangHrefFor } from '$lib/langSwitch'
 	import type { Lang } from '$lib/i18n'
 
 	import { onMount } from 'svelte'
@@ -86,16 +87,16 @@
 			id: 'comprendre',
 			label: t.nav.comprendre,
 			items: [
-				{ href: `${prefix}#faq`, label: t.nav.faq },
 				// En tête : c'est la page qui explique le problème. Le menu ne
 				// proposait que des listes et des outils, jamais l'exposé lui-même.
 				{ href: `${prefix}/comprendre-le-risque`, label: t.nav.comprendre_le_risque },
 				{ href: `${prefix}/ressources`, label: t.nav.liens_utiles },
-				{ href: `${prefix}/newsletters`, label: t.nav.newsletter },
-				{ href: 'https://pauseia.substack.com/', label: t.nav.blog, external: true },
-				{ href: `${prefix}/fresque`, label: t.nav.fresque }
+				{ href: `${prefix}/fresque`, label: t.nav.fresque },
+				// « Idées reçues » n'existe qu'en français : pas de lien depuis le site anglais.
+				...(lang === 'fr' ? [{ href: `${prefix}/idees-recues`, label: t.nav.idees_recues }] : [])
 				// « Les dangers de l'IA » est retiré du menu le temps de retravailler le
 				// discours. La route reste en place : les liens existants fonctionnent.
+				// La FAQ est rangée dans « À propos ».
 			]
 		},
 		{
@@ -106,40 +107,39 @@
 				// de premier niveau, jamais rangée derrière une page intermédiaire.
 				{ href: `${prefix}/ecrire-a-mes-elus`, label: t.nav.ecrire_elus },
 				{ href: `${prefix}/declaration`, label: t.nav.declaration },
-				// Page hub : réseaux sociaux, Pause Action, participation aux
-				// campagnes. Les trois ne sont pas un sous-menu, ils sont sur la page.
-				{
-					href: `${prefix}/participer-a-notre-communication`,
-					label: t.nav.participer_communication
-				},
+				// Réseaux sociaux et Pause Action, sur la même page (pas de sous-menu).
+				{ href: `${prefix}/relayer-nos-messages`, label: t.nav.relayer_messages },
 				{ href: `${prefix}/groupes-locaux`, label: t.nav.pres_de_chez_vous },
-				// /recrutement n'est pas localisée : pas de préfixe de langue.
-				{ href: '/recrutement', label: t.nav.convaincre }
-				// « Comment agir ? » quitte le menu : la page reste en ligne (et liée
-				// depuis le pied de page) pour conserver son référencement.
+				// « Sensibiliser votre entourage » a quitté le menu : c'est un guide,
+				// pas une action — on n'en ressort pas avec quelque chose de fait,
+				// contrairement aux cinq autres entrées. « Agir » comptait six
+				// entrées quand les quatre autres menus en comptent trois. La page
+				// reste listée sur /agir, qui ferme cette liste.
+				// La synthèse de tous les moyens d'agir ferme la liste, comme « Toutes
+				// nos campagnes » ferme celle des campagnes.
+				{ href: `${prefix}/agir`, label: t.nav.toutes_facons_agir }
 			]
 		},
 		{
 			id: 'campagnes',
 			label: t.nav.campagnes,
 			items: [
-				{ href: `${prefix}/campagnes`, label: t.nav.toutes_campagnes },
 				{ href: `${prefix}/perte-de-controle`, label: t.nav.perte_de_controle },
 				// « Une IA s'est échappée » est terminée : elle reste en ligne et
 				// listée sur /campagnes avec son bilan, mais quitte le menu.
-				{ href: `${prefix}/emploi-ia`, label: t.nav.emploi_ia }
+				{ href: `${prefix}/emploi-ia`, label: t.nav.emploi_ia },
+				{ href: `${prefix}/campagnes`, label: t.nav.toutes_campagnes }
 			]
 		},
 		{
-			id: 'evenements',
-			label: t.nav.evenements,
+			// Remplace l'ancien menu « Événements » : le colloque du Sénat 2025 et le
+			// Forum des solutions sont désormais dans Ressources › Pause IA.
+			id: 'actualites',
+			label: t.nav.actualites,
 			items: [
-				{ href: `${prefix}/senat2025`, label: t.nav.senat2025 },
-				{
-					href: 'https://controleia.org/solutions/',
-					label: t.nav.forum2025,
-					external: true
-				}
+				{ href: 'https://pauseia.substack.com/', label: t.nav.blog, external: true },
+				{ href: `${prefix}/presse`, label: t.nav.presse },
+				{ href: `${prefix}/newsletters`, label: t.nav.newsletter }
 			]
 		},
 		{
@@ -148,35 +148,16 @@
 			items: [
 				{ href: `${prefix}/qui-sommes-nous`, label: t.nav.qui_sommes_nous },
 				{ href: `${prefix}/propositions`, label: t.nav.propositions },
-				{ href: `${prefix}/presse`, label: t.nav.presse }
+				{ href: `${prefix}/faq`, label: t.nav.faq }
 			]
 		}
 	]
 
 	// Language switcher: swap /fr/ <-> /en/ in current pathname
+	let otherLang: 'fr' | 'en'
 	$: otherLang = lang === 'fr' ? 'en' : 'fr'
 
-	// Danger page slugs differ between languages, map them explicitly
-	const DANGER_SLUGS: Record<'fr' | 'en', string[]> = {
-		fr: ['economiques-et-materiels', 'pour-les-individus', 'pour-la-societe', "pour-l'humanite"],
-		en: ['economic-and-material', 'for-individuals', 'for-society', 'for-humanity']
-	}
-
-	function getSwitchLangHref(pathname: string, currentLang: string, other: string) {
-		const slugsFrom = DANGER_SLUGS[currentLang as 'fr' | 'en']
-		const slugsTo = DANGER_SLUGS[other as 'fr' | 'en']
-		{
-			const dangerMatch = pathname.match(new RegExp(`^/${currentLang}/dangers/(.+)$`))
-			if (dangerMatch) {
-				const idx = slugsFrom.indexOf(dangerMatch[1])
-				if (idx >= 0) return `/${other}/dangers/${slugsTo[idx]}`
-			}
-		}
-
-		return pathname.replace(`/${currentLang}`, `/${other}`) || `/${other}`
-	}
-
-	$: switchLangHref = getSwitchLangHref($page.url.pathname, lang, otherLang)
+	$: switchLangHref = switchLangHrefFor($page.url.pathname, lang, otherLang)
 
 	// Le bandeau vient de Notion. Si le bouton est annoncé sans URL, ou si une
 	// URL est saisie sans libellé, on complète avec la campagne en cours
@@ -465,7 +446,8 @@
 							{/if}
 						</button>
 						<a href="{prefix}/dons" class="sidebar-cta" on:click={closeMenu}>Faire un don</a>
-						<a href="{prefix}/rejoindre" class="sidebar-join" on:click={closeMenu}>Nous rejoindre</a
+						<a href="{prefix}/rejoindre" class="sidebar-join" on:click={closeMenu}
+							>Rejoindre Pause IA</a
 						>
 					</div>
 				</div>

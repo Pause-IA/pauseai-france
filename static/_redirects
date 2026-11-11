@@ -38,7 +38,12 @@
 /financements  /fr/financements  301!
 /faq  /fr/faq  301!
 /videos  /fr/videos  301!
-/participer-a-notre-communication  /fr/participer-a-notre-communication  301!
+/relayer-nos-messages  /fr/relayer-nos-messages  301!
+
+# « Participer à notre communication » renommée « Relayer nos messages » (oct. 2026)
+/participer-a-notre-communication     /fr/relayer-nos-messages  301!
+/fr/participer-a-notre-communication  /fr/relayer-nos-messages  301!
+/en/participer-a-notre-communication  /en/relayer-nos-messages  301!
 
 # ── Anciennes URL historiques ──────────────────────────────────────────
 /senat-2025  /fr/senat2025  301!
@@ -50,10 +55,8 @@
 # ── Raccourcis ─────────────────────────────────────────────────────────
 /discord https://discord.gg/vyXGd7AeGc
 
-# La FAQ ne vit plus que sur la page d'accueil (une seule source de vérité).
-/fr/faq  /fr#faq  301!
-/en/faq  /en#faq  301!
-/faq     /fr#faq  301!
+# La FAQ a sa page dédiée (/fr/faq, /en/faq) : l'accueil n'en montre qu'un
+# aperçu. « /faq » est redirigée plus haut avec les autres pages sans préfixe.
 
 # Articles de campagne déplacés sous /articles/AAAA-MM-JJ-slug (octobre 2026).
 # 301 et non 302 : ces adresses ont été partagées et indexées, le moteur doit
@@ -64,3 +67,19 @@
 /en/personne-ne-controle-lia                     /en/articles/2026-09-15-personne-ne-controle-lia                     301!
 /fr/incident-openai-hugging-face                 /fr/articles/2026-08-10-incident-openai-hugging-face                 301!
 /en/incident-openai-hugging-face                 /en/articles/2026-08-10-incident-openai-hugging-face                 301!
+
+# Articles de la campagne Emploi & IA sortis de /emploi-ia/ (novembre 2026) :
+# leur adresse doit porter « articles », comme les autres. La page de campagne
+# continue de pointer vers eux.
+/fr/emploi-ia/remplacer-humain            /fr/articles/remplacer-humain            301!
+/en/emploi-ia/remplacer-humain            /en/articles/remplacer-humain            301!
+/fr/emploi-ia/pas-de-pilote               /fr/articles/pas-de-pilote               301!
+/en/emploi-ia/pas-de-pilote               /en/articles/pas-de-pilote               301!
+/fr/emploi-ia/ce-que-lia-fait-au-travail  /fr/articles/ce-que-lia-fait-au-travail  301!
+/en/emploi-ia/ce-que-lia-fait-au-travail  /en/articles/ce-que-lia-fait-au-travail  301!
+
+# « Convaincre autour de vous » devient « Sensibiliser votre entourage »
+# (novembre 2026). L'ancienne adresse parlait de recrutement, ce que la page
+# ne fait pas : elle apprend à parler du sujet à ses proches. Le lien a été
+# partagé, d'où la redirection permanente.
+/recrutement                              /sensibiliser-votre-entourage            301!

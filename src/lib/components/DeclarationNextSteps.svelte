@@ -11,7 +11,7 @@
 		const url = `https://pauseia.fr${prefix}/declaration`
 		const text = isEn
 			? 'I signed the PauseAI statement for an international treaty on AI. Sign it too:'
-			: 'J’ai signé la déclaration PauseAI pour un traité international sur l’IA. Signez-la vous aussi :'
+			: 'J’ai signé l’appel de PauseAI pour un traité international sur l’IA. Signez-le vous aussi :'
 		try {
 			if (typeof navigator.share === 'function') {
 				await navigator.share({ text, url })
@@ -40,7 +40,7 @@
 			{isEn ? 'Write to my representatives' : 'Écrire à mes élus'}
 		</Button>
 		<Button alt on:click={share}>
-			{isEn ? 'Share the statement' : 'Partager la déclaration'}
+			{isEn ? 'Share the statement' : 'Partager l’appel'}
 		</Button>
 		{#if copied}
 			<span class="copied" role="status">{isEn ? 'Link copied!' : 'Lien copié !'}</span>

@@ -41,7 +41,7 @@
 			<Button on:click={openActivoice}>{t.sommet.contact_politicians}</Button>
 		</div>
 
-		<activoice-embed id="activoice-embed-a0fa93be_f050_4d77_8a0c_9e70e3fe02b6" />
+		<activoice-embed id="activoice-embed-a0fa93be_f050_4d77_8a0c_9e70e3fe02b6"></activoice-embed>
 	</section>
 </article>
 
