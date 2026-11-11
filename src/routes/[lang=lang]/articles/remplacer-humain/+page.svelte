@@ -106,8 +106,7 @@
 		Alliance for secure AI a recensé près de 130&nbsp;000 annonces de suppressions d'emplois liées
 		au moins partiellement à l'IA depuis le 1<sup>er</sup> janvier 2025. Certaines professions souvent
 		exercées par des travailleurs indépendants – traducteurs, rédacteurs, développeurs web… – sont déjà
-		en grandes difficultés, les métiers créatifs sont également en première ligne face à la vague de
-		remplacement.
+		en grandes difficultés, les métiers créatifs sont également en première ligne face à la vague de remplacement.
 	</p>
 
 	<p>
@@ -124,7 +123,7 @@
 		<footer>Dario Amodei, PDG d'Anthropic, mai 2025</footer>
 	</blockquote>
 
-	<a href="/{data.lang}/emploi-ia/pas-de-pilote" class="next-article">
+	<a href="/{data.lang}/articles/pas-de-pilote" class="next-article">
 		<span class="next-label">Article suivant →</span>
 		<strong class="next-title">Pas de pilote dans l'avion France</strong>
 		<span class="next-desc"

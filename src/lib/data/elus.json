@@ -20805,7 +20805,7 @@
 			}
 		]
 	},
-	"generatedAt": "2026-10-26",
+	"generatedAt": "2026-11-09",
 	"senateurs": [
 		{
 			"civ": "M",
@@ -21749,20 +21749,6 @@
 			"nom": "Sylvie Robert",
 			"nomDept": "Ille-et-Vilaine",
 			"photo": "https://www.senat.fr/senimg/robert_sylvie14229s_carre.jpg",
-			"role": "senateur"
-		},
-		{
-			"civ": "Mme",
-			"contactUrl": "https://www.senat.fr/senateur/gatel_francoise14231l.html",
-			"departement": "35",
-			"email": null,
-			"emailConfidence": "none",
-			"emailSources": [],
-			"groupe": "UCI",
-			"id": "14231l",
-			"nom": "Françoise Gatel",
-			"nomDept": "Ille-et-Vilaine",
-			"photo": "https://www.senat.fr/senimg/gatel_francoise14231l_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -24896,7 +24882,7 @@
 			"emailSources": [
 				"senat"
 			],
-			"groupe": "Les Indépendants",
+			"groupe": "NI",
 			"id": "21070e",
 			"nom": "Pierre Jean Rochette",
 			"nomDept": "Loire",
@@ -25401,6 +25387,22 @@
 			"nom": "Marie-Lise Housseau",
 			"nomDept": "Tarn",
 			"photo": "https://www.senat.fr/senimg/housseau_marie_lise21415k_carre.jpg",
+			"role": "senateur"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.senat.fr/senateur/patru_anne_sophie21421h.html",
+			"departement": "35",
+			"email": "as.patru@senat.fr",
+			"emailConfidence": "high",
+			"emailSources": [
+				"senat"
+			],
+			"groupe": "UCI",
+			"id": "21421h",
+			"nom": "Anne-Sophie Patru",
+			"nomDept": "Ille-et-Vilaine",
+			"photo": "https://www.senat.fr/senimg/patru_anne_sophie21421h_carre.jpg",
 			"role": "senateur"
 		},
 		{
@@ -27597,20 +27599,6 @@
 				"role": "senateur"
 			},
 			{
-				"civ": "Mme",
-				"contactUrl": "https://www.senat.fr/senateur/gatel_francoise14231l.html",
-				"departement": "35",
-				"email": null,
-				"emailConfidence": "none",
-				"emailSources": [],
-				"groupe": "UCI",
-				"id": "14231l",
-				"nom": "Françoise Gatel",
-				"nomDept": "Ille-et-Vilaine",
-				"photo": "https://www.senat.fr/senimg/gatel_francoise14231l_carre.jpg",
-				"role": "senateur"
-			},
-			{
 				"civ": "M",
 				"contactUrl": "https://www.senat.fr/senateur/salmon_daniel20092g.html",
 				"departement": "35",
@@ -27624,6 +27612,22 @@
 				"nom": "Daniel Salmon",
 				"nomDept": "Ille-et-Vilaine",
 				"photo": "https://www.senat.fr/senimg/salmon_daniel20092g_carre.jpg",
+				"role": "senateur"
+			},
+			{
+				"civ": "Mme",
+				"contactUrl": "https://www.senat.fr/senateur/patru_anne_sophie21421h.html",
+				"departement": "35",
+				"email": "as.patru@senat.fr",
+				"emailConfidence": "high",
+				"emailSources": [
+					"senat"
+				],
+				"groupe": "UCI",
+				"id": "21421h",
+				"nom": "Anne-Sophie Patru",
+				"nomDept": "Ille-et-Vilaine",
+				"photo": "https://www.senat.fr/senimg/patru_anne_sophie21421h_carre.jpg",
 				"role": "senateur"
 			},
 			{
@@ -27967,7 +27971,7 @@
 				"emailSources": [
 					"senat"
 				],
-				"groupe": "Les Indépendants",
+				"groupe": "NI",
 				"id": "21070e",
 				"nom": "Pierre Jean Rochette",
 				"nomDept": "Loire",

@@ -154,7 +154,7 @@
 	</div>
 
 	<nav class="article-nav">
-		<a href="/{data.lang}/emploi-ia/remplacer-humain" class="nav-prev"
+		<a href="/{data.lang}/articles/remplacer-humain" class="nav-prev"
 			>← Remplacer l'humain, tel est l'objectif</a
 		>
 		<a href="/{data.lang}/emploi-ia" class="nav-back">Campagne Emploi &amp; IA</a>

@@ -2,10 +2,11 @@
 	import PostMeta from '$components/PostMeta.svelte'
 	import Button from '$components/Button.svelte'
 	import Accordion from '$components/Accordion.svelte'
+	import { PageHero } from '$components/ui'
 	import { Landmark, Newspaper } from 'lucide-svelte'
 	import { onMount, createEventDispatcher } from 'svelte'
 	import { lookupElus, isSampleData, type Elu, type LookupResult } from '$lib/data/elus'
-	import { getEluAction, type FixedTarget } from '$lib/data/elu-actions'
+	import { getEluAction, PRESS_TOOL_ENABLED, type FixedTarget } from '$lib/data/elu-actions'
 	import { resolveCirco } from '$lib/data/circo-geo'
 	import type { Lang } from '$lib/i18n'
 
@@ -795,17 +796,54 @@
 	{#if step === 1}
 		<!-- ════════ Étape 1 : choisir le destinataire ════════ -->
 		{#if !embedded}
-			<header class="hero-band">
-				<div class="hero-inner">
-					<h1>{isEn ? action.hero.title.en : action.hero.title.fr}</h1>
-					<p class="hero-sub">{isEn ? action.hero.subtitle.en : action.hero.subtitle.fr}</p>
-				</div>
-			</header>
+			<!-- En-tête commun à toutes les pages (gabarit Outil) : l'ancien bandeau
+			     orange pleine largeur était propre à cette page. -->
+			<PageHero
+				eyebrow={isEn ? 'Act' : 'Agir'}
+				lede={isEn ? action.hero.subtitle.en : action.hero.subtitle.fr}
+			>
+				{isEn ? action.hero.title.en : action.hero.title.fr}
+			</PageHero>
+
+			<!-- Le parcours n'était expliqué nulle part : on demandait un code
+			     postal, puis un nom et une ville, sans dire ce qui allait en être
+			     fait. La première question d'un visiteur devant un formulaire est
+			     « qu'est-ce que vous allez envoyer, et à qui ». -->
+			<ol class="parcours">
+				{#if isEn}
+					<li>
+						<strong>Enter your postal code</strong><span>We find your MPs and senators.</span>
+					</li>
+					<li>
+						<strong>Review your message</strong><span>We draft it, you edit it as you wish.</span>
+					</li>
+					<li>
+						<strong>Send it</strong><span>From your own mailbox. Nothing leaves this page.</span>
+					</li>
+				{:else}
+					<li>
+						<strong>Entrez votre code postal</strong><span
+							>Nous trouvons vos députés et vos sénateurs.</span
+						>
+					</li>
+					<li>
+						<strong>Relisez votre message</strong><span
+							>Nous le rédigeons, vous le modifiez comme vous voulez.</span
+						>
+					</li>
+					<li>
+						<strong>Envoyez-le</strong><span
+							>Depuis votre messagerie. Rien ne part de cette page.</span
+						>
+					</li>
+				{/if}
+			</ol>
 		{/if}
 
 		<!-- Onglets masqués quand la page impose l'action (forcedActionId) : le
 		     clic serait sans effet, `action` étant calculé sur forcedActionId. -->
-		{#if isPrimaryAction && !forcedActionId}
+		<!-- Sans outil presse, un seul onglet : on n'affiche pas le sélecteur. -->
+		{#if PRESS_TOOL_ENABLED && isPrimaryAction && !forcedActionId}
 			<div class="tool-switch">
 				<div
 					class="tool-tabs"
@@ -884,6 +922,16 @@
 				/>
 			</div>
 
+			<p class="user-hint">
+				{#if isEn}
+					They sign the message: a lawmaker reads a letter from their own constituency differently.
+					Both stay on your device.
+				{:else}
+					Ils signent le message : un élu lit autrement une lettre de sa circonscription. Les deux
+					restent sur votre appareil.
+				{/if}
+			</p>
+
 			{#if isSampleData && action.targeting !== 'fixed'}
 				<p class="notice notice--warn">
 					{isEn
@@ -940,21 +988,23 @@
 					</p>
 					{#if sentCount >= allRecipients.length && allRecipients.length > 0}
 						<!-- Prolongement naturel : faire relayer le sujet par la presse. -->
-						<div class="next-tool">
-							<p>
-								{isEn
-									? 'Next step: ask the press to cover the issue. It takes two more minutes.'
-									: 'Étape suivante : demandez à la presse d’en parler. Deux minutes de plus.'}
-							</p>
-							<Button
-								on:click={() => {
-									selectTool('presse')
-								}}
-							>
-								<Newspaper size="1em" aria-hidden="true" />
-								{isEn ? 'Write to the press' : 'Écrire à la presse'}
-							</Button>
-						</div>
+						{#if PRESS_TOOL_ENABLED}
+							<div class="next-tool">
+								<p>
+									{isEn
+										? 'Next step: ask the press to cover the issue. It takes two more minutes.'
+										: 'Étape suivante : demandez à la presse d’en parler. Deux minutes de plus.'}
+								</p>
+								<Button
+									on:click={() => {
+										selectTool('presse')
+									}}
+								>
+									<Newspaper size="1em" aria-hidden="true" />
+									{isEn ? 'Write to the press' : 'Écrire à la presse'}
+								</Button>
+							</div>
+						{/if}
 						<a class="join-link join-link--block" href={joinHref}>
 							{isEn
 								? 'Want to do more? Join Pause AI ↗'
@@ -1546,10 +1596,13 @@
 
 <style>
 	article {
+		/* Largeur fixe : sans elle, un article centré dans <main> (flex) prend
+		   la largeur de son contenu et la page bouge quand un bloc s'ouvre. */
+		inline-size: 100%;
 		max-inline-size: var(--width-content);
 		margin-inline: auto;
-		margin-top: 2.5rem;
-		padding: 0 1.25rem 5rem;
+		margin-top: 3rem;
+		padding: 0 0 5rem;
 	}
 
 	/* Mode intégré (dans une autre page) : on retire les marges et la largeur
@@ -1560,9 +1613,7 @@
 		padding: 0;
 	}
 
-	/* Le retrait négatif de .tool-switch sert à le remonter sous le hero de la
-	   page dédiée. Intégré dans une section qui a déjà son titre, il collait au
-	   titre : on le neutralise. */
+	/* Intégré dans une section qui a déjà son titre : pas de marge haute. */
 	article.embedded .tool-switch {
 		margin-top: 0;
 	}
@@ -1570,7 +1621,7 @@
 	/* Sélecteur d'outil (élus / presse) : un vrai commutateur, sous le hero */
 	.tool-switch {
 		max-inline-size: 40rem;
-		margin: -1.25rem auto 2.25rem;
+		margin: 0 0 2.25rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -1628,39 +1679,6 @@
 			font-size: 0.9rem;
 			padding: 0.75rem 0.5rem;
 		}
-	}
-
-	/* Hero coloré pleine largeur (full-bleed : déborde de la largeur de l'article) */
-	.hero-band {
-		width: 100vw;
-		margin-left: calc(50% - 50vw);
-		margin-top: -2.5rem; /* annule le margin-top de l'article */
-		margin-bottom: 2.75rem;
-		padding: 3.5rem 1.25rem 3.25rem;
-		background: var(--brand);
-		text-align: center;
-	}
-
-	.hero-inner {
-		max-inline-size: var(--width-text);
-		margin-inline: auto;
-	}
-
-	.hero-band h1 {
-		font-size: clamp(2rem, 5.5vw, 3rem);
-		font-weight: 800;
-		line-height: 1.05;
-		margin: 0 0 1rem;
-		color: var(--on-brand);
-	}
-
-	.hero-sub {
-		font-size: clamp(1rem, 2.2vw, 1.2rem);
-		line-height: 1.5;
-		margin: 0 auto;
-		max-inline-size: 36rem;
-		color: var(--on-brand-muted);
-		font-weight: 500;
 	}
 
 	/* Cards */
@@ -1734,6 +1752,59 @@
 	}
 
 	/* Champs nom / commune */
+	/* Le parcours, avant le premier champ. Numéroté, parce que c'est une suite
+	   d'étapes et non une liste d'arguments. */
+	/* Trois colonnes côte à côte sur grand écran : c'est une bande
+	   d'explication, pas une liste à puces. Un filet de marque en tête de
+	   chaque étape, et le numéro porté par un compteur CSS. */
+	.parcours {
+		list-style: none;
+		counter-reset: etape;
+		display: grid;
+		gap: 1.1rem 2rem;
+		margin: 0 0 2.25rem;
+		padding: 0;
+	}
+
+	@media (min-width: 48rem) {
+		.parcours {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	.parcours li {
+		counter-increment: etape;
+		margin: 0;
+		padding-top: 0.7rem;
+		border-top: 2px solid var(--brand);
+	}
+
+	.parcours strong {
+		display: block;
+		color: var(--text);
+		line-height: 1.3;
+	}
+
+	.parcours strong::before {
+		content: counter(etape) '. ';
+		color: var(--brand-subtle);
+	}
+
+	.parcours span {
+		display: block;
+		margin-top: 0.2rem;
+		font-size: 0.92rem;
+		line-height: 1.5;
+		color: var(--text-2);
+	}
+
+	.user-hint {
+		margin: 0.6rem 0 0;
+		font-size: 0.9rem;
+		line-height: 1.55;
+		color: var(--text-2);
+	}
+
 	.user-fields {
 		display: flex;
 		gap: 0.5rem;
@@ -2485,7 +2556,10 @@
 		margin: 0 0 1rem;
 	}
 
-	.prose p {
+	/* Classe doublée : garde à cette règle la priorité qu'elle avait en Svelte 4
+	   face à `.section :global(p)` de CampaignSection (Svelte 5 ne gonfle plus
+	   la spécificité des sélecteurs des composants). */
+	.prose.prose p {
 		line-height: 1.7;
 		color: var(--text-2);
 		margin: 0;

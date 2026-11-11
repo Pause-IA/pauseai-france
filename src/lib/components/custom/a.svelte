@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { url as siteUrl } from '$config'
+	import { estEnAnglais } from '$lib/liensAnglais'
 	import { onMount } from 'svelte'
 	import Mail from 'lucide-svelte/icons/mail'
 	import { page } from '$app/stores'
@@ -25,7 +26,7 @@
 	// d'après la langue de la page courante, plutôt que dans chaque fichier.
 	const LANG_FREE = ['/fr/', '/en/', '/api/', '/pdfs/', '/campaigns/', '/hero/', '/membres/']
 	// Pages restées sans préfixe (françaises uniquement).
-	const NO_LANG = ['/recrutement', '/guide-recrutement', '/rss', '/fr', '/en']
+	const NO_LANG = ['/sensibiliser-votre-entourage', '/guide-recrutement', '/rss', '/fr', '/en']
 	$: lang = ($page.data.lang as string | undefined) ?? 'fr'
 	$: resolved =
 		href.startsWith('/') &&
@@ -39,6 +40,11 @@
 		type = Type.External
 		target ??= '_blank'
 	} else if (href.startsWith('mailto:')) type = Type.Mail
+
+	// Prévenir le lecteur francophone qu'il va arriver sur une page en anglais.
+	// Du texte, pas une icône : il est lu par les lecteurs d'écran et compris
+	// sans légende. Masqué sur le site anglais, où il n'apprend rien.
+	$: anglais = type === Type.External && lang !== 'en' && estEnAnglais(href)
 
 	onMount(() => {
 		if (href.startsWith('#')) {
@@ -60,10 +66,12 @@
 <a
 	href={resolved}
 	{target}
+	hreflang={anglais ? 'en' : undefined}
 	rel={target === '_blank' ? 'noopener noreferrer' : undefined}
 	bind:this={anchor}
 >
-	<slot />{#if type != Type.Internal}
+	<slot />{#if anglais}<span class="en-anglais">&nbsp;(en anglais)</span
+		>{/if}{#if type != Type.Internal}
 		<span style="white-space: nowrap">
 			<div class="icon">
 				<!-- {#if type == Type.External}
@@ -77,6 +85,12 @@
 </a>
 
 <style>
+	.en-anglais {
+		font-size: 0.85em;
+		opacity: 0.75;
+		white-space: nowrap;
+	}
+
 	.icon {
 		display: inline;
 		vertical-align: text-top;

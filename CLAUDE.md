@@ -451,6 +451,25 @@ Copy `template.env` to `.env` and configure:
 - `src/lib/routes.ts` - Static route enumeration for sitemaps
 - `scripts/plan-du-site.mjs` - Génère `docs/plan-du-site.md` (arborescence réelle,
   menu, pied de page, pages hors menu) : `pnpm run plan-du-site`
+- `scripts/photos-equipe.mjs` - **Versionne l'équipe** : les photos compressées
+  (`static/equipe/`) et l'instantané des fiches (`src/lib/data/equipe.json` :
+  noms, rôles, catégories, ordre). Lancé automatiquement par `pnpm build`, donc **une photo modifiée
+  dans Notion est reprise au déploiement suivant, sans intervention**. En mode
+  build le script n'échoue jamais : si Notion est injoignable, les photos
+  versionnées servent de repli. À lancer à la main (`pnpm run photos-equipe`,
+  puis committer `static/equipe/` et `src/lib/data/photos-equipe.json`) seulement
+  pour rafraîchir le dépôt sans attendre un déploiement.
+  Notion ne sert ses fichiers que derrière une URL S3 **signée qui expire au bout
+  d'une heure** : utilisée telle quelle, elle casse dès que la page est mise en
+  cache et pèse le poids de l'original (plusieurs Mo pour un affichage en 160 px).
+  Le script redimensionne en WebP 320×320 et ne retélécharge que ce qui a changé,
+  la clé de comparaison étant le chemin S3 hors signature.
+  `/{lang}/qui-sommes-nous` a `prerender = false` : elle interroge Notion **à
+  chaque visite**. Noms et rôles sont donc toujours à jour ; les photos, elles,
+  ne sont rafraîchies qu'au déploiement. Et si Notion ne répond pas — panne, ou
+  base qui ne renvoie personne — `getTeamMembers()` retombe sur l'instantané
+  versionné au lieu de servir une page vide. Vérifié par `tests/photosEquipe.test.ts`,
+  qui valide la forme de l'instantané et l'existence de chaque photo citée.
 - `src/lib/typographyPlugin.js` - French typography transformation (remark + Vite plugin)
 - `src/lib/faqPlugin.js` - FAQ accordion transformation
 - `src/lib/rehypeWBWPlugins.js` - Wait But Why popup and box plugins

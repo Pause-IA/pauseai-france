@@ -11,14 +11,18 @@ import { remarkFrenchTypography } from './src/lib/typographyPlugin.js'
 import { rehypeWBWColorBoxes, rehypeWBWPopups2 } from './src/lib/rehypeWBWPlugins.js'
 
 import { config as dotenv } from 'dotenv'
+import { fileURLToPath } from 'node:url'
+
+// mdsvex 0.12 résout les layouts depuis chaque fichier .md : chemins absolus obligatoires.
+const chemin = (/** @type {string} */ relatif) => fileURLToPath(new URL(relatif, import.meta.url))
 dotenv()
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
 	layout: {
-		_: './src/lib/layouts/mdsvex.svelte',
-		waitbutwhy: './src/lib/layouts/waitbutwhy.svelte'
+		_: chemin('./src/lib/layouts/mdsvex.svelte'),
+		waitbutwhy: chemin('./src/lib/layouts/waitbutwhy.svelte')
 	},
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
@@ -34,7 +38,7 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.md'],
-	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
+	preprocess: [vitePreprocess({ script: true }), mdsvex(mdsvexOptions)],
 	kit: {
 		adapter: adapter({
 			edge: false

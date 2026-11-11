@@ -4,7 +4,7 @@
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$components/Button.svelte'
 	import Accordion from '$components/Accordion.svelte'
-	import { UserCheck, Users, Zap } from 'lucide-svelte'
+	import { MapPin, UserCheck, Users, Zap } from 'lucide-svelte'
 	import { getT } from '$lib/i18n'
 	import type { PageData } from './$types'
 
@@ -74,19 +74,36 @@
 			<h2>What is the difference between a member and a volunteer?</h2>
 			<p>
 				A <strong>member</strong> formally supports the association through a membership fee and
-				participates in its governance (AGM). A <strong>volunteer</strong> gives their time to carry
-				out our missions. You can be one, the other, or both!
+				participates in its governance (AGM). A <strong>volunteer</strong> gives their time to carry out
+				our missions. You can be one, the other, or both!
 			</p>
 		</section>
 
-		<div class="impact-highlight">
-			<h2><Zap size="1.2em" /> Quick action: Join Pause Action!</h2>
-			<p>
-				Have little time but a strong desire to act? Join our WhatsApp group "Pause Action" to
-				receive simple and quick actions to carry out in a few minutes per week.
-			</p>
-			<Button alt href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU">Join Pause Action</Button>
-		</div>
+		<!-- Deux engagements plus légers que l'adhésion et le bénévolat : cartes
+		     discrètes, après la question membre/bénévole, pour que la hiérarchie
+		     se voie sans l'écrire. -->
+		<section class="options-secondaires">
+			<h2>Two other ways to get involved</h2>
+			<div class="secondaires-grille">
+				<div class="carte-secondaire">
+					<h3><Zap size="1em" /> Pause Action</h3>
+					<p>
+						Little time but a strong desire to act? Join our WhatsApp group: a few clicks, a
+						concrete action, often in under ten minutes.
+					</p>
+					<Button alt href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU">
+						Join Pause Action
+					</Button>
+				</div>
+				<div class="carte-secondaire">
+					<h3><MapPin size="1em" /> Local groups</h3>
+					<p>
+						Act near you: meet other volunteers in your city for street actions, talks and stands.
+					</p>
+					<Button alt href="/{lang}/groupes-locaux">See local groups</Button>
+				</div>
+			</div>
+		</section>
 
 		<section class="faq-section">
 			<UnderlinedTitle>Frequently asked questions</UnderlinedTitle>
@@ -164,16 +181,32 @@
 			</p>
 		</section>
 
-		<div class="impact-highlight">
-			<h2><Zap size="1.2em" /> L'action rapide : Rejoignez Pause Action !</h2>
-			<p>
-				Vous avez peu de temps mais une grande envie d'agir ? Rejoignez notre groupe WhatsApp "Pause
-				Action".
-			</p>
-			<Button alt href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU"
-				>Rejoindre Pause Action</Button
-			>
-		</div>
+		<!-- Deux engagements plus légers que l'adhésion et le bénévolat : cartes
+		     discrètes, après la question membre/bénévole, pour que la hiérarchie
+		     se voie sans l'écrire. -->
+		<section class="options-secondaires">
+			<h2>Deux autres façons de s'engager</h2>
+			<div class="secondaires-grille">
+				<div class="carte-secondaire">
+					<h3><Zap size="1em" /> Pause Action</h3>
+					<p>
+						Peu de temps mais l'envie d'agir ? Rejoignez notre groupe WhatsApp : quelques clics, une
+						action concrète, souvent en moins de dix minutes.
+					</p>
+					<Button alt href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU">
+						Rejoindre Pause Action
+					</Button>
+				</div>
+				<div class="carte-secondaire">
+					<h3><MapPin size="1em" /> Groupes locaux</h3>
+					<p>
+						Agir près de chez vous : retrouvez d'autres bénévoles de votre ville pour des actions de
+						rue, des conférences et des stands.
+					</p>
+					<Button alt href="/{lang}/groupes-locaux">Voir les groupes locaux</Button>
+				</div>
+			</div>
+		</section>
 	{/if}
 </article>
 
@@ -283,32 +316,58 @@
 		text-align: left;
 	}
 
-	.impact-highlight {
-		background: linear-gradient(135deg, var(--brand), var(--brand-deep));
-		color: var(--black);
-		padding: 2rem;
-		border-radius: var(--radius-md);
-		margin: 2rem 0;
-		text-align: center;
+	/* Volontairement plus sobre que .engagement-card : pas d'ombre portée, fond
+	   discret, titres en h3. L'ancien encadré orange de Pause Action attirait
+	   plus l'œil que l'adhésion et le bénévolat, qui sont l'essentiel. */
+	.options-secondaires {
+		margin: 2rem 0 3rem;
 	}
 
-	.impact-highlight h2 {
+	.options-secondaires > h2 {
 		margin-bottom: 1rem;
-		color: var(--black);
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5em;
+		color: var(--text-2);
+		font-size: 1.05rem;
 	}
 
-	.impact-highlight :global(a) {
-		margin-top: 1rem;
-		display: inline-block;
+	.secondaires-grille {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.carte-secondaire {
+		display: flex;
+		flex-direction: column;
+		padding: 1.25rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+		background: var(--bg-card);
+	}
+
+	.carte-secondaire h3 {
+		display: flex;
+		align-items: center;
+		gap: 0.45em;
+		margin: 0 0 0.5rem;
+		font-size: 1.05rem;
+	}
+
+	.carte-secondaire p {
+		flex: 1;
+		margin: 0 0 1rem;
+		color: var(--text-2);
+		font-size: 0.95rem;
+	}
+
+	.carte-secondaire :global(a) {
+		align-self: flex-start;
 		width: auto !important;
 		min-width: auto !important;
-		max-width: 300px !important;
 	}
 
 	@media (min-width: 768px) {
+		.secondaires-grille {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 
 	.faq-section {
