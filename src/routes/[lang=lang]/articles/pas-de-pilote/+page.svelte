@@ -1,18 +1,14 @@
 <script lang="ts">
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
+	import PostMeta from '$components/PostMeta.svelte'
 	import type { Lang } from '$lib/i18n'
 
 	export let data: { lang: Lang }
 </script>
 
-<svelte:head>
-	<title>Pas de pilote dans l'avion France | PauseAI France</title>
-	<meta
-		name="description"
-		content="Chômage massif des jeunes, modèle social fragilisé, dépendance à la Silicon Valley : à quoi ressemblera notre monde si nous ne réagissons pas à la montée de l'IA."
-	/>
-	<meta name="robots" content="index, follow" />
-</svelte:head>
+<PostMeta
+	title={"Pas de pilote dans l'avion France | PauseAI France"}
+	description={"Chômage massif des jeunes, modèle social fragilisé, dépendance à la Silicon Valley : à quoi ressemblera notre monde si nous ne réagissons pas à la montée de l'IA."}
+/>
 
 <article>
 	<nav class="breadcrumb">
@@ -28,7 +24,7 @@
 	</div>
 
 	<hgroup>
-		<UnderlinedTitle as="h1">Pas de pilote dans l'avion France</UnderlinedTitle>
+		<h1>Pas de pilote dans l'avion France</h1>
 	</hgroup>
 
 	<p class="intro">
@@ -162,11 +158,24 @@
 </article>
 
 <style>
+	/* Modèle « note » : colonne de lecture étroite et corps de texte fluide,
+	   comme les autres textes longs du site. Ces trois articles étaient en
+	   54 rem, soit près de 90 signes par ligne sur grand écran. */
 	article {
-		max-inline-size: var(--width-content);
+		max-inline-size: var(--width-text);
+		font-size: clamp(1.0625rem, 0.97rem + 0.42vw, 1.1875rem);
+		line-height: 1.62;
 		margin-inline: auto;
 		margin-top: 2rem;
 		padding: 0 1rem;
+	}
+
+	h1 {
+		font-size: clamp(2.1rem, 6vw, 3.2rem);
+		line-height: 1.06;
+		letter-spacing: -0.025em;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
 	}
 
 	.breadcrumb {
@@ -197,10 +206,10 @@
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		color: var(--brand-subtle);
-		background: var(--brand-light);
-		padding: 0.2rem 0.55rem;
-		border-radius: 4px;
+		color: var(--on-brand);
+		background: var(--brand);
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
 	}
 
 	.meta-sep {
