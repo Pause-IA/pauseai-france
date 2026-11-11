@@ -13,19 +13,44 @@
 	import { onMount } from 'svelte'
 	import type { Lang } from '$lib/i18n'
 
-	import '@fontsource/ibm-plex-sans/latin-200.css' // extra-light, latin subset only
-	import '@fontsource/ibm-plex-sans/latin-400.css' // regular, latin subset only
-	import '@fontsource/ibm-plex-sans/latin-500.css' // medium, latin subset only
-	import '@fontsource/ibm-plex-sans/latin-700.css' // bold, latin subset only
+	// ── Polices ───────────────────────────────────────────────────────────
+	// Deux familles, comme le prévoyaient déjà --font-heading et --font-body.
+	//
+	// Titres : Libre Franklin. Lignée Franklin Gothic, la grotesque des
+	// journaux et de la communication publique américaine. Chasse étroite et
+	// dessin ferme : elle donne de l'autorité aux titres et se rapproche du
+	// poids du logo Pause IA.
+	//
+	// Texte : Inter. Dessinée pour les écrans, hauteur d'x haute, formes
+	// neutres : elle se lit sans se faire remarquer, ce qu'on attend d'un
+	// texte de fond.
+	//
+	// Charger exactement les graisses et styles utilisés : toute graisse ou
+	// tout style manquant est fabriqué par le navigateur (faux gras épaissi,
+	// fausse italique simplement penchée), et cela se voit. Relevé dans les
+	// feuilles du site : 400 (9 fois), 500 (26), 600 (121), 700 (125),
+	// 800 (8), plus l'italique dans 22 fichiers.
+	import '@fontsource/libre-franklin/latin-600.css'
+	import '@fontsource/libre-franklin/latin-700.css'
+	import '@fontsource/libre-franklin/latin-800.css'
+	import '@fontsource/inter/latin-400.css'
+	import '@fontsource/inter/latin-500.css'
+	import '@fontsource/inter/latin-600.css'
+	import '@fontsource/inter/latin-700.css'
+	import '@fontsource/inter/latin-400-italic.css'
+	import '@fontsource/inter/latin-700-italic.css'
 
 	import '../reset.css'
 	import '../app.css'
 
 	$: lang = ($page.data.lang as Lang | undefined) ?? 'fr'
+	// Fond neutre : l'accueil, et l'espace décideurs, dont les cartes et les
+	// portraits ont besoin d'un fond qui ne les teinte pas.
 	$: bgWhite =
 		$page.url.pathname == '/' ||
 		$page.url.pathname === `/${lang}` ||
-		$page.url.pathname === `/${lang}/`
+		$page.url.pathname === `/${lang}/` ||
+		$page.url.pathname.endsWith('/ressources-decideurs')
 
 	// Fetch banner from Notion API on all pages
 	onMount(async () => {
@@ -135,6 +160,14 @@
 		padding: 0 1rem 1rem;
 		display: flex;
 		flex-direction: column;
+	}
+
+	/* Dans une colonne flex, un enfant centré par marges automatiques prend la
+	   largeur de son contenu : la page s'élargissait (et bougeait) dès qu'un
+	   bloc s'ouvrait (FAQ, filtres…). Chaque page occupe donc toute la largeur
+	   disponible, dans la limite de sa propre largeur maximale. */
+	main > :global(*) {
+		inline-size: 100%;
 	}
 
 	@media (min-width: 640px) {

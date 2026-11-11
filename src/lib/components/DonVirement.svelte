@@ -583,7 +583,10 @@
 	}
 
 	.rib-value.mono {
-		font-family: 'IBM Plex Mono', 'Courier New', monospace;
+		/* Pile monospace du système, comme sur /une-ia-sest-echappee. L'ancienne
+		   valeur demandait IBM Plex Mono, qui n'a jamais été chargée : l'IBAN
+		   sortait donc en Courier New. */
+		font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 		letter-spacing: 0.04em;
 	}
 
