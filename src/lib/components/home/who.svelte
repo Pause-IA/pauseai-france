@@ -186,13 +186,14 @@
 	     ici, elles figurent sur les fiches juste au-dessus. -->
 	<p class="benevoles">
 		{#if lang === 'en'}
-			The association employs two people, Clémence Peyrot and Orlando H., and Maxime Fournes is
-			employed by PauseAI Global. Beyond this team, Pause AI France runs on
+			The association currently employs two people, Clémence Peyrot and Orlando H., with Maxime
+			Fournes currently employed by PauseAI Global. Beyond this team, Pause AI France runs on
 			<strong>more than a hundred volunteers</strong>: engineers, teachers, researchers, lawyers,
 			psychologists, students, retirees. Most of the work shown on this site is theirs.
 		{:else}
-			L’association emploie deux personnes, Clémence Peyrot et Orlando H., et Maxime Fournes est
-			salarié de PauseAI Global. Au-delà de cette équipe, Pause IA repose sur
+			L’association emploie actuellement deux personnes, Clémence Peyrot et Orlando H., Maxime
+			Fournes étant actuellement salarié de PauseAI Global. Au-delà de cette équipe, Pause IA repose
+			sur
 			<strong>plus d’une centaine de bénévoles</strong>
 			: ingénieurs, enseignants, chercheurs, juristes, psychologues, étudiants, retraités. L’essentiel
 			du travail présenté sur ce site est le leur.
