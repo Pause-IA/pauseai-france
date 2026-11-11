@@ -100,7 +100,11 @@
 <style>
 	.lead {
 		align-self: center;
-		max-width: var(--width-wide);
+		/* Colonne de lecture, et non la largeur « pages larges » : en 62 rem,
+		   l'introduction dépassait 100 signes par ligne sur grand écran, loin
+		   du confort de lecture que la charte vise (45 à 66). Le titre, lui,
+		   peut rester large : c'est une accroche, pas un texte suivi. */
+		max-width: var(--width-text);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
