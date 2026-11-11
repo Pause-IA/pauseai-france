@@ -14,7 +14,10 @@ const EXCLUDED = [
 	// Sans offre en cours : la page existe (pied de page, 301 de
 	// /directeur-france) mais n'a rien à faire dans les résultats de recherche.
 	// À retirer d'ici quand un poste rouvre.
-	'/recrutement-emploi'
+	'/recrutement-emploi',
+	// Page de plaidoyer : on la partage par lien à la suite d'un rendez-vous,
+	// elle n'a rien à faire dans les résultats de recherche.
+	'/ressources-decideurs'
 ]
 
 /**

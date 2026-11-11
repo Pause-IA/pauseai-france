@@ -20,8 +20,8 @@
 			>. Chaque voix, chaque heure de bénévolat, chaque adhésion renforce notre capacité à
 			influencer le débat public et à reprendre le contrôle.
 			<br /><br />
-			Que vous ayez 10 minutes par semaine ou plusieurs heures à nous consacrer, il existe une place
-			pour vous chez Pause IA. Découvrez comment vous pouvez agir à nos côtés.
+			Que vous ayez 10 minutes par semaine ou plusieurs heures à nous consacrer, il existe une place pour
+			vous chez Pause IA. Découvrez comment vous pouvez agir à nos côtés.
 		</p>
 	</section>
 

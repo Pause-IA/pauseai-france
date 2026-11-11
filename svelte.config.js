@@ -54,6 +54,11 @@ const config = {
 							// de page, donc invisible au robot d'exploration du prérendu.
 							'/fr/plan-du-site',
 							'/en/plan-du-site',
+							// Ressources décideurs : page de plaidoyer partagée par lien à
+							// la suite d'un rendez-vous, donc hors menu, hors sitemap, et
+							// invisible au robot d'exploration du prérendu.
+							'/fr/ressources-decideurs',
+							'/en/ressources-decideurs',
 							// Signataires des tribunes : jamais liées depuis le site.
 							'/fr/tribunes/le-monde-octobre-2026',
 							'/en/tribunes/le-monde-octobre-2026',

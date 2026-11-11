@@ -51,8 +51,8 @@
 							> linked to AI directly threaten our infrastructure, businesses and resources. This technology
 							introduces unprecedented vulnerabilities and possibilities for catastrophic failures. Imagine
 							devastating AI-facilitated attacks, or the collapse of entire sectors facing these disruptive
-							technologies. These dangers, though less visible than those directly threatening human
-							lives, can have equally massive consequences.
+							technologies. These dangers, though less visible than those directly threatening human lives,
+							can have equally massive consequences.
 						</p>
 						<p>
 							We must exercise heightened vigilance and put rigorous regulations in place to protect
@@ -135,8 +135,8 @@
 								href="https://wiki.aiimpacts.org/ai_timelines/predictions_of_human-level_ai_timelines/ai_timeline_surveys/2023_expert_survey_on_progress_in_ai"
 								target="_blank"
 								rel="noopener noreferrer">2023 AI Impacts survey</a
-							> of 2,778 AI researchers, the median estimated probability of human extinction is 5%,
-							and more than a third of respondents place it above 10%.
+							> of 2,778 AI researchers, the median estimated probability of human extinction is 5%, and
+							more than a third of respondents place it above 10%.
 						</p>
 						<p>
 							Never before has humanity faced such an imminent and potentially catastrophic threat.

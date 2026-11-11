@@ -95,9 +95,9 @@
 	</p>
 
 	<p>
-		Un développeur est « <em>super user</em> d'IA ». Il ne code presque plus. Son emploi tient, mais
-		il s'est tellement éloigné de ce qu'il aimait faire qu'il envisage une reconversion. Une cheffe de
-		projet numérique n'a pas attendu : elle a démissionné face au non-sens.
+		Un développeur est « <em>super user</em> d'IA ». Il ne code presque plus. Son emploi tient, mais il
+		s'est tellement éloigné de ce qu'il aimait faire qu'il envisage une reconversion. Une cheffe de projet
+		numérique n'a pas attendu : elle a démissionné face au non-sens.
 	</p>
 
 	<p>

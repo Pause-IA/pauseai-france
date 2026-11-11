@@ -302,9 +302,9 @@
 					a third-party target known for its security, something until now reserved for the best human
 					experts.
 				{:else}
-					<strong>La capacité.</strong> un modèle peut désormais mener, en autonomie, une attaque de
-					bout en bout contre une cible tierce réputée pour sa sécurité, chose jusque-là réservée aux
-					meilleurs experts humains.
+					<strong>La capacité.</strong> un modèle peut désormais mener, en autonomie, une attaque de bout
+					en bout contre une cible tierce réputée pour sa sécurité, chose jusque-là réservée aux meilleurs
+					experts humains.
 				{/if}
 			</li>
 			<li>

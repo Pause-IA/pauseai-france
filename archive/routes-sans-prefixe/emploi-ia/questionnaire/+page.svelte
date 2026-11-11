@@ -483,8 +483,7 @@
 									bind:group={formData.objectifsCellule}
 									value="De l'information / échanges sur les avancées de l'IA dans mon métier / secteur / mes compétences"
 								/>
-								De l'information / échanges sur les avancées de l'IA dans mon métier / secteur / mes
-								compétences
+								De l'information / échanges sur les avancées de l'IA dans mon métier / secteur / mes compétences
 							</label>
 							<label class="checkbox-label">
 								<input
@@ -534,8 +533,7 @@
 					<div class="form-group">
 						<label class="checkbox-label consent-checkbox">
 							<input type="checkbox" bind:checked={formData.consentementPartage} />
-							J'accepte que mon témoignage soit partagé publiquement (de manière anonyme ou avec mon
-							prénom)
+							J'accepte que mon témoignage soit partagé publiquement (de manière anonyme ou avec mon prénom)
 						</label>
 					</div>
 

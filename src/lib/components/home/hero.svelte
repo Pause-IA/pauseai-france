@@ -348,7 +348,8 @@
 	.mosaic-overlay {
 		position: absolute;
 		inset: 0;
-		background: linear-gradient(
+		background:
+			linear-gradient(
 				to right,
 				rgba(var(--hero-cream-rgb), 0.6) 0%,
 				rgba(var(--hero-cream-rgb), 0.35) 20%,
@@ -494,7 +495,8 @@
 
 		/* Overlay on mobile, readability handled by content-box backdrop */
 		.mosaic-overlay {
-			background: linear-gradient(
+			background:
+				linear-gradient(
 					to right,
 					rgba(var(--hero-cream-rgb), 0.5) 0%,
 					rgba(var(--hero-cream-rgb), 0.2) 40%,
@@ -591,7 +593,8 @@
 
 		/* Lighter gradient: frosted column ensures readability on the left */
 		.mosaic-overlay {
-			background: linear-gradient(
+			background:
+				linear-gradient(
 					to right,
 					rgba(var(--hero-cream-rgb), 0.5) 0%,
 					rgba(var(--hero-cream-rgb), 0.2) 22%,
@@ -640,7 +643,8 @@
 
 	/* ─── Dark mode ──────────────────────────────────────────── */
 	:global([data-theme='dark']) .mosaic-overlay {
-		background: linear-gradient(
+		background:
+			linear-gradient(
 				to right,
 				rgba(var(--hero-dark-rgb), 0.97) 0%,
 				rgba(var(--hero-dark-rgb), 0.92) 12%,
@@ -659,7 +663,8 @@
 
 	@media (max-width: 639px) {
 		:global([data-theme='dark']) .mosaic-overlay {
-			background: linear-gradient(
+			background:
+				linear-gradient(
 					to right,
 					rgba(var(--hero-dark-rgb), 0.98) 0%,
 					rgba(var(--hero-dark-rgb), 0.93) 15%,
