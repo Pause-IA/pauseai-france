@@ -47,6 +47,23 @@
 		margin-bottom: 0;
 	}
 
+	/* Accordéon posé sur le bleu : filets et chevron s'y adaptent. */
+	.ui-bandeau :global(div.inView:not(:last-child) > .accordion) {
+		border-bottom-color: rgba(var(--on-dark-rgb), 0.22);
+	}
+
+	.ui-bandeau :global(.accordion .chevron) {
+		color: var(--brand);
+	}
+
+	.ui-bandeau :global(.accordion .details) {
+		color: rgba(var(--on-dark-rgb), 0.82);
+	}
+
+	.ui-bandeau :global(.accordion .header:hover .title) {
+		color: var(--brand);
+	}
+
 	/* app.css pose un fond crème et une barre orange sur blockquote : sur le
 	   bleu, cela donnait du blanc sur du crème. */
 	.ui-bandeau :global(blockquote) {
