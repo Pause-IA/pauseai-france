@@ -7,6 +7,7 @@ description: 'Réseaux sociaux et Pause Action : quelques minutes par semaine po
 <script lang="ts">
   import { page } from '$app/stores'
   import { LinkCard, LinkGrid } from '$components/ui'
+  import Socials from '$components/Socials.svelte'
   $: lang = $page.params.lang ?? 'fr'
 </script>
 
@@ -25,13 +26,10 @@ politiques. Trois façons d'y contribuer, en quelques minutes par semaine.
 C'est l'engagement le plus court et le plus utile au quotidien : un partage, un
 commentaire, un « j'aime » font sortir nos publications de notre cercle habituel.
 
-- Suivez-nous sur [LinkedIn](https://www.linkedin.com/company/pause-ia/),
-  [Twitter/X](https://twitter.com/pause_ia),
-  [Facebook](https://www.facebook.com/Pause.IA),
-  [Instagram](https://www.instagram.com/pause_ia),
-  [TikTok](https://www.tiktok.com/@pause_ia),
-  [Threads](https://www.threads.net/@pause_ia) et
-  [YouTube](https://www.youtube.com/@Pause_IA).
+Suivez-nous là où vous êtes déjà :
+
+<div class="reseaux-page"><Socials /></div>
+
 - Sur LinkedIn, ajoutez Pause IA à votre profil et activez « partager ces mises à
   jour avec votre réseau » : vos contacts professionnels verront passer le sujet.
 - Relayez une publication par semaine, en ajoutant une phrase à vous. Un partage
@@ -65,6 +63,25 @@ Vous voulez vous engager davantage ? <a href="/{lang}/rejoindre">Rejoignez une
 équipe de bénévoles</a>, ou <a href="/{lang}/agir">découvrez toutes les façons d'agir</a>.
 
 <style>
+  /* Les sept réseaux étaient une phrase de liens séparés par des virgules :
+     illisible, et rien n'indiquait de quel réseau il s'agissait avant de
+     lire le nom. Le composant Socials du pied de page donne les logos, que
+     tout le monde reconnaît d'un coup d'œil. Agrandis ici, parce que c'est
+     l'action que la page demande, pas une mention de bas de page. */
+  .reseaux-page {
+    margin: 1.25rem 0 1.75rem;
+  }
+
+  .reseaux-page :global(.social) {
+    justify-content: flex-start;
+    gap: 0.9rem;
+  }
+
+  .reseaux-page :global(.social svg) {
+    width: 2rem;
+    height: 2rem;
+  }
+
   .cta-ligne {
     display: flex;
     align-items: center;

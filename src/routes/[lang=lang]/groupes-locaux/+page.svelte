@@ -5,7 +5,6 @@
 	import LocalGroupsMap from '$components/LocalGroupsMap.svelte'
 	import {
 		MessageSquare,
-		PlusCircle,
 		MapPin,
 		Megaphone,
 		Newspaper,
@@ -284,43 +283,28 @@
 		</section>
 	{/if}
 
+	<!-- Un seul cadre, et non deux. « Rejoindre un groupe » et « Lancer un
+	     groupe » pointaient vers le MÊME formulaire Notion et décrivaient tous
+	     deux, en termes vagues, la même chose : contribuer localement. Le
+	     visiteur avait donc deux boutons pour une seule action, sans savoir
+	     lequel le concernait. Ce que le lecteur veut savoir, c'est ce qui se
+	     passe après avoir cliqué ; c'est ce que dit le cadre maintenant. -->
 	<section class="cta-section">
 		<div class="cta-card join">
 			<span class="cta-icon"><MessageSquare size="1.6rem" /></span>
-			<h2>{isEn ? 'Join a group' : 'Rejoindre un groupe'}</h2>
+			<h2>{isEn ? 'Join or start a group' : 'Rejoindre ou lancer un groupe'}</h2>
 			<p>
 				{#if isEn}
-					Fill in the registration form to contribute concretely to Pause AI's local action by
-					participating in collective awareness and citizen mobilization actions, and by nurturing
-					an engaged community around the challenges linked to artificial intelligence.
+					One form for both. Tell us your town: if a group already exists near you, we put you in
+					touch with it. If there is none, we help you start one — you will not be on your own.
 				{:else}
-					Remplissez le formulaire d'inscription pour contribuer concrètement à l'action de Pause IA
-					au niveau local, en participant à des actions collectives de sensibilisation et de
-					mobilisation citoyenne, et en faisant vivre une communauté engagée autour des enjeux liés
-					à l'intelligence artificielle.
+					Un seul formulaire pour les deux. Indiquez votre ville : s'il existe déjà un groupe près
+					de chez vous, nous vous mettons en relation. S'il n'y en a pas, nous vous accompagnons
+					pour en lancer un — vous ne serez pas seul à le porter.
 				{/if}
 			</p>
 			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
 				{isEn ? 'Sign up' : "S'inscrire"}
-			</Button>
-		</div>
-
-		<div class="cta-card create">
-			<span class="cta-icon"><PlusCircle size="1.6rem" /></span>
-			<h2>{isEn ? 'Start a group' : 'Lancer un groupe'}</h2>
-			<p>
-				{#if isEn}
-					Help Pause AI grow locally by leading a community of engaged volunteers, coordinating
-					awareness and mobilization actions, and ensuring the link between the field and the
-					national team.
-				{:else}
-					Faites vivre et grandir Pause IA localement en animant une communauté de bénévoles
-					engagés, en coordonnant des actions de sensibilisation et de mobilisation, et en assurant
-					le lien entre le terrain et l'équipe nationale.
-				{/if}
-			</p>
-			<Button alt href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
-				{isEn ? 'Create a group' : 'Créer un groupe'}
 			</Button>
 		</div>
 	</section>
@@ -1290,11 +1274,12 @@
 
 	/* ── CTA cards ────────────────────────────────────────────────────── */
 
+	/* Un seul cadre depuis la fusion : centré et borné à la largeur de
+	   lecture, sinon il s'étire sur toute la page et trois lignes de texte
+	   flottent dans un rectangle vide. */
 	.cta-section {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 1.5rem;
-		margin-bottom: 4rem;
+		max-inline-size: var(--width-text);
+		margin: 0 auto 4rem;
 	}
 
 	.cta-card {
@@ -1317,11 +1302,6 @@
 		border: 2px solid var(--brand);
 	}
 
-	.cta-card.create {
-		background: var(--brand);
-		color: var(--on-brand);
-	}
-
 	.cta-icon {
 		display: inline-flex;
 		align-items: center;
@@ -1331,11 +1311,6 @@
 		border-radius: 50%;
 		background: color-mix(in srgb, var(--brand) 18%, transparent);
 		color: var(--brand-subtle);
-	}
-
-	.cta-card.create .cta-icon {
-		background: rgba(var(--on-dark-rgb), 0.22);
-		color: var(--on-dark);
 	}
 
 	.cta-card h2 {
