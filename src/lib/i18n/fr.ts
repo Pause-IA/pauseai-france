@@ -260,7 +260,9 @@ export default {
 	},
 	posts: {
 		title: 'Articles',
-		meta_title: 'Articles - Pause IA'
+		meta_title: 'Articles - Pause IA',
+		lede: 'Nos analyses, nos enquêtes et nos prises de position, de la plus récente à la plus ancienne.',
+		meta_desc: "Les articles de Pause IA : analyses des risques de l'intelligence artificielle, enquêtes et prises de position de l'association."
 	},
 	campagnes: {
 		meta_title: 'Nos campagnes - Pause IA',

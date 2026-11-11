@@ -258,7 +258,9 @@ export default {
 	},
 	posts: {
 		title: 'Articles',
-		meta_title: 'Articles - Pause AI'
+		meta_title: 'Articles - Pause AI',
+		lede: 'Our analyses, investigations and positions, newest first.',
+		meta_desc: 'Articles from Pause IA: analyses of the risks of artificial intelligence, investigations and positions of the association.'
 	},
 	campagnes: {
 		meta_title: 'Our campaigns - Pause AI',
