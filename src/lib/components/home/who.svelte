@@ -2,7 +2,7 @@
 	import LeadershipCard from '$components/LeadershipCard.svelte'
 	import ScientificCouncilCard from '$components/ScientificCouncilCard.svelte'
 	import Button from '$components/Button.svelte'
-	import { Page, SectionTitle } from '$components/ui'
+	import { Bandeau, Page, SectionTitle } from '$components/ui'
 	import { equipes } from '$lib/data/equipes'
 	import type { TeamMember } from '$lib/notion'
 	import type { Lang } from '$lib/i18n'
@@ -194,21 +194,23 @@
 	     distingue un salarié d'un bénévole. À reprendre à la prochaine
 	     embauche ou au prochain départ. Les fonctions ne sont pas répétées
 	     ici, elles figurent sur les fiches juste au-dessus. -->
-	<p class="benevoles">
-		{#if lang === 'en'}
-			The association currently employs two people, Clémence Peyrot and Orlando H., with Maxime
-			Fournes currently employed by PauseAI Global. Beyond this team, Pause AI France runs on
-			<strong>more than a hundred volunteers</strong>: engineers, teachers, researchers, lawyers,
-			psychologists, students, retirees. Most of the work shown on this site is theirs.
-		{:else}
-			L’association emploie actuellement deux personnes, Clémence Peyrot et Orlando H., Maxime
-			Fournes étant actuellement salarié de PauseAI Global. Au-delà de cette équipe, Pause IA repose
-			sur
-			<strong>plus d’une centaine de bénévoles</strong>
-			: ingénieurs, enseignants, chercheurs, juristes, psychologues, étudiants, retraités. L’essentiel
-			du travail présenté sur ce site est le leur.
-		{/if}
-	</p>
+	<Bandeau>
+		<p class="benevoles">
+			{#if lang === 'en'}
+				The association currently employs two people, Clémence Peyrot and Orlando H., with Maxime
+				Fournes currently employed by PauseAI Global. Beyond this team, Pause AI France runs on
+				<strong>more than a hundred volunteers</strong>: engineers, teachers, researchers, lawyers,
+				psychologists, students, retirees. Most of the work shown on this site is theirs.
+			{:else}
+				L’association emploie actuellement deux personnes, Clémence Peyrot et Orlando H., Maxime
+				Fournes étant actuellement salarié de PauseAI Global. Au-delà de cette équipe, Pause IA
+				repose sur
+				<strong>plus d’une centaine de bénévoles</strong>
+				: ingénieurs, enseignants, chercheurs, juristes, psychologues, étudiants, retraités. L’essentiel
+				du travail présenté sur ce site est le leur.
+			{/if}
+		</p>
+	</Bandeau>
 
 	<!-- Vue d'ensemble des équipes : le visiteur doit comprendre de quoi
 	     l'association est faite et se dire « je pourrais être utile là ».
@@ -391,8 +393,10 @@
 	   qui se lit, pas un chiffre à mettre en avant. */
 	.benevoles {
 		max-inline-size: var(--width-text);
-		margin: 2.5rem auto 0;
+		margin: 0 auto;
 		line-height: 1.7;
-		color: var(--text-2);
+		/* Pas de couleur imposée : le paragraphe est posé dans un Bandeau, qui
+		   donne --on-dark. Le gris secondaire l'emportait et retombait à
+		   4,2:1 sur le bleu, sous le seuil. */
 	}
 </style>
