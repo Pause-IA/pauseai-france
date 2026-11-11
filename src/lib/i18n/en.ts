@@ -27,7 +27,6 @@ export default {
 		relayer_messages: 'Share our messages',
 		participer_communication: 'Help with our communication',
 		pres_de_chez_vous: 'Act near you',
-		convaincre: 'Convince those around you',
 		emploi_ia: 'AI will not destroy ONLY your job',
 		g7_2026: 'G7 2026',
 		municipales: 'Municipal 2026',
@@ -36,8 +35,7 @@ export default {
 		presse: 'Press room',
 		donner: 'Donate',
 		rejoindre: 'Join',
-		faire_un_don: 'Make a donation',
-		nous_rejoindre: 'Join us'
+		faire_un_don: 'Make a donation'
 	},
 	footer: {
 		// Identity column

@@ -14,6 +14,12 @@ Siret : 93012217100018
 
 Le directeur de la publication est M. Maxime Fournes
 
+## Bureau de l'association :
+
+- Président : Maxime Fournes
+- Trésorier : Romain Deléglise
+- Secrétaire général : Moïri Gamboni
+
 ## Hébergement :
 
 Netlify, Inc.

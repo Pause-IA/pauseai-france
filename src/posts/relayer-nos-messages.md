@@ -6,42 +6,44 @@ description: 'Réseaux sociaux et Pause Action : quelques minutes par semaine po
 
 <script lang="ts">
   import { page } from '$app/stores'
-  import { LinkCard, LinkGrid } from '$components/ui'
+  import Socials from '$components/Socials.svelte'
   $: lang = $page.params.lang ?? 'fr'
 </script>
 
-Nos idées ne manquent pas de relais : elles manquent de volume. Plus nous sommes
-nombreux à les porter, plus elles pèsent sur le débat public et sur les décisions
-politiques. Trois façons d'y contribuer, en quelques minutes par semaine.
+Nos publications tournent en vase clos : elles touchent surtout des gens déjà
+convaincus. Votre compte, lui, atteint des gens que nous n'atteindrons jamais.
 
-<LinkGrid min="14rem">
-  <LinkCard href="#reseaux" icon="📣" title="Suivre et relayer nos réseaux sociaux">Un partage par semaine suffit à sortir le sujet de notre cercle.</LinkCard>
-  <LinkCard href="#pause-action" icon="⚡" title="Faire partie de Pause Action">Une action concrète par semaine, en quelques minutes, sur WhatsApp.</LinkCard>
-  <LinkCard href={`/${lang}/campagnes`} icon="🎯" title="Participer à nos campagnes">Nos mobilisations en cours, et comment y prendre part.</LinkCard>
-</LinkGrid>
+<ol class="actions">
+<li>
+<h2 id="reseaux">Suivez-nous, et relayez</h2>
 
-<h2 id="reseaux">Suivre et relayer nos réseaux sociaux</h2>
+Un partage, un commentaire, un « j'aime » suffisent à faire sortir une
+publication de notre cercle.
 
-C'est l'engagement le plus court et le plus utile au quotidien : un partage, un
-commentaire, un « j'aime » font sortir nos publications de notre cercle habituel.
+<div class="reseaux-page"><Socials /></div>
 
-- Suivez-nous sur [LinkedIn](https://www.linkedin.com/company/pause-ia/),
-  [Twitter/X](https://twitter.com/pause_ia),
-  [Facebook](https://www.facebook.com/Pause.IA),
-  [Instagram](https://www.instagram.com/pause_ia),
-  [TikTok](https://www.tiktok.com/@pause_ia),
-  [Threads](https://www.threads.net/@pause_ia) et
-  [YouTube](https://www.youtube.com/@Pause_IA).
-- Sur LinkedIn, ajoutez Pause IA à votre profil et activez « partager ces mises à
-  jour avec votre réseau » : vos contacts professionnels verront passer le sujet.
-- Relayez une publication par semaine, en ajoutant une phrase à vous. Un partage
-  commenté porte bien plus loin qu'un partage sec.
+<p class="astuce">Un partage commenté porte bien plus loin qu’un partage sec :
+ajoutez une phrase à vous. Et sur LinkedIn, ajoutez Pause IA à votre profil,
+puis activez « partager ces mises à jour avec votre réseau ».</p>
+</li>
 
-<h2 id="pause-action">Rejoindre Pause Action</h2>
+<li>
+<h2 id="pause-action">Recevez une action par semaine</h2>
 
-Pause Action est notre groupe WhatsApp d'actions rapides : chaque semaine, une
-action concrète, expliquée en trois lignes, réalisable en quelques minutes :
-signer, écrire, relayer, répondre à une consultation.
+Une action concrète, expliquée en trois lignes, faisable en quelques minutes.
+Par exemple :
+
+<ul class="exemples">
+  <li><strong>Inviter un proche à une mobilisation</strong>, avec un modèle de
+  message à reprendre. 5 minutes.</li>
+  <li><strong>Relayer une tribune parue dans la presse</strong> : aimer,
+  commenter et partager la publication sur un réseau. 3 minutes.</li>
+  <li><strong>Écrire au courrier des lecteurs d’un journal</strong> après un
+  article qui minimise les risques, avec des conseils de rédaction et un
+  exemple. 10 minutes.</li>
+</ul>
+
+Vous faites celles qui vous parlent, vous laissez les autres.
 
 <a class="cta-ligne" href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU" target="_blank" rel="noopener noreferrer">
   <span>
@@ -50,21 +52,106 @@ signer, écrire, relayer, répondre à une consultation.
   </span>
   <span class="cta-fleche" aria-hidden="true">&rarr;</span>
 </a>
+</li>
 
-<h2 id="campagnes">Participer à nos campagnes</h2>
+<li>
+<h2 id="campagnes">Donnez de la voix pendant nos campagnes</h2>
 
-Chaque campagne a sa page, avec ce qu'on demande et ce que vous pouvez faire :
-écrire, signer, relayer, venir manifester. C'est le moment où un relais compte le
-plus, parce que l'attention est déjà là.
+C'est là qu'un relais compte le plus, parce que l'attention est déjà là.
+Chaque campagne a sa page : ce que nous demandons, et ce que vous pouvez faire.
 
 <p class="renvoi-detail">
   <a href={`/${lang}/campagnes`}>Voir nos campagnes en cours &rarr;</a>
 </p>
+</li>
+</ol>
 
-Vous voulez vous engager davantage ? <a href="/{lang}/rejoindre">Rejoignez une
-équipe de bénévoles</a>, ou <a href="/{lang}/agir">découvrez toutes les façons d'agir</a>.
+<p class="plus-loin">Vous voulez vous engager davantage ? <a href="/{lang}/rejoindre">Rejoignez une
+équipe de bénévoles</a>, ou <a href="/{lang}/agir">découvrez toutes les façons d’agir</a>.</p>
 
 <style>
+  /* Trois actions réellement envoyées : la seule question qui retient
+     quelqu'un avant de rejoindre le groupe est « concrètement, je reçois
+     quoi ? ». Une promesse n'y répond pas, trois exemples oui. Ils disent la
+     nature de l'action et son coût en minutes, jamais un événement ni une
+     date : personne ne rouvrira cette page pour la rafraîchir. */
+  .exemples {
+    margin: 1rem 0 1.25rem;
+    padding-left: 1.1rem;
+  }
+
+  .exemples li {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-2);
+  }
+
+  .exemples strong {
+    color: var(--text);
+  }
+
+  /* Trois actions numérotées plutôt qu'un essai en trois paragraphes : la
+     page se parcourt d'un coup d'œil, et on voit tout de suite qu'il n'y a
+     que trois choses à faire. Le filet orange et le chiffre reprennent le
+     langage de la note de synthèse pour les décideurs. */
+  .actions {
+    margin: 2rem 0 2.5rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: action;
+  }
+
+  .actions > li {
+    counter-increment: action;
+    border-top: 2px solid var(--brand);
+    padding-top: 1rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .actions > li :global(h2) {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-top: 0;
+  }
+
+  .actions > li :global(h2)::before {
+    content: counter(action);
+    font-size: 0.85em;
+    font-weight: 700;
+    color: var(--brand-subtle);
+  }
+
+  .astuce {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-2);
+  }
+
+  .plus-loin {
+    margin-top: 2.5rem;
+  }
+
+  /* Les sept réseaux étaient une phrase de liens séparés par des virgules :
+     illisible, et rien n'indiquait de quel réseau il s'agissait avant de
+     lire le nom. Le composant Socials du pied de page donne les logos, que
+     tout le monde reconnaît d'un coup d'œil. Agrandis ici, parce que c'est
+     l'action que la page demande, pas une mention de bas de page. */
+  .reseaux-page {
+    margin: 1.25rem 0 1.75rem;
+  }
+
+  .reseaux-page :global(.social) {
+    justify-content: flex-start;
+    gap: 0.9rem;
+  }
+
+  .reseaux-page :global(.social svg) {
+    width: 2rem;
+    height: 2rem;
+  }
+
   .cta-ligne {
     display: flex;
     align-items: center;

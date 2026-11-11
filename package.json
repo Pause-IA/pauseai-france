@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"dev:watch": "svelte-kit sync && concurrently --names \"VITEST,SVELTE-CHECK,SERVER\" --prefix-colors \"bgMagenta.bold,bgCyan.bold,bgGreen.bold\" \"vitest\" \"svelte-check --tsconfig ./tsconfig.json --watch\" \"vite dev\"",
-		"build": "vite build",
+		"build": "node --env-file-if-exists=.env scripts/photos-equipe.mjs --build && vite build",
 		"build:dev": "vite build --mode development",
 		"preview": "vite preview",
 		"check": "vitest --run && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -17,6 +17,7 @@
 		"optimize-images": "node scripts/optimize-images.js",
 		"generate-elus": "node scripts/generate-elus.js",
 		"plan-du-site": "node scripts/plan-du-site.mjs",
+		"photos-equipe": "node --env-file-if-exists=.env scripts/photos-equipe.mjs",
 		"lint:css": "stylelint \"src/**/*.{css,svelte}\""
 	},
 	"devDependencies": {
@@ -48,6 +49,7 @@
 		"postcss-html": "^2.0.0",
 		"prettier": "^3.9.10",
 		"prettier-plugin-svelte": "^3.5.2",
+		"sharp": "^0.35.5",
 		"stylelint": "^17.16.0",
 		"stylelint-config-html": "^2.0.0",
 		"stylelint-config-standard": "^40.0.0",

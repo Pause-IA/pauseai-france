@@ -29,7 +29,6 @@ export default {
 		relayer_messages: 'Relayer nos messages',
 		participer_communication: 'Participer à notre communication',
 		pres_de_chez_vous: 'Agir près de chez vous',
-		convaincre: 'Convaincre autour de vous',
 		emploi_ia: 'L’IA ne détruira pas QUE votre emploi',
 		g7_2026: 'G7 2026',
 		municipales: 'Municipales 2026',
@@ -38,8 +37,7 @@ export default {
 		presse: 'Espace presse',
 		donner: 'Donner',
 		rejoindre: 'Rejoindre',
-		faire_un_don: 'Faire un don',
-		nous_rejoindre: 'Nous rejoindre'
+		faire_un_don: 'Faire un don'
 	},
 	footer: {
 		// Colonne d'identité

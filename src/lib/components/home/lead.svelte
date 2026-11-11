@@ -58,7 +58,7 @@
 				</p>
 				<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
 					<Button href="{prefix}/declaration">Sign the statement</Button>
-					<Button href="{prefix}/rejoindre" alt>Join us</Button>
+					<Button href="{prefix}/rejoindre" alt>Join Pause IA</Button>
 				</div>
 			{:else}
 				<p>
@@ -90,7 +90,7 @@
 				</p>
 				<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
 					<Button href="{prefix}/declaration">Signer l'appel</Button>
-					<Button href="{prefix}/rejoindre" alt>Rejoignez-nous</Button>
+					<Button href="{prefix}/rejoindre" alt>Rejoindre Pause IA</Button>
 				</div>
 			{/if}
 		</div>

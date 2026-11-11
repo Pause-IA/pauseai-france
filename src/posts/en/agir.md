@@ -57,9 +57,9 @@ You don't need to devote your life to it: here are the most useful actions, from
     <small>Share our posts, join Pause Action.</small>
     <em class="ac-why"><strong>Why :</strong> Shared by a real person, a message travels much further than one posted by a page. Your account is worth more than ours.</em>
   </a>
-  <a class="action-card" href="/recrutement">
+  <a class="action-card" href="/sensibiliser-votre-entourage">
     <span class="ac-emoji">🗣️</span>
-    <strong>Convince those around you</strong>
+    <strong>Raise awareness around you</strong>
     <small>Our guides to mobilise effectively around you.</small>
     <em class="ac-why"><strong>Why :</strong> People rarely change their mind reading a stranger. They change it talking to someone they trust.</em>
   </a>

@@ -1,0 +1,16 @@
+# Tout le dépôt est en LF, y compris sur Windows : sans cette règle, Git
+# convertit en CRLF à la copie de travail et un fichier réécrit par un script
+# (le manifeste des photos, par exemple) apparaît modifié alors qu'il est
+# identique.
+* text=auto eol=lf
+
+# Images : jamais de conversion de fin de ligne, elle les corromprait.
+*.webp binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary

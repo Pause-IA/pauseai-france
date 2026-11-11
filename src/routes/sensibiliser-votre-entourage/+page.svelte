@@ -7,14 +7,14 @@
 </script>
 
 <PostMeta
-	title="Convaincre autour de vous"
+	title="Sensibiliser votre entourage"
 	description="Comment parler de Pause IA aux gens que vous connaissez déjà : un guide court à lire sur cette page, et un guide complet pour aller plus loin."
 />
 
 <article class="recruitment-landing">
 	<!-- Hero Section -->
 	<PageHero eyebrow="Agir">
-		Convaincre autour de vous
+		Sensibiliser votre entourage
 		<svelte:fragment slot="lede">
 			Les gens écoutent plus volontiers quelqu'un qu'ils connaissent qu'une affiche ou une
 			publication. En parler à vos proches, vos collègues, vos amis est donc l'une des choses les
@@ -31,7 +31,7 @@
 				<h3>Guide court</h3>
 				<p class="duree">5 à 10 minutes</p>
 				<p>L'essentiel, à lire directement sur cette page.</p>
-				<p class="action"><Button href="#guide-express">Lire maintenant</Button></p>
+				<p class="action"><Button href="#guide-express">Lire le guide court</Button></p>
 				<p class="pdf">
 					<a href="/pdfs/guide_recrutement_express.pdf">Version PDF, à imprimer</a>
 				</p>
@@ -41,7 +41,9 @@
 				<h3>Guide complet</h3>
 				<p class="duree">30 minutes et plus</p>
 				<p>Les situations concrètes, les objections fréquentes et comment y répondre.</p>
-				<p class="action"><Button alt href="{base}/guide-recrutement">Accéder au guide</Button></p>
+				<p class="action">
+					<Button alt href="{base}/guide-recrutement">Lire le guide complet</Button>
+				</p>
 			</Card>
 		</div>
 	</section>
@@ -151,8 +153,8 @@
 				<ul>
 					<li>
 						<strong>Pourquoi ?</strong> Cet exercice simple vous aide à identifier les personnes de votre
-						entourage avec qui la discussion a le plus de chances d'être utile, plutôt que de parler
-						au hasard.
+						entourage avec qui la discussion a le plus de chances d'être utile, plutôt que de parler au
+						hasard.
 					</li>
 					<li>
 						<strong>En pratique</strong>
@@ -329,7 +331,7 @@
 				honnêtement.
 			</p>
 			<p class="action">
-				<Button href="{base}/guide-recrutement">Découvrir le guide complet</Button>
+				<Button href="{base}/guide-recrutement">Lire le guide complet</Button>
 			</p>
 		</div>
 	</section>

@@ -34,8 +34,12 @@
 			</p>
 
 			<div class="tax-benefit">
-				<strong>Your donations are tax-deductible at 66% of your taxes</strong><br />
-				<small>A donation of €100 only costs you €34</small>
+				<strong>Your donations are 66% tax-deductible</strong><br />
+				<small>A donation of €100 only costs you €34<sup>*</sup></small>
+				<p class="tax-note">
+					* If you are liable for French income tax, and within the limit of 20% of your taxable
+					income.
+				</p>
 			</div>
 		{:else}
 			<p class="hero-description">
@@ -45,8 +49,12 @@
 			</p>
 
 			<div class="tax-benefit">
-				<strong>Vos dons sont déductibles à hauteur de 66% de vos impôts</strong><br />
-				<small>Un don de 100€ ne vous coûte réellement que 34€</small>
+				<strong>Vos dons sont déductibles à hauteur de 66 % de vos impôts</strong><br />
+				<small>Un don de 100 € ne vous coûte réellement que 34 €<sup>*</sup></small>
+				<p class="tax-note">
+					* Si vous êtes imposable sur le revenu, et dans la limite de 20 % de votre revenu
+					imposable.
+				</p>
 			</div>
 		{/if}
 	</section>
@@ -232,10 +240,10 @@
 						limite de 20 % de votre revenu imposable.
 					</p>
 					<p>
-						<strong>Il s'agit d'une réduction d'impôt, et non d'un crédit d'impôt</strong> : elle se
-						soustrait à l'impôt sur le revenu que vous devez. Elle ne profite donc qu'aux personnes qui
-						paient effectivement cet impôt. Si vous n'êtes pas imposable, rien ne vous est remboursé,
-						et votre don a exactement la même valeur pour nous.
+						<strong>Il s'agit d'une réduction d'impôt, et non d'un crédit d'impôt</strong> : elle se soustrait
+						à l'impôt sur le revenu que vous devez. Elle ne profite donc qu'aux personnes qui paient effectivement
+						cet impôt. Si vous n'êtes pas imposable, rien ne vous est remboursé, et votre don a exactement
+						la même valeur pour nous.
 					</p>
 				</svelte:fragment>
 			</Accordion>
@@ -288,6 +296,16 @@
 		padding: 1rem;
 		margin: 1.5rem 0;
 		text-align: center;
+	}
+
+	/* La réduction de 66 % ne vaut que pour qui paie l'impôt sur le revenu.
+	   Sans cette réserve, la page promettait à tout le monde un don à 34 € :
+	   c'est faux pour les foyers non imposables, qui sont nombreux. */
+	.tax-note {
+		margin: 0.5rem 0 0;
+		font-size: 0.8rem;
+		line-height: 1.45;
+		opacity: 0.8;
 	}
 
 	.tax-benefit strong {

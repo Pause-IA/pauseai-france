@@ -804,6 +804,40 @@
 			>
 				{isEn ? action.hero.title.en : action.hero.title.fr}
 			</PageHero>
+
+			<!-- Le parcours n'était expliqué nulle part : on demandait un code
+			     postal, puis un nom et une ville, sans dire ce qui allait en être
+			     fait. La première question d'un visiteur devant un formulaire est
+			     « qu'est-ce que vous allez envoyer, et à qui ». -->
+			<ol class="parcours">
+				{#if isEn}
+					<li>
+						<strong>Enter your postal code</strong><span>We find your MPs and senators.</span>
+					</li>
+					<li>
+						<strong>Review your message</strong><span>We draft it, you edit it as you wish.</span>
+					</li>
+					<li>
+						<strong>Send it</strong><span>From your own mailbox. Nothing leaves this page.</span>
+					</li>
+				{:else}
+					<li>
+						<strong>Entrez votre code postal</strong><span
+							>Nous trouvons vos députés et vos sénateurs.</span
+						>
+					</li>
+					<li>
+						<strong>Relisez votre message</strong><span
+							>Nous le rédigeons, vous le modifiez comme vous voulez.</span
+						>
+					</li>
+					<li>
+						<strong>Envoyez-le</strong><span
+							>Depuis votre messagerie. Rien ne part de cette page.</span
+						>
+					</li>
+				{/if}
+			</ol>
 		{/if}
 
 		<!-- Onglets masqués quand la page impose l'action (forcedActionId) : le
@@ -887,6 +921,16 @@
 					on:input={saveUser}
 				/>
 			</div>
+
+			<p class="user-hint">
+				{#if isEn}
+					They sign the message: a lawmaker reads a letter from their own constituency differently.
+					Both stay on your device.
+				{:else}
+					Ils signent le message : un élu lit autrement une lettre de sa circonscription. Les deux
+					restent sur votre appareil.
+				{/if}
+			</p>
 
 			{#if isSampleData && action.targeting !== 'fixed'}
 				<p class="notice notice--warn">
@@ -1708,6 +1752,59 @@
 	}
 
 	/* Champs nom / commune */
+	/* Le parcours, avant le premier champ. Numéroté, parce que c'est une suite
+	   d'étapes et non une liste d'arguments. */
+	/* Trois colonnes côte à côte sur grand écran : c'est une bande
+	   d'explication, pas une liste à puces. Un filet de marque en tête de
+	   chaque étape, et le numéro porté par un compteur CSS. */
+	.parcours {
+		list-style: none;
+		counter-reset: etape;
+		display: grid;
+		gap: 1.1rem 2rem;
+		margin: 0 0 2.25rem;
+		padding: 0;
+	}
+
+	@media (min-width: 48rem) {
+		.parcours {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	.parcours li {
+		counter-increment: etape;
+		margin: 0;
+		padding-top: 0.7rem;
+		border-top: 2px solid var(--brand);
+	}
+
+	.parcours strong {
+		display: block;
+		color: var(--text);
+		line-height: 1.3;
+	}
+
+	.parcours strong::before {
+		content: counter(etape) '. ';
+		color: var(--brand-subtle);
+	}
+
+	.parcours span {
+		display: block;
+		margin-top: 0.2rem;
+		font-size: 0.92rem;
+		line-height: 1.5;
+		color: var(--text-2);
+	}
+
+	.user-hint {
+		margin: 0.6rem 0 0;
+		font-size: 0.9rem;
+		line-height: 1.55;
+		color: var(--text-2);
+	}
+
 	.user-fields {
 		display: flex;
 		gap: 0.5rem;

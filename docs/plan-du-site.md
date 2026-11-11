@@ -5,7 +5,7 @@
 > du menu principal, du pied de page et des articles du dépôt, donc il ne
 > peut pas diverger du site.
 >
-> Dernière génération : 2026-11-09.
+> Dernière génération : 2026-11-11.
 
 Ce document décrit le site **réel**. Le plan _souhaité_ est une décision
 d'équipe et se tient ailleurs.
@@ -34,7 +34,7 @@ flowchart LR
   g1 --> n5["Signer l'appel<br/><small>/declaration</small>"]
   g1 --> n6["Relayer nos messages<br/><small>/relayer-nos-messages</small>"]
   g1 --> n7["Agir près de chez vous<br/><small>/groupes-locaux</small>"]
-  g1 --> n8["Convaincre autour de vous ↗<br/><small>site externe</small>"]
+  g1 --> n8["Sensibiliser votre entourage ↗<br/><small>site externe</small>"]
   class n8 externe
   g1 --> n9["Toutes les façons d’agir<br/><small>/agir</small>"]
   accueil --> g2["Campagnes"]
@@ -76,9 +76,9 @@ flowchart LR
   class n29 orpheline
   orph -.-> n30["/posts"]
   class n30 orpheline
-  orph -.-> n31["/recrutement"]
+  orph -.-> n31["/senat2025"]
   class n31 orpheline
-  orph -.-> n32["/senat2025"]
+  orph -.-> n32["/sensibiliser-votre-entourage"]
   class n32 orpheline
   orph -.-> n33["/sommet-ia-2026"]
   class n33 orpheline
@@ -102,14 +102,14 @@ flowchart LR
 
 ### Agir
 
-| Page                      | Chemin                  |
-| ------------------------- | ----------------------- |
-| Écrire à vos élus         | `/ecrire-a-mes-elus`    |
-| Signer l'appel            | `/declaration`          |
-| Relayer nos messages      | `/relayer-nos-messages` |
-| Agir près de chez vous    | `/groupes-locaux`       |
-| Convaincre autour de vous | _externe_, /recrutement |
-| Toutes les façons d’agir  | `/agir`                 |
+| Page                         | Chemin                                   |
+| ---------------------------- | ---------------------------------------- |
+| Écrire à vos élus            | `/ecrire-a-mes-elus`                     |
+| Signer l'appel               | `/declaration`                           |
+| Relayer nos messages         | `/relayer-nos-messages`                  |
+| Agir près de chez vous       | `/groupes-locaux`                        |
+| Sensibiliser votre entourage | _externe_, /sensibiliser-votre-entourage |
+| Toutes les façons d’agir     | `/agir`                                  |
 
 ### Campagnes
 
@@ -192,8 +192,8 @@ campagne, confirmations, remerciements.
 - `/municipales-2026`
 - `/plan-du-site`
 - `/posts`
-- `/recrutement`
 - `/senat2025`
+- `/sensibiliser-votre-entourage`
 - `/sommet-ia-2026`
 - `/tribunes/le-monde-octobre-2026`
 - `/une-ia-sest-echappee`
