@@ -11,9 +11,9 @@ description: 'Réseaux sociaux et Pause Action : quelques minutes par semaine po
   $: lang = $page.params.lang ?? 'fr'
 </script>
 
-Nos idées ne manquent pas de relais : elles manquent de volume. Plus nous sommes
-nombreux à les porter, plus elles pèsent sur le débat public et sur les décisions
-politiques. Trois façons d'y contribuer, en quelques minutes par semaine.
+Nos publications touchent surtout des gens déjà convaincus. Pour en sortir, il
+faut que d'autres comptes les reprennent, et le vôtre vaut mieux que le nôtre.
+Trois façons de le faire, en quelques minutes par semaine.
 
 <LinkGrid min="14rem">
   <LinkCard href="#reseaux" icon="📣" title="Suivre et relayer nos réseaux sociaux">Un partage par semaine suffit à sortir le sujet de notre cercle.</LinkCard>

@@ -10,9 +10,9 @@ description: "Social media and Pause Action: a few minutes a week to carry Pause
   $: lang = $page.params.lang ?? 'en'
 </script>
 
-Our ideas do not lack messengers: they lack volume. The more of us carry them, the
-more weight they have in public debate and in political decisions. Three ways to
-help, in a few minutes a week.
+Our posts mostly reach people who already agree with us. Getting beyond that
+circle takes other accounts sharing them, and yours is worth more than ours.
+Three ways to do it, in a few minutes a week.
 
 <LinkGrid min="14rem">
   <LinkCard href="#reseaux" icon="📣" title="Follow and share our social media">One share a week is enough to take the topic beyond our circle.</LinkCard>

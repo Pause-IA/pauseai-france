@@ -295,12 +295,14 @@
 			<h2>{isEn ? 'Join or start a group' : 'Rejoindre ou lancer un groupe'}</h2>
 			<p>
 				{#if isEn}
-					One form for both. Tell us your town: if a group already exists near you, we put you in
-					touch with it. If there is none, we help you start one — you will not be on your own.
+					Take part in local awareness and mobilisation actions, or lead a group of volunteers and
+					keep the link with the national team. One form for both: tell us your town. If a group
+					already exists near you, we put you in touch; if there is none, we help you start one.
 				{:else}
-					Un seul formulaire pour les deux. Indiquez votre ville : s'il existe déjà un groupe près
-					de chez vous, nous vous mettons en relation. S'il n'y en a pas, nous vous accompagnons
-					pour en lancer un — vous ne serez pas seul à le porter.
+					Participer à des actions de sensibilisation et de mobilisation près de chez vous, ou
+					animer un groupe de bénévoles et faire le lien avec l'équipe nationale. Un seul formulaire
+					pour les deux : indiquez votre ville. S'il existe déjà un groupe, nous vous mettons en
+					relation ; s'il n'y en a pas, nous vous accompagnons pour en lancer un.
 				{/if}
 			</p>
 			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
@@ -1282,19 +1284,18 @@
 		margin: 0 auto 4rem;
 	}
 
+	/* Dimensions héritées du temps où ils étaient deux, côte à côte : pour une
+	   seule carte, 2,25 rem de retrait et une pastille de 3,2 rem font un bloc
+	   hors de proportion avec trois lignes de texte. Plus de soulèvement au
+	   survol non plus : la carte n'est pas cliquable, seul le bouton l'est. */
 	.cta-card {
-		padding: 2.25rem 2rem;
+		padding: 1.5rem 1.6rem;
 		border-radius: var(--radius-lg);
 		text-align: center;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 1rem;
-		transition: transform 0.2s;
-	}
-
-	.cta-card:hover {
-		transform: translateY(-4px);
+		gap: 0.75rem;
 	}
 
 	.cta-card.join {
@@ -1306,8 +1307,8 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		inline-size: 3.2rem;
-		block-size: 3.2rem;
+		inline-size: 2.4rem;
+		block-size: 2.4rem;
 		border-radius: 50%;
 		background: color-mix(in srgb, var(--brand) 18%, transparent);
 		color: var(--brand-subtle);
