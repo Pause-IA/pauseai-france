@@ -87,6 +87,9 @@
 			label: t.nav.comprendre,
 			items: [
 				{ href: `${prefix}#faq`, label: t.nav.faq },
+				// En tête : c'est la page qui explique le problème. Le menu ne
+				// proposait que des listes et des outils, jamais l'exposé lui-même.
+				{ href: `${prefix}/comprendre-le-risque`, label: t.nav.comprendre_le_risque },
 				{ href: `${prefix}/ressources`, label: t.nav.liens_utiles },
 				{ href: `${prefix}/newsletters`, label: t.nav.newsletter },
 				{ href: 'https://pauseia.substack.com/', label: t.nav.blog, external: true },

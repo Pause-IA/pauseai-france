@@ -8,6 +8,7 @@ export default {
 		dangers: "Les dangers de l'IA",
 		faq: 'FAQ',
 		carte: "Carte de l'écosystème",
+		comprendre_le_risque: 'Comprendre le risque',
 		liens_utiles: 'Ressources',
 		newsletter: 'Newsletter',
 		propositions: 'Que demandons-nous ?',

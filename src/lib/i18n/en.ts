@@ -8,6 +8,7 @@ export default {
 		dangers: 'Dangers of AI',
 		faq: 'FAQ',
 		carte: 'Ecosystem map',
+		comprendre_le_risque: 'Understanding the risk',
 		liens_utiles: 'Resources',
 		newsletter: 'Newsletter',
 		propositions: 'What do we ask for?',
