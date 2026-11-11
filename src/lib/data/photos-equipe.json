@@ -1,1 +1,37 @@
-{}
+{
+	"41528fc9-4b77-80a2-a4d6-c377810d7ed7": {
+		"nom": "Antonin Peronnet",
+		"fichier": "/equipe/antonin-peronnet.webp",
+		"cle": "0313c0811182a203"
+	},
+	"41528fc9-4b77-804b-ba7c-c8a3fbb85c19": {
+		"nom": "Hedi Meziou",
+		"fichier": "/equipe/hedi-meziou.webp",
+		"cle": "ee4ffb9ad86a4445"
+	},
+	"41528fc9-4b77-801d-98bb-d3ba16eb876e": {
+		"nom": "Orlando H.",
+		"fichier": "/equipe/orlando-h.webp",
+		"cle": "cb6970e12b2e0100"
+	},
+	"30a28fc9-4b77-802d-b9e8-f5e0be69af37": {
+		"nom": "Jeanne Bazard",
+		"fichier": "/equipe/jeanne-bazard.webp",
+		"cle": "84c5f4cf882070f8"
+	},
+	"30a28fc9-4b77-809a-ba42-d7ad01b9aefb": {
+		"nom": "Romain Deléglise",
+		"fichier": "/equipe/romain-deleglise.webp",
+		"cle": "1634d005541f8767"
+	},
+	"30a28fc9-4b77-80a6-a766-cc7f52c0ef49": {
+		"nom": "Clémence Peyrot",
+		"fichier": "/equipe/clemence-peyrot.webp",
+		"cle": "2496dca8d1e24fb7"
+	},
+	"30a28fc9-4b77-803e-bf42-de44e029212f": {
+		"nom": "Maxime Fournes",
+		"fichier": "/equipe/maxime-fournes.webp",
+		"cle": "457f8046c95da5fc"
+	}
+}
