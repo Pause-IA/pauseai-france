@@ -22,7 +22,8 @@
  * retéléchargés : la clé de comparaison est le chemin S3 du fichier, stable
  * pour un même téléversement même si la signature change à chaque requête.
  *
- * Il faut NOTION_API_KEY et NOTION_TEAM_DATABASE_ID dans l'environnement.
+ * Il faut NOTION_API_KEY et NOTION_TEAM_DATABASE_ID : le script lit le .env
+ * du dépôt (option --env-file-if-exists de Node, voir package.json).
  */
 import { createHash } from 'node:crypto'
 import { mkdir, readFile, writeFile, readdir, unlink } from 'node:fs/promises'
