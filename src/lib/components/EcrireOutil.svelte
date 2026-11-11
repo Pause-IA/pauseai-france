@@ -922,16 +922,6 @@
 				/>
 			</div>
 
-			<p class="user-hint">
-				{#if isEn}
-					They sign the message: a lawmaker reads a letter from their own constituency differently.
-					Both stay on your device.
-				{:else}
-					Ils signent le message : un élu lit autrement une lettre de sa circonscription. Les deux
-					restent sur votre appareil.
-				{/if}
-			</p>
-
 			{#if isSampleData && action.targeting !== 'fixed'}
 				<p class="notice notice--warn">
 					{isEn
@@ -1795,13 +1785,6 @@
 		margin-top: 0.2rem;
 		font-size: 0.92rem;
 		line-height: 1.5;
-		color: var(--text-2);
-	}
-
-	.user-hint {
-		margin: 0.6rem 0 0;
-		font-size: 0.9rem;
-		line-height: 1.55;
 		color: var(--text-2);
 	}
 
