@@ -67,6 +67,19 @@
 	.ui-page--wide {
 		max-inline-size: var(--width-wide);
 	}
+
+	/* Colonne de lecture pour le texte suivi, même sur une page large.
+	   La charte plafonne le chapô à 44 rem mais rien ne le faisait pour les
+	   paragraphes du corps : sur les pages « content » et « wide », la ligne
+	   montait à 110 ou 130 signes, loin des 45 à 66 visés.
+
+	   Ne sont visés que les paragraphes posés directement dans la page ou
+	   dans une de ses sections : ceux des cartes et des grilles gardent la
+	   largeur de leur conteneur, qui est déjà étroit. */
+	.ui-page > :global(p),
+	.ui-page > :global(section) > :global(p) {
+		max-inline-size: var(--width-text);
+	}
 	/* ── Modèle « note » ─────────────────────────────────────────────────
 	   Mis au point sur la note aux décideurs, puis généralisé. Les valeurs
 	   sont celles qui ont été mesurées sur cette page : la ligne tient entre
