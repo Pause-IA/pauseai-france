@@ -171,13 +171,27 @@
 	     pris parmi plus de cent. Le choix n'était pas explicable, et la page
 	     laissait croire à une équipe de quinze personnes au lieu d'un mouvement.
 	     Une phrase dit mieux ce que la galerie disait mal. -->
+	<!-- Qui est salarié et qui est bénévole se dit ici, en une phrase, plutôt
+	     que par une étiquette sur chaque carte : coller un badge « payé » à
+	     trois personnes au milieu de cent bénévoles alourdit les cartes et met
+	     en avant la mauvaise information. Dit ainsi, le rapport entre deux
+	     salariés et une centaine de bénévoles est à notre avantage.
+
+	     Maxime Fournes est salarié de PauseAI Global et non de l'association :
+	     « trois salariés » serait faux, d'où la mention séparée.
+
+	     Le nombre est écrit en toutes lettres et non calculé : rien dans Notion
+	     ne distingue un salarié d'un bénévole. À corriger à la prochaine
+	     embauche. -->
 	<p class="benevoles">
 		{#if lang === 'en'}
-			Beyond this team, Pause AI France runs on <strong>more than a hundred volunteers</strong>:
-			engineers, teachers, researchers, lawyers, psychologists, students, retirees. Most of the work
-			shown on this site is theirs.
+			The association employs two people, and Maxime Fournes is employed by PauseAI Global. Beyond
+			this team, Pause AI France runs on <strong>more than a hundred volunteers</strong>: engineers,
+			teachers, researchers, lawyers, psychologists, students, retirees. Most of the work shown on
+			this site is theirs.
 		{:else}
-			Au-delà de cette équipe, Pause IA repose sur <strong>plus d’une centaine de bénévoles</strong>
+			L’association emploie deux personnes, et Maxime Fournes est salarié de PauseAI Global. Au-delà
+			de cette équipe, Pause IA repose sur <strong>plus d’une centaine de bénévoles</strong>
 			: ingénieurs, enseignants, chercheurs, juristes, psychologues, étudiants, retraités. L’essentiel
 			du travail présenté sur ce site est le leur.
 		{/if}
