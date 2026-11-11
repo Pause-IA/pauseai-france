@@ -28,11 +28,17 @@
 import { createHash } from 'node:crypto'
 import { mkdir, readFile, writeFile, readdir, unlink } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import sharp from 'sharp'
 
-const RACINE = fileURLToPath(new URL('..', import.meta.url))
+// Normalement la racine du dépôt, déduite de l'emplacement du script. Peut être
+// forcée par PHOTOS_EQUIPE_RACINE, pour lancer le script depuis un dossier qui
+// a `sharp` d'installé quand le dépôt lui-même ne l'a pas (node_modules
+// impossible à installer sur un lecteur réseau ou synchronisé, par exemple).
+const RACINE = process.env.PHOTOS_EQUIPE_RACINE
+	? resolve(process.env.PHOTOS_EQUIPE_RACINE)
+	: fileURLToPath(new URL('..', import.meta.url))
 const DOSSIER = join(RACINE, 'static/equipe')
 const MANIFESTE = join(RACINE, 'src/lib/data/photos-equipe.json')
 
