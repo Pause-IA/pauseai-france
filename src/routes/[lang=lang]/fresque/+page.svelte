@@ -116,7 +116,7 @@
 				: 'Un atelier collaboratif autour d’un jeu de cartes pour se faire une vision d’ensemble de l’intelligence artificielle, de ses capacités à ses risques, jusqu’aux solutions possibles.'}
 		</svelte:fragment>
 		<svelte:fragment slot="actions">
-			<!-- Une seule action dominante : s'inscrire à un atelier, la vraie
+			<!-- Une seule action dominante : s’inscrire à un atelier, la vraie
 			     conversion de la page. « Découvrir la Fresque » reste accessible,
 			     en second rang : quatre boutons de poids égal ne hiérarchisaient
 			     rien. -->
@@ -201,8 +201,8 @@
 		</p>
 
 		{#if ateliers.length}
-			<!-- Ateliers réels plutôt qu'une promesse : rempli au montage depuis
-			     l'agenda public de la fresque. Absent si le site est injoignable. -->
+			<!-- Ateliers réels plutôt qu’une promesse : rempli au montage depuis
+			     l’agenda public de la fresque. Absent si le site est injoignable. -->
 			<ul class="agenda">
 				{#each ateliers as a}
 					<li>
@@ -254,9 +254,9 @@
 		</div>
 	</section>
 
-	<!-- Pas de formulaire ici : l'expression d'intérêt vit déjà sur un
+	<!-- Pas de formulaire ici : l’expression d’intérêt vit déjà sur un
 	     formulaire dédié, qui pose les bonnes questions et ne confond pas une
-	     marque d'intérêt avec un abonnement à la lettre d'information. -->
+	     marque d’intérêt avec un abonnement à la lettre d’information. -->
 	<section class="interet">
 		<Card variant="plain" class="bande-interet">
 			<h3>

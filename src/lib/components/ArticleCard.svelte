@@ -5,14 +5,24 @@
 	export let blurb: string
 	export let category = ''
 	export let url: string
-	export let linkText = "Lire l'article"
+	/** Langue de la carte : la date et le libellé du lien en dépendent. */
+	export let lang: 'fr' | 'en' = 'fr'
+	export let linkText: string | undefined = undefined
 	export let date = ''
 
-	function formatDate(dateStr: string): string {
+	$: libelle = linkText ?? (lang === 'en' ? 'Read the article' : 'Lire l’article')
+
+	/* La date était formatée en fr-FR quelle que soit la langue : « 10 août
+	   2026 » s'affichait tel quel sur le site anglais. */
+	function formatDate(dateStr: string, l: 'fr' | 'en'): string {
 		if (!dateStr) return ''
 		try {
 			const d = new Date(dateStr + 'T00:00:00')
-			return d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })
+			return d.toLocaleDateString(l === 'en' ? 'en-GB' : 'fr-FR', {
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric'
+			})
 		} catch {
 			return dateStr
 		}
@@ -28,10 +38,10 @@
 		<div class="footer">
 			<span class="category">{category}</span>
 			{#if date}
-				<time class="date" datetime={date}>{formatDate(date)}</time>
+				<time class="date" datetime={date}>{formatDate(date, lang)}</time>
 			{/if}
 			<span class="read-more">
-				{linkText}
+				{libelle}
 				<span class="link-icon"><MoveUpRight size="1.25rem" /></span>
 			</span>
 		</div>

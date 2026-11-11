@@ -796,7 +796,7 @@
 	{#if step === 1}
 		<!-- ════════ Étape 1 : choisir le destinataire ════════ -->
 		{#if !embedded}
-			<!-- En-tête commun à toutes les pages (gabarit Outil) : l'ancien bandeau
+			<!-- En-tête commun à toutes les pages (gabarit Outil) : l’ancien bandeau
 			     orange pleine largeur était propre à cette page. -->
 			<PageHero
 				eyebrow={isEn ? 'Act' : 'Agir'}
@@ -805,10 +805,10 @@
 				{isEn ? action.hero.title.en : action.hero.title.fr}
 			</PageHero>
 
-			<!-- Le parcours n'était expliqué nulle part : on demandait un code
+			<!-- Le parcours n’était expliqué nulle part : on demandait un code
 			     postal, puis un nom et une ville, sans dire ce qui allait en être
-			     fait. La première question d'un visiteur devant un formulaire est
-			     « qu'est-ce que vous allez envoyer, et à qui ». -->
+			     fait. La première question d’un visiteur devant un formulaire est
+			     « qu’est-ce que vous allez envoyer, et à qui ». -->
 			<ol class="parcours">
 				{#if isEn}
 					<li>
@@ -840,9 +840,9 @@
 			</ol>
 		{/if}
 
-		<!-- Onglets masqués quand la page impose l'action (forcedActionId) : le
+		<!-- Onglets masqués quand la page impose l’action (forcedActionId) : le
 		     clic serait sans effet, `action` étant calculé sur forcedActionId. -->
-		<!-- Sans outil presse, un seul onglet : on n'affiche pas le sélecteur. -->
+		<!-- Sans outil presse, un seul onglet : on n’affiche pas le sélecteur. -->
 		{#if PRESS_TOOL_ENABLED && isPrimaryAction && !forcedActionId}
 			<div class="tool-switch">
 				<div
@@ -922,21 +922,11 @@
 				/>
 			</div>
 
-			<p class="user-hint">
-				{#if isEn}
-					They sign the message: a lawmaker reads a letter from their own constituency differently.
-					Both stay on your device.
-				{:else}
-					Ils signent le message : un élu lit autrement une lettre de sa circonscription. Les deux
-					restent sur votre appareil.
-				{/if}
-			</p>
-
 			{#if isSampleData && action.targeting !== 'fixed'}
 				<p class="notice notice--warn">
 					{isEn
 						? 'Demo data. Run the generation script to load real representatives and emails.'
-						: "Données d'exemple. Lancez le script de génération pour charger les vrais élus et emails."}
+						: 'Données d’exemple. Lancez le script de génération pour charger les vrais élus et emails.'}
 				</p>
 			{/if}
 
@@ -970,7 +960,7 @@
 					>
 						{#if sentCount >= allRecipients.length && allRecipients.length > 0}
 							🎉 {isEn
-								? `Done! You've written to all ${allRecipients.length} ${targetNoun}. Thank you, this really helps.`
+								? `Done! You’ve written to all ${allRecipients.length} ${targetNoun}. Thank you, this really helps.`
 								: `Bravo ! Vous avez écrit à vos ${allRecipients.length} ${targetNoun}. Merci, votre geste compte vraiment.`}
 						{:else if sentCount > 0}
 							<strong>{sentCount}/{allRecipients.length}</strong>
@@ -1147,8 +1137,8 @@
 			{/if}
 		</section>
 
-		<!-- Pourquoi c'est important. Affiché aussi en mode intégré : c'est ce qui
-		     justifie l'action, et sans lui la page campagne demande d'écrire sans
+		<!-- Pourquoi c’est important. Affiché aussi en mode intégré : c’est ce qui
+		     justifie l’action, et sans lui la page campagne demande d’écrire sans
 		     dire pourquoi ça marche. -->
 		<section class="card prose">
 			<svelte:element this={headingLevel} class="tool-heading"
@@ -1165,10 +1155,10 @@
 					</p>
 				{:else}
 					<p>
-						Les rédactions couvrent d'abord ce qui intéresse leurs lecteurs. Un message sincère au
-						courrier des lecteurs ou à la rédaction signale qu'un sujet compte pour le public, et il
+						Les rédactions couvrent d’abord ce qui intéresse leurs lecteurs. Un message sincère au
+						courrier des lecteurs ou à la rédaction signale qu’un sujet compte pour le public, et il
 						pèse sur les choix éditoriaux. Contrairement à un commentaire sur les réseaux, il arrive
-						dans une boite lue par l'équipe. Une poignée de messages de lecteurs suffit parfois à
+						dans une boite lue par l’équipe. Une poignée de messages de lecteurs suffit parfois à
 						inspirer un article ou une enquête.
 					</p>
 				{/if}
@@ -1177,16 +1167,16 @@
 					MPs and senators take their constituents' messages into account. A personal email (even a
 					short, sincere one) lands in a human inbox, gets read, and signals that a voter cares
 					about this issue. Unlike a petition or a social media post, it carries real weight. A
-					handful of emails from real citizens is often enough to put a topic on a committee's
+					handful of emails from real citizens is often enough to put a topic on a committee’s
 					agenda.
 				</p>
 			{:else}
 				<p>
 					Les députés et sénateurs prennent en compte les messages de leurs électeurs. Un email
 					personnel (même court et sincère) arrive dans une boite mail humaine, il est lu, et il
-					signale qu'un électeur se préoccupe du sujet. Contrairement à une pétition ou à un post
-					sur les réseaux, il a un vrai poids. Une poignée d'emails de vrais citoyens suffit souvent
-					à inscrire un sujet à l'ordre du jour d'une commission.
+					signale qu’un électeur se préoccupe du sujet. Contrairement à une pétition ou à un post
+					sur les réseaux, il a un vrai poids. Une poignée d’emails de vrais citoyens suffit souvent
+					à inscrire un sujet à l’ordre du jour d’une commission.
 				</p>
 			{/if}
 		</section>
@@ -1217,7 +1207,7 @@
 						<p slot="details">
 							{isEn
 								? 'A general newsroom or readers’ desk address (not a particular journalist). It is the right channel for a reader asking for more coverage: your message reaches the team, not one reporter’s personal inbox.'
-								: "Une adresse générale de rédaction ou de courrier des lecteurs (pas un journaliste en particulier). C'est le bon canal pour un lecteur qui demande plus de couverture : votre message arrive à l'équipe, pas dans la boite personnelle d'un reporter."}
+								: "Une adresse générale de rédaction ou de courrier des lecteurs (pas un journaliste en particulier). C’est le bon canal pour un lecteur qui demande plus de couverture : votre message arrive à l’équipe, pas dans la boite personnelle d'un reporter."}
 						</p>
 					</Accordion>
 					<Accordion id="faq-p-reply" noHash>
@@ -1229,7 +1219,7 @@
 						<p slot="details">
 							{isEn
 								? 'That’s normal, and not a failure. The goal is to signal reader interest: even unpublished, your message counts among the feedback a newsroom weighs. Writing to the outlet you actually read, with a sincere personal line, is what makes it land.'
-								: "C'est normal, et ce n'est pas un échec. Le but est de signaler l'intérêt des lecteurs : même non publié, votre message compte parmi les retours qu'une rédaction prend en compte. Écrire au titre que vous lisez vraiment, avec une phrase personnelle sincère, est ce qui fait la différence."}
+								: 'C’est normal, et ce n’est pas un échec. Le but est de signaler l’intérêt des lecteurs : même non publié, votre message compte parmi les retours qu’une rédaction prend en compte. Écrire au titre que vous lisez vraiment, avec une phrase personnelle sincère, est ce qui fait la différence.'}
 						</p>
 					</Accordion>
 				{:else}
@@ -1242,17 +1232,17 @@
 						<p slot="details">
 							{isEn
 								? 'Yes! Representatives track how many constituents raise an issue, and it shapes what they prioritise. A few sincere emails can be enough to get a topic onto a committee’s agenda.'
-								: "Oui ! Les élus comptabilisent le nombre d'électeurs qui soulèvent un sujet, et cela oriente leurs priorités. Quelques emails sincères peuvent suffire à inscrire un sujet à l'ordre du jour d'une commission."}
+								: "Oui ! Les élus comptabilisent le nombre d’électeurs qui soulèvent un sujet, et cela oriente leurs priorités. Quelques emails sincères peuvent suffire à inscrire un sujet à l’ordre du jour d'une commission."}
 						</p>
 					</Accordion>
 					<Accordion id="faq-relance" noHash>
 						<span slot="head">
-							{isEn ? "What if I don't get a reply?" : "Et si je n'ai pas de réponse ?"}
+							{isEn ? 'What if I don’t get a reply?' : 'Et si je n’ai pas de réponse ?'}
 						</span>
 						<p slot="details">
 							{isEn
-								? "That's common, and not a reason to give up. Follow up politely after about three weeks: a reminder shows the topic matters to you and often prompts a reply. You can also ask for a short meeting at their local office."
-								: "C'est fréquent, et ce n'est pas une raison d'abandonner. Relancez poliment après environ trois semaines : une relance montre que le sujet vous tient à cœur et débloque souvent une réponse. Vous pouvez aussi demander un rendez-vous à leur permanence."}
+								? 'That’s common, and not a reason to give up. Follow up politely after about three weeks: a reminder shows the topic matters to you and often prompts a reply. You can also ask for a short meeting at their local office.'
+								: 'C’est fréquent, et ce n’est pas une raison d’abandonner. Relancez poliment après environ trois semaines : une relance montre que le sujet vous tient à cœur et débloque souvent une réponse. Vous pouvez aussi demander un rendez-vous à leur permanence.'}
 						</p>
 					</Accordion>
 				{/if}
@@ -1271,7 +1261,7 @@
 					<p slot="details">
 						{isEn
 							? 'Your name and town stay on your device and are never sent to a server: they only fill the draft. The email leaves from your own mailbox. A blind copy (BCC) reaches us at campagne@pauseia.fr to count the campaign; you can remove it before sending if you prefer. Your email address is only sent to us if you tick the newsletter box yourself, to subscribe you.'
-							: "Votre nom et votre ville restent sur votre appareil et ne sont jamais envoyés à un serveur : ils servent seulement à remplir le brouillon. L'email part de votre propre messagerie. Une copie cachée (CCI) nous parvient à campagne@pauseia.fr pour mesurer la campagne ; vous pouvez la retirer avant l'envoi si vous le préférez. Votre adresse email ne nous est transmise que si vous cochez vous-même l'inscription à la newsletter, pour vous y abonner."}
+							: 'Votre nom et votre ville restent sur votre appareil et ne sont jamais envoyés à un serveur : ils servent seulement à remplir le brouillon. L’email part de votre propre messagerie. Une copie cachée (CCI) nous parvient à campagne@pauseia.fr pour mesurer la campagne ; vous pouvez la retirer avant l’envoi si vous le préférez. Votre adresse email ne nous est transmise que si vous cochez vous-même l’inscription à la newsletter, pour vous y abonner.'}
 					</p>
 				</Accordion>
 			</section>
@@ -1312,7 +1302,7 @@
 			</div>
 
 			{#if requireName}
-				<!-- Nom saisi directement ici : l'aperçu se complète en temps réel. -->
+				<!-- Nom saisi directement ici : l’aperçu se complète en temps réel. -->
 				<div class="name-gate" class:name-gate--error={nameMissing}>
 					<label class="name-gate-label" for="name-gate-input">
 						{isEn
@@ -1346,7 +1336,7 @@
 					{#if isEn}
 						Tip: add your name and town in step 1 and the email writes itself in full.
 					{:else}
-						Astuce : indiquez votre nom et votre ville à l'étape 1 et l'email se rédige entièrement.
+						Astuce : indiquez votre nom et votre ville à l’étape 1 et l’email se rédige entièrement.
 					{/if}
 				</p>
 			{/if}
@@ -1414,7 +1404,7 @@
 				{/if}
 			</label>
 
-			<!-- Aperçu de l'email -->
+			<!-- Aperçu de l’email -->
 			<div class="preview-head">
 				<span class="preview-label">{isEn ? 'Preview' : 'Aperçu'}</span>
 				<button class="shuffle-btn" type="button" on:click={shuffleWording}>
@@ -1449,11 +1439,11 @@
 					{#if selectedRecipient.contactUrl}
 						{isEn
 							? 'This recipient does not publish an email address. Copy the text above, open their contact form, and paste it there.'
-							: "Ce destinataire ne publie pas d'adresse email. Copiez le texte ci-dessus, ouvrez son formulaire de contact, puis collez-le."}
+							: 'Ce destinataire ne publie pas d’adresse email. Copiez le texte ci-dessus, ouvrez son formulaire de contact, puis collez-le.'}
 					{:else}
 						{isEn
 							? 'No public email or contact form was found for this recipient. Copy the text above and reach them via their official profile.'
-							: "Aucun email ni formulaire public n'a été trouvé pour ce destinataire. Copiez le texte ci-dessus et contactez-le via sa fiche officielle."}
+							: 'Aucun email ni formulaire public n’a été trouvé pour ce destinataire. Copiez le texte ci-dessus et contactez-le via sa fiche officielle.'}
 					{/if}
 				</p>
 			{/if}
@@ -1491,7 +1481,7 @@
 					<summary>
 						{isEn
 							? 'Nothing opened? Send it another way'
-							: "Rien ne s'est ouvert ? Envoyez-le autrement"}
+							: 'Rien ne s’est ouvert ? Envoyez-le autrement'}
 					</summary>
 					<div class="webmail-links">
 						{#each WEBMAILS as wm}
@@ -1556,7 +1546,7 @@
 										: 'Envoi…'
 									: isEn
 										? 'Subscribe'
-										: "S'inscrire"}
+										: 'S’inscrire'}
 							</Button>
 						</div>
 						{#if newsletterStatus === 'error'}
@@ -1795,13 +1785,6 @@
 		margin-top: 0.2rem;
 		font-size: 0.92rem;
 		line-height: 1.5;
-		color: var(--text-2);
-	}
-
-	.user-hint {
-		margin: 0.6rem 0 0;
-		font-size: 0.9rem;
-		line-height: 1.55;
 		color: var(--text-2);
 	}
 

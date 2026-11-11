@@ -1,6 +1,6 @@
 ---
 title: Dangers pour la société
-description: Les dangers sociétaux de l'IA, incluant des menaces pour la démocratie, la cohésion sociale et l'emploi, nécessitent une régulation proactive, une refonte des systèmes d'information et une éducation à la pensée critique pour préserver nos valeurs et structures sociales.
+description: Les dangers sociétaux de l’IA, incluant des menaces pour la démocratie, la cohésion sociale et l’emploi, nécessitent une régulation proactive, une refonte des systèmes d’information et une éducation à la pensée critique pour préserver nos valeurs et structures sociales.
 ---
 
 <script lang="ts">

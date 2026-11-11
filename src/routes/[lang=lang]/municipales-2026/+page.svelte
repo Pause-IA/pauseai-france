@@ -293,7 +293,7 @@
 					<h2>Agir pour votre ville</h2>
 					<p>
 						Interpellez les candidats de votre ville et invitez-les à découvrir et signer la charte
-						de Pause IA sur les risques de l'IA. Les signataires sont affichés ci-dessous.
+						de Pause IA sur les risques de l’IA. Les signataires sont affichés ci-dessous.
 					</p>
 				{/if}
 				<div class="cta-container">
@@ -301,7 +301,7 @@
 						{isEn ? 'Discover the charter' : 'Je découvre la charte'}
 					</Button>
 					<Button alt on:click={openActivoice}>
-						{isEn ? 'Challenge my city candidates' : "J'interpelle les candidats de ma ville"}
+						{isEn ? 'Challenge my city candidates' : 'J’interpelle les candidats de ma ville'}
 					</Button>
 				</div>
 			</div>
@@ -320,7 +320,7 @@
 				These candidates have signed the Pause AI charter on the risks of artificial intelligence.
 				Click on a card to view their signed charter.
 			{:else}
-				Ces candidat·es ont signé la charte de Pause IA sur les risques de l'intelligence
+				Ces candidat·es ont signé la charte de Pause IA sur les risques de l’intelligence
 				artificielle. Cliquez sur une carte pour consulter leur charte signée.
 			{/if}
 		</p>
@@ -398,7 +398,7 @@
 	{/if}
 </article>
 
-<!-- Modal : Charte d'un candidat -->
+<!-- Modal : Charte d’un candidat -->
 {#if showCharterModal && selectedCandidate}
 	<div class="modal-overlay" role="presentation" on:click={closeOnBackdrop}>
 		<div
@@ -428,7 +428,7 @@
 					<p class="engagements-intro">
 						{isEn
 							? `${selectedCandidate.name} commits, once elected, to carry out the following actions:`
-							: `${selectedCandidate.name} s'engage, une fois élu·e, à réaliser les actions suivantes :`}
+							: `${selectedCandidate.name} s’engage, une fois élu·e, à réaliser les actions suivantes :`}
 					</p>
 					<ul class="engagements-list">
 						{#each selectedCandidate.engagements as engagement}

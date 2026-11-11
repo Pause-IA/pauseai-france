@@ -3,6 +3,7 @@ title: Wait But Why - IA - Partie 2
 description: Partie 2
 date: '2025-05-23'
 layout: waitbutwhy
+brouillon: true
 ---
 
 **Note du traducteur**

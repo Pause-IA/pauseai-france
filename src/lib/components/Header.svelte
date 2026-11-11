@@ -318,8 +318,8 @@
 				</button>
 			</div>
 
-			<!-- Mobile/tablet sidebar, use:portal pour l'appender à document.body
-			     et l'extraire du containing block créé par position:sticky -->
+			<!-- Mobile/tablet sidebar, use:portal pour l’appender à document.body
+			     et l’extraire du containing block créé par position:sticky -->
 			<div class="sidebar" class:open use:portal>
 				<div class="sidebar-head">
 					<a href="/" class="sidebar-logo" on:click={closeMenu}>

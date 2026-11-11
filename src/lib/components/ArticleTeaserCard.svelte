@@ -10,9 +10,9 @@
 	export let langue = ''
 </script>
 
-<a class="card" href={url} target="_blank" title="Lire l'article {title}" rel="noopener noreferrer">
+<a class="card" href={url} target="_blank" title="Lire l’article {title}" rel="noopener noreferrer">
 	<figure class="visual">
-		<img src={image} alt={`Illustration de l'article ${String(title)}`} loading="lazy" />
+		<img src={image} alt={`Illustration de l’article ${String(title)}`} loading="lazy" />
 		{#if langue}
 			<span
 				class="lang-badge"
@@ -47,7 +47,7 @@
 		<time class="date" datetime={date}>{formatFrenchDate(date)}</time>
 		<h3 class="title">{title}</h3>
 		<p class="summary">{summary}</p>
-		<span class="cta">Lire l'article</span>
+		<span class="cta">Lire l’article</span>
 	</div>
 </a>
 

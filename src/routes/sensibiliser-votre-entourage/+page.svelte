@@ -16,9 +16,9 @@
 	<PageHero eyebrow="Agir">
 		Sensibiliser votre entourage
 		<svelte:fragment slot="lede">
-			Les gens écoutent plus volontiers quelqu'un qu'ils connaissent qu'une affiche ou une
-			publication. En parler à vos proches, vos collègues, vos amis est donc l'une des choses les
-			plus utiles que vous puissiez faire. Voici comment s'y prendre sans braquer personne.
+			Les gens écoutent plus volontiers quelqu’un qu’ils connaissent qu’une affiche ou une
+			publication. En parler à vos proches, vos collègues, vos amis est donc l’une des choses les
+			plus utiles que vous puissiez faire. Voici comment s’y prendre sans braquer personne.
 		</svelte:fragment>
 	</PageHero>
 
@@ -30,7 +30,7 @@
 			<Card class="ressource principale">
 				<h3>Guide court</h3>
 				<p class="duree">5 à 10 minutes</p>
-				<p>L'essentiel, à lire directement sur cette page.</p>
+				<p>L’essentiel, à lire directement sur cette page.</p>
 				<p class="action"><Button href="#guide-express">Lire le guide court</Button></p>
 				<p class="pdf">
 					<a href="/pdfs/guide_recrutement_express.pdf">Version PDF, à imprimer</a>
@@ -58,19 +58,19 @@
 		</header>
 
 		<Callout>
-			<em>Pourquoi vous, plutôt qu'une campagne de publicité</em>
+			<em>Pourquoi vous, plutôt qu’une campagne de publicité</em>
 
 			<p>
-				Sur un sujet aussi inquiétant que l'IA, la plupart des gens ne changent pas d'avis en lisant
-				un tract. Ils en parlent d'abord avec quelqu'un en qui ils ont confiance. C'est pour cela
-				qu'une conversation avec vous vaut mieux que n'importe quelle affiche : vous êtes cette
+				Sur un sujet aussi inquiétant que l’IA, la plupart des gens ne changent pas d’avis en lisant
+				un tract. Ils en parlent d’abord avec quelqu’un en qui ils ont confiance. C’est pour cela
+				qu’une conversation avec vous vaut mieux que n’importe quelle affiche : vous êtes cette
 				personne-là pour votre entourage.
 			</p>
 
 			<p>
-				L'objectif n'est pas de convaincre tout le monde, ni de faire du chiffre.
+				L’objectif n’est pas de convaincre tout le monde, ni de faire du chiffre.
 				<strong>
-					C'est que les gens qui sont déjà inquiets sachent qu'ils ne sont pas seuls, et qu'il
+					C’est que les gens qui sont déjà inquiets sachent qu’ils ne sont pas seuls, et qu’il
 					existe quelque chose à faire.
 				</strong>
 			</p>
@@ -80,29 +80,29 @@
 			<section>
 				<h3>Pourquoi en parler autour de vous compte</h3>
 
-				<h4>1. Les gens écoutent ceux qu'ils connaissent</h4>
+				<h4>1. Les gens écoutent ceux qu’ils connaissent</h4>
 				<p>
-					Les enquêtes sur l'opinion le montrent régulièrement : sur un sujet technique et
-					anxiogène, c'est l'entourage proche qui pèse le plus, bien avant les médias et les
-					campagnes. Vous avez accès à des personnes qu'aucune communication de l'association
-					n'atteindra jamais.
+					Les enquêtes sur l’opinion le montrent régulièrement : sur un sujet technique et
+					anxiogène, c’est l’entourage proche qui pèse le plus, bien avant les médias et les
+					campagnes. Vous avez accès à des personnes qu’aucune communication de l’association
+					n’atteindra jamais.
 				</p>
 				<p>
-					L'idée n'est donc pas de parler au plus grand nombre, mais de parler bien à quelques
-					personnes : celles qui, chez vous, sont déjà mal à l'aise avec ce qu'elles voient arriver.
+					L’idée n’est donc pas de parler au plus grand nombre, mais de parler bien à quelques
+					personnes : celles qui, chez vous, sont déjà mal à l’aise avec ce qu’elles voient arriver.
 				</p>
 
 				<h4>2. Le temps joue contre nous</h4>
 				<p>
-					Les capacités des modèles d'IA progressent vite, et les décisions qui comptent se prennent
-					maintenant. Plus l'inquiétude est partagée tôt, plus elle pèse au moment où ces décisions
+					Les capacités des modèles d’IA progressent vite, et les décisions qui comptent se prennent
+					maintenant. Plus l’inquiétude est partagée tôt, plus elle pèse au moment où ces décisions
 					se jouent.
 				</p>
 
-				<h4>3. Ce que montrent les travaux sur l'engagement</h4>
+				<h4>3. Ce que montrent les travaux sur l’engagement</h4>
 				<p>
 					Des experts comme Damon Centola (<em>Change: How to Make Big Things Happen</em>) montrent
-					que les changements de comportement "complexes" (comme s'engager activement) se propagent
+					que les changements de comportement "complexes" (comme s’engager activement) se propagent
 					par la <strong>confiance</strong> et la <strong>validation sociale</strong> au sein de réseaux
 					personnels. Un message entendu dans un podcast (contagion simple) informe. Ce sont les conversations
 					avec des proches qui transforment la prise de conscience en action.
@@ -130,7 +130,7 @@
 					<li><strong>1. La Relation Avant Tout :</strong> La confiance est la base de tout.</li>
 					<li><strong>2. Écouter > Parler :</strong> Comprendre avant de vouloir convaincre.</li>
 					<li>
-						<strong>3. Partir de LEUR Réalité :</strong> Ancrer l'IA dans leurs préoccupations concrètes.
+						<strong>3. Partir de LEUR Réalité :</strong> Ancrer l’IA dans leurs préoccupations concrètes.
 					</li>
 					<li>
 						<strong>4. Petites Demandes → Grandes Demandes :</strong> Progresser par étapes logiques.
@@ -147,13 +147,13 @@
 			</section>
 
 			<section>
-				<h3>Comment s'y prendre, en trois temps</h3>
+				<h3>Comment s’y prendre, en trois temps</h3>
 
 				<h4>1. Repérer à qui en parler</h4>
 				<ul>
 					<li>
 						<strong>Pourquoi ?</strong> Cet exercice simple vous aide à identifier les personnes de votre
-						entourage avec qui la discussion a le plus de chances d'être utile, plutôt que de parler au
+						entourage avec qui la discussion a le plus de chances d’être utile, plutôt que de parler au
 						hasard.
 					</li>
 					<li>
@@ -161,14 +161,14 @@
 						<ol>
 							<li>
 								Faites la liste des gens à qui vous pourriez en parler sans que ce soit forcé :
-								famille, amis, collègues, anciens camarades, membres d'autres associations.
+								famille, amis, collègues, anciens camarades, membres d’autres associations.
 							</li>
 							<li>
-								Repérez ceux qui ont déjà montré de l'inquiétude sur le sujet, même en passant. Ce
+								Repérez ceux qui ont déjà montré de l’inquiétude sur le sujet, même en passant. Ce
 								sont les conversations les plus naturelles à ouvrir.
 							</li>
 							<li>
-								Commencez par deux ou trois personnes, celles avec qui vous êtes le plus à l'aise.
+								Commencez par deux ou trois personnes, celles avec qui vous êtes le plus à l’aise.
 								Mieux vaut une vraie discussion que dix messages envoyés à la chaîne.
 							</li>
 						</ol>
@@ -188,8 +188,8 @@
 				<h4>2. Engager la conversation, en écoutant</h4>
 				<ul>
 					<li>
-						<strong>L'essentiel est d'écouter.</strong> L'objectif est de comprendre ce qui préoccupe
-						la personne, pas de dérouler un argumentaire. En pratique : beaucoup plus d'écoute que de
+						<strong>L’essentiel est d’écouter.</strong> L’objectif est de comprendre ce qui préoccupe
+						la personne, pas de dérouler un argumentaire. En pratique : beaucoup plus d’écoute que de
 						parole.
 					</li>
 					<li>
@@ -200,7 +200,7 @@
 						<strong>Utilisez le cadre L.O.R. (Lancer, Observer, Relier) :</strong>
 						<ul class="sub-list">
 							<li>
-								<strong>Lancer :</strong> Introduisez le sujet de l'IA et de vos préoccupations.
+								<strong>Lancer :</strong> Introduisez le sujet de l’IA et de vos préoccupations.
 							</li>
 							<li>
 								<strong>Observer :</strong> Écoutez activement ce que votre interlocuteur exprime (ses
@@ -208,12 +208,12 @@
 							</li>
 							<li>
 								<strong>Relier :</strong> Faites le lien entre <em>ses</em> préoccupations et les enjeux
-								de l'IA.
+								de l’IA.
 							</li>
 						</ul>
 					</li>
 					<li>
-						<strong><em>Maîtrisez l'écoute et le dialogue :</em></strong>
+						<strong><em>Maîtrisez l’écoute et le dialogue :</em></strong>
 						<a href="{base}/guide-recrutement#dialogue-authentique-ecouter-pour-connecter"
 							>Guide de Recrutement Pause IA</a
 						> – Dialogue authentique
@@ -268,7 +268,7 @@
 								de Pause IA ou
 								<a href="https://pauseia.fr/dons" target="_blank" rel="noopener noreferrer"
 									>faire un don</a
-								> à l'association.
+								> à l’association.
 							</li>
 						</ul>
 					</li>
@@ -277,7 +277,7 @@
 						<a
 							href="{base}/guide-recrutement#lart-de-la-demande-transformer-linteret-en-action-avec-uci"
 							>Guide de Recrutement Pause IA</a
-						> – L'art de la demande
+						> – L’art de la demande
 					</li>
 				</ul>
 			</section>
@@ -285,8 +285,8 @@
 			<section>
 				<h3>Et si on vous dit "Non" ou si on hésite ?</h3>
 				<p>
-					C'est parfaitement normal ! L'important est de maintenir le dialogue ouvert et de
-					respecter le choix de l'autre. Le guide complet vous offre des pistes pour répondre aux
+					C’est parfaitement normal ! L’important est de maintenir le dialogue ouvert et de
+					respecter le choix de l’autre. Le guide complet vous offre des pistes pour répondre aux
 					objections les plus courantes avec bienveillance. <strong
 						>Apprenez à gérer les objections :</strong
 					>
@@ -298,10 +298,10 @@
 			</section>
 
 			<section>
-				<h3>Besoin d'aide ou d'échanger ?</h3>
+				<h3>Besoin d’aide ou d’échanger ?</h3>
 				<p>
 					Rejoignez notre réunion hebdomadaire pour échanger, partager son progrès, et bénéficier du
-					soutien de l'équipe. Vous la trouverez dans la section événements de notre <a
+					soutien de l’équipe. Vous la trouverez dans la section événements de notre <a
 						href="https://discord.gg/vyXGd7AeGc"
 						target="_blank"
 						rel="noopener noreferrer">Discord</a
@@ -324,7 +324,7 @@
 	<!-- Conclusion Section -->
 	<section class="conclusion-section">
 		<div class="conclusion-content">
-			<h2>Envie d'aller plus loin ?</h2>
+			<h2>Envie d’aller plus loin ?</h2>
 			<p>
 				Ce guide court donne les bases. Le guide complet reprend les mêmes idées avec des exemples
 				de conversations, les objections qui reviennent le plus souvent et comment y répondre

@@ -217,16 +217,16 @@
 						<p>The window to regain control is closing fast.</p>
 					{:else}
 						<p>
-							Chaque mois, de nouveaux systèmes franchissent des seuils que l'on pensait lointains.
+							Chaque mois, de nouveaux systèmes franchissent des seuils que l’on pensait lointains.
 							Les experts alertent&nbsp;: sans garde-fous, cette course fait peser un risque
 							catastrophique à court terme.
 						</p>
 						<p>La fenêtre pour reprendre la main se referme.</p>
 					{/if}
-					<!-- Une seule action ici. « Signer l'appel » est déjà le bouton
+					<!-- Une seule action ici. « Signer l’appel » est déjà le bouton
 					     principal du bloc juste en dessous : le mettre aussi dans le héros
-					     dédoublait la même action à huit cents pixels d'écart et partageait
-					     l'attention entre deux boutons de poids égal. -->
+					     dédoublait la même action à huit cents pixels d’écart et partageait
+					     l’attention entre deux boutons de poids égal. -->
 					<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
 						<Button href="#ecrire-elus">{t.home.hero_cta}</Button>
 					</div>
