@@ -10,26 +10,28 @@ description: 'Réseaux sociaux et Pause Action : quelques minutes par semaine po
   $: lang = $page.params.lang ?? 'fr'
 </script>
 
-Nos publications touchent surtout des gens déjà convaincus. Pour en sortir, il
-faut que d'autres comptes les reprennent, et le vôtre vaut mieux que le nôtre.
-Trois façons de le faire, en quelques minutes par semaine.
+Nos publications tournent en vase clos : elles touchent surtout des gens déjà
+convaincus. Votre compte, lui, atteint des gens que nous n'atteindrons jamais.
 
-<h2 id="reseaux">Suivre et relayer nos réseaux</h2>
+<ol class="actions">
+<li>
+<h2 id="reseaux">Suivez-nous, et relayez</h2>
 
 Un partage, un commentaire, un « j'aime » suffisent à faire sortir une
-publication de notre cercle. Suivez-nous là où vous êtes déjà :
+publication de notre cercle.
 
 <div class="reseaux-page"><Socials /></div>
 
-- Sur LinkedIn, ajoutez Pause IA à votre profil et activez « partager ces mises à
-  jour avec votre réseau » : vos contacts professionnels verront passer le sujet.
-- Relayez une publication par semaine, en ajoutant une phrase à vous. Un partage
-  commenté porte bien plus loin qu'un partage sec.
+<p class="astuce">Un partage commenté porte bien plus loin qu’un partage sec :
+ajoutez une phrase à vous. Et sur LinkedIn, ajoutez Pause IA à votre profil,
+puis activez « partager ces mises à jour avec votre réseau ».</p>
+</li>
 
-<h2 id="pause-action">Rejoindre Pause Action</h2>
+<li>
+<h2 id="pause-action">Recevez une action par semaine</h2>
 
-Chaque semaine, une action concrète expliquée en trois lignes, réalisable en
-quelques minutes : signer, écrire, relayer, répondre à une consultation.
+Une action concrète, expliquée en trois lignes, faisable en quelques minutes :
+signer, écrire, relayer, répondre à une consultation.
 
 <a class="cta-ligne" href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU" target="_blank" rel="noopener noreferrer">
   <span>
@@ -38,20 +40,66 @@ quelques minutes : signer, écrire, relayer, répondre à une consultation.
   </span>
   <span class="cta-fleche" aria-hidden="true">&rarr;</span>
 </a>
+</li>
 
-<h2 id="campagnes">Participer à nos campagnes</h2>
+<li>
+<h2 id="campagnes">Donnez de la voix pendant nos campagnes</h2>
 
-C'est le moment où un relais compte le plus, parce que l'attention est déjà là.
-Chaque campagne a sa page : ce qu'on demande, et ce que vous pouvez faire.
+C'est là qu'un relais compte le plus, parce que l'attention est déjà là.
+Chaque campagne a sa page : ce que nous demandons, et ce que vous pouvez faire.
 
 <p class="renvoi-detail">
   <a href={`/${lang}/campagnes`}>Voir nos campagnes en cours &rarr;</a>
 </p>
+</li>
+</ol>
 
-Vous voulez vous engager davantage ? <a href="/{lang}/rejoindre">Rejoignez une
-équipe de bénévoles</a>, ou <a href="/{lang}/agir">découvrez toutes les façons d'agir</a>.
+<p class="plus-loin">Vous voulez vous engager davantage ? <a href="/{lang}/rejoindre">Rejoignez une
+équipe de bénévoles</a>, ou <a href="/{lang}/agir">découvrez toutes les façons d’agir</a>.</p>
 
 <style>
+  /* Trois actions numérotées plutôt qu'un essai en trois paragraphes : la
+     page se parcourt d'un coup d'œil, et on voit tout de suite qu'il n'y a
+     que trois choses à faire. Le filet orange et le chiffre reprennent le
+     langage de la note de synthèse pour les décideurs. */
+  .actions {
+    margin: 2rem 0 2.5rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: action;
+  }
+
+  .actions > li {
+    counter-increment: action;
+    border-top: 2px solid var(--brand);
+    padding-top: 1rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .actions > li :global(h2) {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-top: 0;
+  }
+
+  .actions > li :global(h2)::before {
+    content: counter(action);
+    font-size: 0.85em;
+    font-weight: 700;
+    color: var(--brand-subtle);
+  }
+
+  .astuce {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-2);
+  }
+
+  .plus-loin {
+    margin-top: 2.5rem;
+  }
+
   /* Les sept réseaux étaient une phrase de liens séparés par des virgules :
      illisible, et rien n'indiquait de quel réseau il s'agissait avant de
      lire le nom. Le composant Socials du pied de page donne les logos, que
