@@ -193,7 +193,7 @@
 			Local action is essential for raising public awareness, engaging elected officials and
 			building a strong citizen movement. Join a team near you or start the momentum in your city.
 		{:else}
-			L'action locale est essentielle pour sensibiliser le public, interpeller les élus et
+			L’action locale est essentielle pour sensibiliser le public, interpeller les élus et
 			construire un mouvement citoyen fort. Rejoignez une équipe près de chez vous ou lancez la
 			dynamique dans votre ville.
 		{/if}
@@ -287,8 +287,8 @@
 	     groupe » pointaient vers le MÊME formulaire Notion et décrivaient tous
 	     deux, en termes vagues, la même chose : contribuer localement. Le
 	     visiteur avait donc deux boutons pour une seule action, sans savoir
-	     lequel le concernait. Ce que le lecteur veut savoir, c'est ce qui se
-	     passe après avoir cliqué ; c'est ce que dit le cadre maintenant. -->
+	     lequel le concernait. Ce que le lecteur veut savoir, c’est ce qui se
+	     passe après avoir cliqué ; c’est ce que dit le cadre maintenant. -->
 	<section class="cta-section">
 		<div class="cta-card join">
 			<span class="cta-icon"><MessageSquare size="1.6rem" /></span>
@@ -300,13 +300,13 @@
 					already exists near you, we put you in touch; if there is none, we help you start one.
 				{:else}
 					Participer à des actions de sensibilisation et de mobilisation près de chez vous, ou
-					animer un groupe de bénévoles et faire le lien avec l'équipe nationale. Un seul formulaire
-					pour les deux : indiquez votre ville. S'il existe déjà un groupe, nous vous mettons en
-					relation ; s'il n'y en a pas, nous vous accompagnons pour en lancer un.
+					animer un groupe de bénévoles et faire le lien avec l’équipe nationale. Un seul formulaire
+					pour les deux : indiquez votre ville. S’il existe déjà un groupe, nous vous mettons en
+					relation ; s’il n’y en a pas, nous vous accompagnons pour en lancer un.
 				{/if}
 			</p>
 			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
-				{isEn ? 'Sign up' : "S'inscrire"}
+				{isEn ? 'Sign up' : 'S’inscrire'}
 			</Button>
 		</div>
 	</section>
@@ -534,7 +534,7 @@
 		<p class="depuis-date" id="depuis-titre">{isEn ? 'March 2026' : 'mars 2026'}</p>
 		<p class="depuis-texte">
 			{#if isEn}
-				Pause AI's local groups launched {mois} months ago. The groups, the actions and the volunteers
+				Pause AI’s local groups launched {mois} months ago. The groups, the actions and the volunteers
 				above were all built in that time, by people who simply decided to start.
 			{:else}
 				Les groupes locaux de Pause IA ont été lancés il y a {mois} mois. Les groupes, les actions et

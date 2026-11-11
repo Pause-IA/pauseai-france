@@ -27,10 +27,10 @@
 </script>
 
 <PostMeta
-	title={isEn ? 'Job offers | Pause AI' : "Offres d'emploi | Pause IA"}
+	title={isEn ? 'Job offers | Pause AI' : 'Offres d’emploi | Pause IA'}
 	description={isEn
 		? 'Pause AI has no open position at the moment. Future offers will be published on this page.'
-		: "Pause IA n'a pas de poste ouvert en ce moment. Les prochaines offres seront publiées sur cette page."}
+		: 'Pause IA n’a pas de poste ouvert en ce moment. Les prochaines offres seront publiées sur cette page.'}
 />
 
 <svelte:head>
@@ -43,7 +43,7 @@
 		<svelte:fragment slot="lede">
 			{isEn
 				? 'Pause AI is not hiring right now. When a position opens, it will be published here.'
-				: "Pause IA ne recrute pas pour l'instant. Dès qu'un poste s'ouvre, il est publié sur cette page."}
+				: 'Pause IA ne recrute pas pour l’instant. Dès qu’un poste s’ouvre, il est publié sur cette page.'}
 		</svelte:fragment>
 	</PageHero>
 
@@ -53,9 +53,9 @@
 				Almost everything Pause AI does is done by volunteers. You do not need to wait for a job
 				advert to take part: the teams take on newcomers all year round, whatever time you can give.
 			{:else}
-				L'essentiel de ce que fait Pause IA repose sur des bénévoles. Vous n'avez pas besoin
-				d'attendre une offre d'emploi pour y prendre part : les équipes accueillent de nouvelles
-				personnes toute l'année, quel que soit le temps que vous pouvez donner.
+				L’essentiel de ce que fait Pause IA repose sur des bénévoles. Vous n’avez pas besoin
+				d’attendre une offre d’emploi pour y prendre part : les équipes accueillent de nouvelles
+				personnes toute l’année, quel que soit le temps que vous pouvez donner.
 			{/if}
 		</p>
 
@@ -71,10 +71,10 @@
 		<p class="note">
 			{#if isEn}
 				Prefer to be told when we next hire? Our newsletter carries it, along with the rest of the
-				association's news.
+				association’s news.
 			{:else}
-				Vous préférez être prévenu de notre prochain recrutement ? Notre newsletter l'annonce, avec
-				le reste de l'actualité de l'association.
+				Vous préférez être prévenu de notre prochain recrutement ? Notre newsletter l’annonce, avec
+				le reste de l’actualité de l’association.
 			{/if}
 			<a href="{prefix}/newsletters">{isEn ? 'See the newsletter' : 'Voir la newsletter'}</a>.
 		</p>

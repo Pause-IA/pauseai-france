@@ -330,22 +330,6 @@
 			year: 'numeric'
 		})
 	}
-
-	function scrollToCard(id: string) {
-		const el = document.getElementById(`pr-${id}`)
-		if (el) {
-			el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-		}
-	}
-
-	function onMobileSelect(event: Event) {
-		const select = event.target as HTMLSelectElement
-		const id = select.value
-		if (id) {
-			scrollToCard(id)
-			select.value = ''
-		}
-	}
 </script>
 
 <svelte:head>
@@ -431,50 +415,7 @@
 
 		<!-- ===== NATIONAL TAB ===== -->
 		{#if activeTab === 'national'}
-			<!-- Mobile: dropdown navigation -->
-			<div class="mobile-nav">
-				<label class="mobile-nav-label" for="mobile-select-national">{t.presse.quick_access}</label>
-				<select id="mobile-select-national" class="mobile-select" on:change={onMobileSelect}>
-					<option value="" disabled selected>{t.presse.mobile_choose}</option>
-					{#each paginatedReleases as pr (pr.id)}
-						<option value={pr.id}>
-							{pr.title} ({formatDateShort(pr.date)})
-						</option>
-					{/each}
-				</select>
-			</div>
-
-			<div class="press-layout">
-				<!-- Desktop: sidebar navigation -->
-				<nav class="press-sidebar">
-					<h3 class="sidebar-title">{t.presse.quick_access}</h3>
-					<ul class="sidebar-list">
-						{#each paginatedReleases as pr (pr.id)}
-							<li>
-								<button
-									class="sidebar-item"
-									on:click={() => {
-										scrollToCard(pr.id)
-									}}
-								>
-									<span class="sidebar-item-title">{pr.title}</span>
-									{#if pr.date}
-										<time class="sidebar-item-date" datetime={pr.date}
-											>{formatDateShort(pr.date)}</time
-										>
-									{/if}
-								</button>
-							</li>
-						{/each}
-					</ul>
-					{#if totalPages > 1}
-						<div class="sidebar-page-info">
-							{t.presse.page}
-							{currentPage} / {totalPages}
-						</div>
-					{/if}
-				</nav>
-
+			<div>
 				<!-- Press releases list -->
 				<div class="press-releases-list">
 					{#each paginatedReleases as pr (pr.id)}
@@ -619,51 +560,7 @@
 					</p>
 				</div>
 			{:else}
-				<!-- Mobile: dropdown navigation -->
-				<div class="mobile-nav">
-					<label class="mobile-nav-label" for="mobile-select-local">{t.presse.quick_access}</label>
-					<select id="mobile-select-local" class="mobile-select" on:change={onMobileSelect}>
-						<option value="" disabled selected>{t.presse.mobile_choose}</option>
-						{#each paginatedLocalReleases as pr (pr.id)}
-							<option value={pr.id}>
-								[{pr.department}] {pr.title} ({formatDateShort(pr.date)})
-							</option>
-						{/each}
-					</select>
-				</div>
-
-				<div class="press-layout">
-					<!-- Desktop: sidebar navigation -->
-					<nav class="press-sidebar">
-						<h3 class="sidebar-title">{t.presse.quick_access}</h3>
-						<ul class="sidebar-list">
-							{#each paginatedLocalReleases as pr (pr.id)}
-								<li>
-									<button
-										class="sidebar-item"
-										on:click={() => {
-											scrollToCard(pr.id)
-										}}
-									>
-										<span class="sidebar-item-dept">{getDeptLabel(pr.department)}</span>
-										<span class="sidebar-item-title">{pr.title}</span>
-										{#if pr.date}
-											<time class="sidebar-item-date" datetime={pr.date}
-												>{formatDateShort(pr.date)}</time
-											>
-										{/if}
-									</button>
-								</li>
-							{/each}
-						</ul>
-						{#if localTotalPages > 1}
-							<div class="sidebar-page-info">
-								{t.presse.page}
-								{localCurrentPage} / {localTotalPages}
-							</div>
-						{/if}
-					</nav>
-
+				<div>
 					<!-- Local press releases list -->
 					<div class="press-releases-list">
 						{#each paginatedLocalReleases as pr (pr.id)}
@@ -1116,142 +1013,12 @@
 	}
 
 	/* Sidebar department label */
-	.sidebar-item-dept {
-		font-size: 0.7rem;
-		font-weight: 700;
-		color: var(--brand-subtle);
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-	}
 
 	/* Mobile dropdown nav - hidden on desktop */
-	.mobile-nav {
-		display: none;
-		margin-bottom: 1.5rem;
-		background-color: var(--bg-subtle);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-md);
-		padding: 0.75rem 1rem;
-	}
-
-	.mobile-nav-label {
-		display: block;
-		font-size: 0.75rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
-		margin-bottom: 0.5rem;
-	}
-
-	.mobile-select {
-		width: 100%;
-		padding: 0.625rem 2.5rem 0.625rem 0.75rem;
-		font-size: 0.875rem;
-		font-family: var(--font-body);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-sm);
-		background-color: var(--bg-card);
-		color: var(--text);
-		appearance: none;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23676e7a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-		background-repeat: no-repeat;
-		background-position: right 0.625rem center;
-		cursor: pointer;
-		line-height: 1.4;
-	}
-
-	.mobile-select:focus {
-		outline: 2px solid var(--brand);
-		outline-offset: 2px;
-	}
 
 	/* Layout with sidebar */
-	.press-layout {
-		display: flex;
-		gap: 2rem;
-		align-items: flex-start;
-	}
 
 	/* Sidebar - hidden on mobile */
-	.press-sidebar {
-		position: sticky;
-		top: 1rem;
-		flex-shrink: 0;
-		width: 16rem;
-		max-height: calc(100vh - 2rem);
-		overflow-y: auto;
-		background-color: var(--bg-subtle);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-md);
-		padding: 1.25rem;
-	}
-
-	.sidebar-title {
-		margin: 0 0 0.75rem;
-		font-size: 0.85rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
-	}
-
-	.sidebar-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-	}
-
-	.sidebar-list li {
-		padding: 0;
-		margin: 0;
-	}
-
-	.sidebar-item {
-		display: flex;
-		flex-direction: column;
-		gap: 0.125rem;
-		width: 100%;
-		padding: 0.5rem 0.625rem;
-		border: none;
-		background: transparent;
-		border-radius: var(--radius-sm);
-		cursor: pointer;
-		text-align: left;
-		transition: background-color 0.15s ease;
-	}
-
-	.sidebar-item:hover {
-		background-color: rgba(var(--ink-rgb), 0.05);
-	}
-
-	.sidebar-item-title {
-		font-size: 0.8rem;
-		font-weight: 600;
-		color: var(--text);
-		line-height: 1.3;
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-	}
-
-	.sidebar-item-date {
-		font-size: 0.7rem;
-		color: var(--text-secondary);
-	}
-
-	.sidebar-page-info {
-		margin-top: 0.75rem;
-		padding-top: 0.75rem;
-		border-top: 1px solid var(--border);
-		font-size: 0.75rem;
-		color: var(--text-secondary);
-		text-align: center;
-	}
 
 	/* Press releases list */
 	.press-releases-list {
@@ -1606,18 +1373,6 @@
 
 	/* Mobile */
 	@media (max-width: 768px) {
-		.mobile-nav {
-			display: block;
-		}
-
-		.press-layout {
-			flex-direction: column;
-		}
-
-		.press-sidebar {
-			display: none;
-		}
-
 		.tabs {
 			display: flex;
 			width: 100%;

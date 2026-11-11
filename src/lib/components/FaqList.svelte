@@ -49,7 +49,7 @@
 						</span>
 					</summary>
 					<!-- Contenu toujours présent dans le HTML (visible des robots).
-					     Le HTML vient de notre propre Markdown, pas d'une saisie tierce. -->
+					     Le HTML vient de notre propre Markdown, pas d’une saisie tierce. -->
 					<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 					<div class="faq-answer">{@html item.answerHtml}</div>
 				</details>
