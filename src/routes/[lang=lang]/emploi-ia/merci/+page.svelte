@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PostMeta from '$components/PostMeta.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import type { Lang } from '$lib/i18n'
 	import { getT } from '$lib/i18n'
@@ -8,9 +9,7 @@
 	$: t = getT(lang)
 </script>
 
-<svelte:head>
-	<title>{t.emploi_merci.title} | Pause IA</title>
-</svelte:head>
+<PostMeta title={`${t.emploi_merci.title} | Pause IA`} description={t.emploi_merci.p1} />
 
 <article class="thank-you-page">
 	<div class="content">
@@ -46,7 +45,7 @@
 
 <style>
 	.thank-you-page {
-		max-width: 700px;
+		max-inline-size: var(--width-text);
 		margin: 4rem auto;
 		padding: 0 1rem;
 	}

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PostMeta from '$components/PostMeta.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
@@ -177,10 +178,10 @@
 	}
 </script>
 
-<svelte:head>
-	<title>{t.emploi_questionnaire.meta_title}</title>
-	<meta name="description" content={t.emploi_questionnaire.meta_desc} />
-</svelte:head>
+<PostMeta
+	title={t.emploi_questionnaire.meta_title}
+	description={t.emploi_questionnaire.meta_desc}
+/>
 
 <article class="questionnaire-container">
 	<h1>{t.emploi_questionnaire.title}</h1>
@@ -901,7 +902,7 @@
 
 <style>
 	.questionnaire-container {
-		max-width: 800px;
+		max-inline-size: var(--width-content);
 		margin: 2rem auto;
 		padding: 0 1rem;
 	}

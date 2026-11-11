@@ -42,7 +42,7 @@
 
 <style>
 	.container {
-		max-width: 800px;
+		max-inline-size: var(--width-content);
 		margin: 0 auto;
 		padding: 2rem;
 	}

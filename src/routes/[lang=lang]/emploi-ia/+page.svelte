@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PostMeta from '$components/PostMeta.svelte'
 	import { onMount } from 'svelte'
 	import EmploiForm from '$components/EmploiForm.svelte'
 	import TestimonialSlideshow from '$components/TestimonialSlideshow.svelte'
@@ -123,21 +124,11 @@
 	})
 </script>
 
-<svelte:head>
-	<title>{t.emploi_ia.meta_title}</title>
-	<meta name="description" content={t.emploi_ia.meta_desc} />
-	<meta name="keywords" content={t.emploi_ia.keywords} />
-	<meta name="robots" content="index, follow" />
-	<meta property="og:title" content={t.emploi_ia.meta_title} />
-	<meta property="og:description" content={t.emploi_ia.meta_desc} />
-	<meta property="og:image" content="https://pauseia.fr/emploi-ia/emploi-IA.png" />
-	<meta property="og:url" content="https://pauseia.fr/emploi-ia" />
-	<meta property="og:type" content="website" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={t.emploi_ia.meta_title} />
-	<meta name="twitter:description" content={t.emploi_ia.meta_desc} />
-	<meta name="twitter:image" content="https://pauseia.fr/emploi-ia/emploi-IA.png" />
-</svelte:head>
+<PostMeta
+	title={t.emploi_ia.meta_title}
+	description={t.emploi_ia.meta_desc}
+	image="/emploi-ia/emploi-IA.png"
+/>
 
 <article>
 	<hgroup>
