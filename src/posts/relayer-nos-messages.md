@@ -31,16 +31,16 @@ puis activez « partager ces mises à jour avec votre réseau ».</p>
 <h2 id="pause-action">Recevez une action par semaine</h2>
 
 Une action concrète, expliquée en trois lignes, faisable en quelques minutes.
-Ces dernières semaines, le groupe a reçu :
+Par exemple :
 
 <ul class="exemples">
-  <li><strong>Inviter une personne à la marche du 14 novembre</strong> : contacter
-  un proche en Île-de-France, avec un modèle de message à reprendre. 5 minutes.</li>
-  <li><strong>Donner de la visibilité à notre tribune dans <i>Le Monde</i></strong> :
-  aimer, commenter et partager la publication sur un réseau. 3 minutes.</li>
-  <li><strong>Écrire au courrier des lecteurs du <i>Monde</i></strong> après une
-  interview affirmant que l’IA « se contrôle » sans contrepoint scientifique,
-  avec des conseils de rédaction et un exemple. 10 minutes.</li>
+  <li><strong>Inviter un proche à une mobilisation</strong>, avec un modèle de
+  message à reprendre. 5 minutes.</li>
+  <li><strong>Relayer une tribune parue dans la presse</strong> : aimer,
+  commenter et partager la publication sur un réseau. 3 minutes.</li>
+  <li><strong>Écrire au courrier des lecteurs d’un journal</strong> après un
+  article qui minimise les risques, avec des conseils de rédaction et un
+  exemple. 10 minutes.</li>
 </ul>
 
 Vous faites celles qui vous parlent, vous laissez les autres.
@@ -72,7 +72,9 @@ Chaque campagne a sa page : ce que nous demandons, et ce que vous pouvez faire.
 <style>
   /* Trois actions réellement envoyées : la seule question qui retient
      quelqu'un avant de rejoindre le groupe est « concrètement, je reçois
-     quoi ? ». Une promesse n'y répond pas, trois exemples datés oui. */
+     quoi ? ». Une promesse n'y répond pas, trois exemples oui. Ils disent la
+     nature de l'action et son coût en minutes, jamais un événement ni une
+     date : personne ne rouvrira cette page pour la rafraîchir. */
   .exemples {
     margin: 1rem 0 1.25rem;
     padding-left: 1.1rem;

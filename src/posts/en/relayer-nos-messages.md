@@ -29,17 +29,17 @@ on “share these updates with your network”.</p>
 <li>
 <h2 id="pause-action">Get one action a week</h2>
 
-One concrete action, explained in three lines, doable in a few minutes. In
-recent weeks the group was asked to:
+One concrete action, explained in three lines, doable in a few minutes. For
+instance:
 
 <ul class="exemples">
-  <li><strong>Invite one person to the 14 November march</strong>: message someone
-  you know in the Paris area, using a ready-made text. 5 minutes.</li>
-  <li><strong>Boost our op-ed in <i>Le Monde</i></strong>: like, comment and share
-  the post on one network. 3 minutes.</li>
-  <li><strong>Write to <i>Le Monde</i>’s letters page</strong> after an interview
-  claiming AI “can be controlled” with no scientific counterpoint, with drafting
-  advice and a sample letter. 10 minutes.</li>
+  <li><strong>Invite someone you know to a march</strong>, using a ready-made
+  message. 5 minutes.</li>
+  <li><strong>Boost an op-ed published in the press</strong>: like, comment and
+  share the post on one network. 3 minutes.</li>
+  <li><strong>Write to a newspaper’s letters page</strong> after an article that
+  plays down the risks, with drafting advice and a sample letter. 10
+  minutes.</li>
 </ul>
 
 You do the ones that speak to you and skip the rest.
@@ -71,7 +71,9 @@ or <a href="/{lang}/agir">see all the ways to act</a>.</p>
 <style>
   /* Trois actions réellement envoyées : la seule question qui retient
      quelqu'un avant de rejoindre le groupe est « concrètement, je reçois
-     quoi ? ». Une promesse n'y répond pas, trois exemples datés oui. */
+     quoi ? ». Une promesse n'y répond pas, trois exemples oui. Ils disent la
+     nature de l'action et son coût en minutes, jamais un événement ni une
+     date : personne ne rouvrira cette page pour la rafraîchir. */
   .exemples {
     margin: 1rem 0 1.25rem;
     padding-left: 1.1rem;
