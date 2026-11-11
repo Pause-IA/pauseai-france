@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types'
 	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
+	import { Page } from '$components/ui'
 
 	import { title as siteName } from '$config'
 
@@ -13,13 +13,17 @@
 
 <PostMeta title={`${title} | ${siteName}`} {description} {date} {image} />
 
-<hgroup>
-	<UnderlinedTitle as="h1">{title}</UnderlinedTitle>
-	{#if date}
-		<!-- <p>Published at {formatDate(date)}</p> -->
-	{/if}
-</hgroup>
-
-<div>
-	<svelte:component this={content} />
-</div>
+<!-- Modèle « note » : un article des dangers est un texte long, comme les
+     pages Markdown de la rubrique. Il avait jusqu'ici son titre souligné et
+     aucune largeur de lecture : la ligne courait sur toute la page. -->
+<Page
+	{title}
+	eyebrow={data.lang === 'en' ? 'Understand' : 'Comprendre'}
+	width="text"
+	variant="note"
+	as="article"
+>
+	<div class="prose">
+		<svelte:component this={content} />
+	</div>
+</Page>
