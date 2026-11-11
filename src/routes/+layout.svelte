@@ -44,13 +44,6 @@
 	import '../app.css'
 
 	$: lang = ($page.data.lang as Lang | undefined) ?? 'fr'
-	// Fond neutre : l'accueil, et l'espace décideurs, dont les cartes et les
-	// portraits ont besoin d'un fond qui ne les teinte pas.
-	$: bgWhite =
-		$page.url.pathname == '/' ||
-		$page.url.pathname === `/${lang}` ||
-		$page.url.pathname === `/${lang}/` ||
-		$page.url.pathname.endsWith('/ressources-decideurs')
 
 	// Fetch banner from Notion API on all pages
 	onMount(async () => {
@@ -97,7 +90,7 @@
      avant le <h1> de chaque page et cassait la hiérarchie des titres. -->
 <span id="top" style="position: absolute; width: 0; height: 0; overflow: hidden;"></span>
 
-<div class="layout" class:bgWhite>
+<div class="layout">
 	<Header {lang} />
 
 	{#key $page.url.pathname}
@@ -147,10 +140,11 @@
 		grid-auto-columns: 100%;
 		/* margin-inline: auto; */
 		/* padding: 1rem; */
-		background-color: var(--bg-subtle);
-	}
-
-	.layout.bgWhite {
+		/* Fond blanc sur tout le site. Le crème (--bg-subtle) était le fond de
+		   page partout sauf l'accueil : il teintait les cartes, les portraits
+		   et les captures, et obligeait --bg-card à être un blanc cassé chaud
+		   pour ne pas jurer. Il devient une teinte de mise en avant, posée
+		   là où on la veut, et non le fond par défaut. */
 		background-color: var(--bg);
 	}
 
