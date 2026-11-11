@@ -811,19 +811,30 @@
 			     « qu'est-ce que vous allez envoyer, et à qui ». -->
 			<ol class="parcours">
 				{#if isEn}
-					<li>You enter your postal code; we find your MPs and senators.</li>
-					<li>You pick a message and edit it as you wish.</li>
 					<li>
-						It opens in your own mail app. <strong>You send it, from your address</strong> : nothing leaves
-						this page.
+						<strong>Enter your postal code</strong><span>We find your MPs and senators.</span>
+					</li>
+					<li>
+						<strong>Review your message</strong><span>We draft it, you edit it as you wish.</span>
+					</li>
+					<li>
+						<strong>Send it</strong><span>From your own mailbox. Nothing leaves this page.</span>
 					</li>
 				{:else}
-					<li>Vous entrez votre code postal, nous trouvons vos députés et vos sénateurs.</li>
-					<li>Vous choisissez un message et vous le modifiez comme vous voulez.</li>
 					<li>
-						Il s'ouvre dans votre messagerie. <strong
-							>C'est vous qui l'envoyez, depuis votre adresse</strong
-						> : rien ne part de cette page.
+						<strong>Entrez votre code postal</strong><span
+							>Nous trouvons vos députés et vos sénateurs.</span
+						>
+					</li>
+					<li>
+						<strong>Relisez votre message</strong><span
+							>Nous le rédigeons, vous le modifiez comme vous voulez.</span
+						>
+					</li>
+					<li>
+						<strong>Envoyez-le</strong><span
+							>Depuis votre messagerie. Rien ne part de cette page.</span
+						>
 					</li>
 				{/if}
 			</ol>
@@ -913,12 +924,11 @@
 
 			<p class="user-hint">
 				{#if isEn}
-					Your name and town sign the message: an elected official reads a letter from their own
-					constituency differently. Both stay on your device and are never sent to us.
+					They sign the message: a lawmaker reads a letter from their own constituency differently.
+					Both stay on your device.
 				{:else}
-					Votre nom et votre ville servent à signer le message : un élu ne lit pas de la même façon
-					une lettre venue de sa circonscription. Ces deux informations restent sur votre appareil
-					et ne nous sont jamais envoyées.
+					Ils signent le message : un élu lit autrement une lettre de sa circonscription. Les deux
+					restent sur votre appareil.
 				{/if}
 			</p>
 
@@ -1744,20 +1754,48 @@
 	/* Champs nom / commune */
 	/* Le parcours, avant le premier champ. Numéroté, parce que c'est une suite
 	   d'étapes et non une liste d'arguments. */
+	/* Trois colonnes côte à côte sur grand écran : c'est une bande
+	   d'explication, pas une liste à puces. Un filet de marque en tête de
+	   chaque étape, et le numéro porté par un compteur CSS. */
 	.parcours {
-		max-inline-size: var(--width-text);
-		margin: 0 auto 2rem;
-		padding-left: 1.3rem;
-		color: var(--text-2);
-		line-height: 1.65;
+		list-style: none;
+		counter-reset: etape;
+		display: grid;
+		gap: 1.1rem 2rem;
+		margin: 0 0 2.25rem;
+		padding: 0;
+	}
+
+	@media (min-width: 48rem) {
+		.parcours {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
 	}
 
 	.parcours li {
-		margin-block: 0.35rem;
+		counter-increment: etape;
+		margin: 0;
+		padding-top: 0.7rem;
+		border-top: 2px solid var(--brand);
 	}
 
 	.parcours strong {
+		display: block;
 		color: var(--text);
+		line-height: 1.3;
+	}
+
+	.parcours strong::before {
+		content: counter(etape) '. ';
+		color: var(--brand-subtle);
+	}
+
+	.parcours span {
+		display: block;
+		margin-top: 0.2rem;
+		font-size: 0.92rem;
+		line-height: 1.5;
+		color: var(--text-2);
 	}
 
 	.user-hint {
