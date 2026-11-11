@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PostMeta from '$components/PostMeta.svelte'
 	import type { SubscribeResponse } from '$lib/types'
 	import Button from '$lib/components/Button.svelte'
 	import type { PageData } from './$types'
@@ -72,23 +73,16 @@
 			isSubmitting = false
 		}
 	}
+
+	$: title = isEn
+		? 'Senate Colloquium · Report & Recommendations | Pause AI'
+		: 'Colloque Sénat · Compte-rendu & recommandations | Pause IA'
+	$: description = isEn
+		? 'Report from the Senate colloquium on October 31, 2025: key points, executive summary and recommendations for controlling artificial intelligence.'
+		: 'Compte-rendu du colloque au Sénat du 31 octobre 2025 : points clés, résumé exécutif et recommandations pour maîtriser l’intelligence artificielle.'
 </script>
 
-<svelte:head>
-	{#if isEn}
-		<meta
-			name="description"
-			content="Report from the Senate colloquium on October 31, 2025: key points, executive summary and recommendations for controlling artificial intelligence."
-		/>
-		<title>Senate Colloquium · Report & Recommendations | Pause AI</title>
-	{:else}
-		<meta
-			name="description"
-			content="Compte-rendu du colloque au Sénat du 31 octobre 2025 : points clés, résumé exécutif et recommandations pour maîtriser l'intelligence artificielle."
-		/>
-		<title>Colloque Sénat · Compte-rendu & recommandations | Pause IA</title>
-	{/if}
-</svelte:head>
+<PostMeta {title} {description} />
 
 <section class="wrap">
 	<!-- Hero Section -->
@@ -531,7 +525,8 @@
 
 <style>
 	.wrap {
-		max-width: 960px;
+		/* Jeton de la charte plutôt qu'une neuvième valeur en dur. */
+		max-inline-size: var(--width-wide);
 		margin: 0 auto;
 		padding: 1.5rem 1rem 3rem;
 	}
