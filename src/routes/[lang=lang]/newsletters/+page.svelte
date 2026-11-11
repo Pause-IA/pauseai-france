@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
-	import { Page } from '$components/ui'
+	import { LinkGrid, Page } from '$components/ui'
 	import NewsletterCard from '$components/NewsletterCard.svelte'
 	import Button from '$components/Button.svelte'
 	import { Search, X, Mail, ChevronLeft, ChevronRight, Rss } from 'lucide-svelte'
@@ -310,7 +310,7 @@
 
 			<!-- Newsletter cards -->
 			<div class="newsletter-list">
-				<div class="newsletter-grid">
+				<LinkGrid min="20rem">
 					{#each paginatedNewsletters as newsletter (newsletter.id)}
 						<div id="nl-{newsletter.id}">
 							<NewsletterCard
@@ -323,7 +323,7 @@
 							/>
 						</div>
 					{/each}
-				</div>
+				</LinkGrid>
 
 				{#if totalPages > 1}
 					<nav class="pagination" aria-label={t.newsletters.pagination_label}>
@@ -716,13 +716,6 @@
 		min-width: 0;
 	}
 
-	/* Newsletter grid */
-	.newsletter-grid {
-		display: grid;
-		gap: 1.5rem;
-		grid-template-columns: 1fr;
-	}
-
 	/* Empty state */
 	.empty-state {
 		text-align: center;
@@ -796,18 +789,10 @@
 	}
 
 	@media (min-width: 640px) {
-		.newsletter-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-
 		.search-bar {
 			margin-bottom: 2.5rem;
 		}
 	}
 
-	@media (min-width: 1024px) {
-		.newsletter-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
+	@media (min-width: 1024px) {	}
 </style>
