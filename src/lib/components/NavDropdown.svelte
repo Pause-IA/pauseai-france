@@ -130,15 +130,17 @@
 		white-space: nowrap;
 	}
 
+	/* Rappel d'orange plutôt qu'un lavis gris : le survol d'une catégorie du
+	   menu était un gris à 5 %, que rien ne rattachait à la marque. */
 	.trigger:hover,
 	.trigger.active {
-		background: rgba(var(--ink-rgb), 0.05);
+		background: rgba(var(--brand-rgb), 0.14);
 		color: var(--text);
 	}
 
 	:global([data-theme='dark']) .trigger:hover,
 	:global([data-theme='dark']) .trigger.active {
-		background: rgba(var(--on-dark-rgb), 0.07);
+		background: rgba(var(--brand-rgb), 0.22);
 	}
 
 	.trigger {

@@ -133,6 +133,23 @@ export function applyQuoteReplacementRule(text) {
 
 	return result
 }
+/**
+ * Remplace l'apostrophe droite par l'apostrophe typographique.
+ *
+ * Elle n'est jamais correcte en français : la droite est un caractère de
+ * machine à écrire, hérité du code. Les deux cohabitaient sur le site, parfois
+ * dans la même phrase, selon ce que l'auteur avait tapé.
+ *
+ * La règle ne s'applique qu'entre deux lettres, donc jamais à une apostrophe
+ * isolée ni à un délimiteur. Elle ne voit de toute façon que les nœuds de
+ * texte du Markdown : le code, les URL et les attributs lui échappent.
+ *
+ * @param {string} text
+ * @returns {string}
+ */
+export function applyApostropheRule(text) {
+	return text.replace(/([A-Za-zÀ-ÖØ-öø-ÿ])'([A-Za-zÀ-ÖØ-öø-ÿ])/g, '$1\u2019$2')
+}
 
 /**
  * Applies French typography rules to the given text
@@ -153,9 +170,36 @@ export function applyTypographyRules(text) {
 	result = applyFrenchQuotesRule(result)
 	// Replace English quotes with French quotes
 	result = applyQuoteReplacementRule(result)
+	// Apostrophe typographique
+	result = applyApostropheRule(result)
 
 	return result
 }
+/**
+ * Applique l'apostrophe typographique à un bloc HTML brut, en ne touchant
+ * qu'au texte : jamais à l'intérieur d'une balise, donc jamais à un attribut.
+ *
+ * Les pages Markdown du site contiennent des blocs HTML — cartes, accordéons,
+ * encadrés — dont le texte échappait aux règles, puisque le visiteur remark ne
+ * voit que les nœuds « text ». Et une adresse peut contenir une apostrophe :
+ * /fr/dangers/pour-l'humanite.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function applyApostropheRuleToHtml(html) {
+	let out = ''
+	let reste = html
+	for (;;) {
+		const i = reste.indexOf('<')
+		if (i === -1) return out + applyApostropheRule(reste)
+		const j = reste.indexOf('>', i)
+		if (j === -1) return out + applyApostropheRule(reste)
+		out += applyApostropheRule(reste.slice(0, i)) + reste.slice(i, j + 1)
+		reste = reste.slice(j + 1)
+	}
+}
+
 /** @typedef {[string, {originalContent: string, newContent: string}]} FileChangeEntry */
 /** @typedef {Map<string, {originalContent: string, newContent: string}>} FileChanges */
 /** @typedef {import('mdast').Text} TextNode */
@@ -178,6 +222,19 @@ export function remarkFrenchTypography() {
 			originalContent += originalText + '\n'
 			newContent += applyTypographyRules(node.value) + '\n'
 			node.value = applyTypographyRules(node.value)
+		})
+
+		// Blocs HTML bruts : seule l'apostrophe y est traitée, et seulement
+		// hors des balises. Y appliquer les règles d'espacement risquerait de
+		// toucher aux attributs.
+		visit(tree, 'html', (/** @type {{ value: string }} */ node) => {
+			const avant = node.value
+			const apres = applyApostropheRuleToHtml(avant)
+			if (avant !== apres) {
+				originalContent += avant + '\n'
+				newContent += apres + '\n'
+				node.value = apres
+			}
 		})
 
 		if (originalContent !== newContent) {

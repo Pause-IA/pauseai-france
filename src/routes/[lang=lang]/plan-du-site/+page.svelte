@@ -30,8 +30,8 @@
 		<h1>Plan du site</h1>
 		<span class="filet" aria-hidden="true"></span>
 		<p class="lede">
-			L'arborescence réelle, régénérée à chaque déploiement depuis les routes, le menu et le pied de
-			page. Cette page n'est ni dans le menu, ni dans le sitemap, ni indexée.
+			L’arborescence réelle, régénérée à chaque déploiement depuis les routes, le menu et le pied de
+			page. Cette page n’est ni dans le menu, ni dans le sitemap, ni indexée.
 		</p>
 		<p class="meta">
 			{plan.total.pages} pages · {plan.total.dynamiques} gabarits dynamiques · {plan.total.articles}
@@ -75,8 +75,8 @@
 	<section class="bloc">
 		<h2>Pages hors menu</h2>
 		<p class="intro">
-			En ligne, mais qu'aucun menu ni pied de page n'atteint. Certaines sont normales (pages
-			d'atterrissage de campagne, confirmations, remerciements) ; les autres méritent une entrée ou
+			En ligne, mais qu’aucun menu ni pied de page n’atteint. Certaines sont normales (pages
+			d’atterrissage de campagne, confirmations, remerciements) ; les autres méritent une entrée ou
 			un retrait.
 		</p>
 		<ul class="orphelines">

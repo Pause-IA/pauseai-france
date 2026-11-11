@@ -28,7 +28,13 @@
 		position: relative;
 	}
 
-	/* Full-width gradient line fading left-to-right */
+	/* Filet dégradé, de l'orange plein vers le transparent.
+
+	   Il partait à 0 % et s'éteignait à 75 % : sur la plus grande partie de
+	   sa longueur, l'orange était déjà très dilué, et le trait paraissait
+	   délavé — le « désaturé » signalé à la relecture. Il garde maintenant
+	   l'orange plein sur son premier tiers avant de s'éteindre, donc la même
+	   idée de fondu mais une attaque franche. */
 	h1::after,
 	h2::after {
 		content: '';
@@ -37,7 +43,12 @@
 		left: 0;
 		right: 0;
 		height: 4px;
-		background: linear-gradient(to right, var(--underline-color, var(--brand)) 0%, transparent 75%);
+		background: linear-gradient(
+			to right,
+			var(--underline-color, var(--brand)) 0%,
+			var(--underline-color, var(--brand)) 32%,
+			transparent 85%
+		);
 		border-radius: 2px;
 	}
 
