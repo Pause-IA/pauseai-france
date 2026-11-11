@@ -46,6 +46,11 @@ const MANIFESTE = join(RACINE, 'src/lib/data/photos-equipe.json')
 const COTE = 320
 const QUALITE = 82
 
+// --build : lancé pendant `pnpm build`, pour que les photos se mettent à jour
+// toutes seules à chaque déploiement. Dans ce mode le script ne fait jamais
+// échouer le build : les photos versionnées dans le dépôt servent de repli.
+const BUILD = process.argv.includes('--build')
+
 const CLE = process.env.NOTION_API_KEY
 const BASE = process.env.NOTION_TEAM_DATABASE_ID
 
@@ -136,7 +141,7 @@ async function main() {
 			'NOTION_API_KEY ou NOTION_TEAM_DATABASE_ID manquant. Les photos déjà versionnées\n' +
 				'restent en place : le site ne dépend pas de ce script pour fonctionner.'
 		)
-		process.exitCode = 1
+		if (!BUILD) process.exitCode = 1
 		return
 	}
 
@@ -149,7 +154,17 @@ async function main() {
 	let telecharges = 0
 	let conserves = 0
 
-	for (const page of await fiches()) {
+	const pages = await fiches()
+
+	// Une base vide est forcément anormale : l'équipe compte toujours quelqu'un.
+	// Plutôt qu'un site sans aucune photo, on garde ce qui est versionné.
+	if (pages.length === 0) {
+		console.error('Notion ne renvoie aucune fiche : les photos versionnées sont conservées.')
+		if (!BUILD) process.exitCode = 1
+		return
+	}
+
+	for (const page of pages) {
 		if (page.properties?.Visible?.checkbox === false) continue
 		const nom = texte(page.properties?.Nom)
 		const url = urlPhoto(page.properties?.Photo)
@@ -196,8 +211,8 @@ async function main() {
 
 	await writeFile(MANIFESTE, JSON.stringify(nouveau, null, '\t') + '\n')
 	console.log(
-		`\n${telecharges} photo(s) mise(s) à jour, ${conserves} inchangée(s).\n` +
-			'Pensez à versionner static/equipe/ et src/lib/data/photos-equipe.json.'
+		`\n${telecharges} photo(s) mise(s) à jour, ${conserves} inchangée(s).` +
+			(BUILD ? '' : '\nPensez à versionner static/equipe/ et src/lib/data/photos-equipe.json.')
 	)
 }
 
@@ -206,6 +221,6 @@ async function main() {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
 	main().catch((e) => {
 		console.error('Échec :', e.message)
-		process.exitCode = 1
+		if (!BUILD) process.exitCode = 1
 	})
 }

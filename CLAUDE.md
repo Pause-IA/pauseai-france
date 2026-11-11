@@ -452,8 +452,12 @@ Copy `template.env` to `.env` and configure:
 - `scripts/plan-du-site.mjs` - Génère `docs/plan-du-site.md` (arborescence réelle,
   menu, pied de page, pages hors menu) : `pnpm run plan-du-site`
 - `scripts/photos-equipe.mjs` - Télécharge, compresse et **versionne** les photos
-  de l'équipe : `pnpm run photos-equipe`. À lancer quand une photo change dans
-  Notion, puis committer `static/equipe/` et `src/lib/data/photos-equipe.json`.
+  de l'équipe. Lancé automatiquement par `pnpm build`, donc **une photo modifiée
+  dans Notion est reprise au déploiement suivant, sans intervention**. En mode
+  build le script n'échoue jamais : si Notion est injoignable, les photos
+  versionnées servent de repli. À lancer à la main (`pnpm run photos-equipe`,
+  puis committer `static/equipe/` et `src/lib/data/photos-equipe.json`) seulement
+  pour rafraîchir le dépôt sans attendre un déploiement.
   Notion ne sert ses fichiers que derrière une URL S3 **signée qui expire au bout
   d'une heure** : utilisée telle quelle, elle casse dès que la page est mise en
   cache et pèse le poids de l'original (plusieurs Mo pour un affichage en 160 px).
