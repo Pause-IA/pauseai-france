@@ -7,14 +7,14 @@
 </script>
 
 <PostMeta
-	title="Convaincre autour de vous"
+	title="Sensibiliser votre entourage"
 	description="Comment parler de Pause IA aux gens que vous connaissez déjà : un guide court à lire sur cette page, et un guide complet pour aller plus loin."
 />
 
 <article class="recruitment-landing">
 	<!-- Hero Section -->
 	<PageHero eyebrow="Agir">
-		Convaincre autour de vous
+		Sensibiliser votre entourage
 		<svelte:fragment slot="lede">
 			Les gens écoutent plus volontiers quelqu'un qu'ils connaissent qu'une affiche ou une
 			publication. En parler à vos proches, vos collègues, vos amis est donc l'une des choses les

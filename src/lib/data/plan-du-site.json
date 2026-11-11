@@ -1,5 +1,5 @@
 {
-	"genere": "2026-11-09",
+	"genere": "2026-11-11",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -45,8 +45,8 @@
 					"externe": false
 				},
 				{
-					"href": "/recrutement",
-					"label": "Convaincre autour de vous",
+					"href": "/sensibiliser-votre-entourage",
+					"label": "Sensibiliser votre entourage",
 					"externe": true
 				},
 				{
@@ -281,12 +281,12 @@
 			"url": "/fr/posts"
 		},
 		{
-			"chemin": "/recrutement",
-			"url": "/recrutement"
-		},
-		{
 			"chemin": "/senat2025",
 			"url": "/fr/senat2025"
+		},
+		{
+			"chemin": "/sensibiliser-votre-entourage",
+			"url": "/sensibiliser-votre-entourage"
 		},
 		{
 			"chemin": "/sommet-ia-2026",

@@ -27,7 +27,7 @@ export default {
 		relayer_messages: 'Share our messages',
 		participer_communication: 'Help with our communication',
 		pres_de_chez_vous: 'Act near you',
-		convaincre: 'Convince those around you',
+		sensibiliser: 'Raise awareness around you',
 		emploi_ia: 'AI will not destroy ONLY your job',
 		g7_2026: 'G7 2026',
 		municipales: 'Municipal 2026',

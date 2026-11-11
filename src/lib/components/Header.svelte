@@ -107,8 +107,8 @@
 				// Réseaux sociaux et Pause Action, sur la même page (pas de sous-menu).
 				{ href: `${prefix}/relayer-nos-messages`, label: t.nav.relayer_messages },
 				{ href: `${prefix}/groupes-locaux`, label: t.nav.pres_de_chez_vous },
-				// /recrutement n'est pas localisée : pas de préfixe de langue.
-				{ href: '/recrutement', label: t.nav.convaincre },
+				// La page n'est pas localisée : pas de préfixe de langue.
+				{ href: '/sensibiliser-votre-entourage', label: t.nav.sensibiliser },
 				// La synthèse de tous les moyens d'agir ferme la liste, comme « Toutes
 				// nos campagnes » ferme celle des campagnes.
 				{ href: `${prefix}/agir`, label: t.nav.toutes_facons_agir }

@@ -29,7 +29,7 @@ export default {
 		relayer_messages: 'Relayer nos messages',
 		participer_communication: 'Participer à notre communication',
 		pres_de_chez_vous: 'Agir près de chez vous',
-		convaincre: 'Convaincre autour de vous',
+		sensibiliser: 'Sensibiliser votre entourage',
 		emploi_ia: 'L’IA ne détruira pas QUE votre emploi',
 		g7_2026: 'G7 2026',
 		municipales: 'Municipales 2026',

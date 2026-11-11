@@ -77,3 +77,9 @@
 /en/emploi-ia/pas-de-pilote               /en/articles/pas-de-pilote               301!
 /fr/emploi-ia/ce-que-lia-fait-au-travail  /fr/articles/ce-que-lia-fait-au-travail  301!
 /en/emploi-ia/ce-que-lia-fait-au-travail  /en/articles/ce-que-lia-fait-au-travail  301!
+
+# « Convaincre autour de vous » devient « Sensibiliser votre entourage »
+# (novembre 2026). L'ancienne adresse parlait de recrutement, ce que la page
+# ne fait pas : elle apprend à parler du sujet à ses proches. Le lien a été
+# partagé, d'où la redirection permanente.
+/recrutement                              /sensibiliser-votre-entourage            301!
