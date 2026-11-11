@@ -118,8 +118,8 @@
 
 			<div class="key-point-card">
 				<p>
-					<strong>La cause profonde : nous déployons des systèmes "boîtes noires"</strong> dont nous ne
-					maîtrisons ni le fonctionnement interne, ni tous les comportements. Les techniques actuelles
+					<strong>La cause profonde : nous déployons des systèmes "boîtes noires"</strong> dont nous
+					ne maîtrisons ni le fonctionnement interne, ni tous les comportements. Les techniques actuelles
 					d'alignement sont insuffisantes et ne fournissent aucune garantie fiable.
 				</p>
 			</div>
@@ -144,8 +144,8 @@
 					autonome des tâches demandant environ 2 heures à un humain</strong
 				>. <strong>Cette durée d'autonomie double tous les 4 à 7 mois.</strong> La progression exponentielle
 				des capacités, au prix d'une croissance phénoménale de la consommation énergétique et des investissements
-				(500 milliards de dollars annoncés par les États-Unis), creuse à une vitesse vertigineuse le fossé
-				entre l'avancée technologique et notre capacité collective à en maîtriser les conséquences.
+				(500 milliards de dollars annoncés par les États-Unis), creuse à une vitesse vertigineuse le
+				fossé entre l'avancée technologique et notre capacité collective à en maîtriser les conséquences.
 			</p>
 
 			<p>
@@ -176,9 +176,9 @@
 
 			<p>
 				<strong>Enfance et développement cognitif.</strong> 64% des enfants de 9 à 17 ans utilisent déjà
-				l'IA. Or, ces systèmes ne sont pas conçus pour des cerveaux en développement. Ils créent des risques
-				de dépendance, d'atrophie cognitive et de manipulation émotionnelle via des "relations parasociales"
-				avec des machines qui simulent l'empathie sans la ressentir.
+				l'IA. Or, ces systèmes ne sont pas conçus pour des cerveaux en développement. Ils créent des
+				risques de dépendance, d'atrophie cognitive et de manipulation émotionnelle via des "relations
+				parasociales" avec des machines qui simulent l'empathie sans la ressentir.
 			</p>
 
 			<p>
@@ -231,8 +231,8 @@
 				</li>
 				<li>
 					<strong>Établir une responsabilité juridique claire</strong> : les développeurs d'IA et les
-					entreprises qui en déploient les applications doivent être tenus responsables des dommages causés.
-					La nature "boîte noire" ne peut être une excuse.
+					entreprises qui en déploient les applications doivent être tenus responsables des dommages
+					causés. La nature "boîte noire" ne peut être une excuse.
 				</li>
 				<li>
 					<strong>Exiger des évaluations de risques obligatoires et indépendantes</strong> avant tout
@@ -251,12 +251,12 @@
 					et l'aéronautique réunis). Défendre et renforcer ce cadre réglementaire est crucial.
 				</li>
 				<li>
-					<strong>Imposer la transparence des algorithmes de recommandation</strong> et explorer des modèles
-					de gouvernance démocratique pour protéger le débat public de la manipulation.
+					<strong>Imposer la transparence des algorithmes de recommandation</strong> et explorer des
+					modèles de gouvernance démocratique pour protéger le débat public de la manipulation.
 				</li>
 				<li>
-					<strong>Porter au niveau international l'établissement de "lignes rouges"</strong> sur les capacités
-					autonomes dangereuses et les usages inacceptables de l'IA.
+					<strong>Porter au niveau international l'établissement de "lignes rouges"</strong> sur les
+					capacités autonomes dangereuses et les usages inacceptables de l'IA.
 				</li>
 			</ol>
 

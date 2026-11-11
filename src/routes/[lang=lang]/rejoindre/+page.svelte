@@ -74,8 +74,8 @@
 			<h2>What is the difference between a member and a volunteer?</h2>
 			<p>
 				A <strong>member</strong> formally supports the association through a membership fee and
-				participates in its governance (AGM). A <strong>volunteer</strong> gives their time to carry out
-				our missions. You can be one, the other, or both!
+				participates in its governance (AGM). A <strong>volunteer</strong> gives their time to carry
+				out our missions. You can be one, the other, or both!
 			</p>
 		</section>
 

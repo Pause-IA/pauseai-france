@@ -158,8 +158,8 @@
 				<div class="key-point-card">
 					<p>
 						<strong>Les capacités de l'IA doublent tous les 4 à 7 mois.</strong> Nos cycles réglementaires
-						restent constants. Cette progression exponentielle crée un fossé croissant entre avancée technologique
-						et capacité collective à la maîtriser.
+						restent constants. Cette progression exponentielle crée un fossé croissant entre avancée
+						technologique et capacité collective à la maîtriser.
 					</p>
 				</div>
 				<div class="key-point-card">
@@ -219,18 +219,18 @@
 				</p>
 
 				<p>
-					<strong>2. Regulation is not a brake on innovation, it is its condition.</strong> Aviation and
-					the pharmaceutical industry demonstrate this: it is a reassuring regulatory framework that builds
-					trust and allows for beneficial deployment of technology. Faced with a frantic race led by a
-					handful of private actors, public authorities must take back control to ensure that AI serves
-					the public interest.
+					<strong>2. Regulation is not a brake on innovation, it is its condition.</strong> Aviation
+					and the pharmaceutical industry demonstrate this: it is a reassuring regulatory framework that
+					builds trust and allows for beneficial deployment of technology. Faced with a frantic race
+					led by a handful of private actors, public authorities must take back control to ensure that
+					AI serves the public interest.
 				</p>
 
 				<h3>The identified dangers are serious and numerous</h3>
 
 				<p>
-					<strong>Childhood and cognitive development.</strong> 64% of children aged 9 to 17 already use
-					AI. Yet these systems were not designed for developing brains. They create risks of addiction,
+					<strong>Childhood and cognitive development.</strong> 64% of children aged 9 to 17 already
+					use AI. Yet these systems were not designed for developing brains. They create risks of addiction,
 					cognitive atrophy and emotional manipulation through "parasocial relationships" with machines
 					that simulate empathy without feeling it.
 				</p>
@@ -246,9 +246,9 @@
 				<p>
 					<strong>Economy and employment.</strong> The automation of cognitive tasks threatens entire
 					swaths of skilled employment. Between 17% and 30% of current work could be automated. Without
-					political anticipation, this shock will lead to massive precariousness and a concentration of
-					economic power in the hands of predominantly non-European technology actors, making any redistribution
-					of wealth nearly impossible.
+					political anticipation, this shock will lead to massive precariousness and a concentration
+					of economic power in the hands of predominantly non-European technology actors, making any
+					redistribution of wealth nearly impossible.
 				</p>
 
 				<p>
@@ -278,8 +278,8 @@
 
 				<ol class="action-list">
 					<li>
-						<strong>Adopt proactive regulation</strong> that legislates for tomorrow's technologies, not
-						yesterday's, anticipating future developments and integrating strict precautionary principles.
+						<strong>Adopt proactive regulation</strong> that legislates for tomorrow's technologies,
+						not yesterday's, anticipating future developments and integrating strict precautionary principles.
 					</li>
 					<li>
 						<strong>Establish clear legal liability</strong>: AI developers and companies that
@@ -287,8 +287,8 @@
 						nature cannot be an excuse.
 					</li>
 					<li>
-						<strong>Require mandatory and independent risk assessments</strong> before any high-risk AI
-						deployment, modeled on aviation or pharmaceuticals.
+						<strong>Require mandatory and independent risk assessments</strong> before any high-risk
+						AI deployment, modeled on aviation or pharmaceuticals.
 					</li>
 					<li>
 						<strong>Massively invest in a French and European AI safety sector</strong>: support
@@ -345,10 +345,10 @@
 					<strong
 						>1. Les risques de l'IA ne relèvent pas de la science-fiction, ils se matérialisent
 						déjà.</strong
-					> Chatbots encourageant des adolescents au suicide, cyberattaques paralysant des hôpitaux, algorithmes
-					de recommandation fragmentant notre réalité commune, utilisation de ressources et concentration
-					du pouvoir économique sans précédent : les impacts concrets touchent tous les pans de notre
-					société. Et ces risques s'amplifient au rythme de la progression des capacités.
+					> Chatbots encourageant des adolescents au suicide, cyberattaques paralysant des hôpitaux,
+					algorithmes de recommandation fragmentant notre réalité commune, utilisation de ressources
+					et concentration du pouvoir économique sans précédent : les impacts concrets touchent tous
+					les pans de notre société. Et ces risques s'amplifient au rythme de la progression des capacités.
 				</p>
 
 				<p>
@@ -413,8 +413,8 @@
 
 				<ol class="action-list">
 					<li>
-						<strong>Adopter une réglementation proactive</strong> qui légifère pour les technologies de
-						demain, pas celles d'hier, en anticipant les évolutions futures et en intégrant des principes
+						<strong>Adopter une réglementation proactive</strong> qui légifère pour les technologies
+						de demain, pas celles d'hier, en anticipant les évolutions futures et en intégrant des principes
 						de précaution stricts.
 					</li>
 					<li>

@@ -208,8 +208,8 @@
 			</li>
 			<li>
 				{#if isEn}
-					That <strong>AI-related safety incidents be reported</strong> to authorities with policing powers,
-					and made public.
+					That <strong>AI-related safety incidents be reported</strong> to authorities with policing
+					powers, and made public.
 				{:else}
 					Que les <strong>incidents de sécurité liés à l’IA soient déclarés</strong> aux autorités ayant
 					pouvoir de police et rendus publics.

@@ -84,7 +84,7 @@ impact), les parties marquées « aléatoire » sont tirées **au hasard par
 visiteur**. Les index de tirage sont posés une fois par action :
 
 ```ts
-;(hookIndex, subjectIndex, focusIndex, balanceIndex, askIndex)
+hookIndex, subjectIndex, focusIndex, balanceIndex, askIndex
 ```
 
 - `focusIndex`, `balanceIndex`, `askIndex` sont de grands entiers aléatoires,

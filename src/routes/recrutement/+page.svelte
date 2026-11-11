@@ -207,9 +207,9 @@
 								membres d'autres assos...
 							</li>
 							<li>
-								<strong>Évaluez rapidement</strong> (5 min) : Pour chacun, notez (1 à 3) la force de votre
-								lien, son influence potentielle, et sa sensibilité supposée à nos sujets. Multipliez ces
-								trois chiffres pour obtenir un score.
+								<strong>Évaluez rapidement</strong> (5 min) : Pour chacun, notez (1 à 3) la force de
+								votre lien, son influence potentielle, et sa sensibilité supposée à nos sujets. Multipliez
+								ces trois chiffres pour obtenir un score.
 							</li>
 							<li>
 								<strong>Priorisez</strong> (2 min) : Ciblez les 3-5 personnes avec le "score" le plus
@@ -232,8 +232,8 @@
 				<h4>ÉTAPE 2 : ENGAGEZ LA CONVERSATION (L'Art d'Écouter pour Connecter)</h4>
 				<ul>
 					<li>
-						<strong>La clé : L'ÉCOUTE AUTHENTIQUE.</strong> Votre objectif est de comprendre, pas de prêcher.
-						Visez 80% d'écoute, 20% de parole.
+						<strong>La clé : L'ÉCOUTE AUTHENTIQUE.</strong> Votre objectif est de comprendre, pas de
+						prêcher. Visez 80% d'écoute, 20% de parole.
 					</li>
 					<li>
 						<strong>Soyez transparent(e) sur votre démarche</strong> dès le début (voir exemples dans

@@ -49,7 +49,7 @@
 	)
 	const PAGE = 30
 	let limit = PAGE
-	$: (country, query, withMessage, (limit = PAGE))
+	$: country, query, withMessage, (limit = PAGE)
 	$: shown = filtered.slice(0, limit)
 </script>
 
