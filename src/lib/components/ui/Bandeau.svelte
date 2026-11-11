@@ -14,9 +14,13 @@
 
 	/** Déborde de la colonne de lecture, pour faire respirer la page. */
 	export let large = false
+	/** Petit filet orange en tête de bloc, comme sur la note aux décideurs :
+	    il rattache l'aplat à la marque au lieu de le laisser flotter. */
+	export let filet = true
 </script>
 
 <aside class="ui-bandeau" class:large>
+	{#if filet}<span class="filet-marque" aria-hidden="true"></span>{/if}
 	<slot />
 </aside>
 
@@ -27,6 +31,21 @@
 		border-radius: 2px;
 		background: var(--surface-sombre, rgb(14, 36, 51));
 		color: var(--on-dark);
+		font-size: clamp(1.0625rem, 0.97rem + 0.42vw, 1.1875rem);
+		line-height: 1.62;
+	}
+
+	.ui-bandeau :global(p) {
+		color: var(--on-dark);
+	}
+
+	.filet-marque {
+		display: block;
+		inline-size: 3rem;
+		block-size: 4px;
+		border-radius: var(--radius-pill);
+		background: var(--brand);
+		margin-bottom: 1.25rem;
 	}
 
 	.large {

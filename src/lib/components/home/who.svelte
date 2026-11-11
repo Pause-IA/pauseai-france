@@ -151,8 +151,10 @@
 	</ul>
 
 	<SectionTitle>{lang === 'en' ? 'The team' : 'L’équipe'}</SectionTitle>
+	<!-- Pas de sous-titre « Direction » : la section s'appelle déjà « L'équipe »
+	     et les fonctions figurent sur chaque fiche. Le sous-titre ne faisait que
+	     répéter, et ajoutait un niveau de titre pour rien. -->
 	<div class="team-section">
-		<h2 class="section-title">{lang === 'en' ? 'Leadership' : 'Direction'}</h2>
 		<div class="cards-grid cards-centered">
 			{#each leadership as leader}
 				<LeadershipCard name={leader.name} role={leader.role} image={leader.image} />
@@ -260,9 +262,18 @@
 		}
 	}
 
+	/* Colonne : le lien est poussé en bas de chaque bloc, sinon il se cale
+	   juste sous un texte de longueur différente et les trois liens partent
+	   en escalier. */
 	.en-bref li {
+		display: flex;
+		flex-direction: column;
 		border-top: 2px solid var(--brand);
 		padding-top: 0.9rem;
+	}
+
+	.en-bref li a {
+		margin-top: auto;
 	}
 
 	.en-bref h3 {
@@ -392,8 +403,9 @@
 	/* Du texte, et non l'encadré crème de l'ancien compteur : c'est une phrase
 	   qui se lit, pas un chiffre à mettre en avant. */
 	.benevoles {
-		max-inline-size: var(--width-text);
-		margin: 0 auto;
+		/* Ni largeur ni centrage : le paragraphe remplit le bandeau, qui porte
+		   déjà sa propre gouttière. Centré, il se décalait du filet orange. */
+		margin: 0;
 		line-height: 1.7;
 		/* Pas de couleur imposée : le paragraphe est posé dans un Bandeau, qui
 		   donne --on-dark. Le gris secondaire l'emportait et retombait à
