@@ -1,4 +1,5 @@
 import { env } from '$env/dynamic/private'
+import photosEquipeBrut from '$lib/data/photos-equipe.json'
 
 const NOTION_API_VERSION = '2022-06-28'
 
@@ -816,6 +817,10 @@ export async function getLocalEvents(): Promise<LocalEvent[]> {
 }
 
 // Team members
+/** Photos d'équipe versionnées, indexées par identifiant de page Notion.
+    Produit par scripts/photos-equipe.mjs. Vide tant qu'il n'a pas tourné. */
+const photosEquipe = photosEquipeBrut as Record<string, { nom: string; fichier: string }>
+
 export type TeamCategory = 'Direction' | 'Conseil scientifique' | 'Membre'
 
 const TEAM_CATEGORIES: TeamCategory[] = ['Direction', 'Conseil scientifique', 'Membre']
@@ -862,7 +867,13 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
 				role: getText(page.properties['Rôle']),
 				profession: getText(page.properties.Profession),
 				category: toTeamCategory(categoryValue),
-				image: getFileUrl(page.properties.Photo),
+				// La photo versionnée l'emporte sur l'URL Notion. Celle-ci est une
+				// adresse S3 SIGNÉE qui expire au bout d'une heure : servie telle
+				// quelle, elle casse dès que la page est mise en cache, et pèse le
+				// poids du fichier d'origine. scripts/photos-equipe.mjs télécharge,
+				// compresse et versionne ; on retombe sur Notion si la photo n'a
+				// pas encore été passée par le script.
+				image: photosEquipe[page.id]?.fichier ?? getFileUrl(page.properties.Photo),
 				order: getNumber(page.properties.Ordre),
 				visible
 			}

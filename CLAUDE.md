@@ -451,6 +451,15 @@ Copy `template.env` to `.env` and configure:
 - `src/lib/routes.ts` - Static route enumeration for sitemaps
 - `scripts/plan-du-site.mjs` - Génère `docs/plan-du-site.md` (arborescence réelle,
   menu, pied de page, pages hors menu) : `pnpm run plan-du-site`
+- `scripts/photos-equipe.mjs` - Télécharge, compresse et **versionne** les photos
+  de l'équipe : `pnpm run photos-equipe`. À lancer quand une photo change dans
+  Notion, puis committer `static/equipe/` et `src/lib/data/photos-equipe.json`.
+  Notion ne sert ses fichiers que derrière une URL S3 **signée qui expire au bout
+  d'une heure** : utilisée telle quelle, elle casse dès que la page est mise en
+  cache et pèse le poids de l'original (plusieurs Mo pour un affichage en 160 px).
+  Le script redimensionne en WebP 320×320 et ne retélécharge que ce qui a changé,
+  la clé de comparaison étant le chemin S3 hors signature. `getTeamMembers()`
+  préfère la photo versionnée et retombe sur l'URL Notion à défaut.
 - `src/lib/typographyPlugin.js` - French typography transformation (remark + Vite plugin)
 - `src/lib/faqPlugin.js` - FAQ accordion transformation
 - `src/lib/rehypeWBWPlugins.js` - Wait But Why popup and box plugins
