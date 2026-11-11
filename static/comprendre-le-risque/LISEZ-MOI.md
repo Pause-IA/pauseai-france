@@ -22,7 +22,7 @@ Sur chaque page de fichier, les champs « Auteur » et « Licence ». Ou, en une
 seule requête, l'API de Commons :
 
 ```
-curl -s 'https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=extmetadata&titles=File:Geoffrey%20E.%20Hinton,%202024%20Nobel%20Prize%20Laureate%20in%20Physics%20(cropped1).jpg|File:Yoshua%20Bengio%202019%20cropped.jpg|File:Demis%20Hassabis,%202024%20Nobel%20Prize%20Laureate%20in%20Chemistry%20(cropped).jpg|File:Sam%20Altman%20CropEdit%20James%20Tamim.jpg|File:Dario%20Amodei%20at%20TechCrunch%20Disrupt%202023%2002%20(cropped).jpg|File:Bill%20Gates%20-%202023%20-%20P062021-203496%20(cropped).jpg|File:Stuart%20Russell.jpg|File:Max%20Tegmark%202024%20(cropped).jpg' \
+curl -s 'https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=extmetadata&titles=File:Geoffrey%20E.%20Hinton,%202024%20Nobel%20Prize%20Laureate%20in%20Physics%20(cropped1).jpg|File:Yoshua%20Bengio%202019%20cropped.jpg|File:Demis%20Hassabis,%202024%20Nobel%20Prize%20Laureate%20in%20Chemistry%20(cropped).jpg|File:Sam%20Altman%20CropEdit%20James%20Tamim.jpg|File:Dario%20Amodei%20at%20TechCrunch%20Disrupt%202023%2002%20(cropped).jpg|File:Stuart%20Russell.jpg|File:Max%20Tegmark%202024%20(cropped).jpg' \
   | python3 -c "import json,sys,re
 for p in json.load(sys.stdin)['query']['pages'].values():
     m = p['imageinfo'][0]['extmetadata']
@@ -37,6 +37,5 @@ for p in json.load(sys.stdin)['query']['pages'].values():
 | `demis-hassabis.jpg`  | https://commons.wikimedia.org/wiki/File:Demis_Hassabis,_2024_Nobel_Prize_Laureate_in_Chemistry_(cropped).jpg    |
 | `sam-altman.jpg`      | https://commons.wikimedia.org/wiki/File:Sam_Altman_CropEdit_James_Tamim.jpg                                     |
 | `dario-amodei.jpg`    | https://commons.wikimedia.org/wiki/File:Dario_Amodei_at_TechCrunch_Disrupt_2023_02_(cropped).jpg                |
-| `bill-gates.jpg`      | https://commons.wikimedia.org/wiki/File:Bill_Gates_-_2023_-_P062021-203496_(cropped).jpg                        |
 | `stuart-russell.jpg`  | https://commons.wikimedia.org/wiki/File:Stuart_Russell.jpg                                                      |
 | `max-tegmark.jpg`     | https://commons.wikimedia.org/wiki/File:Max_Tegmark_2024_(cropped).jpg                                          |

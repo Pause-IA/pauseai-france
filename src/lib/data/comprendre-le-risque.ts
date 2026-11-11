@@ -91,13 +91,6 @@ const portraits: Record<string, Portrait> = {
 		licenceUrl: 'https://creativecommons.org/licenses/by/2.0/',
 		page: 'https://commons.wikimedia.org/wiki/File:Dario_Amodei_at_TechCrunch_Disrupt_2023_02_(cropped).jpg'
 	},
-	'bill-gates': {
-		fichier: '/comprendre-le-risque/bill-gates.jpg',
-		auteur: 'Commission européenne / Jennifer Jacquemart, © Union européenne 2023',
-		licence: 'CC BY 4.0',
-		licenceUrl: 'https://creativecommons.org/licenses/by/4.0/',
-		page: 'https://commons.wikimedia.org/wiki/File:Bill_Gates_-_2023_-_P062021-203496_(cropped).jpg'
-	},
 	'stuart-russell': {
 		fichier: '/comprendre-le-risque/stuart-russell.jpg',
 		auteur: 'auteur inconnu, via Wikimedia Commons',
