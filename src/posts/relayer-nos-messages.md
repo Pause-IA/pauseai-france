@@ -24,14 +24,26 @@ publication de notre cercle.
 
 <p class="astuce">Un partage commenté porte bien plus loin qu’un partage sec :
 ajoutez une phrase à vous. Et sur LinkedIn, ajoutez Pause IA à votre profil,
-puis activez « partager ces mises à jour avec votre réseau ».</p>
+puis activez « partager ces mises à jour avec votre réseau ».</p>
 </li>
 
 <li>
 <h2 id="pause-action">Recevez une action par semaine</h2>
 
-Une action concrète, expliquée en trois lignes, faisable en quelques minutes :
-signer, écrire, relayer, répondre à une consultation.
+Une action concrète, expliquée en trois lignes, faisable en quelques minutes.
+Ces dernières semaines, le groupe a reçu :
+
+<ul class="exemples">
+  <li><strong>Inviter une personne à la marche du 14 novembre</strong> : contacter
+  un proche en Île-de-France, avec un modèle de message à reprendre. 5 minutes.</li>
+  <li><strong>Donner de la visibilité à notre tribune dans <i>Le Monde</i></strong> :
+  aimer, commenter et partager la publication sur un réseau. 3 minutes.</li>
+  <li><strong>Écrire au courrier des lecteurs du <i>Monde</i></strong> après une
+  interview affirmant que l’IA « se contrôle » sans contrepoint scientifique,
+  avec des conseils de rédaction et un exemple. 10 minutes.</li>
+</ul>
+
+Vous faites celles qui vous parlent, vous laissez les autres.
 
 <a class="cta-ligne" href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU" target="_blank" rel="noopener noreferrer">
   <span>
@@ -58,6 +70,25 @@ Chaque campagne a sa page : ce que nous demandons, et ce que vous pouvez faire.
 équipe de bénévoles</a>, ou <a href="/{lang}/agir">découvrez toutes les façons d’agir</a>.</p>
 
 <style>
+  /* Trois actions réellement envoyées : la seule question qui retient
+     quelqu'un avant de rejoindre le groupe est « concrètement, je reçois
+     quoi ? ». Une promesse n'y répond pas, trois exemples datés oui. */
+  .exemples {
+    margin: 1rem 0 1.25rem;
+    padding-left: 1.1rem;
+  }
+
+  .exemples li {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-2);
+  }
+
+  .exemples strong {
+    color: var(--text);
+  }
+
   /* Trois actions numérotées plutôt qu'un essai en trois paragraphes : la
      page se parcourt d'un coup d'œil, et on voit tout de suite qu'il n'y a
      que trois choses à faire. Le filet orange et le chiffre reprennent le

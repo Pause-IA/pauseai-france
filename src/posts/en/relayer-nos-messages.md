@@ -29,8 +29,20 @@ on “share these updates with your network”.</p>
 <li>
 <h2 id="pause-action">Get one action a week</h2>
 
-One concrete action, explained in three lines, doable in a few minutes: sign,
-write, share, respond to a consultation.
+One concrete action, explained in three lines, doable in a few minutes. In
+recent weeks the group was asked to:
+
+<ul class="exemples">
+  <li><strong>Invite one person to the 14 November march</strong>: message someone
+  you know in the Paris area, using a ready-made text. 5 minutes.</li>
+  <li><strong>Boost our op-ed in <i>Le Monde</i></strong>: like, comment and share
+  the post on one network. 3 minutes.</li>
+  <li><strong>Write to <i>Le Monde</i>’s letters page</strong> after an interview
+  claiming AI “can be controlled” with no scientific counterpoint, with drafting
+  advice and a sample letter. 10 minutes.</li>
+</ul>
+
+You do the ones that speak to you and skip the rest.
 
 <a class="cta-ligne" href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU" target="_blank" rel="noopener noreferrer">
   <span>
@@ -57,6 +69,25 @@ Every campaign has its own page: what we ask for, and what you can do.
 or <a href="/{lang}/agir">see all the ways to act</a>.</p>
 
 <style>
+  /* Trois actions réellement envoyées : la seule question qui retient
+     quelqu'un avant de rejoindre le groupe est « concrètement, je reçois
+     quoi ? ». Une promesse n'y répond pas, trois exemples datés oui. */
+  .exemples {
+    margin: 1rem 0 1.25rem;
+    padding-left: 1.1rem;
+  }
+
+  .exemples li {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text-2);
+  }
+
+  .exemples strong {
+    color: var(--text);
+  }
+
   /* Trois actions numérotées plutôt qu'un essai en trois paragraphes : la
      page se parcourt d'un coup d'œil, et on voit tout de suite qu'il n'y a
      que trois choses à faire. Le filet orange et le chiffre reprennent le
