@@ -30,8 +30,8 @@
 
 <Lead {lang} />
 
-<!-- Deux ensembles plutôt que neuf blocs de poids égal : « agir » d'un côté,
-     « s'informer » de l'autre. La bande teintée du premier suffit à séparer
+<!-- Deux ensembles plutôt que neuf blocs de poids égal : « agir » d’un côté,
+     « s’informer » de l’autre. La bande teintée du premier suffit à séparer
      les deux territoires ; la FAQ reste à part. -->
 <Bande titre={t.home.bande_agir_titre} fond="creme">
 	<WriteAction {lang} />

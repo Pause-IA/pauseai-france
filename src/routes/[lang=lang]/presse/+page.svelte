@@ -330,8 +330,6 @@
 			year: 'numeric'
 		})
 	}
-
-
 </script>
 
 <svelte:head>

@@ -6,8 +6,8 @@
 </script>
 
 <PostMeta
-	title={"Ce que l'IA fait au travail | PauseAI France"}
-	description={"Bilan qualitatif de l'enquête Pause IA sur l'emploi : perte de sens, décisions imposées, adaptation reportée sur les individus, ce qu'une trentaine de témoins nous ont confié au printemps 2026."}
+	title={"Ce que l’IA fait au travail | PauseAI France"}
+	description={"Bilan qualitatif de l’enquête Pause IA sur l’emploi : perte de sens, décisions imposées, adaptation reportée sur les individus, ce qu’une trentaine de témoins nous ont confié au printemps 2026."}
 />
 
 <article>

@@ -6,8 +6,8 @@
 </script>
 
 <PostMeta
-	title={"Remplacer l'humain, tel est l'objectif | PauseAI France"}
-	description={"En quelques années, l'IA est devenue capable de remplacer les humains dans des tâches de plus en plus nombreuses, 16 % du travail déjà automatisable en France."}
+	title={"Remplacer l’humain, tel est l’objectif | PauseAI France"}
+	description={"En quelques années, l’IA est devenue capable de remplacer les humains dans des tâches de plus en plus nombreuses, 16 % du travail déjà automatisable en France."}
 />
 
 <article>

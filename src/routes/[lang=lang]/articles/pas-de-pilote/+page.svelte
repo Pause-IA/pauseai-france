@@ -6,7 +6,7 @@
 </script>
 
 <PostMeta
-	title={"Pas de pilote dans l'avion France | PauseAI France"}
+	title={"Pas de pilote dans l’avion France | PauseAI France"}
 	description={"Chômage massif des jeunes, modèle social fragilisé, dépendance à la Silicon Valley : à quoi ressemblera notre monde si nous ne réagissons pas à la montée de l'IA."}
 />
 

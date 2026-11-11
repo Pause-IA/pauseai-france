@@ -14,7 +14,7 @@
 <PostMeta title={`${title} | ${siteName}`} {description} {date} {image} />
 
 <!-- Modèle « note » : un article des dangers est un texte long, comme les
-     pages Markdown de la rubrique. Il avait jusqu'ici son titre souligné et
+     pages Markdown de la rubrique. Il avait jusqu’ici son titre souligné et
      aucune largeur de lecture : la ligne courait sur toute la page. -->
 <Page
 	{title}

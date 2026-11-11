@@ -27,10 +27,10 @@
 </script>
 
 <PostMeta
-	title={isEn ? 'Job offers | Pause AI' : "Offres d'emploi | Pause IA"}
+	title={isEn ? 'Job offers | Pause AI' : 'Offres d’emploi | Pause IA'}
 	description={isEn
 		? 'Pause AI has no open position at the moment. Future offers will be published on this page.'
-		: "Pause IA n'a pas de poste ouvert en ce moment. Les prochaines offres seront publiées sur cette page."}
+		: 'Pause IA n’a pas de poste ouvert en ce moment. Les prochaines offres seront publiées sur cette page.'}
 />
 
 <svelte:head>
@@ -43,7 +43,7 @@
 		<svelte:fragment slot="lede">
 			{isEn
 				? 'Pause AI is not hiring right now. When a position opens, it will be published here.'
-				: "Pause IA ne recrute pas pour l'instant. Dès qu'un poste s'ouvre, il est publié sur cette page."}
+				: 'Pause IA ne recrute pas pour l’instant. Dès qu’un poste s’ouvre, il est publié sur cette page.'}
 		</svelte:fragment>
 	</PageHero>
 

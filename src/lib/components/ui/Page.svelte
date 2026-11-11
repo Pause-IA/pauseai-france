@@ -34,7 +34,7 @@
 
 <svelte:element this={as} class="ui-page ui-page--{width} ui-page--{variant}">
 	<!-- Deux branches : un slot transmis existe toujours pour PageHero, même
-	     vide ; on ne transmet donc le chapô riche que s'il est fourni. -->
+	     vide ; on ne transmet donc le chapô riche que s’il est fourni. -->
 	{#if $$slots.lede}
 		<PageHero {eyebrow}>
 			{title}

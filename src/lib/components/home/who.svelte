@@ -75,7 +75,7 @@
 </script>
 
 <!-- Gabarit Hub : en-tête commun, puis « en bref » (demande, valeurs,
-     financement, chacun sur sa page), puis l'équipe. Les valeurs et le
+     financement, chacun sur sa page), puis l’équipe. Les valeurs et le
      positionnement détaillés ne sont plus recopiés ici : ils vivent sur la
      charte des valeurs et « Que demandons-nous ? ». -->
 <Page
@@ -111,9 +111,9 @@
 
 	<SectionTitle>{lang === 'en' ? 'In short' : 'En bref'}</SectionTitle>
 	<!-- Trois repères, en bloc éditorial : filet orange, titre, phrase, lien
-	     nommé. C'étaient des cartes à emoji, avec ombre et flèche nue en bas à
-	     droite — le vocabulaire d'une page de startup, sur la page qui doit
-	     justement établir le sérieux de l'association. -->
+	     nommé. C’étaient des cartes à emoji, avec ombre et flèche nue en bas à
+	     droite — le vocabulaire d’une page de startup, sur la page qui doit
+	     justement établir le sérieux de l’association. -->
 	<ul class="en-bref">
 		<li>
 			<h3>{lang === 'en' ? 'What we ask for' : 'Notre demande'}</h3>
@@ -151,7 +151,7 @@
 	</ul>
 
 	<SectionTitle>{lang === 'en' ? 'The team' : 'L’équipe'}</SectionTitle>
-	<!-- Pas de sous-titre « Direction » : la section s'appelle déjà « L'équipe »
+	<!-- Pas de sous-titre « Direction » : la section s’appelle déjà « L’équipe »
 	     et les fonctions figurent sur chaque fiche. Le sous-titre ne faisait que
 	     répéter, et ajoutait un niveau de titre pour rien. -->
 	<div class="team-section">
@@ -180,8 +180,8 @@
 	{/if}
 
 	<!-- La galerie « Membres et bénévoles » affichait une quinzaine de visages
-	     pris parmi plus de cent. Le choix n'était pas explicable, et la page
-	     laissait croire à une équipe de quinze personnes au lieu d'un mouvement.
+	     pris parmi plus de cent. Le choix n’était pas explicable, et la page
+	     laissait croire à une équipe de quinze personnes au lieu d’un mouvement.
 	     Une phrase dit mieux ce que la galerie disait mal. -->
 	<!-- Qui est salarié et qui est bénévole se dit ici, en une phrase, plutôt
 	     que par une étiquette sur chaque carte : coller un badge « payé » à
@@ -189,11 +189,11 @@
 	     en avant la mauvaise information. Dit ainsi, le rapport entre deux
 	     salariés et une centaine de bénévoles est à notre avantage.
 
-	     Maxime Fournes est salarié de PauseAI Global et non de l'association :
-	     « trois salariés » serait faux, d'où la mention séparée.
+	     Maxime Fournes est salarié de PauseAI Global et non de l’association :
+	     « trois salariés » serait faux, d’où la mention séparée.
 
 	     Les deux noms et le nombre sont écrits en dur : rien dans Notion ne
-	     distingue un salarié d'un bénévole. À reprendre à la prochaine
+	     distingue un salarié d’un bénévole. À reprendre à la prochaine
 	     embauche ou au prochain départ. Les fonctions ne sont pas répétées
 	     ici, elles figurent sur les fiches juste au-dessus. -->
 	<Bandeau>
@@ -215,7 +215,7 @@
 	</Bandeau>
 
 	<!-- Vue d'ensemble des équipes : le visiteur doit comprendre de quoi
-	     l'association est faite et se dire « je pourrais être utile là ».
+	     l’association est faite et se dire « je pourrais être utile là ».
 	     Contenu et parti pris : src/lib/data/equipes.ts. -->
 	<div class="team-section" id="nos-equipes">
 		<h2 class="section-title">{lang === 'en' ? 'Our teams' : 'Nos équipes'}</h2>

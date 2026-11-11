@@ -13,12 +13,11 @@
 
 <PostMeta title={t.merci.meta_title} description={t.merci.meta_desc} />
 
-<!-- Gabarit partagé : la page n'avait aucun h1 (UnderlinedTitle produit un h2
-     par défaut) et ouvrait un second <main> à l'intérieur de celui du
-     gabarit, ce que le HTML n'autorise pas. -->
+<!-- Gabarit partagé : la page n’avait aucun h1 (UnderlinedTitle produit un h2
+     par défaut) et ouvrait un second <main> à l’intérieur de celui du
+     gabarit, ce que le HTML n’autorise pas. -->
 <Page title={t.merci.title} eyebrow={t.nav.agir} width="text">
 	<section class="success-content">
-
 		<div class="success-message">
 			<div class="success-icon">✅</div>
 			<h2>{t.merci.success_title}</h2>

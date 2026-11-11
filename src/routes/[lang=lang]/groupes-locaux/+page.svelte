@@ -287,8 +287,8 @@
 	     groupe » pointaient vers le MÊME formulaire Notion et décrivaient tous
 	     deux, en termes vagues, la même chose : contribuer localement. Le
 	     visiteur avait donc deux boutons pour une seule action, sans savoir
-	     lequel le concernait. Ce que le lecteur veut savoir, c'est ce qui se
-	     passe après avoir cliqué ; c'est ce que dit le cadre maintenant. -->
+	     lequel le concernait. Ce que le lecteur veut savoir, c’est ce qui se
+	     passe après avoir cliqué ; c’est ce que dit le cadre maintenant. -->
 	<section class="cta-section">
 		<div class="cta-card join">
 			<span class="cta-icon"><MessageSquare size="1.6rem" /></span>
@@ -306,7 +306,7 @@
 				{/if}
 			</p>
 			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
-				{isEn ? 'Sign up' : "S'inscrire"}
+				{isEn ? 'Sign up' : 'S’inscrire'}
 			</Button>
 		</div>
 	</section>

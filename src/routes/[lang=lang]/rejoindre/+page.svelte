@@ -80,9 +80,9 @@
 			</p>
 		</section>
 
-		<!-- Deux engagements plus légers que l'adhésion et le bénévolat : cartes
+		<!-- Deux engagements plus légers que l’adhésion et le bénévolat : cartes
 		     discrètes, après la question membre/bénévole, pour que la hiérarchie
-		     se voie sans l'écrire. -->
+		     se voie sans l’écrire. -->
 		<section class="options-secondaires">
 			<h2>Two other ways to get involved</h2>
 			<div class="secondaires-grille">
@@ -172,7 +172,7 @@
 			</div>
 		</section>
 
-		<!-- Ce texte départageait membre et bénévole au fond d'un accordéon, tout
+		<!-- Ce texte départageait membre et bénévole au fond d’un accordéon, tout
 		     en bas de page. Il répond à la question que posent les deux cartes
 		     ci-dessus : il est remonté juste après elles, et déplié. -->
 		<section class="difference">
@@ -183,9 +183,9 @@
 			</p>
 		</section>
 
-		<!-- Deux engagements plus légers que l'adhésion et le bénévolat : cartes
+		<!-- Deux engagements plus légers que l’adhésion et le bénévolat : cartes
 		     discrètes, après la question membre/bénévole, pour que la hiérarchie
-		     se voie sans l'écrire. -->
+		     se voie sans l’écrire. -->
 		<section class="options-secondaires">
 			<h2>Deux autres façons de s’engager</h2>
 			<div class="secondaires-grille">

@@ -76,7 +76,7 @@
 				{#if isSubmitting}
 					{lang === 'en' ? 'Subscribing…' : 'Inscription…'}
 				{:else}
-					{lang === 'en' ? 'Subscribe' : "S'inscrire"}
+					{lang === 'en' ? 'Subscribe' : 'S’inscrire'}
 				{/if}
 			</button>
 		</div>

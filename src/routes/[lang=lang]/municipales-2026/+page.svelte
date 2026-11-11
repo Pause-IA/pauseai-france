@@ -301,7 +301,7 @@
 						{isEn ? 'Discover the charter' : 'Je découvre la charte'}
 					</Button>
 					<Button alt on:click={openActivoice}>
-						{isEn ? 'Challenge my city candidates' : "J'interpelle les candidats de ma ville"}
+						{isEn ? 'Challenge my city candidates' : 'J’interpelle les candidats de ma ville'}
 					</Button>
 				</div>
 			</div>
@@ -398,7 +398,7 @@
 	{/if}
 </article>
 
-<!-- Modal : Charte d'un candidat -->
+<!-- Modal : Charte d’un candidat -->
 {#if showCharterModal && selectedCandidate}
 	<div class="modal-overlay" role="presentation" on:click={closeOnBackdrop}>
 		<div
@@ -428,7 +428,7 @@
 					<p class="engagements-intro">
 						{isEn
 							? `${selectedCandidate.name} commits, once elected, to carry out the following actions:`
-							: `${selectedCandidate.name} s'engage, une fois élu·e, à réaliser les actions suivantes :`}
+							: `${selectedCandidate.name} s’engage, une fois élu·e, à réaliser les actions suivantes :`}
 					</p>
 					<ul class="engagements-list">
 						{#each selectedCandidate.engagements as engagement}

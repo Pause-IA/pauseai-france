@@ -281,7 +281,7 @@
 		</div>
 	{/if}
 
-	<!-- L'inscription passe après la liste : la page sert d'abord à lire les
+	<!-- L'inscription passe après la liste : la page sert d’abord à lire les
 	     numéros parus. En tête, elle repoussait les premières cartes de tout
 	     un écran, avec le lien RSS et la recherche. -->
 	<div class="subscribe-bar">

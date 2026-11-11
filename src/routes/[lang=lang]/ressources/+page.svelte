@@ -393,7 +393,7 @@
 
 <!-- La table des matières latérale a été retirée : la barre de filtres, juste
      sous le titre, propose déjà les mêmes catégories et les faisait doublon.
-     Elle n'était d'ailleurs affichée qu'au-delà de 1024 px, et la page
+     Elle n’était d’ailleurs affichée qu’au-delà de 1024 px, et la page
      indiquait elle-même que les pastilles la remplaçaient en dessous. -->
 <article class="ressources-page">
 	<!-- Hero -->
@@ -567,7 +567,6 @@
 		padding: 0 0 4rem;
 		margin: 0 auto;
 	}
-
 
 	/* ─── Controls ─────────────────────────────────────────── */
 	.controls {

@@ -189,8 +189,8 @@
 					<ul class="articles-list">
 						{#each summary.articles as article}
 							<li>
-								<!-- Un article du site reste dans l'onglet courant ; seule une
-								     source externe s'ouvre à côté. -->
+								<!-- Un article du site reste dans l’onglet courant ; seule une
+								     source externe s’ouvre à côté. -->
 								<a
 									href={article.url}
 									target={article.url.startsWith('http') ? '_blank' : undefined}

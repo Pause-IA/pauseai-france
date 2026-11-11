@@ -25,13 +25,7 @@
 <Page width="wide" eyebrow={t.nav.actualites} title={t.posts.title} lede={t.posts.lede}>
 	<LinkGrid min="22rem">
 		{#each posts as { slug, title, description, date } (slug)}
-			<ArticleCard
-				{title}
-				blurb={description}
-				{date}
-				{lang}
-				url="{prefix}/{slug}"
-			/>
+			<ArticleCard {title} blurb={description} {date} {lang} url="{prefix}/{slug}" />
 		{/each}
 	</LinkGrid>
 </Page>
