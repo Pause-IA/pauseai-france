@@ -12,7 +12,7 @@ export default {
 		liens_utiles: 'Ressources',
 		newsletter: 'Newsletter',
 		propositions: 'Que demandons-nous ?',
-		declaration: 'Signer la déclaration',
+		declaration: "Signer l'appel",
 		blog: 'Blog',
 		fresque: 'La fresque des risques de l’IA',
 		toutes_facons_agir: 'Toutes les façons d’agir',
@@ -29,7 +29,6 @@ export default {
 		relayer_messages: 'Relayer nos messages',
 		participer_communication: 'Participer à notre communication',
 		pres_de_chez_vous: 'Agir près de chez vous',
-		convaincre: 'Convaincre autour de vous',
 		emploi_ia: 'L’IA ne détruira pas QUE votre emploi',
 		g7_2026: 'G7 2026',
 		municipales: 'Municipales 2026',
@@ -38,8 +37,7 @@ export default {
 		presse: 'Espace presse',
 		donner: 'Donner',
 		rejoindre: 'Rejoindre',
-		faire_un_don: 'Faire un don',
-		nous_rejoindre: 'Nous rejoindre'
+		faire_un_don: 'Faire un don'
 	},
 	footer: {
 		// Colonne d'identité
@@ -66,7 +64,7 @@ export default {
 		// Agir
 		act_title: 'Agir',
 		ecrire_elus: 'Écrire à vos élus',
-		declaration: 'Signer la déclaration',
+		declaration: "Signer l'appel",
 		join_pauseia: 'Rejoindre Pause IA',
 		local_groups: 'Rejoindre un groupe local',
 		all_ways: "Toutes les façons d'agir",
@@ -597,15 +595,15 @@ export default {
 		article1_title: "Remplacer l'humain, tel est l'objectif",
 		article1_desc:
 			"En quelques années, l'IA est devenue capable de remplacer les humains dans des tâches de plus en plus nombreuses, 16 % du travail déjà automatisable en France.",
-		article1_url: '/emploi-ia/remplacer-humain',
+		article1_url: '/articles/remplacer-humain',
 		article2_title: "Pas de pilote dans l'avion France",
 		article2_desc:
 			'Chômage massif des jeunes, modèle social fragilisé, dépendance à la Silicon Valley : à quoi ressemblera notre monde si nous ne réagissons pas.',
-		article2_url: '/emploi-ia/pas-de-pilote',
+		article2_url: '/articles/pas-de-pilote',
 		article3_title: 'Ce que l’IA fait au travail',
 		article3_desc:
 			"Bilan qualitatif de notre enquête sur l'emploi : perte de sens, décisions imposées, adaptation reportée sur les individus, ce qu'une trentaine de témoins nous ont confié.",
-		article3_url: '/emploi-ia/ce-que-lia-fait-au-travail',
+		article3_url: '/articles/ce-que-lia-fait-au-travail',
 		article3_badge: 'Bilan de la campagne',
 		slideshow_empty: 'Les témoignages illustrés arrivent prochainement.',
 		slideshow_nav_aria: 'Navigation du diaporama des témoignages',

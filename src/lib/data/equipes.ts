@@ -11,15 +11,25 @@
  * Chaque phrase nomme donc des choses concrètes plutôt que des intentions :
  * c'est ce qui permet de comprendre sans développer.
  *
- * Les noms des référents n'y figurent pas : le Discord est un espace interne,
- * y figurer n'équivaut pas à consentir à apparaître sur le site public. La
- * liste des postes ouverts non plus : elle se périme sans que personne s'en
- * aperçoive et donne à la page un air d'offre d'emploi.
+ * Le référent n'est nommé que si la personne a donné son nom POUR le site. Le
+ * Discord est un espace interne : y figurer comme référent n'équivaut pas à
+ * consentir à apparaître sur une page publique. D'où le champ optionnel : une
+ * équipe sans référent nommé n'affiche rien, plutôt qu'un prénom publié sans
+ * qu'on ait demandé.
+ *
+ * La liste des postes ouverts n'y figure pas non plus : elle se périme sans
+ * que personne s'en aperçoive et donne à la page un air d'offre d'emploi.
  */
 export interface Equipe {
 	nom: string
 	/** Une phrase courte, qui nomme des choses concrètes. */
 	description: string
+	/**
+	 * Prénom et nom du référent, uniquement s'il les a donnés pour le site.
+	 * Laisser vide tant que la personne n'a pas répondu : l'absence se lit,
+	 * un nom publié sans accord ne se rattrape pas.
+	 */
+	referent?: string
 }
 
 export const equipes: Equipe[] = [
@@ -30,11 +40,13 @@ export const equipes: Equipe[] = [
 	},
 	{
 		nom: 'Plaidoyer',
-		description: 'Porte nos demandes au Parlement, dans les ministères et les institutions.'
+		description: 'Porte nos demandes au Parlement, dans les ministères et les institutions.',
+		referent: 'Hedi Meziou'
 	},
 	{
 		nom: 'Initiatives locales',
-		description: 'Fait vivre Pause IA partout en France, aux côtés des groupes locaux.'
+		description: 'Fait vivre Pause IA partout en France, aux côtés des groupes locaux.',
+		referent: 'Antonin Peronnet'
 	},
 	{
 		nom: 'Événements et mobilisations',

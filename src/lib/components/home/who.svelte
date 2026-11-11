@@ -1,9 +1,8 @@
 <script lang="ts">
 	import LeadershipCard from '$components/LeadershipCard.svelte'
 	import ScientificCouncilCard from '$components/ScientificCouncilCard.svelte'
-	import WhoCard from '$components/WhoCard.svelte'
 	import Button from '$components/Button.svelte'
-	import { LinkCard, LinkGrid, Page, SectionTitle } from '$components/ui'
+	import { Page, SectionTitle } from '$components/ui'
 	import { equipes } from '$lib/data/equipes'
 	import type { TeamMember } from '$lib/notion'
 	import type { Lang } from '$lib/i18n'
@@ -59,74 +58,6 @@
 		}
 	]
 
-	const fallbackMembers = [
-		{
-			name: 'Aurélia',
-			image: '/membres/aurelia.jpg',
-			job: "Professeur d'anglais en classe préparatoire"
-		},
-		{
-			name: 'Éloïse',
-			image: '/membres/eloise.jpg',
-			job: "Chercheuse indépendante en sécurité de l'IA"
-		},
-		{
-			name: 'Salim',
-			image: '/membres/salim.jpg',
-			job: 'Etudiant en mathématiques'
-		},
-		{
-			name: 'Karine',
-			image: '/membres/karine.jpg',
-			job: 'Hypnothérapeute et coach bien-être'
-		},
-		{
-			name: 'Muriel',
-			image: '/membres/muriel.jpg',
-			job: 'Traductrice'
-		},
-		{
-			name: 'Stélian',
-			image: '/membres/stelian.jpg',
-			job: 'Psychologue-psychothérapeute'
-		},
-		{
-			name: 'Sandra',
-			image: '/membres/sandra.jfif',
-			job: 'Enseignante de littérature et autrice'
-		},
-		{
-			name: 'Sandrine',
-			image: '/membres/sandrine.jpg',
-			job: 'Psychopédagogue'
-		},
-		{
-			name: 'Bahman',
-			image: '/membres/bahman.jpeg',
-			job: 'Psychologue cognitiviste'
-		},
-		{
-			name: 'Mandelle',
-			image: '/membres/Mandelle.jpg',
-			job: 'Enseignante'
-		},
-		{
-			name: 'Marilyn',
-			image: '/membres/Marilyn.jpg',
-			job: 'Cheffe de projet en communication digitale'
-		},
-		{
-			name: 'Damien',
-			image: '/membres/damien.jpg',
-			job: 'Ingénieur du son chez studiobreton.fr'
-		},
-		{
-			name: 'Emmanuel',
-			image: '/membres/emmanuel.jpg',
-			job: ''
-		}
-	]
-
 	// Derive display data from Notion or fallback
 	$: hasNotionData = teamMembers.length > 0
 
@@ -141,12 +72,6 @@
 				.filter((m) => m.category === 'Conseil scientifique')
 				.map((m) => ({ name: m.name, job: m.profession, image: m.image || null }))
 		: fallbackScientificCouncil
-
-	$: members = hasNotionData
-		? teamMembers
-				.filter((m) => m.category === 'Membre')
-				.map((m) => ({ name: m.name, job: m.profession, image: m.image || null }))
-		: fallbackMembers
 </script>
 
 <!-- Gabarit Hub : en-tête commun, puis « en bref » (demande, valeurs,
@@ -164,8 +89,7 @@
 			citizens and public authorities to the
 			<a href="{prefix}/dangers/economic-and-material">serious dangers</a> of the artificial
 			intelligence race, and encourages them to act against it. We represent
-			<a href="https://pauseai.info" target="_blank" rel="noopener noreferrer">PauseAI Global</a> in
-			France.
+			<a href="https://pauseai.info" target="_blank" rel="noopener noreferrer">PauseAI Global</a> in France.
 		{:else}
 			Nous sommes une <a href="{prefix}/mentions-legales">association</a> qui alerte les citoyens et
 			les pouvoirs publics français sur les
@@ -177,42 +101,54 @@
 	</svelte:fragment>
 	<div class="contact-cta" slot="actions">
 		<Button href="{prefix}/dons">{lang === 'en' ? 'Donate' : 'Faire un don'}</Button>
-		<Button alt href="{prefix}/rejoindre">{lang === 'en' ? 'Join us' : 'Nous rejoindre'}</Button>
+		<Button alt href="{prefix}/rejoindre"
+			>{lang === 'en' ? 'Join Pause IA' : 'Rejoindre Pause IA'}</Button
+		>
 		<Button alt href="mailto:contact@pauseia.fr"
 			>{lang === 'en' ? 'Contact us' : 'Nous contacter'}</Button
 		>
 	</div>
 
 	<SectionTitle>{lang === 'en' ? 'In short' : 'En bref'}</SectionTitle>
-	<LinkGrid>
-		<LinkCard
-			href="{prefix}/propositions"
-			icon="⏸️"
-			title={lang === 'en' ? 'What we ask for' : 'Notre demande'}
-		>
-			{lang === 'en'
-				? 'A global pause on training frontier AI models, until safety and democratic control are guaranteed.'
-				: 'Une pause mondiale de l’entraînement des IA de pointe, jusqu’à ce que la sécurité et le contrôle démocratique soient garantis.'}
-		</LinkCard>
-		<LinkCard
-			href="{prefix}/charte-des-valeurs"
-			icon="🧭"
-			title={lang === 'en' ? 'Our values' : 'Nos valeurs'}
-		>
-			{lang === 'en'
-				? 'Ten values ranked by priority, starting with non-violence and intellectual rigour.'
-				: 'Dix valeurs classées par priorité, à commencer par la non-violence et la rigueur intellectuelle.'}
-		</LinkCard>
-		<LinkCard
-			href="{prefix}/financements"
-			icon="🤝"
-			title={lang === 'en' ? 'Our funding' : 'Notre financement'}
-		>
-			{lang === 'en'
-				? 'A non-profit founded in June 2024, fully independent of the AI and tech industry.'
-				: 'Association à but non lucratif créée en juin 2024, totalement indépendante de l’industrie de l’IA et de la tech.'}
-		</LinkCard>
-	</LinkGrid>
+	<!-- Trois repères, en bloc éditorial : filet orange, titre, phrase, lien
+	     nommé. C'étaient des cartes à emoji, avec ombre et flèche nue en bas à
+	     droite — le vocabulaire d'une page de startup, sur la page qui doit
+	     justement établir le sérieux de l'association. -->
+	<ul class="en-bref">
+		<li>
+			<h3>{lang === 'en' ? 'What we ask for' : 'Notre demande'}</h3>
+			<p>
+				{lang === 'en'
+					? 'A global pause on training frontier AI models, until safety and democratic control are guaranteed.'
+					: 'Une pause mondiale de l’entraînement des IA de pointe, jusqu’à ce que la sécurité et le contrôle démocratique soient garantis.'}
+			</p>
+			<a href="{prefix}/propositions">
+				{lang === 'en' ? 'Our proposals' : 'Nos propositions'}
+			</a>
+		</li>
+		<li>
+			<h3>{lang === 'en' ? 'Our values' : 'Nos valeurs'}</h3>
+			<p>
+				{lang === 'en'
+					? 'Ten values ranked by priority, starting with non-violence and intellectual rigour.'
+					: 'Dix valeurs classées par priorité, à commencer par la non-violence et la rigueur intellectuelle.'}
+			</p>
+			<a href="{prefix}/charte-des-valeurs">
+				{lang === 'en' ? 'Our charter of values' : 'La charte des valeurs'}
+			</a>
+		</li>
+		<li>
+			<h3>{lang === 'en' ? 'Our funding' : 'Notre financement'}</h3>
+			<p>
+				{lang === 'en'
+					? 'A non-profit founded in June 2024, fully independent of the AI and tech industry.'
+					: 'Association à but non lucratif créée en juin 2024, totalement indépendante de l’industrie de l’IA et de la tech.'}
+			</p>
+			<a href="{prefix}/financements">
+				{lang === 'en' ? 'Where our money comes from' : 'D’où vient notre argent'}
+			</a>
+		</li>
+	</ul>
 
 	<SectionTitle>{lang === 'en' ? 'The team' : 'L’équipe'}</SectionTitle>
 	<div class="team-section">
@@ -241,23 +177,37 @@
 		</div>
 	{/if}
 
-	{#if members.length > 0}
-		<div class="team-section">
-			<h2 class="section-title">
-				{lang === 'en' ? 'Members & Volunteers' : 'Membres et bénévoles'}
-			</h2>
-			<div class="cards-grid cards-centered">
-				{#each members as member}
-					<WhoCard name={member.name} image={member.image} job={member.job} />
-				{/each}
-			</div>
-		</div>
-	{/if}
+	<!-- La galerie « Membres et bénévoles » affichait une quinzaine de visages
+	     pris parmi plus de cent. Le choix n'était pas explicable, et la page
+	     laissait croire à une équipe de quinze personnes au lieu d'un mouvement.
+	     Une phrase dit mieux ce que la galerie disait mal. -->
+	<!-- Qui est salarié et qui est bénévole se dit ici, en une phrase, plutôt
+	     que par une étiquette sur chaque carte : coller un badge « payé » à
+	     trois personnes au milieu de cent bénévoles alourdit les cartes et met
+	     en avant la mauvaise information. Dit ainsi, le rapport entre deux
+	     salariés et une centaine de bénévoles est à notre avantage.
 
-	<p class="member-count">
-		{lang === 'en'
-			? '+ a hundred members and volunteers'
-			: '+ une centaine de membres et bénévoles'}
+	     Maxime Fournes est salarié de PauseAI Global et non de l'association :
+	     « trois salariés » serait faux, d'où la mention séparée.
+
+	     Les deux noms et le nombre sont écrits en dur : rien dans Notion ne
+	     distingue un salarié d'un bénévole. À reprendre à la prochaine
+	     embauche ou au prochain départ. Les fonctions ne sont pas répétées
+	     ici, elles figurent sur les fiches juste au-dessus. -->
+	<p class="benevoles">
+		{#if lang === 'en'}
+			The association currently employs two people, Clémence Peyrot and Orlando H., with Maxime
+			Fournes currently employed by PauseAI Global. Beyond this team, Pause AI France runs on
+			<strong>more than a hundred volunteers</strong>: engineers, teachers, researchers, lawyers,
+			psychologists, students, retirees. Most of the work shown on this site is theirs.
+		{:else}
+			L’association emploie actuellement deux personnes, Clémence Peyrot et Orlando H., Maxime
+			Fournes étant actuellement salarié de PauseAI Global. Au-delà de cette équipe, Pause IA repose
+			sur
+			<strong>plus d’une centaine de bénévoles</strong>
+			: ingénieurs, enseignants, chercheurs, juristes, psychologues, étudiants, retraités. L’essentiel
+			du travail présenté sur ce site est le leur.
+		{/if}
 	</p>
 
 	<!-- Vue d'ensemble des équipes : le visiteur doit comprendre de quoi
@@ -274,7 +224,9 @@
 		<ul class="equipes">
 			{#each equipes as equipe}
 				<li class="equipe">
-					<h3>{equipe.nom}</h3>
+					<h3>
+						{equipe.nom}{#if equipe.referent}<span class="referent">{equipe.referent}</span>{/if}
+					</h3>
 					<p>{equipe.description}</p>
 				</li>
 			{/each}
@@ -289,6 +241,60 @@
 </Page>
 
 <style>
+	/* « En bref » : trois repères côte à côte, sans boîte. Le filet orange tient
+	   lieu de séparation, ce qui laisse la page respirer et reprend le langage
+	   employé sur la note de synthèse pour les décideurs. */
+	.en-bref {
+		display: grid;
+		gap: 2rem 2.5rem;
+		margin: 1.5rem 0 3rem;
+		padding: 0;
+		list-style: none;
+	}
+
+	@media (min-width: 48rem) {
+		.en-bref {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.en-bref li {
+		border-top: 2px solid var(--brand);
+		padding-top: 0.9rem;
+	}
+
+	.en-bref h3 {
+		margin: 0 0 0.5rem;
+		font-family: var(--font-heading);
+		font-size: 1.05rem;
+		line-height: 1.3;
+	}
+
+	.en-bref p {
+		margin: 0 0 0.75rem;
+		font-size: 0.95rem;
+		line-height: 1.55;
+		color: var(--text-2);
+	}
+
+	/* Lien nommé plutôt qu'une flèche seule : on doit savoir où l'on va avant
+	   de cliquer, et un libellé explicite sert aussi les lecteurs d'écran. */
+	.en-bref a {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--brand-subtle);
+		text-decoration: none;
+	}
+
+	.en-bref a::after {
+		content: ' →';
+	}
+
+	.en-bref a:hover,
+	.en-bref a:focus-visible {
+		text-decoration: underline;
+	}
+
 	/* --- Nos équipes ------------------------------------------------------- */
 	.equipes-intro {
 		max-inline-size: var(--width-text);
@@ -321,6 +327,13 @@
 	.equipe {
 		padding-block: 1rem;
 		border-block-start: 1px solid var(--border);
+	}
+
+	.referent {
+		margin-inline-start: 0.6rem;
+		font-size: 0.85rem;
+		font-weight: 400;
+		color: var(--text-2);
 	}
 
 	.equipe h3 {
@@ -374,15 +387,12 @@
 		justify-content: center;
 	}
 
-	.member-count {
-		margin-top: 3rem;
-		padding: 1.25rem 2rem;
-		font-size: 1.2rem;
-		font-weight: 600;
-		color: var(--text);
-		text-align: center;
-		background: var(--bg-subtle);
-		border-radius: var(--radius-sm);
-		border: 1px solid var(--border);
+	/* Du texte, et non l'encadré crème de l'ancien compteur : c'est une phrase
+	   qui se lit, pas un chiffre à mettre en avant. */
+	.benevoles {
+		max-inline-size: var(--width-text);
+		margin: 2.5rem auto 0;
+		line-height: 1.7;
+		color: var(--text-2);
 	}
 </style>

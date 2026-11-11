@@ -12,10 +12,10 @@
 	$: isEn = data.lang === 'en'
 	$: prefix = `/${data.lang}`
 
-	$: title = isEn ? 'The PauseAI statement' : 'La déclaration PauseAI'
+	$: title = isEn ? 'The PauseAI statement' : 'L’appel de PauseAI'
 	$: description = isEn
 		? 'We call on the governments of the world to sign an international treaty implementing a pause on the training of the most powerful general AI systems. Sign the statement.'
-		: 'Nous appelons les gouvernements du monde entier à signer un traité international instaurant une pause dans l’entraînement des systèmes d’IA généralistes les plus puissants. Signez la déclaration.'
+		: 'Nous appelons les gouvernements du monde entier à signer un traité international instaurant une pause dans l’entraînement des systèmes d’IA généralistes les plus puissants. Signez l’appel.'
 
 	// ── Compteur et messages (non prérendus, via /api/declaration) ──
 	let d: DeclarationData | null = null
@@ -153,13 +153,13 @@
 				association, and in particular of its French branch, Pause IA. Sign it to add your voice to
 				ours and help us build our collective strength.
 			{:else}
-				Cette déclaration résume la position des bénévoles, sympathisants et sympathisantes de
-				l’association PauseAI et notamment de sa branche française, Pause IA. Signez-la pour ajouter
-				votre voix à la nôtre et nous aider à construire notre force collective.
+				Cet appel résume la position des bénévoles, sympathisants et sympathisantes de l’association
+				PauseAI et notamment de sa branche française, Pause IA. Signez-la pour ajouter votre voix à
+				la nôtre et nous aider à construire notre force collective.
 			{/if}
 		</svelte:fragment>
 		<div slot="actions" class="hero-actions">
-			<Button href="#signer">{isEn ? 'Sign the statement' : 'Signer la déclaration'}</Button>
+			<Button href="#signer">{isEn ? 'Sign the statement' : 'Signer l’appel'}</Button>
 		</div>
 	</PageHero>
 
@@ -182,7 +182,7 @@
 				>See it on the PauseAI Global website ↗</a
 			>
 		{:else}
-			Traduction de la déclaration du mouvement international PauseAI.
+			Traduction de l’appel du mouvement international PauseAI.
 			<a href="https://pauseai.info/statement" target="_blank" rel="noopener"
 				>Voir la version originale (en anglais) sur le site de PauseAI Global ↗</a
 			>
@@ -243,7 +243,7 @@
 
 	<section class="sign" id="signer" bind:this={signSection}>
 		<Card>
-			<SectionTitle>{isEn ? 'Sign the statement' : 'Signer la déclaration'}</SectionTitle>
+			<SectionTitle>{isEn ? 'Sign the statement' : 'Signer l’appel'}</SectionTitle>
 
 			{#if done === 'pending'}
 				<p class="success" role="status" tabindex="-1" data-focus>
@@ -287,7 +287,7 @@
 				<p class="success" role="status" tabindex="-1" data-focus>
 					{isEn
 						? 'You had already signed the statement: thank you for your support!'
-						: 'Vous aviez déjà signé la déclaration : merci pour votre soutien !'}
+						: 'Vous aviez déjà signé l’appel : merci pour votre soutien !'}
 				</p>
 				<DeclarationNextSteps lang={data.lang} />
 			{:else}

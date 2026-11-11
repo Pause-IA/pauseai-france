@@ -27,7 +27,6 @@ export default {
 		relayer_messages: 'Share our messages',
 		participer_communication: 'Help with our communication',
 		pres_de_chez_vous: 'Act near you',
-		convaincre: 'Convince those around you',
 		emploi_ia: 'AI will not destroy ONLY your job',
 		g7_2026: 'G7 2026',
 		municipales: 'Municipal 2026',
@@ -36,8 +35,7 @@ export default {
 		presse: 'Press room',
 		donner: 'Donate',
 		rejoindre: 'Join',
-		faire_un_don: 'Make a donation',
-		nous_rejoindre: 'Join us'
+		faire_un_don: 'Make a donation'
 	},
 	footer: {
 		// Identity column
@@ -590,15 +588,15 @@ export default {
 		article1_title: 'Replacing humans is the goal',
 		article1_desc:
 			'In a few years, AI has become capable of replacing humans in more and more tasks, 16% of work in France already automatable.',
-		article1_url: '/emploi-ia/remplacer-humain',
+		article1_url: '/articles/remplacer-humain',
 		article2_title: 'France: no pilot in the cockpit',
 		article2_desc:
 			'Mass youth unemployment, a threatened welfare state, dependence on Silicon Valley: what our world could look like if we fail to act.',
-		article2_url: '/emploi-ia/pas-de-pilote',
+		article2_url: '/articles/pas-de-pilote',
 		article3_title: 'What AI is doing to work',
 		article3_desc:
 			'A qualitative review of our employment survey: loss of meaning, decisions imposed from above, adaptation shifted onto individuals, what around thirty witnesses shared with us.',
-		article3_url: '/emploi-ia/ce-que-lia-fait-au-travail',
+		article3_url: '/articles/ce-que-lia-fait-au-travail',
 		article3_badge: 'Campaign review',
 		slideshow_empty: 'Illustrated testimonials are coming soon.',
 		slideshow_nav_aria: 'Testimonials slideshow navigation',

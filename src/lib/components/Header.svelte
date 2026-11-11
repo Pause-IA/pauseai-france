@@ -107,8 +107,11 @@
 				// Réseaux sociaux et Pause Action, sur la même page (pas de sous-menu).
 				{ href: `${prefix}/relayer-nos-messages`, label: t.nav.relayer_messages },
 				{ href: `${prefix}/groupes-locaux`, label: t.nav.pres_de_chez_vous },
-				// /recrutement n'est pas localisée : pas de préfixe de langue.
-				{ href: '/recrutement', label: t.nav.convaincre },
+				// « Sensibiliser votre entourage » a quitté le menu : c'est un guide,
+				// pas une action — on n'en ressort pas avec quelque chose de fait,
+				// contrairement aux cinq autres entrées. « Agir » comptait six
+				// entrées quand les quatre autres menus en comptent trois. La page
+				// reste listée sur /agir, qui ferme cette liste.
 				// La synthèse de tous les moyens d'agir ferme la liste, comme « Toutes
 				// nos campagnes » ferme celle des campagnes.
 				{ href: `${prefix}/agir`, label: t.nav.toutes_facons_agir }
@@ -440,7 +443,8 @@
 							{/if}
 						</button>
 						<a href="{prefix}/dons" class="sidebar-cta" on:click={closeMenu}>Faire un don</a>
-						<a href="{prefix}/rejoindre" class="sidebar-join" on:click={closeMenu}>Nous rejoindre</a
+						<a href="{prefix}/rejoindre" class="sidebar-join" on:click={closeMenu}
+							>Rejoindre Pause IA</a
 						>
 					</div>
 				</div>

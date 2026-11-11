@@ -1,5 +1,5 @@
 {
-	"genere": "2026-11-03",
+	"genere": "2026-11-11",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -12,6 +12,11 @@
 				{
 					"href": "/fresque",
 					"label": "La fresque des risques de l’IA",
+					"externe": false
+				},
+				{
+					"href": "/idees-recues",
+					"label": "Idées reçues",
 					"externe": false
 				}
 			]
@@ -26,7 +31,7 @@
 				},
 				{
 					"href": "/declaration",
-					"label": "Signer la déclaration",
+					"label": "Signer l'appel",
 					"externe": false
 				},
 				{
@@ -40,8 +45,8 @@
 					"externe": false
 				},
 				{
-					"href": "/recrutement",
-					"label": "Convaincre autour de vous",
+					"href": "/sensibiliser-votre-entourage",
+					"label": "Sensibiliser votre entourage",
 					"externe": true
 				},
 				{
@@ -143,7 +148,7 @@
 				},
 				{
 					"href": "/declaration",
-					"label": "Signer la déclaration",
+					"label": "Signer l'appel",
 					"externe": false
 				},
 				{
@@ -152,7 +157,7 @@
 					"externe": false
 				},
 				{
-					"href": "https://pauseai-shop.fourthwall.com",
+					"href": "https://boutique.pauseia.fr/",
 					"label": "Boutique",
 					"externe": true
 				}
@@ -216,6 +221,18 @@
 	],
 	"orphelines": [
 		{
+			"chemin": "/articles/ce-que-lia-fait-au-travail",
+			"url": "/fr/articles/ce-que-lia-fait-au-travail"
+		},
+		{
+			"chemin": "/articles/pas-de-pilote",
+			"url": "/fr/articles/pas-de-pilote"
+		},
+		{
+			"chemin": "/articles/remplacer-humain",
+			"url": "/fr/articles/remplacer-humain"
+		},
+		{
 			"chemin": "/campagne-modele",
 			"url": "/fr/campagne-modele"
 		},
@@ -228,24 +245,12 @@
 			"url": "/fr/declaration/signataires"
 		},
 		{
-			"chemin": "/emploi-ia/ce-que-lia-fait-au-travail",
-			"url": "/fr/emploi-ia/ce-que-lia-fait-au-travail"
-		},
-		{
 			"chemin": "/emploi-ia/merci",
 			"url": "/fr/emploi-ia/merci"
 		},
 		{
-			"chemin": "/emploi-ia/pas-de-pilote",
-			"url": "/fr/emploi-ia/pas-de-pilote"
-		},
-		{
 			"chemin": "/emploi-ia/questionnaire",
 			"url": "/fr/emploi-ia/questionnaire"
-		},
-		{
-			"chemin": "/emploi-ia/remplacer-humain",
-			"url": "/fr/emploi-ia/remplacer-humain"
 		},
 		{
 			"chemin": "/g7-2026",
@@ -276,12 +281,12 @@
 			"url": "/fr/posts"
 		},
 		{
-			"chemin": "/recrutement",
-			"url": "/recrutement"
-		},
-		{
 			"chemin": "/senat2025",
 			"url": "/fr/senat2025"
+		},
+		{
+			"chemin": "/sensibiliser-votre-entourage",
+			"url": "/sensibiliser-votre-entourage"
 		},
 		{
 			"chemin": "/sommet-ia-2026",
@@ -300,6 +305,7 @@
 		"/[slug]",
 		"/articles/[slug]",
 		"/dangers/[slug]",
+		"/idees-recues/[slug]",
 		"/newsletters/[slug]",
 		"/presse/local/[slug]",
 		"/presse/national/[slug]"
@@ -378,6 +384,10 @@
 			"titre": "Our funding"
 		},
 		{
+			"slug": "/en/gouvernance-ia-demarches",
+			"titre": "AI governance: the efforts under way"
+		},
+		{
 			"slug": "/en/mentions-legales",
 			"titre": "Legal Notices"
 		},
@@ -404,6 +414,10 @@
 		{
 			"slug": "/financements",
 			"titre": "Notre financement"
+		},
+		{
+			"slug": "/gouvernance-ia-demarches",
+			"titre": "Gouvernance de l'IA : les démarches engagées"
 		},
 		{
 			"slug": "/mentions-legales",
@@ -443,8 +457,8 @@
 		}
 	],
 	"total": {
-		"pages": 36,
-		"dynamiques": 6,
-		"articles": 34
+		"pages": 37,
+		"dynamiques": 7,
+		"articles": 36
 	}
 }
