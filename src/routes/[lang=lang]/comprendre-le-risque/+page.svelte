@@ -1127,7 +1127,6 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 			display: none;
 		}
 
-		.citation,
 		.etapes li,
 		.contact,
 		.groupe {
@@ -1136,7 +1135,6 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 			box-shadow: none;
 		}
 
-		.citation,
 		.contact {
 			border: 1px solid var(--filet-impression, rgb(153, 153, 153));
 		}
@@ -1153,7 +1151,6 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 		   y figurer. Limité aux liens qui documentent, pas à ceux du corps du
 		   texte, qui rendraient la lecture illisible. */
 		.refs a::after,
-		.citation figcaption :global(a)::after,
 		.attribution :global(a)::after {
 			content: ' (' attr(href) ')';
 			font-size: 0.78em;

@@ -114,5 +114,22 @@
 		.pastille {
 			display: none;
 		}
+
+		/* Une citation ne doit pas être coupée entre deux feuilles. */
+		.citation {
+			break-inside: avoid;
+			page-break-inside: avoid;
+			box-shadow: none;
+			border: 1px solid var(--filet-impression, rgb(153, 153, 153));
+		}
+
+		/* On ne clique pas une feuille imprimée : l'adresse de la source doit
+		   y figurer. */
+		figcaption a::after {
+			content: ' (' attr(href) ')';
+			font-size: 0.78em;
+			font-weight: 400;
+			word-break: break-all;
+		}
 	}
 </style>
