@@ -2,7 +2,7 @@
 	import LeadershipCard from '$components/LeadershipCard.svelte'
 	import ScientificCouncilCard from '$components/ScientificCouncilCard.svelte'
 	import Button from '$components/Button.svelte'
-	import { LinkCard, LinkGrid, Page, SectionTitle } from '$components/ui'
+	import { Page, SectionTitle } from '$components/ui'
 	import { equipes } from '$lib/data/equipes'
 	import type { TeamMember } from '$lib/notion'
 	import type { Lang } from '$lib/i18n'
@@ -110,35 +110,45 @@
 	</div>
 
 	<SectionTitle>{lang === 'en' ? 'In short' : 'En bref'}</SectionTitle>
-	<LinkGrid>
-		<LinkCard
-			href="{prefix}/propositions"
-			icon="⏸️"
-			title={lang === 'en' ? 'What we ask for' : 'Notre demande'}
-		>
-			{lang === 'en'
-				? 'A global pause on training frontier AI models, until safety and democratic control are guaranteed.'
-				: 'Une pause mondiale de l’entraînement des IA de pointe, jusqu’à ce que la sécurité et le contrôle démocratique soient garantis.'}
-		</LinkCard>
-		<LinkCard
-			href="{prefix}/charte-des-valeurs"
-			icon="🧭"
-			title={lang === 'en' ? 'Our values' : 'Nos valeurs'}
-		>
-			{lang === 'en'
-				? 'Ten values ranked by priority, starting with non-violence and intellectual rigour.'
-				: 'Dix valeurs classées par priorité, à commencer par la non-violence et la rigueur intellectuelle.'}
-		</LinkCard>
-		<LinkCard
-			href="{prefix}/financements"
-			icon="🤝"
-			title={lang === 'en' ? 'Our funding' : 'Notre financement'}
-		>
-			{lang === 'en'
-				? 'A non-profit founded in June 2024, fully independent of the AI and tech industry.'
-				: 'Association à but non lucratif créée en juin 2024, totalement indépendante de l’industrie de l’IA et de la tech.'}
-		</LinkCard>
-	</LinkGrid>
+	<!-- Trois repères, en bloc éditorial : filet orange, titre, phrase, lien
+	     nommé. C'étaient des cartes à emoji, avec ombre et flèche nue en bas à
+	     droite — le vocabulaire d'une page de startup, sur la page qui doit
+	     justement établir le sérieux de l'association. -->
+	<ul class="en-bref">
+		<li>
+			<h3>{lang === 'en' ? 'What we ask for' : 'Notre demande'}</h3>
+			<p>
+				{lang === 'en'
+					? 'A global pause on training frontier AI models, until safety and democratic control are guaranteed.'
+					: 'Une pause mondiale de l’entraînement des IA de pointe, jusqu’à ce que la sécurité et le contrôle démocratique soient garantis.'}
+			</p>
+			<a href="{prefix}/propositions">
+				{lang === 'en' ? 'Our proposals' : 'Nos propositions'}
+			</a>
+		</li>
+		<li>
+			<h3>{lang === 'en' ? 'Our values' : 'Nos valeurs'}</h3>
+			<p>
+				{lang === 'en'
+					? 'Ten values ranked by priority, starting with non-violence and intellectual rigour.'
+					: 'Dix valeurs classées par priorité, à commencer par la non-violence et la rigueur intellectuelle.'}
+			</p>
+			<a href="{prefix}/charte-des-valeurs">
+				{lang === 'en' ? 'Our charter of values' : 'La charte des valeurs'}
+			</a>
+		</li>
+		<li>
+			<h3>{lang === 'en' ? 'Our funding' : 'Notre financement'}</h3>
+			<p>
+				{lang === 'en'
+					? 'A non-profit founded in June 2024, fully independent of the AI and tech industry.'
+					: 'Association à but non lucratif créée en juin 2024, totalement indépendante de l’industrie de l’IA et de la tech.'}
+			</p>
+			<a href="{prefix}/financements">
+				{lang === 'en' ? 'Where our money comes from' : 'D’où vient notre argent'}
+			</a>
+		</li>
+	</ul>
 
 	<SectionTitle>{lang === 'en' ? 'The team' : 'L’équipe'}</SectionTitle>
 	<div class="team-section">
@@ -231,6 +241,60 @@
 </Page>
 
 <style>
+	/* « En bref » : trois repères côte à côte, sans boîte. Le filet orange tient
+	   lieu de séparation, ce qui laisse la page respirer et reprend le langage
+	   employé sur la note de synthèse pour les décideurs. */
+	.en-bref {
+		display: grid;
+		gap: 2rem 2.5rem;
+		margin: 1.5rem 0 3rem;
+		padding: 0;
+		list-style: none;
+	}
+
+	@media (min-width: 48rem) {
+		.en-bref {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.en-bref li {
+		border-top: 2px solid var(--brand);
+		padding-top: 0.9rem;
+	}
+
+	.en-bref h3 {
+		margin: 0 0 0.5rem;
+		font-family: var(--font-heading);
+		font-size: 1.05rem;
+		line-height: 1.3;
+	}
+
+	.en-bref p {
+		margin: 0 0 0.75rem;
+		font-size: 0.95rem;
+		line-height: 1.55;
+		color: var(--text-2);
+	}
+
+	/* Lien nommé plutôt qu'une flèche seule : on doit savoir où l'on va avant
+	   de cliquer, et un libellé explicite sert aussi les lecteurs d'écran. */
+	.en-bref a {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--brand-subtle);
+		text-decoration: none;
+	}
+
+	.en-bref a::after {
+		content: ' →';
+	}
+
+	.en-bref a:hover,
+	.en-bref a:focus-visible {
+		text-decoration: underline;
+	}
+
 	/* --- Nos équipes ------------------------------------------------------- */
 	.equipes-intro {
 		max-inline-size: var(--width-text);
