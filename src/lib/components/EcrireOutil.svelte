@@ -804,6 +804,29 @@
 			>
 				{isEn ? action.hero.title.en : action.hero.title.fr}
 			</PageHero>
+
+			<!-- Le parcours n'était expliqué nulle part : on demandait un code
+			     postal, puis un nom et une ville, sans dire ce qui allait en être
+			     fait. La première question d'un visiteur devant un formulaire est
+			     « qu'est-ce que vous allez envoyer, et à qui ». -->
+			<ol class="parcours">
+				{#if isEn}
+					<li>You enter your postal code; we find your MPs and senators.</li>
+					<li>You pick a message and edit it as you wish.</li>
+					<li>
+						It opens in your own mail app. <strong>You send it, from your address</strong> : nothing leaves
+						this page.
+					</li>
+				{:else}
+					<li>Vous entrez votre code postal, nous trouvons vos députés et vos sénateurs.</li>
+					<li>Vous choisissez un message et vous le modifiez comme vous voulez.</li>
+					<li>
+						Il s'ouvre dans votre messagerie. <strong
+							>C'est vous qui l'envoyez, depuis votre adresse</strong
+						> : rien ne part de cette page.
+					</li>
+				{/if}
+			</ol>
 		{/if}
 
 		<!-- Onglets masqués quand la page impose l'action (forcedActionId) : le
@@ -887,6 +910,17 @@
 					on:input={saveUser}
 				/>
 			</div>
+
+			<p class="user-hint">
+				{#if isEn}
+					Your name and town sign the message: an elected official reads a letter from their own
+					constituency differently. Both stay on your device and are never sent to us.
+				{:else}
+					Votre nom et votre ville servent à signer le message : un élu ne lit pas de la même façon
+					une lettre venue de sa circonscription. Ces deux informations restent sur votre appareil
+					et ne nous sont jamais envoyées.
+				{/if}
+			</p>
 
 			{#if isSampleData && action.targeting !== 'fixed'}
 				<p class="notice notice--warn">
@@ -1708,6 +1742,31 @@
 	}
 
 	/* Champs nom / commune */
+	/* Le parcours, avant le premier champ. Numéroté, parce que c'est une suite
+	   d'étapes et non une liste d'arguments. */
+	.parcours {
+		max-inline-size: var(--width-text);
+		margin: 0 auto 2rem;
+		padding-left: 1.3rem;
+		color: var(--text-2);
+		line-height: 1.65;
+	}
+
+	.parcours li {
+		margin-block: 0.35rem;
+	}
+
+	.parcours strong {
+		color: var(--text);
+	}
+
+	.user-hint {
+		margin: 0.6rem 0 0;
+		font-size: 0.9rem;
+		line-height: 1.55;
+		color: var(--text-2);
+	}
+
 	.user-fields {
 		display: flex;
 		gap: 0.5rem;
