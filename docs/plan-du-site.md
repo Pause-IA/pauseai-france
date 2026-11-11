@@ -31,7 +31,7 @@ flowchart LR
   g0 --> n3["Idées reçues<br/><small>/idees-recues</small>"]
   accueil --> g1["Agir"]
   g1 --> n4["Écrire à vos élus<br/><small>/ecrire-a-mes-elus</small>"]
-  g1 --> n5["Signer l'appel<br/><small>/declaration</small>"]
+  g1 --> n5["Signer l’appel<br/><small>/declaration</small>"]
   g1 --> n6["Relayer nos messages<br/><small>/relayer-nos-messages</small>"]
   g1 --> n7["Agir près de chez vous<br/><small>/groupes-locaux</small>"]
   g1 --> n8["Toutes les façons d’agir<br/><small>/agir</small>"]
@@ -103,7 +103,7 @@ flowchart LR
 | Page                     | Chemin                  |
 | ------------------------ | ----------------------- |
 | Écrire à vos élus        | `/ecrire-a-mes-elus`    |
-| Signer l'appel           | `/declaration`          |
+| Signer l’appel           | `/declaration`          |
 | Relayer nos messages     | `/relayer-nos-messages` |
 | Agir près de chez vous   | `/groupes-locaux`       |
 | Toutes les façons d’agir | `/agir`                 |
@@ -126,7 +126,7 @@ flowchart LR
 
 ## Pied de page
 
-### S'informer
+### S’informer
 
 | Lien                        | Chemin                                   |
 | --------------------------- | ---------------------------------------- |
@@ -141,9 +141,9 @@ flowchart LR
 | ------------------------- | --------------------------------------- |
 | Rejoindre Pause IA        | `/rejoindre`                            |
 | Rejoindre un groupe local | `/groupes-locaux`                       |
-| Toutes les façons d'agir  | `/agir`                                 |
+| Toutes les façons d’agir  | `/agir`                                 |
 | Écrire à vos élus         | `/ecrire-a-mes-elus`                    |
-| Signer l'appel            | `/declaration`                          |
+| Signer l’appel            | `/declaration`                          |
 | Faire un don              | `/dons`                                 |
 | Boutique                  | _externe_, https://boutique.pauseia.fr/ |
 
@@ -157,7 +157,7 @@ flowchart LR
 | Notre financement   | `/financements`       |
 | Espace presse       | `/presse`             |
 | Foire aux questions | `/faq`                |
-| Offres d'emploi     | `/recrutement-emploi` |
+| Offres d’emploi     | `/recrutement-emploi` |
 
 ### Informations légales
 
@@ -238,7 +238,7 @@ Une seule route sert toutes les pages d’une famille ; le contenu vient de
 | Share our messages                                           | `src/posts/en/relayer-nos-messages.md`                                         |
 | FAQ                                                          | `src/posts/faq.md`                                                             |
 | Notre financement                                            | `src/posts/financements.md`                                                    |
-| Gouvernance de l'IA : les démarches engagées                 | `src/posts/gouvernance-ia-demarches.md`                                        |
+| Gouvernance de l’IA : les démarches engagées                 | `src/posts/gouvernance-ia-demarches.md`                                        |
 | Mentions légales                                             | `src/posts/mentions-legales.md`                                                |
 | Politique de confidentialité                                 | `src/posts/politique-de-confidentialite.md`                                    |
 | Que demandons-nous ?                                         | `src/posts/propositions.md`                                                    |
