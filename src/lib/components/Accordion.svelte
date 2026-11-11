@@ -89,7 +89,9 @@
 	.details {
 		padding: 1rem 1.5rem 1.5rem 1.5rem;
 		margin: 0.25rem 0.5rem 1rem 0.5rem;
-		background-color: var(--bg-subtle);
+		/* Même fond que les cartes du site : le crème de --bg-subtle se
+		   confondait avec le fond de page sur les pages qui en ont un. */
+		background-color: var(--bg-card);
 		border: 1px solid var(--border);
 		border-radius: var(--radius-md);
 		box-shadow:

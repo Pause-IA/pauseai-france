@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
 	import EcrireOutil from '$components/EcrireOutil.svelte'
+	import { PRESS_TOOL_ENABLED } from '$lib/data/elu-actions'
 	import { Landmark, Newspaper, MoveUpRight, ArrowRight, Share2 } from 'lucide-svelte'
 	import type { PageData } from './$types'
 
@@ -26,8 +27,8 @@
 		? 'An AI escaped: demand safeguards'
 		: 'Une IA s’est échappée : exigeons des garde-fous'
 	$: description = isEn
-		? 'An OpenAI model escaped its test environment and autonomously hacked another company. Alert your MP and the press, and demand independent safety evaluations.'
-		: 'Un modèle d’OpenAI s’est échappé de son environnement de test et a piraté une entreprise de façon autonome. Alertez votre député et la presse, et exigez des évaluations de sécurité indépendantes.'
+		? 'An OpenAI model escaped its test environment and autonomously hacked another company. Alert your MP and demand independent safety evaluations.'
+		: 'Un modèle d’OpenAI s’est échappé de son environnement de test et a piraté une entreprise de façon autonome. Alertez votre député et exigez des évaluations de sécurité indépendantes.'
 
 	// Chronologie de l’incident, en trois phases : la coordination invisible,
 	// l’attaque, puis la confirmation d’un problème systémique.
@@ -302,9 +303,9 @@
 					a third-party target known for its security, something until now reserved for the best human
 					experts.
 				{:else}
-					<strong>La capacité.</strong> un modèle peut désormais mener, en autonomie, une attaque de
-					bout en bout contre une cible tierce réputée pour sa sécurité, chose jusque-là réservée aux
-					meilleurs experts humains.
+					<strong>La capacité.</strong> un modèle peut désormais mener, en autonomie, une attaque de bout
+					en bout contre une cible tierce réputée pour sa sécurité, chose jusque-là réservée aux meilleurs
+					experts humains.
 				{/if}
 			</li>
 			<li>
@@ -395,9 +396,15 @@
 		<div class="actions-head">
 			<h2>{isEn ? 'What you can do now' : 'Ce que vous pouvez faire maintenant'}</h2>
 			<p>
-				{isEn
-					? 'Two actions, a few minutes each. Both help put this incident, and the risks it reveals, on the public agenda.'
-					: 'Deux actions, quelques minutes chacune. Toutes deux aident à mettre cet incident, et les risques qu’il révèle, à l’ordre du jour.'}
+				{#if PRESS_TOOL_ENABLED}
+					{isEn
+						? 'Two actions, a few minutes each. Both help put this incident, and the risks it reveals, on the public agenda.'
+						: 'Deux actions, quelques minutes chacune. Toutes deux aident à mettre cet incident, et les risques qu’il révèle, à l’ordre du jour.'}
+				{:else}
+					{isEn
+						? 'A few minutes to help put this incident, and the risks it reveals, on the public agenda.'
+						: 'Quelques minutes pour aider à mettre cet incident, et les risques qu’il révèle, à l’ordre du jour.'}
+				{/if}
 			</p>
 		</div>
 
@@ -421,30 +428,32 @@
 			</a>
 		</div>
 
-		<!-- 2 · Écrire à la presse (outil intégré directement sur la page) -->
-		<div class="action-card press-block" bind:this={pressSection}>
-			<div class="action-head">
-				<div class="action-icon"><Newspaper size="1.4rem" aria-hidden="true" /></div>
-				<h3>
-					<span class="action-step">2</span>
-					{isEn ? 'Write to the press' : 'Écrire à la presse'}
-				</h3>
+		{#if PRESS_TOOL_ENABLED}
+			<!-- 2 · Écrire à la presse (outil intégré directement sur la page) -->
+			<div class="action-card press-block" bind:this={pressSection}>
+				<div class="action-head">
+					<div class="action-icon"><Newspaper size="1.4rem" aria-hidden="true" /></div>
+					<h3>
+						<span class="action-step">2</span>
+						{isEn ? 'Write to the press' : 'Écrire à la presse'}
+					</h3>
+				</div>
+				<p>
+					{isEn
+						? 'The media cover what their readers ask for. Choose the newspaper you read and send it a ready-to-personalise email, directly here.'
+						: 'Les rédactions couvrent ce que leurs lecteurs réclament. Choisissez le journal que vous lisez et envoyez-lui un email prêt à personnaliser, directement ici.'}
+				</p>
+				<div class="press-tool">
+					<EcrireOutil
+						lang={data.lang}
+						forcedActionId="presse-warning-shot"
+						embedded
+						requireName
+						on:navigate={scrollToPress}
+					/>
+				</div>
 			</div>
-			<p>
-				{isEn
-					? 'The media cover what their readers ask for. Choose the newspaper you read and send it a ready-to-personalise email, directly here.'
-					: 'Les rédactions couvrent ce que leurs lecteurs réclament. Choisissez le journal que vous lisez et envoyez-lui un email prêt à personnaliser, directement ici.'}
-			</p>
-			<div class="press-tool">
-				<EcrireOutil
-					lang={data.lang}
-					forcedActionId="presse-warning-shot"
-					embedded
-					requireName
-					on:navigate={scrollToPress}
-				/>
-			</div>
-		</div>
+		{/if}
 	</section>
 
 	<!-- ── Sources ──────────────────────────────────────────── -->

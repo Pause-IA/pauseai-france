@@ -7,12 +7,7 @@
 export type Lang = 'fr' | 'en'
 
 export type Category =
-	| 'pause-ia'
-	| 'livres'
-	| 'comprendre'
-	| 'risques'
-	| 'declarations'
-	| 'newsletters'
+	'pause-ia' | 'livres' | 'comprendre' | 'risques' | 'declarations' | 'newsletters'
 
 // Type of media, second filter axis on the /ressources page.
 export type MediaType =
@@ -146,6 +141,41 @@ export const resources: Resource[] = [
 		langs: ['fr'],
 		category: 'pause-ia',
 		type: 'site'
+	},
+	// Anciennement dans le menu « Événements », supprimé : ces deux pages
+	// restent accessibles depuis les ressources de Pause IA.
+	{
+		id: 'pauseia-senat-2025',
+		title: {
+			fr: 'Colloque au Sénat (31 octobre 2025)',
+			en: 'Senate colloquium (October 31, 2025)'
+		},
+		description: {
+			fr: 'Compte rendu du colloque organisé par Pause IA au Sénat : points clés, résumé exécutif et recommandations pour maîtriser l’IA.',
+			en: 'Report from the colloquium organized by Pause AI at the French Senate: key points, executive summary and recommendations for controlling AI.'
+		},
+		url: '/fr/senat2025',
+		internal: true,
+		langs: ['fr'],
+		category: 'pause-ia',
+		type: 'article',
+		date: 'octobre 2025'
+	},
+	{
+		id: 'pauseia-forum-solutions-2025',
+		title: {
+			fr: 'Reprendre le contrôle : Forum des solutions (8 février 2025)',
+			en: 'Taking back control: Solutions Forum (February 8, 2025)'
+		},
+		description: {
+			fr: 'Forum organisé à Paris : les approches et solutions pour une IA compatible avec l’humanité.',
+			en: 'Forum held in Paris: approaches and solutions for AI compatible with humanity.'
+		},
+		url: 'https://controleia.org/solutions/',
+		langs: ['fr'],
+		category: 'pause-ia',
+		type: 'site',
+		date: 'février 2025'
 	},
 
 	// ── LIVRES ──────────────────────────────────────────────

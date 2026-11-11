@@ -250,9 +250,12 @@ h3 {
 
 p {
 	margin-bottom: 1.5rem;
-	/* Pas de justification : sans césure typographique fiable, elle creuse
-	   des rivières de blancs dans les colonnes étroites. */
-	hyphens: auto;
+	/* Pas de justification, et donc pas de césure : `hyphens: auto` ne sert
+	   qu'à répartir les blancs d'un texte justifié. Sur un texte en drapeau,
+	   il coupe les mots sans rien gagner, et sur une colonne étroite de
+	   téléphone cela donnait quatre « ac-tivez » ou « ré-seau » par page.
+	   Seuls les mots qu'aucune largeur ne peut contenir sont coupés. */
+	overflow-wrap: break-word;
 }
 
 ul,

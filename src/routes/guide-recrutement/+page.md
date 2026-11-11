@@ -20,7 +20,7 @@ date: '2025-05-30'
 
 <Callout>
 
-📌 **Note :** Vous consultez le guide complet de recrutement. Si vous préférez commencer par une version condensée (5-10 min de lecture), consultez notre [Guide Express sur la page principale de recrutement](/recrutement).
+📌 **Note :** Vous consultez le guide complet de recrutement. Si vous préférez commencer par une version condensée (5-10 min de lecture), consultez notre [guide court](/sensibiliser-votre-entourage).
 
 </Callout>
 
