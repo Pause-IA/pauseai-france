@@ -564,7 +564,10 @@
 
 	.ressources-page {
 		max-inline-size: var(--width-content);
-		padding: 0 0 4rem;
+		/* 3 rem en haut, comme le gabarit partagé (.ui-page). La page
+		   démarrait à 2 px sous l'en-tête quand toutes les autres sont à
+		   50 px : elle était la seule à ne pas respirer. */
+		padding: 3rem 0 4rem;
 		margin: 0 auto;
 	}
 
@@ -832,8 +835,13 @@
 			box-shadow 0.2s ease;
 	}
 
+	/* Au survol : un filet orange épais sur le bord d'attaque, et le titre se
+	   souligne. Une bordure qui change de teinte ne se voit pas assez pour
+	   dire « ceci se clique » ; le filet, lui, se lit du coin de l'œil. */
 	.res-card:hover {
 		border-color: var(--brand);
+		border-inline-start: 3px solid var(--brand);
+		padding-inline-start: calc(1.1rem - 2px);
 		transform: translateY(-1px);
 		box-shadow: 0 4px 14px rgba(var(--ink-rgb), 0.05);
 	}
@@ -879,6 +887,13 @@
 		transition:
 			transform 0.2s ease,
 			color 0.2s ease;
+	}
+
+	.res-card:hover .res-title {
+		text-decoration: underline;
+		text-decoration-color: var(--brand);
+		text-decoration-thickness: 0.09em;
+		text-underline-offset: 0.16em;
 	}
 
 	.res-card:hover :global(.res-arrow) {

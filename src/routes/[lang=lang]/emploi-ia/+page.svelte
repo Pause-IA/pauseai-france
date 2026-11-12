@@ -253,7 +253,8 @@
 		max-inline-size: var(--width-content);
 		width: 100%;
 		margin-inline: auto;
-		margin-top: 2rem;
+		/* 3 rem, comme le gabarit partagé et toutes les autres pages. */
+		margin-top: 3rem;
 		padding: 0 1rem;
 		overflow-x: clip;
 	}
