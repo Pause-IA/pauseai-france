@@ -406,8 +406,7 @@
 	   blanc, avec un texte centré que rien d'autre sur le site ne fait. Elle
 	   prend l'aplat de marque et s'aligne à gauche comme le reste. */
 	.impact-highlight :global(h2) {
-		/* 1,6 rem : la place du filet orange, que l'aplat pose en absolu. */
-		margin-block: 1.6rem 1rem;
+		margin-block: 0 0.9rem;
 		color: var(--on-dark);
 	}
 

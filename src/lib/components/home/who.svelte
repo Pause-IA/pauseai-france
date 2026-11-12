@@ -229,9 +229,11 @@
 			{#each equipes as equipe}
 				<li class="equipe">
 					<h3>
-						{equipe.nom}{#if equipe.referent}<span class="referent">{equipe.referent}</span>{/if}
+						{lang === 'en' ? equipe.nomEn : equipe.nom}{#if equipe.referent}<span class="referent"
+								>{equipe.referent}</span
+							>{/if}
 					</h3>
-					<p>{equipe.description}</p>
+					<p>{lang === 'en' ? equipe.descriptionEn : equipe.description}</p>
 				</li>
 			{/each}
 		</ul>

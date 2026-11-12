@@ -428,14 +428,6 @@
 	   et débordement viennent de là, il ne reste ici que sa typographie. */
 	.statement {
 		font-weight: 500;
-		font-size: 1.15rem;
-		line-height: 1.7;
-	}
-
-	@media (min-width: 640px) {
-		.statement {
-			font-size: 1.4rem;
-		}
 	}
 
 	.source,

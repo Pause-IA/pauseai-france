@@ -22,8 +22,12 @@
  */
 export interface Equipe {
 	nom: string
+	/** Le nom de l'équipe en anglais. */
+	nomEn: string
 	/** Une phrase courte, qui nomme des choses concrètes. */
 	description: string
+	/** La même phrase en anglais. */
+	descriptionEn: string
 	/**
 	 * Prénom et nom du référent, uniquement s’il les a donnés pour le site.
 	 * Laisser vide tant que la personne n’a pas répondu : l’absence se lit,
@@ -35,33 +39,48 @@ export interface Equipe {
 export const equipes: Equipe[] = [
 	{
 		nom: 'Communication',
+		nomEn: 'Communications',
 		description:
-			'Fait exister le sujet dans le débat public : communiqués, réseaux sociaux, vidéo, newsletter.'
+			'Fait exister le sujet dans le débat public : communiqués, réseaux sociaux, vidéo, newsletter.',
+		descriptionEn:
+			'Keeps the subject alive in public debate: press releases, social media, video, newsletter.'
 	},
 	{
 		nom: 'Plaidoyer',
+		nomEn: 'Advocacy',
 		description: 'Porte nos demandes au Parlement, dans les ministères et les institutions.',
+		descriptionEn: 'Carries our demands to Parliament, to ministries and to public institutions.',
 		referent: 'Hedi Meziou'
 	},
 	{
 		nom: 'Initiatives locales',
+		nomEn: 'Local initiatives',
 		description: 'Fait vivre Pause IA partout en France, aux côtés des groupes locaux.',
+		descriptionEn: 'Keeps Pause IA alive across France, alongside the local groups.',
 		referent: 'Antonin Peronnet'
 	},
 	{
 		nom: 'Événements et mobilisations',
-		description: 'Monte les colloques, forums et mobilisations qui nous rendent visibles.'
+		nomEn: 'Events and mobilisation',
+		description: 'Monte les colloques, forums et mobilisations qui nous rendent visibles.',
+		descriptionEn: 'Puts together the conferences, forums and marches that make us visible.'
 	},
 	{
 		nom: 'Communauté et accueil',
-		description: "Accueille les nouveaux venus et anime la vie interne de l’association."
+		nomEn: 'Community and welcome',
+		description: 'Accueille les nouveaux venus et anime la vie interne de l’association.',
+		descriptionEn: 'Welcomes newcomers and keeps the life of the association going from within.'
 	},
 	{
 		nom: 'Technique',
-		description: 'Tient le site, le Discord et les outils sur lesquels tout le reste repose.'
+		nomEn: 'Engineering',
+		description: 'Tient le site, le Discord et les outils sur lesquels tout le reste repose.',
+		descriptionEn: 'Runs the website, the Discord and the tools everything else rests on.'
 	},
 	{
 		nom: 'Financement et partenariats',
-		description: "Cherche les financements et les partenariats qui nous donnent les moyens d’agir."
+		nomEn: 'Funding and partnerships',
+		description: 'Cherche les financements et les partenariats qui nous donnent les moyens d’agir.',
+		descriptionEn: 'Seeks the funding and the partnerships that give us the means to act.'
 	}
 ]

@@ -711,38 +711,45 @@ html[data-theme='dark'] .leaflet-control-attribution a {
    Markdown et ne peuvent pas porter de classe), et explicitement partout
    ailleurs via .aplat-marque.
 
-   Il déborde de la colonne de lecture : c'est ce débordement qui fait
-   l'arrêt, plus encore que la couleur. */
+   Il ne déborde plus de la colonne : avec le débordement ET les grandes
+   marges intérieures, le bloc faisait pavé — 231 px de haut pour cinq lignes
+   de texte. Resserré, il fait 145 px et dit exactement la même chose. La
+   page de référence est d'ailleurs plus serrée que ne l'était notre copie. */
 .aplat-marque,
 .ui-page--note blockquote {
 	position: relative;
-	margin-inline: calc(-1 * clamp(0rem, 4vw, 3rem));
-	margin-block: clamp(2rem, 5vw, 3rem);
-	padding: clamp(1.75rem, 4vw, 2.5rem);
+	margin-block: clamp(1.75rem, 4vw, 2.25rem);
+	/* Le retrait du haut loge le filet orange, posé en absolu. */
+	padding: 2.6rem clamp(1.25rem, 3vw, 1.6rem) clamp(1.25rem, 3vw, 1.5rem);
 	border: 0;
 	border-radius: 2px;
 	background: var(--surface-sombre);
 	color: var(--on-dark);
+	font-size: 1.05rem;
+	line-height: 1.6;
 	font-style: normal;
 }
 
 /* Petit filet orange en tête : il rattache l'aplat à la marque au lieu de le
    laisser flotter comme un bloc sombre quelconque. */
+/* stylelint-disable-next-line no-descending-specificity */
 .aplat-marque::before,
 .ui-page--note blockquote::before {
 	content: '';
 	position: absolute;
-	inset-block-start: clamp(1.75rem, 4vw, 2.5rem);
-	inset-inline-start: clamp(1.75rem, 4vw, 2.5rem);
-	inline-size: 2.5rem;
-	block-size: 3px;
+	inset-block-start: 1.4rem;
+	inset-inline-start: clamp(1.25rem, 3vw, 1.6rem);
+	inline-size: 2rem;
+	block-size: 2px;
 	border-radius: var(--radius-pill);
 	background: var(--brand);
 }
 
+/* Le retrait du haut suffit désormais : plus besoin de pousser le premier
+   enfant pour dégager le filet. */
 .aplat-marque > :first-child,
 .ui-page--note blockquote > :first-child {
-	margin-block-start: 1.6rem;
+	margin-block-start: 0;
 }
 
 .aplat-marque > :last-child,
@@ -766,7 +773,6 @@ html[data-theme='dark'] .leaflet-control-attribution a {
 @media print {
 	.aplat-marque,
 	.ui-page--note blockquote {
-		margin-inline: 0;
 		padding-inline-start: 1rem;
 		border-inline-start: 3px solid var(--filet-impression);
 		background: none;
