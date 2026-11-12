@@ -52,16 +52,14 @@
 				<button type="button" class="plus" on:click={() => (deplie = true)} hidden={deplie}
 					>Read the rest</button
 				>
-				<aside class="appel aplat-marque">
-					<p>
-						The AI industry is gambling with our lives. If you think this has to stop, join us and
-						sign our call for a pause on training frontier AI models.
-					</p>
-					<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
-						<Button href="{prefix}/declaration">Sign the statement</Button>
-						<Button href="{prefix}/rejoindre" alt>Join Pause IA</Button>
-					</div>
-				</aside>
+				<p>
+					The AI industry is gambling with our lives. If you think this has to stop, join us and
+					sign our call for a pause on training frontier AI models.
+				</p>
+				<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
+					<Button href="{prefix}/declaration">Sign the statement</Button>
+					<Button href="{prefix}/rejoindre" alt>Join Pause IA</Button>
+				</div>
 			{:else}
 				<p>
 					Ce n’est que le début. L’IA a commencé à envahir nos vies, et déjà nous ne contrôlons
@@ -85,46 +83,21 @@
 				<button type="button" class="plus" on:click={() => (deplie = true)} hidden={deplie}
 					>Lire la suite</button
 				>
-				<aside class="appel aplat-marque">
-					<p>
-						L’industrie de l’IA joue avec nos vies. Si vous pensez que cela doit cesser,
-						rejoignez-nous, signez notre appel à une pause dans l’entraînement des modèles d’IA de
-						pointe.
-					</p>
-					<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
-						<Button href="{prefix}/declaration">Signer l’appel</Button>
-						<Button href="{prefix}/rejoindre" alt>Rejoindre Pause IA</Button>
-					</div>
-				</aside>
+				<p>
+					L’industrie de l’IA joue avec nos vies. Si vous pensez que cela doit cesser,
+					rejoignez-nous, signez notre appel à une pause dans l’entraînement des modèles d’IA de
+					pointe.
+				</p>
+				<div class="buttons" in:fly={{ y: 20, duration: 300, delay: 700 }}>
+					<Button href="{prefix}/declaration">Signer l’appel</Button>
+					<Button href="{prefix}/rejoindre" alt>Rejoindre Pause IA</Button>
+				</div>
 			{/if}
 		</div>
 	</Fly>
 </section>
 
 <style>
-	/* L'APLAT BLEU de la page d'accueil.
-
-	   Les cinq paragraphes d'introduction se terminaient par la phrase qui
-	   demande quelque chose au lecteur et par les deux boutons — en texte
-	   courant, au même poids que ce qui précède. C'est pourtant le seul
-	   endroit de la page où l'on passe de l'exposé à la demande.
-
-	   La forme vient de .aplat-marque (app.css) ; il ne reste ici que ce qui
-	   est propre à l'accueil. */
-	.appel {
-		align-self: stretch;
-	}
-
-	.appel p {
-		margin: 1.6rem 0 0;
-		font-size: 1.1rem;
-		line-height: 1.6;
-	}
-
-	.appel .buttons {
-		margin-top: 1.5rem;
-	}
-
 	.lead {
 		align-self: center;
 		/* Colonne de lecture, et non la largeur « pages larges » : en 62 rem,
@@ -152,7 +125,7 @@
 		background: none;
 		font: inherit;
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--brand-subtle);
 		text-decoration: underline;
 		cursor: pointer;
 	}

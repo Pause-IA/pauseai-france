@@ -61,25 +61,25 @@
 	   panneaux et séparateurs posés sur la surface sombre. */
 	--surface-sombre-2: rgb(34, 56, 72);
 	--brand-light: #fff5e8;
-	/* Accent de texte : le BLEU de la marque, pas un orange assombri.
+	/* Accent de texte : l'orange profond de la marque.
 
-	   L'orange de marque ne fait que 2,1:1 sur blanc : illisible en texte. On
-	   l'assombrissait jusqu'à #a85400 pour atteindre 5,3:1, mais à ce niveau il
-	   n'est plus orange — il est marron, ce que la relecture a signalé. Et il
-	   était employé 148 fois en `color` : le marron était donc, de fait, la
-	   couleur d'accent du site.
+	   Historique de ce jeton, parce qu'il a beaucoup bougé. Il valait #a85400
+	   — l'orange de marque assombri jusqu'à être lisible (5,34:1 sur blanc).
+	   La relecture a trouvé le SURTITRE marron, et je l'ai d'abord lu comme un
+	   verdict sur la couleur elle-même : tout est passé au bleu.
 
-	   La marque a déjà une seconde couleur faite pour ça : le bleu sombre.
-	   OKLCH(0,42 0,09 241) = rgb(16, 82, 121), même teinte que --surface-sombre,
-	   8,4:1 sur blanc. L'orange reste l'unique couleur saturée des aplats, des
-	   filets et des survols ; le bleu porte le texte d'accent. */
-	--accent: rgb(16, 82, 121);
-	/* Orange LISIBLE EN GRAND TEXTE. L'orange de marque ne fait que 2,21:1 sur
-	   blanc : il échoue même au seuil assoupli des grands titres (3:1). Celui-ci
-	   donne 3,49:1 et reste franchement orange, loin du marron qu'il faut
-	   atteindre (4,67:1) pour passer en texte courant. À réserver aux titres :
-	   en dessous de 24 px il n'est pas conforme. */
-	--brand-titre: rgb(217, 106, 0);
+	   C'était une erreur de diagnostic. Le problème était le surtitre, pas la
+	   couleur : en ligne de texte, il n'avait que sa teinte pour exister, donc
+	   on ne voyait que sa teinte. Il est maintenant une étiquette sur aplat
+	   orange plein, et la cause a disparu.
+
+	   Le bleu, lui, est une SURFACE dans ce système, pas une encre : c'est
+	   ainsi qu'il sert sur la page de référence, et nulle part ailleurs. En
+	   encre, répandu sur les liens, les chiffres et les onglets, il devenait
+	   une troisième couleur de marque que personne n'avait choisie.
+
+	   Au survol, le lien passe à l'orange de marque plein. */
+	--accent: rgb(168, 84, 0);
 	--brand-deep: #ff6b35; /* fin de dégradé sur les encadrés d'appel */
 	--brand-soft: #ffb347; /* début de dégradé clair (bandeaux) */
 	/* Attention : --white et --black s'inversent en mode sombre. Ce sont la
@@ -92,20 +92,21 @@
 	--text: var(--black);
 	--text-2: #555; /* texte secondaire léger */
 	--bg: var(--white);
-	/* Fond des panneaux et des bandes. Il valait --brand-light, c'est-à-dire
-	   le crème #fff5e8 : c'est ce crème qui devait disparaître de la charte, et
-	   l'aliasing le remettait partout où un panneau se teinte.
-
-	   OKLCH(0,965 0,01 241) = rgb(238, 244, 250) : même clarté que le crème
-	   (donc aucun panneau ne devient plus lourd), mais la teinte est celle du
-	   bleu de la marque. --brand-light reste pour les états INTERACTIFS de la
-	   marque — le survol et l'onglet actif doivent rester orange. */
-	--bg-subtle: rgb(238, 244, 250);
+	/* Teinte de fond des bandes et des listes. Elle a été crème (#fff5e8),
+	   puis bleu pâle — les deux se remarquaient plus que ce qu'elles
+	   portaient. Un gris NEUTRE, sans teinte : la marque n'a que deux
+	   couleurs, l'orange et le bleu sombre, et une surface de fond n'est ni
+	   l'une ni l'autre. */
+	--bg-subtle: rgb(246, 247, 248);
 	/* Fond des panneaux d'appel (« Groupes locaux », « Restez informé »…).
-	   Ils étaient peints en orange très dilué, ce qui redonnait du crème. Ils
-	   prennent le même fond que les bandes ; leur FILET reste orange, c'est
-	   lui qui les rattache à la marque. */
-	--panneau-bg: var(--bg-subtle);
+	   Aucun : ils se détachent par leur bordure, et par le filet orange de
+	   ceux qui en ont un. Ils ont été crème, puis bleu pâle ; dans les deux
+	   cas la teinte se remarquait plus que le panneau. Un panneau doit se
+	   faire oublier, c'est son contenu qu'on vient lire.
+
+	   Tous les consommateurs de ce jeton déclarent déjà une bordure : aucun
+	   ne devient invisible en perdant son fond (vérifié). */
+	--panneau-bg: var(--bg);
 
 	/* Generic UI tokens */
 	--border: #e5e7eb;
@@ -186,11 +187,10 @@
 	--white: #262626;
 	--black: #f0f0f0;
 	--bg: #272727;
-	/* Pendants sombres, neutres-froids comme leurs équivalents clairs, qui
-	   ne sont plus chauds. */
-	--bg-subtle: rgb(44, 48, 54);
-	--bg-card: rgb(48, 52, 58);
-	--panneau-bg: var(--bg-subtle);
+	/* Pendants sombres, neutres comme leurs équivalents clairs. */
+	--bg-subtle: rgb(46, 48, 50);
+	--bg-card: rgb(51, 53, 55);
+	--panneau-bg: var(--bg);
 	--text: #f0f0f0;
 	--text-2: #a0a8b4;
 	--text-secondary: #a0a8b4;
@@ -209,11 +209,7 @@
 	--carousel-text: #e6e1da;
 	--shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35);
 	--shadow-raised: 0 8px 28px rgba(0, 0, 0, 0.45);
-	/* OKLCH(0,75 0,08 241) : le même bleu éclairci pour le fond sombre,
-	   6,8:1 sur --bg. */
-	--accent: rgb(127, 181, 220);
-	/* Sur fond sombre, l'orange de marque est lisible tel quel. */
-	--brand-titre: var(--brand);
+	--accent: rgb(255, 171, 64); /* orange plus clair pour fond sombre */
 
 	--btn-alt-bg: #303030;
 	--btn-alt-hover-bg: #2a1f0a;

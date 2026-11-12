@@ -330,7 +330,7 @@
 	.rss-link:hover {
 		color: var(--accent);
 		border-color: var(--brand);
-		background: var(--panneau-bg);
+		background: var(--brand-light);
 	}
 
 	/* Subscribe bar */

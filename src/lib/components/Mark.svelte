@@ -1,13 +1,12 @@
 <!--
 	Mise en valeur du second membre du titre du héros (« agissons maintenant »).
 
-	Le texte est orange, mais PAS l'orange de marque : celui-ci ne fait que
-	2,21:1 sur blanc, soit moins que le seuil assoupli des grands titres (3:1).
-	--brand-titre donne 3,49:1 et reste franchement orange.
-
-	Le soulignement, lui, garde l'orange de marque plein : c'est une décoration,
-	elle n'est soumise à aucun seuil de contraste de texte, et c'est elle qui
-	fait entrer la vraie couleur de la marque dans le titre.
+	Le texte reste de l'encre de la page et c'est le SOULIGNEMENT qui porte
+	l'orange de marque, plein. Un orange lisible en texte aurait demandé de
+	l'assombrir à rgb(217, 106, 0) au minimum — l'orange de marque ne fait que
+	2,21:1 sur blanc, sous le seuil même des grands titres — et le résultat ne
+	ressemblait plus à la marque. Le trait, lui, est une décoration : il porte
+	la vraie couleur sans aucune contrainte de contraste.
 -->
 <span>
 	<slot />
@@ -15,10 +14,10 @@
 
 <style>
 	span {
-		color: var(--brand-titre);
+		color: var(--text);
 		text-decoration: underline;
 		text-decoration-color: var(--brand);
-		text-decoration-thickness: 0.1em;
+		text-decoration-thickness: 0.12em;
 		text-underline-offset: 0.12em;
 	}
 </style>
