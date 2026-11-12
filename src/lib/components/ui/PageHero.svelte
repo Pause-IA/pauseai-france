@@ -48,7 +48,11 @@
 	.filet-cloture {
 		margin: 2rem 0 0;
 		border: 0;
-		border-top: 1px solid var(--border);
+		/* L'ENCRE de la page, pas le gris des bordures. C'est ce que fait la
+		   page de référence, et la différence est nette : à --border
+		   (#e5e7eb, 1,24:1 sur blanc) le trait se devine ; à --text il se
+		   voit, et c'est là tout son intérêt — fermer l'en-tête. */
+		border-top: 1px solid var(--text);
 	}
 
 	.rule {

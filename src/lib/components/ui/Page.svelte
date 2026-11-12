@@ -89,7 +89,7 @@
 		max-inline-size: var(--width-text);
 		/* app.css fixe le corps à 1,2 rem, soit 19,2 px : sur un téléphone de
 		   390 px cela ne laisse qu'une trentaine de signes par ligne. */
-		font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.125rem);
+		font-size: clamp(1.0625rem, 0.97rem + 0.42vw, 1.1875rem);
 		line-height: 1.62;
 		/* Orange de marque à 40 % : un filet, pas un trait. Réservé aux
 		   séparations horizontales — bordures de cartes et de boutons gardent
