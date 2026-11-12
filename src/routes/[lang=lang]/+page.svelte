@@ -39,7 +39,7 @@
 	<LocalGroups {lang} />
 </Bande>
 
-<Bande titre={t.home.bande_informer_titre}>
+<Bande titre={t.home.bande_informer_titre} fond="gris" filet={false}>
 	<NewsletterCta {lang} />
 	<Videos videos={data.videos} {lang} />
 	<Articles articles={data.articles} {lang} />

@@ -16,11 +16,20 @@
 	/** Filet de séparation au-dessus de la bande. La première de la page n'en
 	    a pas besoin : le héros la sépare déjà de ce qui précède. */
 	export let filet = true
+	/** `gris` peint la bande d'un bord à l'autre. Une seule des deux bandes
+	    l'est : c'est l'alternance qui sépare, pas la couleur elle-même. */
+	export let fond: 'blanc' | 'gris' = 'blanc'
 
 	const id = `bande-${Math.random().toString(36).slice(2, 8)}`
 </script>
 
-<section class="bande" class:filet aria-labelledby={id}>
+<section
+	class="bande"
+	class:filet={filet && fond === 'blanc'}
+	class:gris={fond === 'gris'}
+	aria-labelledby={id}
+>
+	<span class="repere" aria-hidden="true"></span>
 	<UnderlinedTitle {id}>{titre}</UnderlinedTitle>
 	<slot />
 </section>
@@ -40,6 +49,31 @@
 	   modèle, et non par un aplat teinté. Il court d'un bord à l'autre, pour
 	   qu'on le lise comme une coupure de page et pas comme un trait de
 	   paragraphe. */
+	/* Repère de marque au-dessus du titre, comme en tête de page : il dit que
+	   ce titre ouvre un territoire, et non une section de plus. */
+	.repere {
+		display: block;
+		inline-size: 3rem;
+		block-size: 4px;
+		border-radius: var(--radius-pill);
+		background: var(--brand);
+		margin-bottom: 1.1rem;
+	}
+
+	/* La bande grise est peinte d'un bord à l'autre. C'est l'ALTERNANCE qui
+	   crée les deux territoires : une seule des deux bandes est teintée, et le
+	   gris est neutre — la marque n'a que l'orange et le bleu sombre, une
+	   surface de fond n'est ni l'un ni l'autre. */
+	.bande.gris::after {
+		content: '';
+		position: absolute;
+		z-index: 0;
+		inset-block: 0;
+		inset-inline-start: calc(50% - 50vw);
+		inline-size: 100vw;
+		background: var(--bg-subtle);
+	}
+
 	.bande.filet::before {
 		content: '';
 		position: absolute;
