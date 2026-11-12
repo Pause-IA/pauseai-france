@@ -119,7 +119,7 @@ or <a href="/{lang}/agir">see all the ways to act</a>.</p>
     content: counter(action);
     font-size: 0.85em;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--brand);
   }
 
   .astuce {
@@ -188,7 +188,7 @@ or <a href="/{lang}/agir">see all the ways to act</a>.</p>
   .cta-fleche {
     margin-inline-start: auto;
     font-size: 1.4rem;
-    color: var(--accent);
+    color: var(--text);
     flex-shrink: 0;
   }
 

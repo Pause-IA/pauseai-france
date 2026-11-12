@@ -756,14 +756,14 @@
 		height: 2.4rem;
 		border-radius: var(--radius-md);
 		background: var(--panneau-bg);
-		color: var(--accent);
+		color: var(--brand);
 		flex-shrink: 0;
 		margin-top: 0.15rem;
 	}
 
 	:global([data-theme='dark']) .section-icon {
 		background: rgba(var(--brand-rgb), 0.15);
-		color: var(--accent);
+		color: var(--brand);
 	}
 
 	.res-section-header h2 {
@@ -865,11 +865,11 @@
 		font-size: 1rem;
 		line-height: 1.35;
 		margin: 0;
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	:global([data-theme='dark']) .res-title {
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	:global(.res-arrow) {

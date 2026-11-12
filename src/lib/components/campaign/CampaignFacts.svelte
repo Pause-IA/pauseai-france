@@ -77,7 +77,7 @@
 		margin-top: auto;
 		font-size: 0.9rem;
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--text);
 		text-decoration: none;
 	}
 

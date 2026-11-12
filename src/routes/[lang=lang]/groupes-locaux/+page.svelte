@@ -690,7 +690,7 @@
 	}
 
 	.impact-card :global(svg) {
-		color: var(--accent);
+		color: var(--brand);
 	}
 
 	.impact-card h2 {
@@ -706,7 +706,7 @@
 	}
 
 	.impact-card a {
-		color: var(--accent);
+		color: var(--text);
 		font-weight: 600;
 	}
 
@@ -760,7 +760,7 @@
 	}
 
 	.section-title-row :global(.section-icon) {
-		color: var(--accent);
+		color: var(--brand);
 		flex-shrink: 0;
 	}
 
@@ -793,7 +793,7 @@
 
 	.event-date {
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--text);
 		font-size: 0.9rem;
 		min-inline-size: 8rem;
 	}
@@ -824,7 +824,7 @@
 	}
 
 	.event-body small :global(svg) {
-		color: var(--accent);
+		color: var(--brand);
 		flex-shrink: 0;
 	}
 
@@ -1022,7 +1022,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--accent);
+		color: var(--brand);
 		opacity: 0.5;
 	}
 
@@ -1097,7 +1097,7 @@
 		margin-top: 0.15rem;
 		font-size: 0.88rem;
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--text);
 		white-space: nowrap;
 	}
 
@@ -1257,7 +1257,7 @@
 		gap: 0.3rem;
 		font-size: 0.82rem;
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--text);
 		background: var(--panneau-bg);
 		padding: 0.2rem 0.6rem;
 		border-radius: var(--radius-pill);
@@ -1270,7 +1270,7 @@
 		border: 1px solid var(--brand);
 		border-radius: var(--radius-pill);
 		background: transparent;
-		color: var(--accent);
+		color: var(--text);
 		font-size: 0.9rem;
 		font-weight: 600;
 		cursor: pointer;
@@ -1317,7 +1317,7 @@
 		block-size: 2.4rem;
 		border-radius: 50%;
 		background: color-mix(in srgb, var(--brand) 18%, transparent);
-		color: var(--accent);
+		color: var(--brand);
 	}
 
 	.cta-card h2 {
@@ -1355,7 +1355,7 @@
 	}
 
 	.map-title-row :global(.map-pin-icon) {
-		color: var(--accent);
+		color: var(--brand);
 		flex-shrink: 0;
 	}
 
@@ -1369,7 +1369,7 @@
 
 	.map-stat {
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	.map-stat.forming {

@@ -31,7 +31,7 @@
 	}
 
 	a.c2a {
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	a.active {

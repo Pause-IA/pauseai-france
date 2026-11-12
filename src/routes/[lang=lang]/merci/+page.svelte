@@ -86,7 +86,7 @@
 	}
 
 	.next-steps h3 {
-		color: var(--accent);
+		color: var(--text);
 		margin-bottom: 1rem;
 	}
 
@@ -108,7 +108,7 @@
 	}
 
 	.return-link a {
-		color: var(--accent);
+		color: var(--text);
 		text-decoration: none;
 		font-weight: 600;
 		font-size: 1.1rem;

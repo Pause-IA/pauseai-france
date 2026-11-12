@@ -737,7 +737,7 @@
 	}
 
 	.contact-email-main a {
-		color: var(--accent);
+		color: var(--text);
 		font-weight: 600;
 	}
 
@@ -769,7 +769,7 @@
 	}
 
 	.contact-info a {
-		color: var(--accent);
+		color: var(--text);
 		font-weight: 600;
 	}
 
@@ -782,7 +782,7 @@
 	}
 
 	.redirect a {
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	/* Press releases section */
@@ -975,7 +975,7 @@
 	.dept-option-code {
 		font-weight: 700;
 		font-size: 0.9rem;
-		color: var(--accent);
+		color: var(--text);
 		min-width: 2rem;
 	}
 
@@ -1006,7 +1006,7 @@
 		margin-bottom: 0.5rem;
 		font-size: 0.75rem;
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--text);
 		background-color: rgba(var(--brand-rgb), 0.08);
 		border: 1px solid var(--brand);
 		border-radius: 0.25rem;
@@ -1091,7 +1091,7 @@
 		gap: 0.375rem;
 		font-size: 0.875rem;
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--text);
 		transition: color 0.2s ease;
 	}
 
@@ -1310,7 +1310,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
-		color: var(--accent);
+		color: var(--text);
 		background: color-mix(in srgb, var(--brand) 10%, transparent);
 		padding: 0.1rem 0.4rem;
 		border-radius: 0.25rem;
@@ -1357,7 +1357,7 @@
 		margin-top: 0;
 		margin-bottom: 1rem;
 		font-size: 1.3rem;
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	.about-card p {

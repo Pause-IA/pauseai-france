@@ -775,7 +775,7 @@
 	}
 
 	.read-more a {
-		color: var(--accent);
+		color: var(--text);
 		font-weight: 600;
 	}
 
@@ -1076,7 +1076,7 @@
 		margin-top: 0.3rem;
 		font-size: 0.9rem;
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	/* Sur écran large : image à gauche, texte à droite (carte compacte). */

@@ -231,7 +231,7 @@
 	.intro {
 		font-size: 1.15rem;
 		font-weight: 500;
-		color: var(--accent);
+		color: var(--text);
 		border-left: 4px solid var(--brand);
 		background: var(--panneau-bg);
 		padding: 1rem 1.25rem;
@@ -256,7 +256,7 @@
 
 	.cta-text {
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--text);
 		margin: 0;
 	}
 

@@ -349,7 +349,7 @@
 	}
 
 	.subscribe-icon {
-		color: var(--accent);
+		color: var(--brand);
 		flex-shrink: 0;
 		margin-top: 0.5rem;
 	}

@@ -207,7 +207,7 @@
 	.intro {
 		font-size: 1.15rem;
 		font-weight: 500;
-		color: var(--accent);
+		color: var(--text);
 		border-left: 4px solid var(--brand);
 		background: var(--panneau-bg);
 		padding: 1rem 1.25rem;
@@ -234,7 +234,7 @@
 		margin: 0 0 0.5rem;
 		font-style: italic;
 		font-size: 1.05rem;
-		color: var(--accent);
+		color: var(--text);
 		font-weight: 500;
 	}
 
@@ -269,7 +269,7 @@
 		font-weight: 700;
 		letter-spacing: 0.07em;
 		text-transform: uppercase;
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	.next-title {

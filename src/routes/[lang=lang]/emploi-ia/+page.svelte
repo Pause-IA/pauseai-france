@@ -300,7 +300,7 @@
 		font-size: 1.2rem;
 		font-weight: 500;
 		line-height: 1.5;
-		color: var(--accent);
+		color: var(--text);
 		border-left: 4px solid var(--brand);
 		background: var(--panneau-bg);
 		padding: 1rem 1.25rem;
@@ -500,7 +500,7 @@
 	.article-card-link {
 		font-size: 0.875rem;
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	.article-card:hover .article-card-link {
@@ -527,7 +527,7 @@
 	/* ── CTA callout ── */
 	.cta-callout {
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--text);
 		border-left: 4px solid var(--brand);
 		background: var(--panneau-bg);
 		padding: 0.85rem 1.1rem;
@@ -543,7 +543,7 @@
 
 	.cta-guide {
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--text);
 		margin: 0.75rem 0 0.25rem;
 	}
 
@@ -614,7 +614,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	.press-date {

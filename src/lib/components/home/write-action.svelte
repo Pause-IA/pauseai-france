@@ -127,7 +127,7 @@
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
 		text-align: left;
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	/* Un panneau unique plutôt que quatre éléments posés côte à côte sur le

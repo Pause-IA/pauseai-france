@@ -293,7 +293,7 @@
 
 	/* Links */
 	.pr-content :global(a) {
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	.pr-content :global(a:hover) {

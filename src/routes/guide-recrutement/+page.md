@@ -548,7 +548,7 @@ N'oubliez pas : votre objectif n'est pas de "gagner" le débat, mais d'ouvrir un
 		/* --brand sur blanc plafonne à 2,2:1 : la charte l'interdit en texte et
 		   donne --accent, le seul orange lisible. Le filet dessous reste
 		   en --brand, où la couleur de marque est à sa place. */
-		color: var(--accent);
+		color: var(--text);
 		margin-bottom: 1.5rem;
 		border-bottom: 2px solid var(--brand);
 		padding-bottom: 0.5rem;
@@ -563,7 +563,7 @@ N'oubliez pas : votre objectif n'est pas de "gagner" le débat, mais d'ouvrir un
 		display: block;
 		font-size: 2rem;
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--text);
 		margin-bottom: 0.5rem;
 	}
 

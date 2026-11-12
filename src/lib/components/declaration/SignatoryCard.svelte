@@ -123,7 +123,7 @@
 		font: inherit;
 		font-size: 0.9rem;
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--text);
 		text-decoration: underline;
 		cursor: pointer;
 	}

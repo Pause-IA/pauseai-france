@@ -83,7 +83,7 @@
 	}
 
 	.luma-link a {
-		color: var(--accent);
+		color: var(--text);
 		font-weight: 600;
 	}
 

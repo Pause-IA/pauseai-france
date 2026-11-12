@@ -127,7 +127,7 @@
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.5px;
-		color: var(--accent);
+		color: var(--text);
 		background: rgba(var(--brand-rgb), 0.1);
 		padding: 0.25rem 0.625rem;
 		border-radius: var(--radius-sm);

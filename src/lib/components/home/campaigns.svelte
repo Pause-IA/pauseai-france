@@ -198,7 +198,7 @@
 	}
 
 	.pill-progress {
-		color: var(--accent);
+		color: var(--text);
 		background-color: rgba(var(--brand-rgb), 0.12);
 	}
 

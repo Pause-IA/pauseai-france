@@ -116,7 +116,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--accent);
+		color: var(--brand);
 		transition: transform 0.3s ease;
 		flex-shrink: 0;
 	}

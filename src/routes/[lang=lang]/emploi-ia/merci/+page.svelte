@@ -73,7 +73,7 @@
 	}
 
 	h1 {
-		color: var(--accent);
+		color: var(--text);
 		margin-top: 0;
 		margin-bottom: 2rem;
 	}

@@ -405,7 +405,7 @@
 		margin-block-end: 0.75rem !important;
 		font-size: 0.85rem;
 		font-weight: 600;
-		color: var(--accent) !important;
+		color: var(--text) !important;
 	}
 
 	/* Les boutons tombent sur la même ligne quelle que soit la longueur du texte. */

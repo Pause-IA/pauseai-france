@@ -684,7 +684,7 @@
 		gap: 0.35rem;
 		font-size: 0.82rem;
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--text);
 		margin-top: auto;
 	}
 
@@ -735,7 +735,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: var(--accent);
+		color: var(--text);
 		white-space: nowrap;
 	}
 
@@ -903,7 +903,7 @@
 
 	.engagements-list li::before {
 		content: '✓';
-		color: var(--accent);
+		color: var(--brand);
 		font-weight: 700;
 		flex-shrink: 0;
 		margin-top: 0.05em;

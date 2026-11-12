@@ -292,7 +292,7 @@
 	.see-results {
 		font-size: 0.9rem;
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--text);
 		margin-top: auto;
 	}
 
@@ -435,7 +435,7 @@
 		flex-shrink: 0;
 		font-size: 0.75rem;
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--text);
 		background: var(--panneau-bg);
 		padding: 0.1rem 0.45rem;
 		border-radius: var(--radius-pill);
@@ -458,7 +458,7 @@
 		font-weight: 600;
 		text-decoration: none;
 		background: var(--panneau-bg);
-		color: var(--accent);
+		color: var(--text);
 		border: 1.5px solid color-mix(in srgb, var(--brand) 35%, transparent);
 		transition:
 			background 0.15s,

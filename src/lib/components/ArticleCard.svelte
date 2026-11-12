@@ -127,7 +127,7 @@
 
 	.category {
 		font-size: 0.75rem;
-		color: var(--accent);
+		color: var(--text);
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.5px;

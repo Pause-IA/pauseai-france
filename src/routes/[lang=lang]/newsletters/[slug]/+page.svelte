@@ -242,7 +242,7 @@
 
 	/* Links */
 	.newsletter-content :global(a) {
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	.newsletter-content :global(a:hover) {

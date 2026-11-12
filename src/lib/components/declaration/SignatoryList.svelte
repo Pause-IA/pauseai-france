@@ -152,7 +152,7 @@
 		border: none;
 		padding: 0;
 		font: inherit;
-		color: var(--accent);
+		color: var(--text);
 		text-decoration: underline;
 		cursor: pointer;
 	}
