@@ -115,18 +115,77 @@
 		line-height: 1.62;
 	}
 
-	/* Le filet de marque du hero fait doublon avec l'étiquette du surtitre. */
-	.ui-page--note :global(.ui-page-hero .rule) {
-		display: none;
+	/* La citation devient L'APLAT BLEU du modèle.
+
+	   Le bleu sombre de la marque n'était posé nulle part sur le site : il
+	   existait comme jeton et comme brique (Bandeau), sans un seul emploi. Or
+	   le modèle s'en sert à un endroit précis et répétable — le passage qu'on
+	   veut faire ressortir du fil du texte, qui est presque toujours une
+	   citation. Le lier au <blockquote> le met en place partout d'un coup,
+	   sans retoucher chaque page.
+
+	   Il déborde légèrement de la colonne de lecture : c'est ce débordement
+	   qui fait l'arrêt, plus encore que la couleur. */
+	.ui-page--note :global(blockquote) {
+		position: relative;
+		margin-inline: calc(-1 * clamp(0rem, 4vw, 3rem));
+		margin-block: clamp(2rem, 5vw, 3rem);
+		padding: clamp(1.75rem, 4vw, 2.5rem);
+		border: 0;
+		border-radius: 2px;
+		background: var(--surface-sombre, rgb(14, 36, 51));
+		color: var(--on-dark);
+		font-style: normal;
 	}
 
-	.ui-page--note :global(.eyebrow) {
-		display: inline-block;
-		margin-bottom: 1rem;
-		padding: 0.3rem 0.7rem;
-		border-radius: 3px;
+	/* Petit filet orange en tête : il rattache l'aplat à la marque au lieu de
+	   le laisser flotter comme un bloc sombre quelconque. */
+	.ui-page--note :global(blockquote)::before {
+		content: '';
+		position: absolute;
+		inset-block-start: clamp(1.75rem, 4vw, 2.5rem);
+		inset-inline-start: clamp(1.75rem, 4vw, 2.5rem);
+		inline-size: 2.5rem;
+		block-size: 3px;
+		border-radius: var(--radius-pill);
 		background: var(--brand);
-		color: var(--on-brand);
+	}
+
+	.ui-page--note :global(blockquote > :first-child) {
+		margin-block-start: 1.6rem;
+	}
+
+	.ui-page--note :global(blockquote > :last-child) {
+		margin-block-end: 0;
+	}
+
+	.ui-page--note :global(blockquote p) {
+		color: var(--on-dark);
+	}
+
+	/* --accent est un bleu : illisible sur le bleu. Sur l'aplat, c'est
+	   l'orange de marque qui porte les liens (7,2:1). */
+	.ui-page--note :global(blockquote a) {
+		color: var(--brand);
+	}
+
+	/* À l'impression, un aplat sombre vide la cartouche pour rien. */
+	@media print {
+		.ui-page--note :global(blockquote) {
+			margin-inline: 0;
+			padding-inline-start: 1rem;
+			border-inline-start: 3px solid var(--filet-impression, rgb(153, 153, 153));
+			background: none;
+			color: var(--encre-impression, rgb(0, 0, 0));
+		}
+
+		.ui-page--note :global(blockquote)::before {
+			display: none;
+		}
+
+		.ui-page--note :global(blockquote p) {
+			color: var(--encre-impression, rgb(0, 0, 0));
+		}
 	}
 
 	/* Rythme : un filet au-dessus de chaque section. Les pages écrites en
@@ -153,14 +212,6 @@
 		margin-bottom: 0;
 	}
 
-	@media (max-width: 40rem) {
-		.ui-page--note :global(.eyebrow) {
-			padding: 0.25rem 0.55rem;
-			font-size: 0.75rem;
-			letter-spacing: 0.04em;
-		}
-	}
-
 	/* À l'impression, l'étiquette orange coûte de l'encre et ne dit rien de
 	   plus que son texte. */
 	@media print {
@@ -168,12 +219,6 @@
 			--filet-note: var(--filet-impression, rgb(153, 153, 153));
 			max-inline-size: none;
 			font-size: 11pt;
-		}
-
-		.ui-page--note :global(.eyebrow) {
-			padding: 0;
-			background: none;
-			color: var(--encre-impression, rgb(0, 0, 0));
 		}
 	}
 </style>
