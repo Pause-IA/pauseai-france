@@ -7,6 +7,9 @@
 	export let rule = true
 	/** Chapô en texte simple (sinon, slot « lede » pour du contenu riche). */
 	export let lede: string | undefined = undefined
+	/** Filet de clôture sous l'en-tête. Il ferme la zone d'ouverture de la
+	    page : titre et chapô d'un côté, contenu de l'autre. */
+	export let filet = true
 </script>
 
 <header class="ui-page-hero">
@@ -18,12 +21,34 @@
 	{:else if lede}
 		<p class="lede">{lede}</p>
 	{/if}
+	{#if $$slots.meta}
+		<p class="meta"><slot name="meta" /></p>
+	{/if}
 	<slot name="actions" />
+	{#if filet}<hr class="filet-cloture" />{/if}
 </header>
 
 <style>
 	.ui-page-hero {
 		margin-bottom: 2.5rem;
+	}
+
+	/* Ligne de méta : date de mise à jour, source, version. Grise et petite,
+	   elle sépare le chapô du filet sans peser. */
+	.meta {
+		margin: 1.25rem 0 0;
+		font-size: 0.9rem;
+		color: var(--text-2);
+	}
+
+	/* Le filet qui FERME l'en-tête. C'est lui, plus que la taille du titre,
+	   qui fait qu'un haut de page se lit comme une ouverture : il dit où
+	   s'arrête l'accroche et où commence le texte. Pleine largeur de la
+	   colonne, un seul pixel. */
+	.filet-cloture {
+		margin: 2rem 0 0;
+		border: 0;
+		border-top: 1px solid var(--border);
 	}
 
 	.rule {

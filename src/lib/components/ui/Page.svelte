@@ -127,8 +127,13 @@
 		margin-top: clamp(2rem, 4.5vw, 3rem);
 	}
 
-	.ui-page--note :global(.prose > h2:first-child) {
+	/* L'en-tête pose déjà son filet de clôture : celui de la première section
+	   ferait un doublon à deux centimètres d'écart. */
+	.ui-page--note :global(.prose > h2:first-child),
+	.ui-page--note :global(section:first-of-type) {
 		margin-top: 0;
+		padding-top: 0;
+		border-top: 0;
 	}
 
 	/* app.css espace les sections de 5 rem (10 rem au-delà de 52 rem) : le
