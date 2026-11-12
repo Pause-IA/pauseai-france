@@ -1361,7 +1361,8 @@
 	}
 
 	.about-card p {
-		font-size: 0.95rem;
+		/* 1 rem : plancher du corps de texte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-secondary);
 		margin-bottom: 0.75rem;

@@ -107,7 +107,8 @@
 	   la spécificité des sélecteurs des composants). */
 	.content.content p {
 		margin: 0;
-		font-size: 0.9375rem;
+		/* 1 rem : plancher du corps de texte, même dans une carte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-2);
 		display: -webkit-box;

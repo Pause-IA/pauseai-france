@@ -867,7 +867,8 @@
 
 	.frise-text {
 		margin: 0;
-		font-size: 0.98rem;
+		/* 1 rem : plancher du corps de texte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-2);
 	}
@@ -876,7 +877,8 @@
 		margin: 1.5rem 0 0.5rem;
 		padding: 0.25rem 0 0.25rem 1rem;
 		border-left: 2px solid var(--border);
-		font-size: 0.95rem;
+		/* 1 rem : plancher du corps de texte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-2);
 	}
@@ -1114,6 +1116,8 @@
 	}
 
 	.action-card {
+		/* La mesure : ~75 signes par ligne à 0,98 rem. */
+		max-inline-size: 33rem;
 		padding: 1.75rem;
 		border: 1px solid var(--border);
 		border-radius: var(--radius-sm);
@@ -1163,7 +1167,8 @@
 
 	.action-card > p {
 		margin: 0 0 1rem;
-		font-size: 0.98rem;
+		/* 1 rem : plancher du corps de texte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-2);
 		max-inline-size: var(--width-text);

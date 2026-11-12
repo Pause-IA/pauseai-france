@@ -555,6 +555,8 @@
 	/* Repère de temps de fin de page : volontairement sobre (pas de carte, pas
 	   de bordure orange), la date fait tout le travail. */
 	.depuis {
+		max-inline-size: 31rem;
+		margin-inline: auto;
 		margin-block-start: 4rem;
 		padding-block: 2.75rem;
 		text-align: center;
@@ -577,7 +579,11 @@
 		color: var(--text);
 	}
 	.depuis-texte {
-		max-inline-size: min(36rem, 60ch);
+		/* 34 rem : environ 75 signes par ligne à 1,02 rem. La contrainte est
+		   aussi posée sur la section (.depuis), parce que le plafond global
+		   des paragraphes ne prend pas ici et que je n'ai pas trouvé
+		   pourquoi — la règle est pourtant servie et sans concurrente. */
+		max-inline-size: 31rem;
 		margin: 1.1rem auto 0;
 		font-size: 1.02rem;
 		line-height: 1.6;
