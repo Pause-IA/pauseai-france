@@ -436,7 +436,7 @@
 		font-size: 0.75rem;
 		font-weight: 700;
 		color: var(--accent);
-		background: color-mix(in srgb, var(--brand) 10%, var(--bg));
+		background: var(--panneau-bg);
 		padding: 0.1rem 0.45rem;
 		border-radius: var(--radius-pill);
 	}
@@ -457,7 +457,7 @@
 		font-size: 0.9rem;
 		font-weight: 600;
 		text-decoration: none;
-		background: color-mix(in srgb, var(--brand) 12%, var(--bg));
+		background: var(--panneau-bg);
 		color: var(--accent);
 		border: 1.5px solid color-mix(in srgb, var(--brand) 35%, transparent);
 		transition:

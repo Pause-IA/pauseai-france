@@ -1980,7 +1980,7 @@
 		padding: 0.9rem 1rem;
 		border: 1px dashed var(--brand);
 		border-radius: var(--radius-md);
-		background: color-mix(in srgb, var(--brand) 5%, var(--bg));
+		background: var(--panneau-bg);
 	}
 
 	.circo-hint {

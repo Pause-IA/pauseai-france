@@ -92,7 +92,7 @@
 		flex-direction: column;
 		gap: 1.5rem;
 		padding: 2rem 1.75rem;
-		background: color-mix(in srgb, var(--brand) 12%, var(--bg));
+		background: var(--panneau-bg);
 		border: 1px solid color-mix(in srgb, var(--brand) 35%, transparent);
 		border-radius: 1.25rem;
 		margin: 0 0 2rem;

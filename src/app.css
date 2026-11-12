@@ -82,15 +82,31 @@
 	--text: var(--black);
 	--text-2: #555; /* texte secondaire léger */
 	--bg: var(--white);
-	--bg-subtle: var(--brand-light);
+	/* Fond des panneaux et des bandes. Il valait --brand-light, c'est-à-dire
+	   le crème #fff5e8 : c'est ce crème qui devait disparaître de la charte, et
+	   l'aliasing le remettait partout où un panneau se teinte.
+
+	   OKLCH(0,965 0,01 241) = rgb(238, 244, 250) : même clarté que le crème
+	   (donc aucun panneau ne devient plus lourd), mais la teinte est celle du
+	   bleu de la marque. --brand-light reste pour les états INTERACTIFS de la
+	   marque — le survol et l'onglet actif doivent rester orange. */
+	--bg-subtle: rgb(238, 244, 250);
+	/* Fond des panneaux d'appel (« Groupes locaux », « Restez informé »…).
+	   Ils étaient peints en orange très dilué, ce qui redonnait du crème. Ils
+	   prennent le même fond que les bandes ; leur FILET reste orange, c'est
+	   lui qui les rattache à la marque. */
+	--panneau-bg: var(--bg-subtle);
 
 	/* Generic UI tokens */
 	--border: #e5e7eb;
 	--text-secondary: #676e7a;
 	--text-muted: #676e7a; /* alias de text-secondary */
-	--bg-card: #fffcf8; /* blanc cassé chaud : lisible sur le crème --bg-subtle
-	                       des pages intérieures comme sur le blanc de l'accueil */
-	--bg-secondary: #fdfaf6;
+	/* Blanc franc. C'était un blanc cassé CHAUD, choisi pour se détacher du
+	   crème des pages intérieures ; le crème parti, il ne reste qu'une carte
+	   jaunie sur du blanc. Sur le nouveau fond bleuté des panneaux, le blanc
+	   pur tranche mieux que le blanc cassé. */
+	--bg-card: var(--bg);
+	--bg-secondary: rgb(246, 248, 250);
 
 	/* Alerte : réservé aux moments critiques (chronologies, erreurs). */
 	--alert: #d92d20;
@@ -160,8 +176,11 @@
 	--white: #262626;
 	--black: #f0f0f0;
 	--bg: #272727;
-	--bg-subtle: #312e29;
-	--bg-card: #35322c; /* pendant sombre : chaud, comme --bg-subtle #312e29 */
+	/* Pendants sombres, neutres-froids comme leurs équivalents clairs, qui
+	   ne sont plus chauds. */
+	--bg-subtle: rgb(44, 48, 54);
+	--bg-card: rgb(48, 52, 58);
+	--panneau-bg: var(--bg-subtle);
 	--text: #f0f0f0;
 	--text-2: #a0a8b4;
 	--text-secondary: #a0a8b4;

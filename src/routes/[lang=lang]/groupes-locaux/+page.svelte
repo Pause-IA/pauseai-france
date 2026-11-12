@@ -596,7 +596,7 @@
 		background: linear-gradient(
 			100deg,
 			var(--brand-light) 30%,
-			color-mix(in srgb, var(--brand) 12%, var(--bg)) 50%,
+			var(--panneau-bg) 50%,
 			var(--brand-light) 70%
 		);
 		background-size: 200% 100%;
@@ -627,7 +627,7 @@
 		margin-bottom: 2.5rem;
 		border: 1px solid color-mix(in srgb, var(--brand) 25%, var(--border));
 		border-radius: 18px;
-		background: color-mix(in srgb, var(--brand) 10%, var(--bg));
+		background: var(--panneau-bg);
 		box-shadow: 0 6px 22px color-mix(in srgb, var(--brand) 14%, transparent);
 	}
 
@@ -1305,7 +1305,7 @@
 	}
 
 	.cta-card.join {
-		background: var(--bg-subtle, color-mix(in srgb, var(--brand) 7%, var(--bg)));
+		background: var(--panneau-bg);
 		border: 2px solid var(--brand);
 	}
 

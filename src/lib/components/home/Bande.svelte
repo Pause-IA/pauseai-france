@@ -13,13 +13,14 @@
 	 * hiérarchie visuelle et la hiérarchie du document disent la même chose.
 	 */
 	export let titre: string
-	/** `creme` teinte la bande ; `aucun` la laisse sur le fond de page. */
-	export let fond: 'creme' | 'aucun' = 'aucun'
+	/** Filet de séparation au-dessus de la bande. La première de la page n'en
+	    a pas besoin : le héros la sépare déjà de ce qui précède. */
+	export let filet = true
 
 	const id = `bande-${Math.random().toString(36).slice(2, 8)}`
 </script>
 
-<section class="bande {fond}" aria-labelledby={id}>
+<section class="bande" class:filet aria-labelledby={id}>
 	<UnderlinedTitle {id}>{titre}</UnderlinedTitle>
 	<slot />
 </section>
@@ -34,39 +35,20 @@
 		padding-block: 3rem;
 	}
 
-	/* Sur le crème, les cartes se détachaient beaucoup moins bien que sur le
-	   blanc, et le ressenti était juste : ce n'est pas le texte qui perd (noir
-	   sur crème : 19,5:1 contre 21:1 sur blanc, imperceptible), c'est le CONTOUR
-	   des cartes. --border vaut #e5e7eb, un gris froid : 1,24:1 sur blanc, et
-	   seulement 1,15:1 sur le crème, où il jure en plus avec la teinte chaude.
-	   Résultat : des cartes blanches sur crème sans arête nette, donc une
-	   section qui paraît plate.
-
-	   La bande redéfinit donc le trait et l'ombre pour ses enfants, qui les
-	   consomment déjà par var(). Le trait est dérivé de l'encre et du fond :
-	   il reste neutre, prend la chaleur du crème, et se recalcule tout seul en
-	   thème sombre. Mesuré : 1,52:1 contre la bande et 1,64:1 contre la carte,
-	   au lieu de 1,15:1. */
-	.bande.creme {
-		--border: color-mix(in srgb, var(--text) 18%, var(--bg-subtle));
-		--shadow-card: 0 4px 18px rgba(var(--ink-rgb), 0.07);
-		--shadow-raised: 0 8px 26px rgba(var(--ink-rgb), 0.1);
-		/* Un panneau orange pâle sur du crème ne se voit pas : sur cette bande,
-		   les panneaux d'accent passent au blanc. Sur la bande blanche ils
-		   gardent leur orange pâle, qui y ressort très bien. */
-		--panneau-bg: var(--bg);
-	}
-
-	/* z-index 0 et non -1 : à -1 le fond passait derrière le conteneur de page,
-	   qui est opaque, et devenait invisible. Les enfants remontent d'un cran. */
-	.bande.creme::before {
+	/* Le crème a été sorti de la charte : la séparation entre les deux
+	   territoires de la page se fait par un filet, comme les sections du
+	   modèle, et non par un aplat teinté. Il court d'un bord à l'autre, pour
+	   qu'on le lise comme une coupure de page et pas comme un trait de
+	   paragraphe. */
+	.bande.filet::before {
 		content: '';
 		position: absolute;
 		z-index: 0;
-		inset-block: 0;
+		inset-block-start: 0;
 		inset-inline-start: calc(50% - 50vw);
 		inline-size: 100vw;
-		background: var(--bg-subtle);
+		block-size: 1px;
+		background: rgba(var(--brand-rgb), 0.4);
 	}
 
 	.bande > :global(*) {
