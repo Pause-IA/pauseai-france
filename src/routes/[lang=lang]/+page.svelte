@@ -1,7 +1,27 @@
 <script lang="ts">
+	/**
+	 * Page d'accueil.
+	 *
+	 * Ordre voulu : la crédibilité avant l'action. Un visiteur arrivait sur un
+	 * manifeste de cinq paragraphes, puis sur « voici comment agir », sans avoir
+	 * jamais lu de quoi juger si ces gens sont sérieux. Il voit maintenant, dans
+	 * l'ordre : les médias qui nous citent, trois chiffres vérifiables, le fait
+	 * marquant (la tribune du Monde), puis ce que nous demandons — et seulement
+	 * ensuite comment agir.
+	 *
+	 * Le manifeste (ancien composant `lead`) est retiré : son contenu est le
+	 * propos de /pourquoi et des pages « dangers », à un clic.
+	 *
+	 * Rien ici ne doit citer le nombre de rencontres d'élus, la proposition de
+	 * loi ni les projets de résolution : ce sont des informations réservées,
+	 * sous confidentialité.
+	 */
 	import PostMeta from '$components/PostMeta.svelte'
 	import Hero from '$components/home/hero.svelte'
-	import Lead from '$components/home/lead.svelte'
+	import VuDans from '$components/home/VuDans.svelte'
+	import Preuves from '$components/home/Preuves.svelte'
+	import TribuneVedette from '$components/home/TribuneVedette.svelte'
+	import Demandes from '$components/home/Demandes.svelte'
 	import WriteAction from '$components/home/write-action.svelte'
 	import Campaigns from '$components/home/campaigns.svelte'
 	import LocalGroups from '$components/home/local-groups.svelte'
@@ -28,19 +48,26 @@
 
 <Hero {lang} />
 
-<Lead {lang} />
+<VuDans {lang} />
 
-<!-- Deux ensembles plutôt que neuf blocs de poids égal : « agir » d’un côté,
-     « s’informer » de l’autre. La bande teintée du premier suffit à séparer
-     les deux territoires ; la FAQ reste à part. -->
-<Bande titre={t.home.bande_agir_titre} fond="creme">
+<Bande titre={t.home.bande_bilan_titre}>
+	<Preuves {lang} />
+	<TribuneVedette {lang} />
+</Bande>
+
+<Bande titre={t.home.bande_demandes_titre}>
+	<Demandes {lang} />
+</Bande>
+
+<Bande titre={t.home.bande_agir_titre}>
 	<WriteAction {lang} />
 	<Campaigns {lang} />
 	<LocalGroups {lang} />
 </Bande>
 
 <Bande titre={t.home.bande_informer_titre}>
-	<NewsletterCta {lang} />
 	<Videos videos={data.videos} {lang} />
 	<Articles articles={data.articles} {lang} />
 </Bande>
+
+<NewsletterCta {lang} />
