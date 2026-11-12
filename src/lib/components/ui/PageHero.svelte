@@ -55,11 +55,18 @@
 		color: var(--on-brand);
 	}
 
+	/* Le plancher était à 2 rem : sur un téléphone de 360 px, le titre de page
+	   tombait à 32 px, à peine plus gros que l'intertitre qui le suit (24 px).
+	   Le haut de page ne se lisait plus comme une ouverture. 2,6 rem rétablit
+	   l'écart, et la composante en vw prend le relais dès la tablette.
+	   `overflow-wrap` parce qu'à cette taille un mot long comme
+	   « intelligence » dépasse la colonne d'un petit écran. */
 	h1 {
 		margin: 0;
-		font-size: clamp(2rem, 5.5vw, 3rem);
-		line-height: 1.08;
-		letter-spacing: -0.02em;
+		font-size: clamp(2.6rem, 5.5vw, 3.2rem);
+		line-height: 1.05;
+		letter-spacing: -0.025em;
+		overflow-wrap: break-word;
 		color: var(--text);
 	}
 
@@ -82,7 +89,7 @@
 	}
 
 	.lede {
-		margin: 1rem 0 0;
+		margin: 1.1rem 0 0;
 		max-inline-size: var(--width-text);
 		font-size: 1.1rem;
 		line-height: 1.6;

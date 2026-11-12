@@ -225,7 +225,10 @@
 		font-size: 1.9rem;
 		line-height: 1;
 		padding-bottom: 0.2rem;
-		color: var(--text);
+		/* Le fond de ce bouton est blanc dans les DEUX thèmes : son glyphe ne
+		   peut donc pas suivre --text, qui devient blanc en thème sombre — la
+		   flèche y disparaissait complètement (1,02:1). Encre fixe. */
+		color: var(--encre-impression);
 		background: rgba(var(--on-dark-rgb), 0.92);
 		border: 1px solid var(--border);
 		border-radius: 50%;

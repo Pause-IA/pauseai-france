@@ -97,9 +97,11 @@
 		--filet-note: rgba(var(--brand-rgb), 0.4);
 	}
 
+	/* Même plancher que PageHero : à 2,1 rem, le titre de page tombait à
+	   33 px sur un téléphone, contre 24 px pour l'intertitre qui le suit. */
 	.ui-page--note :global(h1) {
-		font-size: clamp(2.1rem, 6vw, 3.2rem);
-		line-height: 1.06;
+		font-size: clamp(2.6rem, 6vw, 3.2rem);
+		line-height: 1.05;
 		letter-spacing: -0.025em;
 		font-weight: 700;
 	}
