@@ -351,22 +351,19 @@ p {
 }
 
 /* ─── Touches d'orange ───────────────────────────────────────
-   Trois endroits où la couleur de marque apparaît sans jamais devenir du
-   texte. Aucun n'est soumis à un seuil de contraste : une puce, une
-   sélection et un anneau de focus ne portent pas d'information écrite.
-   Ensemble ils réchauffent chaque page, là où l'orange ne se voyait plus
-   que sur les boutons et les filets. */
+   Deux endroits où la couleur de marque apparaît sans jamais devenir du
+   texte. Ni une puce ni un anneau de focus ne portent d'information écrite,
+   donc aucun seuil de contraste ne s'y applique.
+
+   Il y en avait un troisième, la sélection de texte à la souris : un aplat
+   orange sur le passage surligné. Retiré — un surlignage est un retour de
+   l'outil, pas un élément de la page, et le teindre aux couleurs du site
+   surprend plus qu'il ne sert. */
 
 /* Puces de liste. Les pages éditoriales en sont pleines : c'est la touche
    qui se voit le plus, pour une ligne de CSS. */
 li::marker {
 	color: var(--brand);
-}
-
-/* Sélection à la souris. Encre foncée sur l'orange, comme les boutons. */
-::selection {
-	background: var(--brand);
-	color: var(--on-brand);
 }
 
 /* Anneau de focus clavier : il était bleu système sur tout le site, la

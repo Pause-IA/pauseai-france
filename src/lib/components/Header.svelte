@@ -607,11 +607,9 @@
 		border: 2px solid var(--btn-border);
 	}
 
-	/* Pas de remplissage orange au survol : le bouton changeait de nature
-	   sous le curseur et devenait le jumeau de « Donner », l'espace d'un
-	   instant. Teinte neutre très légère, le contour orange reste le repère. */
 	.btn-join:hover {
-		background: var(--bg-subtle);
+		background: var(--brand);
+		color: var(--on-brand);
 	}
 
 	/* On hero (white text context): invert to semi-transparent white */
