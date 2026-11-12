@@ -168,7 +168,10 @@
 	/* La MESURE : largeur maximale d'une ligne de prose, à poser sur l'élément
 	   qui porte le texte (et non sur son conteneur). Voir le commentaire de la
 	   règle `p`. */
-	--mesure: min(var(--width-text), 60ch);
+	/* 41 rem et non 44 : le corps de texte est passé de 19 à 18 px, et à
+	   largeur égale une ligne contient plus de signes quand le texte rétrécit.
+	   Mesuré : 41 rem rend les ~75 signes visés. */
+	--mesure: min(41rem, 60ch);
 	--width-content: 54rem; /* pages éditoriales et campagnes */
 	--width-wide: 62rem; /* pages larges (grilles, cartes) */
 	--gutter: 1.5rem;
@@ -251,8 +254,14 @@ body {
 	color: var(--text);
 	accent-color: var(--brand);
 	font-family: var(--font-body);
-	font-size: 1.2rem;
-	line-height: 1.5;
+	/* 1,125 rem = 18 px. C'était 1,2 rem = 19,2 px : au-dessus de la fourchette
+	   que retiennent les guides de typographie web pour du texte long (16 px
+	   plancher, 17 à 18 px recommandés). À 19 px la page paraissait écrite en
+	   gros, et chaque paragraphe prenait une ligne de plus que nécessaire.
+	   Le plafond de mesure étant exprimé en `ch`, la longueur de ligne ne
+	   bouge pas : elle suit la taille du texte. */
+	font-size: 1.125rem;
+	line-height: 1.55;
 	overflow-x: hidden;
 }
 

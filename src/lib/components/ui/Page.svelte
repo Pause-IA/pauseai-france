@@ -89,7 +89,7 @@
 		max-inline-size: var(--width-text);
 		/* app.css fixe le corps à 1,2 rem, soit 19,2 px : sur un téléphone de
 		   390 px cela ne laisse qu'une trentaine de signes par ligne. */
-		font-size: clamp(1.0625rem, 0.97rem + 0.42vw, 1.1875rem);
+		font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.125rem);
 		line-height: 1.62;
 		/* Orange de marque à 40 % : un filet, pas un trait. Réservé aux
 		   séparations horizontales — bordures de cartes et de boutons gardent
@@ -100,7 +100,7 @@
 	/* Même plancher que PageHero : à 2,1 rem, le titre de page tombait à
 	   33 px sur un téléphone, contre 24 px pour l'intertitre qui le suit. */
 	.ui-page--note :global(h1) {
-		font-size: clamp(2.6rem, 6vw, 3.2rem);
+		font-size: clamp(2.3rem, 5.5vw, 3rem);
 		line-height: 1.05;
 		letter-spacing: -0.025em;
 		font-weight: 700;
@@ -129,7 +129,7 @@
 
 	/* L'en-tête pose déjà son filet de clôture : celui de la première section
 	   ferait un doublon à deux centimètres d'écart. */
-	.ui-page--note :global(.prose > h2:first-child),
+	.ui-page--note :global(.prose > h2:first-of-type),
 	.ui-page--note :global(section:first-of-type) {
 		margin-top: 0;
 		padding-top: 0;
