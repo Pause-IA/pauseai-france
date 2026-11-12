@@ -45,7 +45,7 @@
 
 	.outline {
 		background: transparent;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		border-color: var(--brand);
 	}
 

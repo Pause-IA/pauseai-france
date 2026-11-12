@@ -300,7 +300,7 @@
 		font-size: 1.2rem;
 		font-weight: 500;
 		line-height: 1.5;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		border-left: 4px solid var(--brand);
 		background: var(--brand-light);
 		padding: 1rem 1.25rem;
@@ -333,7 +333,7 @@
 		font-size: clamp(2rem, 5.5vw, 3rem);
 		font-weight: 800;
 		line-height: 1;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		letter-spacing: -0.02em;
 		white-space: nowrap;
 		flex-shrink: 0;
@@ -500,11 +500,11 @@
 	.article-card-link {
 		font-size: 0.875rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.article-card:hover .article-card-link {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* ── Bigger-problem section ── */
@@ -527,7 +527,7 @@
 	/* ── CTA callout ── */
 	.cta-callout {
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		border-left: 4px solid var(--brand);
 		background: var(--brand-light);
 		padding: 0.85rem 1.1rem;
@@ -543,7 +543,7 @@
 
 	.cta-guide {
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		margin: 0.75rem 0 0.25rem;
 	}
 
@@ -614,7 +614,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.press-date {
@@ -635,7 +635,7 @@
 	}
 
 	.press-item:hover .press-title {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.press-item-featured {

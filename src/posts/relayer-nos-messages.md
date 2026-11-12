@@ -120,7 +120,7 @@ Chaque campagne a sa page : ce que nous demandons, et ce que vous pouvez faire.
     content: counter(action);
     font-size: 0.85em;
     font-weight: 700;
-    color: var(--brand-subtle);
+    color: var(--accent);
   }
 
   .astuce {
@@ -189,7 +189,7 @@ Chaque campagne a sa page : ce que nous demandons, et ce que vous pouvez faire.
   .cta-fleche {
     margin-inline-start: auto;
     font-size: 1.4rem;
-    color: var(--brand-subtle);
+    color: var(--accent);
     flex-shrink: 0;
   }
 

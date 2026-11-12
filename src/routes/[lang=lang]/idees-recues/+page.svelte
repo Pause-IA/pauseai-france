@@ -173,7 +173,7 @@
 
 	.categorie {
 		margin: 0;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-size: 0.8rem;
 		font-weight: 700;
 		letter-spacing: 0.04em;
@@ -202,7 +202,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.3rem;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-size: 0.88rem;
 		font-weight: 700;
 	}

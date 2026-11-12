@@ -775,7 +775,7 @@
 	}
 
 	.read-more a {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 600;
 	}
 
@@ -971,7 +971,7 @@
 		top: -0.75rem;
 		font-size: 4rem;
 		line-height: 1;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-family: Georgia, serif;
 	}
 
@@ -1076,7 +1076,7 @@
 		margin-top: 0.3rem;
 		font-size: 0.9rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* Sur écran large : image à gauche, texte à droite (carte compacte). */

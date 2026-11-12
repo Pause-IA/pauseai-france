@@ -671,7 +671,7 @@
 
 	.sidebar-lang-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.1);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	:global([data-theme='dark']) .sidebar-lang-toggle {
@@ -681,7 +681,7 @@
 
 	:global([data-theme='dark']) .sidebar-lang-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.15);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.sidebar-theme-toggle {
@@ -703,7 +703,7 @@
 
 	.sidebar-theme-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.1);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	:global([data-theme='dark']) .sidebar-theme-toggle {
@@ -713,7 +713,7 @@
 
 	:global([data-theme='dark']) .sidebar-theme-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.15);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.hamburger {
@@ -906,7 +906,7 @@
 	.sidebar-subsection a:hover,
 	.sidebar-subsection a.active {
 		background: rgba(var(--brand-rgb), 0.1);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.ext-icon {

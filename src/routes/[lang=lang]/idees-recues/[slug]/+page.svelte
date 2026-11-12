@@ -108,7 +108,7 @@
 		align-items: center;
 		gap: 0.35rem;
 		margin-bottom: 1.25rem;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-size: 0.9rem;
 		font-weight: 600;
 		text-decoration: none;
@@ -226,7 +226,7 @@
 	}
 
 	.argumentaire :global(a) {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	blockquote {

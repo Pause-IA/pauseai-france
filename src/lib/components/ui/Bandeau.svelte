@@ -8,7 +8,7 @@
 	 * garde, une citation forte, un appel à l'action — s'y pose.
 	 *
 	 * Le texte posé dessus prend --on-dark, et les liens l'orange de marque :
-	 * --brand-subtle, qui sert aux liens sur fond clair, ne donne que 2,98:1
+	 * --accent, qui sert aux liens sur fond clair, ne donne que 2,98:1
 	 * sur ce bleu, sous le seuil. --brand y donne 7,2:1.
 	 */
 

@@ -225,7 +225,7 @@
 		font-size: 1.9rem;
 		line-height: 1;
 		padding-bottom: 0.2rem;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		background: rgba(var(--on-dark-rgb), 0.92);
 		border: 1px solid var(--border);
 		border-radius: 50%;
@@ -303,7 +303,7 @@
 	.attribution {
 		font-size: 0.95rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.counter {

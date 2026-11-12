@@ -6,7 +6,7 @@
 </script>
 
 <PostMeta
-	title={"Pas de pilote dans l’avion France | PauseAI France"}
+	title={'Pas de pilote dans l’avion France | PauseAI France'}
 	description={"Chômage massif des jeunes, modèle social fragilisé, dépendance à la Silicon Valley : à quoi ressemblera notre monde si nous ne réagissons pas à la montée de l'IA."}
 />
 
@@ -190,7 +190,7 @@
 	}
 
 	.breadcrumb a:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.article-meta {
@@ -231,7 +231,7 @@
 	.intro {
 		font-size: 1.15rem;
 		font-weight: 500;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		border-left: 4px solid var(--brand);
 		background: var(--brand-light);
 		padding: 1rem 1.25rem;
@@ -256,7 +256,7 @@
 
 	.cta-text {
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		margin: 0;
 	}
 
@@ -296,7 +296,7 @@
 	}
 
 	.article-nav a:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.nav-back {

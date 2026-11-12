@@ -483,7 +483,7 @@
 	.num {
 		font-size: 2.5rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		line-height: 1.1;
 	}
 
@@ -583,7 +583,7 @@
 		border: none;
 		padding: 0;
 		font: inherit;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		text-decoration: underline;
 		cursor: pointer;
 	}

@@ -100,7 +100,7 @@
 
 	.header:hover .title,
 	.header:focus-visible .title {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.details {
@@ -116,7 +116,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		transition: transform 0.3s ease;
 		flex-shrink: 0;
 	}

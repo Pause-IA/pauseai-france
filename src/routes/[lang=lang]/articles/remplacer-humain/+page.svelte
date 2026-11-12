@@ -6,8 +6,8 @@
 </script>
 
 <PostMeta
-	title={"Remplacer l’humain, tel est l’objectif | PauseAI France"}
-	description={"En quelques années, l’IA est devenue capable de remplacer les humains dans des tâches de plus en plus nombreuses, 16 % du travail déjà automatisable en France."}
+	title={'Remplacer l’humain, tel est l’objectif | PauseAI France'}
+	description={'En quelques années, l’IA est devenue capable de remplacer les humains dans des tâches de plus en plus nombreuses, 16 % du travail déjà automatisable en France.'}
 />
 
 <article>
@@ -166,7 +166,7 @@
 	}
 
 	.breadcrumb a:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.article-meta {
@@ -207,7 +207,7 @@
 	.intro {
 		font-size: 1.15rem;
 		font-weight: 500;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		border-left: 4px solid var(--brand);
 		background: var(--brand-light);
 		padding: 1rem 1.25rem;
@@ -234,7 +234,7 @@
 		margin: 0 0 0.5rem;
 		font-style: italic;
 		font-size: 1.05rem;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 500;
 	}
 
@@ -269,7 +269,7 @@
 		font-weight: 700;
 		letter-spacing: 0.07em;
 		text-transform: uppercase;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.next-title {
@@ -300,6 +300,6 @@
 	}
 
 	.back-nav a:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 </style>

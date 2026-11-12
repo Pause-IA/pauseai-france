@@ -737,7 +737,7 @@
 	}
 
 	.contact-email-main a {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 600;
 	}
 
@@ -769,7 +769,7 @@
 	}
 
 	.contact-info a {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 600;
 	}
 
@@ -782,7 +782,7 @@
 	}
 
 	.redirect a {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* Press releases section */
@@ -826,7 +826,7 @@
 	}
 
 	.tab.active {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		background-color: var(--bg-card);
 		box-shadow: var(--shadow-card);
 	}
@@ -852,7 +852,7 @@
 
 	.tab.active .tab-count {
 		background-color: rgba(var(--brand-rgb), 0.15);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* Department filter combobox */
@@ -975,7 +975,7 @@
 	.dept-option-code {
 		font-weight: 700;
 		font-size: 0.9rem;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		min-width: 2rem;
 	}
 
@@ -1006,7 +1006,7 @@
 		margin-bottom: 0.5rem;
 		font-size: 0.75rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		background-color: rgba(var(--brand-rgb), 0.08);
 		border: 1px solid var(--brand);
 		border-radius: 0.25rem;
@@ -1091,12 +1091,12 @@
 		gap: 0.375rem;
 		font-size: 0.875rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		transition: color 0.2s ease;
 	}
 
 	.press-release-card:hover .read-link {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.link-icon {
@@ -1295,7 +1295,7 @@
 
 	.coverage-item:hover {
 		background-color: var(--bg-subtle);
-		border-left-color: var(--brand-subtle);
+		border-left-color: var(--accent);
 		color: var(--text);
 	}
 
@@ -1310,7 +1310,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		background: color-mix(in srgb, var(--brand) 10%, transparent);
 		padding: 0.1rem 0.4rem;
 		border-radius: 0.25rem;
@@ -1357,7 +1357,7 @@
 		margin-top: 0;
 		margin-bottom: 1rem;
 		font-size: 1.3rem;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.about-card p {

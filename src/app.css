@@ -57,8 +57,19 @@
 	   panneaux et séparateurs posés sur la surface sombre. */
 	--surface-sombre-2: rgb(34, 56, 72);
 	--brand-light: #fff5e8;
-	--brand-subtle: #a85400; /* orange foncé : le seul orange lisible en texte
-	                            (4,9:1 sur le crème, 5,3:1 sur blanc) */
+	/* Accent de texte : le BLEU de la marque, pas un orange assombri.
+
+	   L'orange de marque ne fait que 2,1:1 sur blanc : illisible en texte. On
+	   l'assombrissait jusqu'à #a85400 pour atteindre 5,3:1, mais à ce niveau il
+	   n'est plus orange — il est marron, ce que la relecture a signalé. Et il
+	   était employé 148 fois en `color` : le marron était donc, de fait, la
+	   couleur d'accent du site.
+
+	   La marque a déjà une seconde couleur faite pour ça : le bleu sombre.
+	   OKLCH(0,42 0,09 241) = rgb(16, 82, 121), même teinte que --surface-sombre,
+	   8,4:1 sur blanc. L'orange reste l'unique couleur saturée des aplats, des
+	   filets et des survols ; le bleu porte le texte d'accent. */
+	--accent: rgb(16, 82, 121);
 	--brand-deep: #ff6b35; /* fin de dégradé sur les encadrés d'appel */
 	--brand-soft: #ffb347; /* début de dégradé clair (bandeaux) */
 	/* Attention : --white et --black s'inversent en mode sombre. Ce sont la
@@ -169,7 +180,9 @@
 	--carousel-text: #e6e1da;
 	--shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35);
 	--shadow-raised: 0 8px 28px rgba(0, 0, 0, 0.45);
-	--brand-subtle: #ffab40; /* orange plus clair pour fond sombre */
+	/* OKLCH(0,75 0,08 241) : le même bleu éclairci pour le fond sombre,
+	   6,8:1 sur --bg. */
+	--accent: rgb(127, 181, 220);
 
 	--btn-alt-bg: #303030;
 	--btn-alt-hover-bg: #2a1f0a;
@@ -269,7 +282,7 @@ li {
 }
 
 a {
-	color: var(--brand-subtle);
+	color: var(--accent);
 	text-decoration: underline;
 }
 

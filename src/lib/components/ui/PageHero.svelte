@@ -39,7 +39,7 @@
 		font-weight: 700;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	h1 {

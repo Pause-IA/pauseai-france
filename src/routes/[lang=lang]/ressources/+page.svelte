@@ -664,7 +664,7 @@
 
 	.pill:hover {
 		border-color: var(--brand);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.pill.active {
@@ -679,7 +679,7 @@
 	}
 
 	:global([data-theme='dark']) .pill:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.meta-row {
@@ -721,7 +721,7 @@
 
 	.reset-btn:hover {
 		border-color: var(--brand);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.updated {
@@ -756,14 +756,14 @@
 		height: 2.4rem;
 		border-radius: var(--radius-md);
 		background: var(--brand-light);
-		color: var(--brand-subtle);
+		color: var(--accent);
 		flex-shrink: 0;
 		margin-top: 0.15rem;
 	}
 
 	:global([data-theme='dark']) .section-icon {
 		background: rgba(var(--brand-rgb), 0.15);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.res-section-header h2 {
@@ -865,11 +865,11 @@
 		font-size: 1rem;
 		line-height: 1.35;
 		margin: 0;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	:global([data-theme='dark']) .res-title {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	:global(.res-arrow) {
@@ -882,7 +882,7 @@
 	}
 
 	.res-card:hover :global(.res-arrow) {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		transform: translate(2px, -2px);
 	}
 

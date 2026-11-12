@@ -457,7 +457,7 @@
 		border-radius: var(--radius-pill);
 		border: 2px solid var(--brand);
 		background: transparent;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 600;
 		font-size: 0.95rem;
 		cursor: pointer;

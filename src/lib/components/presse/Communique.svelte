@@ -199,7 +199,7 @@
 	}
 
 	.back-link:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.pr-header {
@@ -262,7 +262,7 @@
 	}
 
 	.original-link:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.pr-content {
@@ -293,7 +293,7 @@
 
 	/* Links */
 	.pr-content :global(a) {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.pr-content :global(a:hover) {

@@ -574,7 +574,7 @@
 		font-weight: 800;
 		line-height: 1.05;
 		letter-spacing: -0.02em;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 	.depuis-texte {
 		max-inline-size: 36rem;
@@ -650,7 +650,7 @@
 		font-size: clamp(2rem, 5.5vw, 3rem);
 		font-weight: 800;
 		line-height: 1;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		letter-spacing: -0.02em;
 	}
 
@@ -690,7 +690,7 @@
 	}
 
 	.impact-card :global(svg) {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.impact-card h2 {
@@ -706,7 +706,7 @@
 	}
 
 	.impact-card a {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 600;
 	}
 
@@ -760,7 +760,7 @@
 	}
 
 	.section-title-row :global(.section-icon) {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		flex-shrink: 0;
 	}
 
@@ -793,7 +793,7 @@
 
 	.event-date {
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-size: 0.9rem;
 		min-inline-size: 8rem;
 	}
@@ -824,7 +824,7 @@
 	}
 
 	.event-body small :global(svg) {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		flex-shrink: 0;
 	}
 
@@ -986,7 +986,7 @@
 
 	.tl-item:hover .tl-rail,
 	.tl-item:hover .tl-date {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	@media (hover: none) {
@@ -1022,7 +1022,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		opacity: 0.5;
 	}
 
@@ -1097,7 +1097,7 @@
 		margin-top: 0.15rem;
 		font-size: 0.88rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		white-space: nowrap;
 	}
 
@@ -1257,7 +1257,7 @@
 		gap: 0.3rem;
 		font-size: 0.82rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		background: var(--brand-light);
 		padding: 0.2rem 0.6rem;
 		border-radius: var(--radius-pill);
@@ -1270,7 +1270,7 @@
 		border: 1px solid var(--brand);
 		border-radius: var(--radius-pill);
 		background: transparent;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-size: 0.9rem;
 		font-weight: 600;
 		cursor: pointer;
@@ -1317,7 +1317,7 @@
 		block-size: 2.4rem;
 		border-radius: 50%;
 		background: color-mix(in srgb, var(--brand) 18%, transparent);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.cta-card h2 {
@@ -1355,7 +1355,7 @@
 	}
 
 	.map-title-row :global(.map-pin-icon) {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		flex-shrink: 0;
 	}
 
@@ -1369,7 +1369,7 @@
 
 	.map-stat {
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.map-stat.forming {

@@ -125,7 +125,7 @@
 		background: none;
 		font: inherit;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		text-decoration: underline;
 		cursor: pointer;
 	}

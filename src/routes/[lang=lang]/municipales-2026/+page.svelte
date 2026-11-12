@@ -615,7 +615,7 @@
 		transform: translateY(-3px);
 		box-shadow: 0 8px 28px rgba(var(--ink-rgb), 0.1);
 		border-color: var(--brand);
-		border-left-color: var(--brand-subtle);
+		border-left-color: var(--accent);
 	}
 
 	.card-top {
@@ -684,7 +684,7 @@
 		gap: 0.35rem;
 		font-size: 0.82rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		margin-top: auto;
 	}
 
@@ -735,7 +735,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		white-space: nowrap;
 	}
 
@@ -760,7 +760,7 @@
 	}
 
 	.press-card:hover .press-link-icon {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* ── Modal ── */
@@ -903,7 +903,7 @@
 
 	.engagements-list li::before {
 		content: '✓';
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 700;
 		flex-shrink: 0;
 		margin-top: 0.05em;

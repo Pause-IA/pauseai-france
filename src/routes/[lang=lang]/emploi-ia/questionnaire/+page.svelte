@@ -981,7 +981,7 @@
 	}
 
 	.progress-step.active .step-label {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 500;
 	}
 

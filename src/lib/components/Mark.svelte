@@ -4,9 +4,9 @@
 
 <style>
 	span {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		text-decoration: underline;
-		text-decoration-color: var(--brand-subtle);
+		text-decoration-color: var(--accent);
 		text-decoration-thickness: 0.1em;
 		text-underline-offset: 0.12em;
 	}

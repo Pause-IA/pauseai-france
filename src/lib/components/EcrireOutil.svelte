@@ -1657,7 +1657,7 @@
 
 	.tool-tabs button:not(.active):hover {
 		background: var(--brand-light);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.tab-icon {
@@ -1777,7 +1777,7 @@
 
 	.parcours strong::before {
 		content: counter(etape) '. ';
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.parcours span {
@@ -1866,7 +1866,7 @@
 	}
 
 	.notice--warn {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		background: var(--brand-light);
 		border: 1px solid var(--brand);
 	}
@@ -1897,7 +1897,7 @@
 	}
 
 	.reset-link:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.results-hint {
@@ -1909,7 +1909,7 @@
 	.results-hint.done-all {
 		font-size: 1rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		background: var(--brand-light);
 		border-radius: var(--radius-sm);
 		padding: 0.6rem 0.85rem;
@@ -1968,7 +1968,7 @@
 		margin-top: 0.2rem;
 		font-size: 0.72rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		background: color-mix(in srgb, var(--brand) 16%, transparent);
 		padding: 0.1rem 0.5rem;
 		border-radius: var(--radius-pill);
@@ -2014,7 +2014,7 @@
 	}
 
 	.circo-ok {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.circo-warn {
@@ -2049,7 +2049,7 @@
 		block-size: 2.6rem;
 		border-radius: 50%;
 		background: var(--brand-light);
-		color: var(--brand-subtle);
+		color: var(--accent);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -2124,7 +2124,7 @@
 	.back-link {
 		background: none;
 		border: none;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-size: 0.95rem;
 		font-weight: 600;
 		cursor: pointer;
@@ -2152,7 +2152,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.recipient > div {
@@ -2168,7 +2168,7 @@
 
 	.profile-link {
 		font-size: 0.78rem;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		margin-top: 0.15rem;
 		width: fit-content;
 	}
@@ -2260,7 +2260,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.03em;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		margin-left: 0.4rem;
 	}
 
@@ -2287,7 +2287,7 @@
 		margin: 0.5rem 0 0;
 		font-size: 0.82rem;
 		line-height: 1.45;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* En-tête de l'aperçu : label + bouton « autre version » */
@@ -2310,7 +2310,7 @@
 	.shuffle-btn {
 		border: 1px solid var(--border);
 		background: var(--bg-card);
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-size: 0.82rem;
 		font-weight: 600;
 		padding: 0.4rem 0.8rem;
@@ -2476,7 +2476,7 @@
 		border-top: 1px solid var(--border);
 		font-size: 0.92rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* Suite après envoi */
@@ -2497,7 +2497,7 @@
 		display: inline-block;
 		font-size: 0.88rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.join-link--block {
@@ -2527,7 +2527,7 @@
 		background: var(--bg-card);
 		padding: 0.05em 0.35em;
 		border-radius: 4px;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 600;
 	}
 

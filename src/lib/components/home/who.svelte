@@ -295,7 +295,7 @@
 	.en-bref a {
 		font-size: 0.95rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		text-decoration: none;
 	}
 

@@ -406,7 +406,7 @@
 
 	.press-source {
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.press-video {

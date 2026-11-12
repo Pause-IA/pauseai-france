@@ -65,7 +65,7 @@
 	}
 
 	.success-message h2 {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		margin-bottom: 1.5rem;
 		font-size: 1.75rem;
 	}
@@ -86,7 +86,7 @@
 	}
 
 	.next-steps h3 {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		margin-bottom: 1rem;
 	}
 
@@ -108,7 +108,7 @@
 	}
 
 	.return-link a {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		text-decoration: none;
 		font-weight: 600;
 		font-size: 1.1rem;

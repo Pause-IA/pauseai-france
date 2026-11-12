@@ -6,8 +6,8 @@
 </script>
 
 <PostMeta
-	title={"Ce que l’IA fait au travail | PauseAI France"}
-	description={"Bilan qualitatif de l’enquête Pause IA sur l’emploi : perte de sens, décisions imposées, adaptation reportée sur les individus, ce qu’une trentaine de témoins nous ont confié au printemps 2026."}
+	title={'Ce que l’IA fait au travail | PauseAI France'}
+	description={'Bilan qualitatif de l’enquête Pause IA sur l’emploi : perte de sens, décisions imposées, adaptation reportée sur les individus, ce qu’une trentaine de témoins nous ont confié au printemps 2026.'}
 />
 
 <article>
@@ -254,7 +254,7 @@
 	}
 
 	.breadcrumb a:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.article-meta {
@@ -295,7 +295,7 @@
 	.intro {
 		font-size: 1.15rem;
 		font-weight: 500;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		border-left: 4px solid var(--brand);
 		background: var(--brand-light);
 		padding: 1rem 1.25rem;
@@ -322,7 +322,7 @@
 		margin: 0;
 		font-style: italic;
 		font-size: 1.05rem;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 500;
 	}
 
@@ -341,6 +341,6 @@
 	}
 
 	.back-nav a:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 </style>

@@ -73,7 +73,7 @@
 	}
 
 	h1 {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		margin-top: 0;
 		margin-bottom: 2rem;
 	}
@@ -117,7 +117,7 @@
 	}
 
 	.back-link a:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	@media (max-width: 640px) {

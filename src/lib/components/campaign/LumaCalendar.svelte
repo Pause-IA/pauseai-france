@@ -83,7 +83,7 @@
 	}
 
 	.luma-link a {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 600;
 	}
 
@@ -126,8 +126,8 @@
 		flex: none;
 		inline-size: 0.55rem;
 		block-size: 0.55rem;
-		border-right: 2.5px solid var(--brand-subtle);
-		border-bottom: 2.5px solid var(--brand-subtle);
+		border-right: 2.5px solid var(--accent);
+		border-bottom: 2.5px solid var(--accent);
 		transform: rotate(45deg) translateY(-15%);
 		transition: transform 0.2s ease;
 	}

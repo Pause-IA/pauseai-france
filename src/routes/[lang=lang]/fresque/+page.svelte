@@ -316,7 +316,7 @@
 
 	.lien-second {
 		font-size: 1rem;
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* --- Bande de photos ---------------------------------------------------

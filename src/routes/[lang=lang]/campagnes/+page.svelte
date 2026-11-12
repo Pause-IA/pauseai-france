@@ -292,7 +292,7 @@
 	.see-results {
 		font-size: 0.9rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		margin-top: auto;
 	}
 
@@ -435,7 +435,7 @@
 		flex-shrink: 0;
 		font-size: 0.75rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		background: color-mix(in srgb, var(--brand) 10%, var(--bg));
 		padding: 0.1rem 0.45rem;
 		border-radius: var(--radius-pill);
@@ -458,7 +458,7 @@
 		font-weight: 600;
 		text-decoration: none;
 		background: color-mix(in srgb, var(--brand) 12%, var(--bg));
-		color: var(--brand-subtle);
+		color: var(--accent);
 		border: 1.5px solid color-mix(in srgb, var(--brand) 35%, transparent);
 		transition:
 			background 0.15s,

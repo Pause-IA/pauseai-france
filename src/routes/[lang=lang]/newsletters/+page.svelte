@@ -328,7 +328,7 @@
 	}
 
 	.rss-link:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		border-color: var(--brand);
 		background: var(--brand-light);
 	}
@@ -349,7 +349,7 @@
 	}
 
 	.subscribe-icon {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		flex-shrink: 0;
 		margin-top: 0.5rem;
 	}

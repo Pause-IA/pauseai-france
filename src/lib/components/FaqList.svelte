@@ -74,7 +74,7 @@
 	.faq-cat {
 		font-size: 1.3rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--accent);
 		margin: 2.5rem 0 1rem;
 		padding-bottom: 0.5rem;
 		border-bottom: 2px solid var(--brand);
@@ -106,7 +106,7 @@
 	}
 
 	.faq-item summary:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.faq-chevron {
@@ -134,7 +134,7 @@
 	}
 
 	.faq-answer :global(a) {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 600;
 	}
 </style>
