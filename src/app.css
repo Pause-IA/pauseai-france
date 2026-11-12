@@ -74,6 +74,12 @@
 	   8,4:1 sur blanc. L'orange reste l'unique couleur saturée des aplats, des
 	   filets et des survols ; le bleu porte le texte d'accent. */
 	--accent: rgb(16, 82, 121);
+	/* Orange LISIBLE EN GRAND TEXTE. L'orange de marque ne fait que 2,21:1 sur
+	   blanc : il échoue même au seuil assoupli des grands titres (3:1). Celui-ci
+	   donne 3,49:1 et reste franchement orange, loin du marron qu'il faut
+	   atteindre (4,67:1) pour passer en texte courant. À réserver aux titres :
+	   en dessous de 24 px il n'est pas conforme. */
+	--brand-titre: rgb(217, 106, 0);
 	--brand-deep: #ff6b35; /* fin de dégradé sur les encadrés d'appel */
 	--brand-soft: #ffb347; /* début de dégradé clair (bandeaux) */
 	/* Attention : --white et --black s'inversent en mode sombre. Ce sont la
@@ -206,6 +212,8 @@
 	/* OKLCH(0,75 0,08 241) : le même bleu éclairci pour le fond sombre,
 	   6,8:1 sur --bg. */
 	--accent: rgb(127, 181, 220);
+	/* Sur fond sombre, l'orange de marque est lisible tel quel. */
+	--brand-titre: var(--brand);
 
 	--btn-alt-bg: #303030;
 	--btn-alt-hover-bg: #2a1f0a;
