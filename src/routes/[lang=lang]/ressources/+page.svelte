@@ -886,10 +886,12 @@
 		transform: translate(2px, -2px);
 	}
 
+	/* 1 rem et non 0,95 : c'est de la prose, et les guides de typographie web
+	   s'accordent sur 16 px comme plancher du corps de texte. */
 	.res-desc {
 		font-family: var(--font-body);
 		font-weight: 400;
-		font-size: 0.95rem;
+		font-size: 1rem;
 		line-height: 1.5;
 		color: var(--text);
 		margin: 0;

@@ -82,7 +82,7 @@
 <Page width="wide" eyebrow={t.nav.campagnes} title={t.campagnes.title} lede={t.campagnes.subtitle}>
 	<section class="hero">
 		<p class="active-count">
-			<Badge variant="success">
+			<Badge variant="outline">
 				{activeCount}
 				{activeCount === 1 ? t.campagnes.active_count_singular : t.campagnes.active_count_plural}
 			</Badge>
@@ -109,7 +109,7 @@
 				}}
 			>
 				<div class="card-top">
-					<Badge size="sm" variant={campaign.status === 'ended' ? 'neutral' : 'success'}>
+					<Badge size="sm" variant={campaign.status === 'ended' ? 'neutral' : 'outline'}>
 						{campaign.status === 'active' ? t.campagnes.badge_active : t.campagnes.badge_ended}
 					</Badge>
 					<span class="card-date">

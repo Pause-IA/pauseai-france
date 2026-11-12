@@ -139,7 +139,9 @@
 		inline-size: 3rem;
 		block-size: auto;
 		flex-shrink: 0;
-		color: var(--text);
+		/* Une silhouette n'est pas du texte : elle prend l'orange de marque
+		   PLEIN, sans contrainte de contraste. */
+		color: var(--brand);
 	}
 
 	/* Pastilles de villes */

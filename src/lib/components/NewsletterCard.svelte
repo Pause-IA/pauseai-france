@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { MoveUpRight, Calendar, Mail } from 'lucide-svelte'
+	import { MoveUpRight } from 'lucide-svelte'
 
 	export let title: string
 	export let description = ''
@@ -35,21 +35,14 @@
 			</div>
 		{/if}
 		<div class="card-body">
-			<div class="card-badge">
-				<Mail size="0.875rem" />
-				<span>Newsletter</span>
-			</div>
+			{#if date}
+				<p class="card-eyebrow">{formatDate(date)}</p>
+			{/if}
 			<h3 class="card-title">{title}</h3>
 			{#if description}
 				<p class="card-description">{description}</p>
 			{/if}
 			<div class="card-footer">
-				{#if date}
-					<span class="card-date">
-						<Calendar size="0.875rem" />
-						{formatDate(date)}
-					</span>
-				{/if}
 				<span class="card-action">
 					Lire
 					<MoveUpRight size="1rem" />
@@ -76,12 +69,16 @@
 		box-shadow: 0 20px 40px -12px rgba(var(--ink-rgb), 0.12);
 	}
 
+	/* Filet orange en tête de carte : c'est le repère de la charte, et il donne
+	   à la grille un rythme que trois cartes blanches identiques n'avaient
+	   pas. */
 	.card {
 		display: flex;
 		flex-direction: column;
 		height: 100%;
 		background: var(--bg);
 		border: 1px solid var(--border);
+		border-top: 3px solid var(--brand);
 		border-radius: 1rem;
 		overflow: hidden;
 		transition:
@@ -119,33 +116,31 @@
 		padding: 1.25rem 1.5rem 1.5rem;
 	}
 
-	.card-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.375rem;
+	/* La date, en surtitre. La pastille « NEWSLETTER » répétée sur chaque
+	   carte d'une page intitulée « Newsletters » n'apprenait rien ; la date,
+	   elle, est ce qui distingue une livraison d'une autre, et elle était
+	   reléguée en pied de carte. */
+	.card-eyebrow {
+		margin: 0 0 0.4rem;
 		font-size: 0.75rem;
-		font-weight: 600;
+		font-weight: 700;
+		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		letter-spacing: 0.5px;
-		color: var(--text);
-		background: rgba(var(--brand-rgb), 0.1);
-		padding: 0.25rem 0.625rem;
-		border-radius: var(--radius-sm);
-		width: fit-content;
-		margin-bottom: 0.75rem;
+		color: var(--text-2);
 	}
 
 	.card-title {
-		margin: 0 0 0.5rem;
-		font-size: 1.125rem;
+		margin: 0 0 0.6rem;
+		font-size: 1.3rem;
 		font-weight: 700;
-		line-height: 1.4;
+		line-height: 1.25;
+		letter-spacing: -0.015em;
 		color: var(--text);
 	}
 
 	.card-description {
 		margin: 0;
-		font-size: 0.9375rem;
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-secondary);
 		display: -webkit-box;
@@ -162,14 +157,6 @@
 		margin-top: 1rem;
 		padding-top: 1rem;
 		border-top: 1px solid var(--border);
-	}
-
-	.card-date {
-		display: flex;
-		align-items: center;
-		gap: 0.375rem;
-		font-size: 0.8125rem;
-		color: var(--text-secondary);
 	}
 
 	.card-action {

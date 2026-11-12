@@ -162,6 +162,10 @@
 
 	/* Largeurs de colonne */
 	--width-text: 44rem; /* corps de texte */
+	/* La MESURE : largeur maximale d'une ligne de prose, à poser sur l'élément
+	   qui porte le texte (et non sur son conteneur). Voir le commentaire de la
+	   règle `p`. */
+	--mesure: min(var(--width-text), 60ch);
 	--width-content: 54rem; /* pages éditoriales et campagnes */
 	--width-wide: 62rem; /* pages larges (grilles, cartes) */
 	--gutter: 1.5rem;
@@ -288,7 +292,33 @@ h3 {
 	margin-top: 0;
 }
 
+/* LONGUEUR DE LIGNE. Au-delà d'environ 80 signes, l'œil perd le début de la
+   ligne suivante : c'est la limite que retient WCAG (critère 1.4.8), et les
+   guides de typographie web visent 45 à 75 signes, 66 étant le confort.
+
+   Mesuré sur 24 pages avant ce plafond : la moitié dépassait, jusqu'à 120
+   signes par ligne sur la page de la déclaration et 119 sur l'espace presse.
+   Les pages conformes étaient exactement celles qui passent par le gabarit
+   partagé ; les autres faisaient couler leur prose sur toute la largeur de
+   leur mise en page.
+
+   Un `max-inline-size` ne fait que CONTRAINDRE : un paragraphe déjà plus
+   étroit — une description de carte, une colonne de grille — n'est pas
+   touché. Il ne s'applique pas aux paragraphes d'interface (légendes de
+   formulaire, pastilles), qui sont trop courts pour être concernés.
+
+   Le plafond est exprimé en `ch`, et non seulement en `rem` : l'unité `ch`
+   suit la taille du texte DE L'ÉLÉMENT, donc un paragraphe en petits
+   caractères obtient le même nombre de signes par ligne qu'un paragraphe en
+   grands. Une largeur fixe en rem donnait 74 signes à 19 px mais 93 à 15 px.
+   Le `min()` garde la plus contraignante des deux.
+
+   60ch et non 70 : `ch` vaut la largeur du zéro, nettement plus large que la
+   moyenne des signes d'un texte français. Compté caractère par caractère sur
+   les paragraphes rendus, 60ch donne environ 75 signes par ligne — la cible —
+   là où 72ch en donnait 90. */
 p {
+	max-inline-size: var(--mesure);
 	margin-bottom: 1.5rem;
 	/* Pas de justification, et donc pas de césure : `hyphens: auto` ne sert
 	   qu'à répartir les blancs d'un texte justifié. Sur un texte en drapeau,

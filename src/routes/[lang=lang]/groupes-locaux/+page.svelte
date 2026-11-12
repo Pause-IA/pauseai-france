@@ -577,7 +577,7 @@
 		color: var(--text);
 	}
 	.depuis-texte {
-		max-inline-size: 36rem;
+		max-inline-size: min(36rem, var(--mesure));
 		margin: 1.1rem auto 0;
 		font-size: 1.02rem;
 		line-height: 1.6;

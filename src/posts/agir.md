@@ -2,9 +2,6 @@
 title: Toutes les façons d’agir
 rubrique: agir
 description: Les actions les plus utiles pour aider à garder l’IA sous contrôle, de 5 minutes à un engagement durable.
-original:
-  title: Take action
-  url: https://github.com/PauseAI/pauseai-website/blob/95be1d5327015a2c41f5c518d92812d7f6c79bda/src/posts/action.md
 ---
 
 <script lang="ts">

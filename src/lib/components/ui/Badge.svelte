@@ -1,7 +1,12 @@
 <script lang="ts">
 	/**
-	 * Pastille de la charte. `brand` par défaut : le vert et le rouge
-	 * signalent un état, jamais une décoration.
+	 * Pastille de la charte. `brand` par défaut.
+	 *
+	 * `success` et `error` sont réservés aux RETOURS DE FORMULAIRE — un envoi
+	 * réussi, une erreur de saisie. Une campagne « en cours » n'est pas un
+	 * succès : c'est un état, et un état se dit avec les couleurs de la
+	 * marque (`outline`, filet orange) ou en neutre. Le vert était la seule
+	 * tache verte des pages campagne, et il s'y lisait comme une validation.
 	 */
 	export let variant: 'brand' | 'neutral' | 'outline' | 'success' | 'error' = 'brand'
 	export let size: 'sm' | 'md' = 'md'
