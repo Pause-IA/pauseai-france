@@ -607,9 +607,11 @@
 		border: 2px solid var(--btn-border);
 	}
 
+	/* Pas de remplissage orange au survol : le bouton changeait de nature
+	   sous le curseur et devenait le jumeau de « Donner », l'espace d'un
+	   instant. Teinte neutre très légère, le contour orange reste le repère. */
 	.btn-join:hover {
-		background: var(--brand);
-		color: var(--on-brand);
+		background: var(--bg-subtle);
 	}
 
 	/* On hero (white text context): invert to semi-transparent white */
@@ -952,11 +954,14 @@
 		opacity: 0.85;
 	}
 
+	/* Même traitement que le bouton de l'en-tête : orange creux. */
 	.sidebar-join {
 		display: block;
 		text-decoration: none;
-		background: var(--surface-sombre);
-		color: var(--on-dark);
+		background: transparent;
+		color: var(--text);
+		border: 2px solid var(--btn-border);
+		box-sizing: border-box;
 		text-align: center;
 		padding: 0.8rem 1.5rem;
 		border-radius: var(--radius-btn);
