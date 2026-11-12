@@ -92,8 +92,6 @@ export default {
 		hero_title: 'Pour garder l’IA sous contrôle,',
 		hero_highlight: 'agissons maintenant',
 		hero_cta: 'Écrire à mes élus',
-		bande_bilan_titre: 'Ce que nous avons obtenu',
-		bande_demandes_titre: 'Ce que nous demandons',
 		bande_agir_titre: 'Agir',
 		bande_informer_titre: 'S’informer',
 		campaigns_title: 'Nos campagnes en cours',

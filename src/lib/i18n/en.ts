@@ -92,8 +92,6 @@ export default {
 		hero_title: 'To keep AI under control,',
 		hero_highlight: 'let’s act now',
 		hero_cta: 'Write to my representatives',
-		bande_bilan_titre: 'What we have achieved',
-		bande_demandes_titre: 'What we are asking for',
 		bande_agir_titre: 'Take action',
 		bande_informer_titre: 'Learn more',
 		campaigns_title: 'Our active campaigns',
