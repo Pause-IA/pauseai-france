@@ -101,7 +101,7 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
      l'écriture aux élus reste l'action la plus efficace. */
   .action-card.primaire {
     border: 2px solid var(--brand);
-    background: var(--brand-light);
+    background: var(--panneau-bg);
   }
 
   .action-card:hover {

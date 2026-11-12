@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge } from '$components/ui'
+	import { Badge, PageHero } from '$components/ui'
 	import PostMeta from '$components/PostMeta.svelte'
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$components/Button.svelte'
@@ -18,19 +18,16 @@
 
 <article>
 	{#if lang === 'en'}
-		<section class="hero">
-			<p class="eyebrow">{t.nav.agir}</p>
-			<h1>Join Pause AI</h1>
-			<p class="hero-description">
+		<PageHero eyebrow={t.nav.agir}>
+			Join Pause AI
+			<svelte:fragment slot="lede">
 				Faced with a technological race that accelerates every day, <strong
 					>collective action is our greatest strength</strong
 				>. Every voice, every hour of volunteering, every membership strengthens our ability to
-				influence public debate and regain control.
-				<br /><br />
-				Whether you have 10 minutes a week or several hours to dedicate to us, there is a place for you
-				at Pause AI. Discover how you can act alongside us.
-			</p>
-		</section>
+				influence public debate and regain control. Whether you have 10 minutes a week or several
+				hours to dedicate to us, there is a place for you at Pause AI.
+			</svelte:fragment>
+		</PageHero>
 
 		<section class="engagement-options">
 			<div class="engagement-card">
@@ -121,19 +118,16 @@
 			</Accordion>
 		</section>
 	{:else}
-		<section class="hero">
-			<p class="eyebrow">{t.nav.agir}</p>
-			<h1>Rejoindre Pause IA</h1>
-			<p class="hero-description">
+		<PageHero eyebrow={t.nav.agir}>
+			Rejoindre Pause IA
+			<svelte:fragment slot="lede">
 				Face à une course technologique qui s’accélère chaque jour, <strong
 					>l’action collective est notre plus grande force</strong
 				>. Chaque voix, chaque heure de bénévolat, chaque adhésion renforce notre capacité à
-				influencer le débat public et à reprendre le contrôle.
-				<br /><br />
-				Que vous ayez 10 minutes par semaine ou plusieurs heures à nous consacrer, il existe une place
-				pour vous chez Pause IA. Découvrez comment vous pouvez agir à nos côtés.
-			</p>
-		</section>
+				influencer le débat public et à reprendre le contrôle. Que vous ayez 10 minutes par semaine
+				ou plusieurs heures à nous consacrer, il existe une place pour vous chez Pause IA.
+			</svelte:fragment>
+		</PageHero>
 
 		<section class="engagement-options">
 			<div class="engagement-card">
@@ -220,41 +214,9 @@
 		padding: 0 2rem;
 	}
 
-	/* En-tête au modèle : aligné à gauche, sans carte. C'était un encadré
-	   blanc posé sur un fond devenu blanc — seule son ombre le trahissait —
-	   avec un titre et un texte centrés, que rien d'autre sur le site ne
-	   fait. */
-	.hero {
-		margin-bottom: 3rem;
-	}
-
-	.eyebrow {
-		display: inline-block;
-		margin: 0 0 1rem;
-		padding: 0.3rem 0.7rem;
-		border-radius: 3px;
-		background: var(--brand);
-		color: var(--on-brand);
-		font-size: 0.85rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-	}
-
-	.hero h1 {
-		font-size: clamp(2.1rem, 6vw, 3.2rem);
-		line-height: 1.06;
-		letter-spacing: -0.025em;
-		margin-bottom: 1.25rem;
-	}
-
-	.hero-description {
-		max-inline-size: var(--width-text);
-		font-size: 1.1rem;
-		line-height: 1.6;
-		color: var(--text-2);
-		margin-bottom: 1.5rem;
-	}
+	/* L'en-tête (étiquette, titre, chapô) était recopié à la main ici. Il
+	   vient maintenant de PageHero : une seule définition du modèle, au lieu
+	   d'une copie par page qui finit par diverger. */
 
 	.engagement-options {
 		display: grid;

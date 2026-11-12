@@ -582,6 +582,89 @@ table td:nth-child(2) {
 
    Ces règles ne concernent que le média « print » : l'affichage à l'écran est
    inchangé. */
+/* ─── Aplat de marque ────────────────────────────────────────
+   Le bleu sombre de la marque, posé sur le passage qu'on veut sortir du fil
+   du texte : une citation, une mise en garde, le moment où la page cesse
+   d'exposer pour demander quelque chose au lecteur.
+
+   Défini ici et non dans un composant, parce qu'il sert à deux titres :
+   automatiquement sur les citations des pages « note » (qui viennent de
+   Markdown et ne peuvent pas porter de classe), et explicitement partout
+   ailleurs via .aplat-marque.
+
+   Il déborde de la colonne de lecture : c'est ce débordement qui fait
+   l'arrêt, plus encore que la couleur. */
+.aplat-marque,
+.ui-page--note blockquote {
+	position: relative;
+	margin-inline: calc(-1 * clamp(0rem, 4vw, 3rem));
+	margin-block: clamp(2rem, 5vw, 3rem);
+	padding: clamp(1.75rem, 4vw, 2.5rem);
+	border: 0;
+	border-radius: 2px;
+	background: var(--surface-sombre);
+	color: var(--on-dark);
+	font-style: normal;
+}
+
+/* Petit filet orange en tête : il rattache l'aplat à la marque au lieu de le
+   laisser flotter comme un bloc sombre quelconque. */
+.aplat-marque::before,
+.ui-page--note blockquote::before {
+	content: '';
+	position: absolute;
+	inset-block-start: clamp(1.75rem, 4vw, 2.5rem);
+	inset-inline-start: clamp(1.75rem, 4vw, 2.5rem);
+	inline-size: 2.5rem;
+	block-size: 3px;
+	border-radius: var(--radius-pill);
+	background: var(--brand);
+}
+
+.aplat-marque > :first-child,
+.ui-page--note blockquote > :first-child {
+	margin-block-start: 1.6rem;
+}
+
+.aplat-marque > :last-child,
+.ui-page--note blockquote > :last-child {
+	margin-block-end: 0;
+}
+
+.aplat-marque p,
+.ui-page--note blockquote p {
+	color: var(--on-dark);
+}
+
+/* --accent est un bleu : illisible sur le bleu. Sur l'aplat, c'est l'orange
+   de marque qui porte les liens (7,2:1). */
+.aplat-marque a,
+.ui-page--note blockquote a {
+	color: var(--brand);
+}
+
+/* À l'impression, un aplat sombre vide la cartouche pour rien. */
+@media print {
+	.aplat-marque,
+	.ui-page--note blockquote {
+		margin-inline: 0;
+		padding-inline-start: 1rem;
+		border-inline-start: 3px solid var(--filet-impression);
+		background: none;
+		color: var(--encre-impression);
+	}
+
+	.aplat-marque::before,
+	.ui-page--note blockquote::before {
+		display: none;
+	}
+
+	.aplat-marque p,
+	.ui-page--note blockquote p {
+		color: var(--encre-impression);
+	}
+}
+
 @media print {
 	/* L'habillage du site n'a pas de sens sur papier : personne ne clique un
 	   menu imprimé. */

@@ -572,11 +572,11 @@
 		line-height: 1.65;
 	}
 
-	/* « Participer » est l'action principale : encadré accent de la charte
-	   (fond orangé, bordure orange de 2px comme le Callout). « Animer » garde
-	   la carte standard et un bouton secondaire. */
+	/* « Participer » est l'action principale : panneau de la charte, bordure
+	   orange de 2 px. « Animer » garde la carte standard et un bouton
+	   secondaire. Le fond était un voile d'orange, qui redonnait du crème. */
 	.duo :global(.carte-participer) {
-		background: rgba(var(--brand-rgb), 0.08);
+		background: var(--panneau-bg);
 		border: 2px solid var(--brand);
 	}
 
@@ -585,12 +585,11 @@
 		margin-bottom: var(--pas);
 	}
 
-	/* Bande orange pâle du croquis. Le fond de page est déjà le crème
-	   `--bg-subtle` : un `--brand-light` par-dessus serait invisible, d'où un
-	   voile d'orange construit sur `--brand-rgb`, que la charte fournit
-	   justement pour les `rgba()`. */
+	/* Panneau d'appel. C'était un voile d'orange, construit à l'époque où le
+	   fond de page était crème et où un panneau clair ne s'y serait pas vu.
+	   La page est blanche : le panneau de la charte suffit. */
 	.interet :global(.bande-interet) {
-		background: rgba(var(--brand-rgb), 0.1);
+		background: var(--panneau-bg);
 		border-color: var(--brand);
 		border-radius: var(--radius-lg);
 		box-shadow: var(--shadow-card);

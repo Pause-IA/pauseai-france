@@ -1005,7 +1005,7 @@
 		margin: 0.65rem;
 		border-radius: var(--radius-md);
 		overflow: hidden;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		flex-shrink: 0;
 	}
 
@@ -1258,7 +1258,7 @@
 		font-size: 0.82rem;
 		font-weight: 600;
 		color: var(--accent);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		padding: 0.2rem 0.6rem;
 		border-radius: var(--radius-pill);
 	}

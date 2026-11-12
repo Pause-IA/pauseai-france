@@ -139,7 +139,7 @@
 	}
 
 	.category {
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		color: var(--carousel-accent, var(--brand));
 		padding: 0.3rem 0.7rem;
 		border-radius: var(--radius-pill);

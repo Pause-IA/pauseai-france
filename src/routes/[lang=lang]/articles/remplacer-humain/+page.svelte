@@ -209,7 +209,7 @@
 		font-weight: 500;
 		color: var(--accent);
 		border-left: 4px solid var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		padding: 1rem 1.25rem;
 		margin: 1.5rem 0 2rem;
 	}

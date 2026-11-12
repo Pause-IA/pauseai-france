@@ -330,7 +330,7 @@
 	.rss-link:hover {
 		color: var(--accent);
 		border-color: var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 	}
 
 	/* Subscribe bar */
@@ -343,7 +343,7 @@
 		max-width: 36rem;
 		margin: 0 0 2rem;
 		padding: 1rem 1.25rem;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border: 1px solid rgba(var(--brand-rgb), 0.2);
 		border-radius: var(--radius-md);
 	}

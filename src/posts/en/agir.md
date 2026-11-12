@@ -98,7 +98,7 @@ You don't need to devote your life to it: here are the most useful actions, from
      l'écriture aux élus reste l'action la plus efficace. */
   .action-card.primaire {
     border: 2px solid var(--brand);
-    background: var(--brand-light);
+    background: var(--panneau-bg);
   }
 
   .action-card:hover {

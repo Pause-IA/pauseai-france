@@ -755,7 +755,7 @@
 		width: 2.4rem;
 		height: 2.4rem;
 		border-radius: var(--radius-md);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		color: var(--accent);
 		flex-shrink: 0;
 		margin-top: 0.15rem;

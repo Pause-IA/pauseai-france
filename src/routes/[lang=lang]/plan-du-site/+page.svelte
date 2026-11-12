@@ -124,13 +124,19 @@
 		margin-block: 2.5rem 3.5rem;
 	}
 
+	/* Étiquette du modèle, comme sur toutes les autres pages : c'était la
+	   dernière page où le surtitre était resté une ligne de texte colorée. */
 	.eyebrow {
-		margin: 0 0 0.4rem;
+		display: inline-block;
+		margin: 0 0 0.9rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
 		font-size: 0.8rem;
 		font-weight: 700;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		color: var(--accent);
+		color: var(--on-brand);
 	}
 
 	h1 {

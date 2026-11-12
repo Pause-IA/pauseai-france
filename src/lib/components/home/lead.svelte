@@ -52,8 +52,7 @@
 				<button type="button" class="plus" on:click={() => (deplie = true)} hidden={deplie}
 					>Read the rest</button
 				>
-				<aside class="appel">
-					<span class="filet-marque" aria-hidden="true"></span>
+				<aside class="appel aplat-marque">
 					<p>
 						The AI industry is gambling with our lives. If you think this has to stop, join us and
 						sign our call for a pause on training frontier AI models.
@@ -86,8 +85,7 @@
 				<button type="button" class="plus" on:click={() => (deplie = true)} hidden={deplie}
 					>Lire la suite</button
 				>
-				<aside class="appel">
-					<span class="filet-marque" aria-hidden="true"></span>
+				<aside class="appel aplat-marque">
 					<p>
 						L’industrie de l’IA joue avec nos vies. Si vous pensez que cela doit cesser,
 						rejoignez-nous, signez notre appel à une pause dans l’entraînement des modèles d’IA de
@@ -111,32 +109,14 @@
 	   courant, au même poids que ce qui précède. C'est pourtant le seul
 	   endroit de la page où l'on passe de l'exposé à la demande.
 
-	   Posé sur le bleu de la marque, ce passage s'arrête de couler avec le
-	   reste. Même forme que l'aplat des pages « note » : filet orange en tête,
-	   débordement léger de la colonne de lecture. */
+	   La forme vient de .aplat-marque (app.css) ; il ne reste ici que ce qui
+	   est propre à l'accueil. */
 	.appel {
-		position: relative;
 		align-self: stretch;
-		margin-inline: calc(-1 * clamp(0rem, 4vw, 2.5rem));
-		margin-block: clamp(1.5rem, 4vw, 2.5rem) 0;
-		padding: clamp(1.75rem, 4vw, 2.5rem);
-		border-radius: 2px;
-		background: var(--surface-sombre, rgb(14, 36, 51));
-		color: var(--on-dark);
-	}
-
-	.filet-marque {
-		display: block;
-		inline-size: 2.5rem;
-		block-size: 3px;
-		border-radius: var(--radius-pill);
-		background: var(--brand);
-		margin-bottom: 1.1rem;
 	}
 
 	.appel p {
-		margin: 0;
-		color: var(--on-dark);
+		margin: 1.6rem 0 0;
 		font-size: 1.1rem;
 		line-height: 1.6;
 	}

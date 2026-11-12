@@ -1072,7 +1072,7 @@
 	}
 
 	.consent-checkbox {
-		background-color: var(--brand-light);
+		background-color: var(--panneau-bg);
 		padding: 1rem;
 		border-radius: var(--radius-sm);
 		border: 2px solid var(--brand);

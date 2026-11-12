@@ -233,7 +233,7 @@
 		font-weight: 500;
 		color: var(--accent);
 		border-left: 4px solid var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		padding: 1rem 1.25rem;
 		margin: 1.5rem 0 2rem;
 	}
@@ -245,7 +245,7 @@
 	.cta-box {
 		margin: 3rem 0 2rem;
 		padding: 2rem;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border-left: 4px solid var(--brand);
 		border-radius: 0 12px 12px 0;
 		display: flex;

@@ -302,7 +302,7 @@
 		line-height: 1.5;
 		color: var(--accent);
 		border-left: 4px solid var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		padding: 1rem 1.25rem;
 		margin: 1.5rem 0 1.5rem;
 	}
@@ -461,7 +461,7 @@
 	.article-card-featured {
 		border-color: var(--brand);
 		border-width: 2px;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		box-shadow: 0 2px 12px rgba(var(--brand-rgb), 0.14);
 	}
 
@@ -529,7 +529,7 @@
 		font-weight: 600;
 		color: var(--accent);
 		border-left: 4px solid var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		padding: 0.85rem 1.1rem;
 		margin: 1.5rem 0 0.5rem;
 		line-height: 1.5;
@@ -643,7 +643,8 @@
 		padding: 1.25rem 1.4rem 1.1rem;
 		border-width: 2px;
 		border-color: var(--brand);
-		background: rgba(var(--brand-rgb), 0.04);
+		/* Panneau de la charte : le voile d'orange datait du fond de page crème. */
+		background: var(--panneau-bg);
 	}
 
 	.press-badge {

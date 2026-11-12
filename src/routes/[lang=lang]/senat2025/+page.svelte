@@ -662,7 +662,7 @@
 	.newsletter-section {
 		margin: 3rem 0 2rem;
 		padding: 2.5rem 2rem;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border-radius: var(--radius-md);
 		border: 2px solid var(--border);
 	}

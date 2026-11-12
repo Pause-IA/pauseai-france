@@ -1867,7 +1867,7 @@
 
 	.notice--warn {
 		color: var(--accent);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border: 1px solid var(--brand);
 	}
 
@@ -1910,7 +1910,7 @@
 		font-size: 1rem;
 		font-weight: 600;
 		color: var(--accent);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border-radius: var(--radius-sm);
 		padding: 0.6rem 0.85rem;
 	}
@@ -1952,7 +1952,7 @@
 
 	.elu-card.done {
 		opacity: 0.7;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border-color: var(--brand);
 	}
 
@@ -1960,7 +1960,7 @@
 	.elu-card.priority {
 		border-width: 2px;
 		border-color: var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 	}
 
 	.priority-badge {
@@ -2048,7 +2048,7 @@
 		inline-size: 2.6rem;
 		block-size: 2.6rem;
 		border-radius: 50%;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		color: var(--accent);
 		display: flex;
 		align-items: center;
@@ -2142,7 +2142,7 @@
 		align-items: center;
 		gap: 0.75rem;
 		padding: 0.85rem 1rem;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border-radius: var(--radius-md);
 		margin-bottom: 1.25rem;
 	}
@@ -2484,7 +2484,7 @@
 		margin-top: 1.5rem;
 		padding: 1.1rem 1.25rem;
 		border: 1px solid var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border-radius: var(--radius-md);
 	}
 
@@ -2510,7 +2510,7 @@
 		padding: 1rem 1.25rem;
 		border: 1px solid var(--brand);
 		border-radius: var(--radius-md);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
