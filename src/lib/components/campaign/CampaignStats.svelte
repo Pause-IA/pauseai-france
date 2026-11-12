@@ -38,7 +38,7 @@
 		font-weight: 700;
 		font-size: clamp(1.75rem, 4vw, 2.25rem);
 		line-height: 1.1;
-		color: var(--accent);
+		color: var(--text);
 	}
 
 	.label {

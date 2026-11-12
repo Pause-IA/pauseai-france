@@ -225,7 +225,7 @@
 		font-size: 1.9rem;
 		line-height: 1;
 		padding-bottom: 0.2rem;
-		color: var(--accent);
+		color: var(--text);
 		background: rgba(var(--on-dark-rgb), 0.92);
 		border: 1px solid var(--border);
 		border-radius: 50%;

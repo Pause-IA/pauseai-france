@@ -308,13 +308,34 @@ li {
 	padding-left: 0.5rem;
 }
 
+/* Les liens portent l'orange par leur SOULIGNEMENT, pas par leur encre.
+
+   Deux problèmes se résolvent ici d'un coup.
+
+   Le premier : une encre orange doit être assombrie jusqu'à 4,5:1 pour être
+   lisible en texte courant, et à ce niveau elle ne se lit plus comme de
+   l'orange — c'est le marron qu'on nous signale depuis le début. Un
+   soulignement, lui, est une décoration : il porte l'orange de marque PLEIN,
+   sans aucune contrainte de contraste.
+
+   Le second : le bouton. Quand les liens sont orange, l'aplat orange du
+   bouton n'est plus que du même orange en plus grand, et il cesse de
+   ressortir — la couleur d'accent était dépensée partout. Elle est maintenant
+   réservée aux aplats, c'est-à-dire aux actions.
+
+   Au survol, l'encre passe à l'orange profond : c'est un état transitoire, où
+   la lisibilité prime sur la pureté de la teinte. */
 a {
-	color: var(--accent);
+	color: var(--text);
 	text-decoration: underline;
+	text-decoration-color: var(--brand);
+	text-decoration-thickness: 0.09em;
+	text-underline-offset: 0.16em;
 }
 
 a:hover {
-	color: var(--brand);
+	color: var(--accent);
+	text-decoration-thickness: 0.14em;
 }
 
 section:not(:last-child) {

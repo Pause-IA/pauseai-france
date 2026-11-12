@@ -971,7 +971,7 @@
 		top: -0.75rem;
 		font-size: 4rem;
 		line-height: 1;
-		color: var(--accent);
+		color: var(--brand);
 		font-family: Georgia, serif;
 	}
 

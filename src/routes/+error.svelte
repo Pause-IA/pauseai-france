@@ -65,7 +65,7 @@
 		font-size: 6rem;
 		font-weight: 700;
 		line-height: 1;
-		color: var(--accent);
+		color: var(--text);
 		font-family: var(--font-heading);
 	}
 

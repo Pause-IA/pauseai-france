@@ -65,7 +65,7 @@
 	}
 
 	.success-message h2 {
-		color: var(--accent);
+		color: var(--text);
 		margin-bottom: 1.5rem;
 		font-size: 1.75rem;
 	}

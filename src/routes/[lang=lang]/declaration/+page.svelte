@@ -482,7 +482,7 @@
 	.num {
 		font-size: 2.5rem;
 		font-weight: 700;
-		color: var(--accent);
+		color: var(--text);
 		line-height: 1.1;
 	}
 

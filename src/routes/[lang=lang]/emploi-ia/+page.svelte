@@ -333,7 +333,7 @@
 		font-size: clamp(2rem, 5.5vw, 3rem);
 		font-weight: 800;
 		line-height: 1;
-		color: var(--accent);
+		color: var(--text);
 		letter-spacing: -0.02em;
 		white-space: nowrap;
 		flex-shrink: 0;
