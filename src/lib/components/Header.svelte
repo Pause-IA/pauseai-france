@@ -590,14 +590,18 @@
 		opacity: 0.85;
 	}
 
-	/* "Rejoindre", black */
+	/* « Rejoindre » : l'action secondaire, sur la seconde couleur de la
+	   marque. Elle était en noir pur — une troisième valeur, qui n'appartenait
+	   à rien et qui jurait à côté de l'orange de « Donner ». Le bleu sombre
+	   est fait pour ce rôle : il tranche avec l'orange sans lui disputer
+	   l'attention. Fixe dans les deux thèmes, d'où --on-dark. */
 	.btn-join {
-		background: var(--black);
-		color: var(--white);
+		background: var(--surface-sombre);
+		color: var(--on-dark);
 	}
 
 	.btn-join:hover {
-		opacity: 0.8;
+		background: var(--surface-sombre-2);
 	}
 
 	/* On hero (white text context): invert to semi-transparent white */
@@ -943,8 +947,8 @@
 	.sidebar-join {
 		display: block;
 		text-decoration: none;
-		background: var(--black);
-		color: var(--white);
+		background: var(--surface-sombre);
+		color: var(--on-dark);
 		text-align: center;
 		padding: 0.8rem 1.5rem;
 		border-radius: var(--radius-btn);

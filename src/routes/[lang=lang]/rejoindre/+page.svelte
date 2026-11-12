@@ -309,9 +309,8 @@
 	}
 
 	.options-secondaires > h2 {
-		margin-bottom: 1rem;
-		color: var(--text-2);
-		font-size: 1.05rem;
+		margin-bottom: 1.1rem;
+		font-size: 1.15rem;
 	}
 
 	.secondaires-grille {
@@ -319,11 +318,15 @@
 		gap: 1rem;
 	}
 
+	/* Filet orange en tête, comme les cartes de la page Newsletters : deux
+	   rectangles blancs à liseré gris ne disaient rien, alors que ce sont
+	   deux vraies façons de s'engager. */
 	.carte-secondaire {
 		display: flex;
 		flex-direction: column;
-		padding: 1.25rem;
+		padding: 1.4rem 1.35rem;
 		border: 1px solid var(--border);
+		border-top: 3px solid var(--brand);
 		border-radius: var(--radius-md);
 		background: var(--bg-card);
 	}
@@ -332,15 +335,23 @@
 		display: flex;
 		align-items: center;
 		gap: 0.45em;
-		margin: 0 0 0.5rem;
-		font-size: 1.05rem;
+		margin: 0 0 0.6rem;
+		font-size: 1.25rem;
+		line-height: 1.25;
+		letter-spacing: -0.015em;
+	}
+
+	/* Le pictogramme n'est pas du texte : l'orange de marque plein. */
+	.carte-secondaire h3 :global(svg) {
+		color: var(--brand);
 	}
 
 	.carte-secondaire p {
 		flex: 1;
-		margin: 0 0 1rem;
+		margin: 0 0 1.1rem;
 		color: var(--text-2);
-		font-size: 0.95rem;
+		font-size: 1rem;
+		line-height: 1.6;
 	}
 
 	.carte-secondaire :global(a) {
