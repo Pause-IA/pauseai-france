@@ -1,5 +1,6 @@
 ---
 title: Politique de confidentialité
+rubrique: apropos
 description: La politique de confidentialité de pauseia.fr
 ---
 

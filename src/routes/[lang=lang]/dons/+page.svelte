@@ -26,7 +26,8 @@
 <article>
 	<!-- Main donation page -->
 	<section class="hero">
-		<UnderlinedTitle as="h1">{t.dons.title}</UnderlinedTitle>
+		<p class="eyebrow">{t.nav.agir}</p>
+		<h1>{t.dons.title}</h1>
 		{#if lang === 'en'}
 			<p class="hero-description">
 				AI companies are in an unbridled race to develop increasingly powerful systems.
@@ -274,18 +275,37 @@
 		padding: 0 2rem;
 	}
 
+	/* En-tête au modèle : aligné à gauche, sans carte. C'était un encadré
+	   blanc posé sur un fond devenu blanc, que seule son ombre trahissait. */
 	.hero {
-		text-align: center;
 		margin-bottom: 3rem;
-		background: var(--bg);
-		padding: 3rem 2rem;
-		border-radius: var(--radius-md);
-		box-shadow: var(--shadow-raised);
+	}
+
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.hero :global(h1) {
+		font-size: clamp(2.1rem, 6vw, 3.2rem);
+		line-height: 1.06;
+		letter-spacing: -0.025em;
+		margin-bottom: 1.25rem;
 	}
 
 	.hero-description {
+		max-inline-size: var(--width-text);
 		font-size: 1.1rem;
-		color: var(--text-secondary);
+		line-height: 1.6;
+		color: var(--text-2);
 		margin-bottom: 1.5rem;
 	}
 

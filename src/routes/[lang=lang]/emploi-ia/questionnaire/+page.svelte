@@ -184,6 +184,7 @@
 />
 
 <article class="questionnaire-container">
+	<p class="eyebrow">{lang === 'en' ? 'Campaigns' : 'Campagnes'}</p>
 	<h1>{t.emploi_questionnaire.title}</h1>
 
 	<p class="intro">
@@ -901,6 +902,19 @@
 </article>
 
 <style>
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
 	.questionnaire-container {
 		max-inline-size: var(--width-content);
 		margin: 2rem auto;

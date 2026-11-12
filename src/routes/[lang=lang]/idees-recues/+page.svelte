@@ -70,7 +70,7 @@
 
 <PostMeta {title} {description} />
 
-<Page width="wide" {title} as="article">
+<Page width="wide" {title} eyebrow="Comprendre" as="article">
 	<svelte:fragment slot="lede"
 		><span class="paragraphe">{accroche}</span><span class="paragraphe">{invitation}</span
 		></svelte:fragment

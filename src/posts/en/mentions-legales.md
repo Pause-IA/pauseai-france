@@ -1,5 +1,6 @@
 ---
 title: Legal Notices
+rubrique: apropos
 description: Legal notices for the Pause IA website.
 ---
 

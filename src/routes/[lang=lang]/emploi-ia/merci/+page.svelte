@@ -13,6 +13,7 @@
 
 <article class="thank-you-page">
 	<div class="content">
+		<p class="eyebrow">{lang === 'en' ? 'Campaigns' : 'Campagnes'}</p>
 		<h1>{t.emploi_merci.title}</h1>
 
 		<div class="message">
@@ -44,6 +45,19 @@
 </article>
 
 <style>
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
 	.thank-you-page {
 		max-inline-size: var(--width-text);
 		margin: 4rem auto;

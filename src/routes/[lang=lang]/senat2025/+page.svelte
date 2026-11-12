@@ -94,7 +94,10 @@
 				: 'Colloque Sénat · Intelligence Artificielle : Sécuriser les pratiques, contenir les risques'}
 		/>
 		<div class="hero-text">
-			<h1>{isEn ? 'SENATE COLLOQUIUM · OCTOBER 31, 2025' : 'COLLOQUE SÉNAT · 31 OCTOBRE 2025'}</h1>
+			<!-- Le titre tenait lieu d'étiquette : tout en capitales, avec la
+			     date collée au nom de l'événement. Les deux sont séparés. -->
+			<p class="eyebrow">{isEn ? 'Event · 31 October 2025' : 'Événement · 31 octobre 2025'}</p>
+			<h1>{isEn ? 'Senate colloquium' : 'Colloque au Sénat'}</h1>
 			<p class="subtitle">
 				{isEn
 					? 'Artificial Intelligence: Securing Practices, Containing Risks'
@@ -524,6 +527,19 @@
 </section>
 
 <style>
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
 	.wrap {
 		/* Jeton de la charte plutôt qu'une neuvième valeur en dur. */
 		max-inline-size: var(--width-wide);
