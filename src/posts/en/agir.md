@@ -51,6 +51,12 @@ You don't need to devote your life to it: here are the most useful actions, from
     <small>Join or start a local group.</small>
     <em class="ac-why"><strong>Why :</strong> A street action reaches people our posts never will, and the local press covers what national media ignore.</em>
   </a>
+  <a class="action-card" href="/{lang}/fresque">
+    <span class="ac-emoji">🧩</span>
+    <strong>Run the AI Risks Fresk</strong>
+    <small>A collaborative card workshop, from what AI can do to the risks it carries, through to the possible solutions.</small>
+    <em class="ac-why"><strong>Why:</strong> Three hours around a table teach what an article cannot, and participants leave able to explain it to others.</em>
+  </a>
   <a class="action-card" href="/{lang}/relayer-nos-messages">
     <span class="ac-emoji">📣</span>
     <strong>Share our messages</strong>

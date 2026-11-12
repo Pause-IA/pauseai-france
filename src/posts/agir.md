@@ -54,6 +54,12 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
     <small>Rejoignez ou lancez un groupe local.</small>
     <em class="ac-why"><strong>Pourquoi :</strong> Une action de rue touche des gens que nos publications n’atteindront jamais, et la presse locale couvre ce que la presse nationale ignore.</em>
   </a>
+  <a class="action-card" href="/{lang}/fresque">
+    <span class="ac-emoji">🧩</span>
+    <strong>Animer la Fresque des risques de l’IA</strong>
+    <small>Un atelier collaboratif autour d’un jeu de cartes, des capacités de l’IA à ses risques, jusqu’aux solutions.</small>
+    <em class="ac-why"><strong>Pourquoi :</strong> Trois heures autour d’une table font comprendre ce qu’un article ne fait pas comprendre, et les participants repartent en l’expliquant à leur tour.</em>
+  </a>
   <a class="action-card" href="/{lang}/relayer-nos-messages">
     <span class="ac-emoji">📣</span>
     <strong>Relayer nos messages</strong>
