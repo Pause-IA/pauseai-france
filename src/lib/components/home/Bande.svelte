@@ -51,6 +51,16 @@
 		background: rgba(var(--brand-rgb), 0.4);
 	}
 
+	/* Le titre de bande est le repère le plus haut de la page d'accueil : il
+	   découpe « agir » de « s'informer ». À la taille commune des h2 (2 rem)
+	   il ne se distinguait plus assez des titres de bloc qu'il surplombe, et
+	   la page semblait plate. Il passe au-dessus, comme les grands titres du
+	   modèle. */
+	.bande :global(> h2) {
+		font-size: clamp(2rem, 4vw, 2.6rem);
+		letter-spacing: -0.02em;
+	}
+
 	.bande > :global(*) {
 		position: relative;
 		z-index: 1;

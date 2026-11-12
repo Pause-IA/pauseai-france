@@ -20,7 +20,11 @@
 	   son voile de lisibilité, en clair et en sombre. */
 	--ink-rgb: 0, 0, 0;
 	--on-dark-rgb: 255, 255, 255;
-	--hero-cream-rgb: 255, 250, 245;
+	/* Le voile du héros était crème (255, 250, 245). C'est le dernier crème du
+	   site, et il se voyait d'autant plus que la page sous lui est blanche :
+	   le panneau du héros paraissait jauni. Blanc franc. Le nom du jeton est
+	   conservé : il est lu dans une dizaine de dégradés du héros. */
+	--hero-cream-rgb: 255, 255, 255;
 	--hero-dark-rgb: 26, 26, 26;
 	/* Encadrés translucides posés sur une image : bloc de texte du héros en
 	   thème sombre, et infobulle de la carte des groupes locaux. */
