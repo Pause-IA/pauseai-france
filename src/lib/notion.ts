@@ -262,11 +262,11 @@ function isValidBanner(banner: Banner): boolean {
 		console.warn(`Invalid banner: missing message`)
 		return false
 	}
-	// Un libellé sans URL (ou l'inverse) est une bannière à moitié remplie :
+	// Un libellé sans URL (ou l’inverse) est une bannière à moitié remplie :
 	// le bouton disparaît silencieusement côté site. On le signale.
 	if (banner.linkText && !banner.linkUrl) {
 		console.warn(
-			`Bannière « ${banner.message} » : texte de lien sans URL, le bouton ne s'affichera pas.`
+			`Bannière « ${banner.message} » : texte de lien sans URL, le bouton ne s’affichera pas.`
 		)
 	}
 	if (banner.linkUrl && !banner.linkText) {
@@ -580,7 +580,7 @@ function cleanContent(html: string): string {
 		const before = cleaned.substring(0, footerCutIndex)
 		// Look for "Soutenir Pause IA" section that typically precedes the footer
 		const soutenirIdx = before.lastIndexOf('Soutenir Pause IA')
-		// Only use this cut point if it's reasonably close to the footer (within 2000 chars)
+		// Only use this cut point if it’s reasonably close to the footer (within 2000 chars)
 		if (soutenirIdx > 0 && footerCutIndex - soutenirIdx < 2000) {
 			cleaned = cleaned.substring(0, soutenirIdx)
 		} else {
@@ -890,8 +890,8 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
 					role: getText(page.properties['Rôle']),
 					profession: getText(page.properties.Profession),
 					category: toTeamCategory(categoryValue),
-					// La photo versionnée l'emporte sur l'URL Notion. Celle-ci est une
-					// adresse S3 SIGNÉE qui expire au bout d'une heure : servie telle
+					// La photo versionnée l'emporte sur l’URL Notion. Celle-ci est une
+					// adresse S3 SIGNÉE qui expire au bout d’une heure : servie telle
 					// quelle, elle casse dès que la page est mise en cache, et pèse le
 					// poids du fichier d'origine. scripts/photos-equipe.mjs télécharge,
 					// compresse et versionne ; on retombe sur Notion si la photo n'a

@@ -2,7 +2,6 @@
 	import { openActivoiceForm } from '$lib/activoice'
 	import { Badge } from '$components/ui'
 	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import type { PageData } from './$types'
 
@@ -273,9 +272,8 @@
 <article>
 	<!-- ── Hero ── -->
 	<section class="hero">
-		<UnderlinedTitle as="h1">
-			{isEn ? 'Municipal elections 2026' : 'Élections municipales 2026'}
-		</UnderlinedTitle>
+		<p class="eyebrow">{isEn ? 'Campaign' : 'Campagne'}</p>
+		<h1>{isEn ? 'Municipal elections 2026' : 'Élections municipales 2026'}</h1>
 		<p class="intro">{description}</p>
 	</section>
 
@@ -293,7 +291,7 @@
 					<h2>Agir pour votre ville</h2>
 					<p>
 						Interpellez les candidats de votre ville et invitez-les à découvrir et signer la charte
-						de Pause IA sur les risques de l'IA. Les signataires sont affichés ci-dessous.
+						de Pause IA sur les risques de l’IA. Les signataires sont affichés ci-dessous.
 					</p>
 				{/if}
 				<div class="cta-container">
@@ -301,7 +299,7 @@
 						{isEn ? 'Discover the charter' : 'Je découvre la charte'}
 					</Button>
 					<Button alt on:click={openActivoice}>
-						{isEn ? 'Challenge my city candidates' : "J'interpelle les candidats de ma ville"}
+						{isEn ? 'Challenge my city candidates' : 'J’interpelle les candidats de ma ville'}
 					</Button>
 				</div>
 			</div>
@@ -320,7 +318,7 @@
 				These candidates have signed the Pause AI charter on the risks of artificial intelligence.
 				Click on a card to view their signed charter.
 			{:else}
-				Ces candidat·es ont signé la charte de Pause IA sur les risques de l'intelligence
+				Ces candidat·es ont signé la charte de Pause IA sur les risques de l’intelligence
 				artificielle. Cliquez sur une carte pour consulter leur charte signée.
 			{/if}
 		</p>
@@ -398,7 +396,7 @@
 	{/if}
 </article>
 
-<!-- Modal : Charte d'un candidat -->
+<!-- Modal : Charte d’un candidat -->
 {#if showCharterModal && selectedCandidate}
 	<div class="modal-overlay" role="presentation" on:click={closeOnBackdrop}>
 		<div
@@ -428,7 +426,7 @@
 					<p class="engagements-intro">
 						{isEn
 							? `${selectedCandidate.name} commits, once elected, to carry out the following actions:`
-							: `${selectedCandidate.name} s'engage, une fois élu·e, à réaliser les actions suivantes :`}
+							: `${selectedCandidate.name} s’engage, une fois élu·e, à réaliser les actions suivantes :`}
 					</p>
 					<ul class="engagements-list">
 						{#each selectedCandidate.engagements as engagement}
@@ -486,6 +484,27 @@
 {/if}
 
 <style>
+	/* Étiquette et titre du modèle, à la place du titre au filet dégradé. */
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		font-size: clamp(2.1rem, 6vw, 3.2rem);
+		line-height: 1.06;
+		letter-spacing: -0.025em;
+		margin-bottom: 1.25rem;
+	}
+
 	article {
 		max-inline-size: var(--width-wide);
 		margin-inline: auto;

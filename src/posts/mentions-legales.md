@@ -1,5 +1,6 @@
 ---
 title: Mentions légales
+rubrique: apropos
 description: Mentions légales
 ---
 

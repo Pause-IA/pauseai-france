@@ -58,6 +58,11 @@ const config = {
 							// de page, donc invisible au robot d'exploration du prérendu.
 							'/fr/plan-du-site',
 							'/en/plan-du-site',
+							// Page Vidéos : plus liée au menu depuis sa refonte, mais
+							// /videos la redirige encore en 301. Sans cette entrée, le
+							// robot de prérendu ne la trouve pas et l'adresse répond 404.
+							'/fr/videos',
+							'/en/videos',
 							// Signataires des tribunes : jamais liées depuis le site.
 							'/fr/tribunes/le-monde-octobre-2026',
 							'/en/tribunes/le-monde-octobre-2026',

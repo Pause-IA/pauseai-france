@@ -1,5 +1,5 @@
 /**
- * Retours presse de la campagne « Perte de contrôle » (semaine d'action du
+ * Retours presse de la campagne « Perte de contrôle » (semaine d’action du
  * 21 au 28 septembre 2026), regroupés par groupe local.
  *
  * Source unique : cette liste alimente aussi la revue de presse de /presse

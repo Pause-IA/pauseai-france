@@ -196,6 +196,7 @@
 <article>
 	<!-- ── Hero ─────────────────────────────────────────────── -->
 	<header class="hero">
+		<p class="eyebrow">{isEn ? 'Campaign' : 'Campagne'}</p>
 		<h1>
 			{isEn ? 'It wasn’t an isolated accident' : 'Ce n’était pas un accident isolé'}
 		</h1>
@@ -703,6 +704,19 @@
 </article>
 
 <style>
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
 	article {
 		max-inline-size: var(--width-content);
 		margin-inline: auto;

@@ -1,5 +1,6 @@
 ---
 title: Privacy Policy
+rubrique: apropos
 description: Privacy policy for the Pause IA website.
 ---
 

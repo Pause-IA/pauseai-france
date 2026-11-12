@@ -31,7 +31,7 @@
 				},
 				{
 					"href": "/declaration",
-					"label": "Signer l'appel",
+					"label": "Signer l’appel",
 					"externe": false
 				},
 				{
@@ -43,11 +43,6 @@
 					"href": "/groupes-locaux",
 					"label": "Agir près de chez vous",
 					"externe": false
-				},
-				{
-					"href": "/sensibiliser-votre-entourage",
-					"label": "Sensibiliser votre entourage",
-					"externe": true
 				},
 				{
 					"href": "/agir",
@@ -99,7 +94,7 @@
 	],
 	"colonnes": [
 		{
-			"label": "S'informer",
+			"label": "S’informer",
 			"liens": [
 				{
 					"href": "/ressources",
@@ -138,7 +133,7 @@
 				},
 				{
 					"href": "/agir",
-					"label": "Toutes les façons d'agir",
+					"label": "Toutes les façons d’agir",
 					"externe": false
 				},
 				{
@@ -148,7 +143,7 @@
 				},
 				{
 					"href": "/declaration",
-					"label": "Signer l'appel",
+					"label": "Signer l’appel",
 					"externe": false
 				},
 				{
@@ -198,7 +193,7 @@
 				},
 				{
 					"href": "/recrutement-emploi",
-					"label": "Offres d'emploi",
+					"label": "Offres d’emploi",
 					"externe": false
 				}
 			]
@@ -417,7 +412,7 @@
 		},
 		{
 			"slug": "/gouvernance-ia-demarches",
-			"titre": "Gouvernance de l'IA : les démarches engagées"
+			"titre": "Gouvernance de l’IA : les démarches engagées"
 		},
 		{
 			"slug": "/mentions-legales",

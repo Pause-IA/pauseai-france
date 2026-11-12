@@ -3,7 +3,7 @@
 
 /**
  * Routes à ne pas référencer dans les sitemaps, en chemin sans préfixe de
- * langue. Les gabarits de page n'ont rien à faire dans l'index des moteurs.
+ * langue. Les gabarits de page n’ont rien à faire dans l'index des moteurs.
  */
 const EXCLUDED = [
 	'/campagne-modele',
@@ -18,8 +18,8 @@ const EXCLUDED = [
 ]
 
 /**
- * Pages qui n'existent qu'en français : le site anglais n'y mène pas, et leur
- * contenu vient d'une source française. Seule l'adresse /fr est référencée,
+ * Pages qui n'existent qu’en français : le site anglais n’y mène pas, et leur
+ * contenu vient d’une source française. Seule l'adresse /fr est référencée,
  * pour ne pas proposer aux moteurs une URL anglaise au contenu français.
  */
 const FR_SEULEMENT = ['/idees-recues']
@@ -55,8 +55,8 @@ export function getStaticRoutes(): string[] {
 			if (routePath.startsWith('/sitemap')) return []
 
 			// Le segment de langue n'est pas un paramètre libre : il vaut « fr » ou
-			// « en ». On le développe plutôt que d'écarter la route, sinon aucune
-			// page localisée (campagnes, FAQ, pages de campagne…) n'est référencée.
+			// « en ». On le développe plutôt que d’écarter la route, sinon aucune
+			// page localisée (campagnes, FAQ, pages de campagne…) n’est référencée.
 			if (routePath.startsWith('/[lang=lang]')) {
 				const suffix = routePath.replace('/[lang=lang]', '')
 				if (suffix.includes('[')) return [] // params libres, ex. [slug]

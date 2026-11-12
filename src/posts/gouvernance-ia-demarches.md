@@ -1,7 +1,7 @@
 ---
-title: "Gouvernance de l'IA : les démarches engagées"
+title: "Gouvernance de l’IA : les démarches engagées"
 rubrique: apropos
-description: Le détail des initiatives internationales et des travaux d'ONG sur lesquels une pause mondiale de l'entraînement des IA de pointe pourrait s'appuyer.
+description: Le détail des initiatives internationales et des travaux d’ONG sur lesquels une pause mondiale de l’entraînement des IA de pointe pourrait s’appuyer.
 ---
 
 <!-- Page de détail, sortie de « Que demandons-nous ? » : cette page-là doit

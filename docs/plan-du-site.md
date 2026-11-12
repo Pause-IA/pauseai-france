@@ -31,61 +31,59 @@ flowchart LR
   g0 --> n3["Idées reçues<br/><small>/idees-recues</small>"]
   accueil --> g1["Agir"]
   g1 --> n4["Écrire à vos élus<br/><small>/ecrire-a-mes-elus</small>"]
-  g1 --> n5["Signer l'appel<br/><small>/declaration</small>"]
+  g1 --> n5["Signer l’appel<br/><small>/declaration</small>"]
   g1 --> n6["Relayer nos messages<br/><small>/relayer-nos-messages</small>"]
   g1 --> n7["Agir près de chez vous<br/><small>/groupes-locaux</small>"]
-  g1 --> n8["Sensibiliser votre entourage ↗<br/><small>site externe</small>"]
-  class n8 externe
-  g1 --> n9["Toutes les façons d’agir<br/><small>/agir</small>"]
+  g1 --> n8["Toutes les façons d’agir<br/><small>/agir</small>"]
   accueil --> g2["Campagnes"]
-  g2 --> n10["Au bord de la perte de contrôle<br/><small>/perte-de-controle</small>"]
-  g2 --> n11["L’IA ne détruira pas QUE votre emploi<br/><small>/emploi-ia</small>"]
-  g2 --> n12["Toutes nos campagnes<br/><small>/campagnes</small>"]
+  g2 --> n9["Au bord de la perte de contrôle<br/><small>/perte-de-controle</small>"]
+  g2 --> n10["L’IA ne détruira pas QUE votre emploi<br/><small>/emploi-ia</small>"]
+  g2 --> n11["Toutes nos campagnes<br/><small>/campagnes</small>"]
   accueil --> g3["À propos"]
-  g3 --> n13["Qui sommes-nous ?<br/><small>/qui-sommes-nous</small>"]
-  g3 --> n14["Que demandons-nous ?<br/><small>/propositions</small>"]
-  g3 --> n15["FAQ<br/><small>/faq</small>"]
+  g3 --> n12["Qui sommes-nous ?<br/><small>/qui-sommes-nous</small>"]
+  g3 --> n13["Que demandons-nous ?<br/><small>/propositions</small>"]
+  g3 --> n14["FAQ<br/><small>/faq</small>"]
   accueil -.-> orph["Hors menu"]
-  orph -.-> n16["/articles/ce-que-lia-fait-au-travail"]
+  orph -.-> n15["/articles/ce-que-lia-fait-au-travail"]
+  class n15 orpheline
+  orph -.-> n16["/articles/pas-de-pilote"]
   class n16 orpheline
-  orph -.-> n17["/articles/pas-de-pilote"]
+  orph -.-> n17["/articles/remplacer-humain"]
   class n17 orpheline
-  orph -.-> n18["/articles/remplacer-humain"]
+  orph -.-> n18["/campagne-modele"]
   class n18 orpheline
-  orph -.-> n19["/campagne-modele"]
+  orph -.-> n19["/declaration/confirmer"]
   class n19 orpheline
-  orph -.-> n20["/declaration/confirmer"]
+  orph -.-> n20["/declaration/signataires"]
   class n20 orpheline
-  orph -.-> n21["/declaration/signataires"]
+  orph -.-> n21["/emploi-ia/merci"]
   class n21 orpheline
-  orph -.-> n22["/emploi-ia/merci"]
+  orph -.-> n22["/emploi-ia/questionnaire"]
   class n22 orpheline
-  orph -.-> n23["/emploi-ia/questionnaire"]
+  orph -.-> n23["/g7-2026"]
   class n23 orpheline
-  orph -.-> n24["/g7-2026"]
+  orph -.-> n24["/geneve-2026"]
   class n24 orpheline
-  orph -.-> n25["/geneve-2026"]
+  orph -.-> n25["/guide-recrutement"]
   class n25 orpheline
-  orph -.-> n26["/guide-recrutement"]
+  orph -.-> n26["/merci"]
   class n26 orpheline
-  orph -.-> n27["/merci"]
+  orph -.-> n27["/municipales-2026"]
   class n27 orpheline
-  orph -.-> n28["/municipales-2026"]
+  orph -.-> n28["/plan-du-site"]
   class n28 orpheline
-  orph -.-> n29["/plan-du-site"]
+  orph -.-> n29["/posts"]
   class n29 orpheline
-  orph -.-> n30["/posts"]
+  orph -.-> n30["/senat2025"]
   class n30 orpheline
-  orph -.-> n31["/senat2025"]
+  orph -.-> n31["/sensibiliser-votre-entourage"]
   class n31 orpheline
-  orph -.-> n32["/sensibiliser-votre-entourage"]
+  orph -.-> n32["/sommet-ia-2026"]
   class n32 orpheline
-  orph -.-> n33["/sommet-ia-2026"]
+  orph -.-> n33["/tribunes/le-monde-octobre-2026"]
   class n33 orpheline
-  orph -.-> n34["/tribunes/le-monde-octobre-2026"]
+  orph -.-> n34["/une-ia-sest-echappee"]
   class n34 orpheline
-  orph -.-> n35["/une-ia-sest-echappee"]
-  class n35 orpheline
   classDef externe stroke-dasharray: 4 3
   classDef orpheline fill:#fff5e8,stroke:#ff9416
 ```
@@ -102,14 +100,13 @@ flowchart LR
 
 ### Agir
 
-| Page                         | Chemin                                   |
-| ---------------------------- | ---------------------------------------- |
-| Écrire à vos élus            | `/ecrire-a-mes-elus`                     |
-| Signer l'appel               | `/declaration`                           |
-| Relayer nos messages         | `/relayer-nos-messages`                  |
-| Agir près de chez vous       | `/groupes-locaux`                        |
-| Sensibiliser votre entourage | _externe_, /sensibiliser-votre-entourage |
-| Toutes les façons d’agir     | `/agir`                                  |
+| Page                     | Chemin                  |
+| ------------------------ | ----------------------- |
+| Écrire à vos élus        | `/ecrire-a-mes-elus`    |
+| Signer l’appel           | `/declaration`          |
+| Relayer nos messages     | `/relayer-nos-messages` |
+| Agir près de chez vous   | `/groupes-locaux`       |
+| Toutes les façons d’agir | `/agir`                 |
 
 ### Campagnes
 
@@ -129,7 +126,7 @@ flowchart LR
 
 ## Pied de page
 
-### S'informer
+### S’informer
 
 | Lien                        | Chemin                                   |
 | --------------------------- | ---------------------------------------- |
@@ -144,9 +141,9 @@ flowchart LR
 | ------------------------- | --------------------------------------- |
 | Rejoindre Pause IA        | `/rejoindre`                            |
 | Rejoindre un groupe local | `/groupes-locaux`                       |
-| Toutes les façons d'agir  | `/agir`                                 |
+| Toutes les façons d’agir  | `/agir`                                 |
 | Écrire à vos élus         | `/ecrire-a-mes-elus`                    |
-| Signer l'appel            | `/declaration`                          |
+| Signer l’appel            | `/declaration`                          |
 | Faire un don              | `/dons`                                 |
 | Boutique                  | _externe_, https://boutique.pauseia.fr/ |
 
@@ -160,7 +157,7 @@ flowchart LR
 | Notre financement   | `/financements`       |
 | Espace presse       | `/presse`             |
 | Foire aux questions | `/faq`                |
-| Offres d'emploi     | `/recrutement-emploi` |
+| Offres d’emploi     | `/recrutement-emploi` |
 
 ### Informations légales
 
@@ -241,7 +238,7 @@ Une seule route sert toutes les pages d’une famille ; le contenu vient de
 | Share our messages                                           | `src/posts/en/relayer-nos-messages.md`                                         |
 | FAQ                                                          | `src/posts/faq.md`                                                             |
 | Notre financement                                            | `src/posts/financements.md`                                                    |
-| Gouvernance de l'IA : les démarches engagées                 | `src/posts/gouvernance-ia-demarches.md`                                        |
+| Gouvernance de l’IA : les démarches engagées                 | `src/posts/gouvernance-ia-demarches.md`                                        |
 | Mentions légales                                             | `src/posts/mentions-legales.md`                                                |
 | Politique de confidentialité                                 | `src/posts/politique-de-confidentialite.md`                                    |
 | Que demandons-nous ?                                         | `src/posts/propositions.md`                                                    |

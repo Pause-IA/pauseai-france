@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 
 	const CAMPAIGN_ID = 'interpellez-les-dirigeants-du-g7-en-vue-du-sommet-devian'
 	const CAMPAIGN_ID_G7 = 'call-on-g7-leaders-ahead-of-the-evian-summit'
@@ -52,9 +51,8 @@
 
 <article>
 	<section class="hero">
-		<UnderlinedTitle as="h1"
-			>Le rôle du G7 ne devrait pas être d’accélérer mais de sécuriser l’IA</UnderlinedTitle
-		>
+		<p class="eyebrow">Campagne</p>
+		<h1>Le rôle du G7 ne devrait pas être d’accélérer mais de sécuriser l’IA</h1>
 		<p class="lede">
 			<strong
 				>En 2026, la France accueille le G7. Alors que les systèmes d’IA deviennent plus puissants
@@ -142,6 +140,27 @@
 </article>
 
 <style>
+	/* Étiquette et titre du modèle, à la place du titre au filet dégradé. */
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		font-size: clamp(2.1rem, 6vw, 3.2rem);
+		line-height: 1.06;
+		letter-spacing: -0.025em;
+		margin-bottom: 1.25rem;
+	}
+
 	article {
 		max-inline-size: var(--width-wide);
 		margin-inline: auto;

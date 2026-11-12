@@ -1,6 +1,6 @@
 ---
 title: Dangers économiques et matériels
-description: Les dangers économiques et matériels de l'IA incluent des impacts sur les infrastructures et les entreprises, de nouvelles vulnérabilités, et des défis d'automatisation, nécessitant une gestion prudente via la régulation et l'innovation technologique.
+description: Les dangers économiques et matériels de l’IA incluent des impacts sur les infrastructures et les entreprises, de nouvelles vulnérabilités, et des défis d’automatisation, nécessitant une gestion prudente via la régulation et l’innovation technologique.
 ---
 
 <script lang="ts">
