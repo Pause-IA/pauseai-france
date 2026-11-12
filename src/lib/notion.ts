@@ -1,5 +1,6 @@
 import { env } from '$env/dynamic/private'
 import equipeBrut from '$lib/data/equipe.json'
+import evenementsBruts from '$lib/data/evenements.json'
 
 const NOTION_API_VERSION = '2022-06-28'
 
@@ -782,38 +783,97 @@ export async function getPressCoverage(): Promise<PressCoverage[]> {
 	return items.filter((pc): pc is PressCoverage => pc !== null)
 }
 
+interface ActionVersionnee {
+	id: string
+	title: string
+	date: string
+	city: string
+	type: string
+	url: string
+	time: string
+	place: string
+	description: string
+	images: string[]
+	cles: string[]
+	featured: boolean
+	volunteers: number
+}
+
+/** Instantané des actions versionné dans le dépôt, produit par
+    scripts/photos-evenements.mjs (lancé à chaque `pnpm build`). Même rôle que
+    l'instantané de l'équipe : fournir les photos compressées, et tenir lieu de
+    repli quand Notion ne répond pas. Vide tant que le script n'a pas tourné. */
+const actionsVersionnees: ActionVersionnee[] = evenementsBruts.evenements
+
+function actionsDeSecours(): LocalEvent[] {
+	return actionsVersionnees
+		.map((a) => ({
+			id: a.id,
+			title: a.title,
+			date: a.date,
+			city: a.city,
+			type: a.type,
+			url: a.url,
+			time: a.time,
+			place: a.place,
+			description: a.description,
+			images: a.images,
+			featured: a.featured,
+			volunteers: a.volunteers,
+			visible: true
+		}))
+		.sort((a, b) => a.date.localeCompare(b.date))
+}
+
 export async function getLocalEvents(): Promise<LocalEvent[]> {
 	const databaseId = env.NOTION_EVENTS_DATABASE_ID
-	if (!databaseId) return []
+	if (!databaseId) return actionsDeSecours()
 
-	const events = await queryDatabase<LocalEvent | null>(
-		databaseId,
-		(page) => {
-			const visible = getCheckbox(page.properties.Visible)
-			if (!visible) return null
+	const photos = new Map(actionsVersionnees.map((a) => [a.id, a.images]))
+	let events: (LocalEvent | null)[]
+	try {
+		events = await queryDatabase<LocalEvent | null>(
+			databaseId,
+			(page) => {
+				const visible = getCheckbox(page.properties.Visible)
+				if (!visible) return null
 
-			const event: LocalEvent = {
-				id: page.id,
-				title: getText(page.properties.Titre),
-				date: getDate(page.properties.Date),
-				city: getText(page.properties.Ville),
-				type: getSelect(page.properties.Type),
-				url: getUrl(page.properties.URL),
-				time: getText(page.properties.Heure),
-				place: getText(page.properties.Lieu),
-				description: getText(page.properties.Description),
-				images: getFileUrls(page.properties.Image),
-				featured: getCheckbox(page.properties['À la une']),
-				volunteers: getNumber(page.properties['Bénévoles']),
-				visible
-			}
+				const event: LocalEvent = {
+					id: page.id,
+					title: getText(page.properties.Titre),
+					date: getDate(page.properties.Date),
+					city: getText(page.properties.Ville),
+					type: getSelect(page.properties.Type),
+					url: getUrl(page.properties.URL),
+					time: getText(page.properties.Heure),
+					place: getText(page.properties.Lieu),
+					description: getText(page.properties.Description),
+					// Les photos versionnées l'emportent sur les URL Notion, qui sont
+					// des adresses S3 SIGNÉES expirant au bout d'une heure : passées
+					// au CDN d'images, elles s'affichent tant qu'une variante est en
+					// cache, puis échouent, et le repli `data-raw` de la page pointe
+					// sur la même URL morte. Une action ajoutée depuis le dernier
+					// build n'est pas encore versionnée : on sert alors l'URL Notion,
+					// valable jusqu'au déploiement suivant.
+					images: photos.get(page.id) ?? getFileUrls(page.properties.Image),
+					featured: getCheckbox(page.properties['À la une']),
+					volunteers: getNumber(page.properties['Bénévoles']),
+					visible
+				}
 
-			return isValidLocalEvent(event) ? event : null
-		},
-		{ sortBy: 'Date', sortDirection: 'ascending' }
-	)
+				return isValidLocalEvent(event) ? event : null
+			},
+			{ sortBy: 'Date', sortDirection: 'ascending' }
+		)
+	} catch (e) {
+		// Notion injoignable : mieux vaut les actions du dernier passage du
+		// script qu'une page vide.
+		console.warn('Notion injoignable, repli sur l’instantané des actions :', e)
+		return actionsDeSecours()
+	}
 
-	return events.filter((e): e is LocalEvent => e !== null)
+	const trouves = events.filter((e): e is LocalEvent => e !== null)
+	return trouves.length > 0 ? trouves : actionsDeSecours()
 }
 
 // Team members

@@ -63,11 +63,17 @@
 	}
 
 	// Compression à la volée via le CDN d'images de Netlify : on demande l'image
-	// redimensionnée et recompressée (au lieu de la photo Notion brute, souvent
-	// lourde). En local (URL relative) ou si le CDN échoue, on retombe sur l'URL
+	// redimensionnée et recompressée. Si le CDN échoue, on retombe sur l'image
 	// d'origine via `on:error` → aucune régression.
+	//
+	// Les photos sont maintenant versionnées dans static/evenements/ par
+	// scripts/photos-evenements.mjs, donc servies par un chemin RELATIF. Le CDN
+	// sait les transformer aussi, et c'est utile : la vignette de la frise en
+	// demande 400 px là où le fichier versionné en fait 1200. Mais il n'existe
+	// pas devant le serveur de développement, d'où le `DEV`.
 	function cdnImg(url: string, w: number, fit?: 'cover'): string {
-		if (!url || !/^https?:\/\//.test(url)) return url
+		if (!url) return url
+		if (import.meta.env.DEV && !/^https?:\/\//.test(url)) return url
 		return `/.netlify/images?url=${encodeURIComponent(url)}&w=${w}&q=72${fit ? `&fit=${fit}` : ''}`
 	}
 	function cdnFallback(e: Event) {
