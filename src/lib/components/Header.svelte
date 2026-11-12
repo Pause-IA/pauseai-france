@@ -573,6 +573,9 @@
 		font-weight: 700;
 		font-size: 0.9rem;
 		border-radius: 0.4rem;
+		/* Le contour de « Rejoindre » ne doit pas décaler sa hauteur. */
+		border: 2px solid transparent;
+		box-sizing: border-box;
 		padding: 0.45rem 1rem;
 		white-space: nowrap;
 		transition:
@@ -590,18 +593,23 @@
 		opacity: 0.85;
 	}
 
-	/* « Rejoindre » : l'action secondaire, sur la seconde couleur de la
-	   marque. Elle était en noir pur — une troisième valeur, qui n'appartenait
-	   à rien et qui jurait à côté de l'orange de « Donner ». Le bleu sombre
-	   est fait pour ce rôle : il tranche avec l'orange sans lui disputer
-	   l'attention. Fixe dans les deux thèmes, d'où --on-dark. */
+	/* « Rejoindre » : l'action secondaire. Elle a été noire, puis bleu
+	   sombre — correct, mais froid à côté du « Donner » orange.
+
+	   Elle passe en orange CREUX : même couleur que l'action principale,
+	   mais en contour. La hiérarchie se lit à la densité (plein contre
+	   creux) et non à la teinte, ce qui réchauffe le coin des actions au
+	   lieu d'y opposer deux couleurs. Le contour reprend --btn-border, le
+	   seul orange qui tienne le seuil de 3:1 des contours de composants. */
 	.btn-join {
-		background: var(--surface-sombre);
-		color: var(--on-dark);
+		background: transparent;
+		color: var(--text);
+		border: 2px solid var(--btn-border);
 	}
 
 	.btn-join:hover {
-		background: var(--surface-sombre-2);
+		background: var(--brand);
+		color: var(--on-brand);
 	}
 
 	/* On hero (white text context): invert to semi-transparent white */

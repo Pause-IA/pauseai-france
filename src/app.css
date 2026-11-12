@@ -350,6 +350,32 @@ p {
 	overflow-wrap: break-word;
 }
 
+/* ─── Touches d'orange ───────────────────────────────────────
+   Trois endroits où la couleur de marque apparaît sans jamais devenir du
+   texte. Aucun n'est soumis à un seuil de contraste : une puce, une
+   sélection et un anneau de focus ne portent pas d'information écrite.
+   Ensemble ils réchauffent chaque page, là où l'orange ne se voyait plus
+   que sur les boutons et les filets. */
+
+/* Puces de liste. Les pages éditoriales en sont pleines : c'est la touche
+   qui se voit le plus, pour une ligne de CSS. */
+li::marker {
+	color: var(--brand);
+}
+
+/* Sélection à la souris. Encre foncée sur l'orange, comme les boutons. */
+::selection {
+	background: var(--brand);
+	color: var(--on-brand);
+}
+
+/* Anneau de focus clavier : il était bleu système sur tout le site, la
+   seule couleur qui n'appartenait à personne. */
+:focus-visible {
+	outline: 2px solid var(--brand);
+	outline-offset: 2px;
+}
+
 ul,
 ol {
 	padding-left: 1.2rem;
