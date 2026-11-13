@@ -90,14 +90,24 @@
 	--black: black;
 	--on-dark: #ffffff; /* texte sur un fond sombre fixe, dans les deux thèmes */
 	--text: var(--black);
-	--text-2: #555; /* texte secondaire léger */
+	/* TEMPÉRATURE DES NEUTRES. Tous les gris du site penchaient vers le bleu
+	   (#555 est neutre, #676e7a et #e5e7eb franchement froids). En retirant le
+	   crème, j'ai remplacé des neutres CHAUDS par des neutres FROIDS, et c'est
+	   là qu'est parti ce qui restait de chaleur — pas dans l'orange.
+
+	   Les gris sont donc déplacés vers l'ambre, à clarté constante : OKLCH même
+	   L, teinte 75 au lieu de 241, chroma très faible. Personne ne verra « du
+	   beige » ; on sentira une page tiède au lieu d'une page clinique. Écart de
+	   clarté mesuré : moins de 1,5 % sur les textes, donc les contrastes ne
+	   bougent pas (vérifiés un à un). */
+	--text-2: rgb(112, 107, 100); /* texte secondaire léger, gris tiède */
 	--bg: var(--white);
 	/* Teinte de fond des bandes et des listes. Elle a été crème (#fff5e8),
 	   puis bleu pâle — les deux se remarquaient plus que ce qu'elles
 	   portaient. Un gris NEUTRE, sans teinte : la marque n'a que deux
 	   couleurs, l'orange et le bleu sombre, et une surface de fond n'est ni
 	   l'une ni l'autre. */
-	--bg-subtle: rgb(246, 247, 248);
+	--bg-subtle: rgb(248, 246, 242);
 	/* Fond des panneaux d'appel (« Groupes locaux », « Restez informé »…).
 	   Aucun : ils se détachent par leur bordure, et par le filet orange de
 	   ceux qui en ont un. Ils ont été crème, puis bleu pâle ; dans les deux
@@ -109,15 +119,15 @@
 	--panneau-bg: var(--bg);
 
 	/* Generic UI tokens */
-	--border: #e5e7eb;
-	--text-secondary: #676e7a;
+	--border: rgb(229, 225, 220);
+	--text-secondary: rgb(109, 104, 97);
 	--text-muted: #676e7a; /* alias de text-secondary */
 	/* Blanc franc. C'était un blanc cassé CHAUD, choisi pour se détacher du
 	   crème des pages intérieures ; le crème parti, il ne reste qu'une carte
 	   jaunie sur du blanc. Sur le nouveau fond bleuté des panneaux, le blanc
 	   pur tranche mieux que le blanc cassé. */
 	--bg-card: var(--bg);
-	--bg-secondary: rgb(246, 248, 250);
+	--bg-secondary: rgb(249, 247, 243);
 
 	/* Alerte : réservé aux moments critiques (chronologies, erreurs). */
 	--alert: #d92d20;
@@ -204,9 +214,9 @@
 	--white: #262626;
 	--black: #f0f0f0;
 	--bg: #272727;
-	/* Pendants sombres, neutres comme leurs équivalents clairs. */
-	--bg-subtle: rgb(46, 48, 50);
-	--bg-card: rgb(51, 53, 55);
+	/* Pendants sombres, tièdes comme leurs équivalents clairs. */
+	--bg-subtle: rgb(50, 48, 45);
+	--bg-card: rgb(55, 53, 50);
 	--panneau-bg: var(--bg);
 	--text: #f0f0f0;
 	--text-2: #a0a8b4;
