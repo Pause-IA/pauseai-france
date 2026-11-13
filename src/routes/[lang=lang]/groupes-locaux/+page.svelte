@@ -341,12 +341,10 @@
 						{isEn ? 'forming' : 'en cours de création'}
 					</span>
 				{/if}
-				<span class="map-sep">·</span>
-				<span class="map-hint"
-					>{isEn
-						? 'hover a marker to see the city'
-						: 'survolez un marqueur pour voir la ville'}</span
-				>
+				<span class="map-hint">
+					<span class="map-sep">·</span>
+					{isEn ? 'hover a marker to see the city' : 'survolez un marqueur pour voir la ville'}
+				</span>
 			</div>
 		</div>
 		{#if showMap}
@@ -1300,6 +1298,15 @@
 	   seule carte, 2,25 rem de retrait et une pastille de 3,2 rem font un bloc
 	   hors de proportion avec trois lignes de texte. Plus de soulèvement au
 	   survol non plus : la carte n'est pas cliquable, seul le bouton l'est. */
+	/* Au-delà de deux lignes, un texte centré se lit mal : chaque ligne
+	   recommence à un endroit différent. Sur téléphone, le paragraphe de ce
+	   panneau en fait six. Il s'aligne donc à gauche sous 40 rem. */
+	@media (max-width: 40rem) {
+		.cta-card p {
+			text-align: left;
+		}
+	}
+
 	.cta-card {
 		padding: 1.5rem 1.6rem;
 		border-radius: var(--radius-lg);
@@ -1384,6 +1391,15 @@
 
 	.map-sep {
 		color: var(--border);
+	}
+
+	/* « survolez un marqueur » ne veut rien dire sur un téléphone : il n'y a
+	   pas de survol. L'indication disparaît quand le pointeur ne peut pas
+	   survoler, plutôt que d'y demander un geste qui n'existe pas. */
+	@media (hover: none) {
+		.map-hint {
+			display: none;
+		}
 	}
 
 	.map-hint {

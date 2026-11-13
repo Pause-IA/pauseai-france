@@ -114,7 +114,9 @@
 			</Button>
 			<small class="donation-note">
 				<Landmark size="1em" />
-				{lang === 'en' ? 'Recommended for donations > €500' : 'Recommandé pour les dons > 500€'}
+				{lang === 'en'
+					? 'Recommended for donations over €500'
+					: 'Recommandé pour les dons supérieurs à 500\u202F€'}
 			</small>
 		</div>
 	</section>
