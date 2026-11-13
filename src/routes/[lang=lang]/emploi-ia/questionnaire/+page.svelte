@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PostMeta from '$components/PostMeta.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
@@ -177,12 +178,13 @@
 	}
 </script>
 
-<svelte:head>
-	<title>{t.emploi_questionnaire.meta_title}</title>
-	<meta name="description" content={t.emploi_questionnaire.meta_desc} />
-</svelte:head>
+<PostMeta
+	title={t.emploi_questionnaire.meta_title}
+	description={t.emploi_questionnaire.meta_desc}
+/>
 
 <article class="questionnaire-container">
+	<p class="eyebrow">{lang === 'en' ? 'Campaigns' : 'Campagnes'}</p>
 	<h1>{t.emploi_questionnaire.title}</h1>
 
 	<p class="intro">
@@ -270,7 +272,7 @@
 						<option value="Actif sans emploi / au chômage"
 							>{t.emploi_questionnaire.options.statut.chomage}</option
 						>
-						<option value="Diplômé à la recherche d'un premier emploi"
+						<option value="Diplômé à la recherche d’un premier emploi"
 							>{t.emploi_questionnaire.options.statut.diplome}</option
 						>
 						<option value="Élève / étudiant / apprenti"
@@ -351,7 +353,7 @@
 			</section>
 		{/if}
 
-		<!-- Section 2: Impact de l'IA -->
+		<!-- Section 2: Impact de l’IA -->
 		{#if currentStep === 2}
 			<section class="form-section">
 				<h2>{t.emploi_questionnaire.section2.title}</h2>
@@ -368,7 +370,7 @@
 							>{t.emploi_questionnaire.options.frequence_info.no_answer}</option
 						>
 						<option value="Jamais">{t.emploi_questionnaire.options.frequence_info.jamais}</option>
-						<option value="Moins d'une fois par mois, ponctuellement"
+						<option value="Moins d’une fois par mois, ponctuellement"
 							>{t.emploi_questionnaire.options.frequence_info.ponctuel}</option
 						>
 						<option value="Mensuelle et de façon active"
@@ -399,11 +401,11 @@
 							>{t.emploi_questionnaire.options.impact.peu}</option
 						>
 						<option
-							value="Impact moyen : transformations auxquelles je m'adapte sans grandes difficultés"
+							value="Impact moyen : transformations auxquelles je m’adapte sans grandes difficultés"
 						>
 							{t.emploi_questionnaire.options.impact.moyen}
 						</option>
-						<option value="Fort impact : menace de perte d'emploi transformations difficiles">
+						<option value="Fort impact : menace de perte d’emploi transformations difficiles">
 							{t.emploi_questionnaire.options.impact.fort}
 						</option>
 						<option value="Très fort impact : emploi perdu métier disparu compétences inutiles...">
@@ -427,7 +429,7 @@
 							<input
 								type="radio"
 								bind:group={formData.rapportIA}
-								value="L'excitation à l'idée de l'utiliser davantage"
+								value="L’excitation à l’idée de l’utiliser davantage"
 							/>
 							{t.emploi_questionnaire.options.rapport.excitation}
 						</label>
@@ -451,7 +453,7 @@
 							<input
 								type="radio"
 								bind:group={formData.rapportIA}
-								value="L'observation et la prudence"
+								value="L’observation et la prudence"
 							/>
 							{t.emploi_questionnaire.options.rapport.prudence}
 						</label>
@@ -532,7 +534,7 @@
 								<input
 									type="checkbox"
 									bind:group={formData.objectifsCellule}
-									value="De l'information sur mes droits de travailleur"
+									value="De l’information sur mes droits de travailleur"
 								/>
 								{t.emploi_questionnaire.options.objectifs.droits}
 							</label>
@@ -548,7 +550,7 @@
 								<input
 									type="checkbox"
 									bind:group={formData.objectifsCellule}
-									value="Des moyens d'agir sur ma situation personnelle au travail"
+									value="Des moyens d’agir sur ma situation personnelle au travail"
 								/>
 								{t.emploi_questionnaire.options.objectifs.agir_perso}
 							</label>
@@ -556,7 +558,7 @@
 								<input
 									type="checkbox"
 									bind:group={formData.objectifsCellule}
-									value="Des moyens d'agir sur la société et le monde du travail"
+									value="Des moyens d’agir sur la société et le monde du travail"
 								/>
 								{t.emploi_questionnaire.options.objectifs.agir_societe}
 							</label>
@@ -643,7 +645,7 @@
 			</section>
 		{/if}
 
-		<!-- Section 4: Utilisation de l'IA (conditionnelle) -->
+		<!-- Section 4: Utilisation de l’IA (conditionnelle) -->
 		{#if currentStep === 4 && showSection4}
 			<section class="form-section">
 				<h2>{t.emploi_questionnaire.section4.title}</h2>
@@ -685,7 +687,7 @@
 							<input
 								type="checkbox"
 								bind:group={formData.typeTaches}
-								value="Génération d'images, de sons, de vidéos"
+								value="Génération d’images, de sons, de vidéos"
 							/>
 							{t.emploi_questionnaire.options.taches.generation}
 						</label>
@@ -855,7 +857,7 @@
 						<option value="Ne souhaite pas répondre"
 							>{t.emploi_questionnaire.options.satisfaction.no_answer}</option
 						>
-						<option value="Non je ne sais pas bien l'utiliser"
+						<option value="Non je ne sais pas bien l’utiliser"
 							>{t.emploi_questionnaire.options.satisfaction.non_utilisation}</option
 						>
 						<option value="Non les résultats obtenus ne sont pas satisfaisants"
@@ -864,7 +866,7 @@
 						<option value="Oui et non cela dépend des tâches"
 							>{t.emploi_questionnaire.options.satisfaction.oui_non}</option
 						>
-						<option value="Oui c'est un outil de travail précieux"
+						<option value="Oui c’est un outil de travail précieux"
 							>{t.emploi_questionnaire.options.satisfaction.oui_precieux}</option
 						>
 						<option value="Oui cela décuple mes capacités"
@@ -900,8 +902,21 @@
 </article>
 
 <style>
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
 	.questionnaire-container {
-		max-width: 800px;
+		max-inline-size: var(--width-content);
 		margin: 2rem auto;
 		padding: 0 1rem;
 	}
@@ -966,7 +981,7 @@
 	}
 
 	.progress-step.active .step-label {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 500;
 	}
 
@@ -1057,7 +1072,7 @@
 	}
 
 	.consent-checkbox {
-		background-color: var(--brand-light);
+		background-color: var(--panneau-bg);
 		padding: 1rem;
 		border-radius: var(--radius-sm);
 		border: 2px solid var(--brand);

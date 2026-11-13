@@ -1,4 +1,4 @@
-// Résolution de la circonscription législative exacte à partir d'une adresse.
+// Résolution de la circonscription législative exacte à partir d’une adresse.
 // Utilisée UNIQUEMENT dans le cas ambigu (un code postal couvrant plusieurs
 // circonscriptions), en amélioration progressive : toute erreur retombe
 // silencieusement sur le comportement par défaut.
@@ -35,7 +35,7 @@ export async function geocodeAddress(query: string, postcode?: string): Promise<
 type Ring = number[][]
 type PolygonCoords = Ring[]
 
-// Ray casting : le point est-il dans l'anneau ?
+// Ray casting : le point est-il dans l’anneau ?
 function inRing(pt: [number, number], ring: Ring): boolean {
 	const [x, y] = pt
 	let inside = false
@@ -50,7 +50,7 @@ function inRing(pt: [number, number], ring: Ring): boolean {
 	return inside
 }
 
-// Dans le polygone = dans l'anneau extérieur mais dans aucun trou.
+// Dans le polygone = dans l’anneau extérieur mais dans aucun trou.
 function inPolygon(pt: [number, number], poly: PolygonCoords): boolean {
 	if (!poly.length || !inRing(pt, poly[0])) return false
 	for (let k = 1; k < poly.length; k++) {
@@ -60,8 +60,8 @@ function inPolygon(pt: [number, number], poly: PolygonCoords): boolean {
 }
 
 interface CircoGeometry {
-	// Type déclaré large : la valeur vient d'un fichier GeoJSON, on la vérifie
-	// à l'exécution plutôt que de la tenir pour acquise.
+	// Type déclaré large : la valeur vient d’un fichier GeoJSON, on la vérifie
+	// à l’exécution plutôt que de la tenir pour acquise.
 	type: string
 	coordinates: PolygonCoords | PolygonCoords[]
 }
@@ -104,7 +104,7 @@ export async function findCirco(dept: string, p: GeoPoint): Promise<number | nul
 }
 
 /**
- * Géocode l'adresse puis trouve la circonscription exacte, en testant chaque
+ * Géocode l’adresse puis trouve la circonscription exacte, en testant chaque
  * département candidat (en général un seul). Renvoie { dept, circo } ou null.
  */
 export async function resolveCirco(

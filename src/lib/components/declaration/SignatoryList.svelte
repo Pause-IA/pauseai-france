@@ -152,7 +152,7 @@
 		border: none;
 		padding: 0;
 		font: inherit;
-		color: var(--brand-subtle);
+		color: var(--text);
 		text-decoration: underline;
 		cursor: pointer;
 	}

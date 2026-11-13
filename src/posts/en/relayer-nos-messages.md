@@ -1,7 +1,7 @@
 ---
 title: Share our messages
 rubrique: agir
-description: "Social media and Pause Action: a few minutes a week to carry Pause AI's voice far beyond our usual circle."
+description: 'Social media and Pause Action: a few minutes a week to carry Pause AI’s voice far beyond our usual circle.'
 ---
 
 <script lang="ts">
@@ -119,7 +119,7 @@ or <a href="/{lang}/agir">see all the ways to act</a>.</p>
     content: counter(action);
     font-size: 0.85em;
     font-weight: 700;
-    color: var(--brand-subtle);
+    color: var(--brand);
   }
 
   .astuce {
@@ -188,7 +188,7 @@ or <a href="/{lang}/agir">see all the ways to act</a>.</p>
   .cta-fleche {
     margin-inline-start: auto;
     font-size: 1.4rem;
-    color: var(--brand-subtle);
+    color: var(--text);
     flex-shrink: 0;
   }
 

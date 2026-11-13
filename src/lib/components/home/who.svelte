@@ -2,7 +2,7 @@
 	import LeadershipCard from '$components/LeadershipCard.svelte'
 	import ScientificCouncilCard from '$components/ScientificCouncilCard.svelte'
 	import Button from '$components/Button.svelte'
-	import { Page, SectionTitle } from '$components/ui'
+	import { Bandeau, Page, SectionTitle } from '$components/ui'
 	import { equipes } from '$lib/data/equipes'
 	import type { TeamMember } from '$lib/notion'
 	import type { Lang } from '$lib/i18n'
@@ -75,7 +75,7 @@
 </script>
 
 <!-- Gabarit Hub : en-tête commun, puis « en bref » (demande, valeurs,
-     financement, chacun sur sa page), puis l'équipe. Les valeurs et le
+     financement, chacun sur sa page), puis l’équipe. Les valeurs et le
      positionnement détaillés ne sont plus recopiés ici : ils vivent sur la
      charte des valeurs et « Que demandons-nous ? ». -->
 <Page
@@ -94,7 +94,7 @@
 			Nous sommes une <a href="{prefix}/mentions-legales">association</a> qui alerte les citoyens et
 			les pouvoirs publics français sur les
 			<a href="{prefix}/dangers/economiques-et-materiels">graves dangers</a> de la course à
-			l'intelligence artificielle, et les incite à agir pour s'y opposer. Nous représentons en
+			l’intelligence artificielle, et les incite à agir pour s’y opposer. Nous représentons en
 			France
 			<a href="https://pauseai.info" target="_blank" rel="noopener noreferrer">PauseAI Global</a>.
 		{/if}
@@ -111,9 +111,9 @@
 
 	<SectionTitle>{lang === 'en' ? 'In short' : 'En bref'}</SectionTitle>
 	<!-- Trois repères, en bloc éditorial : filet orange, titre, phrase, lien
-	     nommé. C'étaient des cartes à emoji, avec ombre et flèche nue en bas à
-	     droite — le vocabulaire d'une page de startup, sur la page qui doit
-	     justement établir le sérieux de l'association. -->
+	     nommé. C’étaient des cartes à emoji, avec ombre et flèche nue en bas à
+	     droite — le vocabulaire d’une page de startup, sur la page qui doit
+	     justement établir le sérieux de l’association. -->
 	<ul class="en-bref">
 		<li>
 			<h3>{lang === 'en' ? 'What we ask for' : 'Notre demande'}</h3>
@@ -151,8 +151,10 @@
 	</ul>
 
 	<SectionTitle>{lang === 'en' ? 'The team' : 'L’équipe'}</SectionTitle>
+	<!-- Pas de sous-titre « Direction » : la section s’appelle déjà « L’équipe »
+	     et les fonctions figurent sur chaque fiche. Le sous-titre ne faisait que
+	     répéter, et ajoutait un niveau de titre pour rien. -->
 	<div class="team-section">
-		<h2 class="section-title">{lang === 'en' ? 'Leadership' : 'Direction'}</h2>
 		<div class="cards-grid cards-centered">
 			{#each leadership as leader}
 				<LeadershipCard name={leader.name} role={leader.role} image={leader.image} />
@@ -178,8 +180,8 @@
 	{/if}
 
 	<!-- La galerie « Membres et bénévoles » affichait une quinzaine de visages
-	     pris parmi plus de cent. Le choix n'était pas explicable, et la page
-	     laissait croire à une équipe de quinze personnes au lieu d'un mouvement.
+	     pris parmi plus de cent. Le choix n’était pas explicable, et la page
+	     laissait croire à une équipe de quinze personnes au lieu d’un mouvement.
 	     Une phrase dit mieux ce que la galerie disait mal. -->
 	<!-- Qui est salarié et qui est bénévole se dit ici, en une phrase, plutôt
 	     que par une étiquette sur chaque carte : coller un badge « payé » à
@@ -187,31 +189,33 @@
 	     en avant la mauvaise information. Dit ainsi, le rapport entre deux
 	     salariés et une centaine de bénévoles est à notre avantage.
 
-	     Maxime Fournes est salarié de PauseAI Global et non de l'association :
-	     « trois salariés » serait faux, d'où la mention séparée.
+	     Maxime Fournes est salarié de PauseAI Global et non de l’association :
+	     « trois salariés » serait faux, d’où la mention séparée.
 
 	     Les deux noms et le nombre sont écrits en dur : rien dans Notion ne
-	     distingue un salarié d'un bénévole. À reprendre à la prochaine
+	     distingue un salarié d’un bénévole. À reprendre à la prochaine
 	     embauche ou au prochain départ. Les fonctions ne sont pas répétées
 	     ici, elles figurent sur les fiches juste au-dessus. -->
-	<p class="benevoles">
-		{#if lang === 'en'}
-			The association currently employs two people, Clémence Peyrot and Orlando H., with Maxime
-			Fournes currently employed by PauseAI Global. Beyond this team, Pause AI France runs on
-			<strong>more than a hundred volunteers</strong>: engineers, teachers, researchers, lawyers,
-			psychologists, students, retirees. Most of the work shown on this site is theirs.
-		{:else}
-			L’association emploie actuellement deux personnes, Clémence Peyrot et Orlando H., Maxime
-			Fournes étant actuellement salarié de PauseAI Global. Au-delà de cette équipe, Pause IA repose
-			sur
-			<strong>plus d’une centaine de bénévoles</strong>
-			: ingénieurs, enseignants, chercheurs, juristes, psychologues, étudiants, retraités. L’essentiel
-			du travail présenté sur ce site est le leur.
-		{/if}
-	</p>
+	<Bandeau>
+		<p class="benevoles">
+			{#if lang === 'en'}
+				The association currently employs two people, Clémence Peyrot and Orlando B., with Maxime
+				Fournes currently employed by PauseAI Global. Beyond this team, Pause AI France runs on
+				<strong>more than a hundred volunteers</strong>: engineers, teachers, researchers, lawyers,
+				psychologists, students, retirees. Most of the work shown on this site is theirs.
+			{:else}
+				L’association emploie actuellement deux personnes, Clémence Peyrot et Orlando B., Maxime
+				Fournes étant actuellement salarié de PauseAI Global. Au-delà de cette équipe, Pause IA
+				repose sur
+				<strong>plus d’une centaine de bénévoles</strong>
+				: ingénieurs, enseignants, chercheurs, juristes, psychologues, étudiants, retraités. L’essentiel
+				du travail présenté sur ce site est le leur.
+			{/if}
+		</p>
+	</Bandeau>
 
 	<!-- Vue d'ensemble des équipes : le visiteur doit comprendre de quoi
-	     l'association est faite et se dire « je pourrais être utile là ».
+	     l’association est faite et se dire « je pourrais être utile là ».
 	     Contenu et parti pris : src/lib/data/equipes.ts. -->
 	<div class="team-section" id="nos-equipes">
 		<h2 class="section-title">{lang === 'en' ? 'Our teams' : 'Nos équipes'}</h2>
@@ -225,9 +229,11 @@
 			{#each equipes as equipe}
 				<li class="equipe">
 					<h3>
-						{equipe.nom}{#if equipe.referent}<span class="referent">{equipe.referent}</span>{/if}
+						{lang === 'en' ? equipe.nomEn : equipe.nom}{#if equipe.referent}<span class="referent"
+								>{equipe.referent}</span
+							>{/if}
 					</h3>
-					<p>{equipe.description}</p>
+					<p>{lang === 'en' ? equipe.descriptionEn : equipe.description}</p>
 				</li>
 			{/each}
 		</ul>
@@ -258,9 +264,18 @@
 		}
 	}
 
+	/* Colonne : le lien est poussé en bas de chaque bloc, sinon il se cale
+	   juste sous un texte de longueur différente et les trois liens partent
+	   en escalier. */
 	.en-bref li {
+		display: flex;
+		flex-direction: column;
 		border-top: 2px solid var(--brand);
 		padding-top: 0.9rem;
+	}
+
+	.en-bref li a {
+		margin-top: auto;
 	}
 
 	.en-bref h3 {
@@ -282,7 +297,7 @@
 	.en-bref a {
 		font-size: 0.95rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 		text-decoration: none;
 	}
 
@@ -390,9 +405,12 @@
 	/* Du texte, et non l'encadré crème de l'ancien compteur : c'est une phrase
 	   qui se lit, pas un chiffre à mettre en avant. */
 	.benevoles {
-		max-inline-size: var(--width-text);
-		margin: 2.5rem auto 0;
+		/* Ni largeur ni centrage : le paragraphe remplit le bandeau, qui porte
+		   déjà sa propre gouttière. Centré, il se décalait du filet orange. */
+		margin: 0;
 		line-height: 1.7;
-		color: var(--text-2);
+		/* Pas de couleur imposée : le paragraphe est posé dans un Bandeau, qui
+		   donne --on-dark. Le gris secondaire l'emportait et retombait à
+		   4,2:1 sur le bleu, sous le seuil. */
 	}
 </style>

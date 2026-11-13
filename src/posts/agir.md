@@ -1,10 +1,7 @@
 ---
 title: Toutes les façons d’agir
 rubrique: agir
-description: Les actions les plus utiles pour aider à garder l'IA sous contrôle, de 5 minutes à un engagement durable.
-original:
-  title: Take action
-  url: https://github.com/PauseAI/pauseai-website/blob/95be1d5327015a2c41f5c518d92812d7f6c79bda/src/posts/action.md
+description: Les actions les plus utiles pour aider à garder l’IA sous contrôle, de 5 minutes à un engagement durable.
 ---
 
 <script lang="ts">
@@ -54,6 +51,12 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
     <small>Rejoignez ou lancez un groupe local.</small>
     <em class="ac-why"><strong>Pourquoi :</strong> Une action de rue touche des gens que nos publications n’atteindront jamais, et la presse locale couvre ce que la presse nationale ignore.</em>
   </a>
+  <a class="action-card" href="/{lang}/fresque">
+    <span class="ac-emoji">🧩</span>
+    <strong>Animer la Fresque des risques de l’IA</strong>
+    <small>Un atelier collaboratif autour d’un jeu de cartes, des capacités de l’IA à ses risques, jusqu’aux solutions.</small>
+    <em class="ac-why"><strong>Pourquoi :</strong> Trois heures autour d’une table font comprendre ce qu’un article ne fait pas comprendre, et les participants repartent en l’expliquant à leur tour.</em>
+  </a>
   <a class="action-card" href="/{lang}/relayer-nos-messages">
     <span class="ac-emoji">📣</span>
     <strong>Relayer nos messages</strong>
@@ -95,7 +98,7 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
      l'écriture aux élus reste l'action la plus efficace. */
   .action-card.primaire {
     border: 2px solid var(--brand);
-    background: var(--brand-light);
+    background: var(--panneau-bg);
   }
 
   .action-card:hover {

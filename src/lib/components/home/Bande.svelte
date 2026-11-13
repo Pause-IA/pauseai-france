@@ -13,13 +13,23 @@
 	 * hiérarchie visuelle et la hiérarchie du document disent la même chose.
 	 */
 	export let titre: string
-	/** `creme` teinte la bande ; `aucun` la laisse sur le fond de page. */
-	export let fond: 'creme' | 'aucun' = 'aucun'
+	/** Filet de séparation au-dessus de la bande. La première de la page n'en
+	    a pas besoin : le héros la sépare déjà de ce qui précède. */
+	export let filet = true
+	/** `gris` peint la bande d'un bord à l'autre. Une seule des deux bandes
+	    l'est : c'est l'alternance qui sépare, pas la couleur elle-même. */
+	export let fond: 'blanc' | 'gris' = 'blanc'
 
 	const id = `bande-${Math.random().toString(36).slice(2, 8)}`
 </script>
 
-<section class="bande {fond}" aria-labelledby={id}>
+<section
+	class="bande"
+	class:filet={filet && fond === 'blanc'}
+	class:gris={fond === 'gris'}
+	aria-labelledby={id}
+>
+	<span class="repere" aria-hidden="true"></span>
 	<UnderlinedTitle {id}>{titre}</UnderlinedTitle>
 	<slot />
 </section>
@@ -34,32 +44,27 @@
 		padding-block: 3rem;
 	}
 
-	/* Sur le crème, les cartes se détachaient beaucoup moins bien que sur le
-	   blanc, et le ressenti était juste : ce n'est pas le texte qui perd (noir
-	   sur crème : 19,5:1 contre 21:1 sur blanc, imperceptible), c'est le CONTOUR
-	   des cartes. --border vaut #e5e7eb, un gris froid : 1,24:1 sur blanc, et
-	   seulement 1,15:1 sur le crème, où il jure en plus avec la teinte chaude.
-	   Résultat : des cartes blanches sur crème sans arête nette, donc une
-	   section qui paraît plate.
-
-	   La bande redéfinit donc le trait et l'ombre pour ses enfants, qui les
-	   consomment déjà par var(). Le trait est dérivé de l'encre et du fond :
-	   il reste neutre, prend la chaleur du crème, et se recalcule tout seul en
-	   thème sombre. Mesuré : 1,52:1 contre la bande et 1,64:1 contre la carte,
-	   au lieu de 1,15:1. */
-	.bande.creme {
-		--border: color-mix(in srgb, var(--text) 18%, var(--bg-subtle));
-		--shadow-card: 0 4px 18px rgba(var(--ink-rgb), 0.07);
-		--shadow-raised: 0 8px 26px rgba(var(--ink-rgb), 0.1);
-		/* Un panneau orange pâle sur du crème ne se voit pas : sur cette bande,
-		   les panneaux d'accent passent au blanc. Sur la bande blanche ils
-		   gardent leur orange pâle, qui y ressort très bien. */
-		--panneau-bg: var(--bg);
+	/* Le crème a été sorti de la charte : la séparation entre les deux
+	   territoires de la page se fait par un filet, comme les sections du
+	   modèle, et non par un aplat teinté. Il court d'un bord à l'autre, pour
+	   qu'on le lise comme une coupure de page et pas comme un trait de
+	   paragraphe. */
+	/* Repère de marque au-dessus du titre, comme en tête de page : il dit que
+	   ce titre ouvre un territoire, et non une section de plus. */
+	.repere {
+		display: block;
+		inline-size: 3rem;
+		block-size: 4px;
+		border-radius: var(--radius-pill);
+		background: var(--brand);
+		margin-bottom: 1.1rem;
 	}
 
-	/* z-index 0 et non -1 : à -1 le fond passait derrière le conteneur de page,
-	   qui est opaque, et devenait invisible. Les enfants remontent d'un cran. */
-	.bande.creme::before {
+	/* La bande grise est peinte d'un bord à l'autre. C'est l'ALTERNANCE qui
+	   crée les deux territoires : une seule des deux bandes est teintée, et le
+	   gris est neutre — la marque n'a que l'orange et le bleu sombre, une
+	   surface de fond n'est ni l'un ni l'autre. */
+	.bande.gris::after {
 		content: '';
 		position: absolute;
 		z-index: 0;
@@ -67,6 +72,27 @@
 		inset-inline-start: calc(50% - 50vw);
 		inline-size: 100vw;
 		background: var(--bg-subtle);
+	}
+
+	.bande.filet::before {
+		content: '';
+		position: absolute;
+		z-index: 0;
+		inset-block-start: 0;
+		inset-inline-start: calc(50% - 50vw);
+		inline-size: 100vw;
+		block-size: 1px;
+		background: rgba(var(--brand-rgb), 0.4);
+	}
+
+	/* Le titre de bande est le repère le plus haut de la page d'accueil : il
+	   découpe « agir » de « s'informer ». À la taille commune des h2 (2 rem)
+	   il ne se distinguait plus assez des titres de bloc qu'il surplombe, et
+	   la page semblait plate. Il passe au-dessus, comme les grands titres du
+	   modèle. */
+	.bande :global(> h2) {
+		font-size: clamp(2rem, 4vw, 2.6rem);
+		letter-spacing: -0.02em;
 	}
 
 	.bande > :global(*) {

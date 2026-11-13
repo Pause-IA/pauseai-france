@@ -67,8 +67,16 @@
 </Fly>
 
 <style>
+	/* Style repris de la note aux décideurs, où l'accordéon était volontairement
+	   plat : des filets fins, pas de carte.
+
+	   L'ancien panneau était un encadré complet — fond, bordure, rayon et deux
+	   ombres portées — posé sous un titre déjà séparé par un trait gris de 2 px.
+	   Ouvert, il donnait une boîte qui saute à l'œil ; fermée, une liste de
+	   traits gris. On garde le filet, en orange de marque et en 1 px, et la
+	   réponse coule sous la question au lieu d'être emboîtée. */
 	:global(div.inView:not(:last-child)) > .accordion {
-		border-bottom: solid 2px var(--border);
+		border-bottom: 1px solid rgba(var(--brand-rgb), 0.4);
 	}
 
 	.header {
@@ -78,33 +86,37 @@
 		border: none;
 		background-color: transparent;
 		text-align: left;
-		align-items: center;
-		padding: 1.5rem 0;
+		align-items: baseline;
+		gap: 1rem;
+		padding: 1.15rem 0;
+		color: inherit;
 	}
 
 	.header .title {
 		flex: 1;
+		font-weight: 600;
+		line-height: 1.35;
+	}
+
+	.header:hover .title,
+	.header:focus-visible .title {
+		color: var(--accent);
 	}
 
 	.details {
-		padding: 1rem 1.5rem 1.5rem 1.5rem;
-		margin: 0.25rem 0.5rem 1rem 0.5rem;
-		/* Même fond que les cartes du site : le crème de --bg-subtle se
-		   confondait avec le fond de page sur les pages qui en ont un. */
-		background-color: var(--bg-card);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-md);
-		box-shadow:
-			0 1px 3px rgba(var(--ink-rgb), 0.08),
-			0 4px 12px rgba(var(--ink-rgb), 0.06);
+		padding: 0 0 1.35rem;
+		color: var(--text-2);
+	}
+
+	.details :global(p:last-child) {
+		margin-bottom: 0;
 	}
 
 	.chevron {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-left: 1rem;
-		color: var(--text-secondary);
+		color: var(--brand);
 		transition: transform 0.3s ease;
 		flex-shrink: 0;
 	}

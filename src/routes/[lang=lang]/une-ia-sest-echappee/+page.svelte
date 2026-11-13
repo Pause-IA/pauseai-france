@@ -196,6 +196,7 @@
 <article>
 	<!-- ── Hero ─────────────────────────────────────────────── -->
 	<header class="hero">
+		<p class="eyebrow">{isEn ? 'Campaign' : 'Campagne'}</p>
 		<h1>
 			{isEn ? 'It wasn’t an isolated accident' : 'Ce n’était pas un accident isolé'}
 		</h1>
@@ -703,6 +704,19 @@
 </article>
 
 <style>
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
 	article {
 		max-inline-size: var(--width-content);
 		margin-inline: auto;
@@ -761,7 +775,7 @@
 	}
 
 	.read-more a {
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-weight: 600;
 	}
 
@@ -853,7 +867,8 @@
 
 	.frise-text {
 		margin: 0;
-		font-size: 0.98rem;
+		/* 1 rem : plancher du corps de texte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-2);
 	}
@@ -862,7 +877,8 @@
 		margin: 1.5rem 0 0.5rem;
 		padding: 0.25rem 0 0.25rem 1rem;
 		border-left: 2px solid var(--border);
-		font-size: 0.95rem;
+		/* 1 rem : plancher du corps de texte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-2);
 	}
@@ -957,7 +973,7 @@
 		top: -0.75rem;
 		font-size: 4rem;
 		line-height: 1;
-		color: var(--brand-subtle);
+		color: var(--brand);
 		font-family: Georgia, serif;
 	}
 
@@ -1062,7 +1078,7 @@
 		margin-top: 0.3rem;
 		font-size: 0.9rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	/* Sur écran large : image à gauche, texte à droite (carte compacte). */
@@ -1100,6 +1116,8 @@
 	}
 
 	.action-card {
+		/* La mesure : ~75 signes par ligne à 0,98 rem. */
+		max-inline-size: 33rem;
 		padding: 1.75rem;
 		border: 1px solid var(--border);
 		border-radius: var(--radius-sm);
@@ -1149,7 +1167,8 @@
 
 	.action-card > p {
 		margin: 0 0 1rem;
-		font-size: 0.98rem;
+		/* 1 rem : plancher du corps de texte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-2);
 		max-inline-size: var(--width-text);

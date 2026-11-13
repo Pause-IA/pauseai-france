@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
-	import { Page } from '$components/ui'
+	import { LinkGrid, Page } from '$components/ui'
 	import NewsletterCard from '$components/NewsletterCard.svelte'
 	import Button from '$components/Button.svelte'
 	import { Search, X, Mail, ChevronLeft, ChevronRight, Rss } from 'lucide-svelte'
@@ -166,22 +166,6 @@
 		const locale = lang === 'en' ? 'en-GB' : 'fr-FR'
 		return date.toLocaleDateString(locale, { day: 'numeric', month: 'short', year: 'numeric' })
 	}
-
-	function scrollToCard(id: string) {
-		const el = document.getElementById(`nl-${id}`)
-		if (el) {
-			el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-		}
-	}
-
-	function onMobileSelect(event: Event) {
-		const select = event.target as HTMLSelectElement
-		const id = select.value
-		if (id) {
-			scrollToCard(id)
-			select.value = ''
-		}
-	}
 </script>
 
 <PostMeta title={t.newsletters.meta_title} description={t.newsletters.meta_desc} />
@@ -201,39 +185,11 @@
 	title={t.newsletters.title}
 	lede={t.newsletters.subtitle}
 >
-	<div class="subscribe-bar">
-		<div class="subscribe-icon">
-			<Mail size="1.25rem" />
-		</div>
-		<form on:submit={handleSubscribe} class="subscribe-form">
-			<div class="subscribe-input-group">
-				<input
-					type="email"
-					bind:value={email}
-					placeholder={t.newsletters.email_placeholder}
-					disabled={isSubmitting}
-					aria-label={t.newsletters.email_label}
-				/>
-				<button type="submit" disabled={isSubmitting}>
-					{#if isSubmitting}...{:else}{t.newsletters.subscribe_btn}{/if}
-				</button>
-			</div>
-			{#if message}
-				<p class="subscribe-message" class:error={isError} class:success={!isError}>
-					{message}
-				</p>
-			{/if}
-		</form>
-	</div>
-
-	<div class="rss-bar">
+	<div class="search-bar">
 		<a href="/rss/newsletters.xml" class="rss-link" target="_blank" rel="noopener noreferrer">
 			<Rss size="1rem" />
 			{lang === 'en' ? 'RSS Feed' : 'Flux RSS'}
 		</a>
-	</div>
-
-	<div class="search-bar">
 		<label for="newsletter-search" class="search-label">{t.newsletters.search_label}</label>
 		<div class="search-input-wrapper">
 			<span class="search-icon"><Search size="1rem" /></span>
@@ -264,105 +220,59 @@
 			{/if}
 		</p>
 
-		<!-- Mobile: dropdown quick access -->
-		<div class="mobile-nav">
-			<label class="mobile-nav-label" for="mobile-select-nl">{t.newsletters.quick_access}</label>
-			<select id="mobile-select-nl" class="mobile-select" on:change={onMobileSelect}>
-				<option value="" disabled selected>{t.newsletters.choose_newsletter}</option>
-				{#each paginatedNewsletters as nl (nl.id)}
-					<option value={nl.id}>
-						{nl.title} ({formatDateShort(nl.date || '')})
-					</option>
-				{/each}
-			</select>
-		</div>
-
-		<div class="content-layout">
-			<!-- Desktop: sidebar quick access -->
-			<nav class="sidebar">
-				<h2 class="sidebar-title">{t.newsletters.quick_access}</h2>
-				<ul class="sidebar-list">
-					{#each paginatedNewsletters as nl (nl.id)}
-						<li>
-							<button
-								class="sidebar-item"
-								on:click={() => {
-									scrollToCard(nl.id)
-								}}
-							>
-								<span class="sidebar-item-title">{nl.title}</span>
-								{#if nl.date}
-									<time class="sidebar-item-date" datetime={nl.date}
-										>{formatDateShort(nl.date)}</time
-									>
-								{/if}
-							</button>
-						</li>
-					{/each}
-				</ul>
-				{#if totalPages > 1}
-					<div class="sidebar-page-info">
-						{t.newsletters.page}
-						{currentPage} / {totalPages}
+		<div class="newsletter-list">
+			<LinkGrid min="20rem">
+				{#each paginatedNewsletters as newsletter (newsletter.id)}
+					<div id="nl-{newsletter.id}">
+						<NewsletterCard
+							title={newsletter.title}
+							description={newsletter.description}
+							url={newsletter.url}
+							slug={newsletter.slug}
+							date={newsletter.date || ''}
+							image={newsletter.image || ''}
+						/>
 					</div>
-				{/if}
-			</nav>
+				{/each}
+			</LinkGrid>
 
-			<!-- Newsletter cards -->
-			<div class="newsletter-list">
-				<div class="newsletter-grid">
-					{#each paginatedNewsletters as newsletter (newsletter.id)}
-						<div id="nl-{newsletter.id}">
-							<NewsletterCard
-								title={newsletter.title}
-								description={newsletter.description}
-								url={newsletter.url}
-								slug={newsletter.slug}
-								date={newsletter.date || ''}
-								image={newsletter.image || ''}
-							/>
-						</div>
+			{#if totalPages > 1}
+				<nav class="pagination" aria-label={t.newsletters.pagination_label}>
+					<button
+						class="pagination-btn"
+						disabled={currentPage === 1}
+						on:click={() => {
+							goToPage(currentPage - 1)
+						}}
+						aria-label={t.newsletters.prev_page}
+					>
+						<ChevronLeft size="1.25rem" />
+					</button>
+					{#each Array.from({ length: totalPages }, (_, i) => i + 1) as page}
+						<button
+							class="pagination-btn"
+							class:active={page === currentPage}
+							on:click={() => {
+								goToPage(page)
+							}}
+							aria-label={`${t.newsletters.page} ${page}`}
+							aria-current={page === currentPage ? 'page' : undefined}
+						>
+							{page}
+						</button>
 					{/each}
-				</div>
-
-				{#if totalPages > 1}
-					<nav class="pagination" aria-label={t.newsletters.pagination_label}>
-						<button
-							class="pagination-btn"
-							disabled={currentPage === 1}
-							on:click={() => {
-								goToPage(currentPage - 1)
-							}}
-							aria-label={t.newsletters.prev_page}
-						>
-							<ChevronLeft size="1.25rem" />
-						</button>
-						{#each Array.from({ length: totalPages }, (_, i) => i + 1) as page}
-							<button
-								class="pagination-btn"
-								class:active={page === currentPage}
-								on:click={() => {
-									goToPage(page)
-								}}
-								aria-label={`${t.newsletters.page} ${page}`}
-								aria-current={page === currentPage ? 'page' : undefined}
-							>
-								{page}
-							</button>
-						{/each}
-						<button
-							class="pagination-btn"
-							disabled={currentPage === totalPages}
-							on:click={() => {
-								goToPage(currentPage + 1)
-							}}
-							aria-label={t.newsletters.next_page}
-						>
-							<ChevronRight size="1.25rem" />
-						</button>
-					</nav>
-				{/if}
-			</div>
+					<button
+						class="pagination-btn"
+						disabled={currentPage === totalPages}
+						on:click={() => {
+							goToPage(currentPage + 1)
+						}}
+						aria-label={t.newsletters.next_page}
+					>
+						<ChevronRight size="1.25rem" />
+					</button>
+				</nav>
+			{/if}
 		</div>
 	{:else}
 		<div class="empty-state">
@@ -370,15 +280,37 @@
 			<Button on:click={clearSearch}>{t.newsletters.clear_search}</Button>
 		</div>
 	{/if}
+
+	<!-- L'inscription passe après la liste : la page sert d’abord à lire les
+	     numéros parus. En tête, elle repoussait les premières cartes de tout
+	     un écran, avec le lien RSS et la recherche. -->
+	<div class="subscribe-bar">
+		<div class="subscribe-icon">
+			<Mail size="1.25rem" />
+		</div>
+		<form on:submit={handleSubscribe} class="subscribe-form">
+			<div class="subscribe-input-group">
+				<input
+					type="email"
+					bind:value={email}
+					placeholder={t.newsletters.email_placeholder}
+					disabled={isSubmitting}
+					aria-label={t.newsletters.email_label}
+				/>
+				<button type="submit" disabled={isSubmitting}>
+					{#if isSubmitting}...{:else}{t.newsletters.subscribe_btn}{/if}
+				</button>
+			</div>
+			{#if message}
+				<p class="subscribe-message" class:error={isError} class:success={!isError}>
+					{message}
+				</p>
+			{/if}
+		</form>
+	</div>
 </Page>
 
 <style>
-	.rss-bar {
-		max-width: 36rem;
-		margin: 0 0 2rem;
-		text-align: right;
-	}
-
 	.rss-link {
 		display: inline-flex;
 		align-items: center;
@@ -396,26 +328,28 @@
 	}
 
 	.rss-link:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		border-color: var(--brand);
 		background: var(--brand-light);
 	}
 
 	/* Subscribe bar */
+	/* Posé en fin de page : il lui faut sa propre respiration au-dessus. */
 	.subscribe-bar {
+		margin-top: 3rem;
 		display: flex;
 		align-items: flex-start;
 		gap: 0.75rem;
 		max-width: 36rem;
 		margin: 0 0 2rem;
 		padding: 1rem 1.25rem;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border: 1px solid rgba(var(--brand-rgb), 0.2);
 		border-radius: var(--radius-md);
 	}
 
 	.subscribe-icon {
-		color: var(--brand-subtle);
+		color: var(--brand);
 		flex-shrink: 0;
 		margin-top: 0.5rem;
 	}
@@ -496,6 +430,10 @@
 
 	/* Search bar, matches press page combobox style */
 	.search-bar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.75rem 1rem;
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
@@ -582,145 +520,11 @@
 	}
 
 	/* Mobile dropdown quick access, hidden on desktop */
-	.mobile-nav {
-		display: none;
-		margin-bottom: 1.5rem;
-		background-color: var(--bg-subtle);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-md);
-		padding: 0.75rem 1rem;
-	}
-
-	.mobile-nav-label {
-		display: block;
-		font-size: 0.75rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
-		margin-bottom: 0.5rem;
-	}
-
-	.mobile-select {
-		width: 100%;
-		padding: 0.625rem 2.5rem 0.625rem 0.75rem;
-		font-size: 0.875rem;
-		font-family: var(--font-body, inherit);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-sm);
-		background-color: var(--white);
-		color: var(--text);
-		appearance: none;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23676e7a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-		background-repeat: no-repeat;
-		background-position: right 0.625rem center;
-		cursor: pointer;
-		line-height: 1.4;
-	}
-
-	.mobile-select:focus {
-		outline: 2px solid var(--brand);
-		outline-offset: 2px;
-	}
-
-	/* Layout with sidebar */
-	.content-layout {
-		display: flex;
-		gap: 2rem;
-		align-items: flex-start;
-	}
-
-	/* Sidebar, hidden on mobile */
-	.sidebar {
-		position: sticky;
-		top: 1rem;
-		flex-shrink: 0;
-		width: 16rem;
-		max-height: calc(100vh - 2rem);
-		overflow-y: auto;
-		background-color: var(--bg-subtle);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-md);
-		padding: 1.25rem;
-	}
-
-	.sidebar-title {
-		margin: 0 0 0.75rem;
-		font-size: 0.85rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
-	}
-
-	.sidebar-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-	}
-
-	.sidebar-list li {
-		padding: 0;
-		margin: 0;
-	}
-
-	.sidebar-item {
-		display: flex;
-		flex-direction: column;
-		gap: 0.125rem;
-		width: 100%;
-		padding: 0.5rem 0.625rem;
-		border: none;
-		background: transparent;
-		border-radius: var(--radius-sm);
-		cursor: pointer;
-		text-align: left;
-		transition: background-color 0.15s ease;
-	}
-
-	.sidebar-item:hover {
-		background-color: rgba(var(--ink-rgb), 0.05);
-	}
-
-	.sidebar-item-title {
-		font-size: 0.8rem;
-		font-weight: 600;
-		color: var(--text);
-		line-height: 1.3;
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-	}
-
-	.sidebar-item-date {
-		font-size: 0.7rem;
-		color: var(--text-secondary);
-	}
-
-	.sidebar-page-info {
-		margin-top: 0.75rem;
-		padding-top: 0.75rem;
-		border-top: 1px solid var(--border);
-		font-size: 0.75rem;
-		color: var(--text-secondary);
-		text-align: center;
-	}
 
 	/* Newsletter list (right side) */
 	.newsletter-list {
 		flex-grow: 1;
 		min-width: 0;
-	}
-
-	/* Newsletter grid */
-	.newsletter-grid {
-		display: grid;
-		gap: 1.5rem;
-		grid-template-columns: 1fr;
 	}
 
 	/* Empty state */
@@ -782,32 +586,14 @@
 
 	/* Mobile */
 	@media (max-width: 768px) {
-		.mobile-nav {
-			display: block;
-		}
-
-		.content-layout {
-			flex-direction: column;
-		}
-
-		.sidebar {
-			display: none;
-		}
 	}
 
 	@media (min-width: 640px) {
-		.newsletter-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-
 		.search-bar {
 			margin-bottom: 2.5rem;
 		}
 	}
 
 	@media (min-width: 1024px) {
-		.newsletter-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
 	}
 </style>

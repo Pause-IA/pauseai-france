@@ -59,7 +59,7 @@
 			{#if lang === 'en'}
 				Follow our work, get involved, and receive a monthly roundup of the latest AI news.
 			{:else}
-				Suivez nos actions, impliquez-vous et recevez chaque mois l'essentiel de l'actualité IA.
+				Suivez nos actions, impliquez-vous et recevez chaque mois l’essentiel de l’actualité IA.
 			{/if}
 		</p>
 	</div>
@@ -76,7 +76,7 @@
 				{#if isSubmitting}
 					{lang === 'en' ? 'Subscribing…' : 'Inscription…'}
 				{:else}
-					{lang === 'en' ? 'Subscribe' : "S'inscrire"}
+					{lang === 'en' ? 'Subscribe' : 'S’inscrire'}
 				{/if}
 			</button>
 		</div>
@@ -92,7 +92,7 @@
 		flex-direction: column;
 		gap: 1.5rem;
 		padding: 2rem 1.75rem;
-		background: color-mix(in srgb, var(--brand) 12%, var(--bg));
+		background: var(--panneau-bg);
 		border: 1px solid color-mix(in srgb, var(--brand) 35%, transparent);
 		border-radius: 1.25rem;
 		margin: 0 0 2rem;

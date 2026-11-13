@@ -315,8 +315,8 @@
 				</button>
 			</div>
 
-			<!-- Mobile/tablet sidebar, use:portal pour l'appender à document.body
-			     et l'extraire du containing block créé par position:sticky -->
+			<!-- Mobile/tablet sidebar, use:portal pour l’appender à document.body
+			     et l’extraire du containing block créé par position:sticky -->
 			<div class="sidebar" class:open use:portal>
 				<div class="sidebar-head">
 					<a href="/" class="sidebar-logo" on:click={closeMenu}>
@@ -573,6 +573,9 @@
 		font-weight: 700;
 		font-size: 0.9rem;
 		border-radius: 0.4rem;
+		/* Le contour de « Rejoindre » ne doit pas décaler sa hauteur. */
+		border: 2px solid transparent;
+		box-sizing: border-box;
 		padding: 0.45rem 1rem;
 		white-space: nowrap;
 		transition:
@@ -590,14 +593,23 @@
 		opacity: 0.85;
 	}
 
-	/* "Rejoindre", black */
+	/* « Rejoindre » : l'action secondaire. Elle a été noire, puis bleu
+	   sombre — correct, mais froid à côté du « Donner » orange.
+
+	   Elle passe en orange CREUX : même couleur que l'action principale,
+	   mais en contour. La hiérarchie se lit à la densité (plein contre
+	   creux) et non à la teinte, ce qui réchauffe le coin des actions au
+	   lieu d'y opposer deux couleurs. Le contour reprend --btn-border, le
+	   seul orange qui tienne le seuil de 3:1 des contours de composants. */
 	.btn-join {
-		background: var(--black);
-		color: var(--white);
+		background: transparent;
+		color: var(--text);
+		border: 2px solid var(--btn-border);
 	}
 
 	.btn-join:hover {
-		opacity: 0.8;
+		background: var(--brand);
+		color: var(--on-brand);
 	}
 
 	/* On hero (white text context): invert to semi-transparent white */
@@ -671,7 +683,7 @@
 
 	.sidebar-lang-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.1);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	:global([data-theme='dark']) .sidebar-lang-toggle {
@@ -681,7 +693,7 @@
 
 	:global([data-theme='dark']) .sidebar-lang-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.15);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.sidebar-theme-toggle {
@@ -703,7 +715,7 @@
 
 	.sidebar-theme-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.1);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	:global([data-theme='dark']) .sidebar-theme-toggle {
@@ -713,7 +725,7 @@
 
 	:global([data-theme='dark']) .sidebar-theme-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.15);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.hamburger {
@@ -906,7 +918,7 @@
 	.sidebar-subsection a:hover,
 	.sidebar-subsection a.active {
 		background: rgba(var(--brand-rgb), 0.1);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.ext-icon {
@@ -940,11 +952,14 @@
 		opacity: 0.85;
 	}
 
+	/* Même traitement que le bouton de l'en-tête : orange creux. */
 	.sidebar-join {
 		display: block;
 		text-decoration: none;
-		background: var(--black);
-		color: var(--white);
+		background: transparent;
+		color: var(--text);
+		border: 2px solid var(--btn-border);
+		box-sizing: border-box;
 		text-align: center;
 		padding: 0.8rem 1.5rem;
 		border-radius: var(--radius-btn);

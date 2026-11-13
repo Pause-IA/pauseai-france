@@ -10,9 +10,9 @@
 	export let langue = ''
 </script>
 
-<a class="card" href={url} target="_blank" title="Lire l'article {title}" rel="noopener noreferrer">
+<a class="card" href={url} target="_blank" title="Lire l’article {title}" rel="noopener noreferrer">
 	<figure class="visual">
-		<img src={image} alt={`Illustration de l'article ${String(title)}`} loading="lazy" />
+		<img src={image} alt={`Illustration de l’article ${String(title)}`} loading="lazy" />
 		{#if langue}
 			<span
 				class="lang-badge"
@@ -47,7 +47,7 @@
 		<time class="date" datetime={date}>{formatFrenchDate(date)}</time>
 		<h3 class="title">{title}</h3>
 		<p class="summary">{summary}</p>
-		<span class="cta">Lire l'article</span>
+		<span class="cta">Lire l’article</span>
 	</div>
 </a>
 
@@ -80,7 +80,9 @@
 		width: 100%;
 		height: 200px;
 		flex-shrink: 0;
-		background: linear-gradient(135deg, #f6ebdd, #fff7ed);
+		/* Repli quand l'article n'a pas d'image. C'était un dégradé crème,
+		   dernier reste de l'ancienne palette chaude. */
+		background: linear-gradient(135deg, var(--bg-subtle), var(--bg));
 		overflow: hidden;
 	}
 
@@ -137,7 +139,7 @@
 	}
 
 	.category {
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		color: var(--carousel-accent, var(--brand));
 		padding: 0.3rem 0.7rem;
 		border-radius: var(--radius-pill);

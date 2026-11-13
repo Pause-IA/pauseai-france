@@ -35,7 +35,7 @@
 <PostMeta {title} {description} />
 
 <article>
-	<PageHero>
+	<PageHero eyebrow={data.lang === 'en' ? 'Act' : 'Agir'}>
 		{isEn ? 'The signatories' : 'Les signataires'}
 		<svelte:fragment slot="lede">
 			{#if c?.worldCount != null}

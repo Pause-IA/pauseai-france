@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import type { PageData } from './$types'
 
 	export let data: PageData
@@ -54,12 +53,14 @@
 <article>
 	<section class="hero">
 		{#if isEn}
-			<UnderlinedTitle as="h1">Geneva 2026</UnderlinedTitle>
+			<p class="eyebrow">{isEn ? 'Campaign' : 'Campagne'}</p>
+			<h1>Geneva 2026</h1>
 			<p class="lede">
 				<strong>Ask France to support an international treaty on AI.</strong>
 			</p>
 		{:else}
-			<UnderlinedTitle as="h1">Genève 2026</UnderlinedTitle>
+			<p class="eyebrow">{isEn ? 'Campaign' : 'Campagne'}</p>
+			<h1>Genève 2026</h1>
 			<p class="lede">
 				<strong
 					>Demandez à la France de soutenir un traité international sur l’intelligence artificielle.</strong
@@ -189,6 +190,27 @@
 </article>
 
 <style>
+	/* Étiquette et titre du modèle, à la place du titre au filet dégradé. */
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		font-size: clamp(2.1rem, 6vw, 3.2rem);
+		line-height: 1.06;
+		letter-spacing: -0.025em;
+		margin-bottom: 1.25rem;
+	}
+
 	article {
 		max-inline-size: var(--width-wide);
 		margin-inline: auto;

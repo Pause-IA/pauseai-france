@@ -63,11 +63,17 @@
 	}
 
 	// Compression à la volée via le CDN d'images de Netlify : on demande l'image
-	// redimensionnée et recompressée (au lieu de la photo Notion brute, souvent
-	// lourde). En local (URL relative) ou si le CDN échoue, on retombe sur l'URL
+	// redimensionnée et recompressée. Si le CDN échoue, on retombe sur l'image
 	// d'origine via `on:error` → aucune régression.
+	//
+	// Les photos sont maintenant versionnées dans static/evenements/ par
+	// scripts/photos-evenements.mjs, donc servies par un chemin RELATIF. Le CDN
+	// sait les transformer aussi, et c'est utile : la vignette de la frise en
+	// demande 400 px là où le fichier versionné en fait 1200. Mais il n'existe
+	// pas devant le serveur de développement, d'où le `DEV`.
 	function cdnImg(url: string, w: number, fit?: 'cover'): string {
-		if (!url || !/^https?:\/\//.test(url)) return url
+		if (!url) return url
+		if (import.meta.env.DEV && !/^https?:\/\//.test(url)) return url
 		return `/.netlify/images?url=${encodeURIComponent(url)}&w=${w}&q=72${fit ? `&fit=${fit}` : ''}`
 	}
 	function cdnFallback(e: Event) {
@@ -193,7 +199,7 @@
 			Local action is essential for raising public awareness, engaging elected officials and
 			building a strong citizen movement. Join a team near you or start the momentum in your city.
 		{:else}
-			L'action locale est essentielle pour sensibiliser le public, interpeller les élus et
+			L’action locale est essentielle pour sensibiliser le public, interpeller les élus et
 			construire un mouvement citoyen fort. Rejoignez une équipe près de chez vous ou lancez la
 			dynamique dans votre ville.
 		{/if}
@@ -287,8 +293,8 @@
 	     groupe » pointaient vers le MÊME formulaire Notion et décrivaient tous
 	     deux, en termes vagues, la même chose : contribuer localement. Le
 	     visiteur avait donc deux boutons pour une seule action, sans savoir
-	     lequel le concernait. Ce que le lecteur veut savoir, c'est ce qui se
-	     passe après avoir cliqué ; c'est ce que dit le cadre maintenant. -->
+	     lequel le concernait. Ce que le lecteur veut savoir, c’est ce qui se
+	     passe après avoir cliqué ; c’est ce que dit le cadre maintenant. -->
 	<section class="cta-section">
 		<div class="cta-card join">
 			<span class="cta-icon"><MessageSquare size="1.6rem" /></span>
@@ -300,13 +306,13 @@
 					already exists near you, we put you in touch; if there is none, we help you start one.
 				{:else}
 					Participer à des actions de sensibilisation et de mobilisation près de chez vous, ou
-					animer un groupe de bénévoles et faire le lien avec l'équipe nationale. Un seul formulaire
-					pour les deux : indiquez votre ville. S'il existe déjà un groupe, nous vous mettons en
-					relation ; s'il n'y en a pas, nous vous accompagnons pour en lancer un.
+					animer un groupe de bénévoles et faire le lien avec l’équipe nationale. Un seul formulaire
+					pour les deux : indiquez votre ville. S’il existe déjà un groupe, nous vous mettons en
+					relation ; s’il n’y en a pas, nous vous accompagnons pour en lancer un.
 				{/if}
 			</p>
 			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
-				{isEn ? 'Sign up' : "S'inscrire"}
+				{isEn ? 'Sign up' : 'S’inscrire'}
 			</Button>
 		</div>
 	</section>
@@ -335,12 +341,10 @@
 						{isEn ? 'forming' : 'en cours de création'}
 					</span>
 				{/if}
-				<span class="map-sep">·</span>
-				<span class="map-hint"
-					>{isEn
-						? 'hover a marker to see the city'
-						: 'survolez un marqueur pour voir la ville'}</span
-				>
+				<span class="map-hint">
+					<span class="map-sep">·</span>
+					{isEn ? 'hover a marker to see the city' : 'survolez un marqueur pour voir la ville'}
+				</span>
 			</div>
 		</div>
 		{#if showMap}
@@ -534,7 +538,7 @@
 		<p class="depuis-date" id="depuis-titre">{isEn ? 'March 2026' : 'mars 2026'}</p>
 		<p class="depuis-texte">
 			{#if isEn}
-				Pause AI's local groups launched {mois} months ago. The groups, the actions and the volunteers
+				Pause AI’s local groups launched {mois} months ago. The groups, the actions and the volunteers
 				above were all built in that time, by people who simply decided to start.
 			{:else}
 				Les groupes locaux de Pause IA ont été lancés il y a {mois} mois. Les groupes, les actions et
@@ -549,6 +553,8 @@
 	/* Repère de temps de fin de page : volontairement sobre (pas de carte, pas
 	   de bordure orange), la date fait tout le travail. */
 	.depuis {
+		max-inline-size: 31rem;
+		margin-inline: auto;
 		margin-block-start: 4rem;
 		padding-block: 2.75rem;
 		text-align: center;
@@ -568,10 +574,14 @@
 		font-weight: 800;
 		line-height: 1.05;
 		letter-spacing: -0.02em;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 	.depuis-texte {
-		max-inline-size: 36rem;
+		/* 34 rem : environ 75 signes par ligne à 1,02 rem. La contrainte est
+		   aussi posée sur la section (.depuis), parce que le plafond global
+		   des paragraphes ne prend pas ici et que je n'ai pas trouvé
+		   pourquoi — la règle est pourtant servie et sans concurrente. */
+		max-inline-size: 31rem;
 		margin: 1.1rem auto 0;
 		font-size: 1.02rem;
 		line-height: 1.6;
@@ -590,7 +600,7 @@
 		background: linear-gradient(
 			100deg,
 			var(--brand-light) 30%,
-			color-mix(in srgb, var(--brand) 12%, var(--bg)) 50%,
+			var(--panneau-bg) 50%,
 			var(--brand-light) 70%
 		);
 		background-size: 200% 100%;
@@ -621,7 +631,7 @@
 		margin-bottom: 2.5rem;
 		border: 1px solid color-mix(in srgb, var(--brand) 25%, var(--border));
 		border-radius: 18px;
-		background: color-mix(in srgb, var(--brand) 10%, var(--bg));
+		background: var(--panneau-bg);
 		box-shadow: 0 6px 22px color-mix(in srgb, var(--brand) 14%, transparent);
 	}
 
@@ -644,7 +654,7 @@
 		font-size: clamp(2rem, 5.5vw, 3rem);
 		font-weight: 800;
 		line-height: 1;
-		color: var(--brand-subtle);
+		color: var(--text);
 		letter-spacing: -0.02em;
 	}
 
@@ -684,7 +694,7 @@
 	}
 
 	.impact-card :global(svg) {
-		color: var(--brand-subtle);
+		color: var(--brand);
 	}
 
 	.impact-card h2 {
@@ -700,7 +710,7 @@
 	}
 
 	.impact-card a {
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-weight: 600;
 	}
 
@@ -754,7 +764,7 @@
 	}
 
 	.section-title-row :global(.section-icon) {
-		color: var(--brand-subtle);
+		color: var(--brand);
 		flex-shrink: 0;
 	}
 
@@ -787,7 +797,7 @@
 
 	.event-date {
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-size: 0.9rem;
 		min-inline-size: 8rem;
 	}
@@ -818,7 +828,7 @@
 	}
 
 	.event-body small :global(svg) {
-		color: var(--brand-subtle);
+		color: var(--brand);
 		flex-shrink: 0;
 	}
 
@@ -980,7 +990,7 @@
 
 	.tl-item:hover .tl-rail,
 	.tl-item:hover .tl-date {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	@media (hover: none) {
@@ -999,7 +1009,7 @@
 		margin: 0.65rem;
 		border-radius: var(--radius-md);
 		overflow: hidden;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		flex-shrink: 0;
 	}
 
@@ -1016,7 +1026,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--brand-subtle);
+		color: var(--brand);
 		opacity: 0.5;
 	}
 
@@ -1091,7 +1101,7 @@
 		margin-top: 0.15rem;
 		font-size: 0.88rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--text);
 		white-space: nowrap;
 	}
 
@@ -1251,8 +1261,8 @@
 		gap: 0.3rem;
 		font-size: 0.82rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
-		background: var(--brand-light);
+		color: var(--text);
+		background: var(--panneau-bg);
 		padding: 0.2rem 0.6rem;
 		border-radius: var(--radius-pill);
 	}
@@ -1264,7 +1274,7 @@
 		border: 1px solid var(--brand);
 		border-radius: var(--radius-pill);
 		background: transparent;
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-size: 0.9rem;
 		font-weight: 600;
 		cursor: pointer;
@@ -1288,6 +1298,15 @@
 	   seule carte, 2,25 rem de retrait et une pastille de 3,2 rem font un bloc
 	   hors de proportion avec trois lignes de texte. Plus de soulèvement au
 	   survol non plus : la carte n'est pas cliquable, seul le bouton l'est. */
+	/* Au-delà de deux lignes, un texte centré se lit mal : chaque ligne
+	   recommence à un endroit différent. Sur téléphone, le paragraphe de ce
+	   panneau en fait six. Il s'aligne donc à gauche sous 40 rem. */
+	@media (max-width: 40rem) {
+		.cta-card p {
+			text-align: left;
+		}
+	}
+
 	.cta-card {
 		padding: 1.5rem 1.6rem;
 		border-radius: var(--radius-lg);
@@ -1299,7 +1318,7 @@
 	}
 
 	.cta-card.join {
-		background: var(--bg-subtle, color-mix(in srgb, var(--brand) 7%, var(--bg)));
+		background: var(--panneau-bg);
 		border: 2px solid var(--brand);
 	}
 
@@ -1311,7 +1330,7 @@
 		block-size: 2.4rem;
 		border-radius: 50%;
 		background: color-mix(in srgb, var(--brand) 18%, transparent);
-		color: var(--brand-subtle);
+		color: var(--brand);
 	}
 
 	.cta-card h2 {
@@ -1349,7 +1368,7 @@
 	}
 
 	.map-title-row :global(.map-pin-icon) {
-		color: var(--brand-subtle);
+		color: var(--brand);
 		flex-shrink: 0;
 	}
 
@@ -1363,7 +1382,7 @@
 
 	.map-stat {
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.map-stat.forming {
@@ -1372,6 +1391,15 @@
 
 	.map-sep {
 		color: var(--border);
+	}
+
+	/* « survolez un marqueur » ne veut rien dire sur un téléphone : il n'y a
+	   pas de survol. L'indication disparaît quand le pointeur ne peut pas
+	   survoler, plutôt que d'y demander un geste qui n'existe pas. */
+	@media (hover: none) {
+		.map-hint {
+			display: none;
+		}
 	}
 
 	.map-hint {

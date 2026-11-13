@@ -82,7 +82,7 @@
 <Page width="wide" eyebrow={t.nav.campagnes} title={t.campagnes.title} lede={t.campagnes.subtitle}>
 	<section class="hero">
 		<p class="active-count">
-			<Badge variant="success">
+			<Badge variant="outline">
 				{activeCount}
 				{activeCount === 1 ? t.campagnes.active_count_singular : t.campagnes.active_count_plural}
 			</Badge>
@@ -109,7 +109,7 @@
 				}}
 			>
 				<div class="card-top">
-					<Badge size="sm" variant={campaign.status === 'ended' ? 'neutral' : 'success'}>
+					<Badge size="sm" variant={campaign.status === 'ended' ? 'neutral' : 'outline'}>
 						{campaign.status === 'active' ? t.campagnes.badge_active : t.campagnes.badge_ended}
 					</Badge>
 					<span class="card-date">
@@ -189,8 +189,8 @@
 					<ul class="articles-list">
 						{#each summary.articles as article}
 							<li>
-								<!-- Un article du site reste dans l'onglet courant ; seule une
-								     source externe s'ouvre à côté. -->
+								<!-- Un article du site reste dans l’onglet courant ; seule une
+								     source externe s’ouvre à côté. -->
 								<a
 									href={article.url}
 									target={article.url.startsWith('http') ? '_blank' : undefined}
@@ -292,7 +292,7 @@
 	.see-results {
 		font-size: 0.9rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 		margin-top: auto;
 	}
 
@@ -435,8 +435,8 @@
 		flex-shrink: 0;
 		font-size: 0.75rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
-		background: color-mix(in srgb, var(--brand) 10%, var(--bg));
+		color: var(--text);
+		background: var(--panneau-bg);
 		padding: 0.1rem 0.45rem;
 		border-radius: var(--radius-pill);
 	}
@@ -457,8 +457,8 @@
 		font-size: 0.9rem;
 		font-weight: 600;
 		text-decoration: none;
-		background: color-mix(in srgb, var(--brand) 12%, var(--bg));
-		color: var(--brand-subtle);
+		background: var(--panneau-bg);
+		color: var(--text);
 		border: 1.5px solid color-mix(in srgb, var(--brand) 35%, transparent);
 		transition:
 			background 0.15s,

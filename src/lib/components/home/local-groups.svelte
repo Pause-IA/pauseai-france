@@ -121,7 +121,7 @@
 		flex-direction: column;
 		gap: 1.25rem;
 		padding: 2rem 1.75rem;
-		background: var(--panneau-bg, color-mix(in srgb, var(--brand) 12%, var(--bg)));
+		background: var(--panneau-bg);
 		border: 1px solid color-mix(in srgb, var(--brand) 35%, transparent);
 		border-radius: 1.25rem;
 		margin: 0 0 2rem;
@@ -139,7 +139,9 @@
 		inline-size: 3rem;
 		block-size: auto;
 		flex-shrink: 0;
-		color: var(--brand-subtle);
+		/* Une silhouette n'est pas du texte : elle prend l'orange de marque
+		   PLEIN, sans contrainte de contraste. */
+		color: var(--brand);
 	}
 
 	/* Pastilles de villes */
@@ -168,7 +170,7 @@
 
 	.city-pill.more {
 		background: color-mix(in srgb, var(--brand) 16%, transparent);
-		color: var(--brand-subtle);
+		color: var(--text);
 		border-color: transparent;
 	}
 
@@ -191,7 +193,7 @@
 	}
 
 	.title :global(svg) {
-		color: var(--brand-subtle);
+		color: var(--brand);
 	}
 
 	.desc {
@@ -225,7 +227,7 @@
 	}
 
 	.next-text :global(svg) {
-		color: var(--brand-subtle);
+		color: var(--brand);
 		flex-shrink: 0;
 		transform: translateY(2px);
 	}
@@ -243,7 +245,7 @@
 		text-decoration: none;
 		white-space: nowrap;
 		border: 1.5px solid color-mix(in srgb, var(--brand) 45%, transparent);
-		color: var(--brand-subtle);
+		color: var(--text);
 		background: var(--bg);
 		transition: opacity 0.15s;
 		text-align: center;

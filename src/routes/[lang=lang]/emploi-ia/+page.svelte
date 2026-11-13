@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PostMeta from '$components/PostMeta.svelte'
 	import { onMount } from 'svelte'
 	import EmploiForm from '$components/EmploiForm.svelte'
 	import TestimonialSlideshow from '$components/TestimonialSlideshow.svelte'
@@ -123,25 +124,19 @@
 	})
 </script>
 
-<svelte:head>
-	<title>{t.emploi_ia.meta_title}</title>
-	<meta name="description" content={t.emploi_ia.meta_desc} />
-	<meta name="keywords" content={t.emploi_ia.keywords} />
-	<meta name="robots" content="index, follow" />
-	<meta property="og:title" content={t.emploi_ia.meta_title} />
-	<meta property="og:description" content={t.emploi_ia.meta_desc} />
-	<meta property="og:image" content="https://pauseia.fr/emploi-ia/emploi-IA.png" />
-	<meta property="og:url" content="https://pauseia.fr/emploi-ia" />
-	<meta property="og:type" content="website" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={t.emploi_ia.meta_title} />
-	<meta name="twitter:description" content={t.emploi_ia.meta_desc} />
-	<meta name="twitter:image" content="https://pauseia.fr/emploi-ia/emploi-IA.png" />
-</svelte:head>
+<PostMeta
+	title={t.emploi_ia.meta_title}
+	description={t.emploi_ia.meta_desc}
+	image="/emploi-ia/emploi-IA.png"
+/>
 
 <article>
+	<!-- En-tête au modèle des autres campagnes : étiquette de statut, titre
+	     resserré. Cette page gardait le titre au filet dégradé et n’avait
+	     aucun surtitre, seule de toutes les pages de campagne. -->
 	<hgroup>
-		<UnderlinedTitle as="h1">{t.emploi_ia.title}</UnderlinedTitle>
+		<span class="badge">{lang === 'en' ? 'Campaign under way' : 'Campagne en cours'}</span>
+		<h1>{t.emploi_ia.title}</h1>
 	</hgroup>
 
 	<p class="lead">{t.emploi_ia.intro_lead}</p>
@@ -258,7 +253,8 @@
 		max-inline-size: var(--width-content);
 		width: 100%;
 		margin-inline: auto;
-		margin-top: 2rem;
+		/* 3 rem, comme le gabarit partagé et toutes les autres pages. */
+		margin-top: 3rem;
 		padding: 0 1rem;
 		overflow-x: clip;
 	}
@@ -281,13 +277,33 @@
 	}
 
 	/* ── Lead callout ── */
+	.badge {
+		display: inline-block;
+		margin-bottom: 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	hgroup h1 {
+		font-size: clamp(2.1rem, 6vw, 3.2rem);
+		line-height: 1.06;
+		letter-spacing: -0.025em;
+		margin-bottom: 1.5rem;
+	}
+
 	.lead {
 		font-size: 1.2rem;
 		font-weight: 500;
 		line-height: 1.5;
-		color: var(--brand-subtle);
+		color: var(--text);
 		border-left: 4px solid var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		padding: 1rem 1.25rem;
 		margin: 1.5rem 0 1.5rem;
 	}
@@ -318,7 +334,7 @@
 		font-size: clamp(2rem, 5.5vw, 3rem);
 		font-weight: 800;
 		line-height: 1;
-		color: var(--brand-subtle);
+		color: var(--text);
 		letter-spacing: -0.02em;
 		white-space: nowrap;
 		flex-shrink: 0;
@@ -446,7 +462,7 @@
 	.article-card-featured {
 		border-color: var(--brand);
 		border-width: 2px;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		box-shadow: 0 2px 12px rgba(var(--brand-rgb), 0.14);
 	}
 
@@ -485,11 +501,11 @@
 	.article-card-link {
 		font-size: 0.875rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.article-card:hover .article-card-link {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* ── Bigger-problem section ── */
@@ -512,9 +528,9 @@
 	/* ── CTA callout ── */
 	.cta-callout {
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 		border-left: 4px solid var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		padding: 0.85rem 1.1rem;
 		margin: 1.5rem 0 0.5rem;
 		line-height: 1.5;
@@ -528,7 +544,7 @@
 
 	.cta-guide {
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--text);
 		margin: 0.75rem 0 0.25rem;
 	}
 
@@ -599,7 +615,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.press-date {
@@ -620,7 +636,7 @@
 	}
 
 	.press-item:hover .press-title {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.press-item-featured {
@@ -628,7 +644,8 @@
 		padding: 1.25rem 1.4rem 1.1rem;
 		border-width: 2px;
 		border-color: var(--brand);
-		background: rgba(var(--brand-rgb), 0.04);
+		/* Panneau de la charte : le voile d'orange datait du fond de page crème. */
+		background: var(--panneau-bg);
 	}
 
 	.press-badge {

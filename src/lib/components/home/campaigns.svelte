@@ -198,7 +198,7 @@
 	}
 
 	.pill-progress {
-		color: var(--brand-subtle);
+		color: var(--text);
 		background-color: rgba(var(--brand-rgb), 0.12);
 	}
 
@@ -217,7 +217,7 @@
 
 	.title-link:hover,
 	.title-link:focus-visible {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.desc {

@@ -42,7 +42,7 @@
 	<h1>{info.title}</h1>
 	<p class="description">{info.description}</p>
 	<div class="actions">
-		<Button href="/">Retour à l'accueil</Button>
+		<Button href="/">Retour à l’accueil</Button>
 		{#if info.showPostsLink}
 			<Button href="/fr/posts" alt>Voir les articles</Button>
 		{/if}
@@ -65,7 +65,7 @@
 		font-size: 6rem;
 		font-weight: 700;
 		line-height: 1;
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-family: var(--font-heading);
 	}
 
