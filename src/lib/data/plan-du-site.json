@@ -1,5 +1,5 @@
 {
-	"genere": "2026-11-11",
+	"genere": "2026-11-13",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -256,10 +256,6 @@
 			"url": "/fr/geneve-2026"
 		},
 		{
-			"chemin": "/guide-recrutement",
-			"url": "/guide-recrutement"
-		},
-		{
 			"chemin": "/merci",
 			"url": "/fr/merci"
 		},
@@ -415,6 +411,10 @@
 			"titre": "Gouvernance de l’IA : les démarches engagées"
 		},
 		{
+			"slug": "/guide-sensibilisation",
+			"titre": "Guide de sensibilisation"
+		},
+		{
 			"slug": "/mentions-legales",
 			"titre": "Mentions légales"
 		},
@@ -452,8 +452,8 @@
 		}
 	],
 	"total": {
-		"pages": 37,
+		"pages": 36,
 		"dynamiques": 7,
-		"articles": 36
+		"articles": 37
 	}
 }

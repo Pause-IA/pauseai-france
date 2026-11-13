@@ -111,7 +111,7 @@
 				<p class="reference">
 					<em
 						>(Comprendre la dynamique : <a
-							href="{base}/fr/guide-sensibilisation#la-science-du-changement-pourquoi-votre-reseau-personnel-est-notre-meilleur-allie"
+							href="{base}/fr/guide-sensibilisation#les-principes-de-la-sensibilisation"
 							>Guide de Recrutement Pause IA</a
 						>
 						– La science du changement,
@@ -139,7 +139,7 @@
 				<p class="reference">
 					<em
 						>(Découvrez chaque pilier en détail : <a
-							href="{base}/fr/guide-sensibilisation#4-principes-pour-connecter-et-convaincre"
+							href="{base}/fr/guide-sensibilisation#les-principes-de-la-sensibilisation"
 							>Guide de Recrutement Pause IA</a
 						> – 4 principes pour connecter et convaincre)</em
 					>
@@ -178,8 +178,7 @@
 					</li>
 					<li>
 						<strong><em>Votre guide complet pour une cartographie efficace :</em></strong>
-						<a
-							href="{base}/fr/guide-sensibilisation#cartographie-de-reseau-101-transformez-vos-contacts-en-plan-daction-concret"
+						<a href="{base}/fr/guide-sensibilisation#outil-1-la-cartographie-de-votre-réseau"
 							>Guide de Recrutement Pause IA</a
 						> – Cartographie de réseau 101
 					</li>
@@ -214,14 +213,13 @@
 					</li>
 					<li>
 						<strong><em>Maîtrisez l’écoute et le dialogue :</em></strong>
-						<a href="{base}/fr/guide-sensibilisation#dialogue-authentique-ecouter-pour-connecter"
+						<a href="{base}/fr/guide-sensibilisation#outil-2-le-dialogue-authentique"
 							>Guide de Recrutement Pause IA</a
 						> – Dialogue authentique
 					</li>
 					<li>
 						<strong><em>Pour créer des ponts pertinents :</em></strong>
-						<a
-							href="{base}/fr/guide-sensibilisation#creer-des-ponts-connecter-les-preoccupations-a-laction"
+						<a href="{base}/fr/guide-sensibilisation#outil-3-créer-des-ponts"
 							>Guide de Recrutement Pause IA</a
 						> – Créer des ponts
 					</li>
@@ -274,8 +272,7 @@
 					</li>
 					<li>
 						<strong><em>Toutes les techniques et exemples de demandes :</em></strong>
-						<a
-							href="{base}/fr/guide-sensibilisation#lart-de-la-demande-transformer-linteret-en-action-avec-uci"
+						<a href="{base}/fr/guide-sensibilisation#outil-5-les-engagements-possibles"
 							>Guide de Recrutement Pause IA</a
 						> – L’art de la demande
 					</li>
@@ -290,8 +287,7 @@
 					objections les plus courantes avec bienveillance. <strong
 						>Apprenez à gérer les objections :</strong
 					>
-					<a
-						href="{base}/fr/guide-sensibilisation#anticiper-les-objections-transformer-les-doutes-en-dialogue"
+					<a href="{base}/fr/guide-sensibilisation#outil-4-répondre-aux-objections"
 						>Guide de Recrutement Pause IA</a
 					> – Anticiper les objections
 				</p>

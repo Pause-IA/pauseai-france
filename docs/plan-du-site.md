@@ -5,17 +5,17 @@
 > du menu principal, du pied de page et des articles du dépôt, donc il ne
 > peut pas diverger du site.
 >
-> Dernière génération : 2026-11-11.
+> Dernière génération : 2026-11-13.
 
 Ce document décrit le site **réel**. Le plan _souhaité_ est une décision
 d'équipe et se tient ailleurs.
 
 ## En un coup d’œil
 
-- **37 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
+- **36 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
 - **7 gabarits dynamiques** (articles, campagnes, dangers…)
-- **36 articles** en Markdown dans `src/posts`
-- **20 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
+- **37 articles** en Markdown dans `src/posts`
+- **19 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
 
 ## Arborescence depuis le menu principal
 
@@ -64,26 +64,24 @@ flowchart LR
   class n23 orpheline
   orph -.-> n24["/geneve-2026"]
   class n24 orpheline
-  orph -.-> n25["/guide-recrutement"]
+  orph -.-> n25["/merci"]
   class n25 orpheline
-  orph -.-> n26["/merci"]
+  orph -.-> n26["/municipales-2026"]
   class n26 orpheline
-  orph -.-> n27["/municipales-2026"]
+  orph -.-> n27["/plan-du-site"]
   class n27 orpheline
-  orph -.-> n28["/plan-du-site"]
+  orph -.-> n28["/posts"]
   class n28 orpheline
-  orph -.-> n29["/posts"]
+  orph -.-> n29["/senat2025"]
   class n29 orpheline
-  orph -.-> n30["/senat2025"]
+  orph -.-> n30["/sensibiliser-votre-entourage"]
   class n30 orpheline
-  orph -.-> n31["/sensibiliser-votre-entourage"]
+  orph -.-> n31["/sommet-ia-2026"]
   class n31 orpheline
-  orph -.-> n32["/sommet-ia-2026"]
+  orph -.-> n32["/tribunes/le-monde-octobre-2026"]
   class n32 orpheline
-  orph -.-> n33["/tribunes/le-monde-octobre-2026"]
+  orph -.-> n33["/une-ia-sest-echappee"]
   class n33 orpheline
-  orph -.-> n34["/une-ia-sest-echappee"]
-  class n34 orpheline
   classDef externe stroke-dasharray: 4 3
   classDef orpheline fill:#fff5e8,stroke:#ff9416
 ```
@@ -184,7 +182,6 @@ campagne, confirmations, remerciements.
 - `/emploi-ia/questionnaire`
 - `/g7-2026`
 - `/geneve-2026`
-- `/guide-recrutement`
 - `/merci`
 - `/municipales-2026`
 - `/plan-du-site`
@@ -239,6 +236,7 @@ Une seule route sert toutes les pages d’une famille ; le contenu vient de
 | FAQ                                                          | `src/posts/faq.md`                                                             |
 | Notre financement                                            | `src/posts/financements.md`                                                    |
 | Gouvernance de l’IA : les démarches engagées                 | `src/posts/gouvernance-ia-demarches.md`                                        |
+| Guide de sensibilisation                                     | `src/posts/guide-sensibilisation.md`                                           |
 | Mentions légales                                             | `src/posts/mentions-legales.md`                                                |
 | Politique de confidentialité                                 | `src/posts/politique-de-confidentialite.md`                                    |
 | Que demandons-nous ?                                         | `src/posts/propositions.md`                                                    |
