@@ -132,6 +132,12 @@ pour chaque étape. Sentez-vous libre de les utiliser à votre manière.
 _Un outil de réflexion stratégique, pour visualiser votre réseau et repérer les
 conversations à impact._
 
+![Un tableau manuscrit intitulé « Contacts à sensibiliser ». Six lignes, une par
+personne, avec le type de relation, trois notes de 1 à 5 pour la confiance,
+l’influence et l’intérêt pour l’IA, une colonne « pont » et un score global en
+étoiles. Hector Valmorin, collègue et membre du club d’escalade, obtient cinq
+étoiles grâce à son point de pont.](/guides/cartographie-reseau.webp)
+
 Utilisez le support qui vous parle le plus : tableur, feuille de papier, tableau
 blanc.
 
