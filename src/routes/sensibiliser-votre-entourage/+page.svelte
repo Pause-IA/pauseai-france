@@ -42,7 +42,7 @@
 				<p class="duree">30 minutes et plus</p>
 				<p>Les situations concrètes, les objections fréquentes et comment y répondre.</p>
 				<p class="action">
-					<Button alt href="{base}/guide-recrutement">Lire le guide complet</Button>
+					<Button alt href="{base}/fr/guide-sensibilisation">Lire le guide complet</Button>
 				</p>
 			</Card>
 		</div>
@@ -111,7 +111,7 @@
 				<p class="reference">
 					<em
 						>(Comprendre la dynamique : <a
-							href="{base}/guide-recrutement#la-science-du-changement-pourquoi-votre-reseau-personnel-est-notre-meilleur-allie"
+							href="{base}/fr/guide-sensibilisation#la-science-du-changement-pourquoi-votre-reseau-personnel-est-notre-meilleur-allie"
 							>Guide de Recrutement Pause IA</a
 						>
 						– La science du changement,
@@ -139,7 +139,7 @@
 				<p class="reference">
 					<em
 						>(Découvrez chaque pilier en détail : <a
-							href="{base}/guide-recrutement#4-principes-pour-connecter-et-convaincre"
+							href="{base}/fr/guide-sensibilisation#4-principes-pour-connecter-et-convaincre"
 							>Guide de Recrutement Pause IA</a
 						> – 4 principes pour connecter et convaincre)</em
 					>
@@ -179,7 +179,7 @@
 					<li>
 						<strong><em>Votre guide complet pour une cartographie efficace :</em></strong>
 						<a
-							href="{base}/guide-recrutement#cartographie-de-reseau-101-transformez-vos-contacts-en-plan-daction-concret"
+							href="{base}/fr/guide-sensibilisation#cartographie-de-reseau-101-transformez-vos-contacts-en-plan-daction-concret"
 							>Guide de Recrutement Pause IA</a
 						> – Cartographie de réseau 101
 					</li>
@@ -214,14 +214,14 @@
 					</li>
 					<li>
 						<strong><em>Maîtrisez l’écoute et le dialogue :</em></strong>
-						<a href="{base}/guide-recrutement#dialogue-authentique-ecouter-pour-connecter"
+						<a href="{base}/fr/guide-sensibilisation#dialogue-authentique-ecouter-pour-connecter"
 							>Guide de Recrutement Pause IA</a
 						> – Dialogue authentique
 					</li>
 					<li>
 						<strong><em>Pour créer des ponts pertinents :</em></strong>
 						<a
-							href="{base}/guide-recrutement#creer-des-ponts-connecter-les-preoccupations-a-laction"
+							href="{base}/fr/guide-sensibilisation#creer-des-ponts-connecter-les-preoccupations-a-laction"
 							>Guide de Recrutement Pause IA</a
 						> – Créer des ponts
 					</li>
@@ -275,7 +275,7 @@
 					<li>
 						<strong><em>Toutes les techniques et exemples de demandes :</em></strong>
 						<a
-							href="{base}/guide-recrutement#lart-de-la-demande-transformer-linteret-en-action-avec-uci"
+							href="{base}/fr/guide-sensibilisation#lart-de-la-demande-transformer-linteret-en-action-avec-uci"
 							>Guide de Recrutement Pause IA</a
 						> – L’art de la demande
 					</li>
@@ -291,7 +291,7 @@
 						>Apprenez à gérer les objections :</strong
 					>
 					<a
-						href="{base}/guide-recrutement#anticiper-les-objections-transformer-les-doutes-en-dialogue"
+						href="{base}/fr/guide-sensibilisation#anticiper-les-objections-transformer-les-doutes-en-dialogue"
 						>Guide de Recrutement Pause IA</a
 					> – Anticiper les objections
 				</p>
@@ -331,7 +331,7 @@
 				honnêtement.
 			</p>
 			<p class="action">
-				<Button href="{base}/guide-recrutement">Lire le guide complet</Button>
+				<Button href="{base}/fr/guide-sensibilisation">Lire le guide complet</Button>
 			</p>
 		</div>
 	</section>
