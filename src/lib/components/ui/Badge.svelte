@@ -2,6 +2,21 @@
 	/**
 	 * Pastille de la charte. `brand` par défaut.
 	 *
+	 * DEUX FORMES, DEUX RÔLES — et il faut s'y tenir, sinon la même étiquette
+	 * apparaît ronde ici et carrée là, ce qui s'est produit pour « Campagne
+	 * en cours ».
+	 *
+	 * RECTANGLE (rayon 3 px) : le surtitre d'une PAGE. Il dit où l'on est —
+	 * « À propos », « Groupes locaux », « Campagne en cours ». Il n'y en a
+	 * qu'un par page, en tête, et c'est PageHero qui le pose.
+	 *
+	 * OVALE (rayon plein) : une étiquette attachée à un OBJET dans la page —
+	 * le statut d'une campagne dans une liste, « Soutien officiel » sur une
+	 * carte, un filtre de recherche. Il y en a autant qu'il y a d'objets.
+	 *
+	 * Autrement dit : rectangle = la page, ovale = une chose dans la page.
+	 * Ce composant ne sert qu'au second cas.
+	 *
 	 * `success` et `error` sont réservés aux RETOURS DE FORMULAIRE — un envoi
 	 * réussi, une erreur de saisie. Une campagne « en cours » n'est pas un
 	 * succès : c'est un état, et un état se dit avec les couleurs de la
