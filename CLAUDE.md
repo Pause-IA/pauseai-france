@@ -99,15 +99,16 @@ This is a SvelteKit-based website with Markdown-powered content. Content files l
 
 #### API Endpoints
 
-| Endpoint            | Method   | Purpose                                     | Key Details                        |
-| ------------------- | -------- | ------------------------------------------- | ---------------------------------- |
-| `/api/posts`        | GET      | Returns all blog posts                      | Uses `getPosts()` from `$lib/api`  |
-| `/api/dangers`      | GET      | Returns all danger articles                 | Uses `getPosts('/dangers')`        |
-| `/api/subscribe`    | POST     | Newsletter subscription via CiviCRM         | See CiviCRM Integration below      |
-| `/api/wise-webhook` | POST     | Wise webhook for bank transfer confirmation | See Wise Webhook Integration below |
-| `/api/declaration`  | GET/POST | PauseAI statement: stats / sign             | CiviCRM groups, see below          |
-| `/sitemap.xml`      | GET      | XML sitemap for SEO                         | Prerendered, includes all posts    |
-| `/sitemap.txt`      | GET      | Text sitemap                                | Alternative format                 |
+| Endpoint                      | Method   | Purpose                                     | Key Details                        |
+| ----------------------------- | -------- | ------------------------------------------- | ---------------------------------- |
+| `/api/posts`                  | GET      | Returns all blog posts                      | Uses `getPosts()` from `$lib/api`  |
+| `/api/dangers`                | GET      | Returns all danger articles                 | Uses `getPosts('/dangers')`        |
+| `/api/subscribe`              | POST     | Newsletter subscription via CiviCRM         | See CiviCRM Integration below      |
+| `/api/wise-webhook`           | POST     | Wise webhook for bank transfer confirmation | See Wise Webhook Integration below |
+| `/api/declaration`            | GET/POST | PauseAI statement: stats / sign             | CiviCRM groups, see below          |
+| `/api/bienvenue-groupe-local` | POST     | Notion → Discord #bienvenue (local groups)  | See below                          |
+| `/sitemap.xml`                | GET      | XML sitemap for SEO                         | Prerendered, includes all posts    |
+| `/sitemap.txt`                | GET      | Text sitemap                                | Alternative format                 |
 
 ### External Integrations
 
@@ -191,6 +192,15 @@ The payment reference (`DON-XXXXXX`) is read from `data.transfer_reference` in t
 Run `scripts/create-wise-webhook.sh <profile_id>` on the Hetzner server to register the webhook subscription with Wise. This endpoint does **not** require SCA — it bypasses the SCA issue with the old polling approach.
 
 **No new environment variables required** — uses existing CiviCRM credentials.
+
+#### Local groups → Discord #bienvenue (`/api/bienvenue-groupe-local`)
+
+When someone fills the Notion form « Inscriptions aux groupes locaux », a Notion database automation (« Send webhook », configured by an admin, no personal token) POSTs the new row here; the endpoint posts one line in Discord #bienvenue: `bob_dupont souhaite rejoindre un groupe local dans le département "Ain" (01)`.
+
+- Only the Discord username and the department are read (select only those two properties in the Notion action: nothing else should leave Notion). The department number is mapped to its name by `src/lib/departements.ts` (accepts `1`, `01`, `2a`, a postal code, a name…).
+- Auth: header `X-PauseIA-Secret` must equal `NOTION_BIENVENUE_SECRET` (constant-time compare). Discord: `DISCORD_BIENVENUE_WEBHOOK_URL`, posted with `allowed_mentions: { parse: [] }` and Markdown escaped, so a typed username can neither ping nor format.
+- Notion does not retry and pauses the automation after a failure, so ignorable payloads (no username nor department, invalid JSON) answer 200; 401 = bad secret, 503 = env vars missing, 502 = Discord refused.
+- Notion's payload format is undocumented: parsing is tolerant (`properties` under `data`, `page` or at the root; rich_text, title, select, number or plain strings; property names matched without accents/punctuation). Logs contain no personal data. Tests: `tests/bienvenueGroupeLocal.test.ts`.
 
 ### Custom Markdown Processing
 
