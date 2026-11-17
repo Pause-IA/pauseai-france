@@ -39,11 +39,13 @@
 		<PageHero {eyebrow}>
 			{title}
 			<svelte:fragment slot="lede"><slot name="lede" /></svelte:fragment>
+			<slot name="meta" slot="meta" />
 			<slot name="actions" slot="actions" />
 		</PageHero>
 	{:else}
 		<PageHero {eyebrow} {lede}>
 			{title}
+			<slot name="meta" slot="meta" />
 			<slot name="actions" slot="actions" />
 		</PageHero>
 	{/if}
