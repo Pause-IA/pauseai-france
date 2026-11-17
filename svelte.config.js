@@ -59,6 +59,12 @@ const config = {
 							// d'exploration ne relie pas aux pages /fr et /en.
 							'/fr/guide-sensibilisation',
 							'/en/guide-sensibilisation',
+							'/fr/guide-court',
+							// Vitrine des modèles de page : interne, hors menu comme le plan
+							// du site, donc invisible au robot d'exploration.
+							'/fr/modeles',
+							'/en/modeles',
+							'/en/guide-court',
 							// Plan du site : page interne, volontairement hors menu et hors pied
 							// de page, donc invisible au robot d'exploration du prérendu.
 							'/fr/plan-du-site',

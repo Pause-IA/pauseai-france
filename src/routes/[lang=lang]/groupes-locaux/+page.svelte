@@ -1393,7 +1393,7 @@
 	}
 
 	.map-sep {
-		color: var(--border);
+		color: var(--text-2);
 	}
 
 	/* « survolez un marqueur » ne veut rien dire sur un téléphone : il n'y a
