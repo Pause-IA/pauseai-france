@@ -72,7 +72,7 @@
 <Page
 	title="Modèles de page"
 	eyebrow="Document de travail interne"
-	lede="Toute page du site suit l’un de ces cinq modèles."
+	lede="Toute page du site suit l’un de ces cinq modèles. Un modèle fixe l’en-tête et la largeur de la colonne, pas le contenu : deux pages du même modèle peuvent être très différentes à l’intérieur, et c’est voulu."
 	width="wide"
 >
 	{#each modeles as m}
