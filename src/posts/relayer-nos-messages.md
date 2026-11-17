@@ -10,10 +10,6 @@ description: 'Réseaux sociaux et Pause Action : quelques minutes par semaine po
   $: lang = $page.params.lang ?? 'fr'
 </script>
 
-Un message relayé par quelqu'un que l'on connaît porte bien plus loin que la
-publication d'une association. Votre réseau n'est pas le nôtre : c'est
-exactement ce qui le rend précieux.
-
 <ol class="actions">
 <li>
 <h2 id="reseaux">Suivez-nous, et relayez</h2>

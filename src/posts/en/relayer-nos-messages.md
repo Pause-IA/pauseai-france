@@ -10,10 +10,6 @@ description: 'Social media and Pause Action: a few minutes a week to carry Pause
   $: lang = $page.params.lang ?? 'en'
 </script>
 
-A message passed on by someone you know carries far further than a post from
-an organisation. Your network isn't ours, and that is exactly what makes it
-valuable.
-
 <ol class="actions">
 <li>
 <h2 id="reseaux">Follow us, and share</h2>
