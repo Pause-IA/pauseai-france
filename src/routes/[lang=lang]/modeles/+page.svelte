@@ -21,7 +21,7 @@
 		{
 			nom: 'Gabarit de page, variante « standard »',
 			quand: 'Un hub, un outil, une page éditoriale : du contenu structuré, pas un texte suivi.',
-			code: '<Page title eyebrow lede width="content" />',
+			code: '<Page title eyebrow lede width="content" />, ou « modele: standard » dans le frontmatter d’une page markdown',
 			exemples: [
 				{ href: `${prefix}/ressources`, titre: 'Ressources' },
 				{ href: `${prefix}/presse`, titre: 'Espace presse' },
@@ -32,7 +32,7 @@
 			nom: 'Gabarit de page, variante « note »',
 			quand:
 				'Un texte long qui se lit d’un bout à l’autre, et qui doit pouvoir s’imprimer : colonne de lecture étroite, filets orange au-dessus des intertitres.',
-			code: '<Page title eyebrow lede width="text" variant="note" as="article" />',
+			code: '<Page title eyebrow lede width="text" variant="note" as="article" />, ou rien à déclarer dans une page markdown : c’est le modèle par défaut',
 			exemples: [
 				{ href: `${prefix}/guide-sensibilisation`, titre: 'Guide de sensibilisation' },
 				{ href: `${prefix}/articles/pas-de-pilote`, titre: 'Pas de pilote dans l’avion France' },
@@ -66,7 +66,11 @@
 		{ nom: 'Button', role: 'Bouton plein, ou « alt » pour la variante légère.' },
 		{ nom: 'Badge', role: 'Étiquette d’objet. Rectangle pour une rubrique, ovale pour un état.' },
 		{ nom: 'Callout', role: 'Encadré de mise en garde ou de rappel dans un texte long.' },
-		{ nom: 'FilterChips', role: 'Filtres en pastilles au-dessus d’une liste.' }
+		{ nom: 'FilterChips', role: 'Filtres en pastilles au-dessus d’une liste.' },
+		{
+			nom: 'RetourAgir',
+			role: 'Renvoi vers « Toutes les façons d’agir », en pied des pages du menu Agir.'
+		}
 	]
 </script>
 
@@ -86,7 +90,7 @@
 	width="wide"
 >
 	<svelte:fragment slot="meta">
-		3 modèles · 8 briques partagées · cette page n’est ni dans le menu, ni dans le sitemap
+		3 modèles · 9 briques partagées · cette page n’est ni dans le menu, ni dans le sitemap
 	</svelte:fragment>
 
 	{#each modeles as m}

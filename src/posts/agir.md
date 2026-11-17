@@ -1,6 +1,7 @@
 ---
 title: Toutes les façons d’agir
 rubrique: agir
+modele: standard
 description: Les actions les plus utiles pour aider à garder l’IA sous contrôle, de 5 minutes à un engagement durable.
 ---
 

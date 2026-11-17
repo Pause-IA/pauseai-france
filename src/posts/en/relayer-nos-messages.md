@@ -1,6 +1,7 @@
 ---
 title: Share our messages
 rubrique: agir
+modele: standard
 chapo: 'A few minutes a week are enough to carry Pause IA’s voice far beyond our usual circle.'
 description: 'Social media and Pause Action: a few minutes a week to carry Pause AI’s voice far beyond our usual circle.'
 ---
