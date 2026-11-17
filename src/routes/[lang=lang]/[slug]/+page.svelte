@@ -20,7 +20,17 @@
 
 <PostMeta title={`${title} | ${siteName}`} {description} {date} {image} />
 
-<Page {title} {eyebrow} lede={chapo ? String(chapo) : undefined} width="content" as="article">
+<!-- Modèle « note » : ces pages sont des textes longs (charte des valeurs,
+     mentions légales, propositions…). Colonne de lecture étroite et filets
+     orange, comme la note aux décideurs. -->
+<Page
+	{title}
+	{eyebrow}
+	lede={chapo ? String(chapo) : undefined}
+	width="text"
+	variant="note"
+	as="article"
+>
 	<div class="prose">
 		<svelte:component this={content} />
 	</div>

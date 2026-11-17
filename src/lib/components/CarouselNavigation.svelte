@@ -157,7 +157,7 @@
 		height: 36px;
 		border-radius: 50%;
 		border: 1px solid var(--carousel-border);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		color: var(--carousel-accent, var(--brand));
 		font-size: 1.45rem;
 		line-height: 1;

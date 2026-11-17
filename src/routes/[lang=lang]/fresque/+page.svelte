@@ -116,7 +116,7 @@
 				: 'Un atelier collaboratif autour d’un jeu de cartes pour se faire une vision d’ensemble de l’intelligence artificielle, de ses capacités à ses risques, jusqu’aux solutions possibles.'}
 		</svelte:fragment>
 		<svelte:fragment slot="actions">
-			<!-- Une seule action dominante : s'inscrire à un atelier, la vraie
+			<!-- Une seule action dominante : s’inscrire à un atelier, la vraie
 			     conversion de la page. « Découvrir la Fresque » reste accessible,
 			     en second rang : quatre boutons de poids égal ne hiérarchisaient
 			     rien. -->
@@ -201,8 +201,8 @@
 		</p>
 
 		{#if ateliers.length}
-			<!-- Ateliers réels plutôt qu'une promesse : rempli au montage depuis
-			     l'agenda public de la fresque. Absent si le site est injoignable. -->
+			<!-- Ateliers réels plutôt qu’une promesse : rempli au montage depuis
+			     l’agenda public de la fresque. Absent si le site est injoignable. -->
 			<ul class="agenda">
 				{#each ateliers as a}
 					<li>
@@ -254,9 +254,9 @@
 		</div>
 	</section>
 
-	<!-- Pas de formulaire ici : l'expression d'intérêt vit déjà sur un
+	<!-- Pas de formulaire ici : l’expression d’intérêt vit déjà sur un
 	     formulaire dédié, qui pose les bonnes questions et ne confond pas une
-	     marque d'intérêt avec un abonnement à la lettre d'information. -->
+	     marque d’intérêt avec un abonnement à la lettre d’information. -->
 	<section class="interet">
 		<Card variant="plain" class="bande-interet">
 			<h3>
@@ -316,7 +316,7 @@
 
 	.lien-second {
 		font-size: 1rem;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	/* --- Bande de photos ---------------------------------------------------
@@ -572,11 +572,11 @@
 		line-height: 1.65;
 	}
 
-	/* « Participer » est l'action principale : encadré accent de la charte
-	   (fond orangé, bordure orange de 2px comme le Callout). « Animer » garde
-	   la carte standard et un bouton secondaire. */
+	/* « Participer » est l'action principale : panneau de la charte, bordure
+	   orange de 2 px. « Animer » garde la carte standard et un bouton
+	   secondaire. Le fond était un voile d'orange, qui redonnait du crème. */
 	.duo :global(.carte-participer) {
-		background: rgba(var(--brand-rgb), 0.08);
+		background: var(--panneau-bg);
 		border: 2px solid var(--brand);
 	}
 
@@ -585,12 +585,11 @@
 		margin-bottom: var(--pas);
 	}
 
-	/* Bande orange pâle du croquis. Le fond de page est déjà le crème
-	   `--bg-subtle` : un `--brand-light` par-dessus serait invisible, d'où un
-	   voile d'orange construit sur `--brand-rgb`, que la charte fournit
-	   justement pour les `rgba()`. */
+	/* Panneau d'appel. C'était un voile d'orange, construit à l'époque où le
+	   fond de page était crème et où un panneau clair ne s'y serait pas vu.
+	   La page est blanche : le panneau de la charte suffit. */
 	.interet :global(.bande-interet) {
-		background: rgba(var(--brand-rgb), 0.1);
+		background: var(--panneau-bg);
 		border-color: var(--brand);
 		border-radius: var(--radius-lg);
 		box-shadow: var(--shadow-card);

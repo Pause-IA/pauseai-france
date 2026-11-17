@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$lib/components/PostMeta.svelte'
-	import UnderlinedTitle from '$lib/components/UnderlinedTitle.svelte'
+	import { Page } from '$components/ui'
 	import { getT } from '$lib/i18n'
 	import type { PageData } from './$types'
 
@@ -13,10 +13,11 @@
 
 <PostMeta title={t.merci.meta_title} description={t.merci.meta_desc} />
 
-<main class="container">
+<!-- Gabarit partagé : la page n’avait aucun h1 (UnderlinedTitle produit un h2
+     par défaut) et ouvrait un second <main> à l’intérieur de celui du
+     gabarit, ce que le HTML n’autorise pas. -->
+<Page title={t.merci.title} eyebrow={t.nav.agir} width="text">
 	<section class="success-content">
-		<UnderlinedTitle>{t.merci.title}</UnderlinedTitle>
-
 		<div class="success-message">
 			<div class="success-icon">✅</div>
 			<h2>{t.merci.success_title}</h2>
@@ -38,24 +39,23 @@
 			<a href={prefix}>{t.merci.back_home}</a>
 		</div>
 	</section>
-</main>
+</Page>
 
 <style>
-	.container {
-		max-width: 800px;
-		margin: 0 auto;
-		padding: 2rem;
-	}
-
 	.success-content {
 		text-align: center;
 	}
 
+	/* Le fond du site est blanc depuis la refonte : une carte blanche posée
+	   dessus n'avait plus de surface, seule son ombre la trahissait. Elle
+	   prend le fond de carte de la charte et un filet, comme ailleurs. */
 	.success-message {
-		background: var(--white);
+		background: var(--bg-card);
+		border: 1px solid var(--border);
+		border-top: 2px solid var(--brand);
 		border-radius: var(--radius-md);
-		padding: 3rem 2rem;
-		box-shadow: var(--shadow-raised);
+		padding: 2.5rem 2rem;
+		box-shadow: var(--shadow-card);
 		margin: 2rem 0;
 	}
 
@@ -65,7 +65,7 @@
 	}
 
 	.success-message h2 {
-		color: var(--brand-subtle);
+		color: var(--text);
 		margin-bottom: 1.5rem;
 		font-size: 1.75rem;
 	}
@@ -86,7 +86,7 @@
 	}
 
 	.next-steps h3 {
-		color: var(--brand-subtle);
+		color: var(--text);
 		margin-bottom: 1rem;
 	}
 
@@ -108,7 +108,7 @@
 	}
 
 	.return-link a {
-		color: var(--brand-subtle);
+		color: var(--text);
 		text-decoration: none;
 		font-weight: 600;
 		font-size: 1.1rem;

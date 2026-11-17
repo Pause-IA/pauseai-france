@@ -168,7 +168,7 @@
 	}
 
 	.back-link:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.newsletter-header {
@@ -210,7 +210,7 @@
 	}
 
 	.original-link:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* Newsletter content container */
@@ -242,7 +242,7 @@
 
 	/* Links */
 	.newsletter-content :global(a) {
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.newsletter-content :global(a:hover) {

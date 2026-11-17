@@ -39,7 +39,7 @@
 								href="https://www.palladiummag.com/2024/05/17/my-last-five-years-of-work/"
 								target="_blank"
 								rel="noopener noreferrer">all human work within 4 years</a
-							>. Whether they fully achieve this goal or not, it's clear we're heading toward a
+							>. Whether they fully achieve this goal or not, it’s clear we’re heading toward a
 							major upheaval in the labor market. We must prepare for an unprecedented economic
 							shock.
 						</p>
@@ -115,7 +115,7 @@
 						<p>
 							OpenAI, DeepMind, Anthropic and other tech giants are investing billions of dollars in
 							creating AI with superhuman capabilities. Their leaders claim they could succeed
-							within the next four years. They admit they don't know how to control their creation
+							within the next four years. They admit they don’t know how to control their creation
 							and publicly acknowledge that <a
 								href="https://www.cnn.com/2023/10/31/tech/sam-altman-ai-risk-taker/index.html"
 								target="_blank"
@@ -123,7 +123,7 @@
 							> because of it.
 						</p>
 						<p>
-							The world's most eminent AI experts have signed an <a
+							The world’s most eminent AI experts have signed an <a
 								href="https://futureoflife.org/open-letter/pause-giant-ai-experiments/"
 								target="_blank"
 								rel="noopener noreferrer">open letter</a
@@ -149,12 +149,12 @@
 					{/if}
 				{:else if tab === 'Économiques et matériels'}
 					<p>
-						Les laboratoires d'IA ont pour projet d'automatiser
+						Les laboratoires d’IA ont pour projet d’automatiser
 						<a
 							href="https://www.palladiummag.com/2024/05/17/my-last-five-years-of-work/"
 							target="_blank"
-							rel="noopener noreferrer">la totalité du travail humain d'ici 4 ans</a
-						>. Qu'ils atteignent pleinement cet objectif ou non, il est évident que nous nous
+							rel="noopener noreferrer">la totalité du travail humain d’ici 4 ans</a
+						>. Qu’ils atteignent pleinement cet objectif ou non, il est évident que nous nous
 						dirigeons vers un bouleversement majeur du marché du travail. Nous devons nous préparer
 						à affronter un choc économique sans précédent.
 					</p>
@@ -166,17 +166,17 @@
 						> liés aux intelligences artificielles menacent directement nos infrastructures, nos entreprises
 						et nos ressources. Cette technologie introduit des vulnérabilités inédites et des possibilités
 						de dysfonctionnements catastrophiques. Imaginez des attaques dévastatrices facilitées par
-						l'IA, ou l'effondrement de secteurs entiers face à ces technologies de rupture. Ces dangers,
+						l’IA, ou l’effondrement de secteurs entiers face à ces technologies de rupture. Ces dangers,
 						bien que moins visibles que ceux menaçant directement les vies humaines, peuvent avoir des
 						conséquences tout aussi massives.
 					</p>
 					<p>
-						Nous devons faire preuve d'une vigilance accrue et mettre en place des régulations
+						Nous devons faire preuve d’une vigilance accrue et mettre en place des régulations
 						rigoureuses pour nous protéger.
 					</p>
 					<p>
-						Si vous souhaitez en savoir plus sur les risques de l'intelligence artificielle sur le
-						marché du travail, n'hésitez pas à visiter le site de notre groupe de travail <a
+						Si vous souhaitez en savoir plus sur les risques de l’intelligence artificielle sur le
+						marché du travail, n’hésitez pas à visiter le site de notre groupe de travail <a
 							href="{prefix}/emploi-ia">Emploi IA.</a
 						>
 					</p>
@@ -187,17 +187,17 @@
 					<p>
 						Imaginez-vous sur une application de rencontre, échangeant des messages avec ce qui
 						semble être la personne parfaite. Mais êtes-vous vraiment en train de discuter avec un
-						être humain ? Aujourd'hui, la réponse peut sembler évidente, mais cette réalité est sur
+						être humain ? Aujourd’hui, la réponse peut sembler évidente, mais cette réalité est sur
 						le point de changer radicalement. La technologie permettant de créer des conversations
 						<a
 							href="https://techxplore.com/news/2024-02-secrets-social-bots-ai-role.html"
 							target="_blank"
-							rel="noopener noreferrer">indiscernables d'interactions humaines existe déjà</a
+							rel="noopener noreferrer">indiscernables d’interactions humaines existe déjà</a
 						>. Elle sera bientôt déployée et rendra impossible toute distinction entre un humain et
 						une IA.
 					</p>
 					<p>
-						Cette évolution rapide révèle à quel point l'IA s'immisce dans notre quotidien, menace
+						Cette évolution rapide révèle à quel point l’IA s’immisce dans notre quotidien, menace
 						notre intimité, notre sécurité et notre bien-être. Chaque jour, nous risquons de voir
 						notre vie privée violée et nos <a
 							href="https://arxiv.org/pdf/2403.14380"
@@ -212,12 +212,12 @@
 					<p>
 						Selon la majorité des experts, les intelligences artificielles seront capables de
 						concevoir et synthétiser à très court terme des virus plus mortels que tout ce que nous
-						connaissons aujourd'hui. Le <a
+						connaissons aujourd’hui. Le <a
 							href="https://arxiv.org/abs/2306.03809"
 							target="_blank"
-							rel="noopener noreferrer">bioterrorisme assisté par l'IA</a
+							rel="noopener noreferrer">bioterrorisme assisté par l’IA</a
 						>
-						n'est qu'un exemple parmi une multitude de menaces émergentes. Le risque de
+						n’est qu’un exemple parmi une multitude de menaces émergentes. Le risque de
 						<a
 							href="https://blog.checkpoint.com/2023/03/15/check-point-research-conducts-initial-security-analysis-of-chatgpt4-highlighting-potential-scenarios-for-accelerated-cybercrime/"
 							target="_blank"
@@ -226,24 +226,24 @@
 						critiques et nos systèmes de communication.
 					</p>
 					<p>
-						Ces scénarios ne sont que la partie visible d'un danger bien plus large : l'IA menace le
+						Ces scénarios ne sont que la partie visible d’un danger bien plus large : l’IA menace le
 						cœur même de notre société. Elle touche à la cohésion sociale et aux fondements de notre
 						démocratie. Nos processus démocratiques sont fragilisés par la polarisation et la
-						désinformation. Les biais raciaux s'exacerbent, <a href="{prefix}/emploi-ia"
-							>l'automatisation des emplois se profile</a
-						>, et l'ombre de nouvelles formes de guerre et de terrorisme plane sur nous.
+						désinformation. Les biais raciaux s’exacerbent, <a href="{prefix}/emploi-ia"
+							>l’automatisation des emplois se profile</a
+						>, et l’ombre de nouvelles formes de guerre et de terrorisme plane sur nous.
 					</p>
 					<Button href="{prefix}/dangers/pour-la-societe">Lire : les dangers pour la société</Button
 					>
 				{:else if tab === 'Pour l\u2019humanité'}
 					<p>
-						OpenAI, DeepMind, Anthropic et d'autres géants technologiques investissent des milliards
-						de dollars dans la création d'une IA aux capacités surhumaines. Leurs dirigeants
-						affirment qu'ils pourraient réussir dans les quatres prochaines années. Ils admettent ne
+						OpenAI, DeepMind, Anthropic et d’autres géants technologiques investissent des milliards
+						de dollars dans la création d’une IA aux capacités surhumaines. Leurs dirigeants
+						affirment qu’ils pourraient réussir dans les quatres prochaines années. Ils admettent ne
 						pas savoir comment contrôler leur création et reconnaissent publiquement que <a
 							href="https://www.cnn.com/2023/10/31/tech/sam-altman-ai-risk-taker/index.html"
 							target="_blank"
-							rel="noopener noreferrer">l'humanité pourrait s'éteindre</a
+							rel="noopener noreferrer">l’humanité pourrait s’éteindre</a
 						> à cause de celle-ci.
 					</p>
 					<p>
@@ -251,7 +251,7 @@
 							href="https://futureoflife.org/open-letter/pause-giant-ai-experiments/"
 							target="_blank"
 							rel="noopener noreferrer">lettre ouverte</a
-						> avertissant que "L'IA représente un risque existentiel pour l'humanité, au même titre que
+						> avertissant que "L’IA représente un risque existentiel pour l’humanité, au même titre que
 						les pandémies et les guerres nucléaires."
 					</p>
 					<p>
@@ -259,12 +259,12 @@
 							href="https://wiki.aiimpacts.org/ai_timelines/predictions_of_human-level_ai_timelines/ai_timeline_surveys/2023_expert_survey_on_progress_in_ai"
 							target="_blank"
 							rel="noopener noreferrer">sondage 2023 de AI Impacts</a
-						> auprès de 2 778 chercheurs en IA, la probabilité médiane d'extinction est estimée à 5%,
-						et plus d'un tiers des répondants la situent au-dessus de 10%.
+						> auprès de 2 778 chercheurs en IA, la probabilité médiane d’extinction est estimée à 5%,
+						et plus d’un tiers des répondants la situent au-dessus de 10%.
 					</p>
 					<p>
-						Jamais auparavant l'humanité n'a fait face à une menace aussi imminente et
-						potentiellement catastrophique. Contrairement à d'autres défis, la crise de l'IA se
+						Jamais auparavant l’humanité n’a fait face à une menace aussi imminente et
+						potentiellement catastrophique. Contrairement à d’autres défis, la crise de l’IA se
 						distingue par son extrême urgence et son potentiel de transformation radicale à très
 						court terme, suscitant une mobilisation sans précédent des plus grands esprits de notre
 						époque.

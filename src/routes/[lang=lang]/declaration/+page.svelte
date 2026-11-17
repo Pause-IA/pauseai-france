@@ -163,7 +163,7 @@
 		</div>
 	</PageHero>
 
-	<blockquote class="statement">
+	<blockquote class="statement aplat-marque">
 		{#if isEn}
 			We call on the governments of the world to sign an international treaty implementing a pause
 			on the training of the most powerful general AI systems, until we know how to build them
@@ -421,22 +421,13 @@
 	}
 
 	/* Citation de la charte : fond --bg-subtle, barre gauche --brand. */
+	/* L'appel lui-même : c'est le texte qu'on vient signer, et il était posé
+	   dans une carte blanche à filet orange. Depuis que les cartes sont
+	   blanches comme la page, cette carte ne se voyait plus du tout. Il prend
+	   l'aplat de marque (classe globale .aplat-marque) : forme, filet orange
+	   et débordement viennent de là, il ne reste ici que sa typographie. */
 	.statement {
-		margin: 0 0 1rem;
-		padding: 1.25rem 1.75rem;
-		border-left: 4px solid var(--brand);
-		background: var(--bg-card);
-		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 		font-weight: 500;
-		font-size: 1.15rem;
-		line-height: 1.7;
-		color: var(--text);
-	}
-
-	@media (min-width: 640px) {
-		.statement {
-			font-size: 1.4rem;
-		}
 	}
 
 	.source,
@@ -483,7 +474,7 @@
 	.num {
 		font-size: 2.5rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--text);
 		line-height: 1.1;
 	}
 
@@ -583,7 +574,7 @@
 		border: none;
 		padding: 0;
 		font: inherit;
-		color: var(--brand-subtle);
+		color: var(--text);
 		text-decoration: underline;
 		cursor: pointer;
 	}

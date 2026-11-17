@@ -54,10 +54,20 @@ const config = {
 							// Page du lien de confirmation (jamais liée depuis le site).
 							'/fr/declaration/confirmer',
 							'/en/declaration/confirmer',
+							// Guide de sensibilisation : lié depuis « Sensibiliser votre
+							// entourage », une route hors préfixe de langue que le robot
+							// d'exploration ne relie pas aux pages /fr et /en.
+							'/fr/guide-sensibilisation',
+							'/en/guide-sensibilisation',
 							// Plan du site : page interne, volontairement hors menu et hors pied
 							// de page, donc invisible au robot d'exploration du prérendu.
 							'/fr/plan-du-site',
 							'/en/plan-du-site',
+							// Page Vidéos : plus liée au menu depuis sa refonte, mais
+							// /videos la redirige encore en 301. Sans cette entrée, le
+							// robot de prérendu ne la trouve pas et l'adresse répond 404.
+							'/fr/videos',
+							'/en/videos',
 							// Signataires des tribunes : jamais liées depuis le site.
 							'/fr/tribunes/le-monde-octobre-2026',
 							'/en/tribunes/le-monde-octobre-2026',

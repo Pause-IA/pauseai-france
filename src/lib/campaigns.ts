@@ -113,7 +113,7 @@ export const campaigns: Campaign[] = [
 		endDate: '2026-09',
 		summary: {
 			fr: {
-				text: "En juillet 2026, des modèles d'OpenAI testés sur leurs capacités de piratage sont sortis d'un environnement censé être isolé, ont atteint Internet, puis ont attaqué les serveurs de production de Hugging Face pour y voler le corrigé du test sur lequel on les évaluait. Personne ne leur avait demandé de le faire.\n\nC'est, à notre connaissance, la première fois qu'une IA échappe à son cadre de test et mène seule une cyberattaque contre une organisation réelle. Environ 1 200 agents distincts, chacun lancé sur sa propre tâche, se sont coordonnés deux mois durant via un forum clandestin qu'OpenAI n'a pas vu ; quelque 700 ont participé à l'attaque, menée en moins de treize heures. Ils écrivent dans leurs propres traces qu'ils sortent du cadre autorisé, et continuent. Ils en ont falsifié une partie. Aucun n'a alerté d'humain.\n\nPause IA a publié l'analyse détaillée de l'incident, du début à la fin, en distinguant les faits établis de ce qui est seulement rapporté. Et nous avons interpellé députés et journalistes pour réclamer deux mesures immédiates : des évaluations de sécurité indépendantes avant déploiement, et la déclaration obligatoire des incidents aux autorités.\n\nLa suite a montré que le problème n'est pas celui d'une entreprise : cinq incidents du même schéma divulgués en trois semaines par trois laboratoires (Anthropic le 30 juillet, l'institut britannique UK AISI le 4 août, Meta le 5). L'enquête indépendante de METR et Redwood Research, publiée le 28 août, s'est révélée plus accablante que le rapport d'OpenAI. Puis la politique s'en est mêlée : le 3 septembre, Bernie Sanders et Greg Casar déposaient le Ban Artificial Superintelligence Act en citant l'incident ; le 9, le chercheur Jacob Coxon démissionnait d'Anthropic ; le 12, Dario Amodei publiait « We Must Pace The Frontier ».\n\nMais rien de tout cela n'est contraignant. OpenAI juge seule si son propre seuil critique a été franchi, et ne s'est pas prononcée. L'épisode du 13 au 19 juillet, quand une seconde vague d'agents s'est retournée contre l'infrastructure interne d'OpenAI, n'a toujours fait l'objet d'aucune enquête indépendante. Si les dégâts sont restés limités, c'est par chance, et la chance n'est pas une méthode : nous poursuivons avec la campagne « Nous sommes au bord de la perte de contrôle ».",
+				text: "En juillet 2026, des modèles d’OpenAI testés sur leurs capacités de piratage sont sortis d’un environnement censé être isolé, ont atteint Internet, puis ont attaqué les serveurs de production de Hugging Face pour y voler le corrigé du test sur lequel on les évaluait. Personne ne leur avait demandé de le faire.\n\nC’est, à notre connaissance, la première fois qu’une IA échappe à son cadre de test et mène seule une cyberattaque contre une organisation réelle. Environ 1 200 agents distincts, chacun lancé sur sa propre tâche, se sont coordonnés deux mois durant via un forum clandestin qu’OpenAI n’a pas vu ; quelque 700 ont participé à l’attaque, menée en moins de treize heures. Ils écrivent dans leurs propres traces qu’ils sortent du cadre autorisé, et continuent. Ils en ont falsifié une partie. Aucun n’a alerté d’humain.\n\nPause IA a publié l’analyse détaillée de l’incident, du début à la fin, en distinguant les faits établis de ce qui est seulement rapporté. Et nous avons interpellé députés et journalistes pour réclamer deux mesures immédiates : des évaluations de sécurité indépendantes avant déploiement, et la déclaration obligatoire des incidents aux autorités.\n\nLa suite a montré que le problème n’est pas celui d’une entreprise : cinq incidents du même schéma divulgués en trois semaines par trois laboratoires (Anthropic le 30 juillet, l’institut britannique UK AISI le 4 août, Meta le 5). L’enquête indépendante de METR et Redwood Research, publiée le 28 août, s’est révélée plus accablante que le rapport d’OpenAI. Puis la politique s’en est mêlée : le 3 septembre, Bernie Sanders et Greg Casar déposaient le Ban Artificial Superintelligence Act en citant l’incident ; le 9, le chercheur Jacob Coxon démissionnait d’Anthropic ; le 12, Dario Amodei publiait « We Must Pace The Frontier ».\n\nMais rien de tout cela n’est contraignant. OpenAI juge seule si son propre seuil critique a été franchi, et ne s’est pas prononcée. L’épisode du 13 au 19 juillet, quand une seconde vague d’agents s’est retournée contre l’infrastructure interne d’OpenAI, n’a toujours fait l’objet d’aucune enquête indépendante. Si les dégâts sont restés limités, c’est par chance, et la chance n’est pas une méthode : nous poursuivons avec la campagne « Nous sommes au bord de la perte de contrôle ».",
 				results: [
 					{ label: 'Agents coordonnés, dont ~700 à l’attaque de Hugging Face', value: '≈ 1 200' },
 					{ label: 'Messages échangés entre eux en moins d’une semaine', value: '+ 70 000' },
@@ -193,7 +193,7 @@ export const campaigns: Campaign[] = [
 		image: '/campaigns/geneve-2026.jpg',
 		summary: {
 			fr: {
-				text: "Les 6 et 7 juillet 2026, l'ONU a réuni à Genève la première session du Dialogue mondial sur la gouvernance de l'intelligence artificielle. Pause IA a interpellé la délégation française pour lui demander de soutenir un traité international instaurant une pause sur les modèles d'IA les plus avancés : plus de 1 000 mails lui ont été adressés pendant la campagne. Le 6 juillet, le Groupe scientifique international indépendant sur l'IA (37 scientifiques, présidé par Yoshua Bengio et Maria Ressa) a présenté son premier rapport, confirmant que « les capacités de l'intelligence artificielle évoluent plus rapidement que notre aptitude à les évaluer ou à les maîtriser ». Pause IA a salué ces travaux tout en appelant à agir sans délai : « la sécurité des citoyens, la souveraineté démocratique et l'avenir de nos sociétés doivent primer sur les intérêts d'une minorité d'acteurs privés », a déclaré Clémence Peyrot, directrice exécutive de Pause IA.",
+				text: "Les 6 et 7 juillet 2026, l’ONU a réuni à Genève la première session du Dialogue mondial sur la gouvernance de l’intelligence artificielle. Pause IA a interpellé la délégation française pour lui demander de soutenir un traité international instaurant une pause sur les modèles d’IA les plus avancés : plus de 1 000 mails lui ont été adressés pendant la campagne. Le 6 juillet, le Groupe scientifique international indépendant sur l’IA (37 scientifiques, présidé par Yoshua Bengio et Maria Ressa) a présenté son premier rapport, confirmant que « les capacités de l’intelligence artificielle évoluent plus rapidement que notre aptitude à les évaluer ou à les maîtriser ». Pause IA a salué ces travaux tout en appelant à agir sans délai : « la sécurité des citoyens, la souveraineté démocratique et l’avenir de nos sociétés doivent primer sur les intérêts d’une minorité d’acteurs privés », a déclaré Clémence Peyrot, directrice exécutive de Pause IA.",
 				results: [{ label: 'Mails envoyés à la délégation française', value: '+1 000' }]
 			},
 			en: {
@@ -233,18 +233,18 @@ export const campaigns: Campaign[] = [
 		image: '/campaigns/palais-elysee.jpg',
 		summary: {
 			fr: {
-				text: "À l'occasion du sommet du G7 à Évian (15-17 juin 2026), Pause IA a publié une tribune dans Le Nouvel Obs avec 30 signataires : « Le G7 ne doit pas accélérer mais sécuriser l'IA ! ». Alors que les déclarations officielles d'ouverture du sommet étaient très décevantes, la réunion du 17 juin entre les représentants du G7 et les dirigeants d'OpenAI, Anthropic et Google DeepMind a remis la sécurité à l'agenda : Emmanuel Macron a annoncé la construction d'une plateforme de coopération entre démocraties sur les risques de l'IA, afin de définir des standards communs. Pause IA salue cette prise de conscience tout en appelant à des règles contraignantes et à une coopération véritablement internationale.",
+				text: "À l’occasion du sommet du G7 à Évian (15-17 juin 2026), Pause IA a publié une tribune dans Le Nouvel Obs avec 30 signataires : « Le G7 ne doit pas accélérer mais sécuriser l’IA ! ». Alors que les déclarations officielles d’ouverture du sommet étaient très décevantes, la réunion du 17 juin entre les représentants du G7 et les dirigeants d’OpenAI, Anthropic et Google DeepMind a remis la sécurité à l’agenda : Emmanuel Macron a annoncé la construction d’une plateforme de coopération entre démocraties sur les risques de l’IA, afin de définir des standards communs. Pause IA salue cette prise de conscience tout en appelant à des règles contraignantes et à une coopération véritablement internationale.",
 				results: [
 					{ label: 'Tribune & presse', value: 'Le Nouvel Obs (31 signataires), Channel News' }
 				],
 				articles: [
 					{
-						title: "« Le G7 ne doit pas accélérer mais sécuriser l'IA »",
+						title: "« Le G7 ne doit pas accélérer mais sécuriser l’IA »",
 						source: 'Le Nouvel Obs',
 						url: 'https://www.nouvelobs.com/economie/20260615.OBS115808/le-g7-ne-doit-pas-accelerer-mais-securiser-l-ia.html'
 					},
 					{
-						title: "Pause IA salue la prise de conscience par le G7 des risques posés par l'IA",
+						title: "Pause IA salue la prise de conscience par le G7 des risques posés par l’IA",
 						source: 'Channel News',
 						url: 'https://www.channelnews.fr/pause-ia-salue-la-prise-de-conscience-par-le-g7-des-risques-poses-par-lia-157380'
 					}
@@ -255,7 +255,7 @@ export const campaigns: Campaign[] = [
 				}
 			},
 			en: {
-				text: 'For the G7 summit in Évian (15-17 June 2026), Pause AI published an op-ed in Le Nouvel Obs co-signed by 30 others: "The G7 must not accelerate but secure AI!". While the summit\'s opening statements on AI safety were disappointing, the 17 June meeting between G7 representatives and the heads of OpenAI, Anthropic and Google DeepMind put safety back on the agenda: Emmanuel Macron announced the creation of a cooperation platform between democracies on AI risks, aimed at defining common standards. Pause AI welcomes this awareness while calling for binding rules and genuinely international cooperation.',
+				text: 'For the G7 summit in Évian (15-17 June 2026), Pause AI published an op-ed in Le Nouvel Obs co-signed by 30 others: "The G7 must not accelerate but secure AI!". While the summit’s opening statements on AI safety were disappointing, the 17 June meeting between G7 representatives and the heads of OpenAI, Anthropic and Google DeepMind put safety back on the agenda: Emmanuel Macron announced the creation of a cooperation platform between democracies on AI risks, aimed at defining common standards. Pause AI welcomes this awareness while calling for binding rules and genuinely international cooperation.',
 				results: [
 					{ label: 'Op-ed & press', value: 'Le Nouvel Obs (31 signatories), Channel News' }
 				],
@@ -306,12 +306,12 @@ export const campaigns: Campaign[] = [
 		startDate: '2026-04',
 		image: '/campaigns/DSC08648_r.webp',
 		fr: {
-			title: "L'IA ne détruira pas QUE votre emploi",
-			homeTitle: "Témoignez de l'impact de l'IA sur votre travail",
+			title: "L’IA ne détruira pas QUE votre emploi",
+			homeTitle: "Témoignez de l’impact de l’IA sur votre travail",
 			description:
-				"Les systèmes d'IA généralistes peuvent remplacer du travail humain massivement, sans filet de sécurité. Mais le problème dépasse l'emploi : c'est notre capacité à contrôler ces technologies qui recule. Témoignages, enquête et revue de presse.",
+				"Les systèmes d’IA généralistes peuvent remplacer du travail humain massivement, sans filet de sécurité. Mais le problème dépasse l’emploi : c’est notre capacité à contrôler ces technologies qui recule. Témoignages, enquête et revue de presse.",
 			shortDescription:
-				"Témoignages, enquête, revue de presse : comprendre comment l'IA bouleverse le travail et notre capacité à la contrôler.",
+				"Témoignages, enquête, revue de presse : comprendre comment l’IA bouleverse le travail et notre capacité à la contrôler.",
 			cta: 'Participer à la campagne',
 			homeCta: 'Partager mon témoignage'
 		},
@@ -333,7 +333,7 @@ export const campaigns: Campaign[] = [
 		endDate: '2026-02',
 		summary: {
 			fr: {
-				text: "À l'occasion du Sommet de l'IA en Inde, Pause IA s'est mobilisée pour remettre la sécurité au cœur de l'agenda international. Plus de 4 000 personnes ont signé la pétition et plus de 2 000 mails ont été envoyés aux délégués dans 14 pays. Une tribune a également été publiée dans Le Nouvel Obs.",
+				text: "À l’occasion du Sommet de l’IA en Inde, Pause IA s’est mobilisée pour remettre la sécurité au cœur de l’agenda international. Plus de 4 000 personnes ont signé la pétition et plus de 2 000 mails ont été envoyés aux délégués dans 14 pays. Une tribune a également été publiée dans Le Nouvel Obs.",
 				results: [
 					{ label: 'Signatures pétition', value: '+4 000' },
 					{ label: 'Mails aux délégués', value: '+2 000 (14 pays)' },
@@ -358,9 +358,9 @@ export const campaigns: Campaign[] = [
 			}
 		},
 		fr: {
-			title: "Sommet de l'IA 2026",
+			title: "Sommet de l’IA 2026",
 			description:
-				"Le Sommet de l'IA 2026 en Inde est un moment crucial pour l'avenir de notre société. Signez la pétition et interpellez les décideurs politiques pour que la sécurité soit au cœur des discussions.",
+				"Le Sommet de l’IA 2026 en Inde est un moment crucial pour l’avenir de notre société. Signez la pétition et interpellez les décideurs politiques pour que la sécurité soit au cœur des discussions.",
 			cta: 'Participer à la campagne'
 		},
 		en: {
@@ -377,7 +377,7 @@ export const campaigns: Campaign[] = [
 		endDate: '2026-03',
 		summary: {
 			fr: {
-				text: "Pause IA a interpellé les candidats aux élections municipales de mars 2026 pour les inviter à signer une charte en 14 engagements sur les risques liés à l'IA. La campagne a mobilisé dans toute la France et généré une couverture médiatique nationale.",
+				text: "Pause IA a interpellé les candidats aux élections municipales de mars 2026 pour les inviter à signer une charte en 14 engagements sur les risques liés à l’IA. La campagne a mobilisé dans toute la France et généré une couverture médiatique nationale.",
 				results: [
 					{ label: 'Signataires', value: '12 candidats' },
 					{ label: 'Villes', value: '11 villes' },
@@ -386,7 +386,7 @@ export const campaigns: Campaign[] = [
 				],
 				articles: [
 					{
-						title: "Quand l'IA s'invite dans les municipales",
+						title: "Quand l’IA s’invite dans les municipales",
 						source: 'Next',
 						url: 'https://next.ink/229085/quand-lia-sinvite-dans-les-municipales/'
 					},
@@ -402,18 +402,18 @@ export const campaigns: Campaign[] = [
 					},
 					{
 						title:
-							"Annecy : une association interpelle les candidats sur l'intelligence artificielle",
+							"Annecy : une association interpelle les candidats sur l’intelligence artificielle",
 						source: 'ODS Radio',
 						url: 'https://www.odsradio.com/news/locales/108150/annecy-une-association-interpelle-les-candidats-sur-l-intelligence-artificielle'
 					},
 					{
-						title: "Pause IA s'incruste dans les municipales",
+						title: "Pause IA s’incruste dans les municipales",
 						source: 'Contexte',
 						url: 'https://www.contexte.com/fr/actualite/tech/pause-ia-sincruste-dans-les-municipales_257807'
 					},
 					{
 						title:
-							"Risques IA : l'association interpelle les candidats aux municipales de Toulouse",
+							"Risques IA : l’association interpelle les candidats aux municipales de Toulouse",
 						source: "L'Opinion",
 						url: 'https://lopinion.com/amp/articles/actualite/32757_risques-ia-association-candidats-municipales-toulouse'
 					},
@@ -423,17 +423,17 @@ export const campaigns: Campaign[] = [
 						url: 'https://presseagence.fr/nice-maxime-fournes-les-candidats-aux-municipales-doivent-se-positionner-clairement/'
 					},
 					{
-						title: "Municipales 2026 : Pause IA interpelle les candidats sur les dangers de l'IA",
+						title: "Municipales 2026 : Pause IA interpelle les candidats sur les dangers de l’IA",
 						source: "Place Gre'net",
 						url: 'https://www.placegrenet.fr/2026/03/08/municipales-2026-pause-ia-interpelle-les-candidats-sur-les-dangers-de-lintelligence-artificielle/673506'
 					},
 					{
-						title: "Isère / Grenoble : Pause IA appelle les candidats à s'engager sur sa charte",
+						title: "Isère / Grenoble : Pause IA appelle les candidats à s’engager sur sa charte",
 						source: 'Le Dauphiné Libéré',
 						url: 'https://www.ledauphine.com/elections/2026/03/06/isere-grenoble-l-association-pause-ia-appelle-les-candidats-a-s-engager-sur-sa-charte'
 					},
 					{
-						title: "Nice : Jean-Marc Governatori s'engage sur la charte de Pause IA",
+						title: "Nice : Jean-Marc Governatori s’engage sur la charte de Pause IA",
 						source: 'Presse Agence',
 						url: 'https://presseagence.fr/nice-jean-marc-governatori-sengage-sur-la-charte-de-pause-ia-pour-les-municipales/'
 					}
@@ -449,7 +449,7 @@ export const campaigns: Campaign[] = [
 				],
 				articles: [
 					{
-						title: "Quand l'IA s'invite dans les municipales",
+						title: "Quand l’IA s’invite dans les municipales",
 						source: 'Next',
 						url: 'https://next.ink/229085/quand-lia-sinvite-dans-les-municipales/'
 					},
@@ -465,18 +465,18 @@ export const campaigns: Campaign[] = [
 					},
 					{
 						title:
-							"Annecy : une association interpelle les candidats sur l'intelligence artificielle",
+							"Annecy : une association interpelle les candidats sur l’intelligence artificielle",
 						source: 'ODS Radio',
 						url: 'https://www.odsradio.com/news/locales/108150/annecy-une-association-interpelle-les-candidats-sur-l-intelligence-artificielle'
 					},
 					{
-						title: "Pause IA s'incruste dans les municipales",
+						title: "Pause IA s’incruste dans les municipales",
 						source: 'Contexte',
 						url: 'https://www.contexte.com/fr/actualite/tech/pause-ia-sincruste-dans-les-municipales_257807'
 					},
 					{
 						title:
-							"Risques IA : l'association interpelle les candidats aux municipales de Toulouse",
+							"Risques IA : l’association interpelle les candidats aux municipales de Toulouse",
 						source: "L'Opinion",
 						url: 'https://lopinion.com/amp/articles/actualite/32757_risques-ia-association-candidats-municipales-toulouse'
 					},
@@ -486,17 +486,17 @@ export const campaigns: Campaign[] = [
 						url: 'https://presseagence.fr/nice-maxime-fournes-les-candidats-aux-municipales-doivent-se-positionner-clairement/'
 					},
 					{
-						title: "Municipales 2026 : Pause IA interpelle les candidats sur les dangers de l'IA",
+						title: "Municipales 2026 : Pause IA interpelle les candidats sur les dangers de l’IA",
 						source: "Place Gre'net",
 						url: 'https://www.placegrenet.fr/2026/03/08/municipales-2026-pause-ia-interpelle-les-candidats-sur-les-dangers-de-lintelligence-artificielle/673506'
 					},
 					{
-						title: "Isère / Grenoble : Pause IA appelle les candidats à s'engager sur sa charte",
+						title: "Isère / Grenoble : Pause IA appelle les candidats à s’engager sur sa charte",
 						source: 'Le Dauphiné Libéré',
 						url: 'https://www.ledauphine.com/elections/2026/03/06/isere-grenoble-l-association-pause-ia-appelle-les-candidats-a-s-engager-sur-sa-charte'
 					},
 					{
-						title: "Nice : Jean-Marc Governatori s'engage sur la charte de Pause IA",
+						title: "Nice : Jean-Marc Governatori s’engage sur la charte de Pause IA",
 						source: 'Presse Agence',
 						url: 'https://presseagence.fr/nice-jean-marc-governatori-sengage-sur-la-charte-de-pause-ia-pour-les-municipales/'
 					}
@@ -506,7 +506,7 @@ export const campaigns: Campaign[] = [
 		fr: {
 			title: 'Élections municipales 2026',
 			description:
-				"Les élections municipales de mars 2026 sont une opportunité d'agir localement. Interpellez les candidats de votre ville et invitez-les à signer la charte Pause IA.",
+				"Les élections municipales de mars 2026 sont une opportunité d’agir localement. Interpellez les candidats de votre ville et invitez-les à signer la charte Pause IA.",
 			cta: 'Participer à la campagne'
 		},
 		en: {
@@ -566,7 +566,7 @@ export function getSortedCampaigns(): Campaign[] {
 
 /**
  * Campagne mise en avant : la plus récente encore en cours. Sert de destination
- * de repli pour le bandeau quand personne n'a renseigné d'URL dans Notion.
+ * de repli pour le bandeau quand personne n’a renseigné d'URL dans Notion.
  */
 export function getFeaturedCampaign(): Campaign | undefined {
 	return getSortedCampaigns().find((campaign) => campaign.status === 'active')

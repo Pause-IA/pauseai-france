@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { openActivoiceForm } from '$lib/activoice'
 	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$lib/components/Button.svelte'
 	import { getT } from '$lib/i18n'
 	import type { PageData } from './$types'
@@ -26,7 +25,8 @@
 
 <article>
 	<section class="hero">
-		<UnderlinedTitle as="h1">{t.sommet.title}</UnderlinedTitle>
+		<p class="eyebrow">{data.lang === 'en' ? 'Campaign' : 'Campagne'}</p>
+		<h1>{t.sommet.title}</h1>
 	</section>
 
 	<section class="campaign-content">
@@ -46,6 +46,27 @@
 </article>
 
 <style>
+	/* Étiquette et titre du modèle, à la place du titre au filet dégradé. */
+	.eyebrow {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		font-size: clamp(2.1rem, 6vw, 3.2rem);
+		line-height: 1.06;
+		letter-spacing: -0.025em;
+		margin-bottom: 1.25rem;
+	}
+
 	article {
 		max-inline-size: var(--width-wide);
 		margin-inline: auto;

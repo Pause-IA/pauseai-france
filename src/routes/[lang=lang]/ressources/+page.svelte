@@ -107,16 +107,6 @@
 	// Read initial filter state from the URL on first browser load. This
 	// lets users bookmark / share specific views (e.g. ?lang=fr&type=book).
 	let initialized = false
-	onMount(() => {
-		const u = new URL(window.location.href)
-		query = u.searchParams.get('q') ?? ''
-		const splitParam = (k: string) =>
-			(u.searchParams.get(k) ?? '').split(',').filter((x) => x.length > 0)
-		langFilter = splitParam('lang') as Lang[]
-		categoryFilter = splitParam('cat') as Category[]
-		typeFilter = splitParam('type') as MediaType[]
-		initialized = true
-	})
 
 	// Push state changes back into the URL (replace, no history bloat).
 	// Skipped until initialized so the onMount read doesn't fight with this.
@@ -308,38 +298,6 @@
 		categoryFilter.length > 0 ||
 		typeFilter.length > 0
 
-	// Track the category section currently in the viewport so the side TOC
-	// can highlight it. Uses IntersectionObserver, far cheaper than scroll
-	// listeners and triggers exactly when a section header crosses the top
-	// 30% of the viewport.
-	let activeSection: Category | '' = ''
-	onMount(() => {
-		const sections = CATEGORY_ORDER.map((c) => document.getElementById(c)).filter(
-			(el): el is HTMLElement => el !== null
-		)
-		if (sections.length === 0) return
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				// Pick the topmost entry currently intersecting. If several are
-				// visible, prefer the one closest to the top of the viewport.
-				const visible = entries
-					.filter((e) => e.isIntersecting)
-					.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
-				if (visible[0]) {
-					activeSection = visible[0].target.id as Category
-				}
-			},
-			{ rootMargin: '-15% 0px -70% 0px', threshold: 0 }
-		)
-		sections.forEach((s) => {
-			observer.observe(s)
-		})
-		return () => {
-			observer.disconnect()
-		}
-	})
-
 	// Map our internal media types to Schema.org @type values for the
 	// JSON-LD payload. Kept conservative: when no good fit exists we
 	// fall back to CreativeWork.
@@ -433,314 +391,184 @@
 	{@html jsonLdScript}
 </svelte:head>
 
-<div class="layout">
-	<!-- Side TOC : sticky on desktop, hidden on mobile (top filter pills
-	     already act as quick category jump on small screens). -->
-	<aside class="toc" aria-label={t.toc_title}>
-		<p class="toc-title">{t.toc_title}</p>
-		<ul>
-			{#each CATEGORY_ORDER as cat}
-				{@const items = byCategory[cat] ?? []}
-				{#if items.length > 0}
-					<li>
-						<a href={'#' + cat} class="toc-link" class:active={activeSection === cat}>
-							<svelte:component this={CATEGORIES[cat].icon} size={14} />
-							<span class="toc-label">{CATEGORIES[cat].label}</span>
-							<span class="toc-count">{items.length}</span>
-						</a>
-					</li>
-				{/if}
-			{/each}
-		</ul>
-	</aside>
+<!-- La table des matières latérale a été retirée : la barre de filtres, juste
+     sous le titre, propose déjà les mêmes catégories et les faisait doublon.
+     Elle n’était d’ailleurs affichée qu’au-delà de 1024 px, et la page
+     indiquait elle-même que les pastilles la remplaçaient en dessous. -->
+<article class="ressources-page">
+	<!-- Hero -->
+	<PageHero eyebrow={nav.comprendre} lede={t.hero_desc}>{t.hero_title}</PageHero>
 
-	<article class="ressources-page">
-		<!-- Hero -->
-		<PageHero eyebrow={nav.comprendre} lede={t.hero_desc}>{t.hero_title}</PageHero>
-
-		<!-- Controls -->
-		<section class="controls">
-			<div class="search">
-				<Search size={16} class="search-icon" />
-				<input
-					type="search"
-					placeholder={t.search_placeholder}
-					bind:value={query}
-					aria-label={t.search_placeholder}
-				/>
-				{#if query}
-					<button class="clear-btn" on:click={() => (query = '')} aria-label={t.search_clear}>
-						<X size={14} />
-					</button>
-				{/if}
-			</div>
-
-			<div class="filter-row">
-				<div class="filter-group" aria-label={t.filter_lang}>
-					<button
-						class="pill"
-						class:active={langFilter.includes('fr')}
-						on:click={() => {
-							toggleLang('fr')
-						}}
-						aria-pressed={langFilter.includes('fr')}
-					>
-						<img src="/flags/fr.svg" alt="" width="16" /> FR
-					</button>
-					<button
-						class="pill"
-						class:active={langFilter.includes('en')}
-						on:click={() => {
-							toggleLang('en')
-						}}
-						aria-pressed={langFilter.includes('en')}
-					>
-						<img src="/flags/gb.svg" alt="" width="16" /> EN
-					</button>
-				</div>
-
-				<div class="filter-group" aria-label={t.filter_category}>
-					{#each CATEGORY_ORDER as cat}
-						<button
-							class="pill"
-							class:active={categoryFilter.includes(cat)}
-							on:click={() => {
-								toggleCategory(cat)
-							}}
-							aria-pressed={categoryFilter.includes(cat)}
-						>
-							<svelte:component this={CATEGORIES[cat].icon} size={14} />
-							<span>{CATEGORIES[cat].label}</span>
-						</button>
-					{/each}
-				</div>
-
-				<div class="filter-group" aria-label={t.filter_type}>
-					{#each MEDIA_TYPE_ORDER as mt}
-						<button
-							class="pill pill-type"
-							class:active={typeFilter.includes(mt)}
-							on:click={() => {
-								toggleType(mt)
-							}}
-							aria-pressed={typeFilter.includes(mt)}
-						>
-							{MEDIA_TYPE_LABELS[mt]}
-						</button>
-					{/each}
-				</div>
-			</div>
-
-			<div class="meta-row">
-				<p class="count">
-					<strong>{visibleCount}</strong>
-					{visibleCount === 1 ? t.count_singular : t.count_plural}
-					{#if hasActiveFilter}
-						<span class="count-total">{t.count_total} {totalCount}</span>
-						<button class="reset-btn" on:click={clearFilters}>{t.reset}</button>
-					{/if}
-				</p>
-				<p class="updated">{t.updated} {formatUpdated(RESOURCES_LAST_UPDATED, lang)}</p>
-			</div>
-		</section>
-
-		<!-- Sections -->
-		{#if visibleCount === 0}
-			<p class="empty">{t.empty}</p>
-		{/if}
-
-		{#each CATEGORY_ORDER as cat}
-			{@const items = byCategory[cat] ?? []}
-			{#if items.length > 0}
-				<section id={cat} class="res-section">
-					<header class="res-section-header">
-						<div class="section-icon" aria-hidden="true">
-							<svelte:component this={CATEGORIES[cat].icon} size="1.2em" />
-						</div>
-						<div>
-							<h2>{CATEGORIES[cat].label}</h2>
-							{#if CATEGORIES[cat].intro}
-								<p class="section-intro">{CATEGORIES[cat].intro}</p>
-							{/if}
-						</div>
-					</header>
-
-					{#each groupBySubgroup(items, cat) as group}
-						<div class="res-group">
-							{#if group.label}
-								<h3 class="res-subtitle">{group.label}</h3>
-							{/if}
-							<ul class="res-list">
-								{#each group.items as entry}
-									<li class="res-entry">
-										<a
-											class="res-card"
-											href={entry.url}
-											target={entry.internal ? undefined : '_blank'}
-											rel={entry.internal ? undefined : 'noopener noreferrer'}
-										>
-											<div class="res-card-main">
-												<div class="res-card-header">
-													<h3 class="res-title">{localized(entry.title, lang)}</h3>
-													<MoveUpRight class="res-arrow" size={16} aria-hidden="true" />
-												</div>
-												<p class="res-desc">{localized(entry.description, lang)}</p>
-											</div>
-											<div class="res-card-meta">
-												<span class="res-flags">
-													{#each entry.langs as l}
-														<span class="res-flag">
-															<img src={flagSrc(l)} alt="" aria-hidden="true" />
-															<span class="res-flag-label">{flagAlt(l)}</span>
-														</span>
-													{/each}
-												</span>
-												{#if entry.date}<span class="res-date">{entry.date}</span>{/if}
-											</div>
-										</a>
-									</li>
-								{/each}
-							</ul>
-						</div>
-					{/each}
-				</section>
+	<!-- Controls -->
+	<section class="controls">
+		<div class="search">
+			<Search size={16} class="search-icon" />
+			<input
+				type="search"
+				placeholder={t.search_placeholder}
+				bind:value={query}
+				aria-label={t.search_placeholder}
+			/>
+			{#if query}
+				<button class="clear-btn" on:click={() => (query = '')} aria-label={t.search_clear}>
+					<X size={14} />
+				</button>
 			{/if}
-		{/each}
+		</div>
 
-		<!-- Bottom CTA -->
-		<section class="cta-card">
-			<h3>{t.cta_title}</h3>
-			<p>{t.cta_desc}</p>
-			<a class="cta-btn" href={SUGGEST_URL}>
-				<Mail size={16} />
-				<span>{t.cta_button}</span>
-			</a>
-		</section>
-	</article>
-</div>
+		<div class="filter-row">
+			<div class="filter-group" aria-label={t.filter_lang}>
+				<button
+					class="pill"
+					class:active={langFilter.includes('fr')}
+					on:click={() => {
+						toggleLang('fr')
+					}}
+					aria-pressed={langFilter.includes('fr')}
+				>
+					<img src="/flags/fr.svg" alt="" width="16" /> FR
+				</button>
+				<button
+					class="pill"
+					class:active={langFilter.includes('en')}
+					on:click={() => {
+						toggleLang('en')
+					}}
+					aria-pressed={langFilter.includes('en')}
+				>
+					<img src="/flags/gb.svg" alt="" width="16" /> EN
+				</button>
+			</div>
+
+			<div class="filter-group" aria-label={t.filter_category}>
+				{#each CATEGORY_ORDER as cat}
+					<button
+						class="pill"
+						class:active={categoryFilter.includes(cat)}
+						on:click={() => {
+							toggleCategory(cat)
+						}}
+						aria-pressed={categoryFilter.includes(cat)}
+					>
+						<svelte:component this={CATEGORIES[cat].icon} size={14} />
+						<span>{CATEGORIES[cat].label}</span>
+					</button>
+				{/each}
+			</div>
+
+			<div class="filter-group" aria-label={t.filter_type}>
+				{#each MEDIA_TYPE_ORDER as mt}
+					<button
+						class="pill pill-type"
+						class:active={typeFilter.includes(mt)}
+						on:click={() => {
+							toggleType(mt)
+						}}
+						aria-pressed={typeFilter.includes(mt)}
+					>
+						{MEDIA_TYPE_LABELS[mt]}
+					</button>
+				{/each}
+			</div>
+		</div>
+
+		<div class="meta-row">
+			<p class="count">
+				<strong>{visibleCount}</strong>
+				{visibleCount === 1 ? t.count_singular : t.count_plural}
+				{#if hasActiveFilter}
+					<span class="count-total">{t.count_total} {totalCount}</span>
+					<button class="reset-btn" on:click={clearFilters}>{t.reset}</button>
+				{/if}
+			</p>
+			<p class="updated">{t.updated} {formatUpdated(RESOURCES_LAST_UPDATED, lang)}</p>
+		</div>
+	</section>
+
+	<!-- Sections -->
+	{#if visibleCount === 0}
+		<p class="empty">{t.empty}</p>
+	{/if}
+
+	{#each CATEGORY_ORDER as cat}
+		{@const items = byCategory[cat] ?? []}
+		{#if items.length > 0}
+			<section id={cat} class="res-section">
+				<header class="res-section-header">
+					<div class="section-icon" aria-hidden="true">
+						<svelte:component this={CATEGORIES[cat].icon} size="1.2em" />
+					</div>
+					<div>
+						<h2>{CATEGORIES[cat].label}</h2>
+						{#if CATEGORIES[cat].intro}
+							<p class="section-intro">{CATEGORIES[cat].intro}</p>
+						{/if}
+					</div>
+				</header>
+
+				{#each groupBySubgroup(items, cat) as group}
+					<div class="res-group">
+						{#if group.label}
+							<h3 class="res-subtitle">{group.label}</h3>
+						{/if}
+						<ul class="res-list">
+							{#each group.items as entry}
+								<li class="res-entry">
+									<a
+										class="res-card"
+										href={entry.url}
+										target={entry.internal ? undefined : '_blank'}
+										rel={entry.internal ? undefined : 'noopener noreferrer'}
+									>
+										<div class="res-card-main">
+											<div class="res-card-header">
+												<h3 class="res-title">{localized(entry.title, lang)}</h3>
+												<MoveUpRight class="res-arrow" size={16} aria-hidden="true" />
+											</div>
+											<p class="res-desc">{localized(entry.description, lang)}</p>
+										</div>
+										<div class="res-card-meta">
+											<span class="res-flags">
+												{#each entry.langs as l}
+													<span class="res-flag">
+														<img src={flagSrc(l)} alt="" aria-hidden="true" />
+														<span class="res-flag-label">{flagAlt(l)}</span>
+													</span>
+												{/each}
+											</span>
+											{#if entry.date}<span class="res-date">{entry.date}</span>{/if}
+										</div>
+									</a>
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/each}
+			</section>
+		{/if}
+	{/each}
+
+	<!-- Bottom CTA -->
+	<section class="cta-card">
+		<h3>{t.cta_title}</h3>
+		<p>{t.cta_desc}</p>
+		<a class="cta-btn" href={SUGGEST_URL}>
+			<Mail size={16} />
+			<span>{t.cta_button}</span>
+		</a>
+	</section>
+</article>
 
 <style>
 	/* ─── Page layout : sticky TOC on the left, content on the right ── */
-	.layout {
-		display: grid;
-		grid-template-columns: 1fr;
-		max-width: 72rem;
-		margin: 3rem auto 0;
-		padding: 0 1.25rem;
-		gap: 2.5rem;
-	}
 
 	.ressources-page {
-		min-width: 0; /* allow grid item to shrink */
 		max-inline-size: var(--width-content);
-		padding: 0 0 4rem;
+		/* 3 rem en haut, comme le gabarit partagé (.ui-page). La page
+		   démarrait à 2 px sous l'en-tête quand toutes les autres sont à
+		   50 px : elle était la seule à ne pas respirer. */
+		padding: 3rem 0 4rem;
 		margin: 0 auto;
-	}
-
-	/* ─── Side TOC ────────────────────────────────────────── */
-	.toc {
-		display: none; /* hidden on mobile, see media query below */
-	}
-
-	.toc-title {
-		font-family: var(--font-heading);
-		font-weight: 600;
-		font-size: 0.72rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: var(--text-secondary);
-		margin: 0 0 0.6rem;
-		padding-left: 0.75rem;
-	}
-
-	.toc ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0.1rem;
-	}
-
-	.toc-link {
-		display: flex;
-		align-items: center;
-		gap: 0.45rem;
-		padding: 0.45rem 0.75rem;
-		border-radius: var(--radius-sm);
-		font-family: var(--font-heading);
-		font-weight: 500;
-		font-size: 0.85rem;
-		color: var(--text-secondary);
-		text-decoration: none;
-		border-left: 2px solid transparent;
-		transition:
-			background 0.15s,
-			color 0.15s,
-			border-color 0.15s;
-	}
-
-	.toc-link:hover {
-		background: rgba(var(--brand-rgb), 0.08);
-		color: var(--brand-subtle);
-	}
-
-	.toc-link.active {
-		background: rgba(var(--brand-rgb), 0.1);
-		color: var(--brand-subtle);
-		border-left-color: var(--brand-subtle);
-		font-weight: 600;
-	}
-
-	:global([data-theme='dark']) .toc-link:hover,
-	:global([data-theme='dark']) .toc-link.active {
-		background: rgba(var(--brand-rgb), 0.12);
-		color: var(--brand-subtle);
-	}
-
-	.toc-label {
-		flex: 1;
-		min-width: 0;
-	}
-
-	.toc-count {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 1.3rem;
-		height: 1.3rem;
-		padding: 0 0.35rem;
-		border-radius: var(--radius-pill);
-		background: rgba(var(--ink-rgb), 0.06);
-		color: var(--text-secondary);
-		font-size: 0.7rem;
-		font-weight: 600;
-	}
-
-	.toc-link.active .toc-count {
-		background: var(--brand);
-		color: var(--on-brand);
-	}
-
-	:global([data-theme='dark']) .toc-count {
-		background: rgba(var(--on-dark-rgb), 0.08);
-	}
-
-	@media (min-width: 1024px) {
-		.layout {
-			grid-template-columns: 14rem minmax(0, 1fr);
-		}
-		.toc {
-			display: block;
-			position: sticky;
-			top: 5.5rem;
-			align-self: start;
-			max-height: calc(100vh - 7rem);
-			overflow-y: auto;
-		}
-		.ressources-page {
-			margin: 0;
-		}
 	}
 
 	/* ─── Controls ─────────────────────────────────────────── */
@@ -839,7 +667,7 @@
 
 	.pill:hover {
 		border-color: var(--brand);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.pill.active {
@@ -854,7 +682,7 @@
 	}
 
 	:global([data-theme='dark']) .pill:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.meta-row {
@@ -896,7 +724,7 @@
 
 	.reset-btn:hover {
 		border-color: var(--brand);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.updated {
@@ -930,15 +758,15 @@
 		width: 2.4rem;
 		height: 2.4rem;
 		border-radius: var(--radius-md);
-		background: var(--brand-light);
-		color: var(--brand-subtle);
+		background: var(--panneau-bg);
+		color: var(--brand);
 		flex-shrink: 0;
 		margin-top: 0.15rem;
 	}
 
 	:global([data-theme='dark']) .section-icon {
 		background: rgba(var(--brand-rgb), 0.15);
-		color: var(--brand-subtle);
+		color: var(--brand);
 	}
 
 	.res-section-header h2 {
@@ -1007,8 +835,13 @@
 			box-shadow 0.2s ease;
 	}
 
+	/* Au survol : un filet orange épais sur le bord d'attaque, et le titre se
+	   souligne. Une bordure qui change de teinte ne se voit pas assez pour
+	   dire « ceci se clique » ; le filet, lui, se lit du coin de l'œil. */
 	.res-card:hover {
 		border-color: var(--brand);
+		border-inline-start: 3px solid var(--brand);
+		padding-inline-start: calc(1.1rem - 2px);
 		transform: translateY(-1px);
 		box-shadow: 0 4px 14px rgba(var(--ink-rgb), 0.05);
 	}
@@ -1040,11 +873,11 @@
 		font-size: 1rem;
 		line-height: 1.35;
 		margin: 0;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	:global([data-theme='dark']) .res-title {
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	:global(.res-arrow) {
@@ -1056,15 +889,24 @@
 			color 0.2s ease;
 	}
 
+	.res-card:hover .res-title {
+		text-decoration: underline;
+		text-decoration-color: var(--brand);
+		text-decoration-thickness: 0.09em;
+		text-underline-offset: 0.16em;
+	}
+
 	.res-card:hover :global(.res-arrow) {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		transform: translate(2px, -2px);
 	}
 
+	/* 1 rem et non 0,95 : c'est de la prose, et les guides de typographie web
+	   s'accordent sur 16 px comme plancher du corps de texte. */
 	.res-desc {
 		font-family: var(--font-body);
 		font-weight: 400;
-		font-size: 0.95rem;
+		font-size: 1rem;
 		line-height: 1.5;
 		color: var(--text);
 		margin: 0;

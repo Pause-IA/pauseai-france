@@ -14,8 +14,8 @@
 	}).format(new Date(miseAJour))
 </script>
 
-<!-- Page demandée par la rédaction : la liste des signataires et rien d'autre
-     (pas de texte de tribune, pas d'appel à l'action). Hors menu, hors sitemap
+<!-- Page demandée par la rédaction : la liste des signataires et rien d’autre
+     (pas de texte de tribune, pas d’appel à l’action). Hors menu, hors sitemap
      et non indexée : on y arrive par le lien publié avec la tribune. -->
 <PostMeta
 	{title}

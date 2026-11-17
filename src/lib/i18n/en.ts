@@ -88,9 +88,9 @@ export default {
 	},
 	home: {
 		meta_title: 'Pause AI',
-		meta_desc: "Don't let AI destroy us, let's act now.",
+		meta_desc: 'Don’t let AI destroy us, let’s act now.',
 		hero_title: 'To keep AI under control,',
-		hero_highlight: "let's act now",
+		hero_highlight: 'let’s act now',
 		hero_cta: 'Write to my representatives',
 		bande_agir_titre: 'Take action',
 		bande_informer_titre: 'Learn more',
@@ -113,7 +113,7 @@ export default {
 		success_p1:
 			'Thank you so much for your support of Pause AI. Your contribution helps us pursue our mission of raising awareness about the risks of artificial intelligence.',
 		success_p2: 'You will receive a donation receipt by email within the next few minutes.',
-		next_steps: "What's next?",
+		next_steps: 'What’s next?',
 		step_newsletter: '📧 Stay informed by subscribing to our newsletter',
 		step_social: '🤝 Join our community on social media',
 		step_share: '📰 Share our content to raise awareness',
@@ -258,7 +258,10 @@ export default {
 	},
 	posts: {
 		title: 'Articles',
-		meta_title: 'Articles - Pause AI'
+		meta_title: 'Articles - Pause AI',
+		lede: 'Our analyses, investigations and positions, newest first.',
+		meta_desc:
+			'Articles from Pause IA: analyses of the risks of artificial intelligence, investigations and positions of the association.'
 	},
 	campagnes: {
 		meta_title: 'Our campaigns - Pause AI',
@@ -395,9 +398,9 @@ export default {
 				aucun_brevet: 'No degree / Middle school diploma',
 				cap_bac_pro: 'Vocational training',
 				bac_gen: 'High school diploma',
-				bac_2_3: "Associate's or Bachelor's degree",
-				bac_5: "Master's degree",
-				plus_bac_5: "> Master's degree"
+				bac_2_3: 'Associate’s or Bachelor’s degree',
+				bac_5: 'Master’s degree',
+				plus_bac_5: '> Master’s degree'
 			},
 			secteurs: {
 				juridique: 'Legal and accounting activities',
@@ -457,7 +460,7 @@ export default {
 				no_answer: 'Prefer not to say',
 				oui: 'Yes',
 				non: 'No',
-				sais_pas: "Don't know"
+				sais_pas: 'Don’t know'
 			},
 			objectifs: {
 				partager: 'Share my experience / testify',
@@ -480,7 +483,7 @@ export default {
 				hebdo: 'Every week',
 				quotidien: 'Every day',
 				toutes_taches: 'All or almost all my tasks',
-				sais_pas: "I don't know"
+				sais_pas: 'I don’t know'
 			},
 			taches: {
 				generation: 'Image, sound, video generation',
@@ -508,7 +511,7 @@ export default {
 			},
 			satisfaction: {
 				no_answer: 'Prefer not to say',
-				non_utilisation: "No, I don't know how to use it well",
+				non_utilisation: 'No, I don’t know how to use it well',
 				non_resultats: 'No, the results obtained are not satisfactory',
 				oui_non: 'Yes and no, it depends on the tasks',
 				oui_precieux: 'Yes, it is a valuable work tool',

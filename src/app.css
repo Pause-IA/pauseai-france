@@ -1,7 +1,9 @@
 :root {
 	/* Font */
-	--font-body: 'IBM Plex Sans', sans-serif;
-	--font-heading: 'IBM Plex Sans', sans-serif;
+	--font-body: 'Inter', sans-serif; /* texte : neutre, dessinée pour l'écran */
+	--font-heading:
+		'Libre Franklin', sans-serif; /* titres : lignée Franklin
+	   Gothic, chasse étroite, proche du poids du logo */
 
 	/* Colors */
 	--brand: #ff9416;
@@ -18,15 +20,66 @@
 	   son voile de lisibilité, en clair et en sombre. */
 	--ink-rgb: 0, 0, 0;
 	--on-dark-rgb: 255, 255, 255;
-	--hero-cream-rgb: 255, 250, 245;
+	/* Le voile du héros était crème (255, 250, 245). C'est le dernier crème du
+	   site, et il se voyait d'autant plus que la page sous lui est blanche :
+	   le panneau du héros paraissait jauni. Blanc franc. Le nom du jeton est
+	   conservé : il est lu dans une dizaine de dégradés du héros. */
+	--hero-cream-rgb: 255, 255, 255;
 	--hero-dark-rgb: 26, 26, 26;
 	/* Encadrés translucides posés sur une image : bloc de texte du héros en
 	   thème sombre, et infobulle de la carte des groupes locaux. */
 	--overlay-dark-rgb: 30, 30, 30;
 	--tooltip-dark-rgb: 17, 17, 17;
+	/* ── Surface sombre : la couleur secondaire de la marque ──────────────
+	   Fond des bandeaux qui rythment les pages longues.
+
+	   Choisie comme le complément perceptuel de --brand. En OKLCH, l'orange
+	   #ff9416 est à L 0,764 / C 0,173 / H 61° ; son complément est donc à
+	   241°, et non à 212° comme le donnerait un simple « teinte + 180 » en
+	   HSL — HSL n'est pas perceptuellement uniforme, les deux systèmes ne
+	   désignent pas le même bleu.
+
+	   La chroma est volontairement faible (0,04 contre 0,173 pour l'orange).
+	   Notre orange est à saturation maximale : lui opposer un bleu aussi
+	   saturé les ferait vibrer l'un contre l'autre. À cette chroma, la
+	   surface se lit comme un bleu choisi et non comme du gris, tout en
+	   laissant l'orange seule couleur saturée de la page.
+
+	   OKLCH(0,25 0,04 241) = rgb(14, 36, 51). Contrastes mesurés : blanc
+	   15,9:1, --brand 7,2:1 — les deux très au-dessus du minimum WCAG AA.
+
+	   Fixe dans les deux thèmes, d'où --on-dark pour le texte posé dessus. */
+	/* Encre d'impression. Fixe dans les deux thèmes : --black et --white
+	   s'inversent en thème sombre, et une page imprimée depuis le thème sombre
+	   sortirait en blanc sur blanc. */
+	--encre-impression: #000;
+	--filet-impression: #999;
+
+	--surface-sombre-rgb: 14, 36, 51;
+	--surface-sombre: rgb(14, 36, 51);
+	/* OKLCH(0,33 0,04 241) : même teinte, un cran plus clair, pour les
+	   panneaux et séparateurs posés sur la surface sombre. */
+	--surface-sombre-2: rgb(34, 56, 72);
 	--brand-light: #fff5e8;
-	--brand-subtle: #a85400; /* orange foncé : le seul orange lisible en texte
-	                            (4,9:1 sur le crème, 5,3:1 sur blanc) */
+	/* Accent de texte : l'orange profond de la marque.
+
+	   Historique de ce jeton, parce qu'il a beaucoup bougé. Il valait #a85400
+	   — l'orange de marque assombri jusqu'à être lisible (5,34:1 sur blanc).
+	   La relecture a trouvé le SURTITRE marron, et je l'ai d'abord lu comme un
+	   verdict sur la couleur elle-même : tout est passé au bleu.
+
+	   C'était une erreur de diagnostic. Le problème était le surtitre, pas la
+	   couleur : en ligne de texte, il n'avait que sa teinte pour exister, donc
+	   on ne voyait que sa teinte. Il est maintenant une étiquette sur aplat
+	   orange plein, et la cause a disparu.
+
+	   Le bleu, lui, est une SURFACE dans ce système, pas une encre : c'est
+	   ainsi qu'il sert sur la page de référence, et nulle part ailleurs. En
+	   encre, répandu sur les liens, les chiffres et les onglets, il devenait
+	   une troisième couleur de marque que personne n'avait choisie.
+
+	   Au survol, le lien passe à l'orange de marque plein. */
+	--accent: rgb(168, 84, 0);
 	--brand-deep: #ff6b35; /* fin de dégradé sur les encadrés d'appel */
 	--brand-soft: #ffb347; /* début de dégradé clair (bandeaux) */
 	/* Attention : --white et --black s'inversent en mode sombre. Ce sont la
@@ -37,17 +90,44 @@
 	--black: black;
 	--on-dark: #ffffff; /* texte sur un fond sombre fixe, dans les deux thèmes */
 	--text: var(--black);
-	--text-2: #555; /* texte secondaire léger */
+	/* TEMPÉRATURE DES NEUTRES. Tous les gris du site penchaient vers le bleu
+	   (#555 est neutre, #676e7a et #e5e7eb franchement froids). En retirant le
+	   crème, j'ai remplacé des neutres CHAUDS par des neutres FROIDS, et c'est
+	   là qu'est parti ce qui restait de chaleur — pas dans l'orange.
+
+	   Les gris sont donc déplacés vers l'ambre, à clarté constante : OKLCH même
+	   L, teinte 75 au lieu de 241, chroma très faible. Personne ne verra « du
+	   beige » ; on sentira une page tiède au lieu d'une page clinique. Écart de
+	   clarté mesuré : moins de 1,5 % sur les textes, donc les contrastes ne
+	   bougent pas (vérifiés un à un). */
+	--text-2: rgb(112, 107, 100); /* texte secondaire léger, gris tiède */
 	--bg: var(--white);
-	--bg-subtle: var(--brand-light);
+	/* Teinte de fond des bandes et des listes. Elle a été crème (#fff5e8),
+	   puis bleu pâle — les deux se remarquaient plus que ce qu'elles
+	   portaient. Un gris NEUTRE, sans teinte : la marque n'a que deux
+	   couleurs, l'orange et le bleu sombre, et une surface de fond n'est ni
+	   l'une ni l'autre. */
+	--bg-subtle: rgb(248, 246, 242);
+	/* Fond des panneaux d'appel (« Groupes locaux », « Restez informé »…).
+	   Aucun : ils se détachent par leur bordure, et par le filet orange de
+	   ceux qui en ont un. Ils ont été crème, puis bleu pâle ; dans les deux
+	   cas la teinte se remarquait plus que le panneau. Un panneau doit se
+	   faire oublier, c'est son contenu qu'on vient lire.
+
+	   Tous les consommateurs de ce jeton déclarent déjà une bordure : aucun
+	   ne devient invisible en perdant son fond (vérifié). */
+	--panneau-bg: var(--bg);
 
 	/* Generic UI tokens */
-	--border: #e5e7eb;
-	--text-secondary: #676e7a;
+	--border: rgb(229, 225, 220);
+	--text-secondary: rgb(109, 104, 97);
 	--text-muted: #676e7a; /* alias de text-secondary */
-	--bg-card: #fffcf8; /* blanc cassé chaud : lisible sur le crème --bg-subtle
-	                       des pages intérieures comme sur le blanc de l'accueil */
-	--bg-secondary: #fdfaf6;
+	/* Blanc franc. C'était un blanc cassé CHAUD, choisi pour se détacher du
+	   crème des pages intérieures ; le crème parti, il ne reste qu'une carte
+	   jaunie sur du blanc. Sur le nouveau fond bleuté des panneaux, le blanc
+	   pur tranche mieux que le blanc cassé. */
+	--bg-card: var(--bg);
+	--bg-secondary: rgb(249, 247, 243);
 
 	/* Alerte : réservé aux moments critiques (chronologies, erreurs). */
 	--alert: #d92d20;
@@ -88,16 +168,33 @@
 	/* Ombres — très discrètes, la carte se lit d'abord par sa bordure */
 	--shadow-card: 0 4px 20px rgba(0, 0, 0, 0.03);
 	--shadow-raised: 0 8px 28px rgba(0, 0, 0, 0.06);
-	--shadow-brand: 0 2px 8px rgba(255, 148, 22, 0.3);
+	/* L'ombre du bouton était ORANGE sur une page blanche : invisible, et elle
+	   ne faisait qu'un halo flou là où il fallait une arête. Ombre neutre et
+	   courte, qui pose le bouton sans l'auréoler. */
+	--shadow-brand: 0 1px 3px rgba(var(--ink-rgb), 0.16);
 
 	/* Largeurs de colonne */
 	--width-text: 44rem; /* corps de texte */
+	/* La MESURE : largeur maximale d'une ligne de prose, à poser sur l'élément
+	   qui porte le texte (et non sur son conteneur). Voir le commentaire de la
+	   règle `p`. */
+	/* 41 rem et non 44 : le corps de texte est passé de 19 à 18 px, et à
+	   largeur égale une ligne contient plus de signes quand le texte rétrécit.
+	   Mesuré : 41 rem rend les ~75 signes visés. */
+	--mesure: min(41rem, 60ch);
 	--width-content: 54rem; /* pages éditoriales et campagnes */
 	--width-wide: 62rem; /* pages larges (grilles, cartes) */
 	--gutter: 1.5rem;
 
 	/* Buttons */
 	--btn-bg: var(--brand);
+	/* Contour du bouton. L'orange de marque ne fait que 2,21:1 sur blanc :
+	   le BORD du bouton était donc sous le seuil de 3:1 que WCAG 1.4.11
+	   impose aux contours de composants — le bouton n'avait pas d'arête
+	   lisible, c'est ce qui le faisait disparaître dans la page.
+	   rgb(217, 106, 0) donne 3,49:1 : une nuance plus foncée de la MÊME
+	   teinte, donc un trait qui définit sans ajouter de couleur. */
+	--btn-border: rgb(217, 106, 0);
 	--btn-hover-bg: #ffa945;
 	--btn-active-bg: #e6891d;
 	--btn-active-border: var(--black);
@@ -117,8 +214,10 @@
 	--white: #262626;
 	--black: #f0f0f0;
 	--bg: #272727;
-	--bg-subtle: #312e29;
-	--bg-card: #35322c; /* pendant sombre : chaud, comme --bg-subtle #312e29 */
+	/* Pendants sombres, tièdes comme leurs équivalents clairs. */
+	--bg-subtle: rgb(50, 48, 45);
+	--bg-card: rgb(55, 53, 50);
+	--panneau-bg: var(--bg);
 	--text: #f0f0f0;
 	--text-2: #a0a8b4;
 	--text-secondary: #a0a8b4;
@@ -137,8 +236,11 @@
 	--carousel-text: #e6e1da;
 	--shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35);
 	--shadow-raised: 0 8px 28px rgba(0, 0, 0, 0.45);
-	--brand-subtle: #ffab40; /* orange plus clair pour fond sombre */
+	--accent: rgb(255, 171, 64); /* orange plus clair pour fond sombre */
 
+	/* Sur fond sombre, l'aplat orange tranche déjà très largement : une
+	   bordure plus foncée y dessinerait un anneau sale. */
+	--btn-border: var(--brand);
 	--btn-alt-bg: #303030;
 	--btn-alt-hover-bg: #2a1f0a;
 	--btn-alt-active-bg: #2a1f0a;
@@ -162,8 +264,14 @@ body {
 	color: var(--text);
 	accent-color: var(--brand);
 	font-family: var(--font-body);
-	font-size: 1.2rem;
-	line-height: 1.5;
+	/* 1,125 rem = 18 px. C'était 1,2 rem = 19,2 px : au-dessus de la fourchette
+	   que retiennent les guides de typographie web pour du texte long (16 px
+	   plancher, 17 à 18 px recommandés). À 19 px la page paraissait écrite en
+	   gros, et chaque paragraphe prenait une ligne de plus que nécessaire.
+	   Le plafond de mesure étant exprimé en `ch`, la longueur de ligne ne
+	   bouge pas : elle suit la taille du texte. */
+	font-size: 1.125rem;
+	line-height: 1.55;
 	overflow-x: hidden;
 }
 
@@ -216,7 +324,33 @@ h3 {
 	margin-top: 0;
 }
 
+/* LONGUEUR DE LIGNE. Au-delà d'environ 80 signes, l'œil perd le début de la
+   ligne suivante : c'est la limite que retient WCAG (critère 1.4.8), et les
+   guides de typographie web visent 45 à 75 signes, 66 étant le confort.
+
+   Mesuré sur 24 pages avant ce plafond : la moitié dépassait, jusqu'à 120
+   signes par ligne sur la page de la déclaration et 119 sur l'espace presse.
+   Les pages conformes étaient exactement celles qui passent par le gabarit
+   partagé ; les autres faisaient couler leur prose sur toute la largeur de
+   leur mise en page.
+
+   Un `max-inline-size` ne fait que CONTRAINDRE : un paragraphe déjà plus
+   étroit — une description de carte, une colonne de grille — n'est pas
+   touché. Il ne s'applique pas aux paragraphes d'interface (légendes de
+   formulaire, pastilles), qui sont trop courts pour être concernés.
+
+   Le plafond est exprimé en `ch`, et non seulement en `rem` : l'unité `ch`
+   suit la taille du texte DE L'ÉLÉMENT, donc un paragraphe en petits
+   caractères obtient le même nombre de signes par ligne qu'un paragraphe en
+   grands. Une largeur fixe en rem donnait 74 signes à 19 px mais 93 à 15 px.
+   Le `min()` garde la plus contraignante des deux.
+
+   60ch et non 70 : `ch` vaut la largeur du zéro, nettement plus large que la
+   moyenne des signes d'un texte français. Compté caractère par caractère sur
+   les paragraphes rendus, 60ch donne environ 75 signes par ligne — la cible —
+   là où 72ch en donnait 90. */
 p {
+	max-inline-size: var(--mesure);
 	margin-bottom: 1.5rem;
 	/* Pas de justification, et donc pas de césure : `hyphens: auto` ne sert
 	   qu'à répartir les blancs d'un texte justifié. Sur un texte en drapeau,
@@ -224,6 +358,29 @@ p {
 	   téléphone cela donnait quatre « ac-tivez » ou « ré-seau » par page.
 	   Seuls les mots qu'aucune largeur ne peut contenir sont coupés. */
 	overflow-wrap: break-word;
+}
+
+/* ─── Touches d'orange ───────────────────────────────────────
+   Deux endroits où la couleur de marque apparaît sans jamais devenir du
+   texte. Ni une puce ni un anneau de focus ne portent d'information écrite,
+   donc aucun seuil de contraste ne s'y applique.
+
+   Il y en avait un troisième, la sélection de texte à la souris : un aplat
+   orange sur le passage surligné. Retiré — un surlignage est un retour de
+   l'outil, pas un élément de la page, et le teindre aux couleurs du site
+   surprend plus qu'il ne sert. */
+
+/* Puces de liste. Les pages éditoriales en sont pleines : c'est la touche
+   qui se voit le plus, pour une ligne de CSS. */
+li::marker {
+	color: var(--brand);
+}
+
+/* Anneau de focus clavier : il était bleu système sur tout le site, la
+   seule couleur qui n'appartenait à personne. */
+:focus-visible {
+	outline: 2px solid var(--brand);
+	outline-offset: 2px;
 }
 
 ul,
@@ -236,13 +393,34 @@ li {
 	padding-left: 0.5rem;
 }
 
+/* Les liens portent l'orange par leur SOULIGNEMENT, pas par leur encre.
+
+   Deux problèmes se résolvent ici d'un coup.
+
+   Le premier : une encre orange doit être assombrie jusqu'à 4,5:1 pour être
+   lisible en texte courant, et à ce niveau elle ne se lit plus comme de
+   l'orange — c'est le marron qu'on nous signale depuis le début. Un
+   soulignement, lui, est une décoration : il porte l'orange de marque PLEIN,
+   sans aucune contrainte de contraste.
+
+   Le second : le bouton. Quand les liens sont orange, l'aplat orange du
+   bouton n'est plus que du même orange en plus grand, et il cesse de
+   ressortir — la couleur d'accent était dépensée partout. Elle est maintenant
+   réservée aux aplats, c'est-à-dire aux actions.
+
+   Au survol, l'encre passe à l'orange profond : c'est un état transitoire, où
+   la lisibilité prime sur la pureté de la teinte. */
 a {
-	color: var(--brand-subtle);
+	color: var(--text);
 	text-decoration: underline;
+	text-decoration-color: var(--brand);
+	text-decoration-thickness: 0.09em;
+	text-underline-offset: 0.16em;
 }
 
 a:hover {
-	color: var(--brand);
+	color: var(--accent);
+	text-decoration-thickness: 0.14em;
 }
 
 section:not(:last-child) {
@@ -468,6 +646,25 @@ table td:nth-child(2) {
 	border-bottom-color: var(--brand);
 }
 
+/* Contrôles de la carte Leaflet en thème sombre. Ils gardent leur CSS
+   d'origine, pensé pour un fond clair : les boutons + et − tombaient à
+   1,14:1 et l'attribution à 1,19:1, donc illisibles. */
+html[data-theme='dark'] .leaflet-control-zoom a,
+html[data-theme='dark'] .leaflet-bar a {
+	background-color: var(--bg-card);
+	color: var(--text);
+	border-bottom-color: var(--border);
+}
+
+html[data-theme='dark'] .leaflet-control-attribution {
+	background-color: rgba(0, 0, 0, 0.75);
+	color: var(--text);
+}
+
+html[data-theme='dark'] .leaflet-control-attribution a {
+	color: var(--brand);
+}
+
 /* Images: prevent harsh white bleed in dark mode */
 [data-theme='dark'] img:not([src$='.svg']) {
 	opacity: 0.92;
@@ -504,4 +701,148 @@ table td:nth-child(2) {
 [data-theme='dark'] footer a:hover {
 	color: var(--brand);
 	opacity: 1;
+}
+
+/* ── Impression ──────────────────────────────────────────────────────────
+   Nos pages longues finissent imprimées ou exportées en PDF : une note de
+   synthèse se glisse dans un dossier de rendez-vous. Par défaut le navigateur
+   imprimait l'en-tête, la navigation et le pied de page sur la première
+   feuille, et les aplats sombres en pleine encre.
+
+   Ces règles ne concernent que le média « print » : l'affichage à l'écran est
+   inchangé. */
+/* ─── Aplat de marque ────────────────────────────────────────
+   Le bleu sombre de la marque, posé sur le passage qu'on veut sortir du fil
+   du texte : une citation, une mise en garde, le moment où la page cesse
+   d'exposer pour demander quelque chose au lecteur.
+
+   Défini ici et non dans un composant, parce qu'il sert à deux titres :
+   automatiquement sur les citations des pages « note » (qui viennent de
+   Markdown et ne peuvent pas porter de classe), et explicitement partout
+   ailleurs via .aplat-marque.
+
+   Il ne déborde plus de la colonne : avec le débordement ET les grandes
+   marges intérieures, le bloc faisait pavé — 231 px de haut pour cinq lignes
+   de texte. Resserré, il fait 145 px et dit exactement la même chose. La
+   page de référence est d'ailleurs plus serrée que ne l'était notre copie. */
+.aplat-marque,
+.ui-page--note blockquote {
+	position: relative;
+	margin-block: clamp(1.75rem, 4vw, 2.25rem);
+	/* Le retrait du haut loge le filet orange, posé en absolu. */
+	padding: 2.6rem clamp(1.25rem, 3vw, 1.6rem) clamp(1.25rem, 3vw, 1.5rem);
+	border: 0;
+	border-radius: 2px;
+	background: var(--surface-sombre);
+	color: var(--on-dark);
+	font-size: 1.05rem;
+	line-height: 1.6;
+	font-style: normal;
+}
+
+/* Petit filet orange en tête : il rattache l'aplat à la marque au lieu de le
+   laisser flotter comme un bloc sombre quelconque. */
+/* stylelint-disable-next-line no-descending-specificity */
+.aplat-marque::before,
+.ui-page--note blockquote::before {
+	content: '';
+	position: absolute;
+	inset-block-start: 1.4rem;
+	inset-inline-start: clamp(1.25rem, 3vw, 1.6rem);
+	inline-size: 2rem;
+	block-size: 2px;
+	border-radius: var(--radius-pill);
+	background: var(--brand);
+}
+
+/* Le retrait du haut suffit désormais : plus besoin de pousser le premier
+   enfant pour dégager le filet. */
+.aplat-marque > :first-child,
+.ui-page--note blockquote > :first-child {
+	margin-block-start: 0;
+}
+
+.aplat-marque > :last-child,
+.ui-page--note blockquote > :last-child {
+	margin-block-end: 0;
+}
+
+.aplat-marque p,
+.ui-page--note blockquote p {
+	color: var(--on-dark);
+}
+
+/* --accent est un bleu : illisible sur le bleu. Sur l'aplat, c'est l'orange
+   de marque qui porte les liens (7,2:1). */
+.aplat-marque a,
+.ui-page--note blockquote a {
+	color: var(--brand);
+}
+
+/* À l'impression, un aplat sombre vide la cartouche pour rien. */
+@media print {
+	.aplat-marque,
+	.ui-page--note blockquote {
+		padding-inline-start: 1rem;
+		border-inline-start: 3px solid var(--filet-impression);
+		background: none;
+		color: var(--encre-impression);
+	}
+
+	.aplat-marque::before,
+	.ui-page--note blockquote::before {
+		display: none;
+	}
+
+	.aplat-marque p,
+	.ui-page--note blockquote p {
+		color: var(--encre-impression);
+	}
+}
+
+@media print {
+	/* L'habillage du site n'a pas de sens sur papier : personne ne clique un
+	   menu imprimé. */
+	.layout > header,
+	.layout > footer {
+		display: none !important;
+	}
+
+	.layout,
+	.layout.bgWhite {
+		background: none !important;
+	}
+
+	html,
+	body {
+		background: none !important;
+		color: var(--encre-impression);
+		font-size: 11pt;
+	}
+
+	/* Une marge de reliure généreuse, et jamais un titre seul en bas de page. */
+	@page {
+		margin: 18mm 16mm;
+	}
+
+	h1,
+	h2,
+	h3 {
+		break-after: avoid-page;
+		page-break-after: avoid;
+	}
+
+	p,
+	li,
+	blockquote,
+	figure {
+		orphans: 3;
+		widows: 3;
+	}
+
+	/* Les ombres et les aplats mangent l'encre sans rien apporter. */
+	* {
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
 }

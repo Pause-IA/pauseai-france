@@ -127,8 +127,8 @@ export async function logActivity(
 	}
 }
 
-// Commentaire du signataire (« pourquoi c'est important pour moi »), stocké
-// dans une activité : « Scheduled » tant que l'adresse n'est pas confirmée,
+// Commentaire du signataire (« pourquoi c’est important pour moi »), stocké
+// dans une activité : « Scheduled » tant que l’adresse n'est pas confirmée,
 // « Completed » ensuite. Seuls les commentaires confirmés des signataires
 // affichés publiquement apparaissent sur la page. Modération : modifier ou
 // supprimer l'activité dans CiviCRM.
@@ -136,7 +136,7 @@ export const COMMENT_SUBJECT = 'Déclaration PauseAI : commentaire'
 
 // Noms provisoires posés par la synchronisation des dons (Stripe) sur les
 // contacts créés sans nom. Ils ne sont pas un vrai nom : jamais affichés, et
-// remplacés par celui saisi dans le formulaire une fois l'adresse confirmée.
+// remplacés par celui saisi dans le formulaire une fois l’adresse confirmée.
 const PLACEHOLDER_NAMES = new Set([
 	'donateur stripe',
 	'stripe donateur',
@@ -246,8 +246,8 @@ export async function confirmedComments(contactIds: number[]): Promise<Map<numbe
 	return out
 }
 
-// Horodatage d'envoi, écrit dans le détail de l'activité en UTC. On ne se fie
-// pas à activity_date_time : CiviCRM l'enregistre à l'heure de Paris, et une
+// Horodatage d'envoi, écrit dans le détail de l’activité en UTC. On ne se fie
+// pas à activity_date_time : CiviCRM l’enregistre à l'heure de Paris, et une
 // comparaison avec une heure UTC décalait la fenêtre de 1 à 2 heures (un
 // second essai restait bloqué, sans e-mail).
 const SENT_AT = /sent_at=(\S+)/
@@ -278,6 +278,6 @@ export async function resendWaitMs(
 	const m = SENT_AT.exec(res.values?.[0]?.['activity_id.details'] ?? '')
 	const sentAt = m ? Date.parse(m[1]) : NaN
 	if (Number.isNaN(sentAt)) return 0
-	// Heure lue après la réponse de CiviCRM, pas avant l'appel.
+	// Heure lue après la réponse de CiviCRM, pas avant l’appel.
 	return Math.max(0, sentAt + delayMs - (now ?? Date.now()))
 }

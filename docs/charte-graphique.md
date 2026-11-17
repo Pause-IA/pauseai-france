@@ -13,6 +13,8 @@ jamais des valeurs en dur, c'est ce qui garantit le fonctionnement du mode sombr
 | `--brand`        | `#ff9416` | identique | Orange Pause IA : boutons, soulignés, puces    |
 | `--brand-light`  | `#fff5e8` | `#2a1f0a` | Fond orangé très clair                         |
 | `--brand-subtle` | `#a85400` | `#ffab40` | Orange foncé : le seul orange lisible en texte |
+| `--surface-sombre` | `rgb(14, 36, 51)` | identique | Couleur secondaire : fond des bandeaux |
+| `--surface-sombre-2` | `rgb(34, 56, 72)` | identique | Panneaux et séparateurs sur ce fond |
 
 > Le fond de page est `--bg-subtle` (crème `#fff5e8`) sur **toutes les pages sauf
 > l'accueil**, qui seule passe en blanc (`bgWhite` dans `src/routes/+layout.svelte`).
@@ -23,6 +25,13 @@ jamais des valeurs en dur, c'est ce qui garantit le fonctionnement du mode sombr
 > sur le crème, en dessous même du seuil des grands caractères. Pour un lien, un
 > chiffre ou un sur-titre, c'est `--brand-subtle` (4,9:1). `--brand` reste réservé
 > aux aplats, boutons, filets, puces, bordures.
+
+> **Couleur secondaire** : `--surface-sombre` est le complément perceptuel de
+> `--brand`, calculé en OKLCH et non en HSL, qui n'est pas perceptuellement
+> uniforme et désignerait un autre bleu. Sa chroma est volontairement basse
+> (0,04 contre 0,173) pour que l'orange reste la seule couleur saturée de la
+> page. Contrastes : blanc 15,9:1, `--brand` 7,2:1. Fixe dans les deux thèmes,
+> d'où `--on-dark` pour le texte posé dessus.
 
 > **Texte sur un aplat orange** : toujours `--on-brand` (7,9:1). Le blanc n'y
 > donne que 2,2:1.
@@ -86,7 +95,14 @@ ailleurs dans l'interface.
 
 ## 2. Typographie
 
-- Police unique : **IBM Plex Sans** (`--font-body` = `--font-heading`).
+- Deux polices. Titres : **Libre Franklin** (`--font-heading`), de la lignée
+  Franklin Gothic, chasse étroite, proche du poids du logo. Texte :
+  **Inter** (`--font-body`), dessinée pour l'écran, hauteur d'x haute.
+- Graisses chargées : Libre Franklin 600, 700, 800 ; Inter 400, 500, 600, 700,
+  plus les **italiques 400 et 700**. N'employer que celles-là : une graisse non
+  chargée est fabriquée par le navigateur en épaississant le trait, et une
+  italique absente en penchant le romain. C'était le cas de toutes les
+  italiques du site avant cette charte.
 - Corps de texte : `1.2rem`, interligne `1.5`.
 - `h1`/`h2` : 700, `1.7rem` → `2rem` à partir de 640 px.
 - `h3` : 500, `1.5rem`.

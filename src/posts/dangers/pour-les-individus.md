@@ -1,6 +1,6 @@
 ---
 title: Dangers pour les individus
-description: L'intégration de l'IA dans la vie quotidienne présente des dangers pour la vie privée, la sécurité et le bien-être des individus, nécessitant des régulations, une éducation du public et des systèmes d'IA sécurisés pour les atténuer.
+description: L’intégration de l’IA dans la vie quotidienne présente des dangers pour la vie privée, la sécurité et le bien-être des individus, nécessitant des régulations, une éducation du public et des systèmes d’IA sécurisés pour les atténuer.
 ---
 
 L’intégration de l’IA dans la vie quotidienne pose des dangers significatifs pour les individus, touchant à leur vie privée, leur sécurité et leur bien-être. Ces dangers incluent la violation de la confidentialité, la propagation de fausses informations et la manipulation psychologique, avec pour conséquence des dommages émotionnels ou physiques graves. Afin d’atténuer ces dangers, il est crucial de mettre en place des cadres réglementaires robustes et des pratiques de sensibilisation et d’éducation auprès du public, ainsi que des gardes-fous intégrés aux systèmes d’IA.

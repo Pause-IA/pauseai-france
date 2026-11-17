@@ -30,8 +30,8 @@
 		<h1>Plan du site</h1>
 		<span class="filet" aria-hidden="true"></span>
 		<p class="lede">
-			L'arborescence réelle, régénérée à chaque déploiement depuis les routes, le menu et le pied de
-			page. Cette page n'est ni dans le menu, ni dans le sitemap, ni indexée.
+			L’arborescence réelle, régénérée à chaque déploiement depuis les routes, le menu et le pied de
+			page. Cette page n’est ni dans le menu, ni dans le sitemap, ni indexée.
 		</p>
 		<p class="meta">
 			{plan.total.pages} pages · {plan.total.dynamiques} gabarits dynamiques · {plan.total.articles}
@@ -75,8 +75,8 @@
 	<section class="bloc">
 		<h2>Pages hors menu</h2>
 		<p class="intro">
-			En ligne, mais qu'aucun menu ni pied de page n'atteint. Certaines sont normales (pages
-			d'atterrissage de campagne, confirmations, remerciements) ; les autres méritent une entrée ou
+			En ligne, mais qu’aucun menu ni pied de page n’atteint. Certaines sont normales (pages
+			d’atterrissage de campagne, confirmations, remerciements) ; les autres méritent une entrée ou
 			un retrait.
 		</p>
 		<ul class="orphelines">
@@ -124,13 +124,19 @@
 		margin-block: 2.5rem 3.5rem;
 	}
 
+	/* Étiquette du modèle, comme sur toutes les autres pages : c'était la
+	   dernière page où le surtitre était resté une ligne de texte colorée. */
 	.eyebrow {
-		margin: 0 0 0.4rem;
+		display: inline-block;
+		margin: 0 0 0.9rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 3px;
+		background: var(--brand);
 		font-size: 0.8rem;
 		font-weight: 700;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		color: var(--brand-subtle);
+		color: var(--on-brand);
 	}
 
 	h1 {

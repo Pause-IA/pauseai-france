@@ -9,7 +9,7 @@ export interface LocalGroup {
 	/** true = groupe en cours de création (pas encore actif). */
 	forming?: boolean
 	/**
-	 * true = groupe en sommeil, qui attend quelqu'un pour le relancer.
+	 * true = groupe en sommeil, qui attend quelqu’un pour le relancer.
 	 * Distinct de `forming` : ces groupes ont existé et peuvent repartir, donc
 	 * les afficher a du sens, mais les compter comme actifs serait faux.
 	 */
@@ -41,7 +41,7 @@ export const inactifGroupsCount = localGroups.filter((g) => g.inactif).length
 
 /**
  * Lancement des groupes locaux Pause IA (mars 2026).
- * Source unique : la page groupes-locaux s'en sert pour afficher « tout cela
+ * Source unique : la page groupes-locaux s’en sert pour afficher « tout cela
  * en N mois », donc le compteur ne peut pas se désynchroniser de la date.
  */
 export const LANCEMENT_GROUPES = { annee: 2026, mois: 3 } as const

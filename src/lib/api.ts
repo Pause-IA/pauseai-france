@@ -32,6 +32,14 @@ const hardCodedPages: Post[] = [
 // 	}
 // }
 
+/**
+ * Une page de démonstration ou de travail porte `brouillon: true` dans son
+ * frontmatter. Elle reste dans le dépôt mais sort des listes et du sitemap :
+ * le prérendu ne génère que les pages atteignables, donc une page listée mais
+ * non liée était annoncée aux moteurs de recherche et répondait 404.
+ */
+const estBrouillon = (m: Partial<Post> & { brouillon?: boolean }) => m.brouillon === true
+
 export function getPosts(subpath = '', lang: 'fr' | 'en' = 'fr') {
 	let posts: Post[] = []
 
@@ -45,6 +53,7 @@ export function getPosts(subpath = '', lang: 'fr' | 'en' = 'fr') {
 			const slug = path.match(`^/src/posts/en(${subpath}/.*).md$`)?.[1].slice(1)
 			if (file && typeof file === 'object' && 'metadata' in file && slug) {
 				const metadata = file.metadata as Omit<Post, 'slug'>
+				if (estBrouillon(metadata)) continue
 				// Use slug without 'en/' prefix since the lang prefix is handled by the URL structure
 				const post = { ...metadata, slug } satisfies Post
 				posts.push(post)
@@ -55,6 +64,7 @@ export function getPosts(subpath = '', lang: 'fr' | 'en' = 'fr') {
 			const slug = path.match(`^/src/posts(${subpath}/.*).md$`)?.[1].slice(1)
 			if (file && typeof file === 'object' && 'metadata' in file && slug) {
 				const metadata = file.metadata as Omit<Post, 'slug'>
+				if (estBrouillon(metadata)) continue
 				const post = { ...metadata, slug } satisfies Post
 				posts.push(post)
 			}

@@ -201,8 +201,8 @@
 
 <CampaignPage {title} {description}>
 	<!-- 1. Slogan + chapeau. Le slogan est le titre de la campagne, repris à
-	     l'identique dans le menu ; le chapeau l'éclaire et annonce le mode
-	     d'action principal. -->
+	     l’identique dans le menu ; le chapeau l’éclaire et annonce le mode
+	     d’action principal. -->
 	<CampaignHero
 		title={isEn
 			? 'Take back control of AI'
@@ -217,7 +217,7 @@
 		<Button alt href="#essentiel">{isEn ? 'Why it matters' : 'Pourquoi c’est grave'}</Button>
 	</CampaignHero>
 
-	<!-- 2. L'essentiel : trois faits, trois liens. C'est ce que lira un
+	<!-- 2. L'essentiel : trois faits, trois liens. C’est ce que lira un
 	     visiteur pressé ; chaque affirmation doit être démontrable. -->
 	<CampaignSection
 		id="essentiel"
@@ -229,8 +229,8 @@
 		<CampaignFacts {facts} />
 	</CampaignSection>
 
-	<!-- 3. Les modes d'action. Le module d'envoi de mails est intégré ici :
-	     l'action principale se fait sur la page, pas ailleurs. -->
+	<!-- 3. Les modes d’action. Le module d’envoi de mails est intégré ici :
+	     l’action principale se fait sur la page, pas ailleurs. -->
 	<CampaignSection
 		id="agir"
 		title={isEn ? 'Take action' : 'Passer à l’action'}
@@ -287,9 +287,9 @@
 	</CampaignSection>
 
 	<!-- ── Blocs facultatifs ───────────────────────────────────────────
-	     À garder seulement s'ils disent quelque chose. Une campagne qui
-	     démarre n'a pas de chiffres ; une action permanente n'a pas
-	     d'échéances. -->
+	     À garder seulement s’ils disent quelque chose. Une campagne qui
+	     démarre n’a pas de chiffres ; une action permanente n’a pas
+	     d’échéances. -->
 	<CampaignSection id="chiffres" title={isEn ? 'Key figures' : 'Chiffres clés'}>
 		<CampaignStats {stats} />
 	</CampaignSection>

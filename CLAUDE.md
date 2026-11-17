@@ -470,6 +470,23 @@ Copy `template.env` to `.env` and configure:
   base qui ne renvoie personne — `getTeamMembers()` retombe sur l'instantané
   versionné au lieu de servir une page vide. Vérifié par `tests/photosEquipe.test.ts`,
   qui valide la forme de l'instantané et l'existence de chaque photo citée.
+- `scripts/photos-evenements.mjs` - **Versionne les actions des groupes locaux** :
+  les photos compressées (`static/evenements/`) et l'instantané des fiches
+  (`src/lib/data/evenements.json`). Même mécanisme et mêmes raisons que
+  `photos-equipe.mjs` : Notion ne sert ses fichiers que derrière une URL S3
+  signée qui expire au bout d'une heure, et la page passait ces URL au CDN
+  d'images de Netlify — une photo d'action finissait par disparaître sans que
+  personne n'ait rien touché. Lancé automatiquement par `pnpm build`, donc une
+  photo ajoutée dans Notion est reprise au déploiement suivant ; en mode build
+  il n'échoue jamais. À lancer à la main (`pnpm run photos-evenements`, puis
+  committer `static/evenements/` et `src/lib/data/evenements.json`) seulement
+  pour rafraîchir le dépôt sans attendre un déploiement. Les photos sont
+  ramenées à 1200 px de large en WebP (la page n'en demande jamais plus de
+  1100 au CDN) et ne sont retéléchargées que si elles ont changé, la clé de
+  comparaison étant le chemin S3 hors signature. `getLocalEvents()` sert les
+  photos versionnées plutôt que celles de Notion, et retombe entièrement sur
+  l'instantané si Notion ne répond pas ou ne renvoie rien. Vérifié par
+  `tests/photosEvenements.test.ts`. Il faut `NOTION_EVENTS_DATABASE_ID`.
 - `src/lib/typographyPlugin.js` - French typography transformation (remark + Vite plugin)
 - `src/lib/faqPlugin.js` - FAQ accordion transformation
 - `src/lib/rehypeWBWPlugins.js` - Wait But Why popup and box plugins

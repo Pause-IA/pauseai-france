@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge } from '$components/ui'
+	import { Badge, PageHero } from '$components/ui'
 	import PostMeta from '$components/PostMeta.svelte'
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$components/Button.svelte'
@@ -18,18 +18,16 @@
 
 <article>
 	{#if lang === 'en'}
-		<section class="hero">
-			<UnderlinedTitle as="h1">Join Pause AI</UnderlinedTitle>
-			<p class="hero-description">
+		<PageHero eyebrow={t.nav.agir}>
+			Join Pause AI
+			<svelte:fragment slot="lede">
 				Faced with a technological race that accelerates every day, <strong
 					>collective action is our greatest strength</strong
 				>. Every voice, every hour of volunteering, every membership strengthens our ability to
-				influence public debate and regain control.
-				<br /><br />
-				Whether you have 10 minutes a week or several hours to dedicate to us, there is a place for you
-				at Pause AI. Discover how you can act alongside us.
-			</p>
-		</section>
+				influence public debate and regain control. Whether you have 10 minutes a week or several
+				hours to dedicate to us, there is a place for you at Pause AI.
+			</svelte:fragment>
+		</PageHero>
 
 		<section class="engagement-options">
 			<div class="engagement-card">
@@ -42,7 +40,7 @@
 				</h2>
 				<p>
 					Officially support our mission and bylaws. As a member, you strengthen our collective
-					weight and participate in the life of the association. It's the strong signal of your
+					weight and participate in the life of the association. It’s the strong signal of your
 					commitment.
 				</p>
 				<Button
@@ -79,9 +77,9 @@
 			</p>
 		</section>
 
-		<!-- Deux engagements plus légers que l'adhésion et le bénévolat : cartes
+		<!-- Deux engagements plus légers que l’adhésion et le bénévolat : cartes
 		     discrètes, après la question membre/bénévole, pour que la hiérarchie
-		     se voie sans l'écrire. -->
+		     se voie sans l’écrire. -->
 		<section class="options-secondaires">
 			<h2>Two other ways to get involved</h2>
 			<div class="secondaires-grille">
@@ -120,18 +118,16 @@
 			</Accordion>
 		</section>
 	{:else}
-		<section class="hero">
-			<UnderlinedTitle as="h1">Rejoindre Pause IA</UnderlinedTitle>
-			<p class="hero-description">
-				Face à une course technologique qui s'accélère chaque jour, <strong
-					>l'action collective est notre plus grande force</strong
+		<PageHero eyebrow={t.nav.agir}>
+			Rejoindre Pause IA
+			<svelte:fragment slot="lede">
+				Face à une course technologique qui s’accélère chaque jour, <strong
+					>l’action collective est notre plus grande force</strong
 				>. Chaque voix, chaque heure de bénévolat, chaque adhésion renforce notre capacité à
-				influencer le débat public et à reprendre le contrôle.
-				<br /><br />
-				Que vous ayez 10 minutes par semaine ou plusieurs heures à nous consacrer, il existe une place
-				pour vous chez Pause IA. Découvrez comment vous pouvez agir à nos côtés.
-			</p>
-		</section>
+				influencer le débat public et à reprendre le contrôle. Que vous ayez 10 minutes par semaine
+				ou plusieurs heures à nous consacrer, il existe une place pour vous chez Pause IA.
+			</svelte:fragment>
+		</PageHero>
 
 		<section class="engagement-options">
 			<div class="engagement-card">
@@ -144,11 +140,11 @@
 				</h2>
 				<p>
 					Soutenez officiellement notre mission et nos statuts. En tant que membre, vous renforcez
-					notre poids collectif et participez à la vie de l'association.
+					notre poids collectif et participez à la vie de l’association.
 				</p>
 				<Button
 					href="https://www.helloasso.com/associations/pause-ia/adhesions/formulaire-d-adhesion-a-pause-ia"
-					>Adhérer à l'association</Button
+					>Adhérer à l’association</Button
 				>
 				<small class="engagement-note">Prix libre, minimum 24 €/an.</small>
 			</div>
@@ -159,38 +155,38 @@
 						<Users size="1em" />
 						<span class="title-text">Rejoindre la Communauté</span>
 					</span>
-					<Badge variant="neutral">Le cœur de l'action</Badge>
+					<Badge variant="neutral">Le cœur de l’action</Badge>
 				</h2>
 				<p>
 					Rejoignez notre communauté sur Discord pour échanger, vous informer et, si vous le
-					souhaitez, passer à l'action.
+					souhaitez, passer à l’action.
 				</p>
 				<Button href="https://discord.gg/vyXGd7AeGc">Rejoindre la communauté</Button>
 				<small class="engagement-note">Pour échanger ou devenir bénévole.</small>
 			</div>
 		</section>
 
-		<!-- Ce texte départageait membre et bénévole au fond d'un accordéon, tout
+		<!-- Ce texte départageait membre et bénévole au fond d’un accordéon, tout
 		     en bas de page. Il répond à la question que posent les deux cartes
 		     ci-dessus : il est remonté juste après elles, et déplié. -->
 		<section class="difference">
 			<h2>Quelle est la différence entre un membre et un bénévole ?</h2>
 			<p>
-				Un <strong>membre</strong> soutient formellement l'association via une cotisation. Un
-				<strong>bénévole</strong> donne de son temps. Vous pouvez être l'un, l'autre, ou les deux !
+				Un <strong>membre</strong> soutient formellement l’association via une cotisation. Un
+				<strong>bénévole</strong> donne de son temps. Vous pouvez être l’un, l’autre, ou les deux !
 			</p>
 		</section>
 
-		<!-- Deux engagements plus légers que l'adhésion et le bénévolat : cartes
+		<!-- Deux engagements plus légers que l’adhésion et le bénévolat : cartes
 		     discrètes, après la question membre/bénévole, pour que la hiérarchie
-		     se voie sans l'écrire. -->
+		     se voie sans l’écrire. -->
 		<section class="options-secondaires">
-			<h2>Deux autres façons de s'engager</h2>
+			<h2>Deux autres façons de s’engager</h2>
 			<div class="secondaires-grille">
 				<div class="carte-secondaire">
 					<h3><Zap size="1em" /> Pause Action</h3>
 					<p>
-						Peu de temps mais l'envie d'agir ? Rejoignez notre groupe WhatsApp : quelques clics, une
+						Peu de temps mais l’envie d’agir ? Rejoignez notre groupe WhatsApp : quelques clics, une
 						action concrète, souvent en moins de dix minutes.
 					</p>
 					<Button alt href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU">
@@ -200,7 +196,7 @@
 				<div class="carte-secondaire">
 					<h3><MapPin size="1em" /> Groupes locaux</h3>
 					<p>
-						Agir près de chez vous : retrouvez d'autres bénévoles de votre ville pour des actions de
+						Agir près de chez vous : retrouvez d’autres bénévoles de votre ville pour des actions de
 						rue, des conférences et des stands.
 					</p>
 					<Button alt href="/{lang}/groupes-locaux">Voir les groupes locaux</Button>
@@ -218,20 +214,9 @@
 		padding: 0 2rem;
 	}
 
-	.hero {
-		text-align: center;
-		margin-bottom: 3rem;
-		background: var(--bg);
-		padding: 3rem 2rem;
-		border-radius: var(--radius-md);
-		box-shadow: var(--shadow-raised);
-	}
-
-	.hero-description {
-		font-size: 1.1rem;
-		color: var(--text-secondary);
-		margin-bottom: 1.5rem;
-	}
+	/* L'en-tête (étiquette, titre, chapô) était recopié à la main ici. Il
+	   vient maintenant de PageHero : une seule définition du modèle, au lieu
+	   d'une copie par page qui finit par diverger. */
 
 	.engagement-options {
 		display: grid;
@@ -324,9 +309,8 @@
 	}
 
 	.options-secondaires > h2 {
-		margin-bottom: 1rem;
-		color: var(--text-2);
-		font-size: 1.05rem;
+		margin-bottom: 1.1rem;
+		font-size: 1.15rem;
 	}
 
 	.secondaires-grille {
@@ -334,11 +318,15 @@
 		gap: 1rem;
 	}
 
+	/* Filet orange en tête, comme les cartes de la page Newsletters : deux
+	   rectangles blancs à liseré gris ne disaient rien, alors que ce sont
+	   deux vraies façons de s'engager. */
 	.carte-secondaire {
 		display: flex;
 		flex-direction: column;
-		padding: 1.25rem;
+		padding: 1.4rem 1.35rem;
 		border: 1px solid var(--border);
+		border-top: 3px solid var(--brand);
 		border-radius: var(--radius-md);
 		background: var(--bg-card);
 	}
@@ -347,15 +335,23 @@
 		display: flex;
 		align-items: center;
 		gap: 0.45em;
-		margin: 0 0 0.5rem;
-		font-size: 1.05rem;
+		margin: 0 0 0.6rem;
+		font-size: 1.25rem;
+		line-height: 1.25;
+		letter-spacing: -0.015em;
+	}
+
+	/* Le pictogramme n'est pas du texte : l'orange de marque plein. */
+	.carte-secondaire h3 :global(svg) {
+		color: var(--brand);
 	}
 
 	.carte-secondaire p {
 		flex: 1;
-		margin: 0 0 1rem;
+		margin: 0 0 1.1rem;
 		color: var(--text-2);
-		font-size: 0.95rem;
+		font-size: 1rem;
+		line-height: 1.6;
 	}
 
 	.carte-secondaire :global(a) {

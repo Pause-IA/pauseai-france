@@ -1,7 +1,7 @@
 ---
 title: Que demandons-nous ?
 rubrique: apropos
-description: Nous demandons une pause mondiale de l'entraînement des modèles d'IA de pointe, le temps qu'une gouvernance internationale se mette en place pour en encadrer le développement.
+description: Nous demandons une pause mondiale de l’entraînement des modèles d’IA de pointe, le temps qu’une gouvernance internationale se mette en place pour en encadrer le développement.
 ---
 
 <script lang="ts">
@@ -47,7 +47,7 @@ Les discours « [rassuristes](/fr/faq) » nous font perdre du temps : l'IA ne se
   <a href="/fr/gouvernance-ia-demarches">Le détail de ces démarches, initiative par initiative &rarr;</a>
 </p>
 
-<Callout title="Vous êtes d'accord ? Passez à l'action">
+<Callout title="Vous êtes d’accord ? Passez à l’action">
 
 Le plus efficace : **[écrire à vos élus](/fr/ecrire-a-mes-elus)**. Cela prend deux minutes, et un message personnel pèse bien plus qu'une signature.
 

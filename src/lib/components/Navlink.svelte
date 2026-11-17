@@ -31,14 +31,14 @@
 	}
 
 	a.c2a {
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	a.active {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 	a:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		/*text-decoration: underline;*/
 	}
 	@media (min-width: 1024px) {
