@@ -13,13 +13,13 @@
 
 <PostMeta
 	title="Guide court : en parler autour de vous"
-	description="L’essentiel pour parler des risques de l’IA à vos proches, vos collègues, vos amis : pourquoi cela compte, les quatre principes, et la marche à suivre en trois temps."
+	description="Parler des risques de l’IA à vos proches, vos collègues, vos amis : les quatre principes qui fonctionnent, la conversation en trois temps, et quoi faire devant un refus."
 />
 
 <Page
 	title="En parler autour de vous, concrètement"
 	eyebrow="Agir"
-	lede="L’essentiel en cinq à dix minutes de lecture : pourquoi votre voix compte plus qu’une affiche, les quatre principes qui fonctionnent, et comment s’y prendre en trois temps."
+	lede="Les quatre principes qui fonctionnent, la conversation en trois temps, et quoi faire quand on vous dit non. Dix minutes de lecture."
 	width="text"
 	variant="note"
 	as="article"

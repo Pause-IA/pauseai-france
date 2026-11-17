@@ -16,16 +16,16 @@
 	<PageHero eyebrow="Agir">
 		Sensibiliser votre entourage
 		<svelte:fragment slot="lede">
-			Les gens écoutent plus volontiers quelqu’un qu’ils connaissent qu’une affiche ou une
-			publication. En parler à vos proches, vos collègues, vos amis est donc l’une des choses les
-			plus utiles que vous puissiez faire. Voici comment s’y prendre sans braquer personne.
+			Comment parler des risques de l’IA autour de vous : à qui, à quel moment, et surtout de quelle
+			manière, sans braquer personne.
 		</svelte:fragment>
 	</PageHero>
 
 	<p class="intro">
-		La plupart des gens ne changent pas d’avis en lisant un tract. Ils en parlent d’abord avec
-		quelqu’un en qui ils ont confiance. C’est pour cela qu’une conversation avec vous vaut mieux que
-		n’importe quelle affiche : vous êtes cette personne-là pour votre entourage.
+		Personne ne change d’avis en lisant un tract. On y vient en discutant avec quelqu’un en qui on a
+		confiance, et on l’écoute d’autant mieux qu’il ne cherche pas à avoir raison. C’est là que vous
+		êtes irremplaçable. Ces guides vous apprennent surtout cela : poser des questions, écouter les
+		réponses, et laisser la personne faire le chemin elle-même.
 	</p>
 
 	<section class="ressources" aria-labelledby="ressources-titre">
@@ -36,8 +36,8 @@
 				<h3>Guide court</h3>
 				<p class="duree">5 à 10 minutes</p>
 				<p>
-					L’essentiel : pourquoi votre voix compte, les quatre principes, et la marche à suivre en
-					trois temps.
+					Les quatre principes qui fonctionnent, la conversation en trois temps, et quoi faire quand
+					on vous dit non.
 				</p>
 				<p class="action"><Button href="{base}/fr/guide-court">Lire le guide court</Button></p>
 				<p class="pdf">
@@ -48,7 +48,10 @@
 			<Card class="ressource">
 				<h3>Guide complet</h3>
 				<p class="duree">30 minutes et plus</p>
-				<p>Les situations concrètes, les objections fréquentes et comment y répondre.</p>
+				<p>
+					Les mêmes principes, avec des exemples de conversations, les objections qui reviennent le
+					plus souvent, et comment y répondre honnêtement.
+				</p>
 				<p class="action">
 					<Button alt href="{base}/fr/guide-sensibilisation">Lire le guide complet</Button>
 				</p>
