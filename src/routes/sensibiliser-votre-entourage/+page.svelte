@@ -17,7 +17,7 @@
 		Sensibiliser votre entourage
 		<svelte:fragment slot="lede">
 			Comment parler des risques de l’IA autour de vous : à qui, à quel moment, et surtout de quelle
-			manière, sans braquer personne.
+			manière.
 		</svelte:fragment>
 	</PageHero>
 
