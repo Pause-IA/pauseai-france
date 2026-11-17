@@ -22,6 +22,11 @@
 
 <style>
 	.retour-agir {
+		/* Ce bloc n'est pas du texte courant : sans cette ligne, la règle
+		   globale qui plafonne les paragraphes à la mesure de lecture le
+		   bornait à 704 px dans une page qui en fait 992, et le filet comme le
+		   bouton se retrouvaient décalés vers la gauche. */
+		max-inline-size: none;
 		margin: 3rem 0 0;
 		padding-top: 2rem;
 		border-top: 1px solid var(--border);
