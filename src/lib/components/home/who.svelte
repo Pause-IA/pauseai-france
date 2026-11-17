@@ -100,10 +100,6 @@
 		{/if}
 	</svelte:fragment>
 	<div class="contact-cta" slot="actions">
-		<Button href="{prefix}/dons">{lang === 'en' ? 'Donate' : 'Faire un don'}</Button>
-		<Button alt href="{prefix}/rejoindre"
-			>{lang === 'en' ? 'Join Pause IA' : 'Rejoindre Pause IA'}</Button
-		>
 		<Button alt href="mailto:contact@pauseia.fr"
 			>{lang === 'en' ? 'Contact us' : 'Nous contacter'}</Button
 		>

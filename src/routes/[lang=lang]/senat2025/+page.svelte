@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
+	import { Page } from '$components/ui'
 	import type { SubscribeResponse } from '$lib/types'
 	import Button from '$lib/components/Button.svelte'
 	import type { PageData } from './$types'
@@ -84,28 +85,21 @@
 
 <PostMeta {title} {description} />
 
-<section class="wrap">
-	<!-- Hero Section -->
-	<div class="hero">
-		<img
-			src="/senat-2025-colloque.png"
-			alt={isEn
-				? 'Senate Colloquium · Artificial Intelligence: Securing Practices, Containing Risks'
-				: 'Colloque Sénat · Intelligence Artificielle : Sécuriser les pratiques, contenir les risques'}
-		/>
-		<div class="hero-text">
-			<!-- Le titre tenait lieu d'étiquette : tout en capitales, avec la
-			     date collée au nom de l'événement. Les deux sont séparés. -->
-			<p class="eyebrow">{isEn ? 'Event · 31 October 2025' : 'Événement · 31 octobre 2025'}</p>
-			<h1>{isEn ? 'Senate colloquium' : 'Colloque au Sénat'}</h1>
-			<p class="subtitle">
-				{isEn
-					? 'Artificial Intelligence: Securing Practices, Containing Risks'
-					: 'Intelligence Artificielle : Sécuriser les Pratiques, Contenir les Risques'}
-			</p>
-			<p class="cta">{isEn ? 'Report available' : 'Compte-rendu disponible'}</p>
-		</div>
-	</div>
+<Page
+	title={isEn ? 'Senate colloquium' : 'Colloque au Sénat'}
+	eyebrow={isEn ? 'Event · 31 October 2025' : 'Événement · 31 octobre 2025'}
+	lede={isEn
+		? 'Artificial Intelligence: Securing Practices, Containing Risks'
+		: 'Intelligence Artificielle : Sécuriser les Pratiques, Contenir les Risques'}
+	width="content"
+>
+	<img
+		class="affiche"
+		src="/senat-2025-colloque.png"
+		alt={isEn
+			? 'Senate Colloquium · Artificial Intelligence: Securing Practices, Containing Risks'
+			: 'Colloque Sénat · Intelligence Artificielle : Sécuriser les pratiques, contenir les risques'}
+	/>
 
 	<div class="content">
 		<!-- CTA Download Button -->
@@ -524,66 +518,20 @@
 			</form>
 		</section>
 	</div>
-</section>
+</Page>
 
 <style>
-	.eyebrow {
-		display: inline-block;
-		margin: 0 0 1rem;
-		padding: 0.3rem 0.7rem;
-		border-radius: 3px;
-		background: var(--brand);
-		color: var(--on-brand);
-		font-size: 0.85rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-	}
-
-	.wrap {
-		/* Jeton de la charte plutôt qu'une neuvième valeur en dur. */
-		max-inline-size: var(--width-wide);
-		margin: 0 auto;
-		padding: 1.5rem 1rem 3rem;
+	/* L'affiche du colloque : une illustration dans la colonne, plus un
+	   bandeau derrière le titre. */
+	.affiche {
+		display: block;
+		inline-size: 100%;
+		block-size: auto;
+		border-radius: var(--radius-md);
+		margin-bottom: 2.5rem;
 	}
 
 	/* Hero Section */
-	.hero {
-		position: relative;
-		border-radius: var(--radius-md);
-		overflow: hidden;
-		margin-bottom: 2rem;
-	}
-	.hero img {
-		width: 100%;
-		display: block;
-		object-fit: cover;
-		max-height: 360px;
-	}
-	.hero-text {
-		position: absolute;
-		inset: auto 0 0 0;
-		padding: 1rem;
-		background: linear-gradient(
-			180deg,
-			rgba(var(--ink-rgb), 0) 0%,
-			rgba(var(--ink-rgb), 0.55) 60%,
-			rgba(var(--ink-rgb), 0.75) 100%
-		);
-		color: var(--on-dark);
-	}
-	.hero-text h1 {
-		margin: 0 0 0.25rem 0;
-		font-size: 1.25rem;
-	}
-	.hero-text .subtitle {
-		margin: 0 0 0.25rem 0;
-		font-weight: 600;
-	}
-	.hero-text .cta {
-		margin: 0;
-		opacity: 0.9;
-	}
 
 	/* Download CTA */
 	.download-cta {
@@ -780,10 +728,6 @@
 
 	/* Responsive adjustments */
 	@media (max-width: 600px) {
-		.hero-text h1 {
-			font-size: 1rem;
-		}
-
 		.key-points h2,
 		.executive-summary h2 {
 			font-size: 1.5rem;
