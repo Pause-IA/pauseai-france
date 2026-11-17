@@ -330,29 +330,27 @@
 							<a href="/fr/guide">pauseia.fr/fr/guide</a>
 						</div>
 					</div>
+					<!-- C'est ce questionnaire que désigne le rappel manuscrit de la
+					     feuille imprimée (« en bas de la page ») : il n'existait
+					     nulle part avant. -->
+					<div class="contact-item">
+						<div class="contact-label">Questionnaire de satisfaction</div>
+						<div class="contact-card">
+							<a
+								href="https://pauseia.notion.site/afd28fc94b7782598e33019b30627b50?pvs=105"
+								target="_blank"
+								rel="noopener noreferrer">Donnez-nous votre avis</a
+							>
+						</div>
+					</div>
 				</div>
 			</section>
 		</div>
 
-		<!-- Questionnaire de satisfaction -->
-		<span class="survey-note"
-			>N'oubliez pas le questionnaire de satisfaction en bas de la page!</span
-		>
-		<svg class="survey-arrow" width="78" height="46" viewBox="0 0 78 46" fill="none">
-			<path
-				d="M72 28 C 62 48, 26 48, 5 29"
-				stroke="#ff7a00"
-				stroke-width="2.5"
-				stroke-linecap="round"
-			/>
-			<path
-				d="M7.3 37.7 L 5 29 L 13.7 31.3"
-				stroke="#ff7a00"
-				stroke-width="2.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-			/>
-		</svg>
+		<!-- Le rappel manuscrit et sa flèche restent sur la feuille imprimée,
+		     où le questionnaire n'est qu'une promesse. Ici il est juste au-
+		     dessus, dans les contacts : la note ferait doublon, et son
+		     positionnement au millimètre passait par-dessus. -->
 	</div>
 </div>
 
@@ -653,28 +651,6 @@
 		color: #ffffff;
 	}
 
-	/* Satisfaction survey reminder, bottom right */
-	.survey-note {
-		position: absolute;
-		right: 30px;
-		bottom: 40px;
-		max-width: 130px;
-		font-family: var(--font-title);
-		font-size: 12.5px;
-		font-weight: 700;
-		color: var(--primary-orange);
-		line-height: 1.25;
-		text-align: center;
-		transform: rotate(-4deg);
-	}
-
-	/* Arrow from under the note, up and left to the online guide box */
-	.survey-arrow {
-		position: absolute;
-		left: 606px;
-		bottom: 16px;
-	}
-
 	/* ─── Adaptations au web ───────────────────────────────────────────
 	   Le document d'origine est figé en millimètres : il déborde dès que la
 	   fenêtre est plus étroite qu'une feuille A4. Ici la feuille garde ses
@@ -695,14 +671,7 @@
 		padding: clamp(0.6rem, 3vw, 10mm);
 	}
 
-	/* Le rappel du questionnaire et sa flèche sont placés au millimètre pour
-	   le papier : sur un écran étroit, ils se superposeraient au texte. */
 	@media (max-width: 760px) {
-		.feuille :global(.survey-note),
-		.feuille :global(.survey-arrow) {
-			display: none;
-		}
-
 		/* Le pictogramme est posé au millimètre à droite de la carte : sur une
 		   colonne étroite il passait par-dessus le texte. */
 		.feuille :global(.box-symbol) {
