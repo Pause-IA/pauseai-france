@@ -2,7 +2,7 @@
 	import PostMeta from '$components/PostMeta.svelte'
 	import Callout from '$components/Callout.svelte'
 	import Button from '$components/Button.svelte'
-	import { Card, PageHero, SectionTitle } from '$components/ui'
+	import { Card, Page, SectionTitle } from '$components/ui'
 	import { base } from '$app/paths'
 </script>
 
@@ -11,15 +11,11 @@
 	description="Comment parler de Pause IA aux gens que vous connaissez déjà : un guide court à lire sur cette page, et un guide complet pour aller plus loin."
 />
 
-<article class="recruitment-landing">
-	<!-- Hero Section -->
-	<PageHero eyebrow="Agir">
-		Sensibiliser votre entourage
-		<svelte:fragment slot="lede">
-			Comment parler des risques de l’IA autour de vous : à qui, à quel moment, et surtout de quelle
-			manière.
-		</svelte:fragment>
-	</PageHero>
+<Page title="Sensibiliser votre entourage" eyebrow="Agir" width="content" as="article">
+	<svelte:fragment slot="lede">
+		Comment parler des risques de l’IA autour de vous : à qui, à quel moment, et surtout de quelle
+		manière.
+	</svelte:fragment>
 
 	<p class="intro">
 		Personne ne change d’avis en lisant un tract. On y vient en discutant avec quelqu’un en qui on a
@@ -58,23 +54,13 @@
 			</Card>
 		</div>
 	</section>
-</article>
+</Page>
 
 <style>
 	/* Page refaite sur la charte : plus aucune couleur, aucun rayon ni aucune
 	   ombre en dur, tout passe par les tokens d'app.css, ce qui fait aussi
 	   fonctionner le mode sombre. Les briques partagées (PageHero, Card,
 	   SectionTitle, Button) remplacent les cartes et boutons maison. */
-	.recruitment-landing {
-		/* <main> est un conteneur flex : sans ces deux déclarations, l'article
-		   refuse de descendre sous la largeur intrinsèque de son contenu et la
-		   page défile horizontalement sur mobile. Même piège que CampaignPage. */
-		min-inline-size: 0;
-		inline-size: 100%;
-		max-inline-size: var(--width-content);
-		margin-inline: auto;
-		padding: 2.5rem 1.5rem 5rem;
-	}
 
 	section {
 		margin-block-end: 3.5rem;
@@ -142,10 +128,6 @@
 	/* --- Conclusion -------------------------------------------------------- */
 
 	@media (max-width: 600px) {
-		.recruitment-landing {
-			padding: 2rem 1.1rem 3.5rem;
-		}
-
 		section {
 			margin-block-end: 2.5rem;
 		}

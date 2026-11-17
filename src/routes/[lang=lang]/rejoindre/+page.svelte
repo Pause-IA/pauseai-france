@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge, PageHero } from '$components/ui'
+	import { Badge, Page } from '$components/ui'
 	import PostMeta from '$components/PostMeta.svelte'
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$components/Button.svelte'
@@ -16,19 +16,29 @@
 
 <PostMeta title={t.rejoindre.meta_title} description={t.rejoindre.meta_desc} />
 
-<article>
-	{#if lang === 'en'}
-		<PageHero eyebrow={t.nav.agir}>
-			Join Pause AI
-			<svelte:fragment slot="lede">
-				Faced with a technological race that accelerates every day, <strong
-					>collective action is our greatest strength</strong
-				>. Every voice, every hour of volunteering, every membership strengthens our ability to
-				influence public debate and regain control. Whether you have 10 minutes a week or several
-				hours to dedicate to us, there is a place for you at Pause AI.
-			</svelte:fragment>
-		</PageHero>
+<Page
+	title={lang === 'en' ? 'Join Pause AI' : 'Rejoindre Pause IA'}
+	eyebrow={t.nav.agir}
+	width="content"
+	as="article"
+>
+	<svelte:fragment slot="lede">
+		{#if lang === 'en'}
+			Faced with a technological race that accelerates every day, <strong
+				>collective action is our greatest strength</strong
+			>. Every voice, every hour of volunteering, every membership strengthens our ability to
+			influence public debate and regain control. Whether you have 10 minutes a week or several
+			hours to dedicate to us, there is a place for you at Pause AI.
+		{:else}
+			Face à une course technologique qui s’accélère chaque jour, <strong
+				>l’action collective est notre plus grande force</strong
+			>. Chaque voix, chaque heure de bénévolat, chaque adhésion renforce notre capacité à
+			influencer le débat public et à reprendre le contrôle. Que vous ayez 10 minutes par semaine ou
+			plusieurs heures à nous consacrer, il existe une place pour vous chez Pause IA.
+		{/if}
+	</svelte:fragment>
 
+	{#if lang === 'en'}
 		<section class="engagement-options">
 			<div class="engagement-card">
 				<h2 class="title-with-icon">
@@ -118,17 +128,6 @@
 			</Accordion>
 		</section>
 	{:else}
-		<PageHero eyebrow={t.nav.agir}>
-			Rejoindre Pause IA
-			<svelte:fragment slot="lede">
-				Face à une course technologique qui s’accélère chaque jour, <strong
-					>l’action collective est notre plus grande force</strong
-				>. Chaque voix, chaque heure de bénévolat, chaque adhésion renforce notre capacité à
-				influencer le débat public et à reprendre le contrôle. Que vous ayez 10 minutes par semaine
-				ou plusieurs heures à nous consacrer, il existe une place pour vous chez Pause IA.
-			</svelte:fragment>
-		</PageHero>
-
 		<section class="engagement-options">
 			<div class="engagement-card">
 				<h2 class="title-with-icon">
@@ -204,16 +203,9 @@
 			</div>
 		</section>
 	{/if}
-</article>
+</Page>
 
 <style>
-	article {
-		max-inline-size: var(--width-content);
-		margin-inline: auto;
-		margin-top: 3rem;
-		padding: 0 2rem;
-	}
-
 	/* L'en-tête (étiquette, titre, chapô) était recopié à la main ici. Il
 	   vient maintenant de PageHero : une seule définition du modèle, au lieu
 	   d'une copie par page qui finit par diverger. */
@@ -386,8 +378,5 @@
 	}
 
 	@media (max-width: 480px) {
-		article {
-			padding: 0 1rem;
-		}
 	}
 </style>

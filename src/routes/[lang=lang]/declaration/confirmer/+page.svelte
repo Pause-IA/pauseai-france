@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import Button from '$components/Button.svelte'
-	import { Card, PageHero } from '$components/ui'
+	import { Card, Page } from '$components/ui'
 	import DeclarationNextSteps from '$components/DeclarationNextSteps.svelte'
 	import type { PageData } from './$types'
 
@@ -55,9 +55,12 @@
 	<meta name="robots" content="noindex" />
 </svelte:head>
 
-<article>
-	<PageHero>{isEn ? 'The PauseAI statement' : 'L’appel de PauseAI'}</PageHero>
-
+<Page
+	title={isEn ? 'The PauseAI statement' : 'L’appel de PauseAI'}
+	eyebrow={isEn ? 'Act' : 'Agir'}
+	width="content"
+	as="article"
+>
 	<Card>
 		<div aria-live="polite">
 			{#if state === 'loading'}
@@ -124,25 +127,14 @@
 			{/if}
 		</div>
 	</Card>
-</article>
+</Page>
 
 <style>
-	article {
-		max-inline-size: var(--width-content);
-		margin-inline: auto;
-		margin-top: 3rem;
-		margin-bottom: 5rem;
-		padding: 0 1.5rem;
-	}
-
 	h2 {
 		margin: 0 0 1rem;
 		font-size: 1.5rem;
 	}
 
 	@media (max-width: 600px) {
-		article {
-			padding: 0 1.1rem;
-		}
 	}
 </style>
