@@ -1,5 +1,5 @@
 {
-	"genere": "2026-11-13",
+	"genere": "2026-11-17",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -35,13 +35,8 @@
 					"externe": false
 				},
 				{
-					"href": "/relayer-nos-messages",
-					"label": "Relayer nos messages",
-					"externe": false
-				},
-				{
 					"href": "/groupes-locaux",
-					"label": "Agir près de chez vous",
+					"label": "Groupes locaux",
 					"externe": false
 				},
 				{
@@ -256,8 +251,16 @@
 			"url": "/fr/geneve-2026"
 		},
 		{
+			"chemin": "/guide-court",
+			"url": "/fr/guide-court"
+		},
+		{
 			"chemin": "/merci",
 			"url": "/fr/merci"
+		},
+		{
+			"chemin": "/modeles",
+			"url": "/fr/modeles"
 		},
 		{
 			"chemin": "/municipales-2026",
@@ -452,7 +455,7 @@
 		}
 	],
 	"total": {
-		"pages": 36,
+		"pages": 38,
 		"dynamiques": 7,
 		"articles": 37
 	}

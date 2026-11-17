@@ -5,17 +5,17 @@
 > du menu principal, du pied de page et des articles du dépôt, donc il ne
 > peut pas diverger du site.
 >
-> Dernière génération : 2026-11-13.
+> Dernière génération : 2026-11-17.
 
 Ce document décrit le site **réel**. Le plan _souhaité_ est une décision
 d'équipe et se tient ailleurs.
 
 ## En un coup d’œil
 
-- **36 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
+- **38 pages** (hors routes dynamiques), chacune en français et en anglais via le préfixe `/fr` ou `/en`
 - **7 gabarits dynamiques** (articles, campagnes, dangers…)
 - **37 articles** en Markdown dans `src/posts`
-- **19 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
+- **21 pages hors menu** : en ligne, mais qu’aucun menu ni pied de page n’atteint
 
 ## Arborescence depuis le menu principal
 
@@ -32,56 +32,59 @@ flowchart LR
   accueil --> g1["Agir"]
   g1 --> n4["Écrire à vos élus<br/><small>/ecrire-a-mes-elus</small>"]
   g1 --> n5["Signer l’appel<br/><small>/declaration</small>"]
-  g1 --> n6["Relayer nos messages<br/><small>/relayer-nos-messages</small>"]
-  g1 --> n7["Agir près de chez vous<br/><small>/groupes-locaux</small>"]
-  g1 --> n8["Toutes les façons d’agir<br/><small>/agir</small>"]
+  g1 --> n6["Groupes locaux<br/><small>/groupes-locaux</small>"]
+  g1 --> n7["Toutes les façons d’agir<br/><small>/agir</small>"]
   accueil --> g2["Campagnes"]
-  g2 --> n9["Au bord de la perte de contrôle<br/><small>/perte-de-controle</small>"]
-  g2 --> n10["L’IA ne détruira pas QUE votre emploi<br/><small>/emploi-ia</small>"]
-  g2 --> n11["Toutes nos campagnes<br/><small>/campagnes</small>"]
+  g2 --> n8["Au bord de la perte de contrôle<br/><small>/perte-de-controle</small>"]
+  g2 --> n9["L’IA ne détruira pas QUE votre emploi<br/><small>/emploi-ia</small>"]
+  g2 --> n10["Toutes nos campagnes<br/><small>/campagnes</small>"]
   accueil --> g3["À propos"]
-  g3 --> n12["Qui sommes-nous ?<br/><small>/qui-sommes-nous</small>"]
-  g3 --> n13["Que demandons-nous ?<br/><small>/propositions</small>"]
-  g3 --> n14["FAQ<br/><small>/faq</small>"]
+  g3 --> n11["Qui sommes-nous ?<br/><small>/qui-sommes-nous</small>"]
+  g3 --> n12["Que demandons-nous ?<br/><small>/propositions</small>"]
+  g3 --> n13["FAQ<br/><small>/faq</small>"]
   accueil -.-> orph["Hors menu"]
-  orph -.-> n15["/articles/ce-que-lia-fait-au-travail"]
+  orph -.-> n14["/articles/ce-que-lia-fait-au-travail"]
+  class n14 orpheline
+  orph -.-> n15["/articles/pas-de-pilote"]
   class n15 orpheline
-  orph -.-> n16["/articles/pas-de-pilote"]
+  orph -.-> n16["/articles/remplacer-humain"]
   class n16 orpheline
-  orph -.-> n17["/articles/remplacer-humain"]
+  orph -.-> n17["/campagne-modele"]
   class n17 orpheline
-  orph -.-> n18["/campagne-modele"]
+  orph -.-> n18["/declaration/confirmer"]
   class n18 orpheline
-  orph -.-> n19["/declaration/confirmer"]
+  orph -.-> n19["/declaration/signataires"]
   class n19 orpheline
-  orph -.-> n20["/declaration/signataires"]
+  orph -.-> n20["/emploi-ia/merci"]
   class n20 orpheline
-  orph -.-> n21["/emploi-ia/merci"]
+  orph -.-> n21["/emploi-ia/questionnaire"]
   class n21 orpheline
-  orph -.-> n22["/emploi-ia/questionnaire"]
+  orph -.-> n22["/g7-2026"]
   class n22 orpheline
-  orph -.-> n23["/g7-2026"]
+  orph -.-> n23["/geneve-2026"]
   class n23 orpheline
-  orph -.-> n24["/geneve-2026"]
+  orph -.-> n24["/guide-court"]
   class n24 orpheline
   orph -.-> n25["/merci"]
   class n25 orpheline
-  orph -.-> n26["/municipales-2026"]
+  orph -.-> n26["/modeles"]
   class n26 orpheline
-  orph -.-> n27["/plan-du-site"]
+  orph -.-> n27["/municipales-2026"]
   class n27 orpheline
-  orph -.-> n28["/posts"]
+  orph -.-> n28["/plan-du-site"]
   class n28 orpheline
-  orph -.-> n29["/senat2025"]
+  orph -.-> n29["/posts"]
   class n29 orpheline
-  orph -.-> n30["/sensibiliser-votre-entourage"]
+  orph -.-> n30["/senat2025"]
   class n30 orpheline
-  orph -.-> n31["/sommet-ia-2026"]
+  orph -.-> n31["/sensibiliser-votre-entourage"]
   class n31 orpheline
-  orph -.-> n32["/tribunes/le-monde-octobre-2026"]
+  orph -.-> n32["/sommet-ia-2026"]
   class n32 orpheline
-  orph -.-> n33["/une-ia-sest-echappee"]
+  orph -.-> n33["/tribunes/le-monde-octobre-2026"]
   class n33 orpheline
+  orph -.-> n34["/une-ia-sest-echappee"]
+  class n34 orpheline
   classDef externe stroke-dasharray: 4 3
   classDef orpheline fill:#fff5e8,stroke:#ff9416
 ```
@@ -98,13 +101,12 @@ flowchart LR
 
 ### Agir
 
-| Page                     | Chemin                  |
-| ------------------------ | ----------------------- |
-| Écrire à vos élus        | `/ecrire-a-mes-elus`    |
-| Signer l’appel           | `/declaration`          |
-| Relayer nos messages     | `/relayer-nos-messages` |
-| Agir près de chez vous   | `/groupes-locaux`       |
-| Toutes les façons d’agir | `/agir`                 |
+| Page                     | Chemin               |
+| ------------------------ | -------------------- |
+| Écrire à vos élus        | `/ecrire-a-mes-elus` |
+| Signer l’appel           | `/declaration`       |
+| Groupes locaux           | `/groupes-locaux`    |
+| Toutes les façons d’agir | `/agir`              |
 
 ### Campagnes
 
@@ -182,7 +184,9 @@ campagne, confirmations, remerciements.
 - `/emploi-ia/questionnaire`
 - `/g7-2026`
 - `/geneve-2026`
+- `/guide-court`
 - `/merci`
+- `/modeles`
 - `/municipales-2026`
 - `/plan-du-site`
 - `/posts`
