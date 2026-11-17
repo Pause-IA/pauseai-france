@@ -1,7 +1,6 @@
 ---
 title: Share our messages
 rubrique: agir
-modele: standard
 chapo: 'A few minutes a week are enough to carry Pause IA’s voice far beyond our usual circle.'
 description: 'Social media and Pause Action: a few minutes a week to carry Pause AI’s voice far beyond our usual circle.'
 ---
@@ -9,7 +8,8 @@ description: 'Social media and Pause Action: a few minutes a week to carry Pause
 <script lang="ts">
   import { page } from '$app/stores'
   import Socials from '$components/Socials.svelte'
-  import { SectionTitle, LinkGrid, LinkCard } from '$components/ui'
+  import { SectionTitle } from '$components/ui'
+  import Button from '$components/Button.svelte'
   import RetourAgir from '$components/RetourAgir.svelte'
   $: lang = $page.params.lang ?? 'en'
 </script>
@@ -38,24 +38,20 @@ instance:
 
 You do the ones that speak to you and skip the rest.
 
-<LinkGrid min="100%">
-  <LinkCard href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU" title="Join Pause Action" icon="📣" featured>
-    WhatsApp group · one action a week · no commitment
-  </LinkCard>
-</LinkGrid>
+<p>
+  <Button href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU">Join Pause Action</Button>
+</p>
+
+<p class="precision">WhatsApp group, one action a week, no commitment.</p>
 
 <SectionTitle id="campagnes">Speak up during our campaigns</SectionTitle>
 
 That is when a relay counts most, because the attention is already there.
 Every campaign has its own page: what we ask for, and what you can do.
 
-<LinkGrid>
-  <LinkCard href={`/${lang}/campagnes`} title="Our current campaigns" icon="🗂️">
-    What we ask for, and what you can do.
-  </LinkCard>
-  <LinkCard href={`/${lang}/rejoindre`} title="Join a volunteer team" icon="🤝">
-    For more than a few minutes a week.
-  </LinkCard>
-</LinkGrid>
+<p><Button href={`/${lang}/campagnes`}>See our current campaigns</Button></p>
+
+Want to give more than a few minutes a week?
+[Join a volunteer team](/{lang}/rejoindre).
 
 <RetourAgir {lang} />

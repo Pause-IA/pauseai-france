@@ -1,7 +1,6 @@
 ---
 title: Relayer nos messages
 rubrique: agir
-modele: standard
 chapo: 'Quelques minutes par semaine suffisent à porter la voix de Pause IA bien au-delà de notre cercle.'
 description: 'Réseaux sociaux et Pause Action : quelques minutes par semaine pour faire porter la voix de Pause IA bien au-delà de notre cercle.'
 ---
@@ -9,7 +8,8 @@ description: 'Réseaux sociaux et Pause Action : quelques minutes par semaine po
 <script lang="ts">
   import { page } from '$app/stores'
   import Socials from '$components/Socials.svelte'
-  import { SectionTitle, LinkGrid, LinkCard } from '$components/ui'
+  import { SectionTitle } from '$components/ui'
+  import Button from '$components/Button.svelte'
   import RetourAgir from '$components/RetourAgir.svelte'
   $: lang = $page.params.lang ?? 'fr'
 </script>
@@ -40,24 +40,20 @@ Par exemple :
 
 Vous faites celles qui vous parlent, vous laissez les autres.
 
-<LinkGrid min="100%">
-  <LinkCard href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU" title="Rejoindre Pause Action" icon="📣" featured>
-    Groupe WhatsApp · une action par semaine · aucune obligation
-  </LinkCard>
-</LinkGrid>
+<p>
+  <Button href="https://chat.whatsapp.com/LThhghXc0Hk3sTwQMyy1wU">Rejoindre Pause Action</Button>
+</p>
+
+<p class="precision">Groupe WhatsApp, une action par semaine, aucune obligation.</p>
 
 <SectionTitle id="campagnes">Donnez de la voix pendant nos campagnes</SectionTitle>
 
 C'est là qu'un relais compte le plus, parce que l'attention est déjà là.
 Chaque campagne a sa page : ce que nous demandons, et ce que vous pouvez faire.
 
-<LinkGrid>
-  <LinkCard href={`/${lang}/campagnes`} title="Nos campagnes en cours" icon="🗂️">
-    Ce que nous demandons, et ce que vous pouvez faire.
-  </LinkCard>
-  <LinkCard href={`/${lang}/rejoindre`} title="Rejoindre une équipe de bénévoles" icon="🤝">
-    Pour vous engager davantage que quelques minutes par semaine.
-  </LinkCard>
-</LinkGrid>
+<p><Button href={`/${lang}/campagnes`}>Voir nos campagnes en cours</Button></p>
+
+Vous voulez vous engager davantage que quelques minutes par semaine ?
+[Rejoignez une équipe de bénévoles](/{lang}/rejoindre).
 
 <RetourAgir {lang} />
