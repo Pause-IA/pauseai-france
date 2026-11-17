@@ -45,9 +45,7 @@
 
 <div class="feuille">
 	<p class="telecharger">
-		<a href="/pdfs/guide-contribution.pdf" target="_blank" rel="noopener noreferrer">
-			Télécharger la feuille (PDF)
-		</a>
+		<a href="/pdfs/guide-contribution.pdf"> Télécharger la feuille (PDF) </a>
 	</p>
 
 	<div class="a4-page">
@@ -83,7 +81,7 @@
 							Visitez notre blog et inscrivez-vous à notre
 							<b>Newsletter</b>.
 						</div>
-						<a href="https://pauseia.fr" target="_blank" class="step-link"> https://pauseia.fr </a>
+						<a href="/fr/" class="step-link"> https://pauseia.fr </a>
 					</div>
 					<span class="box-symbol">📖</span>
 				</div>
@@ -99,7 +97,7 @@
 							<br />
 							Suivez le guide. Si vous avez une réponse, contactez-nous à l'aide d'un des liens ci-dessous.
 						</div>
-						<a href="https://pauseia.fr/fr/ecrire-a-mes-elus" target="_blank" class="step-link"
+						<a href="/fr/ecrire-a-mes-elus" class="step-link"
 							>https://pauseia.fr/fr/ecrire-a-mes-elus</a
 						>
 					</div>
@@ -132,9 +130,7 @@
 							Adhérez à l'association, et contribuez selon vos moyens (aucune obligation de
 							participer si vous n'avez pas de revenus stables).
 						</div>
-						<a href="https://pauseia.fr/fr/rejoindre" target="_blank" class="step-link"
-							>https://pauseia.fr/fr/rejoindre</a
-						>
+						<a href="/fr/rejoindre" class="step-link">https://pauseia.fr/fr/rejoindre</a>
 					</div>
 					<span class="box-symbol">🎫</span>
 				</div>
@@ -155,9 +151,7 @@
 							<br />
 							Si vous le souhaitez, rejoignez un groupe local près de chez vous.
 						</div>
-						<a href="https://pauseia.fr/fr/rejoindre" target="_blank" class="step-link"
-							>https://pauseia.fr/fr/rejoindre</a
-						>
+						<a href="/fr/rejoindre" class="step-link">https://pauseia.fr/fr/rejoindre</a>
 					</div>
 					<span class="box-symbol">👥</span>
 				</div>
@@ -171,9 +165,7 @@
 							Parlez de PauseIA à au moins 2 membres de votre famille ou 2 de vos amis, et essayez
 							de les convaincre de signer notre déclaration.
 						</div>
-						<a href="https://pauseia.fr/fr/declaration" target="_blank" class="step-link"
-							>https://pauseia.fr/fr/declaration</a
-						>
+						<a href="/fr/declaration" class="step-link">https://pauseia.fr/fr/declaration</a>
 					</div>
 					<span class="box-symbol">🙏</span>
 				</div>
@@ -207,7 +199,7 @@
 							<b>Recrutement relationnel</b> » pour convaincre au moins une personne dans votre réseau
 							personnel de rejoindre PauseIA. Donnez-lui une copie de cette feuille.
 						</div>
-						<a href="https://pauseia.fr/fr/guide-sensibilisation" target="_blank" class="step-link">
+						<a href="/fr/guide-sensibilisation" class="step-link">
 							https://pauseia.fr/fr/guide-sensibilisation
 						</a>
 					</div>
@@ -229,7 +221,7 @@
 					<div class="contact-item">
 						<div class="contact-label">Version en ligne du guide</div>
 						<div class="contact-card highlight">
-							<a href="https://pauseia.fr/fr/guide" target="_blank">pauseia.fr/fr/guide</a>
+							<a href="/fr/guide">pauseia.fr/fr/guide</a>
 						</div>
 					</div>
 				</div>
@@ -377,6 +369,28 @@
 		font-weight: 700;
 		font-size: 12.5px;
 		text-decoration: underline;
+	}
+
+	/* Toute la carte est cliquable, pas seulement l'adresse écrite en bas :
+	   sur la feuille imprimée on lit l'adresse et on la recopie, ici on clique
+	   où on veut. Le lien s'étire sur la carte entière plutôt que d'envelopper
+	   le contenu, ce qui garde un seul lien par étape pour les lecteurs
+	   d'écran, et laisse le texte sélectionnable. */
+	.step-link::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 8px;
+	}
+
+	.step-card:hover {
+		background: #fffaf5;
+		box-shadow: 0 2px 10px rgba(255, 122, 0, 0.18);
+	}
+
+	.step-card:focus-within {
+		outline: 2px solid var(--primary-orange);
+		outline-offset: 2px;
 	}
 
 	/* Icon positioned on the far right and enlarged */
