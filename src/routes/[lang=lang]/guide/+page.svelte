@@ -14,10 +14,42 @@
 	 * étape change, elle change dans le HTML source, puis on recopie ici et on
 	 * relance le script.
 	 *
-	 * Seul ajout : la feuille s'adapte aux petits écrans (le A4 est figé en
-	 * millimètres) et un bouton de téléchargement, inutile sur le papier.
+	 * Ajouts propres au web : la feuille s'adapte aux petits écrans (le A4 est
+	 * figé en millimètres), un bouton de téléchargement, et des cases à cocher
+	 * qui fonctionnent — sur le papier on les coche au stylo.
 	 */
 	import PostMeta from '$components/PostMeta.svelte'
+	import { onMount } from 'svelte'
+
+	const ETAPES = 8
+	const CLE = 'guide-contribution-etapes'
+
+	let faites: boolean[] = Array(ETAPES).fill(false)
+
+	// L'avancement est propre au navigateur de la personne : rien n'est envoyé,
+	// et une mémoire indisponible (navigation privée, cookies bloqués) ne doit
+	// pas empêcher la page de fonctionner.
+	onMount(() => {
+		try {
+			const brut = localStorage.getItem(CLE)
+			if (!brut) return
+			const lu = JSON.parse(brut)
+			if (Array.isArray(lu)) faites = Array.from({ length: ETAPES }, (_, i) => lu[i] === true)
+		} catch {
+			/* tant pis : on repart de cases vides */
+		}
+	})
+
+	function basculer(i: number) {
+		faites[i] = !faites[i]
+		try {
+			localStorage.setItem(CLE, JSON.stringify(faites))
+		} catch {
+			/* l'état reste valable pour la visite en cours */
+		}
+	}
+
+	$: nombreFaites = faites.filter(Boolean).length
 </script>
 
 <PostMeta
@@ -44,6 +76,8 @@
 </svelte:head>
 
 <div class="feuille">
+	<p class="avancement">{nombreFaites} étape{nombreFaites > 1 ? 's' : ''} sur 8</p>
+
 	<p class="telecharger">
 		<a href="/pdfs/guide-contribution.pdf"> Télécharger la feuille (PDF) </a>
 	</p>
@@ -68,7 +102,14 @@
 			<section class="steps-container">
 				<!-- Step 1 -->
 				<div class="step-card">
-					<div class="custom-checkbox"></div>
+					<button
+						type="button"
+						class="custom-checkbox"
+						class:cochee={faites[0]}
+						aria-pressed={faites[0]}
+						aria-label="Marquer l’étape 1 comme faite"
+						on:click={() => basculer(0)}
+					></button>
 					<div class="step-content">
 						<div class="step-title">
 							1. Inscrivez-vous à nos canaux de communication officiels (10min)
@@ -88,7 +129,14 @@
 
 				<!-- Step 2 -->
 				<div class="step-card">
-					<div class="custom-checkbox"></div>
+					<button
+						type="button"
+						class="custom-checkbox"
+						class:cochee={faites[1]}
+						aria-pressed={faites[1]}
+						aria-label="Marquer l’étape 2 comme faite"
+						on:click={() => basculer(1)}
+					></button>
 					<div class="step-content">
 						<div class="step-title">2. Envoyez un mail à vos représentants (10min)</div>
 						<div class="step-desc">
@@ -106,7 +154,14 @@
 
 				<!-- Step 3 (NEW: PauseAction) -->
 				<div class="step-card">
-					<div class="custom-checkbox"></div>
+					<button
+						type="button"
+						class="custom-checkbox"
+						class:cochee={faites[2]}
+						aria-pressed={faites[2]}
+						aria-label="Marquer l’étape 3 comme faite"
+						on:click={() => basculer(2)}
+					></button>
 					<div class="step-content">
 						<div class="step-title">3. Rejoignez PauseAction (5min)</div>
 						<div class="step-desc">Pour facilement nous aider lors de nos actions (optionnel).</div>
@@ -123,7 +178,14 @@
 
 				<!-- Step 4 (Former Step 3) -->
 				<div class="step-card">
-					<div class="custom-checkbox"></div>
+					<button
+						type="button"
+						class="custom-checkbox"
+						class:cochee={faites[3]}
+						aria-pressed={faites[3]}
+						aria-label="Marquer l’étape 4 comme faite"
+						on:click={() => basculer(3)}
+					></button>
 					<div class="step-content">
 						<div class="step-title">4. Adhérez à l'association (10min)</div>
 						<div class="step-desc">
@@ -137,7 +199,14 @@
 
 				<!-- Step 5 (Split: Community - Reduced time) -->
 				<div class="step-card">
-					<div class="custom-checkbox"></div>
+					<button
+						type="button"
+						class="custom-checkbox"
+						class:cochee={faites[4]}
+						aria-pressed={faites[4]}
+						aria-label="Marquer l’étape 5 comme faite"
+						on:click={() => basculer(4)}
+					></button>
 					<div class="step-content">
 						<div class="step-title">5. Rejoignez notre communauté (40min)</div>
 						<div class="step-desc">
@@ -158,7 +227,14 @@
 
 				<!-- Step 6 (Split: Talk to friends - New) -->
 				<div class="step-card">
-					<div class="custom-checkbox"></div>
+					<button
+						type="button"
+						class="custom-checkbox"
+						class:cochee={faites[5]}
+						aria-pressed={faites[5]}
+						aria-label="Marquer l’étape 6 comme faite"
+						on:click={() => basculer(5)}
+					></button>
 					<div class="step-content">
 						<div class="step-title">6. Parlez à vos proches (1h)</div>
 						<div class="step-desc">
@@ -172,7 +248,14 @@
 
 				<!-- Step 7 (Former Step 5) -->
 				<div class="step-card">
-					<div class="custom-checkbox"></div>
+					<button
+						type="button"
+						class="custom-checkbox"
+						class:cochee={faites[6]}
+						aria-pressed={faites[6]}
+						aria-label="Marquer l’étape 7 comme faite"
+						on:click={() => basculer(6)}
+					></button>
 					<div class="step-content">
 						<div class="step-title">7. Approfondissez le sujet des risques de l'IA (3h)</div>
 						<div class="step-desc">
@@ -191,7 +274,14 @@
 
 				<!-- Step 8 (Former Step 6) -->
 				<div class="step-card">
-					<div class="custom-checkbox"></div>
+					<button
+						type="button"
+						class="custom-checkbox"
+						class:cochee={faites[7]}
+						aria-pressed={faites[7]}
+						aria-label="Marquer l’étape 8 comme faite"
+						on:click={() => basculer(7)}
+					></button>
 					<div class="step-content">
 						<div class="step-title">8. Formez-vous au recrutement (durée libre)</div>
 						<div class="step-desc">
@@ -333,6 +423,46 @@
 		margin-top: 2px;
 		flex-shrink: 0;
 		background: #ffffff;
+		/* Au-dessus du lien qui couvre la carte, sinon cocher une case
+		   emmenait sur la page de l'étape. */
+		position: relative;
+		z-index: 2;
+		padding: 0;
+		cursor: pointer;
+		display: grid;
+		place-items: center;
+		line-height: 1;
+	}
+
+	.custom-checkbox::before {
+		content: '✓';
+		color: #ffffff;
+		font-size: 14px;
+		font-weight: 700;
+		opacity: 0;
+	}
+
+	.custom-checkbox.cochee {
+		background: var(--primary-orange);
+	}
+
+	.custom-checkbox.cochee::before {
+		opacity: 1;
+	}
+
+	.custom-checkbox:focus-visible {
+		outline: 2px solid var(--dark-black);
+		outline-offset: 2px;
+	}
+
+	/* Compteur d'avancement : il n'existe que sur le web, le papier n'en a pas
+	   besoin. */
+	.avancement {
+		margin: 0;
+		font-family: var(--font-title);
+		font-size: 0.9rem;
+		font-weight: 700;
+		color: var(--gray-text);
 	}
 
 	.step-content {
