@@ -50,6 +50,7 @@
 	}
 
 	$: nombreFaites = faites.filter(Boolean).length
+	$: toutFait = nombreFaites === ETAPES
 </script>
 
 <PostMeta
@@ -76,7 +77,9 @@
 </svelte:head>
 
 <div class="feuille">
-	<p class="avancement">{nombreFaites} étape{nombreFaites > 1 ? 's' : ''} sur 8</p>
+	<p class="avancement" class:fini={toutFait}>
+		{nombreFaites} étape{nombreFaites > 1 ? 's' : ''} sur 8
+	</p>
 
 	<p class="telecharger">
 		<a href="/pdfs/guide-contribution.pdf"> Télécharger la feuille (PDF) </a>
@@ -296,6 +299,19 @@
 					<span class="box-symbol">📢</span>
 				</div>
 			</section>
+
+			<!-- Ligne d'arrivée : la bannière était prévue dans le document
+			     d'origine mais n'y était jamais affichée. Elle ne sert qu'ici,
+			     quand les huit étapes sont faites. -->
+			{#if toutFait}
+				<div class="finish-banner">
+					<p class="finish-title">Les huit étapes sont faites. Merci !</p>
+					<p class="finish-sub">
+						Vous en savez assez pour en parler autour de vous. Donnez une copie de cette feuille à
+						la prochaine personne que vous convainquez.
+					</p>
+				</div>
+			{/if}
 		</div>
 
 		<div>
@@ -455,8 +471,60 @@
 		outline-offset: 2px;
 	}
 
+	/* Ligne d'arrivée, reprise telle quelle du document d'origine. */
+	.finish-banner {
+		background-color: var(--soft-orange);
+		border: 1px dashed var(--primary-orange);
+		padding: 10px 12px;
+		border-radius: 6px;
+		text-align: center;
+		margin-top: 10px;
+		animation: arrivee 0.5s ease-out;
+	}
+
+	.finish-title {
+		margin: 0;
+		font-family: var(--font-title);
+		font-size: 15px;
+		font-weight: 700;
+		color: var(--primary-orange);
+		letter-spacing: 0.5px;
+	}
+
+	.finish-sub {
+		margin: 4px 0 0;
+		font-size: 13px;
+		line-height: 1.35;
+		color: var(--gray-text);
+	}
+
+	/* Une seule apparition, courte : la page est une liste de tâches, pas un
+	   jeu. */
+	@keyframes arrivee {
+		from {
+			opacity: 0;
+			transform: translateY(8px) scale(0.97);
+		}
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
+
+	/* Quelqu'un qui a demandé moins d'animations voit la bannière apparaître
+	   sans mouvement. */
+	@media (prefers-reduced-motion: reduce) {
+		.finish-banner {
+			animation: none;
+		}
+	}
+
 	/* Compteur d'avancement : il n'existe que sur le web, le papier n'en a pas
 	   besoin. */
+	.avancement.fini {
+		color: var(--primary-orange);
+	}
+
 	.avancement {
 		margin: 0;
 		font-family: var(--font-title);
