@@ -10,8 +10,9 @@ description: 'Social media and Pause Action: a few minutes a week to carry Pause
   $: lang = $page.params.lang ?? 'en'
 </script>
 
-Our posts circulate in a closed loop: they mostly reach people who already
-agree with us. Your account reaches people we never will.
+A message passed on by someone you know carries far further than a post from
+an organisation. Your network isn't ours, and that is exactly what makes it
+valuable.
 
 <ol class="actions">
 <li>
