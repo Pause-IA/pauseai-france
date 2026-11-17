@@ -63,6 +63,10 @@ const config = {
 							// Vitrine des modèles de page : interne, hors menu comme le plan
 							// du site, donc invisible au robot d'exploration.
 							'/fr/modeles',
+							// Guide de contribution : on y arrive par le QR code de la feuille
+							// imprimée, jamais par un lien du site.
+							'/fr/guide',
+							'/en/guide',
 							'/en/modeles',
 							'/en/guide-court',
 							// Plan du site : page interne, volontairement hors menu et hors pied
