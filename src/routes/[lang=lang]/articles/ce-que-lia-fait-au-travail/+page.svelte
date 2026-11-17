@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
-	import { LinkCard, LinkGrid, Page } from '$components/ui'
+	import Button from '$components/Button.svelte'
+	import { Page } from '$components/ui'
 	import type { Lang } from '$lib/i18n'
 
 	export let data: { lang: Lang }
@@ -207,9 +208,5 @@
 		aussi dans le monde du travail.
 	</p>
 
-	<LinkGrid>
-		<LinkCard href="/{data.lang}/emploi-ia" title="Campagne Emploi &amp; IA">
-			Revenir à la campagne.
-		</LinkCard>
-	</LinkGrid>
+	<p><Button alt href="/{data.lang}/emploi-ia">Revenir à la campagne Emploi &amp; IA</Button></p>
 </Page>
