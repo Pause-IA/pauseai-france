@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte'
 	import PostMeta from '$components/PostMeta.svelte'
+	import RetourAgir from '$components/RetourAgir.svelte'
 	import Button from '$components/Button.svelte'
 	import { Card, PageHero, SectionTitle } from '$components/ui'
 	import DeclarationNextSteps from '$components/DeclarationNextSteps.svelte'
@@ -403,6 +404,8 @@
 			{/if}
 		</Button>
 	</section>
+
+	<RetourAgir lang={data.lang} />
 </article>
 
 <style>

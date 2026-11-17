@@ -9,6 +9,7 @@ description: 'Réseaux sociaux et Pause Action : quelques minutes par semaine po
   import { page } from '$app/stores'
   import Socials from '$components/Socials.svelte'
   import { SectionTitle, LinkGrid, LinkCard } from '$components/ui'
+  import RetourAgir from '$components/RetourAgir.svelte'
   $: lang = $page.params.lang ?? 'fr'
 </script>
 
@@ -56,7 +57,6 @@ Chaque campagne a sa page : ce que nous demandons, et ce que vous pouvez faire.
   <LinkCard href={`/${lang}/rejoindre`} title="Rejoindre une équipe de bénévoles" icon="🤝">
     Pour vous engager davantage que quelques minutes par semaine.
   </LinkCard>
-  <LinkCard href={`/${lang}/agir`} title="Toutes les façons d'agir" icon="🧭">
-    De 5 minutes à un engagement durable.
-  </LinkCard>
 </LinkGrid>
+
+<RetourAgir {lang} />

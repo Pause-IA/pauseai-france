@@ -1,4 +1,5 @@
 <script lang="ts">
+	import RetourAgir from '$components/RetourAgir.svelte'
 	import PostMeta from '$components/PostMeta.svelte'
 	import { Page } from '$components/ui'
 	import Button from '$components/Button.svelte'
@@ -547,6 +548,8 @@
 			{/if}
 		</p>
 	</section>
+
+	<RetourAgir lang={data.lang} />
 </Page>
 
 <style>

@@ -9,6 +9,7 @@ description: 'Social media and Pause Action: a few minutes a week to carry Pause
   import { page } from '$app/stores'
   import Socials from '$components/Socials.svelte'
   import { SectionTitle, LinkGrid, LinkCard } from '$components/ui'
+  import RetourAgir from '$components/RetourAgir.svelte'
   $: lang = $page.params.lang ?? 'en'
 </script>
 
@@ -54,7 +55,6 @@ Every campaign has its own page: what we ask for, and what you can do.
   <LinkCard href={`/${lang}/rejoindre`} title="Join a volunteer team" icon="🤝">
     For more than a few minutes a week.
   </LinkCard>
-  <LinkCard href={`/${lang}/agir`} title="All the ways to act" icon="🧭">
-    From 5 minutes to a lasting commitment.
-  </LinkCard>
 </LinkGrid>
+
+<RetourAgir {lang} />
