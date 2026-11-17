@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
-	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
+	import { CampaignPage, CampaignHero, CampaignSection } from '$components/campaign'
 	import type { PageData } from './$types'
 
 	export let data: PageData
@@ -49,26 +48,17 @@
 	})
 </script>
 
-<PostMeta {title} {description} />
+<CampaignPage {title} {description} width="wide">
+	<CampaignHero
+		title={isEn ? 'Geneva 2026' : 'Genève 2026'}
+		lede={isEn
+			? 'Ask France to support an international treaty on AI.'
+			: 'Demandez à la France de soutenir un traité international sur l’intelligence artificielle.'}
+		eyebrow={isEn ? 'Campaign' : 'Campagne'}
+		date={isEn ? '6–7 July 2026' : '6 et 7 juillet 2026'}
+	/>
 
-<article>
-	<section class="hero">
-		{#if isEn}
-			<UnderlinedTitle as="h1">Geneva 2026</UnderlinedTitle>
-			<p class="lede">
-				<strong>Ask France to support an international treaty on AI.</strong>
-			</p>
-		{:else}
-			<UnderlinedTitle as="h1">Genève 2026</UnderlinedTitle>
-			<p class="lede">
-				<strong
-					>Demandez à la France de soutenir un traité international sur l’intelligence artificielle.</strong
-				>
-			</p>
-		{/if}
-	</section>
-
-	<section class="prose">
+	<CampaignSection>
 		{#if isEn}
 			<p>
 				On 6 and 7 July 2026, the United Nations brings together representatives of member states in
@@ -92,8 +82,6 @@
 					advanced AI models, until the conditions for safety and democratic control are met.</strong
 				>
 			</p>
-
-			<hr class="section-divider" />
 
 			<h2>Write to the French delegation</h2>
 			<p>
@@ -141,8 +129,6 @@
 				>
 			</p>
 
-			<hr class="section-divider" />
-
 			<h2>Écrivez à la délégation française</h2>
 			<p>
 				Les diplomates, ministres et autres responsables politiques présents à Genève sont
@@ -163,17 +149,17 @@
 				avancés d’intelligence artificielle générale.
 			</p>
 		{/if}
-	</section>
+	</CampaignSection>
 
-	<h2 class="embed-title">
-		{isEn ? 'Write to the French delegation' : 'J’écris à la délégation française'}
-	</h2>
-
-	<section class="embed-section" id="agir">
+	<CampaignSection
+		id="agir"
+		title={isEn ? 'Write to the French delegation' : 'J’écris à la délégation française'}
+		variant="card"
+	>
 		<div id="av-embed-container"></div>
-	</section>
+	</CampaignSection>
 
-	<section class="prose closing">
+	<CampaignSection>
 		{#if isEn}
 			<p>
 				Every message counts. To amplify the impact of your action, we encourage you to share this
@@ -185,94 +171,12 @@
 				partager cette campagne autour de vous.
 			</p>
 		{/if}
-	</section>
-</article>
+	</CampaignSection>
+</CampaignPage>
 
 <style>
-	article {
-		max-inline-size: var(--width-wide);
-		margin-inline: auto;
-		margin-top: 3rem;
-		padding: 0 2rem;
-	}
-
-	.hero {
-		text-align: left;
-		margin-bottom: 2.5rem;
-	}
-
-	.lede {
-		font-size: 1.2rem;
-		line-height: 1.6;
-		color: var(--text);
-		margin-top: 1.5rem;
-	}
-
-	.prose {
-		font-size: 1.05rem;
-		line-height: 1.7;
-		color: var(--text);
-		margin-bottom: 2.5rem;
-	}
-
-	.prose h2 {
-		font-size: 1.5rem;
-		margin-top: 2.5rem;
-		margin-bottom: 1rem;
-	}
-
-	.prose p {
-		margin-bottom: 1.2rem;
-	}
-
-	blockquote {
-		margin: 2rem 0;
-		padding: 1rem 1.5rem;
-		border-left: 4px solid var(--brand);
-		background: var(--bg-subtle, rgba(var(--brand-rgb), 0.06));
-		border-radius: 0 10px 10px 0;
-		font-style: italic;
-		color: var(--text);
-	}
-
-	blockquote cite {
-		display: block;
-		margin-top: 0.75rem;
-		font-style: normal;
-		font-weight: 700;
-		font-size: 0.92rem;
-		color: var(--text-2);
-	}
-
-	.section-divider {
-		border: 0;
-		height: 4px;
-		background: var(--brand);
-		border-radius: 2px;
-		margin: 3.5rem auto 1.5rem;
-		width: 12rem;
-	}
-
-	.embed-title {
-		margin: 0 0 1rem;
-		font-size: 1.5rem;
-	}
-
-	.embed-section {
-		background: var(--bg-secondary);
-		border-radius: var(--radius-lg);
-		padding: 2rem;
-		border: 1px solid var(--border);
-		box-shadow: var(--shadow-card);
-		margin-bottom: 2.5rem;
-		scroll-margin-top: 5rem;
-	}
-
-	.closing {
-		color: var(--text-2);
-		margin-bottom: 5rem;
-	}
-
+	/* Activoice injecte son iframe dans ce conteneur : sans largeur forcée, le
+	   formulaire déborde de la colonne sur petit écran. */
 	#av-embed-container {
 		min-height: 400px;
 		width: 100%;
@@ -285,11 +189,5 @@
 		min-height: 400px;
 		border: 0;
 		display: block;
-	}
-
-	@media (max-width: 600px) {
-		.embed-section {
-			padding: 1rem;
-		}
 	}
 </style>

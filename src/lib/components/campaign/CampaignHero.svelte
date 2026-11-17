@@ -67,8 +67,11 @@
 		font-weight: 700;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
-		padding: 0.25rem 0.7rem;
-		border-radius: var(--radius-pill);
+		padding: 0.3rem 0.7rem;
+		/* Rectangle : c'est le surtitre de la PAGE, pas l'étiquette d'un objet
+		   dans la page. Voir la règle en tête de ui/Badge.svelte. Il était
+		   ovale ici et rectangulaire sur « Emploi & IA », pour le même mot. */
+		border-radius: 3px;
 	}
 
 	.badge.ended {

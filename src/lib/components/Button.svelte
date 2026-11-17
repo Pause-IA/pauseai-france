@@ -36,7 +36,12 @@
 		   sinon il tombe à 1,9:1 en mode sombre. La variante claire (.alt)
 		   reprend la couleur de texte de la page, plus bas. */
 		color: var(--on-brand) !important;
-		border: none;
+		/* Voir --btn-border : sans ce trait, le bord du bouton est à 2,21:1
+		   sur blanc, sous le seuil des contours de composants. */
+		border: 1px solid var(--btn-border);
+		/* Le dépôt n'a pas de `box-sizing: border-box` global : sans cette
+		   ligne, la bordure ajouterait 2 px à la hauteur fixée. */
+		box-sizing: border-box;
 		border-radius: var(--radius-btn);
 		padding: 0.5rem 1rem;
 		font-family: var(--font-body);
@@ -63,6 +68,7 @@
 		background-color: var(--btn-alt-bg);
 		/* Fond clair en mode clair, sombre en mode sombre : le texte suit. */
 		color: var(--text) !important;
+		border-color: var(--btn-border);
 		box-shadow: 0 2px 6px rgba(var(--ink-rgb), 0.1);
 	}
 

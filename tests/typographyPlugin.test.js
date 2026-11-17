@@ -9,6 +9,8 @@ import {
 	applyFrenchQuotesRule,
 	applyQuoteReplacementRule,
 	applyNumberUnitRule,
+	applyApostropheRule,
+	applyApostropheRuleToHtml,
 	applyTypographyRules
 } from '$lib/typographyPlugin'
 
@@ -355,5 +357,37 @@ describe('integration', () => {
 		expect(applyTypographyRules('"English" et «French»')).toBe(
 			`«${REGULAR_SPACE}English${REGULAR_SPACE}» et «${REGULAR_SPACE}French${REGULAR_SPACE}»`
 		)
+	})
+})
+
+describe('apostrophe typographique', () => {
+	it('remplace l’apostrophe droite entre deux lettres', () => {
+		expect(applyApostropheRule("l'IA et l'avenir")).toBe('l’IA et l’avenir')
+	})
+
+	it('laisse une apostrophe isolée ou en bord de mot', () => {
+		expect(applyApostropheRule("'bonjour'")).toBe("'bonjour'")
+		expect(applyApostropheRule("fin' debut")).toBe("fin' debut")
+	})
+
+	it('traite les lettres accentuées', () => {
+		expect(applyApostropheRule("qu'être")).toBe('qu’être')
+	})
+
+	it('est appliquée par la chaîne complète', () => {
+		expect(applyTypographyRules("l'IA")).toBe('l’IA')
+	})
+})
+
+describe('apostrophe dans les blocs HTML bruts', () => {
+	it('traite le texte mais pas les attributs', () => {
+		const html = `<a href="/fr/dangers/pour-l'humanite">Dangers pour l'humanité</a>`
+		expect(applyApostropheRuleToHtml(html)).toBe(
+			`<a href="/fr/dangers/pour-l'humanite">Dangers pour l’humanité</a>`
+		)
+	})
+
+	it('traite plusieurs fragments de texte', () => {
+		expect(applyApostropheRuleToHtml("<p>l'un</p><p>l'autre</p>")).toBe('<p>l’un</p><p>l’autre</p>')
 	})
 })

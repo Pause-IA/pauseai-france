@@ -1,7 +1,7 @@
 ---
 title: Vidéos
 rubrique: comprendre
-description: Découvrez nos vidéos de présentation sur les risques de l'IA et nos actions.
+description: Découvrez nos vidéos de présentation sur les risques de l’IA et nos actions.
 ---
 
 <script>

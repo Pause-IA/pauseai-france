@@ -2,13 +2,13 @@
 //
 // Le fichier elus.json est généré par `node scripts/generate-elus.js` à partir
 // de sources ouvertes (NosDéputés / NosSénateurs), avec croisement des emails.
-// Voir l'en-tête du script pour le détail des niveaux de confiance.
+// Voir l’en-tête du script pour le détail des niveaux de confiance.
 //
 // Résolution :
 //  - Sénateurs : par DÉPARTEMENT (ils sont élus au département), toujours fiable.
 //  - Députés : par CIRCONSCRIPTION exacte quand le code postal est présent dans
 //    code-postal-circo.json (géocodage fin) ; sinon repli sur tous les députés
-//    du département (l'utilisateur reconnaît le sien au nom de circonscription).
+//    du département (l’utilisateur reconnaît le sien au nom de circonscription).
 // Tout est déterministe et sans appel réseau au runtime.
 
 import eluxData from './elus.json'
@@ -54,7 +54,7 @@ export const generatedAt = data.generatedAt
 export const isSampleData = data.sample === true
 
 /**
- * Déduit le ou les départements à partir d'un code postal français.
+ * Déduit le ou les départements à partir d’un code postal français.
  * Renvoie plusieurs départements pour la Corse (20 → 2A/2B, ambigu sur le seul
  * code postal). Renvoie [] si le code postal est invalide.
  */

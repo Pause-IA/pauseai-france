@@ -1,7 +1,27 @@
 <script lang="ts">
 	/**
-	 * Pastille de la charte. `brand` par défaut : le vert et le rouge
-	 * signalent un état, jamais une décoration.
+	 * Pastille de la charte. `brand` par défaut.
+	 *
+	 * DEUX FORMES, DEUX RÔLES — et il faut s'y tenir, sinon la même étiquette
+	 * apparaît ronde ici et carrée là, ce qui s'est produit pour « Campagne
+	 * en cours ».
+	 *
+	 * RECTANGLE (rayon 3 px) : le surtitre d'une PAGE. Il dit où l'on est —
+	 * « À propos », « Groupes locaux », « Campagne en cours ». Il n'y en a
+	 * qu'un par page, en tête, et c'est PageHero qui le pose.
+	 *
+	 * OVALE (rayon plein) : une étiquette attachée à un OBJET dans la page —
+	 * le statut d'une campagne dans une liste, « Soutien officiel » sur une
+	 * carte, un filtre de recherche. Il y en a autant qu'il y a d'objets.
+	 *
+	 * Autrement dit : rectangle = la page, ovale = une chose dans la page.
+	 * Ce composant ne sert qu'au second cas.
+	 *
+	 * `success` et `error` sont réservés aux RETOURS DE FORMULAIRE — un envoi
+	 * réussi, une erreur de saisie. Une campagne « en cours » n'est pas un
+	 * succès : c'est un état, et un état se dit avec les couleurs de la
+	 * marque (`outline`, filet orange) ou en neutre. Le vert était la seule
+	 * tache verte des pages campagne, et il s'y lisait comme une validation.
 	 */
 	export let variant: 'brand' | 'neutral' | 'outline' | 'success' | 'error' = 'brand'
 	export let size: 'sm' | 'md' = 'md'
@@ -45,7 +65,7 @@
 
 	.outline {
 		background: transparent;
-		color: var(--brand-subtle);
+		color: var(--text);
 		border-color: var(--brand);
 	}
 

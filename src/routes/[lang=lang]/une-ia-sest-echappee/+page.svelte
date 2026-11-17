@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
+	import { CampaignPage, CampaignHero, CampaignSection } from '$components/campaign'
 	import EcrireOutil from '$components/EcrireOutil.svelte'
 	import { PRESS_TOOL_ENABLED } from '$lib/data/elu-actions'
 	import { Landmark, Newspaper, MoveUpRight, ArrowRight, Share2 } from 'lucide-svelte'
@@ -193,104 +194,104 @@
 
 <PostMeta {title} {description} />
 
-<article>
-	<!-- ── Hero ─────────────────────────────────────────────── -->
-	<header class="hero">
-		<h1>
-			{isEn ? 'It wasn’t an isolated accident' : 'Ce n’était pas un accident isolé'}
-		</h1>
-		<p class="lede">
-			{isEn
-				? 'In three weeks, five incidents disclosed by three major labs showed the same thing: AIs under evaluation that break out of their test framework and act on their own against real organisations. The first served as a signal; the series that followed shows the problem is systemic.'
-				: 'En trois semaines, cinq incidents divulgués par trois grands laboratoires ont montré la même chose : des IA en évaluation qui échappent à leur cadre de test et agissent seules contre de vraies organisations. Le premier a servi de signal ; la série qui a suivi montre que le problème est systémique.'}
-		</p>
-	</header>
+<CampaignPage {title} {description} width="wide">
+	<CampaignHero
+		title={isEn ? 'It wasn’t an isolated accident' : 'Ce n’était pas un accident isolé'}
+		lede={isEn
+			? 'In three weeks, five incidents disclosed by three major labs showed the same thing: AIs under evaluation that break out of their test framework and act on their own against real organisations. The first served as a signal; the series that followed shows the problem is systemic.'
+			: 'En trois semaines, cinq incidents divulgués par trois grands laboratoires ont montré la même chose : des IA en évaluation qui échappent à leur cadre de test et agissent seules contre de vraies organisations. Le premier a servi de signal ; la série qui a suivi montre que le problème est systémique.'}
+		eyebrow={isEn ? 'Campaign' : 'Campagne'}
+	/>
 
 	<!-- ── Mise en contexte ─────────────────────────────────── -->
-	<section class="prose">
-		{#if isEn}
-			<p>
-				On 21 July 2026, OpenAI confirmed the incident and disclosed it publicly. A few days
-				earlier,
-				<strong>Hugging Face</strong>, one of the main AI model-sharing platforms, had detected an
-				intrusion into its infrastructure and, believing it was a criminal cyberattack, alerted the
-				authorities. In fact, the “attacker” was a combination of OpenAI models. Tested for their
-				cyber capabilities in a sandboxed environment, they had acted entirely on their own: they
-				broke out, got online, then attacked a third party.
-			</p>
-		{:else}
-			<p>
-				Le 21 juillet 2026, OpenAI a confirmé l’incident et l’a divulgué publiquement. Quelques
-				jours plus tôt, <strong>Hugging Face</strong>, l’une des principales plateformes de partage
-				de modèles d’IA, avait détecté une intrusion dans son infrastructure et, croyant à une
-				cyberattaque criminelle, alerté les autorités. En réalité, l’« attaquant » était une
-				combinaison de modèles d’OpenAI. Testés sur leurs capacités de cyberattaque dans un
-				environnement isolé, ils avaient agi entièrement seuls : ils se sont échappés, ont accédé à
-				Internet, puis ont attaqué un tiers.
-			</p>
-		{/if}
-	</section>
+	<CampaignSection>
+		<div class="prose">
+			{#if isEn}
+				<p>
+					On 21 July 2026, OpenAI confirmed the incident and disclosed it publicly. A few days
+					earlier,
+					<strong>Hugging Face</strong>, one of the main AI model-sharing platforms, had detected an
+					intrusion into its infrastructure and, believing it was a criminal cyberattack, alerted
+					the authorities. In fact, the “attacker” was a combination of OpenAI models. Tested for
+					their cyber capabilities in a sandboxed environment, they had acted entirely on their own:
+					they broke out, got online, then attacked a third party.
+				</p>
+			{:else}
+				<p>
+					Le 21 juillet 2026, OpenAI a confirmé l’incident et l’a divulgué publiquement. Quelques
+					jours plus tôt, <strong>Hugging Face</strong>, l’une des principales plateformes de
+					partage de modèles d’IA, avait détecté une intrusion dans son infrastructure et, croyant à
+					une cyberattaque criminelle, alerté les autorités. En réalité, l’« attaquant » était une
+					combinaison de modèles d’OpenAI. Testés sur leurs capacités de cyberattaque dans un
+					environnement isolé, ils avaient agi entièrement seuls : ils se sont échappés, ont accédé
+					à Internet, puis ont attaqué un tiers.
+				</p>
+			{/if}
+		</div>
+	</CampaignSection>
 
 	<!-- ── Frise : ce qui s’est passé ───────────────────────── -->
-	<section class="frise">
-		<h2>{isEn ? 'Timeline of the incident' : 'Chronologie de l’incident'}</h2>
-		{#each phases as phase}
-			<div class="phase" class:attack={phase.accent}>
-				<div class="phase-head">
-					<span class="phase-tag">{phase.tag}</span>
-					<h3>{phase.label}</h3>
-					<span class="phase-period">{phase.period}</span>
+	<CampaignSection>
+		<div class="frise">
+			<h2>{isEn ? 'Timeline of the incident' : 'Chronologie de l’incident'}</h2>
+			{#each phases as phase}
+				<div class="phase" class:attack={phase.accent}>
+					<div class="phase-head">
+						<span class="phase-tag">{phase.tag}</span>
+						<h3>{phase.label}</h3>
+						<span class="phase-period">{phase.period}</span>
+					</div>
+					<ol class="frise-list">
+						{#each phase.events as ev}
+							<li class="frise-item">
+								<span class="frise-date">{ev.date}</span>
+								<p class="frise-text">{ev.text}</p>
+							</li>
+						{/each}
+					</ol>
 				</div>
-				<ol class="frise-list">
-					{#each phase.events as ev}
-						<li class="frise-item">
-							<span class="frise-date">{ev.date}</span>
-							<p class="frise-text">{ev.text}</p>
-						</li>
-					{/each}
-				</ol>
-			</div>
-		{/each}
-		<p class="frise-note">
-			{isEn
-				? 'These behaviours appeared with the safeguards lowered, true. But lowering the protections does not create the capability, it reveals it; and once models ship, those protections give way just as fast (jailbreaks).'
-				: 'Ces comportements sont apparus garde-fous abaissés, c’est vrai. Mais abaisser les protections ne crée pas la capacité, cela la révèle ; et à la sortie des modèles, ces protections cèdent tout aussi vite (jailbreaks).'}
-		</p>
-		<div class="reads">
-			<span class="reads-label">{isEn ? 'Go further' : 'Pour aller plus loin'}</span>
-			<div class="reads-links">
-				<a
-					class="read-chip read-chip--primary"
-					href={isEn
-						? '/en/articles/2026-08-10-incident-openai-hugging-face'
-						: '/fr/articles/2026-08-10-incident-openai-hugging-face'}
-				>
-					{isEn ? 'Our detailed summary' : 'Notre page de synthèse'}
-					<ArrowRight size="0.85em" aria-hidden="true" />
-				</a>
-				<a
-					class="read-chip"
-					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					{isEn ? 'Zvi Mowshowitz’s account' : 'Le récit de Zvi Mowshowitz'}
-					<MoveUpRight size="0.85em" aria-hidden="true" />
-				</a>
-				<a
-					class="read-chip"
-					href={isEn
-						? 'https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/'
-						: 'https://cesia.org/fr/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/'}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					{isEn ? 'CeSIA dossier' : 'Le dossier du CeSIA'}
-					<MoveUpRight size="0.85em" aria-hidden="true" />
-				</a>
+			{/each}
+			<p class="frise-note">
+				{isEn
+					? 'These behaviours appeared with the safeguards lowered, true. But lowering the protections does not create the capability, it reveals it; and once models ship, those protections give way just as fast (jailbreaks).'
+					: 'Ces comportements sont apparus garde-fous abaissés, c’est vrai. Mais abaisser les protections ne crée pas la capacité, cela la révèle ; et à la sortie des modèles, ces protections cèdent tout aussi vite (jailbreaks).'}
+			</p>
+			<div class="reads">
+				<span class="reads-label">{isEn ? 'Go further' : 'Pour aller plus loin'}</span>
+				<div class="reads-links">
+					<a
+						class="read-chip read-chip--primary"
+						href={isEn
+							? '/en/articles/2026-08-10-incident-openai-hugging-face'
+							: '/fr/articles/2026-08-10-incident-openai-hugging-face'}
+					>
+						{isEn ? 'Our detailed summary' : 'Notre page de synthèse'}
+						<ArrowRight size="0.85em" aria-hidden="true" />
+					</a>
+					<a
+						class="read-chip"
+						href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						{isEn ? 'Zvi Mowshowitz’s account' : 'Le récit de Zvi Mowshowitz'}
+						<MoveUpRight size="0.85em" aria-hidden="true" />
+					</a>
+					<a
+						class="read-chip"
+						href={isEn
+							? 'https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/'
+							: 'https://cesia.org/fr/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/'}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						{isEn ? 'CeSIA dossier' : 'Le dossier du CeSIA'}
+						<MoveUpRight size="0.85em" aria-hidden="true" />
+					</a>
+				</div>
 			</div>
 		</div>
-	</section>
+	</CampaignSection>
 
 	<aside class="keypoint">
 		<p class="keypoint-lead">
@@ -341,26 +342,28 @@
 		</figcaption>
 	</figure>
 
-	<section class="prose">
-		<p>
-			{isEn
-				? 'If the damage stayed limited, it is because the goal pursued was, this time, harmless, not because the situation was under control. The underlying problem remains unsolved: no one today knows how to robustly set, in these systems, the goals we would want them to pursue. Patching flaws one by one changes nothing, and the next, more powerful model is already on its way.'
-				: 'Si les dégâts sont restés limités, c’est parce que l’objectif poursuivi était, cette fois, sans gravité, et non parce que la situation était maîtrisée. Le problème de fond reste entier : personne ne sait aujourd’hui fixer de façon robuste, à ces systèmes, les objectifs qu’on voudrait qu’ils poursuivent. Colmater les failles une à une n’y change rien, et le prochain modèle, plus puissant, arrive déjà.'}
-		</p>
-		<p class="read-more">
-			{#if isEn}
-				Coordination between models, oversight that saw nothing, a response that does not touch the
-				cause: the full, sourced account is on <a
-					href="/en/articles/2026-08-10-incident-openai-hugging-face">our summary page</a
-				>.
-			{:else}
-				Coordination entre modèles, supervision qui n’a rien vu, réaction qui ne touche pas la cause
-				: le récit complet et sourcé est sur <a
-					href="/fr/articles/2026-08-10-incident-openai-hugging-face">notre page de synthèse</a
-				>.
-			{/if}
-		</p>
-	</section>
+	<CampaignSection>
+		<div class="prose">
+			<p>
+				{isEn
+					? 'If the damage stayed limited, it is because the goal pursued was, this time, harmless, not because the situation was under control. The underlying problem remains unsolved: no one today knows how to robustly set, in these systems, the goals we would want them to pursue. Patching flaws one by one changes nothing, and the next, more powerful model is already on its way.'
+					: 'Si les dégâts sont restés limités, c’est parce que l’objectif poursuivi était, cette fois, sans gravité, et non parce que la situation était maîtrisée. Le problème de fond reste entier : personne ne sait aujourd’hui fixer de façon robuste, à ces systèmes, les objectifs qu’on voudrait qu’ils poursuivent. Colmater les failles une à une n’y change rien, et le prochain modèle, plus puissant, arrive déjà.'}
+			</p>
+			<p class="read-more">
+				{#if isEn}
+					Coordination between models, oversight that saw nothing, a response that does not touch
+					the cause: the full, sourced account is on <a
+						href="/en/articles/2026-08-10-incident-openai-hugging-face">our summary page</a
+					>.
+				{:else}
+					Coordination entre modèles, supervision qui n’a rien vu, réaction qui ne touche pas la
+					cause : le récit complet et sourcé est sur <a
+						href="/fr/articles/2026-08-10-incident-openai-hugging-face">notre page de synthèse</a
+					>.
+				{/if}
+			</p>
+		</div>
+	</CampaignSection>
 
 	<!-- Article Substack mis en avant (aperçu Open Graph) -->
 	<a class="article-card" href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer">
@@ -392,305 +395,310 @@
 	</a>
 
 	<!-- ── Passer à l’action ────────────────────────────────── -->
-	<section class="actions">
-		<div class="actions-head">
-			<h2>{isEn ? 'What you can do now' : 'Ce que vous pouvez faire maintenant'}</h2>
-			<p>
-				{#if PRESS_TOOL_ENABLED}
-					{isEn
-						? 'Two actions, a few minutes each. Both help put this incident, and the risks it reveals, on the public agenda.'
-						: 'Deux actions, quelques minutes chacune. Toutes deux aident à mettre cet incident, et les risques qu’il révèle, à l’ordre du jour.'}
-				{:else}
-					{isEn
-						? 'A few minutes to help put this incident, and the risks it reveals, on the public agenda.'
-						: 'Quelques minutes pour aider à mettre cet incident, et les risques qu’il révèle, à l’ordre du jour.'}
-				{/if}
-			</p>
-		</div>
-
-		<!-- 1 · Écrire à son député (campagne Activoice, lien externe) -->
-		<div class="action-card">
-			<div class="action-head">
-				<div class="action-icon"><Landmark size="1.4rem" aria-hidden="true" /></div>
-				<h3>
-					<span class="action-step">1</span>
-					{isEn ? 'Write to your MP' : 'Écrire à votre député·e'}
-				</h3>
+	<CampaignSection>
+		<div class="actions">
+			<div class="actions-head">
+				<h2>{isEn ? 'What you can do now' : 'Ce que vous pouvez faire maintenant'}</h2>
+				<p>
+					{#if PRESS_TOOL_ENABLED}
+						{isEn
+							? 'Two actions, a few minutes each. Both help put this incident, and the risks it reveals, on the public agenda.'
+							: 'Deux actions, quelques minutes chacune. Toutes deux aident à mettre cet incident, et les risques qu’il révèle, à l’ordre du jour.'}
+					{:else}
+						{isEn
+							? 'A few minutes to help put this incident, and the risks it reveals, on the public agenda.'
+							: 'Quelques minutes pour aider à mettre cet incident, et les risques qu’il révèle, à l’ordre du jour.'}
+					{/if}
+				</p>
 			</div>
-			<p>
-				{isEn
-					? 'MPs take their constituents’ messages into account. Our tool identifies your representative and gives you a template. A few emails can be enough to put a question on a committee’s agenda.'
-					: 'Les parlementaires tiennent compte des messages de leurs électeurs. Notre outil identifie votre représentant·e et vous fournit un modèle. Une poignée de messages suffit souvent à inscrire une question à l’ordre du jour d’une commission.'}
-			</p>
-			<a class="action-cta" href={ACTIVOICE_URL} target="_blank" rel="noopener noreferrer">
-				{isEn ? 'Write to my MP' : 'Écrire à mon élu·e'}
-				<MoveUpRight size="1rem" aria-hidden="true" />
-			</a>
-		</div>
 
-		{#if PRESS_TOOL_ENABLED}
-			<!-- 2 · Écrire à la presse (outil intégré directement sur la page) -->
-			<div class="action-card press-block" bind:this={pressSection}>
+			<!-- 1 · Écrire à son député (campagne Activoice, lien externe) -->
+			<div class="action-card">
 				<div class="action-head">
-					<div class="action-icon"><Newspaper size="1.4rem" aria-hidden="true" /></div>
+					<div class="action-icon"><Landmark size="1.4rem" aria-hidden="true" /></div>
 					<h3>
-						<span class="action-step">2</span>
-						{isEn ? 'Write to the press' : 'Écrire à la presse'}
+						<span class="action-step">1</span>
+						{isEn ? 'Write to your MP' : 'Écrire à votre député·e'}
 					</h3>
 				</div>
 				<p>
 					{isEn
-						? 'The media cover what their readers ask for. Choose the newspaper you read and send it a ready-to-personalise email, directly here.'
-						: 'Les rédactions couvrent ce que leurs lecteurs réclament. Choisissez le journal que vous lisez et envoyez-lui un email prêt à personnaliser, directement ici.'}
+						? 'MPs take their constituents’ messages into account. Our tool identifies your representative and gives you a template. A few emails can be enough to put a question on a committee’s agenda.'
+						: 'Les parlementaires tiennent compte des messages de leurs électeurs. Notre outil identifie votre représentant·e et vous fournit un modèle. Une poignée de messages suffit souvent à inscrire une question à l’ordre du jour d’une commission.'}
 				</p>
-				<div class="press-tool">
-					<EcrireOutil
-						lang={data.lang}
-						forcedActionId="presse-warning-shot"
-						embedded
-						requireName
-						on:navigate={scrollToPress}
-					/>
-				</div>
+				<a class="action-cta" href={ACTIVOICE_URL} target="_blank" rel="noopener noreferrer">
+					{isEn ? 'Write to my MP' : 'Écrire à mon élu·e'}
+					<MoveUpRight size="1rem" aria-hidden="true" />
+				</a>
 			</div>
-		{/if}
-	</section>
+
+			{#if PRESS_TOOL_ENABLED}
+				<!-- 2 · Écrire à la presse (outil intégré directement sur la page) -->
+				<div class="action-card press-block" bind:this={pressSection}>
+					<div class="action-head">
+						<div class="action-icon"><Newspaper size="1.4rem" aria-hidden="true" /></div>
+						<h3>
+							<span class="action-step">2</span>
+							{isEn ? 'Write to the press' : 'Écrire à la presse'}
+						</h3>
+					</div>
+					<p>
+						{isEn
+							? 'The media cover what their readers ask for. Choose the newspaper you read and send it a ready-to-personalise email, directly here.'
+							: 'Les rédactions couvrent ce que leurs lecteurs réclament. Choisissez le journal que vous lisez et envoyez-lui un email prêt à personnaliser, directement ici.'}
+					</p>
+					<div class="press-tool">
+						<EcrireOutil
+							lang={data.lang}
+							forcedActionId="presse-warning-shot"
+							embedded
+							requireName
+							on:navigate={scrollToPress}
+						/>
+					</div>
+				</div>
+			{/if}
+		</div>
+	</CampaignSection>
 
 	<!-- ── Sources ──────────────────────────────────────────── -->
-	<section class="sources">
-		<h2>{isEn ? 'Sources' : 'Sources'}</h2>
-		<ul>
-			<li>
-				<a
-					href="https://metr.org/hugging-face-incident-report-aug-2026.pdf"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">METR / Redwood</span>
-					<span class="src-title">
-						{isEn
-							? 'Independent investigation report on the Hugging Face incident (28 August 2026)'
-							: 'Rapport d’enquête indépendant sur l’incident Hugging Face (28 août 2026)'}
-					</span>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://www.planned-obsolescence.org/p/the-hugging-face-attack-surprised"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">Ajeya Cotra</span>
-					<span class="src-title"
-						>The Hugging Face attack surprised me (co-autrice de l’enquête, 28 August 2026)</span
+	<CampaignSection>
+		<div class="sources">
+			<h2>{isEn ? 'Sources' : 'Sources'}</h2>
+			<ul>
+				<li>
+					<a
+						href="https://metr.org/hugging-face-incident-report-aug-2026.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://www.dwarkesh.com/p/openai-huggingface"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">Dwarkesh Patel</span>
-					<span class="src-title"
-						>The Rise and Fall of Agent Civilizations (récit d’ensemble, 30 August 2026)</span
+						<span class="src-org">METR / Redwood</span>
+						<span class="src-title">
+							{isEn
+								? 'Independent investigation report on the Hugging Face incident (28 August 2026)'
+								: 'Rapport d’enquête indépendant sur l’incident Hugging Face (28 août 2026)'}
+						</span>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.planned-obsolescence.org/p/the-hugging-face-attack-surprised"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">Zvi Mowshowitz</span>
-					<span class="src-title"
-						>What Happened: OpenAI and Hugging Face (récit détaillé recommandé)</span
+						<span class="src-org">Ajeya Cotra</span>
+						<span class="src-title"
+							>The Hugging Face attack surprised me (co-autrice de l’enquête, 28 August 2026)</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.dwarkesh.com/p/openai-huggingface"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">Axios</span>
-					<span class="src-title"
-						>OpenAI slows release of Astra model citing cyber capabilities (7 August 2026)</span
+						<span class="src-org">Dwarkesh Patel</span>
+						<span class="src-title"
+							>The Rise and Fall of Agent Civilizations (récit d’ensemble, 30 August 2026)</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">Anthropic</span>
-					<span class="src-title"
-						>Investigating three real-world incidents in our cybersecurity evaluations (30 July
-						2026)</span
+						<span class="src-org">Zvi Mowshowitz</span>
+						<span class="src-title"
+							>What Happened: OpenAI and Hugging Face (récit détaillé recommandé)</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://openai.com/index/third-party-cyber-evaluations-involving-openai-models/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">OpenAI</span>
-					<span class="src-title"
-						>Third-party cyber evaluations involving OpenAI models (4 August 2026)</span
+						<span class="src-org">Axios</span>
+						<span class="src-title"
+							>OpenAI slows release of Astra model citing cyber capabilities (7 August 2026)</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">UK AISI</span>
-					<span class="src-title"
-						>Incident report: unsanctioned agent behaviour during cyber testing (4 August 2026)</span
+						<span class="src-org">Anthropic</span>
+						<span class="src-title"
+							>Investigating three real-world incidents in our cybersecurity evaluations (30 July
+							2026)</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://openai.com/index/third-party-cyber-evaluations-involving-openai-models/"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">CeSIA</span>
-					<span class="src-title"
-						>The OpenAI–Hugging Face incident: what we know, what we don’t, what follows</span
+						<span class="src-org">OpenAI</span>
+						<span class="src-title"
+							>Third-party cyber evaluations involving OpenAI models (4 August 2026)</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://www.securityweek.com/meta-ai-hacked-external-systems-during-cybersecurity-testing/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">SecurityWeek</span>
-					<span class="src-title"
-						>Meta AI hacked external systems during cybersecurity testing (5 August 2026)</span
+						<span class="src-org">UK AISI</span>
+						<span class="src-title"
+							>Incident report: unsanctioned agent behaviour during cyber testing (4 August 2026)</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://www.cybersecuritydive.com/news/openai-hugging-face-hack-ai-models-black-hat/827167/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">Cybersecurity Dive</span>
-					<span class="src-title"
-						>OpenAI’s Black Hat debrief: agents rebuilt their coordination channel after remediation
-						(6 August 2026)</span
+						<span class="src-org">CeSIA</span>
+						<span class="src-title"
+							>The OpenAI–Hugging Face incident: what we know, what we don’t, what follows</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.securityweek.com/meta-ai-hacked-external-systems-during-cybersecurity-testing/"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://x.com/Yoshua_Bengio/status/2079951844877447593"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">Yoshua Bengio</span>
-					<span class="src-title">Statement on the OpenAI–Hugging Face incident (22 July 2026)</span
+						<span class="src-org">SecurityWeek</span>
+						<span class="src-title"
+							>Meta AI hacked external systems during cybersecurity testing (5 August 2026)</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.cybersecuritydive.com/news/openai-hugging-face-hack-ai-models-black-hat/827167/"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://openai.com/index/hugging-face-model-evaluation-security-incident/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">OpenAI</span>
-					<span class="src-title">Hugging Face model evaluation security incident</span>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://huggingface.co/blog/security-incident-july-2026"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">Hugging Face</span>
-					<span class="src-title">Security incident, July 2026</span>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://thezvi.substack.com/p/openai-model-hacks-into-huggingface"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">Zvi Mowshowitz</span>
-					<span class="src-title"
-						>OpenAI Model Hacks Into HuggingFace During Cybersecurity Evaluation</span
+						<span class="src-org">Cybersecurity Dive</span>
+						<span class="src-title"
+							>OpenAI’s Black Hat debrief: agents rebuilt their coordination channel after
+							remediation (6 August 2026)</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://x.com/Yoshua_Bengio/status/2079951844877447593"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://thezvi.substack.com/p/openai-shares-some-alignment-problems"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">Zvi Mowshowitz</span>
-					<span class="src-title">OpenAI Shares Some Alignment Problems</span>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://www.wsj.com/tech/ai/openai-models-escaped-and-hacked-a-company-in-cybersecurity-test-gone-wrong-ee388506"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">The Wall Street Journal</span>
-					<span class="src-title"
-						>OpenAI Models Escaped and Hacked a Company in a Cybersecurity Test Gone Wrong</span
+						<span class="src-org">Yoshua Bengio</span>
+						<span class="src-title"
+							>Statement on the OpenAI–Hugging Face incident (22 July 2026)</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://openai.com/index/hugging-face-model-evaluation-security-incident/"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://www.apolloresearch.ai/science/frontier-models-are-capable-of-incontext-scheming/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<span class="src-org">Apollo Research</span>
-					<span class="src-title">Frontier Models Are Capable of In-Context Scheming</span>
-					<MoveUpRight size="0.9em" aria-hidden="true" />
-				</a>
-			</li>
-		</ul>
-	</section>
+						<span class="src-org">OpenAI</span>
+						<span class="src-title">Hugging Face model evaluation security incident</span>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://huggingface.co/blog/security-incident-july-2026"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<span class="src-org">Hugging Face</span>
+						<span class="src-title">Security incident, July 2026</span>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://thezvi.substack.com/p/openai-model-hacks-into-huggingface"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<span class="src-org">Zvi Mowshowitz</span>
+						<span class="src-title"
+							>OpenAI Model Hacks Into HuggingFace During Cybersecurity Evaluation</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://thezvi.substack.com/p/openai-shares-some-alignment-problems"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<span class="src-org">Zvi Mowshowitz</span>
+						<span class="src-title">OpenAI Shares Some Alignment Problems</span>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.wsj.com/tech/ai/openai-models-escaped-and-hacked-a-company-in-cybersecurity-test-gone-wrong-ee388506"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<span class="src-org">The Wall Street Journal</span>
+						<span class="src-title"
+							>OpenAI Models Escaped and Hacked a Company in a Cybersecurity Test Gone Wrong</span
+						>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.apolloresearch.ai/science/frontier-models-are-capable-of-incontext-scheming/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<span class="src-org">Apollo Research</span>
+						<span class="src-title">Frontier Models Are Capable of In-Context Scheming</span>
+						<MoveUpRight size="0.9em" aria-hidden="true" />
+					</a>
+				</li>
+			</ul>
+		</div>
+	</CampaignSection>
 
 	<p class="closing">
 		<Share2 size="1em" aria-hidden="true" />
@@ -700,48 +708,10 @@
 				: 'Chaque message compte. Pour amplifier votre action, partagez cette campagne autour de vous.'}
 		</span>
 	</p>
-</article>
+</CampaignPage>
 
 <style>
-	article {
-		max-inline-size: var(--width-content);
-		margin-inline: auto;
-		margin-top: 2.5rem;
-		padding: 0 1.5rem;
-	}
-
 	/* ── Hero ──────────────────────────────────────────────── */
-	.hero {
-		padding: 0.5rem 0 2.25rem;
-		margin-bottom: 2.5rem;
-		border-bottom: 1px solid var(--border);
-	}
-
-	.hero::before {
-		content: '';
-		display: block;
-		width: 3rem;
-		height: 4px;
-		border-radius: 2px;
-		background: var(--brand);
-		margin-bottom: 1.5rem;
-	}
-
-	.hero h1 {
-		margin: 0;
-		font-size: clamp(2rem, 5.5vw, 3rem);
-		line-height: 1.1;
-		letter-spacing: -0.02em;
-	}
-
-	.lede {
-		margin: 1.25rem 0 0;
-		font-size: clamp(1.05rem, 2vw, 1.25rem);
-		line-height: 1.6;
-		font-weight: 400;
-		max-inline-size: var(--width-text);
-		color: var(--text-2);
-	}
 
 	/* ── Prose ─────────────────────────────────────────────── */
 	.prose {
@@ -761,7 +731,7 @@
 	}
 
 	.read-more a {
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-weight: 600;
 	}
 
@@ -853,7 +823,8 @@
 
 	.frise-text {
 		margin: 0;
-		font-size: 0.98rem;
+		/* 1 rem : plancher du corps de texte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-2);
 	}
@@ -862,7 +833,8 @@
 		margin: 1.5rem 0 0.5rem;
 		padding: 0.25rem 0 0.25rem 1rem;
 		border-left: 2px solid var(--border);
-		font-size: 0.95rem;
+		/* 1 rem : plancher du corps de texte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-2);
 	}
@@ -957,7 +929,7 @@
 		top: -0.75rem;
 		font-size: 4rem;
 		line-height: 1;
-		color: var(--brand-subtle);
+		color: var(--brand);
 		font-family: Georgia, serif;
 	}
 
@@ -1062,7 +1034,7 @@
 		margin-top: 0.3rem;
 		font-size: 0.9rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	/* Sur écran large : image à gauche, texte à droite (carte compacte). */
@@ -1100,6 +1072,8 @@
 	}
 
 	.action-card {
+		/* La mesure : ~75 signes par ligne à 0,98 rem. */
+		max-inline-size: 33rem;
 		padding: 1.75rem;
 		border: 1px solid var(--border);
 		border-radius: var(--radius-sm);
@@ -1149,7 +1123,8 @@
 
 	.action-card > p {
 		margin: 0 0 1rem;
-		font-size: 0.98rem;
+		/* 1 rem : plancher du corps de texte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-2);
 		max-inline-size: var(--width-text);
@@ -1275,12 +1250,5 @@
 	}
 
 	@media (max-width: 640px) {
-		article {
-			padding: 0 1rem;
-		}
-
-		.hero {
-			padding: 0.25rem 0 1.75rem;
-		}
 	}
 </style>

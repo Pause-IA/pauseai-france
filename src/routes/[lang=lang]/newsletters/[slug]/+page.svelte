@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
+	import { Page } from '$components/ui'
 	import { ArrowLeft, ArrowRight, ExternalLink, Calendar, Maximize2, X } from 'lucide-svelte'
 	import { getT } from '$lib/i18n'
 	import type { PageData } from './$types'
@@ -35,29 +36,16 @@
 
 <PostMeta title={data.newsletter.title} description={data.newsletter.description} />
 
-<div class="page">
-	<nav class="breadcrumb">
-		<a href="{prefix}/newsletters" class="back-link">
-			<ArrowLeft size="1rem" />
-			{t.newsletters.all_newsletters}
+<Page title={data.newsletter.title} eyebrow={t.nav.newsletter} width="content" as="article">
+	<svelte:fragment slot="meta">
+		{#if data.newsletter.date}
+			{formatDate(data.newsletter.date)} ·
+		{/if}
+		<a href={data.newsletter.url} target="_blank" rel="noopener noreferrer">
+			{t.newsletters.view_original}
 		</a>
-	</nav>
-
-	<header class="newsletter-header">
-		<h1>{data.newsletter.title}</h1>
-		<div class="newsletter-meta">
-			{#if data.newsletter.date}
-				<span class="date">
-					<Calendar size="1rem" />
-					{formatDate(data.newsletter.date)}
-				</span>
-			{/if}
-			<a href={data.newsletter.url} target="_blank" rel="noopener noreferrer" class="original-link">
-				<ExternalLink size="0.875rem" />
-				{t.newsletters.view_original}
-			</a>
-		</div>
-	</header>
+		· <a href="{prefix}/newsletters">{t.newsletters.all_newsletters}</a>
+	</svelte:fragment>
 
 	<article class="newsletter-content">
 		{#if data.hasContent}
@@ -104,7 +92,7 @@
 			{t.newsletters.back_to_newsletters}
 		</a>
 	</footer>
-</div>
+</Page>
 
 <!-- Fullscreen overlay -->
 {#if fullscreen}
@@ -147,16 +135,6 @@
 </button>
 
 <style>
-	.page {
-		max-width: var(--width-content);
-		margin: 0 auto;
-		padding: 1.5rem 0.5rem 3rem;
-	}
-
-	.breadcrumb {
-		margin-bottom: 2rem;
-	}
-
 	.back-link {
 		display: inline-flex;
 		align-items: center;
@@ -168,49 +146,7 @@
 	}
 
 	.back-link:hover {
-		color: var(--brand-subtle);
-	}
-
-	.newsletter-header {
-		margin-bottom: 2.5rem;
-		padding-bottom: 1.5rem;
-		border-bottom: 2px solid var(--border);
-	}
-
-	.newsletter-header h1 {
-		font-size: 2rem;
-		font-weight: 800;
-		line-height: 1.3;
-		margin: 0 0 1rem;
-	}
-
-	.newsletter-meta {
-		display: flex;
-		align-items: center;
-		gap: 1.5rem;
-		flex-wrap: wrap;
-	}
-
-	.date {
-		display: flex;
-		align-items: center;
-		gap: 0.375rem;
-		color: var(--text-secondary);
-		font-size: 0.9375rem;
-	}
-
-	.original-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.375rem;
-		color: var(--text-secondary);
-		text-decoration: none;
-		font-size: 0.875rem;
-		transition: color 0.2s;
-	}
-
-	.original-link:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* Newsletter content container */
@@ -242,7 +178,7 @@
 
 	/* Links */
 	.newsletter-content :global(a) {
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.newsletter-content :global(a:hover) {
@@ -426,18 +362,8 @@
 	}
 
 	@media (min-width: 480px) {
-		.page {
-			padding: 2rem 1rem 4rem;
-		}
 	}
 
 	@media (min-width: 640px) {
-		.page {
-			padding: 3rem 2rem 6rem;
-		}
-
-		.newsletter-header h1 {
-			font-size: 2.5rem;
-		}
 	}
 </style>

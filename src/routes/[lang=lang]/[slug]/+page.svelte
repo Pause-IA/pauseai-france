@@ -9,7 +9,17 @@
 	export let data: PageData
 
 	const { metadata, slug, content } = data
-	const { title = slug, date, description, image, original, rubrique, chapo } = metadata
+	const { title = slug, date, description, image, original, rubrique, chapo, modele } = metadata
+
+	// Modèle de page, choisi dans le frontmatter (« modele: standard »).
+	//
+	// Par défaut « note » : la plupart de ces pages sont des textes longs qui
+	// se lisent d'un bout à l'autre (charte des valeurs, mentions légales,
+	// guide de sensibilisation), et la colonne de lecture étroite est faite
+	// pour cela. Mais quelques-unes sont des hubs — une liste de cartes vers
+	// d'autres pages — et une grille de cartes dans une colonne de 44 rem est
+	// à l'étroit. Celles-là déclarent « modele: standard ».
+	const standard = String(modele ?? '') === 'standard'
 
 	// Surtitre : la rubrique du menu (frontmatter « rubrique: agir »…), qui
 	// rattache la page à sa section. Clés : comprendre, agir, campagnes,
@@ -20,7 +30,14 @@
 
 <PostMeta title={`${title} | ${siteName}`} {description} {date} {image} />
 
-<Page {title} {eyebrow} lede={chapo ? String(chapo) : undefined} width="content" as="article">
+<Page
+	{title}
+	{eyebrow}
+	lede={chapo ? String(chapo) : undefined}
+	width={standard ? 'content' : 'text'}
+	variant={standard ? 'standard' : 'note'}
+	as="article"
+>
 	<div class="prose">
 		<svelte:component this={content} />
 	</div>

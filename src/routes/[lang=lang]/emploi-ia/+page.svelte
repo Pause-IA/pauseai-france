@@ -1,4 +1,8 @@
 <script lang="ts">
+	import PostMeta from '$components/PostMeta.svelte'
+	import Button from '$components/Button.svelte'
+	import { LinkCard, LinkGrid } from '$components/ui'
+	import { CampaignPage, CampaignHero, CampaignSection } from '$components/campaign'
 	import { onMount } from 'svelte'
 	import EmploiForm from '$components/EmploiForm.svelte'
 	import TestimonialSlideshow from '$components/TestimonialSlideshow.svelte'
@@ -123,83 +127,61 @@
 	})
 </script>
 
-<svelte:head>
-	<title>{t.emploi_ia.meta_title}</title>
-	<meta name="description" content={t.emploi_ia.meta_desc} />
-	<meta name="keywords" content={t.emploi_ia.keywords} />
-	<meta name="robots" content="index, follow" />
-	<meta property="og:title" content={t.emploi_ia.meta_title} />
-	<meta property="og:description" content={t.emploi_ia.meta_desc} />
-	<meta property="og:image" content="https://pauseia.fr/emploi-ia/emploi-IA.png" />
-	<meta property="og:url" content="https://pauseia.fr/emploi-ia" />
-	<meta property="og:type" content="website" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={t.emploi_ia.meta_title} />
-	<meta name="twitter:description" content={t.emploi_ia.meta_desc} />
-	<meta name="twitter:image" content="https://pauseia.fr/emploi-ia/emploi-IA.png" />
-</svelte:head>
+<PostMeta
+	title={t.emploi_ia.meta_title}
+	description={t.emploi_ia.meta_desc}
+	image="/emploi-ia/emploi-IA.png"
+/>
 
-<article>
-	<hgroup>
-		<UnderlinedTitle as="h1">{t.emploi_ia.title}</UnderlinedTitle>
-	</hgroup>
+<CampaignPage title={t.emploi_ia.meta_title} description={t.emploi_ia.meta_desc} width="wide">
+	<CampaignHero
+		title={t.emploi_ia.title}
+		lede={t.emploi_ia.intro_lead}
+		eyebrow={lang === 'en' ? 'Campaign under way' : 'Campagne en cours'}
+	>
+		<Button href="#ecrire-elus">{t.emploi_ia.hero_cta_label}</Button>
+	</CampaignHero>
 
-	<p class="lead">{t.emploi_ia.intro_lead}</p>
+	<CampaignSection>
+		<p>{t.emploi_ia.intro_text}</p>
 
-	<p>{t.emploi_ia.intro_text}</p>
+		<a class="stat-block" href="https://jobloss.ai/" target="_blank" rel="noopener noreferrer">
+			<span class="stat-number">{t.emploi_ia.stat_number}</span>
+			<div class="stat-text">
+				<span class="stat-label">{t.emploi_ia.stat_label}</span>
+				<span class="stat-source">{t.emploi_ia.stat_source}</span>
+			</div>
+		</a>
+	</CampaignSection>
 
-	<a class="stat-block" href="https://jobloss.ai/" target="_blank" rel="noopener noreferrer">
-		<span class="stat-number">{t.emploi_ia.stat_number}</span>
-		<div class="stat-text">
-			<span class="stat-label">{t.emploi_ia.stat_label}</span>
-			<span class="stat-source">{t.emploi_ia.stat_source}</span>
-		</div>
-	</a>
-
-	<a class="primary-cta" href="#ecrire-elus">
-		<span class="primary-cta-label">{t.emploi_ia.hero_cta_label}</span>
-		<span class="primary-cta-sub">{t.emploi_ia.hero_cta_sub}</span>
-		<span class="primary-cta-arrow" aria-hidden="true">→</span>
-	</a>
-
-	<section id="temoignage" aria-labelledby="temoignage-heading">
-		<h2 id="temoignage-heading">{t.emploi_ia.testimonials_section_title}</h2>
+	<CampaignSection id="temoignage" title={t.emploi_ia.testimonials_section_title}>
 		<TestimonialSlideshow {lang} />
 
 		<div id="enquete" class="survey-block">
 			<h3>{t.emploi_ia.survey_section_title}</h3>
 			<EmploiForm {lang} />
 		</div>
-	</section>
+	</CampaignSection>
 
-	<section id="analyses" aria-labelledby="analyses-heading">
-		<h2 id="analyses-heading">{t.emploi_ia.analyses_section_title}</h2>
-		<p>{t.emploi_ia.analyses_section_text}</p>
-		<div class="article-cards">
-			<a class="article-card" href={t.emploi_ia.article1_url}>
-				<span class="card-meta">Article 1/3 &middot; 4 min</span>
-				<h3 class="article-card-title">{t.emploi_ia.article1_title}</h3>
-				<p class="article-card-desc">{t.emploi_ia.article1_desc}</p>
-				<span class="article-card-link">{t.emploi_ia.analyses_read} &rarr;</span>
-			</a>
-			<a class="article-card" href={t.emploi_ia.article2_url}>
-				<span class="card-meta">Article 2/3 &middot; 5 min</span>
-				<h3 class="article-card-title">{t.emploi_ia.article2_title}</h3>
-				<p class="article-card-desc">{t.emploi_ia.article2_desc}</p>
-				<span class="article-card-link">{t.emploi_ia.analyses_read} &rarr;</span>
-			</a>
-			<a class="article-card article-card-featured" href={t.emploi_ia.article3_url}>
-				<span class="article-badge">{t.emploi_ia.article3_badge}</span>
-				<span class="card-meta">Article 3/3 &middot; 7 min</span>
-				<h3 class="article-card-title">{t.emploi_ia.article3_title}</h3>
-				<p class="article-card-desc">{t.emploi_ia.article3_desc}</p>
-				<span class="article-card-link">{t.emploi_ia.analyses_read} &rarr;</span>
-			</a>
-		</div>
-	</section>
+	<CampaignSection
+		id="analyses"
+		title={t.emploi_ia.analyses_section_title}
+		intro={t.emploi_ia.analyses_section_text}
+	>
+		<LinkGrid min="17rem">
+			<LinkCard href={t.emploi_ia.article1_url} title={t.emploi_ia.article1_title}>
+				{t.emploi_ia.article1_desc}
+			</LinkCard>
+			<LinkCard href={t.emploi_ia.article2_url} title={t.emploi_ia.article2_title}>
+				{t.emploi_ia.article2_desc}
+			</LinkCard>
+			<LinkCard href={t.emploi_ia.article3_url} title={t.emploi_ia.article3_title} featured>
+				{t.emploi_ia.article3_desc}
+			</LinkCard>
+		</LinkGrid>
+	</CampaignSection>
 
-	<section id="ecrire-elus" aria-labelledby="ecrire-elus-heading" class="bigger-problem">
-		<h2 id="ecrire-elus-heading">{t.emploi_ia.bigger_problem_title}</h2>
+	<CampaignSection id="ecrire-elus" title={t.emploi_ia.bigger_problem_title} variant="accent">
 		<p>{t.emploi_ia.elus_intro}</p>
 
 		<p class="cta-callout">{t.emploi_ia.elus_models}</p>
@@ -213,10 +195,9 @@
 		<p class="cta-guide">{t.emploi_ia.elus_guide}</p>
 
 		<div id="av-embed-container" class="av-embed"></div>
-	</section>
+	</CampaignSection>
 
-	<section id="presse-campagne" aria-labelledby="presse-campagne-heading">
-		<h2 id="presse-campagne-heading">Pause IA dans la presse</h2>
+	<CampaignSection id="presse-campagne" title="Pause IA dans la presse">
 		<p>Articles parus lors de la manifestation du 1er mai et des actions locales de la campagne.</p>
 
 		<div class="press-list">
@@ -242,31 +223,18 @@
 				</a>
 			{/each}
 		</div>
-	</section>
+	</CampaignSection>
 
 	{#if articleShowcaseItems.length}
-		<section id="revue" aria-labelledby="revue-heading">
+		<CampaignSection id="revue">
 			<h2 id="revue-heading">{t.emploi_ia.press_section_title}</h2>
 			<p>{t.emploi_ia.press_section_text}</p>
 			<ArticleShowcase articles={articleShowcaseItems} {lang} />
-		</section>
+		</CampaignSection>
 	{/if}
-</article>
+</CampaignPage>
 
 <style>
-	article {
-		max-inline-size: var(--width-content);
-		width: 100%;
-		margin-inline: auto;
-		margin-top: 2rem;
-		padding: 0 1rem;
-		overflow-x: clip;
-	}
-
-	section:not(:last-child) {
-		margin-bottom: 5rem;
-	}
-
 	/* ── Bloc questionnaire, regroupé sous les témoignages ── */
 	.survey-block {
 		margin-top: 2.5rem;
@@ -281,16 +249,6 @@
 	}
 
 	/* ── Lead callout ── */
-	.lead {
-		font-size: 1.2rem;
-		font-weight: 500;
-		line-height: 1.5;
-		color: var(--brand-subtle);
-		border-left: 4px solid var(--brand);
-		background: var(--brand-light);
-		padding: 1rem 1.25rem;
-		margin: 1.5rem 0 1.5rem;
-	}
 
 	/* ── Stat block ── */
 	.stat-block {
@@ -318,7 +276,7 @@
 		font-size: clamp(2rem, 5.5vw, 3rem);
 		font-weight: 800;
 		line-height: 1;
-		color: var(--brand-subtle);
+		color: var(--text);
 		letter-spacing: -0.02em;
 		white-space: nowrap;
 		flex-shrink: 0;
@@ -355,166 +313,22 @@
 	}
 
 	/* ── Primary CTA (action n°1 : écrire aux élus) ── */
-	.primary-cta {
-		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
-		position: relative;
-		background: var(--brand);
-		color: var(--on-brand);
-		text-decoration: none;
-		padding: 1.1rem 3rem 1.1rem 1.5rem;
-		border-radius: var(--radius-md);
-		margin: 0 0 3rem;
-		box-shadow: 0 2px 14px rgba(var(--brand-rgb), 0.28);
-		transition:
-			transform 0.15s,
-			box-shadow 0.2s,
-			background 0.2s;
-	}
-
-	.primary-cta:hover {
-		background: var(--brand);
-		transform: translateY(-1px);
-		box-shadow: 0 4px 18px rgba(var(--brand-rgb), 0.35);
-	}
-
-	.primary-cta-label {
-		font-size: 1.15rem;
-		font-weight: 800;
-		line-height: 1.2;
-	}
-
-	.primary-cta-sub {
-		font-size: 0.9rem;
-		/* Sur l'aplat orange, le texte reste foncé (le blanc n'y donne que 2,2:1). */
-		color: var(--on-brand-muted);
-		line-height: 1.3;
-	}
-
-	.primary-cta-arrow {
-		position: absolute;
-		right: 1.4rem;
-		top: 50%;
-		transform: translateY(-50%);
-		font-size: 1.5rem;
-		font-weight: 700;
-	}
 
 	/* ── Article cards ── */
-	.article-cards {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 1rem;
-		margin-top: 1.5rem;
-	}
 
 	@media (max-width: 640px) {
-		.article-cards {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	.card-meta {
-		font-size: 0.75rem;
-		font-weight: 600;
-		color: var(--text-secondary);
-		letter-spacing: 0.04em;
-	}
-
-	.article-card {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		padding: 1.1rem 1.2rem;
-		border: 1px solid var(--border);
-		border-radius: var(--radius-md);
-		background: var(--bg-card);
-		text-decoration: none;
-		color: inherit;
-		transition:
-			border-color 0.2s,
-			box-shadow 0.2s;
-	}
-
-	.article-card:hover {
-		border-color: var(--brand);
-		box-shadow: 0 2px 12px rgba(var(--brand-rgb), 0.12);
 	}
 
 	/* ── Carte mise en avant : le bilan de la campagne ── */
-	.article-card-featured {
-		border-color: var(--brand);
-		border-width: 2px;
-		background: var(--brand-light);
-		box-shadow: 0 2px 12px rgba(var(--brand-rgb), 0.14);
-	}
-
-	:global([data-theme='dark']) .article-card-featured {
-		background: rgba(var(--brand-rgb), 0.08);
-	}
-
-	.article-badge {
-		align-self: flex-start;
-		font-size: 0.65rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.06em;
-		color: var(--on-brand);
-		background: var(--brand);
-		padding: 0.2rem 0.5rem;
-		border-radius: 4px;
-	}
-
-	.article-card-title {
-		font-size: 1rem;
-		font-weight: 700;
-		line-height: 1.4;
-		color: var(--text);
-		margin: 0;
-	}
-
-	.article-card-desc {
-		font-size: 0.9rem;
-		color: var(--text-secondary);
-		line-height: 1.5;
-		margin: 0;
-		flex: 1;
-	}
-
-	.article-card-link {
-		font-size: 0.875rem;
-		font-weight: 600;
-		color: var(--brand-subtle);
-	}
-
-	.article-card:hover .article-card-link {
-		color: var(--brand-subtle);
-	}
 
 	/* ── Bigger-problem section ── */
-	.bigger-problem {
-		background: var(--bg-subtle);
-		border-radius: var(--radius-md);
-		padding: 2rem 2.25rem;
-		/* Décale l'ancre (#ecrire-elus) sous l'en-tête fixe lors du scroll. */
-		scroll-margin-top: 5.5rem;
-	}
-
-	:global([data-theme='dark']) .bigger-problem {
-		background: rgba(var(--on-dark-rgb), 0.04);
-	}
-
-	.bigger-problem h2 {
-		margin-top: 0;
-	}
 
 	/* ── CTA callout ── */
 	.cta-callout {
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 		border-left: 4px solid var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		padding: 0.85rem 1.1rem;
 		margin: 1.5rem 0 0.5rem;
 		line-height: 1.5;
@@ -528,7 +342,7 @@
 
 	.cta-guide {
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--text);
 		margin: 0.75rem 0 0.25rem;
 	}
 
@@ -599,7 +413,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.press-date {
@@ -620,7 +434,7 @@
 	}
 
 	.press-item:hover .press-title {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.press-item-featured {
@@ -628,7 +442,8 @@
 		padding: 1.25rem 1.4rem 1.1rem;
 		border-width: 2px;
 		border-color: var(--brand);
-		background: rgba(var(--brand-rgb), 0.04);
+		/* Panneau de la charte : le voile d'orange datait du fond de page crème. */
+		background: var(--panneau-bg);
 	}
 
 	.press-badge {

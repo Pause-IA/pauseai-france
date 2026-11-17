@@ -97,6 +97,6 @@
 		padding-top: 0.5rem;
 		align-self: flex-end;
 		font-size: 1.2rem;
-		color: var(--brand-subtle);
+		color: var(--brand);
 	}
 </style>

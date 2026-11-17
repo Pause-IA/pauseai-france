@@ -1,7 +1,7 @@
 /**
- * Rubrique « Idées reçues » : objections courantes sur l'IA et réponses de Pause IA.
+ * Rubrique « Idées reçues » : objections courantes sur l’IA et réponses de Pause IA.
  *
- * Source : la table Notion « Idées reçues », remplie par l'équipe com
+ * Source : la table Notion « Idées reçues », remplie par l’équipe com
  * (variable Netlify NOTION_IDEES_RECUES_DATABASE_ID, clé NOTION_API_KEY déjà
  * utilisée par le site). Une ligne = une objection :
  *   - colonnes : voir COLONNES ci-dessous (seul endroit à modifier si un nom change) ;
@@ -11,7 +11,7 @@
  * Contrôle : seules les lignes cochées « Visible » sont lues ; une ligne incomplète
  * (objection, slug, catégorie ou réponse courte manquants, slug mal formé, doublon)
  * est écartée avec un avertissement dans le journal Netlify.
- * Pas de liste de secours : tant qu'aucune réponse n'est validée, la page l'annonce.
+ * Pas de liste de secours : tant qu’aucune réponse n’est validée, la page l'annonce.
  */
 import { env } from '$env/dynamic/private'
 
@@ -130,16 +130,16 @@ const MOIS = [
 /**
  * « 2026-10-23 » -> « 23 octobre 2026 ». Accepte aussi « 2026-10 » et « 2026 ».
  *
- * Écrit à la main plutôt qu'avec Intl : `new Date('2026-10-23')` vaut minuit UTC,
- * et l'afficher dans le fuseau du visiteur décale la date d'un jour à l'ouest de
- * Greenwich. Ici il n'y a pas de fuseau, donc pas de décalage.
+ * Écrit à la main plutôt qu’avec Intl : `new Date('2026-10-23')` vaut minuit UTC,
+ * et l’afficher dans le fuseau du visiteur décale la date d’un jour à l’ouest de
+ * Greenwich. Ici il n’y a pas de fuseau, donc pas de décalage.
  */
 export function dateEnFrancais(iso: string): string {
 	const [annee, mois, jourDuMois] = iso.trim().split('-')
 	if (!/^\d{4}$/.test(annee ?? '')) return ''
 	if (!mois) return annee
-	// Un mois hors bornes vient d'une saisie fautive : mieux vaut ne rien afficher
-	// que l'année seule, qui aurait l'air d'une date volontairement imprécise.
+	// Un mois hors bornes vient d’une saisie fautive : mieux vaut ne rien afficher
+	// que l'année seule, qui aurait l’air d’une date volontairement imprécise.
 	const nomDuMois = MOIS[Number(mois) - 1]
 	if (!nomDuMois) return ''
 	if (!/^\d{1,2}$/.test(jourDuMois ?? '')) return `${nomDuMois} ${annee}`
@@ -148,14 +148,14 @@ export function dateEnFrancais(iso: string): string {
 
 /**
  * Apostrophe droite -> typographique (’), le style du reste du site. Notion garde
- * l'apostrophe tapée au clavier : on la convertit pour tout texte affiché (les
+ * l’apostrophe tapée au clavier : on la convertit pour tout texte affiché (les
  * adresses des liens et le slug ne passent pas par ici). Sert aussi à comparer
- * « Nature de l'IA » et « Nature de l’IA » dans les filtres.
+ * « Nature de l’IA » et « Nature de l’IA » dans les filtres.
  */
 const typo = (valeur: string) => valeur.replace(/'/g, '’')
 
 /**
- * Les espaces au bord d'un lien en sont sortis : dans Notion, l'espace avant une
+ * Les espaces au bord d’un lien en sont sortis : dans Notion, l’espace avant une
  * adresse collée fait souvent partie du lien, et le soulignement commençait par
  * un blanc (« arXiv:2212.08073 ⎵https://… », 05/11/2026).
  */
@@ -174,7 +174,7 @@ function segments(riche: TexteRiche[] | undefined): Segment[] {
 			const s: Segment = { texte: typo(r.plain_text) }
 			if (r.annotations?.bold) s.gras = true
 			if (r.annotations?.italic) s.italique = true
-			// Un lien n'est gardé que s'il mène vers un site web (jamais « javascript: »).
+			// Un lien n'est gardé que s’il mène vers un site web (jamais « javascript: »).
 			if (/^https?:\/\//.test(r.href ?? '')) s.lien = r.href ?? undefined
 			return s
 		})
@@ -186,7 +186,7 @@ function segments(riche: TexteRiche[] | undefined): Segment[] {
 // Demande de Romain (04/11/2026) : un texte écrit en Markdown dans Notion (souvent
 // collé depuis un autre outil) est mis en forme ; un texte ordinaire reste tel
 // quel. Seul un petit Markdown est reconnu : **gras**, *italique* ou _italique_,
-// [texte](https://adresse) ; et, en début de ligne d'un paragraphe : # à ######
+// [texte](https://adresse) ; et, en début de ligne d’un paragraphe : # à ######
 // (titres), - ou * (puces), 1. (liste numérotée), > (citation).
 // Le résultat reste des segments de texte : jamais de HTML interprété.
 
@@ -194,9 +194,9 @@ const LIEN_MD = String.raw`\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)`
 const ADRESSE_NUE = String.raw`(https?:\/\/[^\s<>\]]*[^\s<>\].,;:!?)'"»])`
 const EMPHASE = String.raw`\*\*(?=\S)(.+?)(?<=\S)\*\*|__(?=\S)(.+?)(?<=\S)__|(?<![\w*])\*(?=[^\s*])(.+?)(?<=\S)\*(?![\w*])|(?<![\w_/])_(?=[^\s_])(.+?)(?<=\S)_(?![\w_])`
 // Lecture : les adresses nues deviennent cliquables (avant l'emphase, pour qu'un
-// « _ » d'adresse ne soit jamais pris pour de l'italique).
+// « _ » d'adresse ne soit jamais pris pour de l’italique).
 const MD_EN_LIGNE = new RegExp(`${LIEN_MD}|${ADRESSE_NUE}|${EMPHASE}`, 'g')
-// Détection : une adresse nue seule ne fait pas d'un texte du Markdown.
+// Détection : une adresse nue seule ne fait pas d’un texte du Markdown.
 const MD_DETECTION = new RegExp(`${LIEN_MD}|${EMPHASE}`)
 const MD_LIGNE = /^ {0,3}(#{1,6} |[-*+] |\d{1,3}[.)] |> )/m
 
@@ -260,7 +260,7 @@ export function markdownEnBlocs(texte: string): Bloc[] {
 	return sortie
 }
 
-/** Ajoute un bloc ; les éléments consécutifs d'une même liste sont regroupés. */
+/** Ajoute un bloc ; les éléments consécutifs d’une même liste sont regroupés. */
 function ajouterAuxBlocs(sortie: Bloc[], bloc: Bloc) {
 	const precedent = sortie.at(-1)
 	if (
@@ -317,7 +317,7 @@ export function versBlocs(blocs: BlocNotion[]): Bloc[] {
 		const contenu = bloc[bloc.type] as { rich_text?: TexteRiche[] } | undefined
 		// Un lien posé dans Notion sur un texte devient un lien Markdown, pour ne pas
 		// le perdre si le bloc est lu comme du Markdown. Une adresse collée (texte =
-		// adresse) reste telle quelle : elle peut être au milieu d'un [texte](adresse).
+		// adresse) reste telle quelle : elle peut être au milieu d’un [texte](adresse).
 		const brut = (contenu?.rich_text ?? [])
 			.map((r) =>
 				r.href && /^https?:\/\//.test(r.href) && r.plain_text.trim() !== r.href
@@ -327,7 +327,7 @@ export function versBlocs(blocs: BlocNotion[]): Bloc[] {
 			.join('')
 		// Écrit en Markdown : on lit le texte brut (la mise en forme Notion, s'il y
 		// en a, est alors ignorée). Sinon, la mise en forme Notion telle quelle.
-		// Détection sur le texte tel qu'écrit (sans les liens Notion convertis).
+		// Détection sur le texte tel qu’écrit (sans les liens Notion convertis).
 		const markdown = estDuMarkdown((contenu?.rich_text ?? []).map((r) => r.plain_text).join(''))
 		if (markdown && bloc.type === 'paragraph') {
 			for (const b of markdownEnBlocs(brut)) ajouterAuxBlocs(sortie, b)

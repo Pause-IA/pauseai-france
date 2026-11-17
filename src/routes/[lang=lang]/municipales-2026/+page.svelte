@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { openActivoiceForm } from '$lib/activoice'
 	import { Badge } from '$components/ui'
-	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
+	import { CampaignPage, CampaignHero, CampaignSection } from '$components/campaign'
 	import Button from '$lib/components/Button.svelte'
 	import type { PageData } from './$types'
 
@@ -268,19 +267,15 @@
 	<script src="https://activoice.online/embed/activoice-12.0.0.js"></script>
 </svelte:head>
 
-<PostMeta {title} {description} />
-
-<article>
-	<!-- ── Hero ── -->
-	<section class="hero">
-		<UnderlinedTitle as="h1">
-			{isEn ? 'Municipal elections 2026' : 'Élections municipales 2026'}
-		</UnderlinedTitle>
-		<p class="intro">{description}</p>
-	</section>
+<CampaignPage {title} {description} width="wide">
+	<CampaignHero
+		title={isEn ? 'Municipal elections 2026' : 'Élections municipales 2026'}
+		lede={description}
+		eyebrow={isEn ? 'Campaign' : 'Campagne'}
+	/>
 
 	<!-- ── 1. Agir : campagne en cours ── -->
-	<section class="action-section">
+	<CampaignSection id="agir" variant="accent">
 		<div class="action-inner">
 			<div class="action-text">
 				{#if isEn}
@@ -293,7 +288,7 @@
 					<h2>Agir pour votre ville</h2>
 					<p>
 						Interpellez les candidats de votre ville et invitez-les à découvrir et signer la charte
-						de Pause IA sur les risques de l'IA. Les signataires sont affichés ci-dessous.
+						de Pause IA sur les risques de l’IA. Les signataires sont affichés ci-dessous.
 					</p>
 				{/if}
 				<div class="cta-container">
@@ -301,16 +296,16 @@
 						{isEn ? 'Discover the charter' : 'Je découvre la charte'}
 					</Button>
 					<Button alt on:click={openActivoice}>
-						{isEn ? 'Challenge my city candidates' : "J'interpelle les candidats de ma ville"}
+						{isEn ? 'Challenge my city candidates' : 'J’interpelle les candidats de ma ville'}
 					</Button>
 				</div>
 			</div>
 		</div>
 		<activoice-embed id="activoice-embed-1d572d9b_9638_4731_84c0_ce7fd867cccb"></activoice-embed>
-	</section>
+	</CampaignSection>
 
 	<!-- ── 2. Candidats signataires ── -->
-	<section class="signatories-section">
+	<CampaignSection id="signataires">
 		<div class="section-header">
 			<h2>{isEn ? 'Committed candidates' : 'Les candidat·es engagé·es'}</h2>
 			<Badge>{candidates.length} {isEn ? 'signatories' : 'signataires'}</Badge>
@@ -320,7 +315,7 @@
 				These candidates have signed the Pause AI charter on the risks of artificial intelligence.
 				Click on a card to view their signed charter.
 			{:else}
-				Ces candidat·es ont signé la charte de Pause IA sur les risques de l'intelligence
+				Ces candidat·es ont signé la charte de Pause IA sur les risques de l’intelligence
 				artificielle. Cliquez sur une carte pour consulter leur charte signée.
 			{/if}
 		</p>
@@ -371,11 +366,11 @@
 				</button>
 			{/each}
 		</div>
-	</section>
+	</CampaignSection>
 
 	<!-- ── 3. Revue de presse ── -->
 	{#if pressArticles.length > 0}
-		<section class="press-section">
+		<CampaignSection id="revue-de-presse">
 			<div class="section-header">
 				<h2>{isEn ? 'Campaign press review' : 'Revue de presse de la campagne'}</h2>
 				<Badge>{pressArticles.length} articles</Badge>
@@ -394,11 +389,11 @@
 					</a>
 				{/each}
 			</div>
-		</section>
+		</CampaignSection>
 	{/if}
-</article>
+</CampaignPage>
 
-<!-- Modal : Charte d'un candidat -->
+<!-- Modal : Charte d’un candidat -->
 {#if showCharterModal && selectedCandidate}
 	<div class="modal-overlay" role="presentation" on:click={closeOnBackdrop}>
 		<div
@@ -428,7 +423,7 @@
 					<p class="engagements-intro">
 						{isEn
 							? `${selectedCandidate.name} commits, once elected, to carry out the following actions:`
-							: `${selectedCandidate.name} s'engage, une fois élu·e, à réaliser les actions suivantes :`}
+							: `${selectedCandidate.name} s’engage, une fois élu·e, à réaliser les actions suivantes :`}
 					</p>
 					<ul class="engagements-list">
 						{#each selectedCandidate.engagements as engagement}
@@ -486,25 +481,6 @@
 {/if}
 
 <style>
-	article {
-		max-inline-size: var(--width-wide);
-		margin-inline: auto;
-		margin-top: 3rem;
-		padding: 0 2rem 4rem;
-	}
-
-	/* ── Hero ── */
-	.hero {
-		margin-bottom: 3rem;
-	}
-
-	.intro {
-		font-size: 1.2rem;
-		line-height: 1.7;
-		color: var(--text-muted);
-		max-width: var(--width-content);
-	}
-
 	/* ── Section header pattern ── */
 	.section-header {
 		display: flex;
@@ -596,7 +572,7 @@
 		transform: translateY(-3px);
 		box-shadow: 0 8px 28px rgba(var(--ink-rgb), 0.1);
 		border-color: var(--brand);
-		border-left-color: var(--brand-subtle);
+		border-left-color: var(--accent);
 	}
 
 	.card-top {
@@ -665,7 +641,7 @@
 		gap: 0.35rem;
 		font-size: 0.82rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 		margin-top: auto;
 	}
 
@@ -716,7 +692,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
+		color: var(--text);
 		white-space: nowrap;
 	}
 
@@ -741,7 +717,7 @@
 	}
 
 	.press-card:hover .press-link-icon {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* ── Modal ── */
@@ -884,7 +860,7 @@
 
 	.engagements-list li::before {
 		content: '✓';
-		color: var(--brand-subtle);
+		color: var(--brand);
 		font-weight: 700;
 		flex-shrink: 0;
 		margin-top: 0.05em;
@@ -924,10 +900,6 @@
 
 	/* ── Responsive ── */
 	@media (max-width: 640px) {
-		article {
-			padding: 0 1rem 3rem;
-		}
-
 		.section-header h2,
 		h2 {
 			font-size: 1.3rem;

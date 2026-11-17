@@ -65,9 +65,17 @@ function stripMarkdown(md: string): string {
 }
 
 /** Découpe le markdown de la FAQ en catégories → questions. */
+/** Apostrophe typographique, comme le fait le plugin sur le reste du site. */
+const apostrophe = (t: string) =>
+	t.replace(/([A-Za-zÀ-ÖØ-öø-ÿ])'([A-Za-zÀ-ÖØ-öø-ÿ])/g, '$1\u2019$2')
+
 export function parseFaq(raw: string): FaqCategory[] {
 	// Retire le frontmatter éventuel.
-	const body = raw.replace(/^---\n[\s\S]*?\n---\n/, '')
+	// L'apostrophe typographique est appliquée ici : cette page lit le
+	// Markdown brut, sans passer par mdsvex, donc le plugin de typographie ne
+	// la voit jamais. Ses questions s'affichaient avec l'apostrophe droite,
+	// seules de tout le site.
+	const body = apostrophe(raw.replace(/^---\n[\s\S]*?\n---\n/, ''))
 	const lines = body.split('\n')
 	const categories: FaqCategory[] = []
 	let current: FaqCategory | null = null

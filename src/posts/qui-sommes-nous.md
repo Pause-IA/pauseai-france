@@ -1,6 +1,6 @@
 ---
 title: Qui sommes-nous ?
-description: Découvrez l'équipe de Pause IA France, association engagée pour une gouvernance responsable de l'intelligence artificielle.
+description: Découvrez l’équipe de Pause IA France, association engagée pour une gouvernance responsable de l’intelligence artificielle.
 original:
   title: QUI
   url: https://github.com/PauseAI/pauseai-website/blob/5950ca0185d6e7cf52e2416e795acfab7222dace/src/posts/faq.md

@@ -4,7 +4,7 @@ import { env as privateEnv } from '$env/dynamic/private'
 // Jeton du lien de confirmation envoyé par e-mail. Il est signé (HMAC) plutôt
 // que stocké : pas de table à maintenir, et il ne peut pas être forgé sans le
 // secret. Il porte le contact et les options choisies dans le formulaire, qui
-// ne prennent effet qu'une fois l'adresse confirmée.
+// ne prennent effet qu'une fois l’adresse confirmée.
 
 export interface DeclarationClaims {
 	/** ID du contact CiviCRM. */
@@ -40,7 +40,7 @@ export function createToken(claims: Omit<DeclarationClaims, 'e'>, now = Date.now
 	return `${payload}.${sign(payload)}`
 }
 
-/** Renvoie les données du jeton, ou null s'il est invalide ou expiré. */
+/** Renvoie les données du jeton, ou null s’il est invalide ou expiré. */
 export function verifyToken(token: string, now = Date.now()): DeclarationClaims | null {
 	const parts = token.split('.')
 	if (parts.length !== 2) return null
