@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte'
 	import PostMeta from '$components/PostMeta.svelte'
+	import RetourAgir from '$components/RetourAgir.svelte'
 	import Button from '$components/Button.svelte'
-	import { Card, PageHero, SectionTitle } from '$components/ui'
+	import { Card, Page, SectionTitle } from '$components/ui'
 	import DeclarationNextSteps from '$components/DeclarationNextSteps.svelte'
 	import SignatoryCard from '$components/declaration/SignatoryCard.svelte'
 	import { counts, loadDeclaration, toEntries, type DeclarationData } from '$lib/declaration'
@@ -144,24 +145,21 @@
 
 <PostMeta {title} {description} />
 
-<article>
-	<PageHero eyebrow={isEn ? 'Act' : 'Agir'}>
-		{title}
-		<svelte:fragment slot="lede">
-			{#if isEn}
-				This statement summarises the position of the volunteers and supporters of the PauseAI
-				association, and in particular of its French branch, Pause IA. Sign it to add your voice to
-				ours and help us build our collective strength.
-			{:else}
-				Cet appel résume la position des bénévoles, sympathisants et sympathisantes de l’association
-				PauseAI et notamment de sa branche française, Pause IA. Signez-la pour ajouter votre voix à
-				la nôtre et nous aider à construire notre force collective.
-			{/if}
-		</svelte:fragment>
-		<div slot="actions" class="hero-actions">
-			<Button href="#signer">{isEn ? 'Sign the statement' : 'Signer l’appel'}</Button>
-		</div>
-	</PageHero>
+<Page {title} eyebrow={isEn ? 'Act' : 'Agir'} width="content" as="article">
+	<svelte:fragment slot="lede">
+		{#if isEn}
+			This statement summarises the position of the volunteers and supporters of the PauseAI
+			association, and in particular of its French branch, Pause IA. Sign it to add your voice to
+			ours and help us build our collective strength.
+		{:else}
+			Cet appel résume la position des bénévoles, sympathisants et sympathisantes de l’association
+			PauseAI et notamment de sa branche française, Pause IA. Signez-la pour ajouter votre voix à la
+			nôtre et nous aider à construire notre force collective.
+		{/if}
+	</svelte:fragment>
+	<div slot="actions" class="hero-actions">
+		<Button href="#signer">{isEn ? 'Sign the statement' : 'Signer l’appel'}</Button>
+	</div>
 
 	<blockquote class="statement aplat-marque">
 		{#if isEn}
@@ -403,19 +401,11 @@
 			{/if}
 		</Button>
 	</section>
-</article>
+
+	<RetourAgir lang={data.lang} />
+</Page>
 
 <style>
-	article {
-		/* Largeur fixe : sans elle, un article centré dans <main> (flex) prend
-		   la largeur de son contenu et la page bouge quand un bloc s'ouvre. */
-		inline-size: 100%;
-		max-inline-size: var(--width-content);
-		margin-inline: auto;
-		margin-top: 3rem;
-		margin-bottom: 5rem;
-	}
-
 	.hero-actions {
 		margin-top: 1.5rem;
 	}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge, PageHero } from '$components/ui'
+	import { Badge, Page } from '$components/ui'
 	import PostMeta from '$components/PostMeta.svelte'
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$components/Button.svelte'
@@ -23,22 +23,19 @@
 
 <PostMeta title={`${t.dons.meta_title} | ${siteName}`} description={t.dons.meta_desc} />
 
-<article>
-	<!-- Main donation page -->
+<Page title={t.dons.title} eyebrow={t.nav.agir} width="content" as="article">
+	<svelte:fragment slot="lede">
+		{#if lang === 'en'}
+			AI companies are in an unbridled race to develop increasingly powerful systems.
+			<strong>Let’s act fast to keep AI under control</strong> before it’s too late.
+		{:else}
+			Les entreprises d’IA sont dans une course effrénée pour développer des systèmes de plus en
+			plus puissants.
+			<strong>Agissons vite pour garder l’IA sous contrôle</strong> avant qu’il ne soit trop tard.
+		{/if}
+	</svelte:fragment>
+
 	<section class="hero">
-		<PageHero eyebrow={t.nav.agir}>
-			{t.dons.title}
-			<svelte:fragment slot="lede">
-				{#if lang === 'en'}
-					AI companies are in an unbridled race to develop increasingly powerful systems.
-					<strong>Let’s act fast to keep AI under control</strong> before it’s too late.
-				{:else}
-					Les entreprises d’IA sont dans une course effrénée pour développer des systèmes de plus en
-					plus puissants.
-					<strong>Agissons vite pour garder l’IA sous contrôle</strong> avant qu’il ne soit trop tard.
-				{/if}
-			</svelte:fragment>
-		</PageHero>
 		{#if lang === 'en'}
 			<div class="tax-benefit">
 				<strong>Your donations are 66% tax-deductible</strong><br />
@@ -267,16 +264,9 @@
 		{/if}
 	</section>
 	<DonVirement bind:show={showVirement} />
-</article>
+</Page>
 
 <style>
-	article {
-		max-inline-size: var(--width-content);
-		margin-inline: auto;
-		margin-top: 3rem;
-		padding: 0 2rem;
-	}
-
 	/* En-tête au modèle : aligné à gauche, sans carte. C'était un encadré
 	   blanc posé sur un fond devenu blanc, que seule son ombre trahissait. */
 	.hero {
@@ -428,8 +418,5 @@
 	}
 
 	@media (max-width: 480px) {
-		article {
-			padding: 0 1rem;
-		}
 	}
 </style>

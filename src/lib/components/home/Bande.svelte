@@ -74,6 +74,13 @@
 		background: var(--bg-subtle);
 	}
 
+	/* Quand la bande grise ferme la page, elle descend jusqu'au pied de page :
+	   la réserve basse de <main> laissait voir une bande blanche entre le
+	   dernier bloc et le pied de page. */
+	.bande.gris:last-child::after {
+		inset-block-end: calc(-1 * var(--main-pb, 0px));
+	}
+
 	.bande.filet::before {
 		content: '';
 		position: absolute;

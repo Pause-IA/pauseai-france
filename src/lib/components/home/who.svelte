@@ -100,10 +100,6 @@
 		{/if}
 	</svelte:fragment>
 	<div class="contact-cta" slot="actions">
-		<Button href="{prefix}/dons">{lang === 'en' ? 'Donate' : 'Faire un don'}</Button>
-		<Button alt href="{prefix}/rejoindre"
-			>{lang === 'en' ? 'Join Pause IA' : 'Rejoindre Pause IA'}</Button
-		>
 		<Button alt href="mailto:contact@pauseia.fr"
 			>{lang === 'en' ? 'Contact us' : 'Nous contacter'}</Button
 		>
@@ -228,11 +224,7 @@
 		<ul class="equipes">
 			{#each equipes as equipe}
 				<li class="equipe">
-					<h3>
-						{lang === 'en' ? equipe.nomEn : equipe.nom}{#if equipe.referent}<span class="referent"
-								>{equipe.referent}</span
-							>{/if}
-					</h3>
+					<h3>{lang === 'en' ? equipe.nomEn : equipe.nom}</h3>
 					<p>{lang === 'en' ? equipe.descriptionEn : equipe.description}</p>
 				</li>
 			{/each}
@@ -342,13 +334,6 @@
 	.equipe {
 		padding-block: 1rem;
 		border-block-start: 1px solid var(--border);
-	}
-
-	.referent {
-		margin-inline-start: 0.6rem;
-		font-size: 0.85rem;
-		font-weight: 400;
-		color: var(--text-2);
 	}
 
 	.equipe h3 {

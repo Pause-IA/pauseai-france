@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { openActivoiceForm } from '$lib/activoice'
 	import { Badge } from '$components/ui'
-	import PostMeta from '$components/PostMeta.svelte'
+	import { CampaignPage, CampaignHero, CampaignSection } from '$components/campaign'
 	import Button from '$lib/components/Button.svelte'
 	import type { PageData } from './$types'
 
@@ -267,18 +267,15 @@
 	<script src="https://activoice.online/embed/activoice-12.0.0.js"></script>
 </svelte:head>
 
-<PostMeta {title} {description} />
-
-<article>
-	<!-- ── Hero ── -->
-	<section class="hero">
-		<p class="eyebrow">{isEn ? 'Campaign' : 'Campagne'}</p>
-		<h1>{isEn ? 'Municipal elections 2026' : 'Élections municipales 2026'}</h1>
-		<p class="intro">{description}</p>
-	</section>
+<CampaignPage {title} {description} width="wide">
+	<CampaignHero
+		title={isEn ? 'Municipal elections 2026' : 'Élections municipales 2026'}
+		lede={description}
+		eyebrow={isEn ? 'Campaign' : 'Campagne'}
+	/>
 
 	<!-- ── 1. Agir : campagne en cours ── -->
-	<section class="action-section">
+	<CampaignSection id="agir" variant="accent">
 		<div class="action-inner">
 			<div class="action-text">
 				{#if isEn}
@@ -305,10 +302,10 @@
 			</div>
 		</div>
 		<activoice-embed id="activoice-embed-1d572d9b_9638_4731_84c0_ce7fd867cccb"></activoice-embed>
-	</section>
+	</CampaignSection>
 
 	<!-- ── 2. Candidats signataires ── -->
-	<section class="signatories-section">
+	<CampaignSection id="signataires">
 		<div class="section-header">
 			<h2>{isEn ? 'Committed candidates' : 'Les candidat·es engagé·es'}</h2>
 			<Badge>{candidates.length} {isEn ? 'signatories' : 'signataires'}</Badge>
@@ -369,11 +366,11 @@
 				</button>
 			{/each}
 		</div>
-	</section>
+	</CampaignSection>
 
 	<!-- ── 3. Revue de presse ── -->
 	{#if pressArticles.length > 0}
-		<section class="press-section">
+		<CampaignSection id="revue-de-presse">
 			<div class="section-header">
 				<h2>{isEn ? 'Campaign press review' : 'Revue de presse de la campagne'}</h2>
 				<Badge>{pressArticles.length} articles</Badge>
@@ -392,9 +389,9 @@
 					</a>
 				{/each}
 			</div>
-		</section>
+		</CampaignSection>
 	{/if}
-</article>
+</CampaignPage>
 
 <!-- Modal : Charte d’un candidat -->
 {#if showCharterModal && selectedCandidate}
@@ -484,46 +481,6 @@
 {/if}
 
 <style>
-	/* Étiquette et titre du modèle, à la place du titre au filet dégradé. */
-	.eyebrow {
-		display: inline-block;
-		margin: 0 0 1rem;
-		padding: 0.3rem 0.7rem;
-		border-radius: 3px;
-		background: var(--brand);
-		color: var(--on-brand);
-		font-size: 0.85rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-	}
-
-	h1 {
-		font-size: clamp(2.1rem, 6vw, 3.2rem);
-		line-height: 1.06;
-		letter-spacing: -0.025em;
-		margin-bottom: 1.25rem;
-	}
-
-	article {
-		max-inline-size: var(--width-wide);
-		margin-inline: auto;
-		margin-top: 3rem;
-		padding: 0 2rem 4rem;
-	}
-
-	/* ── Hero ── */
-	.hero {
-		margin-bottom: 3rem;
-	}
-
-	.intro {
-		font-size: 1.2rem;
-		line-height: 1.7;
-		color: var(--text-muted);
-		max-width: var(--width-content);
-	}
-
 	/* ── Section header pattern ── */
 	.section-header {
 		display: flex;
@@ -943,10 +900,6 @@
 
 	/* ── Responsive ── */
 	@media (max-width: 640px) {
-		article {
-			padding: 0 1rem 3rem;
-		}
-
 		.section-header h2,
 		h2 {
 			font-size: 1.3rem;

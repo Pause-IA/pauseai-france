@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
-	import PostMeta from '$components/PostMeta.svelte'
+	import { CampaignPage, CampaignHero, CampaignSection } from '$components/campaign'
 
 	const CAMPAIGN_ID = 'interpellez-les-dirigeants-du-g7-en-vue-du-sommet-devian'
 	const CAMPAIGN_ID_G7 = 'call-on-g7-leaders-ahead-of-the-evian-summit'
@@ -47,22 +47,14 @@
 	})
 </script>
 
-<PostMeta {title} {description} />
+<CampaignPage {title} {description} width="wide">
+	<CampaignHero
+		title="Le rôle du G7 ne devrait pas être d’accélérer mais de sécuriser l’IA"
+		lede="En 2026, la France accueille le G7. Alors que les systèmes d’IA deviennent plus puissants et plus difficiles à contrôler, Pause IA demande que la sécurité soit mise au cœur de l’agenda."
+		eyebrow="Campagne"
+	/>
 
-<article>
-	<section class="hero">
-		<p class="eyebrow">Campagne</p>
-		<h1>Le rôle du G7 ne devrait pas être d’accélérer mais de sécuriser l’IA</h1>
-		<p class="lede">
-			<strong
-				>En 2026, la France accueille le G7. Alors que les systèmes d’IA deviennent plus puissants
-				et plus difficiles à contrôler, Pause IA demande que la sécurité soit mise au cœur de
-				l’agenda.</strong
-			>
-		</p>
-	</section>
-
-	<section class="prose">
+	<CampaignSection>
 		<p>
 			En 2023, sous présidence japonaise, le G7 avait lancé le
 			<strong>Processus d’Hiroshima sur l’IA</strong>, avec pour objectif de promouvoir un code de
@@ -106,13 +98,13 @@
 			encadrée et à ce que son développement soit prioritairement orienté vers la « sécurité, les droits
 			et l’éthique ».
 		</p>
+	</CampaignSection>
 
-		<hr class="section-divider" />
-
-		<h2>J’agis pour la sécurité de l’IA</h2>
-		<p>
-			Demandez aux dirigeants du G7 de traiter la sécurité de l’IA à la hauteur des vrais enjeux.
-		</p>
+	<CampaignSection
+		id="agir"
+		title="J’agis pour la sécurité de l’IA"
+		intro="Demandez aux dirigeants du G7 de traiter la sécurité de l’IA à la hauteur des vrais enjeux."
+	>
 		<p>
 			Pause IA a préparé pour vous un outil pratique et rapide pour leur envoyer un e-mail ou les
 			interpeller via les réseaux sociaux, en français et en anglais.
@@ -123,104 +115,25 @@
 			Interpellez le président de la République Emmanuel Macron et la ministre chargée du numérique
 			Anne Le Hénanff.
 		</p>
-	</section>
+	</CampaignSection>
 
-	<section class="embed-section">
+	<CampaignSection variant="card">
 		<div id="av-embed-container"></div>
-	</section>
+	</CampaignSection>
 
-	<section class="prose">
+	<CampaignSection>
 		<h3>2) En anglais</h3>
 		<p>Interpellez tous les chefs d’État et les ministres du numérique des pays du G7.</p>
-	</section>
+	</CampaignSection>
 
-	<section class="embed-section">
+	<CampaignSection variant="card">
 		<div id="av-embed-container-g7"></div>
-	</section>
-</article>
+	</CampaignSection>
+</CampaignPage>
 
 <style>
-	/* Étiquette et titre du modèle, à la place du titre au filet dégradé. */
-	.eyebrow {
-		display: inline-block;
-		margin: 0 0 1rem;
-		padding: 0.3rem 0.7rem;
-		border-radius: 3px;
-		background: var(--brand);
-		color: var(--on-brand);
-		font-size: 0.85rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-	}
-
-	h1 {
-		font-size: clamp(2.1rem, 6vw, 3.2rem);
-		line-height: 1.06;
-		letter-spacing: -0.025em;
-		margin-bottom: 1.25rem;
-	}
-
-	article {
-		max-inline-size: var(--width-wide);
-		margin-inline: auto;
-		margin-top: 3rem;
-		padding: 0 2rem;
-	}
-
-	.hero {
-		text-align: left;
-		margin-bottom: 2.5rem;
-	}
-
-	.lede {
-		font-size: 1.2rem;
-		line-height: 1.6;
-		color: var(--text);
-		margin-top: 1.5rem;
-	}
-
-	.prose {
-		font-size: 1.05rem;
-		line-height: 1.7;
-		color: var(--text);
-		margin-bottom: 2.5rem;
-	}
-
-	.prose h2 {
-		font-size: 1.5rem;
-		margin-top: 2.5rem;
-		margin-bottom: 1rem;
-	}
-
-	.prose h3 {
-		font-size: 1.2rem;
-		margin-top: 2rem;
-		margin-bottom: 0.75rem;
-	}
-
-	.prose p {
-		margin-bottom: 1.2rem;
-	}
-
-	.section-divider {
-		border: 0;
-		height: 4px;
-		background: var(--brand);
-		border-radius: 2px;
-		margin: 3.5rem auto 1.5rem;
-		width: 12rem;
-	}
-
-	.embed-section {
-		background: var(--bg-secondary);
-		border-radius: var(--radius-lg);
-		padding: 2rem;
-		border: 1px solid var(--border);
-		box-shadow: var(--shadow-card);
-		margin-bottom: 5rem;
-	}
-
+	/* Activoice injecte son iframe dans ces conteneurs : sans largeur forcée,
+	   le formulaire déborde de la colonne sur petit écran. */
 	#av-embed-container,
 	#av-embed-container-g7 {
 		min-height: 400px;
@@ -235,11 +148,5 @@
 		min-height: 400px;
 		border: 0;
 		display: block;
-	}
-
-	@media (max-width: 600px) {
-		.embed-section {
-			padding: 1rem;
-		}
 	}
 </style>

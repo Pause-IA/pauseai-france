@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte'
 	import PostMeta from '$components/PostMeta.svelte'
 	import Button from '$components/Button.svelte'
-	import { PageHero } from '$components/ui'
+	import { Page } from '$components/ui'
 	import SignatoryList from '$components/declaration/SignatoryList.svelte'
 	import { counts, loadDeclaration, toEntries, type DeclarationData } from '$lib/declaration'
 	import type { PageData } from './$types'
@@ -34,31 +34,33 @@
 
 <PostMeta {title} {description} />
 
-<article>
-	<PageHero eyebrow={data.lang === 'en' ? 'Act' : 'Agir'}>
-		{isEn ? 'The signatories' : 'Les signataires'}
-		<svelte:fragment slot="lede">
-			{#if c?.worldCount != null}
-				{#if isEn}
-					{fmt(c.worldCount)} people have signed the PauseAI statement worldwide, including
-					{fmt(c.franceCount)} in France. Discover who they are and why it matters to them.
-				{:else}
-					{fmt(c.worldCount)} personnes ont signé l’appel de PauseAI dans le monde, dont
-					{fmt(c.franceCount)} en France. Découvrez qui elles sont et pourquoi c’est important pour elles.
-				{/if}
-			{:else if isEn}
-				Discover who signed the PauseAI statement and why it matters to them.
+<Page
+	title={isEn ? 'The signatories' : 'Les signataires'}
+	eyebrow={data.lang === 'en' ? 'Act' : 'Agir'}
+	width="wide"
+	as="article"
+>
+	<svelte:fragment slot="lede">
+		{#if c?.worldCount != null}
+			{#if isEn}
+				{fmt(c.worldCount)} people have signed the PauseAI statement worldwide, including
+				{fmt(c.franceCount)} in France. Discover who they are and why it matters to them.
 			{:else}
-				Découvrez qui a signé l’appel de PauseAI et pourquoi c’est important pour eux.
+				{fmt(c.worldCount)} personnes ont signé l’appel de PauseAI dans le monde, dont
+				{fmt(c.franceCount)} en France. Découvrez qui elles sont et pourquoi c’est important pour elles.
 			{/if}
-		</svelte:fragment>
-		<div slot="actions" class="actions">
-			<Button href="{prefix}/declaration#signer">
-				{isEn ? 'Sign the statement' : 'Signer l’appel'}
-			</Button>
-			<a href="{prefix}/declaration">{isEn ? 'Read the statement' : 'Lire l’appel'}</a>
-		</div>
-	</PageHero>
+		{:else if isEn}
+			Discover who signed the PauseAI statement and why it matters to them.
+		{:else}
+			Découvrez qui a signé l’appel de PauseAI et pourquoi c’est important pour eux.
+		{/if}
+	</svelte:fragment>
+	<div slot="actions" class="actions">
+		<Button href="{prefix}/declaration#signer">
+			{isEn ? 'Sign the statement' : 'Signer l’appel'}
+		</Button>
+		<a href="{prefix}/declaration">{isEn ? 'Read the statement' : 'Lire l’appel'}</a>
+	</div>
 
 	<section data-pagefind-ignore>
 		{#if d}
@@ -83,17 +85,9 @@
 			<p class="loading">{isEn ? 'Loading signatories…' : 'Chargement des signataires…'}</p>
 		{/if}
 	</section>
-</article>
+</Page>
 
 <style>
-	article {
-		max-inline-size: var(--width-wide);
-		margin-inline: auto;
-		margin-top: 3rem;
-		margin-bottom: 5rem;
-		padding: 0 1.5rem;
-	}
-
 	.actions {
 		display: flex;
 		flex-wrap: wrap;
@@ -111,8 +105,5 @@
 	}
 
 	@media (max-width: 600px) {
-		article {
-			padding: 0 1.1rem;
-		}
 	}
 </style>

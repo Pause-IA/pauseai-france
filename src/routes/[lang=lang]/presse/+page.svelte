@@ -2,7 +2,7 @@
 	import { MoveUpRight, ChevronLeft, ChevronRight, Search, X, Newspaper } from 'lucide-svelte'
 	import type { PressRelease, LocalPressRelease, PressCoverage } from '$lib/notion'
 	import { getT } from '$lib/i18n'
-	import { Page } from '$components/ui'
+	import { Card, Page } from '$components/ui'
 	import type { PageData } from './$types'
 
 	export let data: PageData & {
@@ -339,7 +339,7 @@
 
 <Page width="wide" eyebrow={t.nav.actualites} title={t.presse.title} lede={t.presse.subtitle}>
 	<section class="contact-section">
-		<div class="contact-card">
+		<Card variant="accent" padding="compact">
 			<h2>{t.presse.contact_title}</h2>
 			<p class="contact-note">{t.presse.contact_note}</p>
 			<div class="contact-info">
@@ -375,7 +375,7 @@
 				<a href="{prefix}/qui-sommes-nous">{t.presse.redirect_link}</a>
 				{t.presse.redirect_suffix}
 			</p>
-		</div>
+		</Card>
 	</section>
 
 	<section class="press-releases-section">
@@ -703,14 +703,7 @@
 		margin-bottom: 3rem;
 	}
 
-	.contact-card {
-		background-color: var(--bg-subtle);
-		border: 2px solid var(--brand);
-		border-radius: var(--radius-sm);
-		padding: 1.25rem 1.5rem;
-	}
-
-	.contact-card h2 {
+	.contact-section :global(h2) {
 		margin-top: 0;
 		margin-bottom: 0.125rem;
 		font-size: 1.3rem;
@@ -1399,12 +1392,6 @@
 		.contact-persons {
 			flex-direction: column;
 			gap: 0.75rem;
-		}
-	}
-
-	@media (min-width: 640px) {
-		.contact-card {
-			padding: 1.5rem 2rem;
 		}
 	}
 </style>

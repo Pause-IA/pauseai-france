@@ -26,7 +26,7 @@ export default {
 		ecrire_elus: 'Write to your representatives',
 		relayer_messages: 'Share our messages',
 		participer_communication: 'Help with our communication',
-		pres_de_chez_vous: 'Act near you',
+		pres_de_chez_vous: 'Local groups',
 		emploi_ia: 'AI will not destroy ONLY your job',
 		g7_2026: 'G7 2026',
 		municipales: 'Municipal 2026',

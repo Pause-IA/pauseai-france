@@ -16,7 +16,7 @@
 	 * src/lib/routes.ts.
 	 */
 	import PostMeta from '$components/PostMeta.svelte'
-	import { PageHero } from '$components/ui'
+	import { Page } from '$components/ui'
 	import Button from '$components/Button.svelte'
 	import type { PageData } from './$types'
 
@@ -37,15 +37,17 @@
 	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
-<article>
-	<PageHero eyebrow={isEn ? 'Working with us' : 'Travailler avec nous'}>
-		{isEn ? 'No open position at the moment' : 'Aucun poste ouvert en ce moment'}
-		<svelte:fragment slot="lede">
-			{isEn
-				? 'Pause AI is not hiring right now. When a position opens, it will be published here.'
-				: 'Pause IA ne recrute pas pour l’instant. Dès qu’un poste s’ouvre, il est publié sur cette page.'}
-		</svelte:fragment>
-	</PageHero>
+<Page
+	title={isEn ? 'No open position at the moment' : 'Aucun poste ouvert en ce moment'}
+	eyebrow={isEn ? 'Working with us' : 'Travailler avec nous'}
+	width="content"
+	as="article"
+>
+	<svelte:fragment slot="lede">
+		{isEn
+			? 'Pause AI is not hiring right now. When a position opens, it will be published here.'
+			: 'Pause IA ne recrute pas pour l’instant. Dès qu’un poste s’ouvre, il est publié sur cette page.'}
+	</svelte:fragment>
 
 	<section class="suite">
 		<p>
@@ -79,17 +81,9 @@
 			<a href="{prefix}/newsletters">{isEn ? 'See the newsletter' : 'Voir la newsletter'}</a>.
 		</p>
 	</section>
-</article>
+</Page>
 
 <style>
-	article {
-		min-inline-size: 0;
-		inline-size: 100%;
-		max-inline-size: var(--width-content);
-		margin-inline: auto;
-		padding-block-end: 5rem;
-	}
-
 	.suite {
 		max-inline-size: var(--width-text);
 	}

@@ -39,11 +39,13 @@
 		<PageHero {eyebrow}>
 			{title}
 			<svelte:fragment slot="lede"><slot name="lede" /></svelte:fragment>
+			<slot name="meta" slot="meta" />
 			<slot name="actions" slot="actions" />
 		</PageHero>
 	{:else}
 		<PageHero {eyebrow} {lede}>
 			{title}
+			<slot name="meta" slot="meta" />
 			<slot name="actions" slot="actions" />
 		</PageHero>
 	{/if}
@@ -75,9 +77,13 @@
 
 	   Ne sont visés que les paragraphes posés directement dans la page ou
 	   dans une de ses sections : ceux des cartes et des grilles gardent la
-	   largeur de leur conteneur, qui est déjà étroit. */
-	.ui-page > :global(p),
-	.ui-page > :global(section) > :global(p) {
+	   largeur de leur conteneur, qui est déjà étroit.
+
+	   Le renvoi de bas de page (RetourAgir) en est exclu : ce n'est pas du
+	   texte suivi mais un bloc centré sur toute la largeur, et le plafond
+	   décalait son filet et son bouton vers la gauche. */
+	.ui-page > :global(p:not(.retour-agir)),
+	.ui-page > :global(section) > :global(p:not(.retour-agir)) {
 		max-inline-size: var(--width-text);
 	}
 	/* ── Modèle « note » ─────────────────────────────────────────────────

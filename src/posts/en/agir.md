@@ -1,6 +1,7 @@
 ---
 title: All the ways to act
 rubrique: agir
+modele: standard
 description: The most useful actions to help keep AI under control, from 5 minutes to a lasting commitment.
 ---
 
@@ -72,10 +73,23 @@ You don't need to devote your life to it: here are the most useful actions, from
 </div>
 
 <style>
+  /* Trois cartes par ligne, cf. la version française. */
   .action-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+  }
+
+  @media (max-width: 860px) {
+    .action-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .action-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .action-card {

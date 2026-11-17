@@ -1,6 +1,7 @@
 ---
 title: Toutes les façons d’agir
 rubrique: agir
+modele: standard
 description: Les actions les plus utiles pour aider à garder l’IA sous contrôle, de 5 minutes à un engagement durable.
 ---
 
@@ -72,10 +73,26 @@ Pas besoin d'y consacrer votre vie : voici les actions les plus utiles, de cinq 
 </div>
 
 <style>
+  /* Trois cartes par ligne : la grille en auto-fill en donnait trois sur
+     grand écran mais deux dès qu'on réduisait un peu la fenêtre, ce qui
+     cassait l'alignement des deux blocs de la page. Le nombre de colonnes
+     est donc fixé, et ne tombe qu'à deux puis une sur les petits écrans. */
   .action-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+  }
+
+  @media (max-width: 860px) {
+    .action-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .action-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .action-card {

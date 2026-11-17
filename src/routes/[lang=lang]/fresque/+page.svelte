@@ -1,7 +1,7 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
 	import Button from '$components/Button.svelte'
-	import { Card, PageHero, SectionTitle } from '$components/ui'
+	import { Card, Page, SectionTitle } from '$components/ui'
 	import { onMount } from 'svelte'
 	import type { PageData } from './$types'
 
@@ -107,30 +107,31 @@
 		: 'Un atelier collaboratif autour d’un jeu de cartes pour se faire une vision d’ensemble de l’intelligence artificielle, de ses capacités à ses risques, jusqu’aux solutions possibles.'}
 />
 
-<div class="page page--top">
-	<PageHero eyebrow={isEn ? 'Learn' : 'Comprendre'}>
-		{isEn ? 'The AI Risks Fresk' : 'La Fresque des risques de l’IA'}
-		<svelte:fragment slot="lede">
-			{isEn
-				? 'A collaborative workshop built around a deck of cards, to build an overall picture of artificial intelligence, from what it can do to the risks it carries, through to the possible solutions.'
-				: 'Un atelier collaboratif autour d’un jeu de cartes pour se faire une vision d’ensemble de l’intelligence artificielle, de ses capacités à ses risques, jusqu’aux solutions possibles.'}
-		</svelte:fragment>
-		<svelte:fragment slot="actions">
-			<!-- Une seule action dominante : s’inscrire à un atelier, la vraie
+<Page
+	title={isEn ? 'The AI Risks Fresk' : 'La Fresque des risques de l’IA'}
+	eyebrow={isEn ? 'Learn' : 'Comprendre'}
+	width="wide"
+>
+	<svelte:fragment slot="lede">
+		{isEn
+			? 'A collaborative workshop built around a deck of cards, to build an overall picture of artificial intelligence, from what it can do to the risks it carries, through to the possible solutions.'
+			: 'Un atelier collaboratif autour d’un jeu de cartes pour se faire une vision d’ensemble de l’intelligence artificielle, de ses capacités à ses risques, jusqu’aux solutions possibles.'}
+	</svelte:fragment>
+	<svelte:fragment slot="actions">
+		<!-- Une seule action dominante : s’inscrire à un atelier, la vraie
 			     conversion de la page. « Découvrir la Fresque » reste accessible,
 			     en second rang : quatre boutons de poids égal ne hiérarchisaient
 			     rien. -->
-			<p class="hero-action">
-				<Button href="{SITE}/participer/" target="_blank" rel="noopener noreferrer">
-					{isEn ? 'See the workshops' : 'Voir les ateliers'}
-				</Button>
-				<a class="lien-second" href={SITE} target="_blank" rel="noopener noreferrer">
-					{isEn ? 'Discover the Fresk' : 'Découvrir la Fresque'}
-				</a>
-			</p>
-		</svelte:fragment>
-	</PageHero>
-</div>
+		<p class="hero-action">
+			<Button href="{SITE}/participer/" target="_blank" rel="noopener noreferrer">
+				{isEn ? 'See the workshops' : 'Voir les ateliers'}
+			</Button>
+			<a class="lien-second" href={SITE} target="_blank" rel="noopener noreferrer">
+				{isEn ? 'Discover the Fresk' : 'Découvrir la Fresque'}
+			</a>
+		</p>
+	</svelte:fragment>
+</Page>
 
 <!-- Bande de photos, pleine largeur : elle sort de la colonne de contenu. -->
 <div class="bandeau">

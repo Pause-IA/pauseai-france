@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
+	import { Page } from '$components/ui'
 	import plan from '$lib/data/plan-du-site.json'
 
 	/* Page INTERNE : hors menu, hors pied de page, hors sitemap, et noindex.
@@ -24,20 +25,16 @@
 	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
-<div class="page">
-	<header class="hero">
-		<p class="eyebrow">Document de travail interne</p>
-		<h1>Plan du site</h1>
-		<span class="filet" aria-hidden="true"></span>
-		<p class="lede">
-			L’arborescence réelle, régénérée à chaque déploiement depuis les routes, le menu et le pied de
-			page. Cette page n’est ni dans le menu, ni dans le sitemap, ni indexée.
-		</p>
-		<p class="meta">
-			{plan.total.pages} pages · {plan.total.dynamiques} gabarits dynamiques · {plan.total.articles}
-			articles · {plan.orphelines.length} hors menu · généré le {plan.genere}
-		</p>
-	</header>
+<Page
+	title="Plan du site"
+	eyebrow="Document de travail interne"
+	lede="L’arborescence réelle, régénérée à chaque déploiement depuis les routes, le menu et le pied de page. Cette page n’est ni dans le menu, ni dans le sitemap, ni indexée."
+	width="wide"
+>
+	<svelte:fragment slot="meta">
+		{plan.total.pages} pages · {plan.total.dynamiques} gabarits dynamiques · {plan.total.articles}
+		articles · {plan.orphelines.length} hors menu · généré le {plan.genere}
+	</svelte:fragment>
 
 	<section class="bloc">
 		<h2>Depuis le menu principal</h2>
@@ -110,64 +107,11 @@
 			{/each}
 		</div>
 	</section>
-</div>
+</Page>
 
 <style>
-	.page {
-		inline-size: 100%;
-		max-inline-size: var(--width-wide);
-		margin-inline: auto;
-		padding-inline: 1.5rem;
-	}
-
-	.hero {
-		margin-block: 2.5rem 3.5rem;
-	}
-
 	/* Étiquette du modèle, comme sur toutes les autres pages : c'était la
 	   dernière page où le surtitre était resté une ligne de texte colorée. */
-	.eyebrow {
-		display: inline-block;
-		margin: 0 0 0.9rem;
-		padding: 0.3rem 0.7rem;
-		border-radius: 3px;
-		background: var(--brand);
-		font-size: 0.8rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--on-brand);
-	}
-
-	h1 {
-		margin: 0;
-		font-size: clamp(2rem, 5.5vw, 3rem);
-		line-height: 1.1;
-		color: var(--text);
-	}
-
-	.filet {
-		display: block;
-		inline-size: 3rem;
-		block-size: 4px;
-		margin-block: 1.25rem 0;
-		border-radius: var(--radius-pill);
-		background: var(--brand);
-	}
-
-	.lede {
-		margin: 1.25rem 0 0;
-		max-inline-size: var(--width-text);
-		font-size: 1.1rem;
-		line-height: 1.6;
-		color: var(--text-2);
-	}
-
-	.meta {
-		margin: 0.9rem 0 0;
-		font-size: 0.9rem;
-		color: var(--text-2);
-	}
 
 	.bloc {
 		margin-block-end: 3.5rem;
@@ -285,8 +229,5 @@
 	}
 
 	@media (max-width: 600px) {
-		.page {
-			padding-inline: 1.1rem;
-		}
 	}
 </style>

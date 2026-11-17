@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
+	import { Page } from '$components/ui'
 	import Button from '$lib/components/Button.svelte'
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
@@ -183,14 +184,13 @@
 	description={t.emploi_questionnaire.meta_desc}
 />
 
-<article class="questionnaire-container">
-	<p class="eyebrow">{lang === 'en' ? 'Campaigns' : 'Campagnes'}</p>
-	<h1>{t.emploi_questionnaire.title}</h1>
-
-	<p class="intro">
-		{t.emploi_questionnaire.intro}
-	</p>
-
+<Page
+	title={t.emploi_questionnaire.title}
+	eyebrow={lang === 'en' ? 'Campaigns' : 'Campagnes'}
+	lede={t.emploi_questionnaire.intro}
+	width="content"
+	as="article"
+>
 	<div class="progress-bar">
 		<div class="progress-step" class:active={currentStep >= 1}>
 			<div class="step-number">1</div>
@@ -899,34 +899,9 @@
 			{/if}
 		</div>
 	</form>
-</article>
+</Page>
 
 <style>
-	.eyebrow {
-		display: inline-block;
-		margin: 0 0 1rem;
-		padding: 0.3rem 0.7rem;
-		border-radius: 3px;
-		background: var(--brand);
-		color: var(--on-brand);
-		font-size: 0.85rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-	}
-
-	.questionnaire-container {
-		max-inline-size: var(--width-content);
-		margin: 2rem auto;
-		padding: 0 1rem;
-	}
-
-	.intro {
-		font-size: 1.1rem;
-		margin-bottom: 2rem;
-		color: var(--text-secondary);
-	}
-
 	.progress-bar {
 		display: flex;
 		justify-content: space-between;

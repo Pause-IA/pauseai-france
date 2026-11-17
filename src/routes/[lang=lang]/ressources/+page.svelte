@@ -5,7 +5,7 @@
 	import { page } from '$app/stores'
 	import { browser } from '$app/environment'
 	import PostMeta from '$components/PostMeta.svelte'
-	import { PageHero } from '$components/ui'
+	import { Page } from '$components/ui'
 	import { url as siteUrl } from '$config'
 	import {
 		Lightbulb,
@@ -395,10 +395,7 @@
      sous le titre, propose déjà les mêmes catégories et les faisait doublon.
      Elle n’était d’ailleurs affichée qu’au-delà de 1024 px, et la page
      indiquait elle-même que les pastilles la remplaçaient en dessous. -->
-<article class="ressources-page">
-	<!-- Hero -->
-	<PageHero eyebrow={nav.comprendre} lede={t.hero_desc}>{t.hero_title}</PageHero>
-
+<Page title={t.hero_title} eyebrow={nav.comprendre} lede={t.hero_desc} width="wide" as="article">
 	<!-- Controls -->
 	<section class="controls">
 		<div class="search">
@@ -557,19 +554,10 @@
 			<span>{t.cta_button}</span>
 		</a>
 	</section>
-</article>
+</Page>
 
 <style>
 	/* ─── Page layout : sticky TOC on the left, content on the right ── */
-
-	.ressources-page {
-		max-inline-size: var(--width-content);
-		/* 3 rem en haut, comme le gabarit partagé (.ui-page). La page
-		   démarrait à 2 px sous l'en-tête quand toutes les autres sont à
-		   50 px : elle était la seule à ne pas respirer. */
-		padding: 3rem 0 4rem;
-		margin: 0 auto;
-	}
 
 	/* ─── Controls ─────────────────────────────────────────── */
 	.controls {
