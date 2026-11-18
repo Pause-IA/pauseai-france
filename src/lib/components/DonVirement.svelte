@@ -266,7 +266,7 @@
 							type="button"
 							class="copy-inline"
 							on:click={() => copyToClipboard(IBAN.replace(/\s/g, ''), 'iban')}
-							aria-label="Copier l'IBAN"
+							aria-label="Copier l’IBAN"
 						>
 							{copiedField === 'iban' ? '✓' : '📋'}
 						</button>
@@ -286,7 +286,7 @@
 				</div>
 
 				<button type="button" class="done-btn" on:click={() => (step = 3)}>
-					C'est fait, j'ai viré {montant}&nbsp;€
+					C’est fait, j’ai viré {montant}&nbsp;€
 				</button>
 				<button type="button" class="close-link" on:click={close}>Fermer</button>
 			</div>
@@ -300,7 +300,7 @@
 				</p>
 				<p class="confirm-text">
 					Dès que votre virement nous parviendra (comptez quelques jours ouvrés), nous vous
-					enverrons votre <strong>reçu fiscal</strong> à l'adresse <strong>{email}</strong>. Il vous
+					enverrons votre <strong>reçu fiscal</strong> à l’adresse <strong>{email}</strong>. Il vous
 					permettra de déduire <strong>66&nbsp;%</strong> de votre don de vos impôts.
 				</p>
 				<p class="confirm-note">
@@ -457,7 +457,7 @@
 		border-radius: var(--radius-pill);
 		border: 2px solid var(--brand);
 		background: transparent;
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-weight: 600;
 		font-size: 0.95rem;
 		cursor: pointer;
@@ -583,7 +583,10 @@
 	}
 
 	.rib-value.mono {
-		font-family: 'IBM Plex Mono', 'Courier New', monospace;
+		/* Pile monospace du système, comme sur /une-ia-sest-echappee. L'ancienne
+		   valeur demandait IBM Plex Mono, qui n'a jamais été chargée : l'IBAN
+		   sortait donc en Courier New. */
+		font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 		letter-spacing: 0.04em;
 	}
 

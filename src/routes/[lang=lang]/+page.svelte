@@ -30,16 +30,16 @@
 
 <Lead {lang} />
 
-<!-- Deux ensembles plutôt que neuf blocs de poids égal : « agir » d'un côté,
-     « s'informer » de l'autre. La bande teintée du premier suffit à séparer
-     les deux territoires ; la FAQ reste à part. -->
-<Bande titre={t.home.bande_agir_titre} fond="creme">
+<!-- Deux ensembles plutôt que neuf blocs de poids égal : « agir » d’un côté,
+     « s’informer » de l’autre. La séparation se fait par un filet, et non plus
+     par un aplat crème : le crème est sorti de la charte. -->
+<Bande titre={t.home.bande_agir_titre}>
 	<WriteAction {lang} />
 	<Campaigns {lang} />
 	<LocalGroups {lang} />
 </Bande>
 
-<Bande titre={t.home.bande_informer_titre}>
+<Bande titre={t.home.bande_informer_titre} fond="gris" filet={false}>
 	<NewsletterCta {lang} />
 	<Videos videos={data.videos} {lang} />
 	<Articles articles={data.articles} {lang} />

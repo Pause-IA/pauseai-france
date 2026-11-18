@@ -87,7 +87,7 @@
 		<div class="content">
 			<p>
 				Veille critique par Pause IA : décryptages, enjeux de gouvernance, politiques publiques :
-				inscrivez-vous pour recevoir l'essentiel.
+				inscrivez-vous pour recevoir l’essentiel.
 			</p>
 
 			<form on:submit|preventDefault={handleSubmit} class="signup-form">
@@ -143,7 +143,7 @@
 
 				<div class="submit-button">
 					<Button alt type="submit" disabled={isSubmitting}>
-						{#if isSubmitting}Inscription...{:else}S'inscrire{/if}
+						{#if isSubmitting}Inscription...{:else}S’inscrire{/if}
 					</Button>
 				</div>
 			</form>

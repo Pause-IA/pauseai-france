@@ -3,7 +3,7 @@
 	// sources, lus dans le corps de la page Notion. Adresse : /fr/idees-recues/<slug>.
 	import PostMeta from '$components/PostMeta.svelte'
 	import TexteNotion from '$components/TexteNotion.svelte'
-	import { PageHero } from '$components/ui'
+	import { Page } from '$components/ui'
 	import { ArrowLeft, Check, Share2 } from 'lucide-svelte'
 	import type { PageData } from './$types'
 
@@ -33,11 +33,16 @@
 
 <PostMeta {title} description={idee.reponseCourte} />
 
-<article>
+<Page
+	title={`«\u00a0${idee.objection}…\u00a0»`}
+	eyebrow={idee.categorie}
+	width="text"
+	variant="note"
+	as="article"
+>
 	<a class="retour" href="/{data.lang}/idees-recues">
 		<ArrowLeft size={16} aria-hidden="true" /> Idées reçues
 	</a>
-	<PageHero eyebrow={idee.categorie}>«&nbsp;{idee.objection}…&nbsp;»</PageHero>
 
 	{#if idee.auteur || data.publieLe || data.misAJourLe}
 		<p class="signature">
@@ -92,23 +97,15 @@
 			{/each}
 		</section>
 	{/if}
-</article>
+</Page>
 
 <style>
-	article {
-		max-inline-size: 46rem;
-		margin-inline: auto;
-		margin-top: 3rem;
-		margin-bottom: 5rem;
-		padding: 0 1.5rem;
-	}
-
 	.retour {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
 		margin-bottom: 1.25rem;
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-size: 0.9rem;
 		font-weight: 600;
 		text-decoration: none;
@@ -226,7 +223,7 @@
 	}
 
 	.argumentaire :global(a) {
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	blockquote {
@@ -236,8 +233,5 @@
 	}
 
 	@media (max-width: 600px) {
-		article {
-			padding: 0 1.1rem;
-		}
 	}
 </style>

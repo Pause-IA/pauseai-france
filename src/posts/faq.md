@@ -1,6 +1,6 @@
 ---
 title: FAQ
-description: Questions fréquentes sur Pause IA, les risques de l'intelligence artificielle et ce que nous demandons.
+description: Questions fréquentes sur Pause IA, les risques de l’intelligence artificielle et ce que nous demandons.
 ---
 
 <!-- Le faqPlugin transforme les ### en accordéons (Accordion) quand ce fichier

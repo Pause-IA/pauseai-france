@@ -75,8 +75,8 @@
 </script>
 
 <!--
-  Organisation (validée par l'équipe) : une colonne d'identité, trois colonnes
-  de liens (S'informer, Agir, Pause IA), puis une barre du bas pour les mentions
+  Organisation (validée par l’équipe) : une colonne d’identité, trois colonnes
+  de liens (S’informer, Agir, Pause IA), puis une barre du bas pour les mentions
   légales et la langue. Plan du site : docs/plan-du-site.md.
 -->
 <footer>
@@ -135,7 +135,7 @@
 		<nav class="footer-links" aria-label={lang === 'en' ? 'Site map' : 'Plan du site'}>
 			<div class="column">
 				<h2>{t.footer.inform_title}</h2>
-				<!-- « Les dangers de l'IA » est retiré, comme dans le menu, le temps de
+				<!-- « Les dangers de l’IA » est retiré, comme dans le menu, le temps de
 				     retravailler le discours (t.footer.dangers reste prêt). -->
 				<a href="{prefix}/ressources">{t.footer.resources}</a>
 				<a href="{prefix}/fresque">{t.footer.fresque}</a>

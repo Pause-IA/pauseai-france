@@ -30,15 +30,15 @@
 
 <!--
 	Action permanente, et non campagne ponctuelle : écrire à ses élus reste
-	l'action la plus rapide et la plus utile du site. Elle est donc posée
+	l’action la plus rapide et la plus utile du site. Elle est donc posée
 	au-dessus des campagnes du moment.
 
 	Une seule voie proposée : écrire à ses élus est nettement plus utile que
-	d'écrire à la presse, et un menu à deux entrées oblige à trancher avant
-	d'agir. L'outil presse reste accessible par le menu « Agir » et depuis les
+	d’écrire à la presse, et un menu à deux entrées oblige à trancher avant
+	d’agir. L’outil presse reste accessible par le menu « Agir » et depuis les
 	pages campagne.
 
-	L'argumentaire est repris du bloc « Pourquoi c'est important » d'EcrireOutil
+	L’argumentaire est repris du bloc « Pourquoi c’est important » d’EcrireOutil
 	pour que les deux disent la même chose.
 -->
 <section id="ecrire-elus" class="write-action" aria-labelledby={label_id}>
@@ -127,7 +127,7 @@
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
 		text-align: left;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	/* Un panneau unique plutôt que quatre éléments posés côte à côte sur le

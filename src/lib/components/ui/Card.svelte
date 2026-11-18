@@ -40,8 +40,10 @@
 		box-shadow: var(--shadow-card);
 	}
 
+	/* Panneau d'appel : blanc, détaché par sa bordure orange — même règle que
+	   Callout et que les sections d'appel des pages campagne. */
 	.accent {
-		background: var(--bg-subtle);
+		background: var(--panneau-bg);
 		border-color: var(--brand);
 	}
 
