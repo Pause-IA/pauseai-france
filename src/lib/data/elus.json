@@ -369,7 +369,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA330240",
 			"nom": "Éric Ciotti",
 			"nomCirco": "Alpes-Maritimes (1re circonscription)",
@@ -4030,7 +4030,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA793322",
 			"nom": "Christelle D'Intorni",
 			"nomCirco": "Alpes-Maritimes (5e circonscription)",
@@ -7375,20 +7375,20 @@
 		},
 		{
 			"circo": 7,
-			"civ": "M",
-			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA796042",
+			"civ": "Mme",
+			"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA796046",
 			"departement": "83",
-			"email": "frederic.boccaletti@assemblee-nationale.fr",
+			"email": "isabelle.delyon@assemblee-nationale.fr",
 			"emailConfidence": "high",
 			"emailSources": [
 				"source",
 				"pattern"
 			],
 			"groupe": "RN",
-			"id": "PA796042",
-			"nom": "Frédéric Boccaletti",
+			"id": "PA796046",
+			"nom": "Isabelle Delyon",
 			"nomCirco": "Var (7e circonscription)",
-			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/796042.jpg",
+			"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/796046.jpg",
 			"role": "depute"
 		},
 		{
@@ -7797,7 +7797,7 @@
 			"emailSources": [
 				"source"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA840657",
 			"nom": "Sophie Ricourt Vaginay",
 			"nomCirco": "Alpes-de-Haute-Provence (2e circonscription)",
@@ -7851,7 +7851,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA840685",
 			"nom": "Vincent Trébuchet",
 			"nomCirco": "Ardèche (2e circonscription)",
@@ -7869,7 +7869,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA840701",
 			"nom": "Bernard Chaix",
 			"nomCirco": "Alpes-Maritimes (3e circonscription)",
@@ -7887,7 +7887,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA840721",
 			"nom": "Marc Chavent",
 			"nomCirco": "Ain (5e circonscription)",
@@ -7959,7 +7959,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA840773",
 			"nom": "Olivier Fayssat",
 			"nomCirco": "Bouches-du-Rhône (6e circonscription)",
@@ -8031,7 +8031,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA840809",
 			"nom": "Gérault Verny",
 			"nomCirco": "Bouches-du-Rhône (14e circonscription)",
@@ -8157,7 +8157,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA840889",
 			"nom": "Matthieu Bloch",
 			"nomCirco": "Doubs (3e circonscription)",
@@ -8300,7 +8300,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA840983",
 			"nom": "Bartolomé Lenoir",
 			"nomCirco": "Creuse (1re circonscription)",
@@ -8389,7 +8389,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA841067",
 			"nom": "Alexandre Allegret-Pilot",
 			"nomCirco": "Gard (5e circonscription)",
@@ -8497,7 +8497,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "DR",
+			"groupe": "LIOT",
 			"id": "PA841151",
 			"nom": "Alix Fruchon",
 			"nomCirco": "Indre (2e circonscription)",
@@ -8515,7 +8515,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA841183",
 			"nom": "Hanane Mansouri",
 			"nomCirco": "Isère (8e circonscription)",
@@ -8569,7 +8569,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA841207",
 			"nom": "Charles Alloncle",
 			"nomCirco": "Hérault (9e circonscription)",
@@ -8819,7 +8819,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA841395",
 			"nom": "Maxime Michelet",
 			"nomCirco": "Marne (3e circonscription)",
@@ -9444,7 +9444,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA841769",
 			"nom": "Éric Michoux",
 			"nomCirco": "Saône-et-Loire (4e circonscription)",
@@ -9713,7 +9713,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA841973",
 			"nom": "Pierre-Henri Carbonnel",
 			"nomCirco": "Tarn-et-Garonne (1re circonscription)",
@@ -10252,7 +10252,7 @@
 				"source",
 				"pattern"
 			],
-			"groupe": "UDDPLR",
+			"groupe": "UDR",
 			"id": "PA878242",
 			"nom": "Antoine Valentin",
 			"nomCirco": "Haute-Savoie (3e circonscription)",
@@ -10548,7 +10548,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA840773",
 				"nom": "Olivier Fayssat",
 				"nomCirco": "Bouches-du-Rhône (6e circonscription)",
@@ -10692,7 +10692,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA840809",
 				"nom": "Gérault Verny",
 				"nomCirco": "Bouches-du-Rhône (14e circonscription)",
@@ -11303,7 +11303,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA840983",
 				"nom": "Bartolomé Lenoir",
 				"nomCirco": "Creuse (1re circonscription)",
@@ -11433,7 +11433,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA840889",
 				"nom": "Matthieu Bloch",
 				"nomCirco": "Doubs (3e circonscription)",
@@ -11943,7 +11943,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA841067",
 				"nom": "Alexandre Allegret-Pilot",
 				"nomCirco": "Gard (5e circonscription)",
@@ -12543,7 +12543,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA841207",
 				"nom": "Charles Alloncle",
 				"nomCirco": "Hérault (9e circonscription)",
@@ -12726,7 +12726,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "DR",
+				"groupe": "LIOT",
 				"id": "PA841151",
 				"nom": "Alix Fruchon",
 				"nomCirco": "Indre (2e circonscription)",
@@ -12964,7 +12964,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA841183",
 				"nom": "Hanane Mansouri",
 				"nomCirco": "Isère (8e circonscription)",
@@ -13978,7 +13978,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA841395",
 				"nom": "Maxime Michelet",
 				"nomCirco": "Marne (3e circonscription)",
@@ -16294,7 +16294,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA841769",
 				"nom": "Éric Michoux",
 				"nomCirco": "Saône-et-Loire (4e circonscription)",
@@ -16534,7 +16534,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA878242",
 				"nom": "Antoine Valentin",
 				"nomCirco": "Haute-Savoie (3e circonscription)",
@@ -17733,7 +17733,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA841973",
 				"nom": "Pierre-Henri Carbonnel",
 				"nomCirco": "Tarn-et-Garonne (1re circonscription)",
@@ -17870,20 +17870,20 @@
 			},
 			{
 				"circo": 7,
-				"civ": "M",
-				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA796042",
+				"civ": "Mme",
+				"contactUrl": "https://www.assemblee-nationale.fr/dyn/deputes/PA796046",
 				"departement": "83",
-				"email": "frederic.boccaletti@assemblee-nationale.fr",
+				"email": "isabelle.delyon@assemblee-nationale.fr",
 				"emailConfidence": "high",
 				"emailSources": [
 					"source",
 					"pattern"
 				],
 				"groupe": "RN",
-				"id": "PA796042",
-				"nom": "Frédéric Boccaletti",
+				"id": "PA796046",
+				"nom": "Isabelle Delyon",
 				"nomCirco": "Var (7e circonscription)",
-				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/796042.jpg",
+				"photo": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/796046.jpg",
 				"role": "depute"
 			},
 			{
@@ -19986,7 +19986,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA840721",
 				"nom": "Marc Chavent",
 				"nomCirco": "Ain (5e circonscription)",
@@ -20171,7 +20171,7 @@
 				"emailSources": [
 					"source"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA840657",
 				"nom": "Sophie Ricourt Vaginay",
 				"nomCirco": "Alpes-de-Haute-Provence (2e circonscription)",
@@ -20229,7 +20229,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA330240",
 				"nom": "Éric Ciotti",
 				"nomCirco": "Alpes-Maritimes (1re circonscription)",
@@ -20265,7 +20265,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA840701",
 				"nom": "Bernard Chaix",
 				"nomCirco": "Alpes-Maritimes (3e circonscription)",
@@ -20301,7 +20301,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA793322",
 				"nom": "Christelle D'Intorni",
 				"nomCirco": "Alpes-Maritimes (5e circonscription)",
@@ -20410,7 +20410,7 @@
 					"source",
 					"pattern"
 				],
-				"groupe": "UDDPLR",
+				"groupe": "UDR",
 				"id": "PA840685",
 				"nom": "Vincent Trébuchet",
 				"nomCirco": "Ardèche (2e circonscription)",
@@ -20805,7 +20805,7 @@
 			}
 		]
 	},
-	"generatedAt": "2026-11-09",
+	"generatedAt": "2026-11-16",
 	"senateurs": [
 		{
 			"civ": "M",
