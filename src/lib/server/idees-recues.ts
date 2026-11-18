@@ -13,6 +13,7 @@
  * est écartée avec un avertissement dans le journal Netlify.
  * Pas de liste de secours : tant qu’aucune réponse n’est validée, la page l'annonce.
  */
+import { typographierSegments, typographierTexte } from '$lib/typographieSegments'
 import { env } from '$env/dynamic/private'
 
 export const COLONNES = {
@@ -276,11 +277,11 @@ export function versIdeeRecue(page: PageNotion): IdeeRecue | null {
 	const p = page.properties
 	const idee: IdeeRecue = {
 		id: page.id,
-		objection: typo(texte(p[COLONNES.objection])).replace(/[.…\s]+$/, ''),
+		objection: typographierTexte(texte(p[COLONNES.objection])).replace(/[.…\s]+$/, ''),
 		slug: texte(p[COLONNES.slug]).toLowerCase(),
 		numero: texte(p[COLONNES.numero]),
-		categorie: typo(texte(p[COLONNES.categorie])),
-		themes: etiquettes(p[COLONNES.themes] ?? p[COLONNES.themesAutreNom]).map(typo),
+		categorie: typographierTexte(texte(p[COLONNES.categorie])),
+		themes: etiquettes(p[COLONNES.themes] ?? p[COLONNES.themesAutreNom]).map(typographierTexte),
 		reponseCourte: '',
 		reponseCourteMiseEnForme: [],
 		auteur: typo(texte(p[COLONNES.auteur])),
@@ -288,9 +289,11 @@ export function versIdeeRecue(page: PageNotion): IdeeRecue | null {
 		misAJourLe: jour(p[COLONNES.misAJourLe])
 	}
 	const courte = texte(p[COLONNES.reponseCourte])
-	idee.reponseCourteMiseEnForme = estDuMarkdown(courte)
-		? markdownEnLigne(courte.replace(/\s*\n\s*/g, ' '))
-		: [{ texte: typo(courte) }].filter((s) => s.texte)
+	idee.reponseCourteMiseEnForme = typographierSegments(
+		estDuMarkdown(courte)
+			? markdownEnLigne(courte.replace(/\s*\n\s*/g, ' '))
+			: [{ texte: typo(courte) }].filter((s) => s.texte)
+	)
 	idee.reponseCourte = idee.reponseCourteMiseEnForme.map((s) => s.texte).join('')
 	const ecarter = (raison: string) => {
 		console.warn(`[idees-recues] ligne Notion ${page.id} écartée (${raison})`)
@@ -363,7 +366,13 @@ export function versBlocs(blocs: BlocNotion[]): Bloc[] {
 			// Images, tableaux, bases imbriquées… : ignorés (non prévus dans un argumentaire).
 		}
 	}
-	return sortie
+	return sortie.map(typographierBloc)
+}
+
+/** Typographie française de chaque texte d’un bloc (voir `typographieSegments.ts`). */
+function typographierBloc(bloc: Bloc): Bloc {
+	if (bloc.type === 'liste') return { ...bloc, elements: bloc.elements.map(typographierSegments) }
+	return { ...bloc, segments: typographierSegments(bloc.segments) }
 }
 
 // ── Appels à l'API Notion ────────────────────────────────────────────────────
