@@ -846,3 +846,46 @@ html[data-theme='dark'] .leaflet-control-attribution a {
 		text-shadow: none !important;
 	}
 }
+
+/* Parties dépliables du guide de sensibilisation (blocs dépliables de Notion,
+   voir scripts/guide-notion). Le titre lui-même ouvre la partie, comme dans
+   Notion ; un chevron orange indique qu'elle se déplie. */
+details.depliable {
+	margin: 1.25rem 0;
+}
+
+details.depliable > summary {
+	cursor: pointer;
+	list-style: none;
+	display: flex;
+	align-items: baseline;
+	gap: 0.6rem;
+}
+
+details.depliable > summary::-webkit-details-marker {
+	display: none;
+}
+
+details.depliable > summary::before {
+	content: '▸';
+	color: var(--brand);
+	font-size: 1.1em;
+	transition: transform 0.15s ease;
+}
+
+details.depliable[open] > summary {
+	margin-bottom: 1rem;
+}
+
+details.depliable[open] > summary::before {
+	transform: rotate(90deg);
+}
+
+details.depliable > summary > :is(h2, h3, h4) {
+	margin: 0;
+}
+
+details.depliable > summary:focus-visible {
+	outline: 2px solid var(--brand);
+	outline-offset: 4px;
+}
