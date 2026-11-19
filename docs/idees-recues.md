@@ -88,3 +88,12 @@ est mis en forme ; un texte ordinaire reste tel quel. Cela vaut pour la
 Code : `estDuMarkdown`, `markdownEnLigne`, `markdownEnBlocs` dans
 `src/lib/server/idees-recues.ts`. Jamais de HTML interprété : le résultat reste
 des segments de texte.
+
+## Typographie
+
+Les textes venus de Notion reçoivent la même typographie française que les
+pages du site (`src/lib/typographieSegments.ts`) : guillemets droits ou anglais
+changés en « … », espaces insécables avant `: ; ! ? %`, apostrophes
+typographiques. Inutile de les corriger à la main dans Notion. Les adresses web
+ne sont jamais modifiées, ni les unités et les monnaies (« 4K », « GPT-4o »).
+Un guillemet ouvert dans un passage en gras et fermé après est bien suivi.

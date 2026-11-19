@@ -350,7 +350,7 @@ describe('Markdown dans les textes (demande de Romain)', () => {
 				'Réponse courte': txt('C’est **faux** : [voir](https://exemple.org).')
 			})
 		)
-		expect(i?.reponseCourte).toBe('C’est faux : voir.')
+		expect(i?.reponseCourte).toBe('C’est faux\u00A0: voir.') // typographie française
 		expect(i?.reponseCourteMiseEnForme).toContainEqual({ texte: 'faux', gras: true })
 	})
 })
