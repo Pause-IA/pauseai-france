@@ -5,8 +5,8 @@
 	 * La page a d'abord été écrite comme note de synthèse pour les élus. Son
 	 * rôle a changé : c'est maintenant une introduction générale, pour qui
 	 * découvre le sujet. Elle a donc été ramenée de dix sections à six, et les
-	 * passages qui ne parlaient qu'à un responsable public — chronologie
-	 * diplomatique, demande de briefing — ont été retirés. Un texte qu'on ne
+	 * passages qui ne parlaient qu'à un responsable public (chronologie
+	 * diplomatique, demande de briefing) ont été retirés. Un texte qu'on ne
 	 * lit pas jusqu'au bout n'informe personne.
 	 *
 	 * Elle est indexée : une introduction destinée au public n'a aucune raison
@@ -39,7 +39,7 @@
 	// lien : son titre est ce qu'on lit avant de cliquer, il doit dire le sujet.
 	const title = 'Pourquoi l’IA pourrait échapper à notre contrôle'
 	const description =
-		'Pourquoi des centaines de chercheurs, et les dirigeants des laboratoires eux-mêmes, alertent sur un risque d’extinction lié à l’intelligence artificielle — et ce qu’il est possible de faire.'
+		'Pourquoi des centaines de chercheurs, et les dirigeants des laboratoires eux-mêmes, alertent sur un risque d’extinction lié à l’intelligence artificielle, et ce qu’il est possible de faire.'
 
 	// Trois voix suffisent à montrer d'où vient l'alerte ; sept transformaient
 	// la section en galerie.

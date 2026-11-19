@@ -595,7 +595,7 @@
 	}
 
 	/* « Rejoindre » : l'action secondaire. Elle a été noire, puis bleu
-	   sombre — correct, mais froid à côté du « Donner » orange.
+	   sombre, correct mais froid à côté du « Donner » orange.
 
 	   Elle passe en orange CREUX : même couleur que l'action principale,
 	   mais en contour. La hiérarchie se lit à la densité (plein contre
