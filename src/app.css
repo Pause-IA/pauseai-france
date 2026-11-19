@@ -889,3 +889,69 @@ details.depliable > summary:focus-visible {
 	outline: 2px solid var(--brand);
 	outline-offset: 4px;
 }
+
+/* Au survol, le titre prend la couleur de marque : on voit qu'il se clique. */
+details.depliable > summary:hover,
+details.depliable > summary:hover > :is(h2, h3, h4) {
+	color: var(--brand);
+}
+
+/* Le contenu ouvert est décalé sous le chevron, avec un filet de couleur sur
+   toute sa hauteur : on voit où la partie commence et où elle s'arrête
+   (demande d'Antonin, 19/11/2026). */
+details.depliable > .depliable-contenu {
+	margin-inline-start: 0.4rem;
+	padding-inline-start: 1.25rem;
+	border-inline-start: 3px solid var(--brand);
+}
+
+details.depliable > .depliable-contenu > :first-child {
+	margin-block-start: 0;
+}
+
+details.depliable > .depliable-contenu > :last-child {
+	margin-block-end: 0;
+}
+
+@media (max-width: 600px) {
+	details.depliable > .depliable-contenu {
+		margin-inline-start: 0;
+		padding-inline-start: 0.85rem;
+	}
+}
+
+/* Tableaux du guide venus de Notion : un vrai tableau, aux colonnes alignées,
+   qui défile horizontalement sur téléphone. Les règles globales de `table`
+   font de chaque ligne un tableau à part, à colonnes égales : ici la colonne
+   des exemples doit pouvoir être la plus large. */
+.tableau-guide {
+	overflow-x: auto;
+	margin: 1.5rem 0;
+}
+
+.tableau-guide table {
+	display: table;
+	width: 100%;
+	min-width: 36rem;
+	margin: 0;
+	overflow: visible;
+	white-space: normal;
+}
+
+.tableau-guide thead {
+	display: table-header-group;
+}
+
+.tableau-guide tbody {
+	display: table-row-group;
+}
+
+.tableau-guide tr {
+	display: table-row;
+}
+
+.tableau-guide table :is(th, td):nth-child(n) {
+	min-width: 0;
+	vertical-align: top;
+	line-height: 1.5;
+}

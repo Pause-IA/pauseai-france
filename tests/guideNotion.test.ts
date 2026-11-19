@@ -84,7 +84,7 @@ describe('blocs', () => {
 			bloc('toggle', { rich_text: [t("Voir l'exemple : ici")] }, [p(t('Caché'))])
 		])
 		expect(md).toBe(
-			'<details class="depliable">\n<summary>Voir l’exemple\u00A0: ici</summary>\n\nCaché\n\n</details>'
+			'<details class="depliable">\n<summary>Voir l’exemple\u00A0: ici</summary>\n<div class="depliable-contenu">\n\nCaché\n\n</div>\n</details>'
 		)
 	})
 
@@ -97,7 +97,7 @@ describe('blocs', () => {
 			'<summary><h3 id="outil-2-le-dialogue-authentique">Outil 2\u00A0: Dialogue authentique</h3></summary>'
 		)
 		expect(md).toContain('<h3 id="autre-titre">Autre &lt;titre&gt;</h3>')
-		expect(md).toContain('Dedans\n\n</details>')
+		expect(md).toContain('Dedans\n\n</div>\n</details>')
 		expect(md).not.toContain('Afficher')
 	})
 
@@ -124,15 +124,18 @@ describe('blocs', () => {
 		)
 	})
 
-	it('tableau -> liste lisible sur téléphone', () => {
+	it('tableau -> tableau Markdown dans un conteneur qui défile', () => {
 		const ligne = (...cells: string[]) => bloc('table_row', { cells: cells.map((c) => [t(c)]) })
 		const md = versMarkdown([
 			bloc('table', { has_column_header: true }, [
 				ligne('Préoccupation', 'Pont'),
-				ligne('Emploi', 'L’IA remplace des métiers')
+				ligne('Emploi', 'L’IA a | b\nsuite'),
+				ligne('Seule')
 			])
 		])
-		expect(md).toBe('- **Emploi**\n  - **Pont** : L’IA remplace des métiers')
+		expect(md).toBe(
+			'<div class="tableau-guide">\n\n| Préoccupation | Pont |\n| --- | --- |\n| Emploi | L’IA a \\| b<br />suite |\n| Seule |  |\n\n</div>'
+		)
 	})
 
 	it('images : seulement le fichier téléchargé, jamais l’URL Notion', () => {

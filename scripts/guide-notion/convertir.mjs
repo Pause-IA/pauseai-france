@@ -10,9 +10,11 @@
  *   séparateurs ;
  * - encadrés (« callout ») -> <Callout title="…"> : si la première ligne de
  *   l'encadré est entièrement en gras, elle devient le titre ;
- * - blocs dépliables (« toggle », et titres dépliables) -> <details><summary> ;
- * - tableaux -> une liste (une entrée par ligne, chaque colonne en sous-point),
- *   lisible sur téléphone ;
+ * - blocs dépliables (« toggle », et titres dépliables) -> <details><summary>,
+ *   le contenu dans un <div class="depliable-contenu"> (retrait et filet de
+ *   couleur : on voit où la partie s'arrête, demande d'Antonin) ;
+ * - tableaux -> tableau Markdown dans un <div class="tableau-guide">, qui défile
+ *   horizontalement sur téléphone (Antonin le trouvait plus lisible qu'une liste) ;
  * - images -> fichier téléchargé à l'avance (voir `images`), jamais l'URL Notion,
  *   qui expire au bout d'une heure ;
  * - colonnes : leur contenu, l'une après l'autre.
@@ -235,7 +237,7 @@ function bloc(b, options, avertir, images) {
 				// et la typographie posés ici.
 				const h = `h${niveau.length}`
 				const id = ancre ? ancre[1] : ancreDe(simple)
-				return `<details class="depliable">\n<summary><${h} id="${id}">${html(simple)}</${h}></summary>\n\n${enfants(b, options)}\n\n</details>`
+				return depliable(`<${h} id="${id}">${html(simple)}</${h}>`, enfants(b, options))
 			}
 			return titre
 		}
@@ -276,7 +278,7 @@ function bloc(b, options, avertir, images) {
 			return `${ouverture}\n\n${contenu}\n\n</Callout>`
 		}
 		case 'toggle':
-			return `<details class="depliable">\n<summary>${html(texteSimple(c.rich_text).trim())}</summary>\n\n${enfants(b, options)}\n\n</details>`
+			return depliable(html(texteSimple(c.rich_text).trim()), enfants(b, options))
 		case 'divider':
 			return '<hr />'
 		case 'image': {
@@ -305,33 +307,44 @@ function bloc(b, options, avertir, images) {
 }
 
 /**
- * Tableau -> liste : la première colonne en gras, les autres en sous-points.
+ * Partie dépliable. Le contenu est enveloppé à part pour pouvoir le décaler et
+ * lui donner un filet de couleur ; les lignes vides autour le laissent lire
+ * comme du Markdown par mdsvex.
+ * @param {string} resume HTML du <summary>
+ * @param {string} contenu Markdown du contenu
+ */
+function depliable(resume, contenu) {
+	return `<details class="depliable">\n<summary>${resume}</summary>\n<div class="depliable-contenu">\n\n${contenu}\n\n</div>\n</details>`
+}
+
+/**
+ * Tableau Notion -> tableau Markdown. Sans en-tête dans Notion, la première
+ * ligne en tient lieu (un tableau Markdown en exige une). Le « | » est déjà
+ * échappé par `echapper`, et un retour à la ligne devient <br /> : une cellule
+ * tient sur une ligne du fichier.
  * @param {Bloc} b
  */
 function tableau(b) {
 	/** @type {Bloc[]} */
 	const lignes = (b.children ?? []).filter((/** @type {Bloc} */ r) => r.type === 'table_row')
 	if (!lignes.length) return ''
-	const entete = b.table?.has_column_header ? lignes[0].table_row.cells.map(texteSimple) : null
-	const corps = entete ? lignes.slice(1) : lignes
-	return corps
-		.map((r) => {
-			/** @type {Riche[][]} */
-			const [premiere, ...autres] = r.table_row.cells
-			const sous = autres
-				.map((/** @type {Riche[]} */ cell, /** @type {number} */ k) => {
-					const t = texteRiche(cell).trim()
-					if (!t) return ''
-					const nom = entete?.[k + 1]?.trim()
-					return `  - ${nom ? `**${echapper(nom)}** : ` : ''}${t}`
-				})
-				.filter(Boolean)
-			return [
-				`- **${texteSimple(premiere).trim() ? echapper(texteSimple(premiere).trim()) : '—'}**`,
-				...sous
-			].join('\n')
-		})
-		.join('\n')
+	const largeur = Math.max(...lignes.map((r) => r.table_row.cells.length))
+	const ligne = (/** @type {Bloc} */ r) => {
+		/** @type {string[]} */
+		const cells = r.table_row.cells.map((/** @type {Riche[]} */ c) => texteRiche(c).trim())
+		while (cells.length < largeur) cells.push('')
+		return `| ${cells.join(' | ')} |`
+	}
+	const [entete, ...corps] = lignes
+	return [
+		'<div class="tableau-guide">',
+		'',
+		ligne(entete),
+		`|${' --- |'.repeat(largeur)}`,
+		...corps.map(ligne),
+		'',
+		'</div>'
+	].join('\n')
 }
 
 /**

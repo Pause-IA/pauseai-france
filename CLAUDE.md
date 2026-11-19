@@ -505,9 +505,10 @@ Copy `template.env` to `.env` and configure:
   celui du dépôt : c'est là qu'on le modifie. Le corps, lui, se modifie dans Notion.
   Conversion dans `scripts/guide-notion/convertir.mjs` : encadrés -> `<Callout>`
   (première ligne en gras = titre), blocs et titres dépliables -> `<details class="depliable">`
-  (le titre lui-même ouvre la partie, styles dans `app.css`), liens dont le texte
-  est l'adresse affichés sans `https://`, tableaux ->
-  listes (lisibles sur téléphone), images téléchargées en WebP dans
+  (le titre lui-même ouvre la partie ; contenu dans `.depliable-contenu`, décalé
+  avec un filet orange ; styles dans `app.css`), liens dont le texte
+  est l'adresse affichés sans `https://`, tableaux -> tableaux Markdown dans
+  `.tableau-guide` (colonnes alignées, défilement horizontal sur téléphone), images téléchargées en WebP dans
   `static/guides/notion-*.webp` (jamais l'URL Notion, valable une heure). Les
   ancres utilisées par le guide court (`#outil-1-…`) sont posées par motif sur
   les titres (`ANCRES`), pour survivre à une reformulation. En mode build le
