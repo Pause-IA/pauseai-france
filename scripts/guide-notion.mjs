@@ -110,11 +110,23 @@ async function telecharger(blocsImage) {
 		}
 		adresses[b.id] = `${PUBLIC}/${nom}`
 	}
-	// Les images retirées du guide sont supprimées du dossier.
+	return { adresses, gardees }
+}
+
+/**
+ * Supprime les images qui ne sont plus dans le guide.
+ *
+ * Appelé seulement APRÈS l'écriture du fichier : si la conversion échoue ou si
+ * le garde-fou de taille se déclenche, le Markdown conservé est l'ancien, et il
+ * référence encore ces images. Les supprimer avant l'écriture laissait la page
+ * de repli avec des images mortes.
+ *
+ * @param {Set<string>} gardees
+ */
+async function nettoyer(gardees) {
 	for (const f of await readdir(IMAGES)) {
 		if (f.startsWith('notion-') && !gardees.has(f)) await unlink(join(IMAGES, f))
 	}
-	return adresses
 }
 
 async function main() {
@@ -125,8 +137,9 @@ async function main() {
 	const actuel = await readFile(FICHIER, 'utf8')
 	const liste = retirerChapo(await blocs(PAGE), lireChapo(actuel))
 	const avertissements = []
+	const { adresses, gardees } = await telecharger(images(liste))
 	const corps = versMarkdown(liste, {
-		images: await telecharger(images(liste)),
+		images: adresses,
 		avertir: (m) => avertissements.push(m)
 	})
 	for (const m of new Set(avertissements)) console.warn(`[guide-notion] ${m}`)
@@ -135,11 +148,19 @@ async function main() {
 	}
 	const nouveau = assembler(actuel, corps)
 	if (nouveau === actuel) {
+		await nettoyer(gardees)
 		console.log('[guide-notion] guide inchangé.')
 		return
 	}
 	await writeFile(FICHIER, nouveau)
-	console.log(`[guide-notion] guide mis à jour depuis Notion (${corps.length} caractères).`)
+	await nettoyer(gardees)
+	console.log(
+		`[guide-notion] guide mis à jour depuis Notion (${corps.length} caractères).` +
+			// Le Markdown versionné sert de repli quand Notion ne répond pas : il
+			// faut que les images qu'il cite soient dans le dépôt, comme pour les
+			// photos de l'équipe et des actions locales.
+			(BUILD ? '' : '\nPensez à versionner src/posts/guide-sensibilisation.md et static/guides/.')
+	)
 }
 
 main().catch((e) => {
