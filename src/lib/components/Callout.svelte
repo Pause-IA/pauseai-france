@@ -1,10 +1,13 @@
 <script lang="ts">
 	export let title = ''
+	/** Emoji affiché devant le titre (repris des encadrés Notion, ex. « ℹ️ »). */
+	export let icon = ''
 </script>
 
 <div class="callout">
-	{#if title}
+	{#if title || icon}
 		<div class="callout-title">
+			{#if icon}<span class="callout-icon" aria-hidden="true">{icon}</span>{/if}
 			{title}
 		</div>
 	{/if}
@@ -32,6 +35,11 @@
 		color: var(--text);
 		margin-bottom: 1rem;
 		font-size: 1.1rem;
+	}
+
+	.callout-icon {
+		margin-inline-end: 0.5rem;
+		font-weight: 400;
 	}
 
 	.callout-content {

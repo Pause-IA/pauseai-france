@@ -8,8 +8,9 @@
  * - titres (le titre 1 « Introduction » est sauté : la page a déjà son titre),
  *   paragraphes, listes à puces et numérotées (imbriquées), citations,
  *   séparateurs ;
- * - encadrés (« callout ») -> <Callout title="…"> : si la première ligne de
- *   l'encadré est entièrement en gras, elle devient le titre ;
+ * - encadrés (« callout ») -> <Callout title="…" icon="…"> : si la première ligne
+ *   de l'encadré est entièrement en gras, elle devient le titre ; son emoji est
+ *   repris (demande d'Antonin) ;
  * - blocs dépliables (« toggle », et titres dépliables) -> <details><summary>,
  *   le contenu dans un <div class="depliable-contenu"> (retrait et filet de
  *   couleur : on voit où la partie s'arrête, demande d'Antonin) ;
@@ -274,7 +275,14 @@ function bloc(b, options, avertir, images) {
 				}
 			}
 			const contenu = [texteRiche(corps).trim(), enfants(b, options)].filter(Boolean).join('\n\n')
-			const ouverture = titre ? `<Callout title="${attribut(titre)}">` : '<Callout>'
+			// L'emoji de l'encadré Notion (ℹ️, 💡…) est repris. Une icône image
+			// (Notion ou importée) ne l'est pas : son URL expire comme celle des images.
+			const emoji = c.icon?.type === 'emoji' ? c.icon.emoji : ''
+			const attrs = [
+				titre ? ` title="${attribut(titre)}"` : '',
+				emoji ? ` icon="${attribut(emoji)}"` : ''
+			].join('')
+			const ouverture = `<Callout${attrs}>`
 			return `${ouverture}\n\n${contenu}\n\n</Callout>`
 		}
 		case 'toggle':

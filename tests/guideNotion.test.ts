@@ -79,6 +79,23 @@ describe('blocs', () => {
 		expect(md).toBe('<Callout>\n\nNote\n\nDétail\n\n</Callout>')
 	})
 
+	it('encadré : l’emoji Notion est repris, pas une icône image', () => {
+		const emoji = versMarkdown([
+			bloc('callout', {
+				icon: { type: 'emoji', emoji: 'ℹ️' },
+				rich_text: [t('Deux parties', { bold: true }), t('\nCorps')]
+			})
+		])
+		expect(emoji).toBe('<Callout title="Deux parties" icon="ℹ️">\n\nCorps\n\n</Callout>')
+		const image = versMarkdown([
+			bloc('callout', {
+				icon: { type: 'external', external: { url: 'https://x/i.png' } },
+				rich_text: [t('Note')]
+			})
+		])
+		expect(image).toBe('<Callout>\n\nNote\n\n</Callout>')
+	})
+
 	it('blocs dépliables -> <details class="depliable">, texte en HTML', () => {
 		const md = versMarkdown([
 			bloc('toggle', { rich_text: [t("Voir l'exemple : ici")] }, [p(t('Caché'))])

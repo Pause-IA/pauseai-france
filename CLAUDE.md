@@ -503,7 +503,7 @@ Copy `template.env` to `.env` and configure:
   (`NOTION_GUIDE_PAGE_ID`, par défaut celle du guide ; la page doit être connectée à
   l'intégration du site). L'en-tête du fichier (titre, description, chapô) reste
   celui du dépôt : c'est là qu'on le modifie. Le corps, lui, se modifie dans Notion.
-  Conversion dans `scripts/guide-notion/convertir.mjs` : encadrés -> `<Callout>`
+  Conversion dans `scripts/guide-notion/convertir.mjs` : encadrés -> `<Callout>` (avec leur emoji, prop `icon`)
   (première ligne en gras = titre), blocs et titres dépliables -> `<details class="depliable">`
   (le titre lui-même ouvre la partie ; contenu dans `.depliable-contenu`, décalé
   avec un filet orange ; styles dans `app.css`), liens dont le texte
