@@ -1,4 +1,9 @@
 ---
+# Retirée le 19/11/2026 (demande de Jeanne) : le texte présente ces risques
+# comme spéculatifs, ce qui n'est plus notre discours. Redirigée vers
+# /fr/perte-de-controle (static/_redirects) le temps de la réécrire ; retirer
+# `brouillon` et la redirection pour la remettre en ligne.
+brouillon: true
 title: Dangers pour l’humanité
 description: Les dangers existentiels de l’IA, bien que spéculatifs, menacent l’avenir de l’humanité et nécessitent une réflexion anticipée et des recherches en alignement technique, car la régulation seule ne peut contrer l’attrait économique du progrès dans ce domaine.
 ---
