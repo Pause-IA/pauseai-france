@@ -28,6 +28,14 @@
 /tribunes/*  /fr/tribunes/:splat  301!
 /statement  /fr/declaration  301!
 
+# « Dangers pour l'humanité » est retirée le temps de réécrire le texte, qui
+# présente ces risques comme spéculatifs (demande de Jeanne, 19/11/2026).
+# 302 et non 301 : la page reviendra, les navigateurs ne doivent pas mémoriser
+# la redirection. L'apostrophe peut arriver encodée (%27) selon le lien.
+/fr/dangers/pour-l'humanite  /fr/perte-de-controle  302!
+/fr/dangers/pour-l%27humanite  /fr/perte-de-controle  302!
+/en/dangers/for-humanity  /en/perte-de-controle  302!
+
 # Pages tirées de src/posts (servies sous /fr/<slug>) : liens partagés ou
 # anciens liens du site sans préfixe. /charte-des-valeurs était en 404
 # (signalé sur Discord le 25/10/2026).
