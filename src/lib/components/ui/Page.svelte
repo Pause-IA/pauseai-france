@@ -123,6 +123,25 @@
 		line-height: 1.62;
 	}
 
+	/* Intertitre de niveau 3 : à 1,2 rem (app.css), il paraissait minuscule
+	   sous un h2 à plus de 2 rem (retour d'Antonin sur le guide, 19/11/2026). */
+	.ui-page--note :global(.prose h3) {
+		font-size: clamp(1.25rem, 2.6vw, 1.5rem);
+		font-weight: 700;
+		line-height: 1.25;
+		margin-top: 2.25rem;
+	}
+
+	/* Un blanc net après une liste, avant le paragraphe qui suit (même retour).
+	   Pas pour une sous-liste, qui reste collée à son élément. */
+	.ui-page--note :global(.prose :is(ul, ol)) {
+		margin-block: 0.75rem 1.5rem;
+	}
+
+	.ui-page--note :global(.prose li > :is(ul, ol)) {
+		margin-block: 0.3rem;
+	}
+
 	/* Rythme : un filet au-dessus de chaque section. Les pages écrites en
 	   Markdown n'ont pas de <section> : c'est l'intertitre qui porte la
 	   séparation. */

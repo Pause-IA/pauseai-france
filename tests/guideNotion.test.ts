@@ -79,12 +79,29 @@ describe('blocs', () => {
 		expect(md).toBe('<Callout>\n\nNote\n\nDétail\n\n</Callout>')
 	})
 
+	it('encadré : l’emoji Notion est repris, pas une icône image', () => {
+		const emoji = versMarkdown([
+			bloc('callout', {
+				icon: { type: 'emoji', emoji: 'ℹ️' },
+				rich_text: [t('Deux parties', { bold: true }), t('\nCorps')]
+			})
+		])
+		expect(emoji).toBe('<Callout title="Deux parties" icon="ℹ️">\n\nCorps\n\n</Callout>')
+		const image = versMarkdown([
+			bloc('callout', {
+				icon: { type: 'external', external: { url: 'https://x/i.png' } },
+				rich_text: [t('Note')]
+			})
+		])
+		expect(image).toBe('<Callout>\n\nNote\n\n</Callout>')
+	})
+
 	it('blocs dépliables -> <details class="depliable">, texte en HTML', () => {
 		const md = versMarkdown([
 			bloc('toggle', { rich_text: [t("Voir l'exemple : ici")] }, [p(t('Caché'))])
 		])
 		expect(md).toBe(
-			'<details class="depliable">\n<summary>Voir l’exemple\u00A0: ici</summary>\n\nCaché\n\n</details>'
+			'<details class="depliable">\n<summary>Voir l’exemple\u00A0: ici</summary>\n<div class="depliable-contenu">\n\nCaché\n\n</div>\n</details>'
 		)
 	})
 
@@ -97,7 +114,7 @@ describe('blocs', () => {
 			'<summary><h3 id="outil-2-le-dialogue-authentique">Outil 2\u00A0: Dialogue authentique</h3></summary>'
 		)
 		expect(md).toContain('<h3 id="autre-titre">Autre &lt;titre&gt;</h3>')
-		expect(md).toContain('Dedans\n\n</details>')
+		expect(md).toContain('Dedans\n\n</div>\n</details>')
 		expect(md).not.toContain('Afficher')
 	})
 
@@ -115,7 +132,13 @@ describe('blocs', () => {
 			]),
 			p(t('fin'))
 		])
-		expect(md).toBe('1. un\n2. deux\n\n   - sous\n\nfin')
+		// Sous-liste collée à son élément : pas de ligne vide, sinon la liste
+		// devient « lâche » et un blanc apparaît avant les sous-points.
+		expect(md).toBe('1. un\n2. deux\n   - sous\n\nfin')
+		const avecParagraphe = versMarkdown([
+			bloc('bulleted_list_item', { rich_text: [t('point')] }, [p(t('détail'))])
+		])
+		expect(avecParagraphe).toBe('- point\n\n  détail')
 	})
 
 	it('citation sur plusieurs lignes', () => {
@@ -124,15 +147,18 @@ describe('blocs', () => {
 		)
 	})
 
-	it('tableau -> liste lisible sur téléphone', () => {
+	it('tableau -> tableau Markdown dans un conteneur qui défile', () => {
 		const ligne = (...cells: string[]) => bloc('table_row', { cells: cells.map((c) => [t(c)]) })
 		const md = versMarkdown([
 			bloc('table', { has_column_header: true }, [
 				ligne('Préoccupation', 'Pont'),
-				ligne('Emploi', 'L’IA remplace des métiers')
+				ligne('Emploi', 'L’IA a | b\nsuite'),
+				ligne('Seule')
 			])
 		])
-		expect(md).toBe('- **Emploi**\n  - **Pont** : L’IA remplace des métiers')
+		expect(md).toBe(
+			'<div class="tableau-guide">\n\n| Préoccupation | Pont |\n| --- | --- |\n| Emploi | L’IA a \\| b<br />suite |\n| Seule |  |\n\n</div>'
+		)
 	})
 
 	it('images : seulement le fichier téléchargé, jamais l’URL Notion', () => {
