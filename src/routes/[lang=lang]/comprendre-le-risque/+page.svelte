@@ -33,7 +33,11 @@
 	export let data: PageData
 	$: prefix = data.lang === 'en' ? '/en' : '/fr'
 
-	const title = 'Garder l’humanité aux commandes de l’intelligence artificielle'
+	// Le titre d'origine, « Garder l'humanité aux commandes », était un mot
+	// d'ordre : il convenait à une note remise en main propre, dont on savait
+	// déjà de quoi elle parlait. La page est maintenant indexée et partagée par
+	// lien : son titre est ce qu'on lit avant de cliquer, il doit dire le sujet.
+	const title = 'Pourquoi l’IA pourrait échapper à notre contrôle'
 	const description =
 		'Pourquoi des centaines de chercheurs, et les dirigeants des laboratoires eux-mêmes, alertent sur un risque d’extinction lié à l’intelligence artificielle — et ce qu’il est possible de faire.'
 
@@ -95,28 +99,25 @@
 			Elle est également signée par les dirigeants d’OpenAI, de Google DeepMind et d’Anthropic,
 			c’est-à-dire par ceux-là mêmes qui construisent ces systèmes et en tirent profit.
 		</p>
-	</section>
 
-	<section aria-labelledby="t-combien">
-		<SectionTitle id="t-combien">Combien sont-ils à le penser ?</SectionTitle>
-		<p>
-			Interrogés en 2023, 2 778 chercheurs du domaine donnaient une probabilité médiane de 5 % à un
-			résultat « aussi grave que l’extinction de l’humanité ». Fin 2024, elle avait doublé : 10 %.
+		<p class="apres-signataires">
+			Interrogés en 2023, 2 778 chercheurs du domaine donnaient une probabilité médiane de 5 % à un
+			résultat « aussi grave que l’extinction de l’humanité ». Fin 2024, elle avait doublé : 10 %.
 			Le chiffre monte à mesure qu’ils observent les progrès réels.
 		</p>
 
 		<details class="depliable">
-			<summary><h3>D’où viennent ces chiffres ?</h3></summary>
+			<summary><h3>D’où viennent ces chiffres, et que valent-ils ?</h3></summary>
 
 			<p>
 				Le groupe de recherche AI Impacts interroge depuis 2016 les chercheurs qui publient dans les
 				grandes conférences d’intelligence artificielle. L’enquête de 2023 est la plus large jamais
-				menée sur le sujet ; celle de fin 2024 a réuni plus de 1 500 réponses, avec une moyenne qui
-				approche 18 %.
+				menée sur le sujet ; celle de fin 2024 a réuni plus de 1 500 réponses, avec une moyenne qui
+				approche 18 %.
 			</p>
 			<p>
 				Aucun de ces chiffres n’est une prédiction. Ce sont des estimations de risque. Mais on ne
-				fait pas voler un avion dont les ingénieurs annoncent 10 % de chances de crash, et on ne
+				fait pas voler un avion dont les ingénieurs annoncent 10 % de chances de crash, et on ne
 				traite pas à la légère un risque d’extinction que ceux qui conçoivent la technologie
 				chiffrent eux-mêmes en dizaines de pour cent.
 			</p>
@@ -143,24 +144,20 @@
 			un comportement indésirable.
 		</p>
 
-		<details class="depliable">
-			<summary><h3>Ce que ces systèmes ont déjà fait</h3></summary>
-
-			<p>
-				Lors de tests encadrés, des systèmes récents ont menti à leurs évaluateurs, cherché à copier
-				leur propre code pour échapper à un remplacement, ou fait du chantage à un ingénieur fictif
-				pour éviter d’être désactivés. Ce ne sont pas des bugs qu’un développeur corrige en une
-				ligne, mais des stratégies que le système adopte parce qu’elles servent le but qu’on lui a
-				donné.
-			</p>
-			<p>
-				Ces systèmes ne sont pas encore assez puissants pour que de tels comportements mènent à une
-				catastrophe. Le problème est que la dangerosité croît avec la capacité : plus ils deviennent
-				compétents, plus l’écart se creuse entre ce qu’ils savent faire et ce que nous savons
-				vérifier.
-			</p>
-			<CarteCitation c={citationHinton} />
-		</details>
+		<p>
+			Ce n’est pas une crainte théorique. Lors de tests encadrés, des systèmes récents ont menti à
+			leurs évaluateurs, cherché à copier leur propre code pour échapper à un remplacement, ou fait
+			du chantage à un ingénieur fictif pour éviter d’être désactivés. Pas des bugs qu’un
+			développeur corrige en une ligne : des stratégies que le système adopte parce qu’elles servent
+			le but qu’on lui a donné.
+		</p>
+		<p>
+			Ces systèmes ne sont pas encore assez puissants pour que de tels comportements mènent à une
+			catastrophe. Le problème est que la dangerosité croît avec la capacité : plus ils deviennent
+			compétents, plus l’écart se creuse entre ce qu’ils savent faire et ce que nous savons
+			vérifier.
+		</p>
+		<CarteCitation c={citationHinton} />
 	</section>
 
 	<!-- ── À quoi ça ressemblerait ── -->
@@ -174,7 +171,7 @@
 		</p>
 
 		<details class="depliable">
-			<summary><h3>Les scénarios brutaux, eux aussi étudiés</h3></summary>
+			<summary><h3>Les scénarios plus brutaux</h3></summary>
 
 			<p>
 				Un système très compétent, chargé d’un objectif, peut employer pour l’atteindre des moyens
@@ -220,6 +217,12 @@
 			construire, chez lui ou ailleurs, une technologie susceptible d’échapper à tout contrôle
 			humain. C’est ce dénominateur commun qui a permis, pour le nucléaire, de bâtir des accords
 			entre rivaux.
+		</p>
+		<p>
+			Ces décisions se prennent au niveau des États, mais elles ne s’y prendront pas sans pression.
+			Signer l’appel prend une minute et pèse dans ce que les responsables publics considèrent comme
+			une attente. En parler autour de vous pèse davantage encore : la plupart des gens n’ont jamais
+			entendu dire que les chercheurs du domaine chiffrent eux-mêmes ce risque.
 		</p>
 		<p class="action">
 			<Button href="{prefix}/declaration">Signer l’appel</Button>
@@ -300,7 +303,7 @@
 
 	<p class="avertissement">
 		Les probabilités, déclarations et dates citées renvoient à leurs sources d’origine, accessibles
-		ci-dessus. Document d’information, sans valeur d’engagement.
+		ci-dessus.
 	</p>
 </Page>
 
