@@ -22,6 +22,8 @@
  * interprété par Svelte, et un « * » par le Markdown.
  */
 
+import { applyTypographyRules } from '../../src/lib/typographyPlugin.js'
+
 /**
  * @typedef {Record<string, any>} Bloc Un bloc de l'API Notion (`children` ajouté au chargement).
  * @typedef {{ plain_text?: string, text?: { content?: string, link?: { url?: string } | null }, href?: string | null, annotations?: Record<string, boolean> }} Riche
@@ -74,15 +76,20 @@ export function texteRiche(riche = []) {
 		.map((r) => {
 			const brut = r.plain_text ?? r.text?.content ?? ''
 			if (!brut) return ''
-			const [, avant = '', coeur = '', apres = ''] = /^(\s*)([\s\S]*?)(\s*)$/.exec(brut) ?? []
+			let [, avant = '', coeur = '', apres = ''] = /^(\s*)([\s\S]*?)(\s*)$/.exec(brut) ?? []
 			if (!coeur) return brut.replace(/\n/g, ' ')
 			const a = r.annotations ?? {}
+			const href = r.href ?? r.text?.link?.url
+			// Un lien dont le texte est l'adresse elle-même s'affiche sans « https:// » :
+			// plus lisible, et la typographie ne la coupe plus (« https ://… »).
+			if (href && coeur.trim() === href.trim()) {
+				coeur = coeur.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
+			}
 			let t = a.code ? '`' + coeur.replace(/`/g, '') + '`' : echapper(coeur)
 			t = t.replace(/\n/g, '<br />')
 			if (a.bold) t = `**${t}**`
 			if (a.italic) t = `_${t}_`
 			if (a.strikethrough) t = `~~${t}~~`
-			const href = r.href ?? r.text?.link?.url
 			if (href && LIEN_SUR.test(href)) t = `[${t}](${href.replace(/[()\s]/g, encodeURIComponent)})`
 			return avant + t + apres
 		})
@@ -95,6 +102,32 @@ export function texteRiche(riche = []) {
  */
 export function texteSimple(riche = []) {
 	return riche.map((r) => r.plain_text ?? r.text?.content ?? '').join('')
+}
+
+/**
+ * Texte pour du HTML brut (<summary>) : typographie française, puis échappement
+ * HTML et Svelte. Le Markdown n'y est pas interprété.
+ * @param {string} t
+ */
+export function html(t) {
+	return applyTypographyRules(t)
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/{/g, '&#123;')
+		.replace(/}/g, '&#125;')
+}
+
+/**
+ * Identifiant d'un titre, comme le fait rehype-slug pour les autres titres.
+ * @param {string} t
+ */
+export function ancreDe(t) {
+	return t
+		.toLowerCase()
+		.replace(/[^\p{L}\p{N}\s-]/gu, '')
+		.trim()
+		.replace(/\s/g, '-')
 }
 
 /**
@@ -197,7 +230,12 @@ function bloc(b, options, avertir, images) {
 			const ancre = ANCRES.find(([motif]) => motif.test(simple))
 			const titre = (ancre ? `<span id="${ancre[1]}"></span>\n\n` : '') + `${niveau} ${texte}`
 			if (c.is_toggleable) {
-				return `${titre}\n\n<details>\n<summary>Afficher</summary>\n\n${enfants(b, options)}\n\n</details>`
+				// Titre dépliable (comme dans Notion) : le titre lui-même ouvre la partie.
+				// HTML brut : le Markdown n'est pas lu dans <summary>, d'où l'identifiant
+				// et la typographie posés ici.
+				const h = `h${niveau.length}`
+				const id = ancre ? ancre[1] : ancreDe(simple)
+				return `<details class="depliable">\n<summary><${h} id="${id}">${html(simple)}</${h}></summary>\n\n${enfants(b, options)}\n\n</details>`
 			}
 			return titre
 		}
@@ -238,7 +276,7 @@ function bloc(b, options, avertir, images) {
 			return `${ouverture}\n\n${contenu}\n\n</Callout>`
 		}
 		case 'toggle':
-			return `<details>\n<summary>${texteRiche(c.rich_text)}</summary>\n\n${enfants(b, options)}\n\n</details>`
+			return `<details class="depliable">\n<summary>${html(texteSimple(c.rich_text).trim())}</summary>\n\n${enfants(b, options)}\n\n</details>`
 		case 'divider':
 			return '<hr />'
 		case 'image': {

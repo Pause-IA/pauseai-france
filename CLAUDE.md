@@ -504,7 +504,9 @@ Copy `template.env` to `.env` and configure:
   l'intégration du site). L'en-tête du fichier (titre, description, chapô) reste
   celui du dépôt : c'est là qu'on le modifie. Le corps, lui, se modifie dans Notion.
   Conversion dans `scripts/guide-notion/convertir.mjs` : encadrés -> `<Callout>`
-  (première ligne en gras = titre), blocs dépliables -> `<details>`, tableaux ->
+  (première ligne en gras = titre), blocs et titres dépliables -> `<details class="depliable">`
+  (le titre lui-même ouvre la partie, styles dans `app.css`), liens dont le texte
+  est l'adresse affichés sans `https://`, tableaux ->
   listes (lisibles sur téléphone), images téléchargées en WebP dans
   `static/guides/notion-*.webp` (jamais l'URL Notion, valable une heure). Les
   ancres utilisées par le guide court (`#outil-1-…`) sont posées par motif sur

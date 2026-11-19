@@ -79,9 +79,32 @@ describe('blocs', () => {
 		expect(md).toBe('<Callout>\n\nNote\n\nDétail\n\n</Callout>')
 	})
 
-	it('blocs dépliables -> <details>', () => {
-		const md = versMarkdown([bloc('toggle', { rich_text: [t('Voir plus')] }, [p(t('Caché'))])])
-		expect(md).toBe('<details>\n<summary>Voir plus</summary>\n\nCaché\n\n</details>')
+	it('blocs dépliables -> <details class="depliable">, texte en HTML', () => {
+		const md = versMarkdown([
+			bloc('toggle', { rich_text: [t("Voir l'exemple : ici")] }, [p(t('Caché'))])
+		])
+		expect(md).toBe(
+			'<details class="depliable">\n<summary>Voir l’exemple\u00A0: ici</summary>\n\nCaché\n\n</details>'
+		)
+	})
+
+	it('titre dépliable : le titre ouvre la partie, avec son ancre', () => {
+		const md = versMarkdown([
+			h(3, 'Outil 2: Dialogue authentique', { is_toggleable: true }),
+			bloc('heading_3', { rich_text: [t('Autre <titre>')], is_toggleable: true }, [p(t('Dedans'))])
+		])
+		expect(md).toContain(
+			'<summary><h3 id="outil-2-le-dialogue-authentique">Outil 2\u00A0: Dialogue authentique</h3></summary>'
+		)
+		expect(md).toContain('<h3 id="autre-titre">Autre &lt;titre&gt;</h3>')
+		expect(md).toContain('Dedans\n\n</details>')
+		expect(md).not.toContain('Afficher')
+	})
+
+	it('lien dont le texte est l’adresse : affiché sans https://', () => {
+		expect(texteRiche([t('https://pauseia.fr/fr/agir', {}, 'https://pauseia.fr/fr/agir')])).toBe(
+			'[pauseia.fr/fr/agir](https://pauseia.fr/fr/agir)'
+		)
 	})
 
 	it('listes regroupées, numérotées, imbriquées', () => {
