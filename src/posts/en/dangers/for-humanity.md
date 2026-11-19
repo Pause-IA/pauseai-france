@@ -1,4 +1,6 @@
 ---
+# Withdrawn on 19/11/2026 with the French version, see pour-l'humanite.md.
+brouillon: true
 title: Dangers for Humanity
 description: The development of superintelligent AI poses existential risks that could threaten the survival and long-term flourishing of humanity.
 date: '2024-01-01'
