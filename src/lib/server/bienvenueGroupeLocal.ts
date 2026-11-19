@@ -83,9 +83,25 @@ export function echapperDiscord(s: string): string {
 		.replace(/([\\*_~`|>#[\]()<:-])/g, '\\$1')
 }
 
+/**
+ * Le pseudo en police de code (`romain73`), demande d’Antonin (18/11/2026) : il se
+ * repère mieux dans le salon, et Discord n’y interprète aucune mise en forme, donc
+ * plus besoin d’échapper les « _ ». Seul l’accent grave, qui fermerait le code, est
+ * retiré.
+ */
+export function pseudoEnCode(s: string): string {
+	const p = s
+		.replace(/[\r\n\t]+/g, ' ')
+		.replace(/`/g, '')
+		.trim()
+		.replace(/^@+/, '')
+		.slice(0, 100)
+		.trim()
+	return p ? `\`${p}\`` : ''
+}
+
 export function construireMessage(pseudo: string, departement: string): string {
-	const p = pseudo.trim().replace(/^@+/, '')
-	const qui = p ? echapperDiscord(p) : 'Une personne (pas de pseudo Discord indiqué)'
+	const qui = pseudoEnCode(pseudo) || 'Une personne (pas de pseudo Discord indiqué)'
 	const d = trouverDepartement(departement)
 	if (d)
 		return `${qui} souhaite rejoindre un groupe local dans le département "${d.nom}" (${d.code})`

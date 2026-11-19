@@ -7,6 +7,7 @@ import { trouverDepartement } from '$lib/departements'
 import {
 	construireMessage,
 	echapperDiscord,
+	pseudoEnCode,
 	messageDepuisNotion
 } from '$lib/server/bienvenueGroupeLocal'
 import { POST } from '../src/routes/api/bienvenue-groupe-local/+server'
@@ -58,7 +59,7 @@ describe('trouverDepartement', () => {
 describe('message', () => {
 	it('format attendu par Antonin', () => {
 		expect(construireMessage('bob.dupont', '1')).toBe(
-			'bob.dupont souhaite rejoindre un groupe local dans le département "Ain" (01)'
+			'`bob.dupont` souhaite rejoindre un groupe local dans le département "Ain" (01)'
 		)
 	})
 
@@ -67,27 +68,34 @@ describe('message', () => {
 		expect(echapperDiscord('**gras**\n# titre')).toBe('\\*\\*gras\\*\\* \\# titre')
 	})
 
+	it('pseudo en police de code, sans échappement ni accent grave', () => {
+		expect(pseudoEnCode('bob_dupont')).toBe('`bob_dupont`')
+		expect(pseudoEnCode('Romain Deléglise')).toBe('`Romain Deléglise`')
+		expect(pseudoEnCode('a`b**c**\n@x')).toBe('`ab**c** @x`')
+		expect(pseudoEnCode(' `` ')).toBe('')
+	})
+
 	it('retire un @ initial', () => {
-		expect(construireMessage('@bob', '75')).toMatch(/^bob souhaite/)
+		expect(construireMessage('@bob', '75')).toMatch(/^`bob` souhaite/)
 	})
 
 	it('sans pseudo ni département connu', () => {
 		expect(construireMessage('', 'Atlantide')).toBe(
 			'Une personne (pas de pseudo Discord indiqué) souhaite rejoindre un groupe local dans le département "Atlantide"'
 		)
-		expect(construireMessage('bob', '')).toBe('bob souhaite rejoindre un groupe local')
+		expect(construireMessage('bob', '')).toBe('`bob` souhaite rejoindre un groupe local')
 	})
 
 	it('lit un envoi Notion et ignore les autres champs', () => {
 		const m = messageDepuisNotion(notion('bob_dupont', '01'))
-		expect(m).toBe('bob\\_dupont souhaite rejoindre un groupe local dans le département "Ain" (01)')
+		expect(m).toBe('`bob_dupont` souhaite rejoindre un groupe local dans le département "Ain" (01)')
 		expect(m).not.toContain('example.org')
 		expect(m).not.toContain('Dupont')
 	})
 
 	it('accepte des propriétés simples ou au premier niveau', () => {
 		expect(messageDepuisNotion({ properties: { [PSEUDO]: 'bob', [DEPT]: '75' } })).toBe(
-			'bob souhaite rejoindre un groupe local dans le département "Paris" (75)'
+			'`bob` souhaite rejoindre un groupe local dans le département "Paris" (75)'
 		)
 		expect(
 			messageDepuisNotion({
@@ -98,7 +106,7 @@ describe('message', () => {
 					}
 				}
 			})
-		).toBe('bob souhaite rejoindre un groupe local dans le département "Alpes-Maritimes" (06)')
+		).toBe('`bob` souhaite rejoindre un groupe local dans le département "Alpes-Maritimes" (06)')
 	})
 
 	it("renvoie null quand ce n'est pas une inscription", () => {
@@ -142,7 +150,7 @@ describe('POST /api/bienvenue-groupe-local', () => {
 		const [url, init] = fetchMock.mock.calls[0]
 		expect(url).toBe('https://discord.test/webhook')
 		expect(JSON.parse(init.body)).toEqual({
-			content: 'bob\\_dupont souhaite rejoindre un groupe local dans le département "Ain" (01)',
+			content: '`bob_dupont` souhaite rejoindre un groupe local dans le département "Ain" (01)',
 			allowed_mentions: { parse: [] }
 		})
 	})
