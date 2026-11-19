@@ -7,7 +7,7 @@
 
 <PostMeta
 	title="Sensibiliser votre entourage"
-	description="Comment parler de Pause IA aux gens que vous connaissez déjà : un guide court, à lire en ligne ou à imprimer."
+	description="Comment parler de Pause IA aux gens que vous connaissez déjà : un guide à lire en ligne, et une version courte à imprimer."
 />
 
 <Page title="Sensibiliser votre entourage" eyebrow="Agir" width="content" as="article">
@@ -23,24 +23,28 @@
 		réponses, et laisser la personne faire le chemin elle-même.
 	</p>
 
-	<!-- Un seul guide mis en avant, demande d'Antonin (19/11/2026) : la carte
-	     « Guide complet » et le titre « Deux guides… » sont retirés. Le guide
-	     complet reste en ligne (/fr/guide-sensibilisation) et le guide court y
-	     renvoie. -->
-	<p class="action"><Button href="{base}/fr/guide-court">Lire le guide</Button></p>
-	<p class="pdf"><a href="/pdfs/guide_recrutement_express.pdf">Version PDF, à imprimer</a></p>
+	<!-- Demandes d'Antonin (19/11/2026) : plus de cartes ni de titre « Deux
+	     guides… ». Le bouton principal mène au guide complet (tenu dans Notion) ;
+	     le PDF est celui de la version courte, d'où son libellé et un bouton
+	     d'une autre couleur, pour ne pas le confondre avec le guide complet. Il
+	     s'ouvre dans un nouvel onglet. -->
+	<p class="actions">
+		<Button href="{base}/fr/guide-sensibilisation">Lire le guide complet</Button>
+		<Button alt href="/pdfs/guide_recrutement_express.pdf" target="_blank"
+			>Version courte à imprimer</Button
+		>
+	</p>
 </Page>
 
 <style>
 	/* Page refaite sur la charte : tout passe par les tokens d'app.css, ce qui
 	   fait aussi fonctionner le mode sombre. */
 
-	.action {
-		margin-block: 2rem 0.75rem;
-	}
-
-	.pdf {
-		margin: 0;
-		font-size: 0.9rem;
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem 1rem;
+		align-items: center;
+		margin-block: 2rem 0;
 	}
 </style>
