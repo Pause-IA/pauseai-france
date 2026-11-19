@@ -132,7 +132,13 @@ describe('blocs', () => {
 			]),
 			p(t('fin'))
 		])
-		expect(md).toBe('1. un\n2. deux\n\n   - sous\n\nfin')
+		// Sous-liste collée à son élément : pas de ligne vide, sinon la liste
+		// devient « lâche » et un blanc apparaît avant les sous-points.
+		expect(md).toBe('1. un\n2. deux\n   - sous\n\nfin')
+		const avecParagraphe = versMarkdown([
+			bloc('bulleted_list_item', { rich_text: [t('point')] }, [p(t('détail'))])
+		])
+		expect(avecParagraphe).toBe('- point\n\n  détail')
 	})
 
 	it('citation sur plusieurs lignes', () => {

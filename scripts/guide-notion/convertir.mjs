@@ -179,7 +179,16 @@ export function versMarkdown(blocs, options = {}) {
 				const puce = b.type === 'numbered_list_item' ? `${n++}.` : '-'
 				let md = `${puce} ${texteRiche(it[it.type].rich_text)}`
 				if (it.children?.length) {
-					md += '\n\n' + indenter(versMarkdown(it.children, options), puce.length + 1)
+					// Une sous-liste se colle à son élément : une ligne vide rendrait la
+					// liste « lâche » en Markdown (chaque élément dans un <p>), d'où un
+					// blanc entre l'élément et ses sous-points (retour d'Antonin).
+					// Un paragraphe enfant, lui, a besoin de la ligne vide.
+					const sousListe = it.children.every((/** @type {Bloc} */ c) =>
+						['bulleted_list_item', 'numbered_list_item'].includes(c.type)
+					)
+					md +=
+						(sousListe ? '\n' : '\n\n') +
+						indenter(versMarkdown(it.children, options), puce.length + 1)
 				}
 				items.push(md)
 				i++
