@@ -1,36 +1,28 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
+	import Button from '$components/Button.svelte'
+	import { Page } from '$components/ui'
 	import type { Lang } from '$lib/i18n'
 
 	export let data: { lang: Lang }
 </script>
 
 <PostMeta
-	title={"Ce que l’IA fait au travail | PauseAI France"}
-	description={"Bilan qualitatif de l’enquête Pause IA sur l’emploi : perte de sens, décisions imposées, adaptation reportée sur les individus, ce qu’une trentaine de témoins nous ont confié au printemps 2026."}
+	title={'Ce que l’IA fait au travail | PauseAI France'}
+	description={'Bilan qualitatif de l’enquête Pause IA sur l’emploi : perte de sens, décisions imposées, adaptation reportée sur les individus, ce qu’une trentaine de témoins nous ont confié au printemps 2026.'}
 />
 
-<article>
-	<nav class="breadcrumb">
-		<a href="/{data.lang}/emploi-ia">← Campagne Emploi &amp; IA</a>
-	</nav>
-
-	<div class="article-meta">
-		<span class="meta-tag">Analyse</span>
-		<span class="meta-sep">·</span>
-		<span class="meta-series">Article 3/3</span>
-		<span class="meta-sep">·</span>
-		<span class="meta-reading">7 min de lecture</span>
-	</div>
-
-	<hgroup>
-		<h1>Ce que l’IA fait au travail</h1>
-	</hgroup>
-
-	<p class="intro">
-		L’IA ne supprime pas seulement des emplois. Elle transforme déjà des métiers jusqu’à les rendre
-		méconnaissables pour celles et ceux qui les exercent.
-	</p>
+<Page
+	title="Ce que l’IA fait au travail"
+	eyebrow="Actualités"
+	lede="L’IA ne supprime pas seulement des emplois. Elle transforme déjà des métiers jusqu’à les rendre méconnaissables pour celles et ceux qui les exercent."
+	width="text"
+	variant="note"
+	as="article"
+>
+	<svelte:fragment slot="meta">
+		<a href="/{data.lang}/emploi-ia">Campagne Emploi &amp; IA</a> · Article 3/3 · 7 min de lecture
+	</svelte:fragment>
 
 	<p>
 		Au printemps 2026, Pause IA a recueilli une trentaine de témoignages libres (au sein d’une
@@ -216,131 +208,5 @@
 		aussi dans le monde du travail.
 	</p>
 
-	<nav class="back-nav">
-		<a href="/{data.lang}/emploi-ia">← Retour à la campagne Emploi &amp; IA</a>
-	</nav>
-</article>
-
-<style>
-	/* Modèle « note » : colonne de lecture étroite et corps de texte fluide,
-	   comme les autres textes longs du site. Ces trois articles étaient en
-	   54 rem, soit près de 90 signes par ligne sur grand écran. */
-	article {
-		max-inline-size: var(--width-text);
-		font-size: clamp(1.0625rem, 0.97rem + 0.42vw, 1.1875rem);
-		line-height: 1.62;
-		margin-inline: auto;
-		margin-top: 2rem;
-		padding: 0 1rem;
-	}
-
-	h1 {
-		font-size: clamp(2.1rem, 6vw, 3.2rem);
-		line-height: 1.06;
-		letter-spacing: -0.025em;
-		font-weight: 700;
-		margin-bottom: 1.5rem;
-	}
-
-	.breadcrumb {
-		margin-bottom: 1.5rem;
-	}
-
-	.breadcrumb a {
-		font-size: 0.875rem;
-		color: var(--text-secondary);
-		text-decoration: none;
-		transition: color 0.2s;
-	}
-
-	.breadcrumb a:hover {
-		color: var(--brand-subtle);
-	}
-
-	.article-meta {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		margin-bottom: 1.25rem;
-		flex-wrap: wrap;
-	}
-
-	.meta-tag {
-		font-size: 0.7rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--on-brand);
-		background: var(--brand);
-		padding: 0.3rem 0.7rem;
-		border-radius: 3px;
-	}
-
-	.meta-sep {
-		color: var(--border);
-		font-size: 0.8rem;
-	}
-
-	.meta-series {
-		font-size: 0.8125rem;
-		font-weight: 600;
-		color: var(--text-secondary);
-	}
-
-	.meta-reading {
-		font-size: 0.8125rem;
-		color: var(--text-secondary);
-	}
-
-	.intro {
-		font-size: 1.15rem;
-		font-weight: 500;
-		color: var(--brand-subtle);
-		border-left: 4px solid var(--brand);
-		background: var(--brand-light);
-		padding: 1rem 1.25rem;
-		margin: 1.5rem 0 2rem;
-	}
-
-	h2 {
-		margin-top: 2.5rem;
-	}
-
-	blockquote {
-		border-left: 4px solid var(--brand);
-		margin: 2rem 0;
-		padding: 1.25rem 1.5rem;
-		background: var(--bg-subtle);
-		border-radius: 0 8px 8px 0;
-	}
-
-	:global([data-theme='dark']) blockquote {
-		background: rgba(var(--on-dark-rgb), 0.04);
-	}
-
-	blockquote p {
-		margin: 0;
-		font-style: italic;
-		font-size: 1.05rem;
-		color: var(--brand-subtle);
-		font-weight: 500;
-	}
-
-	.back-nav {
-		margin-top: 2rem;
-		padding-top: 1.5rem;
-		border-top: 1px solid var(--border);
-		margin-bottom: 3rem;
-	}
-
-	.back-nav a {
-		color: var(--text-secondary);
-		text-decoration: none;
-		font-size: 0.9375rem;
-		transition: color 0.2s;
-	}
-
-	.back-nav a:hover {
-		color: var(--brand-subtle);
-	}
-</style>
+	<p><Button alt href="/{data.lang}/emploi-ia">Revenir à la campagne Emploi &amp; IA</Button></p>
+</Page>

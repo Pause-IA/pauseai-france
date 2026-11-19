@@ -1,5 +1,5 @@
 {
-	"genere": "2026-11-11",
+	"genere": "2026-11-17",
 	"groupes": [
 		{
 			"label": "Comprendre",
@@ -31,23 +31,13 @@
 				},
 				{
 					"href": "/declaration",
-					"label": "Signer l'appel",
-					"externe": false
-				},
-				{
-					"href": "/relayer-nos-messages",
-					"label": "Relayer nos messages",
+					"label": "Signer l’appel",
 					"externe": false
 				},
 				{
 					"href": "/groupes-locaux",
-					"label": "Agir près de chez vous",
+					"label": "Groupes locaux",
 					"externe": false
-				},
-				{
-					"href": "/sensibiliser-votre-entourage",
-					"label": "Sensibiliser votre entourage",
-					"externe": true
 				},
 				{
 					"href": "/agir",
@@ -99,7 +89,7 @@
 	],
 	"colonnes": [
 		{
-			"label": "S'informer",
+			"label": "S’informer",
 			"liens": [
 				{
 					"href": "/ressources",
@@ -138,7 +128,7 @@
 				},
 				{
 					"href": "/agir",
-					"label": "Toutes les façons d'agir",
+					"label": "Toutes les façons d’agir",
 					"externe": false
 				},
 				{
@@ -148,7 +138,7 @@
 				},
 				{
 					"href": "/declaration",
-					"label": "Signer l'appel",
+					"label": "Signer l’appel",
 					"externe": false
 				},
 				{
@@ -198,7 +188,7 @@
 				},
 				{
 					"href": "/recrutement-emploi",
-					"label": "Offres d'emploi",
+					"label": "Offres d’emploi",
 					"externe": false
 				}
 			]
@@ -261,12 +251,16 @@
 			"url": "/fr/geneve-2026"
 		},
 		{
-			"chemin": "/guide-recrutement",
-			"url": "/guide-recrutement"
+			"chemin": "/guide-court",
+			"url": "/fr/guide-court"
 		},
 		{
 			"chemin": "/merci",
 			"url": "/fr/merci"
+		},
+		{
+			"chemin": "/modeles",
+			"url": "/fr/modeles"
 		},
 		{
 			"chemin": "/municipales-2026",
@@ -417,7 +411,11 @@
 		},
 		{
 			"slug": "/gouvernance-ia-demarches",
-			"titre": "Gouvernance de l'IA : les démarches engagées"
+			"titre": "Gouvernance de l’IA : les démarches engagées"
+		},
+		{
+			"slug": "/guide-sensibilisation",
+			"titre": "Guide de sensibilisation"
 		},
 		{
 			"slug": "/mentions-legales",
@@ -457,8 +455,8 @@
 		}
 	],
 	"total": {
-		"pages": 37,
+		"pages": 38,
 		"dynamiques": 7,
-		"articles": 36
+		"articles": 37
 	}
 }

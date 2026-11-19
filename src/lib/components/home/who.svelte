@@ -100,10 +100,6 @@
 		{/if}
 	</svelte:fragment>
 	<div class="contact-cta" slot="actions">
-		<Button href="{prefix}/dons">{lang === 'en' ? 'Donate' : 'Faire un don'}</Button>
-		<Button alt href="{prefix}/rejoindre"
-			>{lang === 'en' ? 'Join Pause IA' : 'Rejoindre Pause IA'}</Button
-		>
 		<Button alt href="mailto:contact@pauseia.fr"
 			>{lang === 'en' ? 'Contact us' : 'Nous contacter'}</Button
 		>
@@ -199,12 +195,12 @@
 	<Bandeau>
 		<p class="benevoles">
 			{#if lang === 'en'}
-				The association currently employs two people, Clémence Peyrot and Orlando H., with Maxime
+				The association currently employs two people, Clémence Peyrot and Orlando B., with Maxime
 				Fournes currently employed by PauseAI Global. Beyond this team, Pause AI France runs on
 				<strong>more than a hundred volunteers</strong>: engineers, teachers, researchers, lawyers,
 				psychologists, students, retirees. Most of the work shown on this site is theirs.
 			{:else}
-				L’association emploie actuellement deux personnes, Clémence Peyrot et Orlando H., Maxime
+				L’association emploie actuellement deux personnes, Clémence Peyrot et Orlando B., Maxime
 				Fournes étant actuellement salarié de PauseAI Global. Au-delà de cette équipe, Pause IA
 				repose sur
 				<strong>plus d’une centaine de bénévoles</strong>
@@ -228,10 +224,8 @@
 		<ul class="equipes">
 			{#each equipes as equipe}
 				<li class="equipe">
-					<h3>
-						{equipe.nom}{#if equipe.referent}<span class="referent">{equipe.referent}</span>{/if}
-					</h3>
-					<p>{equipe.description}</p>
+					<h3>{lang === 'en' ? equipe.nomEn : equipe.nom}</h3>
+					<p>{lang === 'en' ? equipe.descriptionEn : equipe.description}</p>
 				</li>
 			{/each}
 		</ul>
@@ -295,7 +289,7 @@
 	.en-bref a {
 		font-size: 0.95rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 		text-decoration: none;
 	}
 
@@ -340,13 +334,6 @@
 	.equipe {
 		padding-block: 1rem;
 		border-block-start: 1px solid var(--border);
-	}
-
-	.referent {
-		margin-inline-start: 0.6rem;
-		font-size: 0.85rem;
-		font-weight: 400;
-		color: var(--text-2);
 	}
 
 	.equipe h3 {

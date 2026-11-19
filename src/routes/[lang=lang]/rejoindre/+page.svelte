@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge } from '$components/ui'
+	import { Badge, Page } from '$components/ui'
 	import PostMeta from '$components/PostMeta.svelte'
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$components/Button.svelte'
@@ -16,22 +16,29 @@
 
 <PostMeta title={t.rejoindre.meta_title} description={t.rejoindre.meta_desc} />
 
-<article>
-	{#if lang === 'en'}
-		<section class="hero">
-			<p class="eyebrow">{t.nav.agir}</p>
-			<h1>Join Pause AI</h1>
-			<p class="hero-description">
-				Faced with a technological race that accelerates every day, <strong
-					>collective action is our greatest strength</strong
-				>. Every voice, every hour of volunteering, every membership strengthens our ability to
-				influence public debate and regain control.
-				<br /><br />
-				Whether you have 10 minutes a week or several hours to dedicate to us, there is a place for you
-				at Pause AI. Discover how you can act alongside us.
-			</p>
-		</section>
+<Page
+	title={lang === 'en' ? 'Join Pause AI' : 'Rejoindre Pause IA'}
+	eyebrow={t.nav.agir}
+	width="content"
+	as="article"
+>
+	<svelte:fragment slot="lede">
+		{#if lang === 'en'}
+			Faced with a technological race that accelerates every day, <strong
+				>collective action is our greatest strength</strong
+			>. Every voice, every hour of volunteering, every membership strengthens our ability to
+			influence public debate and regain control. Whether you have 10 minutes a week or several
+			hours to dedicate to us, there is a place for you at Pause AI.
+		{:else}
+			Face à une course technologique qui s’accélère chaque jour, <strong
+				>l’action collective est notre plus grande force</strong
+			>. Chaque voix, chaque heure de bénévolat, chaque adhésion renforce notre capacité à
+			influencer le débat public et à reprendre le contrôle. Que vous ayez 10 minutes par semaine ou
+			plusieurs heures à nous consacrer, il existe une place pour vous chez Pause IA.
+		{/if}
+	</svelte:fragment>
 
+	{#if lang === 'en'}
 		<section class="engagement-options">
 			<div class="engagement-card">
 				<h2 class="title-with-icon">
@@ -121,20 +128,6 @@
 			</Accordion>
 		</section>
 	{:else}
-		<section class="hero">
-			<p class="eyebrow">{t.nav.agir}</p>
-			<h1>Rejoindre Pause IA</h1>
-			<p class="hero-description">
-				Face à une course technologique qui s’accélère chaque jour, <strong
-					>l’action collective est notre plus grande force</strong
-				>. Chaque voix, chaque heure de bénévolat, chaque adhésion renforce notre capacité à
-				influencer le débat public et à reprendre le contrôle.
-				<br /><br />
-				Que vous ayez 10 minutes par semaine ou plusieurs heures à nous consacrer, il existe une place
-				pour vous chez Pause IA. Découvrez comment vous pouvez agir à nos côtés.
-			</p>
-		</section>
-
 		<section class="engagement-options">
 			<div class="engagement-card">
 				<h2 class="title-with-icon">
@@ -210,51 +203,12 @@
 			</div>
 		</section>
 	{/if}
-</article>
+</Page>
 
 <style>
-	article {
-		max-inline-size: var(--width-content);
-		margin-inline: auto;
-		margin-top: 3rem;
-		padding: 0 2rem;
-	}
-
-	/* En-tête au modèle : aligné à gauche, sans carte. C'était un encadré
-	   blanc posé sur un fond devenu blanc — seule son ombre le trahissait —
-	   avec un titre et un texte centrés, que rien d'autre sur le site ne
-	   fait. */
-	.hero {
-		margin-bottom: 3rem;
-	}
-
-	.eyebrow {
-		display: inline-block;
-		margin: 0 0 1rem;
-		padding: 0.3rem 0.7rem;
-		border-radius: 3px;
-		background: var(--brand);
-		color: var(--on-brand);
-		font-size: 0.85rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-	}
-
-	.hero h1 {
-		font-size: clamp(2.1rem, 6vw, 3.2rem);
-		line-height: 1.06;
-		letter-spacing: -0.025em;
-		margin-bottom: 1.25rem;
-	}
-
-	.hero-description {
-		max-inline-size: var(--width-text);
-		font-size: 1.1rem;
-		line-height: 1.6;
-		color: var(--text-2);
-		margin-bottom: 1.5rem;
-	}
+	/* L'en-tête (étiquette, titre, chapô) était recopié à la main ici. Il
+	   vient maintenant de PageHero : une seule définition du modèle, au lieu
+	   d'une copie par page qui finit par diverger. */
 
 	.engagement-options {
 		display: grid;
@@ -347,9 +301,8 @@
 	}
 
 	.options-secondaires > h2 {
-		margin-bottom: 1rem;
-		color: var(--text-2);
-		font-size: 1.05rem;
+		margin-bottom: 1.1rem;
+		font-size: 1.15rem;
 	}
 
 	.secondaires-grille {
@@ -357,11 +310,15 @@
 		gap: 1rem;
 	}
 
+	/* Filet orange en tête, comme les cartes de la page Newsletters : deux
+	   rectangles blancs à liseré gris ne disaient rien, alors que ce sont
+	   deux vraies façons de s'engager. */
 	.carte-secondaire {
 		display: flex;
 		flex-direction: column;
-		padding: 1.25rem;
+		padding: 1.4rem 1.35rem;
 		border: 1px solid var(--border);
+		border-top: 3px solid var(--brand);
 		border-radius: var(--radius-md);
 		background: var(--bg-card);
 	}
@@ -370,15 +327,23 @@
 		display: flex;
 		align-items: center;
 		gap: 0.45em;
-		margin: 0 0 0.5rem;
-		font-size: 1.05rem;
+		margin: 0 0 0.6rem;
+		font-size: 1.25rem;
+		line-height: 1.25;
+		letter-spacing: -0.015em;
+	}
+
+	/* Le pictogramme n'est pas du texte : l'orange de marque plein. */
+	.carte-secondaire h3 :global(svg) {
+		color: var(--brand);
 	}
 
 	.carte-secondaire p {
 		flex: 1;
-		margin: 0 0 1rem;
+		margin: 0 0 1.1rem;
 		color: var(--text-2);
-		font-size: 0.95rem;
+		font-size: 1rem;
+		line-height: 1.6;
 	}
 
 	.carte-secondaire :global(a) {
@@ -413,8 +378,5 @@
 	}
 
 	@media (max-width: 480px) {
-		article {
-			padding: 0 1rem;
-		}
 	}
 </style>

@@ -1657,7 +1657,7 @@
 
 	.tool-tabs button:not(.active):hover {
 		background: var(--brand-light);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.tab-icon {
@@ -1777,7 +1777,7 @@
 
 	.parcours strong::before {
 		content: counter(etape) '. ';
-		color: var(--brand-subtle);
+		color: var(--brand);
 	}
 
 	.parcours span {
@@ -1866,8 +1866,8 @@
 	}
 
 	.notice--warn {
-		color: var(--brand-subtle);
-		background: var(--brand-light);
+		color: var(--text);
+		background: var(--panneau-bg);
 		border: 1px solid var(--brand);
 	}
 
@@ -1897,7 +1897,7 @@
 	}
 
 	.reset-link:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.results-hint {
@@ -1909,8 +1909,8 @@
 	.results-hint.done-all {
 		font-size: 1rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
-		background: var(--brand-light);
+		color: var(--text);
+		background: var(--panneau-bg);
 		border-radius: var(--radius-sm);
 		padding: 0.6rem 0.85rem;
 	}
@@ -1952,7 +1952,7 @@
 
 	.elu-card.done {
 		opacity: 0.7;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border-color: var(--brand);
 	}
 
@@ -1960,7 +1960,7 @@
 	.elu-card.priority {
 		border-width: 2px;
 		border-color: var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 	}
 
 	.priority-badge {
@@ -1968,7 +1968,7 @@
 		margin-top: 0.2rem;
 		font-size: 0.72rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--text);
 		background: color-mix(in srgb, var(--brand) 16%, transparent);
 		padding: 0.1rem 0.5rem;
 		border-radius: var(--radius-pill);
@@ -1980,7 +1980,7 @@
 		padding: 0.9rem 1rem;
 		border: 1px dashed var(--brand);
 		border-radius: var(--radius-md);
-		background: color-mix(in srgb, var(--brand) 5%, var(--bg));
+		background: var(--panneau-bg);
 	}
 
 	.circo-hint {
@@ -2014,7 +2014,7 @@
 	}
 
 	.circo-ok {
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.circo-warn {
@@ -2048,8 +2048,8 @@
 		inline-size: 2.6rem;
 		block-size: 2.6rem;
 		border-radius: 50%;
-		background: var(--brand-light);
-		color: var(--brand-subtle);
+		background: var(--panneau-bg);
+		color: var(--text);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -2124,7 +2124,7 @@
 	.back-link {
 		background: none;
 		border: none;
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-size: 0.95rem;
 		font-weight: 600;
 		cursor: pointer;
@@ -2142,7 +2142,7 @@
 		align-items: center;
 		gap: 0.75rem;
 		padding: 0.85rem 1rem;
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border-radius: var(--radius-md);
 		margin-bottom: 1.25rem;
 	}
@@ -2152,7 +2152,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.recipient > div {
@@ -2168,7 +2168,7 @@
 
 	.profile-link {
 		font-size: 0.78rem;
-		color: var(--brand-subtle);
+		color: var(--text);
 		margin-top: 0.15rem;
 		width: fit-content;
 	}
@@ -2260,7 +2260,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.03em;
-		color: var(--brand-subtle);
+		color: var(--text);
 		margin-left: 0.4rem;
 	}
 
@@ -2287,7 +2287,7 @@
 		margin: 0.5rem 0 0;
 		font-size: 0.82rem;
 		line-height: 1.45;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	/* En-tête de l'aperçu : label + bouton « autre version » */
@@ -2310,7 +2310,7 @@
 	.shuffle-btn {
 		border: 1px solid var(--border);
 		background: var(--bg-card);
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-size: 0.82rem;
 		font-weight: 600;
 		padding: 0.4rem 0.8rem;
@@ -2476,7 +2476,7 @@
 		border-top: 1px solid var(--border);
 		font-size: 0.92rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	/* Suite après envoi */
@@ -2484,7 +2484,7 @@
 		margin-top: 1.5rem;
 		padding: 1.1rem 1.25rem;
 		border: 1px solid var(--brand);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		border-radius: var(--radius-md);
 	}
 
@@ -2497,7 +2497,7 @@
 		display: inline-block;
 		font-size: 0.88rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.join-link--block {
@@ -2510,7 +2510,7 @@
 		padding: 1rem 1.25rem;
 		border: 1px solid var(--brand);
 		border-radius: var(--radius-md);
-		background: var(--brand-light);
+		background: var(--panneau-bg);
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -2527,7 +2527,7 @@
 		background: var(--bg-card);
 		padding: 0.05em 0.35em;
 		border-radius: 4px;
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-weight: 600;
 	}
 

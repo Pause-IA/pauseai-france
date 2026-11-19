@@ -83,3 +83,10 @@
 # ne fait pas : elle apprend à parler du sujet à ses proches. Le lien a été
 # partagé, d'où la redirection permanente.
 /recrutement                              /sensibiliser-votre-entourage            301!
+
+# Le guide complet devient « Guide de sensibilisation » et rejoint les pages
+# de contenu, pour hériter du gabarit partagé. L'ancienne adresse a été
+# partagée en Discord et en PDF.
+/guide-recrutement                        /fr/guide-sensibilisation                301!
+/fr/guide-recrutement                     /fr/guide-sensibilisation                301!
+/en/guide-recrutement                     /en/guide-sensibilisation                301!

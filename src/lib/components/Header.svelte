@@ -107,14 +107,12 @@
 				// de premier niveau, jamais rangée derrière une page intermédiaire.
 				{ href: `${prefix}/ecrire-a-mes-elus`, label: t.nav.ecrire_elus },
 				{ href: `${prefix}/declaration`, label: t.nav.declaration },
-				// Réseaux sociaux et Pause Action, sur la même page (pas de sous-menu).
-				{ href: `${prefix}/relayer-nos-messages`, label: t.nav.relayer_messages },
 				{ href: `${prefix}/groupes-locaux`, label: t.nav.pres_de_chez_vous },
-				// « Sensibiliser votre entourage » a quitté le menu : c'est un guide,
-				// pas une action — on n'en ressort pas avec quelque chose de fait,
-				// contrairement aux cinq autres entrées. « Agir » comptait six
-				// entrées quand les quatre autres menus en comptent trois. La page
-				// reste listée sur /agir, qui ferme cette liste.
+				// « Sensibiliser votre entourage » et « Relayer nos messages » ont
+				// quitté le menu : la première est un guide, pas une action, et la
+				// seconde se fait au fil de l'eau plutôt qu'en une fois. « Agir »
+				// comptait six entrées quand les quatre autres menus en comptent
+				// trois. Les deux restent listées sur /agir, qui ferme cette liste.
 				// La synthèse de tous les moyens d'agir ferme la liste, comme « Toutes
 				// nos campagnes » ferme celle des campagnes.
 				{ href: `${prefix}/agir`, label: t.nav.toutes_facons_agir }
@@ -576,6 +574,9 @@
 		font-weight: 700;
 		font-size: 0.9rem;
 		border-radius: 0.4rem;
+		/* Le contour de « Rejoindre » ne doit pas décaler sa hauteur. */
+		border: 2px solid transparent;
+		box-sizing: border-box;
 		padding: 0.45rem 1rem;
 		white-space: nowrap;
 		transition:
@@ -593,14 +594,23 @@
 		opacity: 0.85;
 	}
 
-	/* "Rejoindre", black */
+	/* « Rejoindre » : l'action secondaire. Elle a été noire, puis bleu
+	   sombre — correct, mais froid à côté du « Donner » orange.
+
+	   Elle passe en orange CREUX : même couleur que l'action principale,
+	   mais en contour. La hiérarchie se lit à la densité (plein contre
+	   creux) et non à la teinte, ce qui réchauffe le coin des actions au
+	   lieu d'y opposer deux couleurs. Le contour reprend --btn-border, le
+	   seul orange qui tienne le seuil de 3:1 des contours de composants. */
 	.btn-join {
-		background: var(--black);
-		color: var(--white);
+		background: transparent;
+		color: var(--text);
+		border: 2px solid var(--btn-border);
 	}
 
 	.btn-join:hover {
-		opacity: 0.8;
+		background: var(--brand);
+		color: var(--on-brand);
 	}
 
 	/* On hero (white text context): invert to semi-transparent white */
@@ -674,7 +684,7 @@
 
 	.sidebar-lang-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.1);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	:global([data-theme='dark']) .sidebar-lang-toggle {
@@ -684,7 +694,7 @@
 
 	:global([data-theme='dark']) .sidebar-lang-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.15);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.sidebar-theme-toggle {
@@ -706,7 +716,7 @@
 
 	.sidebar-theme-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.1);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	:global([data-theme='dark']) .sidebar-theme-toggle {
@@ -716,7 +726,7 @@
 
 	:global([data-theme='dark']) .sidebar-theme-toggle:hover {
 		background: rgba(var(--brand-rgb), 0.15);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.hamburger {
@@ -909,7 +919,7 @@
 	.sidebar-subsection a:hover,
 	.sidebar-subsection a.active {
 		background: rgba(var(--brand-rgb), 0.1);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.ext-icon {
@@ -943,11 +953,14 @@
 		opacity: 0.85;
 	}
 
+	/* Même traitement que le bouton de l'en-tête : orange creux. */
 	.sidebar-join {
 		display: block;
 		text-decoration: none;
-		background: var(--black);
-		color: var(--white);
+		background: transparent;
+		color: var(--text);
+		border: 2px solid var(--btn-border);
+		box-sizing: border-box;
 		text-align: center;
 		padding: 0.8rem 1.5rem;
 		border-radius: var(--radius-btn);

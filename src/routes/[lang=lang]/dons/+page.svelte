@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge } from '$components/ui'
+	import { Badge, Page } from '$components/ui'
 	import PostMeta from '$components/PostMeta.svelte'
 	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
 	import Button from '$components/Button.svelte'
@@ -23,16 +23,20 @@
 
 <PostMeta title={`${t.dons.meta_title} | ${siteName}`} description={t.dons.meta_desc} />
 
-<article>
-	<!-- Main donation page -->
-	<section class="hero">
-		<UnderlinedTitle as="h1">{t.dons.title}</UnderlinedTitle>
+<Page title={t.dons.title} eyebrow={t.nav.agir} width="content" as="article">
+	<svelte:fragment slot="lede">
 		{#if lang === 'en'}
-			<p class="hero-description">
-				AI companies are in an unbridled race to develop increasingly powerful systems.
-				<strong>Let’s act fast to keep AI under control</strong> before it’s too late.
-			</p>
+			AI companies are in an unbridled race to develop increasingly powerful systems.
+			<strong>Let’s act fast to keep AI under control</strong> before it’s too late.
+		{:else}
+			Les entreprises d’IA sont dans une course effrénée pour développer des systèmes de plus en
+			plus puissants.
+			<strong>Agissons vite pour garder l’IA sous contrôle</strong> avant qu’il ne soit trop tard.
+		{/if}
+	</svelte:fragment>
 
+	<section class="hero">
+		{#if lang === 'en'}
 			<div class="tax-benefit">
 				<strong>Your donations are 66% tax-deductible</strong><br />
 				<small>A donation of €100 only costs you €34<sup>*</sup></small>
@@ -42,12 +46,6 @@
 				</p>
 			</div>
 		{:else}
-			<p class="hero-description">
-				Les entreprises d’IA sont dans une course effrénée pour développer des systèmes de plus en
-				plus puissants.
-				<strong>Agissons vite pour garder l’IA sous contrôle</strong> avant qu’il ne soit trop tard.
-			</p>
-
 			<div class="tax-benefit">
 				<strong>Vos dons sont déductibles à hauteur de 66 % de vos impôts</strong><br />
 				<small>Un don de 100 € ne vous coûte réellement que 34 €<sup>*</sup></small>
@@ -113,12 +111,14 @@
 			</Button>
 			<small class="donation-note">
 				<Landmark size="1em" />
-				{lang === 'en' ? 'Recommended for donations > €500' : 'Recommandé pour les dons > 500€'}
+				{lang === 'en'
+					? 'Recommended for donations over €500'
+					: 'Recommandé pour les dons supérieurs à 500\u202F€'}
 			</small>
 		</div>
 	</section>
 
-	<div class="impact-highlight">
+	<div class="impact-highlight aplat-marque">
 		{#if lang === 'en'}
 			<h2>What are your donations used for?</h2>
 			<p>
@@ -264,38 +264,30 @@
 		{/if}
 	</section>
 	<DonVirement bind:show={showVirement} />
-</article>
+</Page>
 
 <style>
-	article {
-		max-inline-size: var(--width-content);
-		margin-inline: auto;
-		margin-top: 3rem;
-		padding: 0 2rem;
-	}
-
+	/* En-tête au modèle : aligné à gauche, sans carte. C'était un encadré
+	   blanc posé sur un fond devenu blanc, que seule son ombre trahissait. */
 	.hero {
-		text-align: center;
 		margin-bottom: 3rem;
-		background: var(--bg);
-		padding: 3rem 2rem;
-		border-radius: var(--radius-md);
-		box-shadow: var(--shadow-raised);
 	}
 
-	.hero-description {
-		font-size: 1.1rem;
-		color: var(--text-secondary);
-		margin-bottom: 1.5rem;
-	}
+	/* L'étiquette, le titre et le chapô étaient recopiés à la main ici. Ils
+	   viennent maintenant de PageHero : une seule définition du modèle, au
+	   lieu d'une copie par page qui finit par diverger. */
 
+	/* L'avantage fiscal est une information, pas une confirmation : le vert
+	   vif le faisait lire comme un message de succès, et c'était la seule
+	   tache verte du site. Il prend le panneau de la charte, avec le filet
+	   orange qui rattache à la marque. */
 	.tax-benefit {
-		background: var(--success-bg);
-		border: 2px solid var(--success-border);
-		border-radius: var(--radius-sm);
-		padding: 1rem;
+		padding: 1.1rem 1.25rem;
+		border: 0;
+		border-left: 3px solid var(--brand);
+		border-radius: 2px;
+		background: var(--panneau-bg);
 		margin: 1.5rem 0;
-		text-align: center;
 	}
 
 	/* La réduction de 66 % ne vaut que pour qui paie l'impôt sur le revenu.
@@ -309,7 +301,7 @@
 	}
 
 	.tax-benefit strong {
-		color: var(--success);
+		color: var(--text);
 		font-size: 1.1rem;
 	}
 
@@ -401,19 +393,13 @@
 		text-align: left;
 	}
 
-	/* Fond orange retiré : il pesait plus lourd que le bouton de don lui-même.
-	   Une bordure et un fond de carte suffisent à détacher le bloc. */
-	.impact-highlight {
-		padding: 2rem;
-		border: 1px solid var(--border);
-		border-radius: var(--radius-md);
-		background: var(--bg-card);
-		margin: 2rem 0;
-		text-align: center;
-	}
-
-	.impact-highlight h2 {
-		margin-bottom: 1rem;
+	/* « À quoi servent vos dons ? » : c'est la réponse à la seule objection
+	   sérieuse du visiteur, et c'était une carte blanche sur un fond devenu
+	   blanc, avec un texte centré que rien d'autre sur le site ne fait. Elle
+	   prend l'aplat de marque et s'aligne à gauche comme le reste. */
+	.impact-highlight :global(h2) {
+		margin-block: 0 0.9rem;
+		color: var(--on-dark);
 	}
 
 	@keyframes slideInFade {
@@ -432,8 +418,5 @@
 	}
 
 	@media (max-width: 480px) {
-		article {
-			padding: 0 1rem;
-		}
 	}
 </style>

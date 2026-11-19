@@ -15,7 +15,9 @@
 
 <style>
 	.callout {
-		background-color: var(--bg-subtle);
+		/* Blanc et filet orange, comme tous les panneaux du site : un panneau
+		   se détache par sa bordure, pas par sa teinte. */
+		background-color: var(--panneau-bg);
 		border: 2px solid var(--brand);
 		border-radius: 0.3125rem;
 		padding: 1.5rem;

@@ -92,14 +92,16 @@ Nos comptes sont présentés et validés chaque année en assemblée générale.
     text-align: left;
   }
 
+  /* Encre FONCÉE sur l'aplat orange : le blanc n'y donnait que 2,21:1.
+     C'est le même principe que les boutons, dont le texte est noir. */
   thead th {
     background: var(--brand, #ff9416);
-    color: #fff;
-    font-weight: 600;
+    color: var(--on-brand, #1a1a1a);
+    font-weight: 700;
   }
 
   tbody tr:nth-child(even) {
-    background: var(--bg-subtle, #fff5e8);
+    background: var(--bg-subtle, #f6f7f8);
   }
 
   td:last-child,

@@ -99,15 +99,16 @@ This is a SvelteKit-based website with Markdown-powered content. Content files l
 
 #### API Endpoints
 
-| Endpoint            | Method   | Purpose                                     | Key Details                        |
-| ------------------- | -------- | ------------------------------------------- | ---------------------------------- |
-| `/api/posts`        | GET      | Returns all blog posts                      | Uses `getPosts()` from `$lib/api`  |
-| `/api/dangers`      | GET      | Returns all danger articles                 | Uses `getPosts('/dangers')`        |
-| `/api/subscribe`    | POST     | Newsletter subscription via CiviCRM         | See CiviCRM Integration below      |
-| `/api/wise-webhook` | POST     | Wise webhook for bank transfer confirmation | See Wise Webhook Integration below |
-| `/api/declaration`  | GET/POST | PauseAI statement: stats / sign             | CiviCRM groups, see below          |
-| `/sitemap.xml`      | GET      | XML sitemap for SEO                         | Prerendered, includes all posts    |
-| `/sitemap.txt`      | GET      | Text sitemap                                | Alternative format                 |
+| Endpoint                      | Method   | Purpose                                     | Key Details                        |
+| ----------------------------- | -------- | ------------------------------------------- | ---------------------------------- |
+| `/api/posts`                  | GET      | Returns all blog posts                      | Uses `getPosts()` from `$lib/api`  |
+| `/api/dangers`                | GET      | Returns all danger articles                 | Uses `getPosts('/dangers')`        |
+| `/api/subscribe`              | POST     | Newsletter subscription via CiviCRM         | See CiviCRM Integration below      |
+| `/api/wise-webhook`           | POST     | Wise webhook for bank transfer confirmation | See Wise Webhook Integration below |
+| `/api/declaration`            | GET/POST | PauseAI statement: stats / sign             | CiviCRM groups, see below          |
+| `/api/bienvenue-groupe-local` | POST     | Notion → Discord #bienvenue (local groups)  | See below                          |
+| `/sitemap.xml`                | GET      | XML sitemap for SEO                         | Prerendered, includes all posts    |
+| `/sitemap.txt`                | GET      | Text sitemap                                | Alternative format                 |
 
 ### External Integrations
 
@@ -191,6 +192,15 @@ The payment reference (`DON-XXXXXX`) is read from `data.transfer_reference` in t
 Run `scripts/create-wise-webhook.sh <profile_id>` on the Hetzner server to register the webhook subscription with Wise. This endpoint does **not** require SCA — it bypasses the SCA issue with the old polling approach.
 
 **No new environment variables required** — uses existing CiviCRM credentials.
+
+#### Local groups → Discord #bienvenue (`/api/bienvenue-groupe-local`)
+
+When someone fills the Notion form « Inscriptions aux groupes locaux », a Notion database automation (« Send webhook », configured by an admin, no personal token) POSTs the new row here; the endpoint posts one line in Discord #bienvenue: `bob_dupont souhaite rejoindre un groupe local dans le département "Ain" (01)`.
+
+- Only the Discord username and the department are read (select only those two properties in the Notion action: nothing else should leave Notion). The department number is mapped to its name by `src/lib/departements.ts` (accepts `1`, `01`, `2a`, a postal code, a name…).
+- Auth: header `X-PauseIA-Secret` must equal `NOTION_BIENVENUE_SECRET` (constant-time compare). Discord: `DISCORD_BIENVENUE_WEBHOOK_URL`, posted with `allowed_mentions: { parse: [] }`, so a typed username can never ping. The username is shown in inline code (`` `bob_dupont` ``, asked by Antonin for readability): Discord renders no formatting inside it, so it needs no escaping, only backticks are stripped. The department typed by hand, when not recognised, is still Markdown-escaped.
+- Notion does not retry and pauses the automation after a failure, so ignorable payloads (no username nor department, invalid JSON) answer 200; 401 = bad secret, 503 = env vars missing, 502 = Discord refused.
+- Notion's payload format is undocumented: parsing is tolerant (`properties` under `data`, `page` or at the root; rich_text, title, select, number or plain strings; property names matched without accents/punctuation). Logs contain no personal data. Tests: `tests/bienvenueGroupeLocal.test.ts`.
 
 ### Custom Markdown Processing
 
@@ -470,6 +480,23 @@ Copy `template.env` to `.env` and configure:
   base qui ne renvoie personne — `getTeamMembers()` retombe sur l'instantané
   versionné au lieu de servir une page vide. Vérifié par `tests/photosEquipe.test.ts`,
   qui valide la forme de l'instantané et l'existence de chaque photo citée.
+- `scripts/photos-evenements.mjs` - **Versionne les actions des groupes locaux** :
+  les photos compressées (`static/evenements/`) et l'instantané des fiches
+  (`src/lib/data/evenements.json`). Même mécanisme et mêmes raisons que
+  `photos-equipe.mjs` : Notion ne sert ses fichiers que derrière une URL S3
+  signée qui expire au bout d'une heure, et la page passait ces URL au CDN
+  d'images de Netlify — une photo d'action finissait par disparaître sans que
+  personne n'ait rien touché. Lancé automatiquement par `pnpm build`, donc une
+  photo ajoutée dans Notion est reprise au déploiement suivant ; en mode build
+  il n'échoue jamais. À lancer à la main (`pnpm run photos-evenements`, puis
+  committer `static/evenements/` et `src/lib/data/evenements.json`) seulement
+  pour rafraîchir le dépôt sans attendre un déploiement. Les photos sont
+  ramenées à 1200 px de large en WebP (la page n'en demande jamais plus de
+  1100 au CDN) et ne sont retéléchargées que si elles ont changé, la clé de
+  comparaison étant le chemin S3 hors signature. `getLocalEvents()` sert les
+  photos versionnées plutôt que celles de Notion, et retombe entièrement sur
+  l'instantané si Notion ne répond pas ou ne renvoie rien. Vérifié par
+  `tests/photosEvenements.test.ts`. Il faut `NOTION_EVENTS_DATABASE_ID`.
 - `src/lib/typographyPlugin.js` - French typography transformation (remark + Vite plugin)
 - `src/lib/faqPlugin.js` - FAQ accordion transformation
 - `src/lib/rehypeWBWPlugins.js` - Wait But Why popup and box plugins

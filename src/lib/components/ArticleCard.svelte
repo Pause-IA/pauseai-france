@@ -71,7 +71,7 @@
 	}
 
 	.article-link:hover .read-more {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	article {
@@ -107,7 +107,8 @@
 	   la spécificité des sélecteurs des composants). */
 	.content.content p {
 		margin: 0;
-		font-size: 0.9375rem;
+		/* 1 rem : plancher du corps de texte, même dans une carte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-2);
 		display: -webkit-box;
@@ -127,7 +128,7 @@
 
 	.category {
 		font-size: 0.75rem;
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.5px;

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PostMeta from '$components/PostMeta.svelte'
+	import { Page } from '$components/ui'
 	import Button from '$lib/components/Button.svelte'
 	import { goto } from '$app/navigation'
 	import { page } from '$app/stores'
@@ -183,13 +184,13 @@
 	description={t.emploi_questionnaire.meta_desc}
 />
 
-<article class="questionnaire-container">
-	<h1>{t.emploi_questionnaire.title}</h1>
-
-	<p class="intro">
-		{t.emploi_questionnaire.intro}
-	</p>
-
+<Page
+	title={t.emploi_questionnaire.title}
+	eyebrow={lang === 'en' ? 'Campaigns' : 'Campagnes'}
+	lede={t.emploi_questionnaire.intro}
+	width="content"
+	as="article"
+>
 	<div class="progress-bar">
 		<div class="progress-step" class:active={currentStep >= 1}>
 			<div class="step-number">1</div>
@@ -898,21 +899,9 @@
 			{/if}
 		</div>
 	</form>
-</article>
+</Page>
 
 <style>
-	.questionnaire-container {
-		max-inline-size: var(--width-content);
-		margin: 2rem auto;
-		padding: 0 1rem;
-	}
-
-	.intro {
-		font-size: 1.1rem;
-		margin-bottom: 2rem;
-		color: var(--text-secondary);
-	}
-
 	.progress-bar {
 		display: flex;
 		justify-content: space-between;
@@ -967,7 +956,7 @@
 	}
 
 	.progress-step.active .step-label {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		font-weight: 500;
 	}
 
@@ -1058,7 +1047,7 @@
 	}
 
 	.consent-checkbox {
-		background-color: var(--brand-light);
+		background-color: var(--panneau-bg);
 		padding: 1rem;
 		border-radius: var(--radius-sm);
 		border: 2px solid var(--brand);

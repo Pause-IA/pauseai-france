@@ -63,8 +63,11 @@
 		box-shadow: var(--shadow-card);
 	}
 
+	/* Panneau d'appel : blanc, et c'est sa bordure orange qui le détache —
+	   même règle que tous les autres panneaux du site. Il gardait un fond
+	   teinté, dernier endroit où un panneau se signalait par sa couleur. */
 	.accent {
-		background: var(--bg-subtle);
+		background: var(--panneau-bg);
 		border-color: var(--brand);
 	}
 

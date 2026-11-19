@@ -39,11 +39,13 @@
 		<PageHero {eyebrow}>
 			{title}
 			<svelte:fragment slot="lede"><slot name="lede" /></svelte:fragment>
+			<slot name="meta" slot="meta" />
 			<slot name="actions" slot="actions" />
 		</PageHero>
 	{:else}
 		<PageHero {eyebrow} {lede}>
 			{title}
+			<slot name="meta" slot="meta" />
 			<slot name="actions" slot="actions" />
 		</PageHero>
 	{/if}
@@ -75,9 +77,13 @@
 
 	   Ne sont visés que les paragraphes posés directement dans la page ou
 	   dans une de ses sections : ceux des cartes et des grilles gardent la
-	   largeur de leur conteneur, qui est déjà étroit. */
-	.ui-page > :global(p),
-	.ui-page > :global(section) > :global(p) {
+	   largeur de leur conteneur, qui est déjà étroit.
+
+	   Le renvoi de bas de page (RetourAgir) en est exclu : ce n'est pas du
+	   texte suivi mais un bloc centré sur toute la largeur, et le plafond
+	   décalait son filet et son bouton vers la gauche. */
+	.ui-page > :global(p:not(.retour-agir)),
+	.ui-page > :global(section) > :global(p:not(.retour-agir)) {
 		max-inline-size: var(--width-text);
 	}
 	/* ── Modèle « note » ─────────────────────────────────────────────────
@@ -97,9 +103,11 @@
 		--filet-note: rgba(var(--brand-rgb), 0.4);
 	}
 
+	/* Même plancher que PageHero : à 2,1 rem, le titre de page tombait à
+	   33 px sur un téléphone, contre 24 px pour l'intertitre qui le suit. */
 	.ui-page--note :global(h1) {
-		font-size: clamp(2.1rem, 6vw, 3.2rem);
-		line-height: 1.06;
+		font-size: clamp(2.3rem, 5.5vw, 3rem);
+		line-height: 1.05;
 		letter-spacing: -0.025em;
 		font-weight: 700;
 	}
@@ -115,20 +123,6 @@
 		line-height: 1.62;
 	}
 
-	/* Le filet de marque du hero fait doublon avec l'étiquette du surtitre. */
-	.ui-page--note :global(.ui-page-hero .rule) {
-		display: none;
-	}
-
-	.ui-page--note :global(.eyebrow) {
-		display: inline-block;
-		margin-bottom: 1rem;
-		padding: 0.3rem 0.7rem;
-		border-radius: 3px;
-		background: var(--brand);
-		color: var(--on-brand);
-	}
-
 	/* Rythme : un filet au-dessus de chaque section. Les pages écrites en
 	   Markdown n'ont pas de <section> : c'est l'intertitre qui porte la
 	   séparation. */
@@ -139,8 +133,13 @@
 		margin-top: clamp(2rem, 4.5vw, 3rem);
 	}
 
-	.ui-page--note :global(.prose > h2:first-child) {
+	/* L'en-tête pose déjà son filet de clôture : celui de la première section
+	   ferait un doublon à deux centimètres d'écart. */
+	.ui-page--note :global(.prose > h2:first-of-type),
+	.ui-page--note :global(section:first-of-type) {
 		margin-top: 0;
+		padding-top: 0;
+		border-top: 0;
 	}
 
 	/* app.css espace les sections de 5 rem (10 rem au-delà de 52 rem) : le
@@ -153,14 +152,6 @@
 		margin-bottom: 0;
 	}
 
-	@media (max-width: 40rem) {
-		.ui-page--note :global(.eyebrow) {
-			padding: 0.25rem 0.55rem;
-			font-size: 0.75rem;
-			letter-spacing: 0.04em;
-		}
-	}
-
 	/* À l'impression, l'étiquette orange coûte de l'encre et ne dit rien de
 	   plus que son texte. */
 	@media print {
@@ -168,12 +159,6 @@
 			--filet-note: var(--filet-impression, rgb(153, 153, 153));
 			max-inline-size: none;
 			font-size: 11pt;
-		}
-
-		.ui-page--note :global(.eyebrow) {
-			padding: 0;
-			background: none;
-			color: var(--encre-impression, rgb(0, 0, 0));
 		}
 	}
 </style>

@@ -35,7 +35,7 @@
 
 <section aria-labelledby={label_id}>
 	<UnderlinedTitle id={label_id} as="h3"
-		>{lang === 'en' ? 'Our videos' : 'Nos vidéos'}</UnderlinedTitle
+		>{lang === 'en' ? 'Videos worth watching' : 'Vidéos à voir'}</UnderlinedTitle
 	>
 	<div class="video-grid">
 		{#each displayVideos as video (video.id)}
@@ -44,7 +44,7 @@
 	</div>
 	<div class="button-container">
 		<Button href="https://www.youtube.com/@Pause_IA"
-			>{lang === 'en' ? 'Watch more videos' : 'Voir plus de vidéos'}</Button
+			>{lang === 'en' ? 'Our YouTube channel' : 'Notre chaîne YouTube'}</Button
 		>
 	</div>
 </section>

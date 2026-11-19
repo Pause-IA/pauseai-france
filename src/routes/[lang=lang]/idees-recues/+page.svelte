@@ -70,7 +70,7 @@
 
 <PostMeta {title} {description} />
 
-<Page width="wide" {title} as="article">
+<Page width="wide" {title} eyebrow="Comprendre" as="article">
 	<svelte:fragment slot="lede"
 		><span class="paragraphe">{accroche}</span><span class="paragraphe">{invitation}</span
 		></svelte:fragment
@@ -173,7 +173,7 @@
 
 	.categorie {
 		margin: 0;
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-size: 0.8rem;
 		font-weight: 700;
 		letter-spacing: 0.04em;
@@ -202,7 +202,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.3rem;
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-size: 0.88rem;
 		font-weight: 700;
 	}

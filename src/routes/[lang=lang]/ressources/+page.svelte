@@ -5,7 +5,7 @@
 	import { page } from '$app/stores'
 	import { browser } from '$app/environment'
 	import PostMeta from '$components/PostMeta.svelte'
-	import { PageHero } from '$components/ui'
+	import { Page } from '$components/ui'
 	import { url as siteUrl } from '$config'
 	import {
 		Lightbulb,
@@ -395,10 +395,7 @@
      sous le titre, propose déjà les mêmes catégories et les faisait doublon.
      Elle n’était d’ailleurs affichée qu’au-delà de 1024 px, et la page
      indiquait elle-même que les pastilles la remplaçaient en dessous. -->
-<article class="ressources-page">
-	<!-- Hero -->
-	<PageHero eyebrow={nav.comprendre} lede={t.hero_desc}>{t.hero_title}</PageHero>
-
+<Page title={t.hero_title} eyebrow={nav.comprendre} lede={t.hero_desc} width="wide" as="article">
 	<!-- Controls -->
 	<section class="controls">
 		<div class="search">
@@ -557,16 +554,10 @@
 			<span>{t.cta_button}</span>
 		</a>
 	</section>
-</article>
+</Page>
 
 <style>
 	/* ─── Page layout : sticky TOC on the left, content on the right ── */
-
-	.ressources-page {
-		max-inline-size: var(--width-content);
-		padding: 0 0 4rem;
-		margin: 0 auto;
-	}
 
 	/* ─── Controls ─────────────────────────────────────────── */
 	.controls {
@@ -664,7 +655,7 @@
 
 	.pill:hover {
 		border-color: var(--brand);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.pill.active {
@@ -679,7 +670,7 @@
 	}
 
 	:global([data-theme='dark']) .pill:hover {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.meta-row {
@@ -721,7 +712,7 @@
 
 	.reset-btn:hover {
 		border-color: var(--brand);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.updated {
@@ -755,15 +746,15 @@
 		width: 2.4rem;
 		height: 2.4rem;
 		border-radius: var(--radius-md);
-		background: var(--brand-light);
-		color: var(--brand-subtle);
+		background: var(--panneau-bg);
+		color: var(--brand);
 		flex-shrink: 0;
 		margin-top: 0.15rem;
 	}
 
 	:global([data-theme='dark']) .section-icon {
 		background: rgba(var(--brand-rgb), 0.15);
-		color: var(--brand-subtle);
+		color: var(--brand);
 	}
 
 	.res-section-header h2 {
@@ -832,8 +823,13 @@
 			box-shadow 0.2s ease;
 	}
 
+	/* Au survol : un filet orange épais sur le bord d'attaque, et le titre se
+	   souligne. Une bordure qui change de teinte ne se voit pas assez pour
+	   dire « ceci se clique » ; le filet, lui, se lit du coin de l'œil. */
 	.res-card:hover {
 		border-color: var(--brand);
+		border-inline-start: 3px solid var(--brand);
+		padding-inline-start: calc(1.1rem - 2px);
 		transform: translateY(-1px);
 		box-shadow: 0 4px 14px rgba(var(--ink-rgb), 0.05);
 	}
@@ -865,11 +861,11 @@
 		font-size: 1rem;
 		line-height: 1.35;
 		margin: 0;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	:global([data-theme='dark']) .res-title {
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	:global(.res-arrow) {
@@ -881,15 +877,24 @@
 			color 0.2s ease;
 	}
 
+	.res-card:hover .res-title {
+		text-decoration: underline;
+		text-decoration-color: var(--brand);
+		text-decoration-thickness: 0.09em;
+		text-underline-offset: 0.16em;
+	}
+
 	.res-card:hover :global(.res-arrow) {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		transform: translate(2px, -2px);
 	}
 
+	/* 1 rem et non 0,95 : c'est de la prose, et les guides de typographie web
+	   s'accordent sur 16 px comme plancher du corps de texte. */
 	.res-desc {
 		font-family: var(--font-body);
 		font-weight: 400;
-		font-size: 0.95rem;
+		font-size: 1rem;
 		line-height: 1.5;
 		color: var(--text);
 		margin: 0;

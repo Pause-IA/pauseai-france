@@ -2,7 +2,7 @@
 	import { MoveUpRight, ChevronLeft, ChevronRight, Search, X, Newspaper } from 'lucide-svelte'
 	import type { PressRelease, LocalPressRelease, PressCoverage } from '$lib/notion'
 	import { getT } from '$lib/i18n'
-	import { Page } from '$components/ui'
+	import { Card, Page } from '$components/ui'
 	import type { PageData } from './$types'
 
 	export let data: PageData & {
@@ -339,7 +339,7 @@
 
 <Page width="wide" eyebrow={t.nav.actualites} title={t.presse.title} lede={t.presse.subtitle}>
 	<section class="contact-section">
-		<div class="contact-card">
+		<Card variant="accent" padding="compact">
 			<h2>{t.presse.contact_title}</h2>
 			<p class="contact-note">{t.presse.contact_note}</p>
 			<div class="contact-info">
@@ -375,7 +375,7 @@
 				<a href="{prefix}/qui-sommes-nous">{t.presse.redirect_link}</a>
 				{t.presse.redirect_suffix}
 			</p>
-		</div>
+		</Card>
 	</section>
 
 	<section class="press-releases-section">
@@ -703,14 +703,7 @@
 		margin-bottom: 3rem;
 	}
 
-	.contact-card {
-		background-color: var(--bg-subtle);
-		border: 2px solid var(--brand);
-		border-radius: var(--radius-sm);
-		padding: 1.25rem 1.5rem;
-	}
-
-	.contact-card h2 {
+	.contact-section :global(h2) {
 		margin-top: 0;
 		margin-bottom: 0.125rem;
 		font-size: 1.3rem;
@@ -737,7 +730,7 @@
 	}
 
 	.contact-email-main a {
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-weight: 600;
 	}
 
@@ -769,7 +762,7 @@
 	}
 
 	.contact-info a {
-		color: var(--brand-subtle);
+		color: var(--text);
 		font-weight: 600;
 	}
 
@@ -782,7 +775,7 @@
 	}
 
 	.redirect a {
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	/* Press releases section */
@@ -826,7 +819,7 @@
 	}
 
 	.tab.active {
-		color: var(--brand-subtle);
+		color: var(--accent);
 		background-color: var(--bg-card);
 		box-shadow: var(--shadow-card);
 	}
@@ -852,7 +845,7 @@
 
 	.tab.active .tab-count {
 		background-color: rgba(var(--brand-rgb), 0.15);
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* Department filter combobox */
@@ -975,7 +968,7 @@
 	.dept-option-code {
 		font-weight: 700;
 		font-size: 0.9rem;
-		color: var(--brand-subtle);
+		color: var(--text);
 		min-width: 2rem;
 	}
 
@@ -1006,7 +999,7 @@
 		margin-bottom: 0.5rem;
 		font-size: 0.75rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--text);
 		background-color: rgba(var(--brand-rgb), 0.08);
 		border: 1px solid var(--brand);
 		border-radius: 0.25rem;
@@ -1091,12 +1084,12 @@
 		gap: 0.375rem;
 		font-size: 0.875rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 		transition: color 0.2s ease;
 	}
 
 	.press-release-card:hover .read-link {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	.link-icon {
@@ -1295,7 +1288,7 @@
 
 	.coverage-item:hover {
 		background-color: var(--bg-subtle);
-		border-left-color: var(--brand-subtle);
+		border-left-color: var(--accent);
 		color: var(--text);
 	}
 
@@ -1310,7 +1303,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
-		color: var(--brand-subtle);
+		color: var(--text);
 		background: color-mix(in srgb, var(--brand) 10%, transparent);
 		padding: 0.1rem 0.4rem;
 		border-radius: 0.25rem;
@@ -1357,11 +1350,12 @@
 		margin-top: 0;
 		margin-bottom: 1rem;
 		font-size: 1.3rem;
-		color: var(--brand-subtle);
+		color: var(--text);
 	}
 
 	.about-card p {
-		font-size: 0.95rem;
+		/* 1 rem : plancher du corps de texte. */
+		font-size: 1rem;
 		line-height: 1.6;
 		color: var(--text-secondary);
 		margin-bottom: 0.75rem;
@@ -1398,12 +1392,6 @@
 		.contact-persons {
 			flex-direction: column;
 			gap: 0.75rem;
-		}
-	}
-
-	@media (min-width: 640px) {
-		.contact-card {
-			padding: 1.5rem 2rem;
 		}
 	}
 </style>

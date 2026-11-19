@@ -149,9 +149,11 @@
 	}
 
 	main {
-		/* padding-block: 1rem; */
-		/* margin-bottom: 5rem; */
-		padding: 0 1rem 1rem;
+		/* Le bas de <main> est exposé en variable : une bande peinte d'un bord
+		   à l'autre, quand elle termine la page, doit couvrir cette réserve,
+		   sinon un liseré blanc s'intercale avant le pied de page. */
+		--main-pb: 1rem;
+		padding: 0 1rem var(--main-pb);
 		display: flex;
 		flex-direction: column;
 	}
@@ -166,18 +168,21 @@
 
 	@media (min-width: 640px) {
 		main {
-			padding: 0rem 2rem 7.5rem 2rem;
+			--main-pb: 7.5rem;
+			padding: 0rem 2rem var(--main-pb) 2rem;
 		}
 	}
 
 	@media (min-width: 768px) {
 		main {
-			padding: 0rem 4rem 7.5rem 4rem;
+			--main-pb: 7.5rem;
+			padding: 0rem 4rem var(--main-pb) 4rem;
 		}
 	}
 	@media (min-width: 1024px) {
 		main {
-			padding: 0rem 6rem 7.5rem 6rem;
+			--main-pb: 7.5rem;
+			padding: 0rem 6rem var(--main-pb) 6rem;
 		}
 	}
 

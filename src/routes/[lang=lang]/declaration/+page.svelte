@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte'
 	import PostMeta from '$components/PostMeta.svelte'
+	import RetourAgir from '$components/RetourAgir.svelte'
 	import Button from '$components/Button.svelte'
-	import { Card, PageHero, SectionTitle } from '$components/ui'
+	import { Card, Page, SectionTitle } from '$components/ui'
 	import DeclarationNextSteps from '$components/DeclarationNextSteps.svelte'
 	import SignatoryCard from '$components/declaration/SignatoryCard.svelte'
 	import { counts, loadDeclaration, toEntries, type DeclarationData } from '$lib/declaration'
@@ -144,26 +145,23 @@
 
 <PostMeta {title} {description} />
 
-<article>
-	<PageHero eyebrow={isEn ? 'Act' : 'Agir'}>
-		{title}
-		<svelte:fragment slot="lede">
-			{#if isEn}
-				This statement summarises the position of the volunteers and supporters of the PauseAI
-				association, and in particular of its French branch, Pause IA. Sign it to add your voice to
-				ours and help us build our collective strength.
-			{:else}
-				Cet appel résume la position des bénévoles, sympathisants et sympathisantes de l’association
-				PauseAI et notamment de sa branche française, Pause IA. Signez-la pour ajouter votre voix à
-				la nôtre et nous aider à construire notre force collective.
-			{/if}
-		</svelte:fragment>
-		<div slot="actions" class="hero-actions">
-			<Button href="#signer">{isEn ? 'Sign the statement' : 'Signer l’appel'}</Button>
-		</div>
-	</PageHero>
+<Page {title} eyebrow={isEn ? 'Act' : 'Agir'} width="content" as="article">
+	<svelte:fragment slot="lede">
+		{#if isEn}
+			This statement summarises the position of the volunteers and supporters of the PauseAI
+			association, and in particular of its French branch, Pause IA. Sign it to add your voice to
+			ours and help us build our collective strength.
+		{:else}
+			Cet appel résume la position des bénévoles, sympathisants et sympathisantes de l’association
+			PauseAI et notamment de sa branche française, Pause IA. Signez-la pour ajouter votre voix à la
+			nôtre et nous aider à construire notre force collective.
+		{/if}
+	</svelte:fragment>
+	<div slot="actions" class="hero-actions">
+		<Button href="#signer">{isEn ? 'Sign the statement' : 'Signer l’appel'}</Button>
+	</div>
 
-	<blockquote class="statement">
+	<blockquote class="statement aplat-marque">
 		{#if isEn}
 			We call on the governments of the world to sign an international treaty implementing a pause
 			on the training of the most powerful general AI systems, until we know how to build them
@@ -403,40 +401,23 @@
 			{/if}
 		</Button>
 	</section>
-</article>
+
+	<RetourAgir lang={data.lang} />
+</Page>
 
 <style>
-	article {
-		/* Largeur fixe : sans elle, un article centré dans <main> (flex) prend
-		   la largeur de son contenu et la page bouge quand un bloc s'ouvre. */
-		inline-size: 100%;
-		max-inline-size: var(--width-content);
-		margin-inline: auto;
-		margin-top: 3rem;
-		margin-bottom: 5rem;
-	}
-
 	.hero-actions {
 		margin-top: 1.5rem;
 	}
 
 	/* Citation de la charte : fond --bg-subtle, barre gauche --brand. */
+	/* L'appel lui-même : c'est le texte qu'on vient signer, et il était posé
+	   dans une carte blanche à filet orange. Depuis que les cartes sont
+	   blanches comme la page, cette carte ne se voyait plus du tout. Il prend
+	   l'aplat de marque (classe globale .aplat-marque) : forme, filet orange
+	   et débordement viennent de là, il ne reste ici que sa typographie. */
 	.statement {
-		margin: 0 0 1rem;
-		padding: 1.25rem 1.75rem;
-		border-left: 4px solid var(--brand);
-		background: var(--bg-card);
-		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 		font-weight: 500;
-		font-size: 1.15rem;
-		line-height: 1.7;
-		color: var(--text);
-	}
-
-	@media (min-width: 640px) {
-		.statement {
-			font-size: 1.4rem;
-		}
 	}
 
 	.source,
@@ -483,7 +464,7 @@
 	.num {
 		font-size: 2.5rem;
 		font-weight: 700;
-		color: var(--brand-subtle);
+		color: var(--text);
 		line-height: 1.1;
 	}
 
@@ -583,7 +564,7 @@
 		border: none;
 		padding: 0;
 		font: inherit;
-		color: var(--brand-subtle);
+		color: var(--text);
 		text-decoration: underline;
 		cursor: pointer;
 	}

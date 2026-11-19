@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { openActivoiceForm } from '$lib/activoice'
 	import { Badge } from '$components/ui'
-	import PostMeta from '$components/PostMeta.svelte'
-	import UnderlinedTitle from '$components/UnderlinedTitle.svelte'
+	import { CampaignPage, CampaignHero, CampaignSection } from '$components/campaign'
 	import Button from '$lib/components/Button.svelte'
 	import type { PageData } from './$types'
 
@@ -268,19 +267,15 @@
 	<script src="https://activoice.online/embed/activoice-12.0.0.js"></script>
 </svelte:head>
 
-<PostMeta {title} {description} />
-
-<article>
-	<!-- ── Hero ── -->
-	<section class="hero">
-		<UnderlinedTitle as="h1">
-			{isEn ? 'Municipal elections 2026' : 'Élections municipales 2026'}
-		</UnderlinedTitle>
-		<p class="intro">{description}</p>
-	</section>
+<CampaignPage {title} {description} width="wide">
+	<CampaignHero
+		title={isEn ? 'Municipal elections 2026' : 'Élections municipales 2026'}
+		lede={description}
+		eyebrow={isEn ? 'Campaign' : 'Campagne'}
+	/>
 
 	<!-- ── 1. Agir : campagne en cours ── -->
-	<section class="action-section">
+	<CampaignSection id="agir" variant="accent">
 		<div class="action-inner">
 			<div class="action-text">
 				{#if isEn}
@@ -307,10 +302,10 @@
 			</div>
 		</div>
 		<activoice-embed id="activoice-embed-1d572d9b_9638_4731_84c0_ce7fd867cccb"></activoice-embed>
-	</section>
+	</CampaignSection>
 
 	<!-- ── 2. Candidats signataires ── -->
-	<section class="signatories-section">
+	<CampaignSection id="signataires">
 		<div class="section-header">
 			<h2>{isEn ? 'Committed candidates' : 'Les candidat·es engagé·es'}</h2>
 			<Badge>{candidates.length} {isEn ? 'signatories' : 'signataires'}</Badge>
@@ -371,11 +366,11 @@
 				</button>
 			{/each}
 		</div>
-	</section>
+	</CampaignSection>
 
 	<!-- ── 3. Revue de presse ── -->
 	{#if pressArticles.length > 0}
-		<section class="press-section">
+		<CampaignSection id="revue-de-presse">
 			<div class="section-header">
 				<h2>{isEn ? 'Campaign press review' : 'Revue de presse de la campagne'}</h2>
 				<Badge>{pressArticles.length} articles</Badge>
@@ -394,9 +389,9 @@
 					</a>
 				{/each}
 			</div>
-		</section>
+		</CampaignSection>
 	{/if}
-</article>
+</CampaignPage>
 
 <!-- Modal : Charte d’un candidat -->
 {#if showCharterModal && selectedCandidate}
@@ -486,25 +481,6 @@
 {/if}
 
 <style>
-	article {
-		max-inline-size: var(--width-wide);
-		margin-inline: auto;
-		margin-top: 3rem;
-		padding: 0 2rem 4rem;
-	}
-
-	/* ── Hero ── */
-	.hero {
-		margin-bottom: 3rem;
-	}
-
-	.intro {
-		font-size: 1.2rem;
-		line-height: 1.7;
-		color: var(--text-muted);
-		max-width: var(--width-content);
-	}
-
 	/* ── Section header pattern ── */
 	.section-header {
 		display: flex;
@@ -596,7 +572,7 @@
 		transform: translateY(-3px);
 		box-shadow: 0 8px 28px rgba(var(--ink-rgb), 0.1);
 		border-color: var(--brand);
-		border-left-color: var(--brand-subtle);
+		border-left-color: var(--accent);
 	}
 
 	.card-top {
@@ -665,7 +641,7 @@
 		gap: 0.35rem;
 		font-size: 0.82rem;
 		font-weight: 600;
-		color: var(--brand-subtle);
+		color: var(--text);
 		margin-top: auto;
 	}
 
@@ -716,7 +692,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: var(--brand-subtle);
+		color: var(--text);
 		white-space: nowrap;
 	}
 
@@ -741,7 +717,7 @@
 	}
 
 	.press-card:hover .press-link-icon {
-		color: var(--brand-subtle);
+		color: var(--accent);
 	}
 
 	/* ── Modal ── */
@@ -884,7 +860,7 @@
 
 	.engagements-list li::before {
 		content: '✓';
-		color: var(--brand-subtle);
+		color: var(--brand);
 		font-weight: 700;
 		flex-shrink: 0;
 		margin-top: 0.05em;
@@ -924,10 +900,6 @@
 
 	/* ── Responsive ── */
 	@media (max-width: 640px) {
-		article {
-			padding: 0 1rem 3rem;
-		}
-
 		.section-header h2,
 		h2 {
 			font-size: 1.3rem;
