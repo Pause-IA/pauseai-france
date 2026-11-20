@@ -326,12 +326,6 @@
 				</span>
 			</div>
 		</div>
-		<p class="map-intro">
-			{isEn
-				? 'You can write to the group in your town directly: its address is on the map and in the list below, and the message reaches the volunteers on the ground.'
-				: 'Vous pouvez écrire directement au groupe de votre ville : son adresse est sur la carte et dans la liste ci-dessous, et le message arrive aux bénévoles sur place.'}
-		</p>
-
 		{#if showMap}
 			<LocalGroupsMap />
 		{:else}
@@ -340,7 +334,14 @@
 
 		<!-- La même information que la carte, en texte : on n'a pas à explorer
 		     pour trouver l'adresse de sa ville, ça marche sans JavaScript, et
-		     les lecteurs d'écran y accèdent. -->
+		     les lecteurs d'écran y accèdent. La phrase est ici plutôt qu'au-
+		     dessus de la carte : c'est ici qu'on peut cliquer. -->
+		<p class="map-intro">
+			{isEn
+				? 'Writing to one of these addresses reaches the volunteers on the ground directly.'
+				: 'Écrire à l’une de ces adresses, c’est joindre directement les bénévoles sur place.'}
+		</p>
+
 		<ul class="city-list" aria-label={isEn ? 'Contact a local group' : 'Contacter un groupe local'}>
 			{#each sortedGroups as group}
 				<li class="city-chip" class:forming={group.forming}>
@@ -734,19 +735,19 @@
 	.city-list {
 		list-style: none;
 		padding: 0;
-		margin: 1.25rem 0 0;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
+		margin: 1.5rem 0 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
+		gap: 0.6rem;
 	}
 
 	/* La pastille porte maintenant une adresse : elle passe du rond au
 	   rectangle, parce qu'elle contient deux lignes, et devient cliquable en
-	   entier. */
+	   entier. Toutes font la même largeur : seize pastilles de tailles
+	   différentes donnaient un bord droit en dents de scie. */
 	.city-chip {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.4rem;
+		position: relative;
+		display: flex;
 		border-radius: var(--radius-md);
 		border: 1px solid var(--border);
 		background: var(--bg-card);
@@ -766,10 +767,19 @@
 	.city-chip a {
 		display: flex;
 		flex-direction: column;
-		gap: 0.1rem;
-		padding: 0.45rem 0.85rem;
+		gap: 0.15rem;
+		flex: 1;
+		padding: 0.6rem 0.85rem;
 		color: var(--text);
 		text-decoration: none;
+	}
+
+	/* Le lien couvre la pastille entière : on clique où on veut. */
+	.city-chip a::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: var(--radius-md);
 	}
 
 	.city-name {
@@ -796,11 +806,20 @@
 	}
 
 	.city-tag {
-		font-size: 0.7rem;
+		position: absolute;
+		inset-block-start: 0.6rem;
+		inset-inline-end: 0.85rem;
+		font-size: 0.68rem;
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.03em;
 		color: var(--text-secondary);
+	}
+
+	/* Le nom laisse la place à l'étiquette, sinon les deux se chevauchent sur
+	   une ville au nom long. */
+	.city-chip.forming .city-name {
+		padding-inline-end: 5.5rem;
 	}
 
 	/* ── Sections titrées (agenda, actions passées) ──────────────────── */

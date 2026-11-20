@@ -94,12 +94,14 @@
 			const nom = txt(group.name)
 			const mail = txt(group.email)
 
-			// Survol (ordinateur) : la ville, son statut, et l'adresse. On voit
-			// qu'il y a quelqu'un à qui écrire sans avoir à cliquer.
+			// Survol : la ville, son statut, et l'invitation à cliquer. Pas
+			// l'adresse : une infobulle de trois lignes devient une boîte qui
+			// couvre les marqueurs voisins, et l'adresse est de toute façon dans
+			// la bulle au clic et dans la liste sous la carte.
 			marker.bindTooltip(
 				`<div class="tt-name">${nom}</div>` +
 					(statut ? `<div class="tt-status">${statut}</div>` : '') +
-					`<div class="tt-mail">${mail}</div>`,
+					`<div class="tt-hint">Cliquez pour écrire</div>`,
 				{ direction: 'top', offset: [0, -6], className: 'map-tooltip' }
 			)
 
@@ -225,11 +227,11 @@
 
 	/* ── Tooltip ──────────────────────────────────────────────────────── */
 
-	/* ─── Adresse dans l'infobulle et dans la bulle ───────────────────── */
-	:global(.map-tooltip .tt-mail) {
-		margin-top: 0.2rem;
-		font-size: 0.78rem;
-		opacity: 0.85;
+	/* ─── Infobulle et bulle ──────────────────────────────────────────── */
+	:global(.map-tooltip .tt-hint) {
+		margin-top: 0.15rem;
+		font-size: 0.72rem;
+		opacity: 0.75;
 	}
 
 	/* La bulle, elle, est posée sur fond clair : elle contient des liens et un
