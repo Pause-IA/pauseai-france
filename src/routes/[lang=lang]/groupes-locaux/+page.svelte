@@ -328,8 +328,8 @@
 		</div>
 		<p class="map-intro">
 			{isEn
-				? 'Every group has its own address. Write to them directly: your message goes straight to the people on the ground.'
-				: 'Chaque groupe a sa propre adresse. Écrivez-leur directement : votre message arrive aux personnes sur place.'}
+				? 'You can write to the group in your town directly: its address is on the map and in the list below, and the message reaches the volunteers on the ground.'
+				: 'Vous pouvez écrire directement au groupe de votre ville : son adresse est sur la carte et dans la liste ci-dessous, et le message arrive aux bénévoles sur place.'}
 		</p>
 
 		{#if showMap}
