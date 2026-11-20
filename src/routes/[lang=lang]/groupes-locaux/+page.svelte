@@ -759,10 +759,6 @@
 		margin: 1.25rem 0 0;
 	}
 
-	.depliable.adresses h3 {
-		font-size: 1.05rem;
-	}
-
 	.depliable.adresses .map-intro {
 		margin: 0;
 	}
@@ -835,16 +831,18 @@
 	.city-mail {
 		overflow: hidden;
 		font-size: 0.85rem;
-		color: var(--text-2);
+		color: var(--text);
 		text-overflow: ellipsis;
 		text-decoration: underline;
 		text-decoration-color: var(--brand);
-		text-underline-offset: 0.15em;
+		text-decoration-thickness: 0.09em;
+		text-underline-offset: 0.16em;
 		white-space: nowrap;
 	}
 
 	.city-chip:hover .city-mail {
 		color: var(--accent);
+		text-decoration-thickness: 0.14em;
 	}
 
 	/* ── Sections titrées (agenda, actions passées) ──────────────────── */
