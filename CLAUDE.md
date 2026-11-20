@@ -207,7 +207,7 @@ When someone fills the Notion form « Inscriptions aux groupes locaux », a Noti
 
 Built from the onboarding team's spec (Notion « Cahier des charges page contacter », 20/11/2026), for discussion: out of the sitemap, `noindex`, linked from nowhere (`/fr/contact` is in `prerender.entries`; `/contact` 301 → `/fr/contact`).
 
-- A dropdown of reasons (`src/lib/contact.ts`, texts copied verbatim from the spec; `[texte à écrire]` marks a missing one). Some reasons only show resources, others add a form (message, email, optional phone and Discord id). `?sujet=<clé>` preselects a reason.
+- A dropdown of reasons (`src/lib/contact.ts`, texts copied verbatim from the spec or from Antonin; a paragraph made of one link marked `bouton` is shown as a button, so the resource is seen before the form). Some reasons only show resources, others add a form (message, email, optional phone and Discord id). `?sujet=<clé>` preselects a reason.
 - `POST /api/contact` sends the message with the existing mailer (`src/lib/server/mailer.ts`, same SMTP variables as the declaration) to the reason's address, with the sender as `Reply-To`. Addresses live server-side only (`src/lib/server/contact.ts`): the browser sends the reason key, never an address, so the form cannot mail arbitrary recipients. Honeypot `website`. Nothing is stored; logs carry the reason only. 503 without SMTP, 502 if sending fails. Tests: `tests/contact.test.ts`.
 
 ### Custom Markdown Processing

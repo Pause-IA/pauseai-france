@@ -11,10 +11,17 @@
  * envoyer des courriels à n'importe qui depuis notre domaine.
  */
 
-/** Un morceau de paragraphe : du texte, éventuellement un lien. */
+/**
+ * Un morceau de paragraphe : du texte, éventuellement un lien. Un paragraphe
+ * fait d'un seul lien marqué `bouton` s'affiche en bouton, sur sa ligne : c'est
+ * la ressource vers laquelle on veut orienter avant le formulaire (retour
+ * d'Antonin : un lien dans la phrase passait inaperçu, et les gens écrivaient
+ * sans l'avoir vu).
+ */
 export interface Segment {
 	t: string
 	href?: string
+	bouton?: boolean
 }
 
 export interface Categorie {
@@ -29,9 +36,6 @@ export interface Categorie {
 }
 
 const DISCORD = 'https://discord.gg/vyXGd7AeGc'
-
-/** Repère visible pour un texte que le cahier des charges ne donne pas encore. */
-export const A_ECRIRE = '[texte à écrire]'
 
 export const CATEGORIES: Categorie[] = [
 	{
@@ -74,10 +78,10 @@ export const CATEGORIES: Categorie[] = [
 		texte: [
 			[
 				{
-					t: 'Nous vous invitons à consulter cette page, qui vous permettra de contacter directement le groupe le plus proche de chez vous : '
-				},
-				{ t: 'pauseia.fr/fr/groupes-locaux', href: '/fr/groupes-locaux' }
-			]
+					t: 'Nous vous invitons à consulter cette page, qui vous permettra de contacter directement le groupe le plus proche de chez vous :'
+				}
+			],
+			[{ t: 'Groupes locaux', href: '/fr/groupes-locaux', bouton: true }]
 		],
 		avantFormulaire: 'Si vous avez une question supplémentaire, vous pouvez la poser ici :',
 		formulaire: true
@@ -85,7 +89,17 @@ export const CATEGORIES: Categorie[] = [
 	{
 		cle: 'benevolat',
 		libelle: 'Vous impliquer dans l’association et sensibiliser autour de vous',
-		texte: [[{ t: `Avant de nous écrire, nous vous conseillons de consulter ${A_ECRIRE}` }]],
+		// Texte d'Antonin (Discord, 20/11/2026).
+		texte: [
+			[{ t: 'Avant de nous écrire, nous vous conseillons de consulter notre page « Agir » :' }],
+			[{ t: 'Agir', href: '/fr/agir', bouton: true }],
+			[
+				{
+					t: 'Notre communauté est organisée sur Discord, nous vous conseillons de le rejoindre si c’est possible pour vous.'
+				}
+			],
+			[{ t: 'Discord', href: DISCORD, bouton: true }]
+		],
 		formulaire: true
 	},
 	{

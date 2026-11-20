@@ -90,16 +90,24 @@
 	{#if choisie}
 		<section class="reponse" aria-live="polite">
 			{#each choisie.texte as paragraphe}
-				<p>
-					{#each paragraphe as s}{#if s.href}<a
-								href={s.href}
-								target={s.href.startsWith('http') ? '_blank' : undefined}
-								rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{s.t}</a
-							>{:else}{s.t}{/if}{/each}
-				</p>
+				{#if paragraphe.length === 1 && paragraphe[0].bouton && paragraphe[0].href}
+					<p class="ressource">
+						<Button alt href={paragraphe[0].href}>{paragraphe[0].t}</Button>
+					</p>
+				{:else}
+					<p>
+						{#each paragraphe as s}{#if s.href}<a
+									href={s.href}
+									target={s.href.startsWith('http') ? '_blank' : undefined}
+									rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{s.t}</a
+								>{:else}{s.t}{/if}{/each}
+					</p>
+				{/if}
 			{/each}
 
 			{#if choisie.formulaire}
+				<!-- Le formulaire vient après un filet : on lit d'abord la ressource. -->
+				<hr class="separation" />
 				{#if choisie.avantFormulaire}<p>{choisie.avantFormulaire}</p>{/if}
 				{#if envoye}
 					<p class="envoye" role="status" tabindex="-1">
@@ -197,6 +205,16 @@
 	.reponse {
 		padding-inline-start: 1.25rem;
 		border-inline-start: 3px solid var(--brand);
+	}
+
+	.ressource {
+		margin-block: 0.25rem 1.25rem;
+	}
+
+	.separation {
+		border: 0;
+		border-top: 1px solid var(--border);
+		margin-block: 1.5rem;
 	}
 
 	form {
