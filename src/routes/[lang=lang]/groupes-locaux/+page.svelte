@@ -345,11 +345,18 @@
 		<ul class="city-list" aria-label={isEn ? 'Contact a local group' : 'Contacter un groupe local'}>
 			{#each sortedGroups as group}
 				<li class="city-chip" class:forming={group.forming}>
-					<a href="mailto:{group.email}">
-						<span class="city-name">{group.name}</span>
+					<a
+						href="mailto:{group.email}"
+						title={group.forming
+							? `${group.name} — ${isEn ? 'forming' : 'groupe en cours de création'}`
+							: group.name}
+					>
+						<span class="city-dot" aria-hidden="true"></span>
+						{#if group.forming}<span class="visually-hidden"
+								>{isEn ? 'Group forming:' : 'Groupe en création :'}</span
+							>{/if}
 						<span class="city-mail">{group.email}</span>
 					</a>
-					{#if group.forming}<span class="city-tag">{isEn ? 'forming' : 'en création'}</span>{/if}
 				</li>
 			{/each}
 		</ul>
@@ -737,22 +744,19 @@
 		padding: 0;
 		margin: 1.5rem 0 0;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
-		gap: 0.6rem;
+		grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+		gap: 0.45rem;
 	}
 
-	/* La pastille porte maintenant une adresse : elle passe du rond au
-	   rectangle, parce qu'elle contient deux lignes, et devient cliquable en
-	   entier. Toutes font la même largeur : seize pastilles de tailles
-	   différentes donnaient un bord droit en dents de scie. */
+	/* Une ligne par ville : l'adresse dit déjà le nom de la ville, le répéter
+	   en titre doublait la hauteur du bloc pour rien. La pastille ronde reprend
+	   la légende de la carte (pleine = groupe actif, creuse = en création). */
 	.city-chip {
 		position: relative;
 		display: flex;
-		border-radius: var(--radius-md);
+		border-radius: var(--radius-sm);
 		border: 1px solid var(--border);
 		background: var(--bg-card);
-		font-size: 0.88rem;
-		font-weight: 600;
 		transition:
 			border-color 0.15s ease,
 			box-shadow 0.15s ease;
@@ -766,60 +770,53 @@
 
 	.city-chip a {
 		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
+		align-items: center;
+		gap: 0.5rem;
 		flex: 1;
-		padding: 0.6rem 0.85rem;
+		min-inline-size: 0;
+		padding: 0.4rem 0.7rem;
 		color: var(--text);
 		text-decoration: none;
 	}
 
-	/* Le lien couvre la pastille entière : on clique où on veut. */
-	.city-chip a::after {
-		content: '';
+	/* Le statut n'est visible que par la pastille et l'infobulle : il reste
+	   lisible pour un lecteur d'écran. */
+	.visually-hidden {
 		position: absolute;
-		inset: 0;
-		border-radius: var(--radius-md);
+		inline-size: 1px;
+		block-size: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
 	}
 
-	.city-name {
-		font-weight: 700;
+	.city-dot {
+		flex: none;
+		inline-size: 0.5rem;
+		block-size: 0.5rem;
+		border-radius: var(--radius-pill);
+		background: var(--brand);
+	}
+
+	.city-chip.forming .city-dot {
+		background: transparent;
+		border: 2px solid var(--brand);
+		opacity: 0.65;
 	}
 
 	.city-mail {
-		font-size: 0.8rem;
-		font-weight: 400;
+		overflow: hidden;
+		font-size: 0.85rem;
 		color: var(--text-2);
+		text-overflow: ellipsis;
 		text-decoration: underline;
 		text-decoration-color: var(--brand);
 		text-underline-offset: 0.15em;
+		white-space: nowrap;
 	}
 
 	.city-chip:hover .city-mail {
 		color: var(--accent);
-	}
-
-	.city-chip.forming {
-		padding-inline-end: 0.7rem;
-		color: var(--text-secondary);
-		font-weight: 500;
-	}
-
-	.city-tag {
-		position: absolute;
-		inset-block-start: 0.6rem;
-		inset-inline-end: 0.85rem;
-		font-size: 0.68rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-		color: var(--text-secondary);
-	}
-
-	/* Le nom laisse la place à l'étiquette, sinon les deux se chevauchent sur
-	   une ville au nom long. */
-	.city-chip.forming .city-name {
-		padding-inline-end: 5.5rem;
 	}
 
 	/* ── Sections titrées (agenda, actions passées) ──────────────────── */

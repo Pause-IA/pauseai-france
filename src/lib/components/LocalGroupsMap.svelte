@@ -94,14 +94,13 @@
 			const nom = txt(group.name)
 			const mail = txt(group.email)
 
-			// Survol : la ville, son statut, et l'invitation à cliquer. Pas
-			// l'adresse : une infobulle de trois lignes devient une boîte qui
-			// couvre les marqueurs voisins, et l'adresse est de toute façon dans
-			// la bulle au clic et dans la liste sous la carte.
+			// Survol : une seule ligne, le nom de la ville, le statut à la suite
+			// quand il y en a un. Tout le reste (adresse, boutons) est dans la
+			// bulle au clic : une infobulle qui empile des lignes devient une
+			// boîte qui couvre les marqueurs voisins.
 			marker.bindTooltip(
-				`<div class="tt-name">${nom}</div>` +
-					(statut ? `<div class="tt-status">${statut}</div>` : '') +
-					`<div class="tt-hint">Cliquez pour écrire</div>`,
+				`<span class="tt-name">${nom}</span>` +
+					(statut ? ` <span class="tt-status">· en création</span>` : ''),
 				{ direction: 'top', offset: [0, -6], className: 'map-tooltip' }
 			)
 
@@ -228,12 +227,6 @@
 	/* ── Tooltip ──────────────────────────────────────────────────────── */
 
 	/* ─── Infobulle et bulle ──────────────────────────────────────────── */
-	:global(.map-tooltip .tt-hint) {
-		margin-top: 0.15rem;
-		font-size: 0.72rem;
-		opacity: 0.75;
-	}
-
 	/* La bulle, elle, est posée sur fond clair : elle contient des liens et un
 	   bouton, qui doivent se lire et se cliquer. */
 	:global(.map-popup .leaflet-popup-content-wrapper) {
@@ -303,29 +296,32 @@
 		background: rgba(var(--tooltip-dark-rgb), 0.93) !important;
 		color: var(--on-dark) !important;
 		border: none !important;
-		border-radius: 8px !important;
+		border-radius: var(--radius-sm) !important;
 		padding: 0 !important;
-		box-shadow: 0 4px 16px rgba(var(--ink-rgb), 0.25) !important;
+		box-shadow: var(--shadow-raised) !important;
 		font-family: inherit !important;
 	}
 
 	:global(.map-tooltip .leaflet-tooltip-content) {
-		padding: 0;
+		display: flex;
+		align-items: baseline;
+		gap: 0.4em;
+		padding: 5px 10px;
+		white-space: nowrap;
 	}
 
 	:global(.tt-name) {
-		font-size: 13px;
-		font-weight: 700;
-		padding: 7px 13px 6px;
-		line-height: 1;
+		font-size: 0.8rem;
+		font-weight: 600;
+		line-height: 1.2;
 	}
 
 	:global(.tt-status) {
-		font-size: 11px;
+		margin-inline-start: 0.35em;
+		font-size: 0.7rem;
 		font-weight: 400;
-		color: rgba(var(--on-dark-rgb), 0.65);
-		padding: 0 13px 8px;
-		line-height: 1;
+		color: rgba(var(--on-dark-rgb), 0.6);
+		line-height: 1.2;
 	}
 
 	:global(.map-tooltip.leaflet-tooltip-top::before) {
@@ -350,7 +346,7 @@
 	}
 
 	:global(.leaflet-control-zoom a) {
-		border-radius: 6px !important;
+		border-radius: var(--radius-sm) !important;
 		color: var(--text) !important;
 		border-color: var(--border) !important;
 	}
