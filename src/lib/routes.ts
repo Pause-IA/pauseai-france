@@ -9,6 +9,8 @@ const EXCLUDED = [
 	'/campagne-modele',
 	'/declaration/confirmer',
 	'/plan-du-site',
+	// Prototype pour discussion (cahier des charges onboarding, 20/11/2026).
+	'/contact',
 	// Listes de signataires des tribunes : on y arrive par le lien publié.
 	'/tribunes/le-monde-octobre-2026',
 	// Sans offre en cours : la page existe (pied de page, 301 de

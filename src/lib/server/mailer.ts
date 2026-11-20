@@ -15,6 +15,8 @@ export interface Mail {
 	subject: string
 	text: string
 	html: string
+	/** Adresse de réponse propre à ce courriel (formulaire de contact : la personne qui écrit). */
+	replyTo?: string
 }
 
 const bool = (v: string | undefined) => /^(1|true|yes|oui|on)$/i.test((v ?? '').trim())
