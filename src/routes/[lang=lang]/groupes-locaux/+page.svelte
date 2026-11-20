@@ -39,13 +39,13 @@
 	// Mois écoulés depuis le lancement des groupes locaux (mars 2026).
 	const mois = moisDepuisLancement()
 
-	// Villes triées : groupes actifs d'abord, puis ceux en création, par ordre
-	// alphabétique à l'intérieur. Les groupes en sommeil ne sont pas listés :
-	// la liste sert à trouver qui rejoindre près de chez soi.
-	const rang = (g: { forming?: boolean }) => (g.forming ? 1 : 0)
-	$: sortedGroups = localGroups
+	// Ordre alphabétique strict. La liste servait à montrer les groupes actifs,
+	// et poussait donc ceux en création à la fin ; elle sert maintenant à
+	// trouver l'adresse de SA ville, et on y cherche par le nom. Les groupes en
+	// création gardent leur étiquette, ce qui suffit à les distinguer.
+	$: sortedGroups = [...localGroups]
 		.filter((g) => !g.inactif)
-		.sort((a, b) => rang(a) - rang(b) || a.name.localeCompare(b.name))
+		.sort((a, b) => a.name.localeCompare(b.name, 'fr'))
 
 	// ── Agenda des actions (depuis Notion, via /api/events, non prérendu) ──
 	interface LocalEvent {
@@ -296,28 +296,6 @@
 	     visiteur avait donc deux boutons pour une seule action, sans savoir
 	     lequel le concernait. Ce que le lecteur veut savoir, c’est ce qui se
 	     passe après avoir cliqué ; c’est ce que dit le cadre maintenant. -->
-	<section class="cta-section">
-		<div class="cta-card join">
-			<span class="cta-icon"><MessageSquare size="1.6rem" /></span>
-			<h2>{isEn ? 'Join or start a group' : 'Rejoindre ou lancer un groupe'}</h2>
-			<p>
-				{#if isEn}
-					Take part in local awareness and mobilisation actions, or lead a group of volunteers and
-					keep the link with the national team. One form for both: tell us your town. If a group
-					already exists near you, we put you in touch; if there is none, we help you start one.
-				{:else}
-					Participer à des actions de sensibilisation et de mobilisation près de chez vous, ou
-					animer un groupe de bénévoles et faire le lien avec l’équipe nationale. Un seul formulaire
-					pour les deux : indiquez votre ville. S’il existe déjà un groupe, nous vous mettons en
-					relation ; s’il n’y en a pas, nous vous accompagnons pour en lancer un.
-				{/if}
-			</p>
-			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
-				{isEn ? 'Sign up' : 'S’inscrire'}
-			</Button>
-		</div>
-	</section>
-
 	<section class="map-section" bind:this={mapSection}>
 		<div class="map-header">
 			<div class="map-title-row">
@@ -344,24 +322,58 @@
 				{/if}
 				<span class="map-hint">
 					<span class="map-sep">·</span>
-					{isEn ? 'hover a marker to see the city' : 'survolez un marqueur pour voir la ville'}
+					{isEn ? 'tap a marker to get in touch' : 'cliquez sur un marqueur pour écrire au groupe'}
 				</span>
 			</div>
 		</div>
+		<p class="map-intro">
+			{isEn
+				? 'Every group has its own address. Write to them directly: your message goes straight to the people on the ground.'
+				: 'Chaque groupe a sa propre adresse. Écrivez-leur directement : votre message arrive aux personnes sur place.'}
+		</p>
+
 		{#if showMap}
 			<LocalGroupsMap />
 		{:else}
 			<div class="map-placeholder" aria-hidden="true"></div>
 		{/if}
 
-		<ul class="city-list" aria-label={isEn ? 'Cities with a group' : 'Villes avec un groupe'}>
+		<!-- La même information que la carte, en texte : on n'a pas à explorer
+		     pour trouver l'adresse de sa ville, ça marche sans JavaScript, et
+		     les lecteurs d'écran y accèdent. -->
+		<ul class="city-list" aria-label={isEn ? 'Contact a local group' : 'Contacter un groupe local'}>
 			{#each sortedGroups as group}
 				<li class="city-chip" class:forming={group.forming}>
-					{group.name}
+					<a href="mailto:{group.email}">
+						<span class="city-name">{group.name}</span>
+						<span class="city-mail">{group.email}</span>
+					</a>
 					{#if group.forming}<span class="city-tag">{isEn ? 'forming' : 'en création'}</span>{/if}
 				</li>
 			{/each}
 		</ul>
+	</section>
+
+	<section class="cta-section">
+		<div class="cta-card join">
+			<span class="cta-icon"><MessageSquare size="1.6rem" /></span>
+			<h2>{isEn ? 'Join or start a group' : 'Rejoindre ou lancer un groupe'}</h2>
+			<p>
+				{#if isEn}
+					Take part in local awareness and mobilisation actions, or lead a group of volunteers and
+					keep the link with the national team. One form for both: tell us your town. If a group
+					already exists near you, we put you in touch; if there is none, we help you start one.
+				{:else}
+					Participer à des actions de sensibilisation et de mobilisation près de chez vous, ou
+					animer un groupe de bénévoles et faire le lien avec l’équipe nationale. Un seul formulaire
+					pour les deux : indiquez votre ville. S’il existe déjà un groupe, nous vous mettons en
+					relation ; s’il n’y en a pas, nous vous accompagnons pour en lancer un.
+				{/if}
+			</p>
+			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
+				{isEn ? 'Sign up' : 'S’inscrire'}
+			</Button>
+		</div>
 	</section>
 
 	{#if pastAll.length}
@@ -728,19 +740,57 @@
 		gap: 0.5rem;
 	}
 
+	/* La pastille porte maintenant une adresse : elle passe du rond au
+	   rectangle, parce qu'elle contient deux lignes, et devient cliquable en
+	   entier. */
 	.city-chip {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		padding: 0.35rem 0.8rem;
-		border-radius: var(--radius-pill);
+		border-radius: var(--radius-md);
 		border: 1px solid var(--border);
 		background: var(--bg-card);
 		font-size: 0.88rem;
 		font-weight: 600;
+		transition:
+			border-color 0.15s ease,
+			box-shadow 0.15s ease;
+	}
+
+	.city-chip:hover,
+	.city-chip:focus-within {
+		border-color: var(--brand);
+		box-shadow: var(--shadow-card);
+	}
+
+	.city-chip a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+		padding: 0.45rem 0.85rem;
+		color: var(--text);
+		text-decoration: none;
+	}
+
+	.city-name {
+		font-weight: 700;
+	}
+
+	.city-mail {
+		font-size: 0.8rem;
+		font-weight: 400;
+		color: var(--text-2);
+		text-decoration: underline;
+		text-decoration-color: var(--brand);
+		text-underline-offset: 0.15em;
+	}
+
+	.city-chip:hover .city-mail {
+		color: var(--accent);
 	}
 
 	.city-chip.forming {
+		padding-inline-end: 0.7rem;
 		color: var(--text-secondary);
 		font-weight: 500;
 	}

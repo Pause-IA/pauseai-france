@@ -9,6 +9,37 @@
 	let mapContainer: HTMLDivElement
 	let map: import('leaflet').Map | null = null
 
+	/* Une adresse copiée, et le marqueur dont le bouton vient d'être pressé :
+	   le retour visuel est rendu dans la bulle, qui est du HTML brut posé par
+	   Leaflet, pas du Svelte. On le pilote donc à la main. */
+	let minuteurCopie: ReturnType<typeof setTimeout>
+
+	/** Échappe un texte destiné au HTML des bulles Leaflet. */
+	const txt = (t: string) =>
+		t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+	/**
+	 * Copie l'adresse et le dit sur le bouton. Le presse-papiers peut être
+	 * refusé (contexte non sécurisé, permission) : dans ce cas l'adresse reste
+	 * affichée et sélectionnable dans la bulle, et « Écrire » fonctionne
+	 * toujours.
+	 */
+	async function copier(email: string, bouton: HTMLButtonElement) {
+		try {
+			await navigator.clipboard.writeText(email)
+			const avant = bouton.innerHTML
+			bouton.innerHTML = 'Copié'
+			bouton.classList.add('ok')
+			clearTimeout(minuteurCopie)
+			minuteurCopie = setTimeout(() => {
+				bouton.innerHTML = avant
+				bouton.classList.remove('ok')
+			}, 2000)
+		} catch {
+			/* rien : l'adresse est visible juste au-dessus */
+		}
+	}
+
 	onMount(async () => {
 		const L = (await import('leaflet')).default
 		await import('leaflet/dist/leaflet.css')
@@ -60,15 +91,36 @@
 			const marker = L.marker([group.lat, group.lon], { icon }).addTo(map)
 
 			const statut = group.forming ? 'En cours de création' : ''
-			const tooltipContent = statut
-				? `<div class="tt-name">${group.name}</div><div class="tt-status">${statut}</div>`
-				: `<div class="tt-name">${group.name}</div>`
+			const nom = txt(group.name)
+			const mail = txt(group.email)
 
-			marker.bindTooltip(tooltipContent, {
-				direction: 'top',
-				offset: [0, -6],
-				className: 'map-tooltip'
+			// Survol (ordinateur) : la ville, son statut, et l'adresse. On voit
+			// qu'il y a quelqu'un à qui écrire sans avoir à cliquer.
+			marker.bindTooltip(
+				`<div class="tt-name">${nom}</div>` +
+					(statut ? `<div class="tt-status">${statut}</div>` : '') +
+					`<div class="tt-mail">${mail}</div>`,
+				{ direction: 'top', offset: [0, -6], className: 'map-tooltip' }
+			)
+
+			// Clic ou toucher : la bulle, avec de quoi agir. Deux gestes plutôt
+			// qu'un : « mailto: » n'ouvre rien chez qui lit son courrier dans un
+			// navigateur, et beaucoup préfèrent coller l'adresse dans leur webmail.
+			const bulle = L.DomUtil.create('div', 'lm-popup')
+			bulle.innerHTML =
+				`<div class="lm-pop-name">${nom}</div>` +
+				(statut ? `<div class="lm-pop-status">${statut}</div>` : '') +
+				`<a class="lm-pop-mail" href="mailto:${mail}">${mail}</a>` +
+				`<div class="lm-pop-actions">` +
+				`<a class="lm-btn" href="mailto:${mail}">Écrire</a>` +
+				`<button class="lm-btn lm-btn-alt" type="button">Copier</button>` +
+				`</div>`
+			const boutonCopier = bulle.querySelector('button') as HTMLButtonElement
+			L.DomEvent.on(boutonCopier, 'click', (e) => {
+				L.DomEvent.stop(e)
+				void copier(group.email, boutonCopier)
 			})
+			marker.bindPopup(bulle, { className: 'map-popup', closeButton: true, offset: [0, -10] })
 		}
 	})
 
@@ -172,6 +224,78 @@
 	}
 
 	/* ── Tooltip ──────────────────────────────────────────────────────── */
+
+	/* ─── Adresse dans l'infobulle et dans la bulle ───────────────────── */
+	:global(.map-tooltip .tt-mail) {
+		margin-top: 0.2rem;
+		font-size: 0.78rem;
+		opacity: 0.85;
+	}
+
+	/* La bulle, elle, est posée sur fond clair : elle contient des liens et un
+	   bouton, qui doivent se lire et se cliquer. */
+	:global(.map-popup .leaflet-popup-content-wrapper) {
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-raised);
+	}
+
+	:global(.map-popup .leaflet-popup-content) {
+		margin: 0.85rem 1rem;
+		min-inline-size: 11rem;
+	}
+
+	:global(.lm-pop-name) {
+		font-weight: 700;
+		font-size: 1rem;
+		color: var(--text);
+	}
+
+	:global(.lm-pop-status) {
+		margin-top: 0.1rem;
+		font-size: 0.8rem;
+		color: var(--text-2);
+	}
+
+	:global(.lm-pop-mail) {
+		display: block;
+		margin-top: 0.45rem;
+		font-size: 0.9rem;
+		word-break: break-all;
+	}
+
+	:global(.lm-pop-actions) {
+		display: flex;
+		gap: 0.5rem;
+		margin-top: 0.8rem;
+	}
+
+	/* Deux boutons de même poids : écrire et copier se valent, l'un marche là
+	   où l'autre échoue. */
+	:global(.map-popup .lm-btn) {
+		flex: 1;
+		padding: 0.4rem 0.7rem;
+		border: 1px solid var(--btn-border);
+		border-radius: var(--radius-sm);
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-align: center;
+		text-decoration: none;
+		cursor: pointer;
+		font-family: inherit;
+	}
+
+	:global(.map-popup .lm-btn-alt) {
+		background: var(--bg);
+		color: var(--text);
+	}
+
+	:global(.map-popup .lm-btn.ok) {
+		background: var(--bg);
+		color: var(--text);
+		border-color: var(--brand);
+	}
 
 	:global(.map-tooltip) {
 		background: rgba(var(--tooltip-dark-rgb), 0.93) !important;
