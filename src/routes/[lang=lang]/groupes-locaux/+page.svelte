@@ -334,32 +334,46 @@
 
 		<!-- La même information que la carte, en texte : on n'a pas à explorer
 		     pour trouver l'adresse de sa ville, ça marche sans JavaScript, et
-		     les lecteurs d'écran y accèdent. La phrase est ici plutôt qu'au-
-		     dessus de la carte : c'est ici qu'on peut cliquer. -->
-		<p class="map-intro">
-			{isEn
-				? 'Writing to one of these addresses reaches the volunteers on the ground directly.'
-				: 'Écrire à l’une de ces adresses, c’est joindre directement les bénévoles sur place.'}
-		</p>
+		     les lecteurs d'écran y accèdent. Replié par défaut : ce qu'on veut
+		     comprendre d'abord, c'est comment marchent les groupes locaux, pas
+		     le détail des seize adresses. Le nombre de villes est dans le titre
+		     pour qu'on sache ce qu'il y a dedans avant d'ouvrir. -->
+		<details class="depliable adresses">
+			<summary>
+				<h3>
+					{isEn
+						? `Contact a local group by email (${sortedGroups.length} cities)`
+						: `Écrire à un groupe local par courriel (${sortedGroups.length} villes)`}
+				</h3>
+			</summary>
 
-		<ul class="city-list" aria-label={isEn ? 'Contact a local group' : 'Contacter un groupe local'}>
-			{#each sortedGroups as group}
-				<li class="city-chip" class:forming={group.forming}>
-					<a
-						href="mailto:{group.email}"
-						title={group.forming
-							? `${group.name} — ${isEn ? 'forming' : 'groupe en cours de création'}`
-							: group.name}
-					>
-						<span class="city-dot" aria-hidden="true"></span>
-						{#if group.forming}<span class="visually-hidden"
-								>{isEn ? 'Group forming:' : 'Groupe en création :'}</span
-							>{/if}
-						<span class="city-mail">{group.email}</span>
-					</a>
-				</li>
-			{/each}
-		</ul>
+			<p class="map-intro">
+				{isEn
+					? 'Writing to one of these addresses reaches the volunteers on the ground directly.'
+					: 'Écrire à l’une de ces adresses, c’est joindre directement les bénévoles sur place.'}
+			</p>
+			<ul
+				class="city-list"
+				aria-label={isEn ? 'Contact a local group' : 'Contacter un groupe local'}
+			>
+				{#each sortedGroups as group}
+					<li class="city-chip" class:forming={group.forming}>
+						<a
+							href="mailto:{group.email}"
+							title={group.forming
+								? `${group.name} — ${isEn ? 'forming' : 'groupe en cours de création'}`
+								: group.name}
+						>
+							<span class="city-dot" aria-hidden="true"></span>
+							{#if group.forming}<span class="visually-hidden"
+									>{isEn ? 'Group forming:' : 'Groupe en création :'}</span
+								>{/if}
+							<span class="city-mail">{group.email}</span>
+						</a>
+					</li>
+				{/each}
+			</ul>
+		</details>
 	</section>
 
 	<section class="cta-section">
@@ -739,10 +753,24 @@
 
 	/* ── Liste des villes ─────────────────────────────────────────────── */
 
+	/* Le dépliant garde la largeur du bloc carte et ne reprend pas la marge
+	   verticale du guide, où il est posé dans du texte courant. */
+	.depliable.adresses {
+		margin: 1.25rem 0 0;
+	}
+
+	.depliable.adresses h3 {
+		font-size: 1.05rem;
+	}
+
+	.depliable.adresses .map-intro {
+		margin: 0;
+	}
+
 	.city-list {
 		list-style: none;
 		padding: 0;
-		margin: 1.5rem 0 0;
+		margin: 0.9rem 0 0;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
 		gap: 0.45rem;
