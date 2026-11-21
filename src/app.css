@@ -292,7 +292,11 @@ h2 {
 }
 
 h3 {
-	font-weight: 500;
+	/* 600 et non 500 : seules les graisses 600, 700 et 800 de Libre Franklin
+	   sont chargées (voir +layout.svelte). Une graisse absente est fabriquée
+	   par le navigateur en épaississant le trait, ce qui donnait à tous les
+	   h3 du site un gras synthétique plus lourd que le vrai 600. */
+	font-weight: 600;
 	font-size: 1.5rem;
 }
 

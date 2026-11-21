@@ -607,6 +607,10 @@
 	}
 	.depuis-date {
 		margin: 0.35rem 0 0;
+		/* Police de titre : Inter n'est chargée que jusqu'à 700, alors que
+		   Libre Franklin a bien un 800. À cette taille, c'est de toute façon
+		   un chiffre d'affichage, pas du texte courant. */
+		font-family: var(--font-heading);
 		font-size: clamp(2.4rem, 8vw, 4rem);
 		font-weight: 800;
 		line-height: 1.05;
