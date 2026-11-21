@@ -8,13 +8,13 @@ jamais des valeurs en dur, c'est ce qui garantit le fonctionnement du mode sombr
 
 ### Marque
 
-| Token            | Clair     | Sombre    | Usage                                          |
-| ---------------- | --------- | --------- | ---------------------------------------------- |
-| `--brand`        | `#ff9416` | identique | Orange Pause IA : boutons, soulignés, puces    |
-| `--brand-light`  | `#fff5e8` | `#2a1f0a` | Fond orangé très clair                         |
-| `--brand-subtle` | `#a85400` | `#ffab40` | Orange foncé : le seul orange lisible en texte |
-| `--surface-sombre` | `rgb(14, 36, 51)` | identique | Couleur secondaire : fond des bandeaux |
-| `--surface-sombre-2` | `rgb(34, 56, 72)` | identique | Panneaux et séparateurs sur ce fond |
+| Token                | Clair             | Sombre    | Usage                                          |
+| -------------------- | ----------------- | --------- | ---------------------------------------------- |
+| `--brand`            | `#ff9416`         | identique | Orange Pause IA : boutons, soulignés, puces    |
+| `--brand-light`      | `#fff5e8`         | `#2a1f0a` | Fond orangé très clair                         |
+| `--brand-subtle`     | `#a85400`         | `#ffab40` | Orange foncé : le seul orange lisible en texte |
+| `--surface-sombre`   | `rgb(14, 36, 51)` | identique | Couleur secondaire : fond des bandeaux         |
+| `--surface-sombre-2` | `rgb(34, 56, 72)` | identique | Panneaux et séparateurs sur ce fond            |
 
 > Le fond de page est `--bg-subtle` (crème `#fff5e8`) sur **toutes les pages sauf
 > l'accueil**, qui seule passe en blanc (`bgWhite` dans `src/routes/+layout.svelte`).
@@ -105,7 +105,7 @@ ailleurs dans l'interface.
   italiques du site avant cette charte.
 - Corps de texte : `1.2rem`, interligne `1.5`.
 - `h1`/`h2` : 700, `1.7rem` → `2rem` à partir de 640 px.
-- `h3` : 500, `1.5rem`.
+- `h3` : 600, `1.5rem`.
 - Titres de campagne : `clamp(2rem, 5.5vw, 3rem)` pour le h1, `clamp(1.4rem, 3vw, 1.75rem)` pour les h2.
 - Chapô : `clamp(1.05rem, 2vw, 1.25rem)`, couleur `--text-2`, largeur max `44rem`.
 - Les liens sont soulignés, en `--brand-subtle`. Au survol, ils s'assombrissent :

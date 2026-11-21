@@ -193,6 +193,17 @@ Run `scripts/create-wise-webhook.sh <profile_id>` on the Hetzner server to regis
 
 **No new environment variables required** — uses existing CiviCRM credentials.
 
+#### Adresses des groupes locaux (`src/lib/data/local-groups.ts`)
+
+Source unique de la carte, des compteurs et de la liste de contacts de
+`/{lang}/groupes-locaux`. **Une ville `forming: true` n'a pas d'adresse** : pas
+de référent sur place, donc personne pour répondre, et son adresse n'est pas
+dans la table Notion. Elle reste sur la carte, mais sa bulle renvoie vers le
+formulaire d'inscription. Quand un référent arrive, on retire `forming` **et**
+on ajoute l'adresse, dans le même changement. Seules des adresses de groupe
+`ville@pauseia.fr` : aucune adresse personnelle de référent ne doit apparaître
+sur le site. Vérifié par `tests/groupesLocaux.test.ts`.
+
 #### Local groups → Discord #bienvenue (`/api/bienvenue-groupe-local`)
 
 When someone fills the Notion form « Inscriptions aux groupes locaux », a Notion database automation (« Send webhook », configured by an admin, no personal token) POSTs the new row here; the endpoint posts one line in Discord #bienvenue: `bob_dupont souhaite rejoindre un groupe local dans le département "Ain" (01)`.
