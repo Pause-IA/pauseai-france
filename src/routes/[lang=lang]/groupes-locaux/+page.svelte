@@ -41,10 +41,12 @@
 
 	// Ordre alphabétique strict. La liste servait à montrer les groupes actifs,
 	// et poussait donc ceux en création à la fin ; elle sert maintenant à
-	// trouver l'adresse de SA ville, et on y cherche par le nom. Les groupes en
-	// création gardent leur étiquette, ce qui suffit à les distinguer.
+	// trouver l'adresse de SA ville, et on y cherche par le nom. Seules les
+	// villes qui ont une adresse y figurent : un groupe en création n'a pas
+	// encore de référent, donc personne pour répondre. Elles restent sur la
+	// carte, qui renvoie vers le formulaire d'inscription.
 	$: sortedGroups = [...localGroups]
-		.filter((g) => !g.inactif)
+		.filter((g) => !g.inactif && g.email)
 		.sort((a, b) => a.name.localeCompare(b.name, 'fr'))
 
 	// ── Agenda des actions (depuis Notion, via /api/events, non prérendu) ──
@@ -322,7 +324,7 @@
 				{/if}
 				<span class="map-hint">
 					<span class="map-sep">·</span>
-					{isEn ? 'tap a marker to get in touch' : 'cliquez sur un marqueur pour écrire au groupe'}
+					{isEn ? 'tap a marker to get in touch' : 'cliquez sur un marqueur pour prendre contact'}
 				</span>
 			</div>
 		</div>

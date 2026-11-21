@@ -2,6 +2,11 @@
 	import { onMount, onDestroy } from 'svelte'
 	import { localGroups } from '$lib/data/local-groups'
 
+	// Le même formulaire Notion que le bloc « Rejoindre ou lancer un groupe »
+	// plus bas sur la page : une ville en création n'a pas d'autre point
+	// d'entrée.
+	const FORMULAIRE = 'https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac'
+
 	// Les groupes en sommeil ne sont pas montrés : un point sur la carte est une
 	// promesse de pouvoir rejoindre quelqu'un, et il n'y a personne à rejoindre.
 	const groups = localGroups.filter((g) => !g.inactif)
@@ -92,7 +97,7 @@
 
 			const statut = group.forming ? 'En cours de création' : ''
 			const nom = txt(group.name)
-			const mail = txt(group.email)
+			const mail = group.email ? txt(group.email) : ''
 
 			// Survol : une seule ligne, le nom de la ville, le statut à la suite
 			// quand il y en a un. Tout le reste (adresse, boutons) est dans la
@@ -107,20 +112,32 @@
 			// Clic ou toucher : la bulle, avec de quoi agir. Deux gestes plutôt
 			// qu'un : « mailto: » n'ouvre rien chez qui lit son courrier dans un
 			// navigateur, et beaucoup préfèrent coller l'adresse dans leur webmail.
+			//
+			// Sans adresse (groupe en création, pas encore de référent), la bulle
+			// ne fabrique pas un contact qui n'existe pas : elle renvoie vers le
+			// formulaire d'inscription, le seul endroit où quelqu'un répondra.
 			const bulle = L.DomUtil.create('div', 'lm-popup')
 			bulle.innerHTML =
 				`<div class="lm-pop-name">${nom}</div>` +
 				(statut ? `<div class="lm-pop-status">${statut}</div>` : '') +
-				`<a class="lm-pop-mail" href="mailto:${mail}">${mail}</a>` +
-				`<div class="lm-pop-actions">` +
-				`<a class="lm-btn" href="mailto:${mail}">Écrire</a>` +
-				`<button class="lm-btn lm-btn-alt" type="button">Copier</button>` +
-				`</div>`
-			const boutonCopier = bulle.querySelector('button') as HTMLButtonElement
-			L.DomEvent.on(boutonCopier, 'click', (e) => {
-				L.DomEvent.stop(e)
-				void copier(group.email, boutonCopier)
-			})
+				(mail
+					? `<a class="lm-pop-mail" href="mailto:${mail}">${mail}</a>` +
+						`<div class="lm-pop-actions">` +
+						`<a class="lm-btn" href="mailto:${mail}">Écrire</a>` +
+						`<button class="lm-btn lm-btn-alt" type="button">Copier</button>` +
+						`</div>`
+					: `<p class="lm-pop-note">Pas encore de référent sur place : écrivez-nous et nous vous mettons en relation.</p>` +
+						`<div class="lm-pop-actions">` +
+						`<a class="lm-btn" href="${FORMULAIRE}" target="_blank" rel="noopener">S’inscrire</a>` +
+						`</div>`)
+			const boutonCopier = bulle.querySelector('button')
+			if (boutonCopier && group.email) {
+				const adresse = group.email
+				L.DomEvent.on(boutonCopier, 'click', (e) => {
+					L.DomEvent.stop(e)
+					void copier(adresse, boutonCopier as HTMLButtonElement)
+				})
+			}
 			marker.bindPopup(bulle, { className: 'map-popup', closeButton: true, offset: [0, -10] })
 		}
 	})
@@ -248,6 +265,13 @@
 	:global(.lm-pop-status) {
 		margin-top: 0.1rem;
 		font-size: 0.8rem;
+		color: var(--text-2);
+	}
+
+	:global(.lm-pop-note) {
+		margin: 0.35rem 0 0;
+		max-inline-size: 15rem;
+		font-size: 0.85rem;
 		color: var(--text-2);
 	}
 

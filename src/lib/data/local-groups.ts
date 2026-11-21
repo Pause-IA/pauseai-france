@@ -19,17 +19,21 @@ export interface LocalGroup {
 	 * Adresse de contact du groupe, de la forme ville@pauseia.fr.
 	 *
 	 * Ce sont des groupes Google : le message part aux référents du groupe
-	 * local. Les groupes en création n’ont pas encore de référent, leur
-	 * adresse fonctionne quand même et arrive à l’équipe nationale — c’est
-	 * justement par là qu’on en trouve un.
+	 * local.
+	 *
+	 * Facultatif, et absent pour les groupes en création : ils n’ont pas
+	 * encore de référent, donc personne pour répondre. Publier une adresse
+	 * sans destinataire, c’est laisser un message sans réponse — ces villes
+	 * sont sur la carte mais renvoient vers le formulaire d’inscription.
+	 * Une adresse n’est ajoutée ici que lorsqu’elle est dans la table Notion.
 	 *
 	 * Aucune adresse personnelle de référent ne doit apparaître sur le site.
 	 */
-	email: string
+	email?: string
 }
 
 export const localGroups: LocalGroup[] = [
-	{ name: 'Angers', lat: 47.47, lon: -0.55, forming: true, email: 'angers@pauseia.fr' },
+	{ name: 'Angers', lat: 47.47, lon: -0.55, forming: true },
 	{ name: 'Bordeaux', lat: 44.84, lon: -0.58, email: 'bordeaux@pauseia.fr' },
 	{
 		name: 'Clermont-Ferrand',
@@ -42,12 +46,12 @@ export const localGroups: LocalGroup[] = [
 	{ name: 'Grenoble', lat: 45.19, lon: 5.72, email: 'grenoble@pauseia.fr' },
 	{ name: 'Lille', lat: 50.63, lon: 3.06, email: 'lille@pauseia.fr' },
 	{ name: 'Limoges', lat: 45.83, lon: 1.26, email: 'limoges@pauseia.fr' },
-	{ name: 'Lyon', lat: 45.76, lon: 4.84, forming: true, email: 'lyon@pauseia.fr' },
-	{ name: 'Marseille', lat: 43.3, lon: 5.37, forming: true, email: 'marseille@pauseia.fr' },
+	{ name: 'Lyon', lat: 45.76, lon: 4.84, forming: true },
+	{ name: 'Marseille', lat: 43.3, lon: 5.37, forming: true },
 	{ name: 'Montpellier', lat: 43.61, lon: 3.88, email: 'montpellier@pauseia.fr' },
-	{ name: 'Nantes', lat: 47.22, lon: -1.55, forming: true, email: 'nantes@pauseia.fr' },
+	{ name: 'Nantes', lat: 47.22, lon: -1.55, forming: true },
 	{ name: 'Paris', lat: 48.86, lon: 2.35, email: 'paris@pauseia.fr' },
-	{ name: 'Poitiers', lat: 46.58, lon: 0.34, forming: true, email: 'poitiers@pauseia.fr' },
+	{ name: 'Poitiers', lat: 46.58, lon: 0.34, forming: true },
 	{ name: 'Strasbourg', lat: 48.58, lon: 7.75, email: 'strasbourg@pauseia.fr' },
 	{ name: 'Toulouse', lat: 43.6, lon: 1.44, email: 'toulouse@pauseia.fr' }
 ]
