@@ -106,6 +106,18 @@ export function propriete(proprietes, candidats) {
 }
 
 /**
+ * Nom de ville tel qu'on le cherche dans les coordonnées. Notion contient
+ * parfois une adresse complète plutôt qu'un nom de ville
+ * (« Grenoble, Auvergne-Rhone-Alpes, France ») : on ne garde que ce qui
+ * précède la première virgule.
+ * @param {string} brut
+ * @returns {string}
+ */
+export function nomDeVille(brut) {
+	return (brut ?? '').split(',')[0].trim()
+}
+
+/**
  * Un statut est-il « en création » ? Tout ce qui n'est pas reconnu comme actif
  * est traité comme en création : mieux vaut ne pas publier une adresse que
  * d'en publier une sans destinataire.
@@ -145,7 +157,9 @@ export function construire(pages, coordonnees) {
 
 	for (const page of pages) {
 		const props = page?.properties ?? {}
-		const nom = valeur(propriete(props, ['ville', 'nom', 'groupe', 'groupelocal', 'name'])).trim()
+		const nom = nomDeVille(
+			valeur(propriete(props, ['ville', 'nom', 'groupe', 'groupelocal', 'name']))
+		)
 		if (!nom) continue
 
 		if (vues.has(nom)) {
@@ -163,9 +177,25 @@ export function construire(pages, coordonnees) {
 			continue
 		}
 
-		const statut = valeur(propriete(props, ['statut', 'etat', 'status']))
+		const statut = valeur(propriete(props, ['statut', 'etat', 'status'])).trim()
 		const forming = enCreation(statut)
 		const sommeil = enSommeil(statut)
+
+		// Un statut non reconnu est traité comme « en création », ce qui est le
+		// défaut prudent mais peut masquer une valeur Notion simplement absente
+		// de la liste des mots acceptés. On la cite donc dans le journal : sans
+		// elle, un groupe actif passe en création sans qu'on sache pourquoi.
+		if (
+			forming &&
+			!sommeil &&
+			statut &&
+			!/creation|cours|demarrage|lancement/.test(cleColonne(statut))
+		) {
+			alertes.push(
+				`${nom} : statut « ${statut} » non reconnu comme actif, le groupe est traité comme en création. ` +
+					`Ajoutez ce mot à enCreation() dans scripts/groupes-locaux-notion.mjs si le groupe est actif.`
+			)
+		}
 
 		/** @type {{ name: string, lat: number, lon: number, forming?: boolean, inactif?: boolean, email?: string }} */
 		const groupe = { name: nom, lat: coord[0], lon: coord[1] }
@@ -265,6 +295,24 @@ async function main() {
 		for (const a of alertes) console.error(`  ! ${a}`)
 		if (!BUILD) process.exitCode = 1
 		return
+	}
+
+	// Une ville ou une adresse qui disparaît est signalée, jamais supprimée en
+	// silence : c'est la règle posée avec Romain en novembre 2026. Le script
+	// n'empêche pas le changement, il le rend visible dans le journal.
+	const avant = new Map(ancien.groupes.map((/** @type {any} */ g) => [g.name, g]))
+	const apres = new Map(groupes.map((g) => [g.name, g]))
+	for (const [nom, g] of avant) {
+		if (!apres.has(nom)) {
+			alertes.push(
+				`${nom} était sur le site et n'est plus dans Notion : la ville disparaît de la carte.`
+			)
+		} else if (g.email && !apres.get(nom).email) {
+			alertes.push(`${nom} avait une adresse publiée, elle ne l'est plus.`)
+		}
+	}
+	for (const nom of apres.keys()) {
+		if (!avant.has(nom)) alertes.push(`${nom} est nouvelle : elle apparaît sur la carte.`)
 	}
 
 	for (const a of alertes) console.warn(`  ! ${a}`)

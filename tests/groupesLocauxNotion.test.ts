@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
 	construire,
+	nomDeVille,
 	enCreation,
 	enSommeil,
 	valeur,
@@ -162,5 +163,43 @@ describe('lecture des propriétés Notion', () => {
 			}
 		}
 		expect(construire([brut], COORDS).groupes[0].email).toBe('paris@pauseia.fr')
+	})
+})
+
+describe('noms de ville tels que Notion les envoie', () => {
+	it('accepte une adresse complète à la place du nom', () => {
+		// Vu en production le 24/11/2026 : la colonne Ville contenait
+		// « Grenoble, Auvergne-Rhone-Alpes, France », et Grenoble avait disparu
+		// de la carte.
+		expect(nomDeVille('Grenoble, Auvergne-Rhone-Alpes, France')).toBe('Grenoble')
+		expect(nomDeVille('  Paris  ')).toBe('Paris')
+		expect(nomDeVille('')).toBe('')
+	})
+
+	it('retrouve Grenoble malgré son adresse complète', () => {
+		const brut = {
+			properties: {
+				Ville: { title: [{ plain_text: 'Grenoble, Auvergne-Rhone-Alpes, France' }] },
+				Statut: { select: { name: 'Actif' } },
+				Email: { email: 'grenoble@pauseia.fr' }
+			}
+		}
+		const { groupes } = construire([brut], { Grenoble: [45.19, 5.72] })
+		expect(groupes[0]).toEqual({
+			name: 'Grenoble',
+			lat: 45.19,
+			lon: 5.72,
+			email: 'grenoble@pauseia.fr'
+		})
+	})
+
+	it('nomme le statut quand il n’est pas reconnu comme actif', () => {
+		const { alertes } = construire([fiche('Paris', 'Opérationnel', 'paris@pauseia.fr')], COORDS)
+		expect(alertes.join(' ')).toContain('Opérationnel')
+	})
+
+	it('ne crie pas sur un statut explicitement « en création »', () => {
+		const { alertes } = construire([fiche('Paris', 'En création')], COORDS)
+		expect(alertes.join(' ')).not.toContain('non reconnu')
 	})
 })
