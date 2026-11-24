@@ -98,9 +98,14 @@ export function valeur(p) {
  * @returns {any}
  */
 export function propriete(proprietes, candidats) {
-	const vise = candidats.map(cleColonne)
-	for (const [nom, p] of Object.entries(proprietes ?? {})) {
-		if (vise.includes(cleColonne(nom))) return p
+	// Priorité à l'ordre des candidats, pas à l'ordre des colonnes dans
+	// Notion : une table qui a « Ville » ET « Localisation » doit rendre la
+	// première, quel que soit leur ordre d'affichage.
+	const colonnes = Object.entries(proprietes ?? {})
+	for (const candidat of candidats.map(cleColonne)) {
+		for (const [nom, p] of colonnes) {
+			if (cleColonne(nom) === candidat) return p
+		}
 	}
 	return undefined
 }
@@ -205,7 +210,6 @@ export function construire(pages, coordonnees) {
 		const brut = valeur(
 			propriete(props, [
 				'email',
-				'adresse',
 				'adressemail',
 				'adresseemail',
 				'adresseelectronique',
