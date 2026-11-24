@@ -49,3 +49,18 @@ describe('groupes locaux', () => {
 		expect(new Set(mails).size).toBe(mails.length)
 	})
 })
+
+describe('instantané versionné', () => {
+	it('chaque ville a des coordonnées utilisables', () => {
+		for (const g of localGroups) {
+			expect(Number.isFinite(g.lat), g.name).toBe(true)
+			expect(Number.isFinite(g.lon), g.name).toBe(true)
+			// France métropolitaine, grossièrement : une coordonnée oubliée à 0
+			// placerait la ville dans le golfe de Guinée.
+			expect(g.lat, g.name).toBeGreaterThan(41)
+			expect(g.lat, g.name).toBeLessThan(52)
+			expect(g.lon, g.name).toBeGreaterThan(-6)
+			expect(g.lon, g.name).toBeLessThan(10)
+		}
+	})
+})

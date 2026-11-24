@@ -1,0 +1,21 @@
+{
+	"_lisez-moi": "Coordonnées des villes où un groupe local peut exister. Tenues ici plutôt que dans Notion : personne n'a à manipuler une latitude dans un tableau. Une ville de Notion absente d'ici fait échouer scripts/groupes-locaux-notion.mjs avec un message clair.",
+	"villes": {
+		"Angers": [47.47, -0.55],
+		"Bordeaux": [44.84, -0.58],
+		"Clermont-Ferrand": [45.78, 3.08],
+		"Dijon": [47.32, 5.04],
+		"Dordogne": [45.18, 0.72],
+		"Grenoble": [45.19, 5.72],
+		"Lille": [50.63, 3.06],
+		"Limoges": [45.83, 1.26],
+		"Lyon": [45.76, 4.84],
+		"Marseille": [43.3, 5.37],
+		"Montpellier": [43.61, 3.88],
+		"Nantes": [47.22, -1.55],
+		"Paris": [48.86, 2.35],
+		"Poitiers": [46.58, 0.34],
+		"Strasbourg": [48.58, 7.75],
+		"Toulouse": [43.6, 1.44]
+	}
+}
