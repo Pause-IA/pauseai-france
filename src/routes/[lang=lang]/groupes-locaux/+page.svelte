@@ -197,16 +197,6 @@
 	eyebrow={isEn ? 'Local groups' : 'Groupes locaux'}
 	title={isEn ? 'Act near you' : 'Agir près de chez vous'}
 >
-	<svelte:fragment slot="lede">
-		{#if isEn}
-			Local action is essential for raising public awareness, engaging elected officials and
-			building a strong citizen movement. Join a team near you or start the momentum in your city.
-		{:else}
-			L’action locale est essentielle pour sensibiliser le public, interpeller les élus et
-			construire un mouvement citoyen fort. Rejoignez une équipe près de chez vous ou lancez la
-			dynamique dans votre ville.
-		{/if}
-	</svelte:fragment>
 	<svelte:fragment slot="actions">
 		<div class="hero-actions">
 			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
@@ -214,42 +204,6 @@
 			</Button>
 		</div>
 	</svelte:fragment>
-
-	<section class="impact-section">
-		<div class="impact-card">
-			<Megaphone size="1.6rem" />
-			<h2>{isEn ? 'Demonstrations & gatherings' : 'Manifestations & rassemblements'}</h2>
-			<p>
-				{isEn
-					? 'Carry the message into the street, in several cities at once, to make the risks of AI visible.'
-					: "Porter le message dans la rue, dans plusieurs villes à la fois, pour rendre visibles les risques de l'IA."}
-			</p>
-		</div>
-		<div class="impact-card">
-			<Users size="1.6rem" />
-			<h2>{isEn ? 'Leafleting & outreach' : 'Tractage & sensibilisation'}</h2>
-			<p>
-				{isEn
-					? 'Meet the public, hand out leaflets and start conversations to grow awareness on the ground.'
-					: 'Aller à la rencontre du public, distribuer des tracts et engager la discussion pour sensibiliser sur le terrain.'}
-			</p>
-		</div>
-		<div class="impact-card">
-			<Newspaper size="1.6rem" />
-			<h2>{isEn ? 'Press coverage' : 'Retombées presse'}</h2>
-			<p>
-				{#if isEn}
-					These actions draw local media and give the movement real visibility. <a
-						href="{prefix}/presse">See the press coverage</a
-					>.
-				{:else}
-					Ces actions attirent les médias locaux et donnent de la visibilité au mouvement. <a
-						href="{prefix}/presse">Voir la revue de presse</a
-					>.
-				{/if}
-			</p>
-		</div>
-	</section>
 
 	{#if upcoming.length}
 		<section class="agenda-section">
@@ -349,11 +303,6 @@
 				</h3>
 			</summary>
 
-			<p class="map-intro">
-				{isEn
-					? 'Writing to one of these addresses reaches the volunteers on the ground directly.'
-					: 'Écrire à l’une de ces adresses, c’est joindre directement les bénévoles sur place.'}
-			</p>
 			<ul
 				class="city-list"
 				aria-label={isEn ? 'Contact a local group' : 'Contacter un groupe local'}
@@ -378,20 +327,55 @@
 		</details>
 	</section>
 
+	<section class="impact-section">
+		<div class="impact-card">
+			<Megaphone size="1.6rem" />
+			<h2>{isEn ? 'Demonstrations & gatherings' : 'Manifestations & rassemblements'}</h2>
+			<p>
+				{isEn
+					? 'Carry the message into the street, in several cities at once, to make the risks of AI visible.'
+					: "Porter le message dans la rue, dans plusieurs villes à la fois, pour rendre visibles les risques de l'IA."}
+			</p>
+		</div>
+		<div class="impact-card">
+			<Users size="1.6rem" />
+			<h2>{isEn ? 'Leafleting & outreach' : 'Tractage & sensibilisation'}</h2>
+			<p>
+				{isEn
+					? 'Meet the public, hand out leaflets and start conversations to grow awareness on the ground.'
+					: 'Aller à la rencontre du public, distribuer des tracts et engager la discussion pour sensibiliser sur le terrain.'}
+			</p>
+		</div>
+		<div class="impact-card">
+			<Newspaper size="1.6rem" />
+			<h2>{isEn ? 'Press coverage' : 'Retombées presse'}</h2>
+			<p>
+				{#if isEn}
+					These actions draw local media and give the movement real visibility. <a
+						href="{prefix}/presse">See the press coverage</a
+					>.
+				{:else}
+					Ces actions attirent les médias locaux et donnent de la visibilité au mouvement. <a
+						href="{prefix}/presse">Voir la revue de presse</a
+					>.
+				{/if}
+			</p>
+		</div>
+	</section>
+
 	<section class="cta-section">
 		<div class="cta-card join">
 			<span class="cta-icon"><MessageSquare size="1.6rem" /></span>
-			<h2>{isEn ? 'Join or start a group' : 'Rejoindre ou lancer un groupe'}</h2>
+			<h2>{isEn ? 'No group near you?' : 'Pas de groupe près de chez vous ?'}</h2>
 			<p>
 				{#if isEn}
-					Take part in local awareness and mobilisation actions, or lead a group of volunteers and
-					keep the link with the national team. One form for both: tell us your town. If a group
-					already exists near you, we put you in touch; if there is none, we help you start one.
+					Tell us your town and we will help you start one, or put you in touch with the nearest
+					volunteers. If a group already exists where you live, writing to its address above is
+					quicker.
 				{:else}
-					Participer à des actions de sensibilisation et de mobilisation près de chez vous, ou
-					animer un groupe de bénévoles et faire le lien avec l’équipe nationale. Un seul formulaire
-					pour les deux : indiquez votre ville. S’il existe déjà un groupe, nous vous mettons en
-					relation ; s’il n’y en a pas, nous vous accompagnons pour en lancer un.
+					Indiquez-nous votre ville : nous vous accompagnons pour en lancer un, ou nous vous mettons
+					en relation avec les bénévoles les plus proches. Si un groupe existe déjà chez vous,
+					écrire à son adresse plus haut est plus rapide.
 				{/if}
 			</p>
 			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
@@ -763,10 +747,6 @@
 	   verticale du guide, où il est posé dans du texte courant. */
 	.depliable.adresses {
 		margin: 1.25rem 0 0;
-	}
-
-	.depliable.adresses .map-intro {
-		margin: 0;
 	}
 
 	.city-list {
