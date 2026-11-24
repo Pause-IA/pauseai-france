@@ -129,6 +129,11 @@ export const references: GroupeDeReferences[] = [
 		titre: 'Quelles institutions pour garder le contrôle',
 		references: [
 			{
+				titre: 'AI 2040',
+				meta: 'Scénario de recommandations pour parvenir à l’alignement de l’IA, notamment en stoppant le développement de la superintelligence jusqu’en 2040. Par AI Futures Project, le groupe de chercheurs en sécurité de l’IA à l’origine d’AI 2027.',
+				url: 'https://ai-2040.com/'
+			},
+			{
 				titre: 'The Direct Institutional Plan',
 				meta: 'ControlAI. Le plan institutionnel direct : permettre à l’humanité de garder le contrôle.',
 				url: 'https://controlai.org/dip'
