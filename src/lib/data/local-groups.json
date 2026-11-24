@@ -23,7 +23,7 @@
 			"name": "Dijon",
 			"lat": 47.32,
 			"lon": 5.04,
-			"email": "dijon@pauseia.fr"
+			"forming": true
 		},
 		{
 			"name": "Dordogne",
@@ -47,19 +47,19 @@
 			"name": "Limoges",
 			"lat": 45.83,
 			"lon": 1.26,
-			"email": "limoges@pauseia.fr"
+			"forming": true
 		},
 		{
 			"name": "Lyon",
 			"lat": 45.76,
 			"lon": 4.84,
-			"forming": true
+			"email": "lyon@pauseia.fr"
 		},
 		{
 			"name": "Marseille",
 			"lat": 43.3,
 			"lon": 5.37,
-			"forming": true
+			"email": "marseille@pauseia.fr"
 		},
 		{
 			"name": "Montpellier",
@@ -80,22 +80,16 @@
 			"email": "paris@pauseia.fr"
 		},
 		{
-			"name": "Poitiers",
-			"lat": 46.58,
-			"lon": 0.34,
-			"forming": true
-		},
-		{
 			"name": "Strasbourg",
 			"lat": 48.58,
 			"lon": 7.75,
-			"email": "strasbourg@pauseia.fr"
+			"forming": true
 		},
 		{
 			"name": "Toulouse",
 			"lat": 43.6,
 			"lon": 1.44,
-			"email": "toulouse@pauseia.fr"
+			"forming": true
 		}
 	]
 }
