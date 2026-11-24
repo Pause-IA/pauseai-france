@@ -196,13 +196,20 @@ Run `scripts/create-wise-webhook.sh <profile_id>` on the Hetzner server to regis
 #### Adresses des groupes locaux (`src/lib/data/local-groups.ts`)
 
 Source unique de la carte, des compteurs et de la liste de contacts de
-`/{lang}/groupes-locaux`. **Une ville `forming: true` n'a pas d'adresse** : pas
+`/{lang}/groupes-locaux`. Le contenu vient de la **table Notion « Groupes
+locaux »**, relue à chaque déploiement (voir `scripts/groupes-locaux-notion.mjs`
+plus bas) : ce fichier ne garde que le type et les compteurs, et lit
+l'instantané `local-groups.json`.
+
+**Une ville `forming: true` n'a pas d'adresse** : pas
 de référent sur place, donc personne pour répondre, et son adresse n'est pas
 dans la table Notion. Elle reste sur la carte, mais sa bulle renvoie vers le
 formulaire d'inscription. Quand un référent arrive, on retire `forming` **et**
 on ajoute l'adresse, dans le même changement. Seules des adresses de groupe
 `ville@pauseia.fr` : aucune adresse personnelle de référent ne doit apparaître
-sur le site. Vérifié par `tests/groupesLocaux.test.ts`.
+sur le site. **Ces deux règles sont appliquées à l'import**, pas seulement dans
+Notion. Vérifié par `tests/groupesLocaux.test.ts` (données versionnées) et
+`tests/groupesLocauxNotion.test.ts` (import, sans appel réseau).
 
 #### Local groups → Discord #bienvenue (`/api/bienvenue-groupe-local`)
 
@@ -508,6 +515,31 @@ Copy `template.env` to `.env` and configure:
   photos versionnées plutôt que celles de Notion, et retombe entièrement sur
   l'instantané si Notion ne répond pas ou ne renvoie rien. Vérifié par
   `tests/photosEvenements.test.ts`. Il faut `NOTION_EVENTS_DATABASE_ID`.
+- `scripts/groupes-locaux-notion.mjs` - **Les groupes locaux sont tenus dans
+  Notion** et relus à chaque déploiement : lancé par `pnpm build`, le script
+  réécrit `src/lib/data/local-groups.json` depuis la table Notion
+  (`NOTION_GROUPES_LOCAUX_DATABASE_ID` ; la table doit être connectée à
+  l'intégration du site, sinon Notion répond 404 sur une base qui existe
+  pourtant). Ajouter une ville, passer un groupe de « en création » à « actif »
+  ou renseigner son adresse se fait donc dans Notion, et le site suit au
+  déploiement suivant. Pour que ce soit automatique, une automatisation Notion
+  « Send webhook » peut appeler un build hook Netlify à chaque modification.
+  Les noms de colonnes ne sont pas devinés : ils sont rapprochés sans accents,
+  casse ni ponctuation, et plusieurs intitulés sont acceptés (`Ville`/`Nom`,
+  `Statut`/`État`, `Email`/`Adresse e-mail`/`Courriel`…). **Un statut non
+  reconnu est traité comme « en création »**, jamais comme actif : mieux vaut ne
+  pas publier une adresse que d'en publier une sans destinataire. Les
+  coordonnées ne viennent pas de Notion mais de
+  `src/lib/data/villes-coordonnees.json` : personne n'a à manipuler une latitude
+  dans un tableau, et une ville de Notion qui n'y figure pas est signalée
+  nommément plutôt qu'affichée au large des côtes. Les messages d'alerte ne
+  citent jamais une adresse écartée, pour que les journaux de déploiement
+  restent sans donnée personnelle. En mode build le script n'échoue jamais :
+  sans clé, si Notion ne répond pas ou si la base revient vide, l'instantané
+  versionné reste en ligne et la carte ne se vide pas. À lancer à la main
+  (`pnpm run groupes-locaux-notion`, puis committer `local-groups.json`)
+  seulement pour rafraîchir le dépôt sans attendre un déploiement.
+  Tests : `tests/groupesLocauxNotion.test.ts`.
 - `scripts/guide-notion.mjs` - **Le guide de sensibilisation est tenu dans Notion**
   (par Antonin) et relu à chaque déploiement : lancé par `pnpm build`, le script
   réécrit le **corps** de `src/posts/guide-sensibilisation.md` depuis la page Notion
