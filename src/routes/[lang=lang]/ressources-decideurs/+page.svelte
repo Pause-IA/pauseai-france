@@ -63,15 +63,9 @@ Je souhaiterais échanger avec vous au sujet du risque de perte de contrôle de 
 </svelte:head>
 
 <Page width="wide" eyebrow="Décideurs publics" {title}>
-	<svelte:fragment slot="lede">
-		Les travaux sur lesquels nous nous appuyons, rassemblés en une page.
-	</svelte:fragment>
+	<svelte:fragment slot="lede">Les sources que nous citons.</svelte:fragment>
 
-	<p>
-		Rien ici ne vient de nous : chaque lien mène à sa source, pour que vous puissiez vérifier et
-		vous forger votre propre opinion. Les ressources sont classées par usage, de la déclaration
-		officielle citable au travail de fond.
-	</p>
+	<p>Les ressources sont classées par thème. Chaque entrée renvoie à sa source.</p>
 	<p class="note-langue">
 		Sauf mention contraire, ces ressources sont en anglais : c’est la langue de la quasi-totalité
 		des travaux de référence sur le sujet.
