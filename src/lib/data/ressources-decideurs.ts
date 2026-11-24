@@ -60,7 +60,7 @@ export const references: GroupeDeReferences[] = [
 			},
 			{
 				titre: 'A Call for Control of Frontier AI Models',
-				meta: 'Appel porté par la Finlande et la Norvège, septembre 2026. La France en est signataire.',
+				meta: 'Déclaration pour le contrôle des modèles d’IA frontières, à l’initiative de la Finlande et de la Norvège. La France l’a signée le 23 septembre 2026.',
 				url: 'https://www.presidentti.fi/en/a-call-for-control-of-frontier-ai-models/'
 			},
 			{
@@ -77,12 +77,12 @@ export const references: GroupeDeReferences[] = [
 		references: [
 			{
 				titre: 'Thousands of AI Authors on the Future of AI',
-				meta: 'AI Impacts, enquête auprès de 2 778 chercheurs. La source des probabilités citées.',
+				meta: 'AI Impacts, enquête auprès de 2 778 chercheurs, 2024. La vague précédente de la même enquête.',
 				url: 'https://arxiv.org/abs/2401.02843'
 			},
 			{
 				titre: 'Advanced AI according to 1 580 researchers',
-				meta: 'AI Impacts, vague de décembre 2024. C’est l’enquête d’où vient la probabilité médiane de 10 % citée plus haut.',
+				meta: 'AI Impacts. Plus de 50 % des chercheurs et chercheuses en IA pensaient, en décembre 2024, que le risque d’extinction ou de perte de contrôle sévère était supérieur ou égal à 10 %.',
 				url: 'https://aiimpacts.org/wp-content/uploads/2026/09/ESPAI2024.pdf'
 			},
 			{
@@ -114,12 +114,12 @@ export const references: GroupeDeReferences[] = [
 		references: [
 			{
 				titre: 'Artificial Superintelligence Security Bill',
-				meta: 'Proposition de loi britannique, septembre 2026, soutenue par plus de 70 parlementaires de plusieurs partis.',
+				meta: 'Proposition de loi sur la sécurité en matière de superintelligence artificielle au Royaume-Uni, avec le soutien de plus de 70 parlementaires de plusieurs partis politiques.',
 				url: 'https://images.controlai.com/ControlAI_UK_ASI_Bill_Ten_Minute_Rule.pdf'
 			},
 			{
 				titre: 'Ban Artificial Superintelligence Act',
-				meta: 'Texte déposé par le sénateur Bernie Sanders et le représentant Greg Casar, septembre 2026.',
+				meta: 'Projet de loi visant à interdire la superintelligence artificielle, présenté par le sénateur Bernie Sanders (indépendant du Vermont) et le député Greg Casar (démocrate du Texas), septembre 2026.',
 				url: 'https://www.sanders.senate.gov/wp-content/uploads/Ban-Artificial-Superintelligence-Act.pdf'
 			}
 		]
@@ -130,7 +130,7 @@ export const references: GroupeDeReferences[] = [
 		references: [
 			{
 				titre: 'The Direct Institutional Plan',
-				meta: 'ControlAI. Un plan institutionnel pour empêcher le risque d’extinction.',
+				meta: 'ControlAI. Le plan institutionnel direct : permettre à l’humanité de garder le contrôle.',
 				url: 'https://controlai.org/dip'
 			},
 			{
@@ -147,7 +147,7 @@ export const references: GroupeDeReferences[] = [
 		references: [
 			{
 				titre: 'AI 2027',
-				meta: 'Scénario détaillé, par d’anciens chercheurs des laboratoires, d’un emballement possible des capacités.',
+				meta: 'Scénario sur la progression de l’IA avancé par AI Futures Project, un groupe de chercheurs en sécurité de l’IA.',
 				url: 'https://ai-2027.com'
 			},
 			{
@@ -163,7 +163,7 @@ export const references: GroupeDeReferences[] = [
 			},
 			{
 				titre: 'If Anyone Builds It, Everyone Dies',
-				meta: 'E. Yudkowsky et N. Soares, 2025. L’argument de la perte de contrôle, en langage accessible.',
+				meta: 'E. Yudkowsky et N. Soares, 2025. Le livre de référence sur l’extinction de l’humanité causée par le développement non contrôlé d’une IA superintelligente.',
 				url: 'https://ifanyonebuildsit.com'
 			}
 		]
