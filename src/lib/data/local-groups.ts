@@ -1,6 +1,16 @@
 // Source unique des groupes locaux Pause IA.
 // Utilisé par la carte (LocalGroupsMap.svelte) ET par la page groupes-locaux
 // (liste des villes + compteurs), pour éviter que les chiffres divergent.
+//
+// Le contenu ne vit plus ici : il vient de la table Notion « Groupes locaux »,
+// relue à chaque déploiement par scripts/groupes-locaux-notion.mjs, qui écrit
+// l'instantané local-groups.json. Ce fichier-ci garde le type, les compteurs
+// et les coordonnées, qui ne sont pas l'affaire de Notion.
+//
+// Si Notion ne répond pas, l'instantané versionné reste en ligne : le site ne
+// dépend pas de Notion pour s'afficher.
+
+import instantane from './local-groups.json'
 
 export interface LocalGroup {
 	name: string
@@ -12,28 +22,27 @@ export interface LocalGroup {
 	 * true = groupe en sommeil, qui attend quelqu’un pour le relancer.
 	 * Distinct de `forming` : ces groupes ont existé et peuvent repartir, donc
 	 * les afficher a du sens, mais les compter comme actifs serait faux.
+	 * Plus aucun groupe n’est dans cet état ; le champ reste pour le jour où.
 	 */
 	inactif?: boolean
+	/**
+	 * Adresse de contact du groupe, de la forme ville@pauseia.fr.
+	 *
+	 * Ce sont des groupes Google : le message part aux référents du groupe
+	 * local.
+	 *
+	 * Facultatif, et absent pour les groupes en création : ils n’ont pas
+	 * encore de référent, donc personne pour répondre. Publier une adresse
+	 * sans destinataire, c’est laisser un message sans réponse — ces villes
+	 * sont sur la carte mais renvoient vers le formulaire d’inscription.
+	 * Une adresse n’est ajoutée ici que lorsqu’elle est dans la table Notion.
+	 *
+	 * Aucune adresse personnelle de référent ne doit apparaître sur le site.
+	 */
+	email?: string
 }
 
-export const localGroups: LocalGroup[] = [
-	{ name: 'Angers', lat: 47.47, lon: -0.55 },
-	{ name: 'Bordeaux', lat: 44.84, lon: -0.58 },
-	{ name: 'Clermont-Ferrand', lat: 45.78, lon: 3.08 },
-	{ name: 'Colmar', lat: 48.08, lon: 7.36, inactif: true },
-	{ name: 'Dijon', lat: 47.32, lon: 5.04 },
-	{ name: 'Dordogne', lat: 45.18, lon: 0.72 },
-	{ name: 'Grenoble', lat: 45.19, lon: 5.72 },
-	{ name: 'Lille', lat: 50.63, lon: 3.06 },
-	{ name: 'Lyon', lat: 45.76, lon: 4.84 },
-	{ name: 'Marseille', lat: 43.3, lon: 5.37, forming: true },
-	{ name: 'Melun', lat: 48.54, lon: 2.66, inactif: true },
-	{ name: 'Montpellier', lat: 43.61, lon: 3.88 },
-	{ name: 'Nantes', lat: 47.22, lon: -1.55 },
-	{ name: 'Paris', lat: 48.86, lon: 2.35 },
-	{ name: 'Poitiers', lat: 46.58, lon: 0.34 },
-	{ name: 'Toulouse', lat: 43.6, lon: 1.44 }
-]
+export const localGroups: LocalGroup[] = instantane.groupes
 
 export const activeGroupsCount = localGroups.filter((g) => !g.forming && !g.inactif).length
 export const formingGroupsCount = localGroups.filter((g) => g.forming).length

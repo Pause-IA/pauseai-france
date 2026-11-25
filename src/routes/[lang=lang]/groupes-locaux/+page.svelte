@@ -39,13 +39,15 @@
 	// Mois écoulés depuis le lancement des groupes locaux (mars 2026).
 	const mois = moisDepuisLancement()
 
-	// Villes triées : groupes actifs d'abord, puis ceux en création, par ordre
-	// alphabétique à l'intérieur. Les groupes en sommeil ne sont pas listés :
-	// la liste sert à trouver qui rejoindre près de chez soi.
-	const rang = (g: { forming?: boolean }) => (g.forming ? 1 : 0)
-	$: sortedGroups = localGroups
-		.filter((g) => !g.inactif)
-		.sort((a, b) => rang(a) - rang(b) || a.name.localeCompare(b.name))
+	// Ordre alphabétique strict. La liste servait à montrer les groupes actifs,
+	// et poussait donc ceux en création à la fin ; elle sert maintenant à
+	// trouver l'adresse de SA ville, et on y cherche par le nom. Seules les
+	// villes qui ont une adresse y figurent : un groupe en création n'a pas
+	// encore de référent, donc personne pour répondre. Elles restent sur la
+	// carte, qui renvoie vers le formulaire d'inscription.
+	$: sortedGroups = [...localGroups]
+		.filter((g) => !g.inactif && g.email)
+		.sort((a, b) => a.name.localeCompare(b.name, 'fr'))
 
 	// ── Agenda des actions (depuis Notion, via /api/events, non prérendu) ──
 	interface LocalEvent {
@@ -195,60 +197,6 @@
 	eyebrow={isEn ? 'Local groups' : 'Groupes locaux'}
 	title={isEn ? 'Act near you' : 'Agir près de chez vous'}
 >
-	<svelte:fragment slot="lede">
-		{#if isEn}
-			Local action is essential for raising public awareness, engaging elected officials and
-			building a strong citizen movement. Join a team near you or start the momentum in your city.
-		{:else}
-			L’action locale est essentielle pour sensibiliser le public, interpeller les élus et
-			construire un mouvement citoyen fort. Rejoignez une équipe près de chez vous ou lancez la
-			dynamique dans votre ville.
-		{/if}
-	</svelte:fragment>
-	<svelte:fragment slot="actions">
-		<div class="hero-actions">
-			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
-				{isEn ? 'Join a group' : 'Rejoindre un groupe'}
-			</Button>
-		</div>
-	</svelte:fragment>
-
-	<section class="impact-section">
-		<div class="impact-card">
-			<Megaphone size="1.6rem" />
-			<h2>{isEn ? 'Demonstrations & gatherings' : 'Manifestations & rassemblements'}</h2>
-			<p>
-				{isEn
-					? 'Carry the message into the street, in several cities at once, to make the risks of AI visible.'
-					: "Porter le message dans la rue, dans plusieurs villes à la fois, pour rendre visibles les risques de l'IA."}
-			</p>
-		</div>
-		<div class="impact-card">
-			<Users size="1.6rem" />
-			<h2>{isEn ? 'Leafleting & outreach' : 'Tractage & sensibilisation'}</h2>
-			<p>
-				{isEn
-					? 'Meet the public, hand out leaflets and start conversations to grow awareness on the ground.'
-					: 'Aller à la rencontre du public, distribuer des tracts et engager la discussion pour sensibiliser sur le terrain.'}
-			</p>
-		</div>
-		<div class="impact-card">
-			<Newspaper size="1.6rem" />
-			<h2>{isEn ? 'Press coverage' : 'Retombées presse'}</h2>
-			<p>
-				{#if isEn}
-					These actions draw local media and give the movement real visibility. <a
-						href="{prefix}/presse">See the press coverage</a
-					>.
-				{:else}
-					Ces actions attirent les médias locaux et donnent de la visibilité au mouvement. <a
-						href="{prefix}/presse">Voir la revue de presse</a
-					>.
-				{/if}
-			</p>
-		</div>
-	</section>
-
 	{#if upcoming.length}
 		<section class="agenda-section">
 			<div class="section-title-row">
@@ -296,28 +244,6 @@
 	     visiteur avait donc deux boutons pour une seule action, sans savoir
 	     lequel le concernait. Ce que le lecteur veut savoir, c’est ce qui se
 	     passe après avoir cliqué ; c’est ce que dit le cadre maintenant. -->
-	<section class="cta-section">
-		<div class="cta-card join">
-			<span class="cta-icon"><MessageSquare size="1.6rem" /></span>
-			<h2>{isEn ? 'Join or start a group' : 'Rejoindre ou lancer un groupe'}</h2>
-			<p>
-				{#if isEn}
-					Take part in local awareness and mobilisation actions, or lead a group of volunteers and
-					keep the link with the national team. One form for both: tell us your town. If a group
-					already exists near you, we put you in touch; if there is none, we help you start one.
-				{:else}
-					Participer à des actions de sensibilisation et de mobilisation près de chez vous, ou
-					animer un groupe de bénévoles et faire le lien avec l’équipe nationale. Un seul formulaire
-					pour les deux : indiquez votre ville. S’il existe déjà un groupe, nous vous mettons en
-					relation ; s’il n’y en a pas, nous vous accompagnons pour en lancer un.
-				{/if}
-			</p>
-			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
-				{isEn ? 'Sign up' : 'S’inscrire'}
-			</Button>
-		</div>
-	</section>
-
 	<section class="map-section" bind:this={mapSection}>
 		<div class="map-header">
 			<div class="map-title-row">
@@ -344,7 +270,7 @@
 				{/if}
 				<span class="map-hint">
 					<span class="map-sep">·</span>
-					{isEn ? 'hover a marker to see the city' : 'survolez un marqueur pour voir la ville'}
+					{isEn ? 'tap a marker to get in touch' : 'cliquez sur un marqueur pour prendre contact'}
 				</span>
 			</div>
 		</div>
@@ -354,14 +280,100 @@
 			<div class="map-placeholder" aria-hidden="true"></div>
 		{/if}
 
-		<ul class="city-list" aria-label={isEn ? 'Cities with a group' : 'Villes avec un groupe'}>
-			{#each sortedGroups as group}
-				<li class="city-chip" class:forming={group.forming}>
-					{group.name}
-					{#if group.forming}<span class="city-tag">{isEn ? 'forming' : 'en création'}</span>{/if}
-				</li>
-			{/each}
-		</ul>
+		<!-- La même information que la carte, en texte : on n'a pas à explorer
+		     pour trouver l'adresse de sa ville, ça marche sans JavaScript, et
+		     les lecteurs d'écran y accèdent. Replié par défaut : ce qu'on veut
+		     comprendre d'abord, c'est comment marchent les groupes locaux, pas
+		     le détail des seize adresses. Le nombre de villes est dans le titre
+		     pour qu'on sache ce qu'il y a dedans avant d'ouvrir. -->
+		<details class="depliable adresses">
+			<summary>
+				<h3>
+					{isEn
+						? `Contact a local group by email (${sortedGroups.length} cities)`
+						: `Écrire à un groupe local par courriel (${sortedGroups.length} villes)`}
+				</h3>
+			</summary>
+
+			<ul
+				class="city-list"
+				aria-label={isEn ? 'Contact a local group' : 'Contacter un groupe local'}
+			>
+				{#each sortedGroups as group}
+					<li class="city-chip" class:forming={group.forming}>
+						<a
+							href="mailto:{group.email}"
+							title={group.forming
+								? `${group.name} — ${isEn ? 'forming' : 'groupe en cours de création'}`
+								: group.name}
+						>
+							<span class="city-dot" aria-hidden="true"></span>
+							{#if group.forming}<span class="visually-hidden"
+									>{isEn ? 'Group forming:' : 'Groupe en création :'}</span
+								>{/if}
+							<span class="city-mail">{group.email}</span>
+						</a>
+					</li>
+				{/each}
+			</ul>
+		</details>
+	</section>
+
+	<section class="impact-section">
+		<div class="impact-card">
+			<Megaphone size="1.6rem" />
+			<h2>{isEn ? 'Demonstrations & gatherings' : 'Manifestations & rassemblements'}</h2>
+			<p>
+				{isEn
+					? 'Carry the message into the street, in several cities at once, to make the risks of AI visible.'
+					: "Porter le message dans la rue, dans plusieurs villes à la fois, pour rendre visibles les risques de l'IA."}
+			</p>
+		</div>
+		<div class="impact-card">
+			<Users size="1.6rem" />
+			<h2>{isEn ? 'Leafleting & outreach' : 'Tractage & sensibilisation'}</h2>
+			<p>
+				{isEn
+					? 'Meet the public, hand out leaflets and start conversations to grow awareness on the ground.'
+					: 'Aller à la rencontre du public, distribuer des tracts et engager la discussion pour sensibiliser sur le terrain.'}
+			</p>
+		</div>
+		<div class="impact-card">
+			<Newspaper size="1.6rem" />
+			<h2>{isEn ? 'Press coverage' : 'Retombées presse'}</h2>
+			<p>
+				{#if isEn}
+					These actions draw local media and give the movement real visibility. <a
+						href="{prefix}/presse">See the press coverage</a
+					>.
+				{:else}
+					Ces actions attirent les médias locaux et donnent de la visibilité au mouvement. <a
+						href="{prefix}/presse">Voir la revue de presse</a
+					>.
+				{/if}
+			</p>
+		</div>
+	</section>
+
+	<section class="cta-section">
+		<div class="cta-card join">
+			<span class="cta-icon"><MessageSquare size="1.6rem" /></span>
+			<h2>{isEn ? 'No group near you?' : 'Pas de groupe près de chez vous ?'}</h2>
+			<p>
+				{#if isEn}
+					Tell us your town and we will help you start one, or put you in touch with the nearest
+					volunteers. If a group already exists where you live, writing to its address above is
+					quicker.
+				{:else}
+					Indiquez-nous votre ville : nous vous accompagnons pour en lancer un, ou nous vous mettons
+					en relation avec les bénévoles les plus proches. Si un groupe existe déjà chez vous,
+					écrire à son adresse plus haut est plus rapide.
+				{/if}
+			</p>
+			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
+				{isEn ? 'Sign up' : 'S’inscrire'}
+			</Button>
+		</div>
 	</section>
 
 	{#if pastAll.length}
@@ -573,6 +585,10 @@
 	}
 	.depuis-date {
 		margin: 0.35rem 0 0;
+		/* Police de titre : Inter n'est chargée que jusqu'à 700, alors que
+		   Libre Franklin a bien un 800. À cette taille, c'est de toute façon
+		   un chiffre d'affichage, pas du texte courant. */
+		font-family: var(--font-heading);
 		font-size: clamp(2.4rem, 8vw, 4rem);
 		font-weight: 800;
 		line-height: 1.05;
@@ -589,10 +605,6 @@
 		font-size: 1.02rem;
 		line-height: 1.6;
 		color: var(--text-2);
-	}
-
-	.hero-actions {
-		margin-top: 1.5rem;
 	}
 
 	/* Carte chargée en différé : réserve la place pour éviter tout saut de mise
@@ -719,38 +731,92 @@
 
 	/* ── Liste des villes ─────────────────────────────────────────────── */
 
+	/* Le dépliant garde la largeur du bloc carte et ne reprend pas la marge
+	   verticale du guide, où il est posé dans du texte courant. */
+	.depliable.adresses {
+		margin: 1.25rem 0 0;
+	}
+
 	.city-list {
 		list-style: none;
 		padding: 0;
-		margin: 1.25rem 0 0;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
+		margin: 0.9rem 0 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+		gap: 0.45rem;
 	}
 
+	/* Une ligne par ville : l'adresse dit déjà le nom de la ville, le répéter
+	   en titre doublait la hauteur du bloc pour rien. La pastille ronde reprend
+	   la légende de la carte (pleine = groupe actif, creuse = en création). */
 	.city-chip {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.4rem;
-		padding: 0.35rem 0.8rem;
-		border-radius: var(--radius-pill);
+		position: relative;
+		display: flex;
+		border-radius: var(--radius-sm);
 		border: 1px solid var(--border);
 		background: var(--bg-card);
-		font-size: 0.88rem;
-		font-weight: 600;
+		transition:
+			border-color 0.15s ease,
+			box-shadow 0.15s ease;
 	}
 
-	.city-chip.forming {
-		color: var(--text-secondary);
-		font-weight: 500;
+	.city-chip:hover,
+	.city-chip:focus-within {
+		border-color: var(--brand);
+		box-shadow: var(--shadow-card);
 	}
 
-	.city-tag {
-		font-size: 0.7rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-		color: var(--text-secondary);
+	.city-chip a {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex: 1;
+		min-inline-size: 0;
+		padding: 0.4rem 0.7rem;
+		color: var(--text);
+		text-decoration: none;
+	}
+
+	/* Le statut n'est visible que par la pastille et l'infobulle : il reste
+	   lisible pour un lecteur d'écran. */
+	.visually-hidden {
+		position: absolute;
+		inline-size: 1px;
+		block-size: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+
+	.city-dot {
+		flex: none;
+		inline-size: 0.5rem;
+		block-size: 0.5rem;
+		border-radius: var(--radius-pill);
+		background: var(--brand);
+	}
+
+	.city-chip.forming .city-dot {
+		background: transparent;
+		border: 2px solid var(--brand);
+		opacity: 0.65;
+	}
+
+	.city-mail {
+		overflow: hidden;
+		font-size: 0.85rem;
+		color: var(--text);
+		text-overflow: ellipsis;
+		text-decoration: underline;
+		text-decoration-color: var(--brand);
+		text-decoration-thickness: 0.09em;
+		text-underline-offset: 0.16em;
+		white-space: nowrap;
+	}
+
+	.city-chip:hover .city-mail {
+		color: var(--accent);
+		text-decoration-thickness: 0.14em;
 	}
 
 	/* ── Sections titrées (agenda, actions passées) ──────────────────── */

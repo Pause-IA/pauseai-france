@@ -2,12 +2,48 @@
 	import { onMount, onDestroy } from 'svelte'
 	import { localGroups } from '$lib/data/local-groups'
 
+	// Le même formulaire Notion que le bloc « Rejoindre ou lancer un groupe »
+	// plus bas sur la page : une ville en création n'a pas d'autre point
+	// d'entrée.
+	const FORMULAIRE = 'https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac'
+
 	// Les groupes en sommeil ne sont pas montrés : un point sur la carte est une
 	// promesse de pouvoir rejoindre quelqu'un, et il n'y a personne à rejoindre.
 	const groups = localGroups.filter((g) => !g.inactif)
 
 	let mapContainer: HTMLDivElement
 	let map: import('leaflet').Map | null = null
+
+	/* Une adresse copiée, et le marqueur dont le bouton vient d'être pressé :
+	   le retour visuel est rendu dans la bulle, qui est du HTML brut posé par
+	   Leaflet, pas du Svelte. On le pilote donc à la main. */
+	let minuteurCopie: ReturnType<typeof setTimeout>
+
+	/** Échappe un texte destiné au HTML des bulles Leaflet. */
+	const txt = (t: string) =>
+		t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+	/**
+	 * Copie l'adresse et le dit sur le bouton. Le presse-papiers peut être
+	 * refusé (contexte non sécurisé, permission) : dans ce cas l'adresse reste
+	 * affichée et sélectionnable dans la bulle, et « Écrire » fonctionne
+	 * toujours.
+	 */
+	async function copier(email: string, bouton: HTMLButtonElement) {
+		try {
+			await navigator.clipboard.writeText(email)
+			const avant = bouton.innerHTML
+			bouton.innerHTML = 'Copié'
+			bouton.classList.add('ok')
+			clearTimeout(minuteurCopie)
+			minuteurCopie = setTimeout(() => {
+				bouton.innerHTML = avant
+				bouton.classList.remove('ok')
+			}, 2000)
+		} catch {
+			/* rien : l'adresse est visible juste au-dessus */
+		}
+	}
 
 	onMount(async () => {
 		const L = (await import('leaflet')).default
@@ -60,15 +96,49 @@
 			const marker = L.marker([group.lat, group.lon], { icon }).addTo(map)
 
 			const statut = group.forming ? 'En cours de création' : ''
-			const tooltipContent = statut
-				? `<div class="tt-name">${group.name}</div><div class="tt-status">${statut}</div>`
-				: `<div class="tt-name">${group.name}</div>`
+			const nom = txt(group.name)
+			const mail = group.email ? txt(group.email) : ''
 
-			marker.bindTooltip(tooltipContent, {
-				direction: 'top',
-				offset: [0, -6],
-				className: 'map-tooltip'
-			})
+			// Survol : une seule ligne, le nom de la ville, le statut à la suite
+			// quand il y en a un. Tout le reste (adresse, boutons) est dans la
+			// bulle au clic : une infobulle qui empile des lignes devient une
+			// boîte qui couvre les marqueurs voisins.
+			marker.bindTooltip(
+				`<span class="tt-name">${nom}</span>` +
+					(statut ? ` <span class="tt-status">· en création</span>` : ''),
+				{ direction: 'top', offset: [0, -6], className: 'map-tooltip' }
+			)
+
+			// Clic ou toucher : la bulle, avec de quoi agir. Deux gestes plutôt
+			// qu'un : « mailto: » n'ouvre rien chez qui lit son courrier dans un
+			// navigateur, et beaucoup préfèrent coller l'adresse dans leur webmail.
+			//
+			// Sans adresse (groupe en création, pas encore de référent), la bulle
+			// ne fabrique pas un contact qui n'existe pas : elle renvoie vers le
+			// formulaire d'inscription, le seul endroit où quelqu'un répondra.
+			const bulle = L.DomUtil.create('div', 'lm-popup')
+			bulle.innerHTML =
+				`<div class="lm-pop-name">${nom}</div>` +
+				(statut ? `<div class="lm-pop-status">${statut}</div>` : '') +
+				(mail
+					? `<a class="lm-pop-mail" href="mailto:${mail}">${mail}</a>` +
+						`<div class="lm-pop-actions">` +
+						`<a class="lm-btn" href="mailto:${mail}">Écrire</a>` +
+						`<button class="lm-btn lm-btn-alt" type="button">Copier</button>` +
+						`</div>`
+					: `<p class="lm-pop-note">Pas encore de référent sur place : écrivez-nous et nous vous mettons en relation.</p>` +
+						`<div class="lm-pop-actions">` +
+						`<a class="lm-btn" href="${FORMULAIRE}" target="_blank" rel="noopener">S’inscrire</a>` +
+						`</div>`)
+			const boutonCopier = bulle.querySelector('button')
+			if (boutonCopier && group.email) {
+				const adresse = group.email
+				L.DomEvent.on(boutonCopier, 'click', (e) => {
+					L.DomEvent.stop(e)
+					void copier(adresse, boutonCopier as HTMLButtonElement)
+				})
+			}
+			marker.bindPopup(bulle, { className: 'map-popup', closeButton: true, offset: [0, -10] })
 		}
 	})
 
@@ -173,33 +243,109 @@
 
 	/* ── Tooltip ──────────────────────────────────────────────────────── */
 
+	/* ─── Infobulle et bulle ──────────────────────────────────────────── */
+	/* La bulle, elle, est posée sur fond clair : elle contient des liens et un
+	   bouton, qui doivent se lire et se cliquer. */
+	:global(.map-popup .leaflet-popup-content-wrapper) {
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-raised);
+	}
+
+	:global(.map-popup .leaflet-popup-content) {
+		margin: 0.85rem 1rem;
+		min-inline-size: 11rem;
+	}
+
+	:global(.lm-pop-name) {
+		font-weight: 700;
+		font-size: 1rem;
+		color: var(--text);
+	}
+
+	:global(.lm-pop-status) {
+		margin-top: 0.1rem;
+		font-size: 0.8rem;
+		color: var(--text-2);
+	}
+
+	:global(.lm-pop-note) {
+		margin: 0.35rem 0 0;
+		max-inline-size: 15rem;
+		font-size: 0.85rem;
+		color: var(--text-2);
+	}
+
+	:global(.lm-pop-mail) {
+		display: block;
+		margin-top: 0.45rem;
+		font-size: 0.9rem;
+		word-break: break-all;
+	}
+
+	:global(.lm-pop-actions) {
+		display: flex;
+		gap: 0.5rem;
+		margin-top: 0.8rem;
+	}
+
+	/* Deux boutons de même poids : écrire et copier se valent, l'un marche là
+	   où l'autre échoue. */
+	:global(.map-popup .lm-btn) {
+		flex: 1;
+		padding: 0.4rem 0.7rem;
+		border: 1px solid var(--btn-border);
+		border-radius: var(--radius-sm);
+		background: var(--brand);
+		color: var(--on-brand);
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-align: center;
+		text-decoration: none;
+		cursor: pointer;
+		font-family: inherit;
+	}
+
+	:global(.map-popup .lm-btn-alt) {
+		background: var(--bg);
+		color: var(--text);
+	}
+
+	:global(.map-popup .lm-btn.ok) {
+		background: var(--bg);
+		color: var(--text);
+		border-color: var(--brand);
+	}
+
 	:global(.map-tooltip) {
 		background: rgba(var(--tooltip-dark-rgb), 0.93) !important;
 		color: var(--on-dark) !important;
 		border: none !important;
-		border-radius: 8px !important;
+		border-radius: var(--radius-sm) !important;
 		padding: 0 !important;
-		box-shadow: 0 4px 16px rgba(var(--ink-rgb), 0.25) !important;
+		box-shadow: var(--shadow-raised) !important;
 		font-family: inherit !important;
 	}
 
 	:global(.map-tooltip .leaflet-tooltip-content) {
-		padding: 0;
+		display: flex;
+		align-items: baseline;
+		gap: 0.4em;
+		padding: 5px 10px;
+		white-space: nowrap;
 	}
 
 	:global(.tt-name) {
-		font-size: 13px;
-		font-weight: 700;
-		padding: 7px 13px 6px;
-		line-height: 1;
+		font-size: 0.8rem;
+		font-weight: 600;
+		line-height: 1.2;
 	}
 
 	:global(.tt-status) {
-		font-size: 11px;
+		margin-inline-start: 0.35em;
+		font-size: 0.7rem;
 		font-weight: 400;
-		color: rgba(var(--on-dark-rgb), 0.65);
-		padding: 0 13px 8px;
-		line-height: 1;
+		color: rgba(var(--on-dark-rgb), 0.6);
+		line-height: 1.2;
 	}
 
 	:global(.map-tooltip.leaflet-tooltip-top::before) {
@@ -224,7 +370,7 @@
 	}
 
 	:global(.leaflet-control-zoom a) {
-		border-radius: 6px !important;
+		border-radius: var(--radius-sm) !important;
 		color: var(--text) !important;
 		border-color: var(--border) !important;
 	}

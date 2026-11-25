@@ -87,6 +87,9 @@
 			id: 'comprendre',
 			label: t.nav.comprendre,
 			items: [
+				// En tête : c'est la page qui explique le problème. Le menu ne
+				// proposait que des listes et des outils, jamais l'exposé lui-même.
+				{ href: `${prefix}/comprendre-le-risque`, label: t.nav.comprendre_le_risque },
 				{ href: `${prefix}/ressources`, label: t.nav.liens_utiles },
 				{ href: `${prefix}/fresque`, label: t.nav.fresque },
 				// « Idées reçues » n'existe qu'en français : pas de lien depuis le site anglais.
@@ -592,7 +595,7 @@
 	}
 
 	/* « Rejoindre » : l'action secondaire. Elle a été noire, puis bleu
-	   sombre — correct, mais froid à côté du « Donner » orange.
+	   sombre, correct mais froid à côté du « Donner » orange.
 
 	   Elle passe en orange CREUX : même couleur que l'action principale,
 	   mais en contour. La hiérarchie se lit à la densité (plein contre
