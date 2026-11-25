@@ -197,14 +197,6 @@
 	eyebrow={isEn ? 'Local groups' : 'Groupes locaux'}
 	title={isEn ? 'Act near you' : 'Agir près de chez vous'}
 >
-	<svelte:fragment slot="actions">
-		<div class="hero-actions">
-			<Button href="https://pauseia.notion.site/2e128fc94b7780fd94b6d35c35b2f0ac">
-				{isEn ? 'Join a group' : 'Rejoindre un groupe'}
-			</Button>
-		</div>
-	</svelte:fragment>
-
 	{#if upcoming.length}
 		<section class="agenda-section">
 			<div class="section-title-row">
@@ -613,10 +605,6 @@
 		font-size: 1.02rem;
 		line-height: 1.6;
 		color: var(--text-2);
-	}
-
-	.hero-actions {
-		margin-top: 1.5rem;
 	}
 
 	/* Carte chargée en différé : réserve la place pour éviter tout saut de mise
