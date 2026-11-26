@@ -68,6 +68,8 @@ const config = {
 							'/fr/guide',
 							'/en/guide',
 							'/en/modeles',
+							// Proposition de page d'accueil, liée de nulle part.
+							'/fr/accueil-proposition',
 							'/en/guide-court',
 							// Plan du site : page interne, volontairement hors menu et hors pied
 							// de page, donc invisible au robot d'exploration du prérendu.

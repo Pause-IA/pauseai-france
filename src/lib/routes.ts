@@ -9,6 +9,8 @@ const EXCLUDED = [
 	'/campagne-modele',
 	'/declaration/confirmer',
 	'/plan-du-site',
+	// Proposition de page d'accueil, pour validation (todo Notion, 26/11/2026).
+	'/accueil-proposition',
 	// Listes de signataires des tribunes : on y arrive par le lien publié.
 	'/tribunes/le-monde-octobre-2026',
 	// Sans offre en cours : la page existe (pied de page, 301 de
