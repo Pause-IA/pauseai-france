@@ -893,3 +893,12 @@ details.depliable > summary:focus-visible {
 	outline: 2px solid var(--brand);
 	outline-offset: 4px;
 }
+
+/* Mention « (en anglais) » après un lien vers un site anglophone (voir
+   src/lib/liensAnglais.ts). Globale : elle est posée par custom/a.svelte,
+   MentionAnglais.svelte et le HTML de la FAQ. */
+.en-anglais {
+	font-size: 0.85em;
+	opacity: 0.75;
+	white-space: nowrap;
+}

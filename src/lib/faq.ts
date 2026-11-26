@@ -1,3 +1,5 @@
+import { estEnAnglais, MENTION_ANGLAIS_HTML } from './liensAnglais'
+
 // Parsing partagé de la FAQ (src/posts/faq.md) pour la page d'accueil (teaser)
 // et la page dédiée /faq. La FAQ est écrite en markdown : « ## » = catégorie,
 // « ### » = question, le reste = réponse. On en tire une version HTML statique
@@ -26,21 +28,23 @@ function escapeHtml(s: string): string {
 
 /** Rendu markdown minimal suffisant pour nos réponses : gras et liens. Les liens
  * externes (sources) s'ouvrent dans un nouvel onglet. */
-function renderInline(s: string): string {
+function renderInline(s: string, lang: string): string {
 	return escapeHtml(s)
 		.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
 		.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m: string, text: string, href: string) => {
 			const external = /^https?:\/\//.test(href)
 			const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : ''
-			return `<a href="${href}"${attrs}>${text}</a>`
+			// Même mention que sur les pages en Markdown (custom/a.svelte).
+			const mention = lang !== 'en' && estEnAnglais(href) ? MENTION_ANGLAIS_HTML : ''
+			return `<a href="${href}"${attrs}${mention ? ' hreflang="en"' : ''}>${text}${mention}</a>`
 		})
 }
 
-function renderAnswerHtml(md: string): string {
+function renderAnswerHtml(md: string, lang: string): string {
 	return md
 		.trim()
 		.split(/\n{2,}/)
-		.map((para) => `<p>${renderInline(para.trim())}</p>`)
+		.map((para) => `<p>${renderInline(para.trim(), lang)}</p>`)
 		.join('\n')
 }
 
@@ -69,7 +73,8 @@ function stripMarkdown(md: string): string {
 const apostrophe = (t: string) =>
 	t.replace(/([A-Za-zÀ-ÖØ-öø-ÿ])'([A-Za-zÀ-ÖØ-öø-ÿ])/g, '$1\u2019$2')
 
-export function parseFaq(raw: string): FaqCategory[] {
+/** `lang` : la mention « (en anglais) » n'est ajoutée que sur le site français. */
+export function parseFaq(raw: string, lang = 'fr'): FaqCategory[] {
 	// Retire le frontmatter éventuel.
 	// L'apostrophe typographique est appliquée ici : cette page lit le
 	// Markdown brut, sans passer par mdsvex, donc le plugin de typographie ne
@@ -97,7 +102,7 @@ export function parseFaq(raw: string): FaqCategory[] {
 			id,
 			question,
 			answerMd: answer.trim(),
-			answerHtml: renderAnswerHtml(answer),
+			answerHtml: renderAnswerHtml(answer, lang),
 			answerText: stripMarkdown(answer),
 			category: current.category
 		})

@@ -15,6 +15,7 @@
 	 */
 	import PostMeta from '$components/PostMeta.svelte'
 	import CarteCitation from './CarteCitation.svelte'
+	import MentionAnglais from '$components/MentionAnglais.svelte'
 	import Accordion from '$components/Accordion.svelte'
 	import Button from '$components/Button.svelte'
 	import { Page, SectionTitle } from '$components/ui'
@@ -79,7 +80,10 @@
 			Déclaration du <a
 				href="https://www.safe.ai/work/statement-on-ai-risk"
 				target="_blank"
-				rel="noopener noreferrer">Center for AI Safety</a
+				rel="noopener noreferrer"
+				>Center for AI Safety<MentionAnglais
+					href="https://www.safe.ai/work/statement-on-ai-risk"
+				/></a
 			>, mai 2023. Une seule phrase, signée par des centaines de chercheurs, parmi lesquels :
 		</p>
 		<ul class="signataires">
