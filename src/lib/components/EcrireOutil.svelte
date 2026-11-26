@@ -8,6 +8,7 @@
 	import { lookupElus, isSampleData, type Elu, type LookupResult } from '$lib/data/elus'
 	import { getEluAction, PRESS_TOOL_ENABLED, type FixedTarget } from '$lib/data/elu-actions'
 	import { resolveCirco } from '$lib/data/circo-geo'
+	import { eurodeputesDuGroupe, groupesPresents, type Eurodepute } from '$lib/data/eurodeputes'
 	import type { Lang } from '$lib/i18n'
 
 	export let lang: Lang = 'fr'
@@ -151,7 +152,7 @@
 	let selectedRecipient: Recipient | null = null
 
 	// ── Destinataire normalisé (élu OU cible fixe) ──
-	type RecipientRole = 'depute' | 'senateur' | 'ministre' | 'autre'
+	type RecipientRole = 'depute' | 'senateur' | 'eurodepute' | 'ministre' | 'autre'
 	interface Recipient {
 		id: string
 		nom: string
@@ -161,7 +162,7 @@
 		contactUrl: string | null
 		photo: string | null
 		subtitle: string
-		introKind: 'depute' | 'senateur' | 'generic' | 'media'
+		introKind: 'depute' | 'senateur' | 'eurodepute' | 'generic' | 'media'
 		// Pour les députés : précision de la localité selon la fiabilité du géocodage.
 		// 'circonscription' (1 seul député certain), 'ville' (code postal couvrant
 		// plusieurs circonscriptions), 'departement' (repli). Voir deputeScope.
@@ -203,6 +204,34 @@
 			emailConfidence: elu.emailConfidence
 		}
 	}
+
+	// ── Eurodéputés (demande de Romain, 25/11/2026) ──
+	// Circonscription nationale unique : pas de correspondance par code postal.
+	// La personne choisit un groupe politique, puis écrit aux élu·es français·es
+	// de ce groupe. Rien n'est sélectionné d'office.
+	const groupesEuropeens = groupesPresents()
+	let groupeEuropeen = ''
+
+	function fromEurodepute(e: Eurodepute): Recipient {
+		const g = groupesEuropeens.find((x) => x.sigle === (e.groupe ?? 'NI'))
+		return {
+			id: `ep-${e.id}`,
+			nom: e.nom,
+			civ: e.civ,
+			role: 'eurodepute',
+			email: e.email,
+			contactUrl: e.contactUrl,
+			photo: e.photo,
+			subtitle: g ? (isEn ? g.en : g.fr) : (e.groupe ?? ''),
+			introKind: 'eurodepute',
+			signatureLocality: 'France',
+			emailConfidence: e.email ? 'high' : 'none'
+		}
+	}
+
+	$: eurodeputeRecipients = groupeEuropeen
+		? eurodeputesDuGroupe(groupeEuropeen).map(fromEurodepute)
+		: []
 
 	function fromFixed(ft: FixedTarget): Recipient {
 		return {
@@ -332,7 +361,7 @@
 
 	// Le type est nommé pour que les trois branches produisent le même, et que
 	// la comparaison sur `kind` reste possible dans le gabarit.
-	type RecipientGroupKind = 'fixed' | 'senateurs' | 'deputes'
+	type RecipientGroupKind = 'fixed' | 'senateurs' | 'deputes' | 'eurodeputes'
 	$: recipientGroups =
 		action.targeting === 'fixed'
 			? action.fixedTargets?.length
@@ -361,7 +390,17 @@
 							kind: 'deputes' as RecipientGroupKind,
 							title: deputeTitle,
 							list: deputeRecipients
-						}
+						},
+						// Pas pour la presse : les eurodéputés ne sont pas des rédactions.
+						...(action.press
+							? []
+							: [
+									{
+										kind: 'eurodeputes' as RecipientGroupKind,
+										title: isEn ? 'Your Members of the European Parliament' : 'Vos eurodéputés',
+										list: eurodeputeRecipients
+									}
+								])
 					]
 				: []
 
@@ -405,6 +444,11 @@
 			if (r.civ === 'M') return 'Monsieur le Député,'
 			return 'Madame, Monsieur le Député,'
 		}
+		if (r.role === 'eurodepute') {
+			if (r.civ === 'Mme') return 'Madame la Députée européenne,'
+			if (r.civ === 'M') return 'Monsieur le Député européen,'
+			return 'Madame, Monsieur le Député européen,'
+		}
 		if (r.role === 'senateur') {
 			if (r.civ === 'Mme') return 'Madame la Sénatrice,'
 			if (r.civ === 'M') return 'Monsieur le Sénateur,'
@@ -429,6 +473,11 @@
 			return isEn
 				? `My name is ${nom}, and I am writing to you because I am worried about the development of AI.`
 				: `Je m'appelle ${nom} et je vous écris car le développement de l'IA me préoccupe.`
+		}
+		if (r.introKind === 'eurodepute') {
+			return isEn
+				? `My name is ${nom}, and I am writing to you because you represent France in the European Parliament, where the rules on AI are also decided.`
+				: `Je m'appelle ${nom} et je vous écris car vous représentez la France au Parlement européen, où se décident aussi les règles de l'IA.`
 		}
 		if (r.introKind === 'senateur') {
 			return isEn
@@ -1003,9 +1052,33 @@
 					{/if}
 				{/if}
 				{#each recipientGroups as group}
-					{#if group.list.length}
+					{#if group.list.length || group.kind === 'eurodeputes'}
 						<div class="elu-group">
 							<h3>{group.title}</h3>
+							{#if group.kind === 'eurodeputes'}
+								<p class="circo-hint">
+									{isEn
+										? 'France elects its MEPs in a single national constituency: there is no MEP for your postal code. Choose a political group to write to its French members.'
+										: 'La France élit ses eurodéputés dans une seule circonscription nationale : il n’y a pas d’eurodéputé de votre code postal. Choisissez un groupe politique pour écrire à ses élus français.'}
+								</p>
+								<div
+									class="groupes-ep"
+									role="group"
+									aria-label={isEn ? 'Political groups' : 'Groupes politiques'}
+								>
+									{#each groupesEuropeens as g (g.sigle)}
+										<button
+											type="button"
+											class="groupe-ep"
+											class:actif={groupeEuropeen === g.sigle}
+											aria-pressed={groupeEuropeen === g.sigle}
+											on:click={() => (groupeEuropeen = groupeEuropeen === g.sigle ? '' : g.sigle)}
+										>
+											{isEn ? g.en : g.fr} <span class="nombre">{g.nombre}</span>
+										</button>
+									{/each}
+								</div>
+							{/if}
 							{#if group.kind === 'deputes' && deputeScope === 'ville'}
 								<div class="circo-finder">
 									<p class="circo-hint">
@@ -2566,5 +2639,41 @@
 			flex-direction: column;
 			align-items: stretch;
 		}
+	}
+
+	/* Choix du groupe politique pour les eurodéputés. */
+	.groupes-ep {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 0.75rem 0 1rem;
+	}
+
+	.groupe-ep {
+		font: inherit;
+		font-size: 0.9rem;
+		padding: 0.35rem 0.8rem;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		background: var(--bg);
+		color: var(--text);
+		cursor: pointer;
+	}
+
+	.groupe-ep:hover,
+	.groupe-ep:focus-visible {
+		border-color: var(--brand);
+	}
+
+	.groupe-ep.actif {
+		border-color: var(--brand);
+		background: var(--brand);
+		color: var(--on-brand);
+	}
+
+	.groupe-ep .nombre {
+		margin-left: 0.25rem;
+		opacity: 0.7;
+		font-size: 0.8em;
 	}
 </style>

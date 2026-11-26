@@ -55,6 +55,21 @@ systemctl list-timers update-elus.timer     # vérifier la prochaine exécution
 > `/opt/bots/pauseai-france`. Le script ne requiert que **Node 18+**, **git** et
 > **curl** (aucune dépendance npm). `.elus.env` ne doit jamais être commité.
 
+## Eurodéputés (`eurodeputes.json`)
+
+La France élit ses 81 eurodéputés dans **une seule circonscription nationale** :
+pas de correspondance par code postal. L'outil propose de choisir un **groupe
+politique**, puis d'écrire aux élus français de ce groupe (rien n'est coché
+d'office). Données : `scripts/generate-eurodeputes.mjs`, depuis l'API de
+données ouvertes du Parlement européen (`data.europarl.europa.eu`, qui publie
+l'adresse officielle de chaque élu, rien n'est deviné). Même source que le CRM
+(`utils/extract_eurodeputes.py`). Lancé par les deux mécanismes de mise à jour
+ci-dessus ; une panne de cette API n'empêche pas celle des députés et sénateurs.
+
+```bash
+pnpm run generate-eurodeputes   # régénère src/lib/data/eurodeputes.json
+```
+
 ## Régénérer manuellement
 
 ```bash

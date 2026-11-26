@@ -95,7 +95,13 @@ trap 'rm -f "$ERR_LOG"' EXIT
 node scripts/generate-elus.js --report $PHOTO_FLAG 2>"$ERR_LOG"
 cat "$ERR_LOG" >&2
 
-DATA_FILES=(src/lib/data/elus.json src/lib/data/code-postal-circo.json)
+# Eurodéputés : source distincte (API du Parlement européen). Une panne de
+# cette API ne doit pas empêcher la mise à jour des députés et sénateurs :
+# le fichier précédent reste alors en place.
+echo "→ Génération des données des eurodéputés…"
+node scripts/generate-eurodeputes.mjs || echo "⚠️  Eurodéputés non mis à jour (voir ci-dessus), on continue." >&2
+
+DATA_FILES=(src/lib/data/elus.json src/lib/data/code-postal-circo.json src/lib/data/eurodeputes.json)
 if git diff --quiet -- "${DATA_FILES[@]}"; then
 	echo "✓ Aucun changement, pas de PR à ouvrir."
 	exit 0

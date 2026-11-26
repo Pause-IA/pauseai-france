@@ -21,7 +21,8 @@
 		"photos-evenements": "node --env-file-if-exists=.env scripts/photos-evenements.mjs",
 		"guide-notion": "node --env-file-if-exists=.env scripts/guide-notion.mjs",
 		"lint:css": "stylelint \"src/**/*.{css,svelte}\"",
-		"groupes-locaux-notion": "node --env-file-if-exists=.env scripts/groupes-locaux-notion.mjs"
+		"groupes-locaux-notion": "node --env-file-if-exists=.env scripts/groupes-locaux-notion.mjs",
+		"generate-eurodeputes": "node scripts/generate-eurodeputes.mjs"
 	},
 	"devDependencies": {
 		"@netlify/functions": "^6.0.3",
