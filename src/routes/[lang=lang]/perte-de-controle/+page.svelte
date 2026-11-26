@@ -3,8 +3,8 @@
 	import ArticleCard from '$components/ArticleCard.svelte'
 	import EcrireOutil from '$components/EcrireOutil.svelte'
 	import Button from '$components/Button.svelte'
-	import { MoveUpRight } from 'lucide-svelte'
-	import { pressePerteDeControle } from '$lib/data/presse-perte-de-controle'
+	import { presseMarche14Novembre, pressePerteDeControle } from '$lib/data/presse-perte-de-controle'
+	import PressItem from './PressItem.svelte'
 	import type { PageData } from './$types'
 
 	export let data: PageData
@@ -26,13 +26,40 @@
 		? 'AI now outperforms humans at computer security, and the researchers who train these systems no longer control them. Join our call for a global moratorium on frontier AI development.'
 		: 'L’IA dépasse désormais les humains en sécurité informatique, et les chercheurs qui les entraînent ne les maîtrisent plus. Relayez notre appel à un moratoire mondial sur le développement des IA de pointe.'
 
-	function formatDate(date: string) {
-		return new Date(date).toLocaleDateString(isEn ? 'en-GB' : 'fr-FR', {
-			day: 'numeric',
-			month: 'long',
-			year: 'numeric'
-		})
-	}
+	/* Photos de la marche du 14 novembre (Drive de Jeanne), compressées en WebP. */
+	const PM = '/campaigns/marche-14-novembre'
+	const PHOTOS_MARCHE = [
+		{
+			src: `${PM}/cortege-banderole.webp`,
+			fr: 'Le cortège derrière la banderole Pause IA, dans une avenue de Paris.',
+			en: 'The march behind the Pause IA banner, on a Paris avenue.'
+		},
+		{
+			src: `${PM}/trocadero-megaphone.webp`,
+			fr: 'Prise de parole au mégaphone au Trocadéro, la tour Eiffel en arrière-plan.',
+			en: 'Speaking through a megaphone at the Trocadéro, the Eiffel Tower behind.'
+		},
+		{
+			src: `${PM}/pancarte-tour-eiffel.webp`,
+			fr: 'Une pancarte « Nous sommes au bord de la perte de contrôle » devant la tour Eiffel.',
+			en: 'A sign reading “We are on the brink of losing control” in front of the Eiffel Tower.'
+		},
+		{
+			src: `${PM}/pancartes.webp`,
+			fr: 'Pancartes « Test de sécurité échoué » et « Les entreprises d’IA jouent avec nos vies ».',
+			en: 'Signs reading “Safety test failed” and “AI companies are gambling with our lives”.'
+		},
+		{
+			src: `${PM}/pancarte-perte-de-controle.webp`,
+			fr: 'Une manifestante tient la pancarte « Nous sommes au bord de la perte de contrôle ».',
+			en: 'A marcher holding the sign “We are on the brink of losing control”.'
+		},
+		{
+			src: `${PM}/pancarte-papa.webp`,
+			fr: 'Un manifestant tient une pancarte « Just a dad worried for his daughter’s future ».',
+			en: 'A marcher holding a sign: “Just a dad worried for his daughter’s future”.'
+		}
+	]
 </script>
 
 <CampaignPage {title} {description}>
@@ -50,6 +77,77 @@
 			{isEn ? 'Write to my representatives' : 'Écrire à mes élus'}
 		</Button>
 	</CampaignHero>
+
+	<!-- ── Marche du 14 novembre : retour ───────────────────── -->
+	<!--
+		La marche est passée : l'annonce (horaires, inscription Luma) laisse la
+		place au bilan, placé juste sous le héros (demande de Jeanne, 26/11/2026). Texte français repris tel quel de la newsletter (todo
+		Notion de Jeanne, 25/11/2026) ; photos dans static/campaigns/marche-14-novembre.
+	-->
+	<CampaignSection
+		id="marche"
+		variant="card"
+		title={isEn
+			? 'March for an AI treaty, Paris, 14 November'
+			: 'Marche pour un traité sur l’IA, Paris, 14 novembre'}
+	>
+		{#if isEn}
+			<p>
+				On Saturday 14 November, around a hundred people marched through Paris to call for an
+				international treaty on AI. A first in France, organised with Stop The AI Race and its
+				French branch, Stop IA. The same day, rallies took place in some twenty cities around the
+				world.
+			</p>
+			<p>
+				At the Trocadéro, the co-organisers were joined at the microphone by CeSIA, Le Projet
+				Méduses, Tournesol, the gilets jaunes and Anti-Tech Résistance. Very different backgrounds,
+				brought together by the same cause: proof that the question of AI risks reaches far beyond
+				our movement.
+			</p>
+			<p>
+				For a first, it was a success. Thank you to everyone who came! And this is only the
+				beginning. To hear about our next actions and take part, join us on Discord.
+			</p>
+		{:else}
+			<p>
+				Le samedi 14 novembre, une centaine de personnes ont marché dans Paris pour demander un
+				traité international sur l’IA. Une première en France, organisée avec Stop The AI Race et sa
+				branche française, Stop IA. Le même jour, des rassemblements avaient lieu dans une vingtaine
+				de villes à travers le monde.
+			</p>
+			<p>
+				Au Trocadéro, les co-organisateurs ont été rejoints au micro par le CeSIA, Le Projet
+				Méduses, Tournesol, les gilets jaunes et Anti-Tech Résistance. Des horizons très différents,
+				réunis pour la même cause. Preuve que la question des risques de l’IA rassemble bien au-delà
+				de notre mouvement.
+			</p>
+			<p>
+				Pour une première, c’est une réussite. Merci à toutes celles et ceux qui sont venu·es ! Et
+				ce n’est qu’un début. Pour être au courant des prochaines actions et y participer,
+				rejoignez-nous sur Discord.
+			</p>
+		{/if}
+		{#if PHOTOS_MARCHE.length}
+			<div class="marche-photos">
+				{#each PHOTOS_MARCHE as photo (photo.src)}
+					<img src={photo.src} alt={isEn ? photo.en : photo.fr} loading="lazy" />
+				{/each}
+			</div>
+		{/if}
+		<!-- Retours presse de la marche, sous forme de cartes comme sur la page
+		     Emploi (demande de Clémence et Jeanne, 26/11/2026). -->
+		<h3 class="press-event">{isEn ? 'Pause IA in the press' : 'Pause IA dans la presse'}</h3>
+		<ul class="press-cards">
+			{#each presseMarche14Novembre.flatMap((g) => g.articles) as item (item.url)}
+				<li><PressItem {item} {isEn} carte /></li>
+			{/each}
+		</ul>
+		<p class="cta-row">
+			<Button href="https://discord.gg/vyXGd7AeGc">
+				{isEn ? 'Join us on Discord' : 'Nous rejoindre sur Discord'}
+			</Button>
+		</p>
+	</CampaignSection>
 
 	<!-- ── Le constat ───────────────────────────────────────── -->
 	<CampaignSection>
@@ -218,49 +316,6 @@
 		</ol>
 	</CampaignSection>
 
-	<!-- ── Marche du 14 novembre ────────────────────────────── -->
-	<!--
-		Le trajet détaillé et le minutage restent sur la page Luma, seule source :
-		les écrire en double garantirait qu’un changement de dernière minute laisse
-		une fausse information en ligne. Ici, seulement ce qui ne bougera pas.
-	-->
-	<CampaignSection
-		id="marche"
-		variant="card"
-		title={isEn
-			? 'March for an AI treaty, in Paris on 14 November'
-			: 'Marche pour un traité en IA, à Paris le 14 novembre'}
-	>
-		{#if isEn}
-			<p>
-				On 18 November, Trump meets Xi Jinping at the APEC summit. Four days earlier, on
-				<strong>Saturday 14 November from 11am to 1pm</strong>, Pause IA and
-				<strong>Stop The AI Race</strong> march together in Paris to ask both leaders for an agreement
-				that ends the AI arms race.
-			</p>
-			<p>
-				We set off from the United States Embassy, place de la Concorde, and walk to the Trocadéro.
-				The same day, people march in San Francisco, New York and Washington. Bring a sign.
-			</p>
-		{:else}
-			<p>
-				Le 18 novembre, Trump rencontre Xi Jinping au sommet de l’APEC. Quatre jours plus tôt, le
-				<strong>samedi 14 novembre de 11 h à 13 h</strong>, Pause IA et
-				<strong>Stop The AI Race</strong> marchent ensemble à Paris pour demander aux deux dirigeants
-				un accord mettant fin à la course aux armements de l’IA.
-			</p>
-			<p>
-				Départ de l’ambassade des États-Unis, place de la Concorde, jusqu’au Trocadéro. Le même
-				jour, on marche aussi à San Francisco, New York et Washington. Apportez une pancarte.
-			</p>
-		{/if}
-		<p class="cta-row">
-			<Button href="https://luma.com/stop-pjeb">
-				{isEn ? 'Register for the march' : 'S’inscrire à la marche'}
-			</Button>
-		</p>
-	</CampaignSection>
-
 	<!-- ── Rejoindre un groupe local ────────────────────────── -->
 	<CampaignSection
 		id="groupes-locaux"
@@ -325,21 +380,7 @@
 			</h3>
 			<ul class="press-list">
 				{#each group.articles as item (item.url)}
-					<li>
-						<a class="press-item" href={item.url} target="_blank" rel="noopener noreferrer">
-							<span class="press-meta">
-								<span class="press-source">{item.source}</span>
-								{#if item.video}
-									<span class="press-video">{isEn ? 'Video' : 'Vidéo'}</span>
-								{/if}
-								{#if item.date}
-									<time datetime={item.date}>{formatDate(item.date)}</time>
-								{/if}
-								<MoveUpRight size="0.75rem" aria-hidden="true" />
-							</span>
-							<span class="press-title">{item.title}</span>
-						</a>
-					</li>
+					<li><PressItem {item} {isEn} /></li>
 				{/each}
 			</ul>
 		{/each}
@@ -380,46 +421,59 @@
 		gap: 0.75rem;
 	}
 
-	.press-item {
-		display: block;
-		padding: 0.85rem 1rem;
-		border: 2px solid rgb(255 148 22 / 45%); /* --brand, atténué */
-		border-radius: var(--radius-sm);
-		color: inherit;
-		text-decoration: none;
-		transition: border-color 0.2s ease;
-	}
-
-	.press-item:hover,
-	.press-item:focus-visible {
-		border-color: var(--brand);
-	}
-
-	.press-meta {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 0.5rem;
-		font-size: 0.85rem;
-		color: var(--text-secondary);
-	}
-
-	.press-source {
+	.press-event {
+		margin: 2rem 0 0.5rem;
+		font-size: 1.25rem;
 		font-weight: 700;
-		color: var(--text);
 	}
 
-	.press-video {
-		padding: 0 0.4rem;
-		border: 1px solid var(--border);
-		border-radius: 0.25rem;
-		font-size: 0.75rem;
+	.press-cards {
+		list-style: none;
+		margin: 0 0 1.5rem;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
 	}
 
-	.press-title {
+	/* Six photos : la première (le cortège) en grand sur deux colonnes et deux
+	   lignes, les cinq autres autour, ce qui remplit exactement une grille de
+	   3 x 3. Cadrage calé vers le haut, là où sont les visages et les pancartes. */
+	.marche-photos {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 4px;
+		margin-top: 1.5rem;
+	}
+
+	.marche-photos img {
+		inline-size: 100%;
+		block-size: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		object-position: center 30%;
 		display: block;
-		margin-top: 0.25rem;
-		font-weight: 600;
-		line-height: 1.4;
+		border-radius: var(--radius-sm);
+	}
+
+	.marche-photos img:first-child {
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+
+	@media (max-width: 600px) {
+		.marche-photos {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.marche-photos img:first-child {
+			grid-row: auto;
+		}
+
+		/* Six photos sur deux colonnes : la grande prend une ligne, il en
+		   resterait une seule en bas. */
+		.marche-photos img:last-child {
+			display: none;
+		}
 	}
 </style>
