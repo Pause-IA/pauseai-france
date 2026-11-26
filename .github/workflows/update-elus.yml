@@ -46,6 +46,12 @@ jobs:
           COMMUNE_CIRCO_URL: ${{ vars.COMMUNE_CIRCO_URL }}
         run: pnpm run generate-elus -- --report
 
+      - name: Régénérer les eurodéputés
+        # Source distincte (API du Parlement européen) : une panne ne bloque pas
+        # la mise à jour des députés et sénateurs.
+        continue-on-error: true
+        run: pnpm run generate-eurodeputes
+
       - name: Ouvrir une PR si les données ont changé
         uses: peter-evans/create-pull-request@v8
         with:
@@ -62,4 +68,5 @@ jobs:
             faible signalés dans les logs du job.
           add-paths: |
             src/lib/data/elus.json
+            src/lib/data/eurodeputes.json
             src/lib/data/code-postal-circo.json

@@ -1,0 +1,735 @@
+{
+	"eurodeputes": [
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256883",
+			"email": "aleksandar.nikolic@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256883",
+			"nom": "Aleksandar Nikolic",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256883.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/5736",
+			"email": "alexandre.varaut@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "5736",
+			"nom": "Alexandre Varaut",
+			"photo": "https://www.europarl.europa.eu/mepphoto/5736.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197690",
+			"email": "andre.rouge@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "197690",
+			"nom": "André Rougé",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197690.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256896",
+			"email": "angeline.furet@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256896",
+			"nom": "Angéline Furet",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256896.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256876",
+			"email": "anne-sophie.frigout@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256876",
+			"nom": "Anne-Sophie Frigout",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256876.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256910",
+			"email": "anthony.smith@europarl.europa.eu",
+			"groupe": "The Left",
+			"id": "256910",
+			"nom": "Anthony Smith",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256910.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256911",
+			"email": "arash.saeidi@europarl.europa.eu",
+			"groupe": "The Left",
+			"id": "256911",
+			"nom": "Arash Saeidi",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256911.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197697",
+			"email": "aurore.lalucq@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "197697",
+			"nom": "Aurore Lalucq",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197697.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197543",
+			"email": "bernard.guetta@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "197543",
+			"nom": "Bernard Guetta",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197543.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/94649",
+			"email": "catherine.griset@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "94649",
+			"nom": "Catherine Griset",
+			"photo": "https://www.europarl.europa.eu/mepphoto/94649.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256918",
+			"email": "celine.imart@europarl.europa.eu",
+			"groupe": "PPE",
+			"id": "256918",
+			"nom": "Céline Imart",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256918.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256904",
+			"email": "chloe.ridel@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "256904",
+			"nom": "Chloé Ridel",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256904.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/261797",
+			"email": "christophe.bay@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "261797",
+			"nom": "Christophe Bay",
+			"photo": "https://www.europarl.europa.eu/mepphoto/261797.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/245018",
+			"email": "christophe.clergeau@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "245018",
+			"nom": "Christophe Clergeau",
+			"photo": "https://www.europarl.europa.eu/mepphoto/245018.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256919",
+			"email": "christophe.gomart@europarl.europa.eu",
+			"groupe": "PPE",
+			"id": "256919",
+			"nom": "Christophe Gomart",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256919.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197557",
+			"email": "christophe.grudler@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "197557",
+			"nom": "Christophe Grudler",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197557.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256906",
+			"email": "claire.fita@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "256906",
+			"nom": "Claire Fita",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256906.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197574",
+			"email": "damien.careme@europarl.europa.eu",
+			"groupe": "The Left",
+			"id": "197574",
+			"nom": "Damien Carême",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197574.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197503",
+			"email": "david.cormand@europarl.europa.eu",
+			"groupe": "Verts/ALE",
+			"id": "197503",
+			"nom": "David Cormand",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197503.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256913",
+			"email": "emma.fourreau@europarl.europa.eu",
+			"groupe": "The Left",
+			"id": "256913",
+			"nom": "Emma Fourreau",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256913.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256902",
+			"email": "emma.rafowicz@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "256902",
+			"nom": "Emma Rafowicz",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256902.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256905",
+			"email": "eric.sargiacomo@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "256905",
+			"nom": "Eric Sargiacomo",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256905.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/22858",
+			"email": "fabienne.keller@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "22858",
+			"nom": "Fabienne Keller",
+			"photo": "https://www.europarl.europa.eu/mepphoto/22858.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256872",
+			"email": "fabrice.leggeri@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256872",
+			"nom": "Fabrice Leggeri",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256872.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/189065",
+			"email": "france.jamet@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "189065",
+			"nom": "France Jamet",
+			"photo": "https://www.europarl.europa.eu/mepphoto/189065.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256908",
+			"email": "francois.kalfon@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "256908",
+			"nom": "François Kalfon",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256908.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197534",
+			"email": "fxbellamy@europarl.europa.eu",
+			"groupe": "PPE",
+			"id": "197534",
+			"nom": "François-Xavier Bellamy",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197534.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197577",
+			"email": "gilles.boyer@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "197577",
+			"nom": "Gilles Boyer",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197577.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/126699",
+			"email": "gilles.pennelle@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "126699",
+			"nom": "Gilles Pennelle",
+			"photo": "https://www.europarl.europa.eu/mepphoto/126699.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256869",
+			"email": "gregory.allione@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "256869",
+			"nom": "Grégory Allione",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256869.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/30123",
+			"email": "guillaume.peltier@europarl.europa.eu",
+			"groupe": "ECR",
+			"id": "30123",
+			"nom": "Guillaume Peltier",
+			"photo": "https://www.europarl.europa.eu/mepphoto/30123.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256920",
+			"email": "isabelle.lecallennec@europarl.europa.eu",
+			"groupe": "PPE",
+			"id": "256920",
+			"nom": "Isabelle Le Callennec",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256920.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256901",
+			"email": "jean-marc.germain@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "256901",
+			"nom": "Jean-Marc Germain",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256901.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197628",
+			"email": "jean-paul.garraud@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "197628",
+			"nom": "Jean-Paul Garraud",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197628.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197504",
+			"email": "jeremy.decerle@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "197504",
+			"nom": "Jérémy Decerle",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197504.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/131580",
+			"email": "jordan.bardella@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "131580",
+			"nom": "Jordan Bardella",
+			"photo": "https://www.europarl.europa.eu/mepphoto/131580.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256882",
+			"email": "julie.rechagneux@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256882",
+			"nom": "Julie Rechagneux",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256882.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256895",
+			"email": "julien.leonardelli@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256895",
+			"nom": "Julien Leonardelli",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256895.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/88552",
+			"email": "julien.sanchez@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "88552",
+			"nom": "Julien Sanchez",
+			"photo": "https://www.europarl.europa.eu/mepphoto/88552.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197589",
+			"email": "laurence.farreng@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "197589",
+			"nom": "Laurence Farreng",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197589.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256925",
+			"email": "laurence.trochu@europarl.europa.eu",
+			"groupe": "ECR",
+			"id": "256925",
+			"nom": "Laurence Trochu",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256925.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256921",
+			"email": "laurent.castillo@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256921",
+			"nom": "Laurent Castillo",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256921.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197529",
+			"email": "leila.chaibi@europarl.europa.eu",
+			"groupe": "The Left",
+			"id": "197529",
+			"nom": "Leila Chaibi",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197529.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256917",
+			"email": "majdouline.sbai@europarl.europa.eu",
+			"groupe": "Verts/ALE",
+			"id": "256917",
+			"nom": "Majdouline Sbai",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256917.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256871",
+			"email": "malika.sorel@europarl.europa.eu",
+			"groupe": "NI",
+			"id": "256871",
+			"nom": "Malika Sorel",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256871.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197533",
+			"email": "manon.aubry@europarl.europa.eu",
+			"groupe": "The Left",
+			"id": "197533",
+			"nom": "Manon Aubry",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197533.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/236050",
+			"email": "marie.dauchy@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "236050",
+			"nom": "Marie Dauchy",
+			"photo": "https://www.europarl.europa.eu/mepphoto/236050.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/97236",
+			"email": "marie.toussaint@europarl.europa.eu",
+			"groupe": "Verts/ALE",
+			"id": "97236",
+			"nom": "Marie Toussaint",
+			"photo": "https://www.europarl.europa.eu/mepphoto/97236.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256878",
+			"email": "marie-luce.brasier-clain@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256878",
+			"nom": "Marie-Luce Brasier-Clain",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256878.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/236053",
+			"email": "marina.mesure@europarl.europa.eu",
+			"groupe": "The Left",
+			"id": "236053",
+			"nom": "Marina Mesure",
+			"photo": "https://www.europarl.europa.eu/mepphoto/236053.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256922",
+			"email": "marion.marechal@europarl.europa.eu",
+			"groupe": "ECR",
+			"id": "256922",
+			"nom": "Marion Maréchal",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256922.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197691",
+			"email": "mathilde.androuet@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "197691",
+			"nom": "Mathilde Androuët",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197691.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256875",
+			"email": "matthieu.valet@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256875",
+			"nom": "Matthieu Valet",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256875.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256874",
+			"email": "melanie.disdier@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256874",
+			"nom": "Mélanie Disdier",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256874.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256915",
+			"email": "melissa.camara@europarl.europa.eu",
+			"groupe": "Verts/ALE",
+			"id": "256915",
+			"nom": "Mélissa Camara",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256915.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197500",
+			"email": "mounir.satouri@europarl.europa.eu",
+			"groupe": "Verts/ALE",
+			"id": "197500",
+			"nom": "Mounir Satouri",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197500.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256899",
+			"email": "murielle.laurent@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "256899",
+			"nom": "Murielle Laurent",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256899.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/72779",
+			"email": "nadine.morano@europarl.europa.eu",
+			"groupe": "PPE",
+			"id": "72779",
+			"nom": "Nadine Morano",
+			"photo": "https://www.europarl.europa.eu/mepphoto/72779.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197494",
+			"email": "nathalie.loiseau@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "197494",
+			"nom": "Nathalie Loiseau",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197494.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/124760",
+			"email": "nicolas.bay@europarl.europa.eu",
+			"groupe": "ECR",
+			"id": "124760",
+			"nom": "Nicolas Bay",
+			"photo": "https://www.europarl.europa.eu/mepphoto/124760.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/204418",
+			"email": "nora.mebarek@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "204418",
+			"nom": "Nora Mebarek",
+			"photo": "https://www.europarl.europa.eu/mepphoto/204418.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/96711",
+			"email": "pascal.canfin@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "96711",
+			"nom": "Pascal Canfin",
+			"photo": "https://www.europarl.europa.eu/mepphoto/96711.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256877",
+			"email": "pascale.piera@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256877",
+			"nom": "Pascale Piera",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256877.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197687",
+			"email": "philippe.olivier@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "197687",
+			"nom": "Philippe Olivier",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197687.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256898",
+			"email": "pierre.jouvet@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "256898",
+			"nom": "Pierre Jouvet",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256898.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256893",
+			"email": "pierre.pimpie@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256893",
+			"nom": "Pierre Pimpie",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256893.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/200345",
+			"email": "pierre-romain.thionnet@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "200345",
+			"nom": "Pierre-Romain Thionnet",
+			"photo": "https://www.europarl.europa.eu/mepphoto/200345.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197694",
+			"email": "raphael.glucksmann@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "197694",
+			"nom": "Raphaël Glucksmann",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197694.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256912",
+			"email": "rima.hassan@europarl.europa.eu",
+			"groupe": "The Left",
+			"id": "256912",
+			"nom": "Rima Hassan",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256912.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256888",
+			"email": "rody.tolassy@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256888",
+			"nom": "Rody Tolassy",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256888.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/204419",
+			"email": "sandro.gozi@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "204419",
+			"nom": "Sandro Gozi",
+			"photo": "https://www.europarl.europa.eu/mepphoto/204419.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256924",
+			"email": "sarah.knafo@europarl.europa.eu",
+			"groupe": "ESN",
+			"id": "256924",
+			"nom": "Sarah Knafo",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256924.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/261796",
+			"email": "severine.werbrouck@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "261796",
+			"nom": "Séverine Werbrouck",
+			"photo": "https://www.europarl.europa.eu/mepphoto/261796.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197581",
+			"email": "stephanie.yon@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "197581",
+			"nom": "Stéphanie Yon-Courtin",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197581.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197623",
+			"email": "thierry.mariani@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "197623",
+			"nom": "Thierry Mariani",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197623.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256903",
+			"email": "thomas.pellerin-carlin@europarl.europa.eu",
+			"groupe": "S&D",
+			"id": "256903",
+			"nom": "Thomas Pellerin-Carlin",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256903.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256886",
+			"email": "valerie.deloge@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "256886",
+			"nom": "Valérie Deloge",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256886.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/256870",
+			"email": "valerie.devaux@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "256870",
+			"nom": "Valérie Devaux",
+			"photo": "https://www.europarl.europa.eu/mepphoto/256870.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/135511",
+			"email": "valerie.hayer@europarl.europa.eu",
+			"groupe": "Renew",
+			"id": "135511",
+			"nom": "Valérie Hayer",
+			"photo": "https://www.europarl.europa.eu/mepphoto/135511.jpg"
+		},
+		{
+			"civ": "Mme",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/197627",
+			"email": "virginie.joron@europarl.europa.eu",
+			"groupe": "PfE",
+			"id": "197627",
+			"nom": "Virginie Joron",
+			"photo": "https://www.europarl.europa.eu/mepphoto/197627.jpg"
+		},
+		{
+			"civ": "M",
+			"contactUrl": "https://www.europarl.europa.eu/meps/fr/30482",
+			"email": "younous.omarjee@europarl.europa.eu",
+			"groupe": "The Left",
+			"id": "30482",
+			"nom": "Younous Omarjee",
+			"photo": "https://www.europarl.europa.eu/mepphoto/30482.jpg"
+		}
+	],
+	"generatedAt": "2026-11-17",
+	"source": "https://data.europarl.europa.eu/api/v2/meps/show-current?country-of-representation=FR"
+}
