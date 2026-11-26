@@ -47,6 +47,9 @@ export const HOTES_ANGLOPHONES = new Set([
  * adresse dont le chemin annonce une version française (« /fr/… »), car
  * plusieurs de ces sites publient des traductions ponctuelles.
  */
+/** La mention elle-même, en HTML, pour le contenu produit en chaîne (FAQ). */
+export const MENTION_ANGLAIS_HTML = '<span class="en-anglais">&nbsp;(en anglais)</span>'
+
 export function estEnAnglais(href: string): boolean {
 	let url: URL
 	try {

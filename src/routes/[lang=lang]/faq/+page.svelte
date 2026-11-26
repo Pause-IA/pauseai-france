@@ -16,7 +16,7 @@
 	export let data: PageData
 	$: isEn = data.lang === 'en'
 	$: prefix = `/${data.lang}`
-	$: categories = parseFaq(isEn ? faqRawEn : faqRaw)
+	$: categories = parseFaq(isEn ? faqRawEn : faqRaw, isEn ? 'en' : 'fr')
 	$: jsonLdScript = jsonLdTag(faqJsonLd(flattenFaq(categories)))
 
 	const t = {

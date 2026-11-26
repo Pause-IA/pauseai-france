@@ -2,6 +2,7 @@
 	import PostMeta from '$components/PostMeta.svelte'
 	import { CampaignPage, CampaignHero, CampaignSection } from '$components/campaign'
 	import EcrireOutil from '$components/EcrireOutil.svelte'
+	import MentionAnglais from '$components/MentionAnglais.svelte'
 	import { PRESS_TOOL_ENABLED } from '$lib/data/elu-actions'
 	import { Landmark, Newspaper, MoveUpRight, ArrowRight, Share2 } from 'lucide-svelte'
 	import type { PageData } from './$types'
@@ -275,7 +276,9 @@
 						rel="noopener noreferrer"
 					>
 						{isEn ? 'Zvi Mowshowitz’s account' : 'Le récit de Zvi Mowshowitz'}
-						<MoveUpRight size="0.85em" aria-hidden="true" />
+						<MentionAnglais
+							href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
+						/><MoveUpRight size="0.85em" aria-hidden="true" />
 					</a>
 					<a
 						class="read-chip"
@@ -337,7 +340,9 @@
 			>
 				{isEn
 					? 'Internal reasoning of one of the models, reported by OpenAI'
-					: 'Raisonnement interne de l’un des modèles, rapporté par OpenAI'}
+					: 'Raisonnement interne de l’un des modèles, rapporté par OpenAI'}<MentionAnglais
+					href="https://thezvi.substack.com/p/what-happened-openai-and-huggingface"
+				/>
 			</a>
 		</figcaption>
 	</figure>
@@ -465,6 +470,12 @@
 	<CampaignSection>
 		<div class="sources">
 			<h2>{isEn ? 'Sources' : 'Sources'}</h2>
+			{#if !isEn}
+				<p class="note-langue">
+					Sauf mention contraire, ces ressources sont en anglais : c’est la langue de la
+					quasi-totalité des travaux de référence sur le sujet.
+				</p>
+			{/if}
 			<ul>
 				<li>
 					<a
@@ -1173,6 +1184,13 @@
 	.sources h2 {
 		font-size: 1.2rem;
 		margin: 0 0 1rem;
+	}
+
+	/* Même note que la section « Pour approfondir » de /comprendre-le-risque. */
+	.note-langue {
+		margin: -0.5rem 0 1rem;
+		font-size: 0.9rem;
+		color: var(--text-2);
 	}
 
 	.sources ul {

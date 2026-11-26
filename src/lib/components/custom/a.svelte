@@ -85,12 +85,6 @@
 </a>
 
 <style>
-	.en-anglais {
-		font-size: 0.85em;
-		opacity: 0.75;
-		white-space: nowrap;
-	}
-
 	.icon {
 		display: inline;
 		vertical-align: text-top;

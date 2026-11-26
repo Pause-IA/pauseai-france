@@ -6,6 +6,7 @@
 	 * page, dans deux sections différentes. (Sur la branche d'origine c'était
 	 * un snippet Svelte 5 ; le site est en Svelte 4.)
 	 */
+	import MentionAnglais from '$components/MentionAnglais.svelte'
 	import { portraitComplet } from '$lib/data/comprendre-le-risque'
 	import type { Citation } from '$lib/data/comprendre-le-risque'
 
@@ -28,7 +29,9 @@
 	<figcaption>
 		{c.source}
 		{#if c.url}
-			<a href={c.url} target="_blank" rel="noopener noreferrer">{c.lienTexte ?? 'Source'}</a>
+			<a href={c.url} target="_blank" rel="noopener noreferrer"
+				>{c.lienTexte ?? 'Source'}<MentionAnglais href={c.url} /></a
+			>
 		{/if}
 	</figcaption>
 </figure>
