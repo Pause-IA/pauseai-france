@@ -78,6 +78,77 @@
 		</Button>
 	</CampaignHero>
 
+	<!-- ── Marche du 14 novembre : retour ───────────────────── -->
+	<!--
+		La marche est passée : l'annonce (horaires, inscription Luma) laisse la
+		place au bilan, placé juste sous le héros (demande de Jeanne, 26/11/2026). Texte français repris tel quel de la newsletter (todo
+		Notion de Jeanne, 25/11/2026) ; photos dans static/campaigns/marche-14-novembre.
+	-->
+	<CampaignSection
+		id="marche"
+		variant="card"
+		title={isEn
+			? 'March for an AI treaty, Paris, 14 November'
+			: 'Marche pour un traité sur l’IA, Paris, 14 novembre'}
+	>
+		{#if isEn}
+			<p>
+				On Saturday 14 November, around a hundred people marched through Paris to call for an
+				international treaty on AI. A first in France, organised with Stop The AI Race and its
+				French branch, Stop IA. The same day, rallies took place in some twenty cities around the
+				world.
+			</p>
+			<p>
+				At the Trocadéro, the co-organisers were joined at the microphone by CeSIA, Le Projet
+				Méduses, Tournesol, the gilets jaunes and Anti-Tech Résistance. Very different backgrounds,
+				brought together by the same cause: proof that the question of AI risks reaches far beyond
+				our movement.
+			</p>
+			<p>
+				For a first, it was a success. Thank you to everyone who came! And this is only the
+				beginning. To hear about our next actions and take part, join us on Discord.
+			</p>
+		{:else}
+			<p>
+				Le samedi 14 novembre, une centaine de personnes ont marché dans Paris pour demander un
+				traité international sur l’IA. Une première en France, organisée avec Stop The AI Race et sa
+				branche française, Stop IA. Le même jour, des rassemblements avaient lieu dans une vingtaine
+				de villes à travers le monde.
+			</p>
+			<p>
+				Au Trocadéro, les co-organisateurs ont été rejoints au micro par le CeSIA, Le Projet
+				Méduses, Tournesol, les gilets jaunes et Anti-Tech Résistance. Des horizons très différents,
+				réunis pour la même cause. Preuve que la question des risques de l’IA rassemble bien au-delà
+				de notre mouvement.
+			</p>
+			<p>
+				Pour une première, c’est une réussite. Merci à toutes celles et ceux qui sont venu·es ! Et
+				ce n’est qu’un début. Pour être au courant des prochaines actions et y participer,
+				rejoignez-nous sur Discord.
+			</p>
+		{/if}
+		{#if PHOTOS_MARCHE.length}
+			<div class="marche-photos">
+				{#each PHOTOS_MARCHE as photo (photo.src)}
+					<img src={photo.src} alt={isEn ? photo.en : photo.fr} loading="lazy" />
+				{/each}
+			</div>
+		{/if}
+		<!-- Retours presse de la marche, sous forme de cartes comme sur la page
+		     Emploi (demande de Clémence et Jeanne, 26/11/2026). -->
+		<h3 class="press-event">{isEn ? 'Pause IA in the press' : 'Pause IA dans la presse'}</h3>
+		<ul class="press-cards">
+			{#each presseMarche14Novembre.flatMap((g) => g.articles) as item (item.url)}
+				<li><PressItem {item} {isEn} carte /></li>
+			{/each}
+		</ul>
+		<p class="cta-row">
+			<Button href="https://discord.gg/vyXGd7AeGc">
+				{isEn ? 'Join us on Discord' : 'Nous rejoindre sur Discord'}
+			</Button>
+		</p>
+	</CampaignSection>
+
 	<!-- ── Le constat ───────────────────────────────────────── -->
 	<CampaignSection>
 		{#if isEn}
@@ -245,69 +316,6 @@
 		</ol>
 	</CampaignSection>
 
-	<!-- ── Marche du 14 novembre : retour ───────────────────── -->
-	<!--
-		La marche est passée : l'annonce (horaires, inscription Luma) laisse la
-		place au bilan. Texte français repris tel quel de la newsletter (todo
-		Notion de Jeanne, 25/11/2026) ; photos dans static/campaigns/marche-14-novembre.
-	-->
-	<CampaignSection
-		id="marche"
-		variant="card"
-		title={isEn
-			? 'March for an AI treaty, Paris, 14 November'
-			: 'Marche pour un traité sur l’IA, Paris, 14 novembre'}
-	>
-		{#if isEn}
-			<p>
-				On Saturday 14 November, around a hundred people marched through Paris to call for an
-				international treaty on AI. A first in France, organised with Stop The AI Race and its
-				French branch, Stop IA. The same day, rallies took place in some twenty cities around the
-				world.
-			</p>
-			<p>
-				At the Trocadéro, the co-organisers were joined at the microphone by CeSIA, Le Projet
-				Méduses, Tournesol, the gilets jaunes and Anti-Tech Résistance. Very different backgrounds,
-				brought together by the same cause: proof that the question of AI risks reaches far beyond
-				our movement.
-			</p>
-			<p>
-				For a first, it was a success. Thank you to everyone who came! And this is only the
-				beginning. To hear about our next actions and take part, join us on Discord.
-			</p>
-		{:else}
-			<p>
-				Le samedi 14 novembre, une centaine de personnes ont marché dans Paris pour demander un
-				traité international sur l’IA. Une première en France, organisée avec Stop The AI Race et sa
-				branche française, Stop IA. Le même jour, des rassemblements avaient lieu dans une vingtaine
-				de villes à travers le monde.
-			</p>
-			<p>
-				Au Trocadéro, les co-organisateurs ont été rejoints au micro par le CeSIA, Le Projet
-				Méduses, Tournesol, les gilets jaunes et Anti-Tech Résistance. Des horizons très différents,
-				réunis pour la même cause. Preuve que la question des risques de l’IA rassemble bien au-delà
-				de notre mouvement.
-			</p>
-			<p>
-				Pour une première, c’est une réussite. Merci à toutes celles et ceux qui sont venu·es ! Et
-				ce n’est qu’un début. Pour être au courant des prochaines actions et y participer,
-				rejoignez-nous sur Discord.
-			</p>
-		{/if}
-		{#if PHOTOS_MARCHE.length}
-			<div class="marche-photos">
-				{#each PHOTOS_MARCHE as photo (photo.src)}
-					<img src={photo.src} alt={isEn ? photo.en : photo.fr} loading="lazy" />
-				{/each}
-			</div>
-		{/if}
-		<p class="cta-row">
-			<Button href="https://discord.gg/vyXGd7AeGc">
-				{isEn ? 'Join us on Discord' : 'Nous rejoindre sur Discord'}
-			</Button>
-		</p>
-	</CampaignSection>
-
 	<!-- ── Rejoindre un groupe local ────────────────────────── -->
 	<CampaignSection
 		id="groupes-locaux"
@@ -361,38 +369,15 @@
 		id="presse"
 		title={isEn ? 'The press is talking about it' : 'La presse en parle'}
 	>
-		<h3 class="press-event">
-			{isEn ? 'March of 14 November, Paris' : 'Marche du 14 novembre, Paris'}
-		</h3>
-		{#each presseMarche14Novembre as group (group.city)}
-			<h4 class="press-city">
-				{group.national
-					? isEn
-						? 'National press'
-						: 'Presse nationale'
-					: isEn
-						? 'International press'
-						: 'Presse internationale'}
-			</h4>
-			<ul class="press-list">
-				{#each group.articles as item (item.url)}
-					<li><PressItem {item} {isEn} /></li>
-				{/each}
-			</ul>
-		{/each}
-
-		<h3 class="press-event">
-			{isEn ? 'Week of action, September' : 'Semaine d’action de septembre'}
-		</h3>
 		<p>
 			{isEn
 				? 'During the September week of action, the press covered our local groups:'
 				: 'Lors de la semaine d’action de septembre, la presse a relayé la mobilisation de nos groupes locaux :'}
 		</p>
 		{#each pressePerteDeControle as group (group.city)}
-			<h4 class="press-city">
+			<h3 class="press-city">
 				{group.national ? (isEn ? 'National press' : 'Presse nationale') : group.city}
-			</h4>
+			</h3>
 			<ul class="press-list">
 				{#each group.articles as item (item.url)}
 					<li><PressItem {item} {isEn} /></li>
@@ -442,8 +427,13 @@
 		font-weight: 700;
 	}
 
-	.press-event:first-of-type {
-		margin-top: 0.5rem;
+	.press-cards {
+		list-style: none;
+		margin: 0 0 1.5rem;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
 	}
 
 	/* Six photos : la première (le cortège) en grand sur deux colonnes et deux

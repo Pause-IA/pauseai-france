@@ -5,6 +5,8 @@
 
 	export let item: CampaignPressArticle
 	export let isEn = false
+	/** Carte encadrée, comme la liste presse de la page Emploi (bloc de la marche). */
+	export let carte = false
 
 	const formatDate = (date: string) =>
 		new Date(date).toLocaleDateString(isEn ? 'en-GB' : 'fr-FR', {
@@ -14,7 +16,7 @@
 		})
 </script>
 
-<a class="press-item" href={item.url} target="_blank" rel="noopener noreferrer">
+<a class="press-item" class:carte href={item.url} target="_blank" rel="noopener noreferrer">
 	<span class="press-meta">
 		<span class="press-source">{item.source}</span>
 		{#if item.video}
@@ -70,5 +72,24 @@
 		margin-top: 0.25rem;
 		font-weight: 600;
 		line-height: 1.4;
+	}
+
+	/* Variante carte : reprend la liste presse de la page Emploi. */
+	.press-item.carte {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.2rem;
+		padding: 0.85rem 1.1rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
+		background: var(--bg);
+		transition:
+			border-color 0.2s,
+			box-shadow 0.2s;
+	}
+
+	.press-item.carte:hover {
+		border-color: var(--brand);
+		box-shadow: 0 2px 8px rgba(var(--brand-rgb), 0.1);
 	}
 </style>
