@@ -1,6 +1,8 @@
 /**
- * Retours presse de la campagne « Perte de contrôle » (semaine d’action du
- * 21 au 28 septembre 2026), regroupés par groupe local.
+ * Retours presse de la campagne « Perte de contrôle », en deux temps : la
+ * marche du 14 novembre 2026 à Paris (`presseMarche14Novembre`) et la semaine
+ * d’action du 21 au 28 septembre 2026, regroupée par groupe local
+ * (`pressePerteDeControle`).
  *
  * Source unique : cette liste alimente aussi la revue de presse de /presse
  * (voir press-coverage-static.ts), où seuls les éléments datés apparaissent.
@@ -175,6 +177,61 @@ export const pressePerteDeControle: CampaignPressGroup[] = [
 				title: 'À Mérignac, une association alerte « sur la course effrénée à l’IA »',
 				url: 'https://www.sudouest.fr/gironde/merignac/a-merignac-une-association-alerte-sur-la-course-effrenee-a-l-ia-30737673.php',
 				date: '2026-09-25'
+			}
+		]
+	}
+]
+
+/**
+ * Marche pour un traité sur l’IA, Paris, 14 novembre 2026 (avec Stop The AI
+ * Race). Liens fournis par Clémence et Jeanne (todo Notion, 25/11/2026), gardés
+ * seulement s’ils parlent de Paris ou de Pause IA : la plupart des dépêches
+ * portent sur San Francisco et ne citent Paris qu’en passant. Titres relevés
+ * sur les articles le 26/11/2026.
+ */
+export const presseMarche14Novembre: CampaignPressGroup[] = [
+	{
+		city: 'National',
+		national: true,
+		articles: [
+			{
+				source: 'Clubic',
+				title:
+					'Une marche pour arrêter la course l’IA va traverser Paris, avec un parcours ô combien symbolique',
+				url: 'https://www.clubic.com/actualite-638143-une-marche-pour-arreter-la-course-l-ia-va-traverser-paris-avec-un-parcours-o-combien-symbolique.html',
+				date: '2026-11-06'
+			},
+			{
+				source: 'La Tribune',
+				title:
+					'« Arrêtez la course à l’IA » : à San Francisco, des manifestants réclament un traité sino-américain',
+				url: 'https://www.latribune.fr/article/tech/3994495669491214/arretez-la-course-a-lia-a-san-francisco-des-manifestants-reclament-un-traite-sino-americain',
+				date: '2026-11-15'
+			},
+			{
+				source: 'Europe 1',
+				title:
+					'« Arrêtez la course à l’IA » : à San Francisco, des manifestants réclament un traité sino-américain',
+				url: 'https://www.europe1.fr/international/arretez-la-course-a-lia-a-san-francisco-des-manifestants-reclament-un-traite-sino-americain-1235622',
+				date: '2026-11-15'
+			},
+			{
+				source: '20 Minutes',
+				title:
+					'États-Unis : Des manifestants réclament un traité entre Pékin et Washington pour stopper « la course à l’IA »',
+				url: 'https://www.20minutes.fr/monde/etats-unis/4262955-20261115-etats-unis-manifestants-reclament-traite-entre-pekin-washington-stopper-course-ia',
+				date: '2026-11-15'
+			}
+		]
+	},
+	{
+		city: 'International',
+		articles: [
+			{
+				source: 'RFI (en espagnol)',
+				title: 'Manifestantes piden a Trump y Xi un tratado para frenar la carrera por la IA',
+				url: 'https://www.rfi.fr/es/m%C3%A1s-noticias/20261115-manifestantes-piden-a-trump-y-xi-un-tratado-para-frenar-la-carrera-por-la-ia',
+				date: '2026-11-15'
 			}
 		]
 	}
