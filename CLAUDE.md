@@ -107,6 +107,7 @@ This is a SvelteKit-based website with Markdown-powered content. Content files l
 | `/api/wise-webhook`           | POST     | Wise webhook for bank transfer confirmation | See Wise Webhook Integration below |
 | `/api/declaration`            | GET/POST | PauseAI statement: stats / sign             | CiviCRM groups, see below          |
 | `/api/bienvenue-groupe-local` | POST     | Notion → Discord #bienvenue (local groups)  | See below                          |
+| `/api/contact`                | POST     | Contact page form → team mailbox            | See below                          |
 | `/sitemap.xml`                | GET      | XML sitemap for SEO                         | Prerendered, includes all posts    |
 | `/sitemap.txt`                | GET      | Text sitemap                                | Alternative format                 |
 
@@ -219,6 +220,13 @@ When someone fills the Notion form « Inscriptions aux groupes locaux », a Noti
 - Auth: header `X-PauseIA-Secret` must equal `NOTION_BIENVENUE_SECRET` (constant-time compare). Discord: `DISCORD_BIENVENUE_WEBHOOK_URL`, posted with `allowed_mentions: { parse: [] }`, so a typed username can never ping. The username is shown in inline code (`` `bob_dupont` ``, asked by Antonin for readability): Discord renders no formatting inside it, so it needs no escaping, only backticks are stripped. The department typed by hand, when not recognised, is still Markdown-escaped.
 - Notion does not retry and pauses the automation after a failure, so ignorable payloads (no username nor department, invalid JSON) answer 200; 401 = bad secret, 503 = env vars missing, 502 = Discord refused.
 - Notion's payload format is undocumented: parsing is tolerant (`properties` under `data`, `page` or at the root; rich_text, title, select, number or plain strings; property names matched without accents/punctuation). Logs contain no personal data. Tests: `tests/bienvenueGroupeLocal.test.ts`.
+
+#### Contact page (`/fr/contact`, **prototype**)
+
+Built from the onboarding team's spec (Notion « Cahier des charges page contacter », 20/11/2026), for discussion: out of the sitemap, `noindex`, linked from nowhere (`/fr/contact` is in `prerender.entries`; `/contact` 301 → `/fr/contact`).
+
+- A dropdown of reasons (`src/lib/contact.ts`, texts copied verbatim from the spec or from Antonin; a paragraph made of one link marked `bouton` is shown as a button, so the resource is seen before the form). Some reasons only show resources, others add a form (message, email, optional phone and Discord id). `?sujet=<clé>` preselects a reason.
+- `POST /api/contact` sends the message with the existing mailer (`src/lib/server/mailer.ts`, same SMTP variables as the declaration) to the reason's address, with the sender as `Reply-To`. Addresses live server-side only (`src/lib/server/contact.ts`): the browser sends the reason key, never an address, so the form cannot mail arbitrary recipients. Honeypot `website`. Nothing is stored; logs carry the reason only. 503 without SMTP, 502 if sending fails. Tests: `tests/contact.test.ts`.
 
 ### Custom Markdown Processing
 
